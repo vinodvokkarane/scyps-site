@@ -9,6 +9,12 @@ transparent or white background, at least 400 px wide.
   doe.svg        U.S. Department of Energy
   onr.svg        Office of Naval Research
   army.svg       U.S. Army
+  airforce.svg   U.S. Air Force
+  justice.svg    National Institute of Justice (Dept. of Justice)
+  usmc.svg       U.S. Marine Corps
+  airforce.svg   U.S. Air Force
+  justice.svg    National Institute of Justice (Dept. of Justice)
+  usmc.svg       U.S. Marine Corps
   mass.svg       Commonwealth of Massachusetts
   iaea.svg       International Atomic Energy Agency
   masstech.svg   Massachusetts Technology Collaborative

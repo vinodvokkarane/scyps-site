@@ -8,7 +8,9 @@ Files
   refresh.py         scheduled data pull (see below)
   pubs_auto.json     papers found by refresh.py after the curated list was written
   grants_auto.json   NSF awards found by refresh.py that were not in the curated ledger
-  scholar_auto.json  latest Google Scholar citation counts and h-index
+  scholar.json       citation figures the site prints, each with the date it was read
+  update_scholar.py  paste figures off the Scholar profile pages into scholar.json
+  scholar_auto.json  figures refresh.py managed to read on its own, if any
   .github/workflows/refresh.yml   the weekly job
 
 Build by hand
@@ -26,8 +28,10 @@ Automatic updates
     Grants         NSF Awards API, for each faculty member at UMass Lowell, awards starting 2021 or later.
                    Other sponsors (DOE, ONR, Army, state, industry) have no public award API; add those
                    by hand in build_site.py.
-    Scholar        "Cited by" and h-index read from each public profile listed in SCHOLAR. Google throttles
-                   automated readers; a failed read keeps the previous figure.
+    Scholar        Google has no API and blocks automated readers, so this step often fails. The reliable
+                   route is `python3 update_scholar.py`: open each profile (the script prints the links),
+                   copy Citations / h-index / i10-index from the "Cited by" box, paste one line per person.
+                   Each figure is stored with the date it was entered and the site prints that date.
     News           not automated; edit NEWS in build_site.py.
 
   Reviewing what it added

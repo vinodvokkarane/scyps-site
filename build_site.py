@@ -104,7 +104,7 @@ FACULTY = {
 # ---------------------------------------------------------------- projects
 PROJECTS = [
     {"tag": "New in 2026", "sponsor": "National Science Foundation, Major Research Instrumentation Track 2 (Award #2511635)",
-     "title": "SUMMIT: A Secure and Resilient Multi-site Smart Grid Testbed for Multidisciplinary Research and Training",
+     "role": "PI", "title": "SUMMIT: A Secure and Resilient Multi-site Smart Grid Testbed for Multidisciplinary Research and Training",
      "amount": "$2.0M", "share": "UMass Lowell share $1.56M", "period": "Oct 2026 to Sep 2029",
      "team": "PI Vinod Vokkarane; Co-PIs Orlando Arias and Lewis Tseng (UMass Lowell), Yuzhang Lin (NYU), and Anurag Srivastava (WVU); with UMass Lowell faculty Yan Luo and Seung Woo Son",
      "desc": ("A federated cyber-physical testbed that links RTDS real-time simulation of the Northeast transmission grid with control, "
@@ -112,26 +112,32 @@ PROJECTS = [
               "HIL Simulation-as-a-Service. A postdoctoral researcher will lead federation development."),
      "domain": "Energy"},
     {"tag": "New in 2026", "sponsor": "Massachusetts Technology Collaborative, Applied AI Models program",
-     "title": "ARPO-Sensor Fusion: Autonomous Robotic Planning and Optimization for Intelligence Sensor Fusion",
+     "role": "PI", "title": "ARPO-Sensor Fusion: Autonomous Robotic Planning and Optimization for Intelligence Sensor Fusion",
      "amount": "$625K", "period": "Sep 2026 to Aug 2027",
      "team": "PI Vinod Vokkarane; performed at UMLARC",
      "desc": "Applied AI models that fuse multi-sensor intelligence feeds to plan and optimize autonomous robotic missions.",
      "domain": "Autonomy"},
     {"tag": "New in 2026", "sponsor": "U.S. Army",
-     "title": "ARPO: Autonomous Robotic Planning and Optimization",
+     "role": "PI", "title": "ARPO: Autonomous Robotic Planning and Optimization",
      "amount": "$225K", "period": "Mar 2026 to Jul 2027",
      "team": "PI Vinod Vokkarane; UMLARC and UMass Lowell",
      "desc": "Planning and optimization methods for autonomous robotic systems operating over contested tactical networks.",
      "domain": "Autonomy"},
+    {"tag": "Active", "sponsor": "U.S. Department of Energy, NETL", "role": "PI",
+     "title": "QoT-Aware Ultra-High-Capacity Networking with Multi-Band Space-Division Multiplexing Optical Networks (FUSION FutureCore)",
+     "amount": "", "period": "2026 to 2027",
+     "team": "PI Vinod Vokkarane",
+     "desc": "Quality-of-transmission-aware provisioning for multi-band, space-division multiplexed optical networks, built on the open-source FUSION framework.",
+     "domain": "Networks"},
     {"tag": "Completed", "sponsor": "Office of Naval Research",
-     "title": "Unified Post-Disaster Restoration Planning for Cyber-Physical Power Distribution Systems",
+     "role": "PI", "title": "Unified Post-Disaster Restoration Planning for Cyber-Physical Power Distribution Systems",
      "amount": "$550K", "period": "Jan 2024 to Oct 2025",
      "team": "PI Vinod Vokkarane; Co-PIs Orlando Arias (UMass Lowell), Yuzhang Lin (NYU)",
      "desc": ("Joint restoration of the power and communication layers of a distribution grid after a disaster, "
               "including networked microgrid formation and communication-aware state recovery."),
      "domain": "Energy"},
     {"tag": "Active", "sponsor": "U.S. Department of Energy",
-     "title": "CyberCARE: Northeast University Cybersecurity Center for Advanced and Resilient Energy Delivery",
+     "role": "PI (UMass Lowell)", "title": "CyberCARE: Northeast University Cybersecurity Center for Advanced and Resilient Energy Delivery",
      "amount": "$3.5M", "share": "consortium total; UMass Lowell share $150K", "period": "Oct 2024 to Sep 2027",
      "team": "UMass Lowell PI Vinod Vokkarane; multi-university consortium",
      "desc": "A regional university center on cybersecurity for energy delivery systems, combining research with workforce training.",
@@ -155,19 +161,19 @@ PROJECTS = [
      "desc": "Coordination primitives that let edge computing systems keep working when some nodes are faulty or compromised.",
      "domain": "Edge"},
     {"tag": "Completed", "sponsor": "Office of Naval Research",
-     "title": "Software-Defined Cyber-Physical Microgrids (SDCPM) for Agile Adaptation to High-Impact, Low-Probability Disturbances",
+     "role": "PI", "title": "Software-Defined Cyber-Physical Microgrids (SDCPM) for Agile Adaptation to High-Impact, Low-Probability Disturbances",
      "amount": "$300K", "period": "2021 to 2024",
      "team": "PI Vinod Vokkarane",
      "desc": "Software-defined control of cyber-physical microgrids so they can reconfigure quickly around rare, high-impact disturbances.",
      "domain": "Energy"},
     {"tag": "Completed", "sponsor": "National Science Foundation, CNS Core",
-     "title": "Flexible Spectrum Allocation in Next-Generation Optical Networks",
+     "role": "PI", "title": "Flexible Spectrum Allocation in Next-Generation Optical Networks",
      "amount": "$350K", "share": "plus a $16K REU supplement", "period": "2020 to 2024",
      "team": "PI Vinod Vokkarane",
      "desc": "Spectrum allocation algorithms for elastic optical networks, the line of work that led to the FUSION simulator.",
      "domain": "Networks"},
     {"tag": "Completed", "sponsor": "Office of Naval Research",
-     "title": "Resilient Sensing and Communication Architecture for Naval Energy Infrastructure Monitoring",
+     "role": "Co-PI", "title": "Resilient Sensing and Communication Architecture for Naval Energy Infrastructure Monitoring",
      "amount": "$360K", "period": "2020 to 2023",
      "team": "PI Yuzhang Lin; Co-PI Vinod Vokkarane",
      "desc": "Cross-domain design of sensing and communication for resilient monitoring of naval energy infrastructure.",
@@ -2226,6 +2232,7 @@ section.tint{background:var(--bg-2)}
 .proj .when .tag.new{background:var(--amber-2);color:var(--amber-text)}
 .proj h3{font-size:19px;margin-bottom:6px}
 .proj .sponsor{font-size:14.5px;color:var(--ink-3);margin-bottom:8px}
+.proj .role{display:inline-block;background:var(--signal-tint);color:var(--signal-2);font-size:11.5px;font-weight:600;padding:2px 8px;border-radius:999px;margin-right:9px;vertical-align:1px}
 .proj .desc{margin:0 0 8px;color:var(--ink-2);max-width:60em}
 .proj .team{font-size:14px;color:var(--ink-3);margin:0}
 .proj .amt{text-align:right;font-family:"Fraunces",Georgia,serif;font-size:22px;font-weight:600;letter-spacing:-.01em;line-height:1.15}
@@ -2598,7 +2605,7 @@ ALUMNI_PHD = [
     ("2014", "Thilo Schöndienst", "European Patent Office"),
 ]
 ALUMNI_POSTDOC = [("Arash Deylamsalehi", "Google"), ("Jeremy M. Plante", "Hitachi Vantara"), ("Juzi Zhao", "San José State University"), ("Arush Gadkar", "Kilpatrick Townsend & Stockton LLP"), ("Joan Triay", "DOCOMO Euro-Labs"), ("Balagangadhar Bathula", "AT&T")]
-SITE_VERSION = "0.11"   # bump by 0.01 with every update to the site
+SITE_VERSION = "0.15"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -2650,6 +2657,9 @@ SPONSORS = {
         {"key": "doe", "name": "U.S. Department of Energy", "url": "https://www.energy.gov", "note": "CyberCARE cybersecurity center for energy delivery"},
         {"key": "onr", "name": "Office of Naval Research", "url": "https://www.onr.navy.mil", "note": "Department of the Navy. Post-disaster restoration of cyber-physical distribution grids"},
         {"key": "army", "name": "U.S. Army", "url": "https://www.army.mil", "note": "ARPO autonomous robotic planning and optimization"},
+        {"key": "airforce", "name": "U.S. Air Force", "url": "https://www.af.mil", "note": "Command and control display equipment requirements"},
+        {"key": "justice", "name": "National Institute of Justice", "url": "https://nij.ojp.gov", "note": "Information sharing for sex offender registration and notification"},
+        {"key": "usmc", "name": "U.S. Marine Corps", "url": "https://www.marines.mil", "note": "MASCOT manycast architecture for tactical operations"},
     ],
     "State, international, and industry sponsors": [
         {"key": "mass", "name": "Commonwealth of Massachusetts", "url": "https://www.mass.gov", "note": "Advanced Nuclear and Fusion Energy Roadmaps, Healey-Driscoll Administration"},
@@ -2685,6 +2695,58 @@ for a in _auto_grants.get("awards", []):
                      "title": a["title"], "amount": _fmt_amt(a.get("amount")), "period": _fmt_period(a.get("start"), a.get("end")),
                      "team": "PI " + a.get("pi", "") + ("; Co-PIs " + ", ".join(a["copis"]) if a.get("copis") else ""),
                      "desc": "Added automatically from the NSF Awards database; edit or remove it in grants_auto.json.", "domain": "NSF"})
+
+
+# --- The director's earlier external awards, from the CV (Sept. 2026). Amounts are award face value;
+# where UMass Lowell held a share of a consortium award, the share is noted.
+PROJECTS += [
+    {"tag": "Completed", "sponsor": "NSF CC*DNI", "role": "PI",
+     "title": "Network Cyberinfrastructure for Biomedical Informatics Innovation",
+     "amount": "$1.02M", "period": "2015 to 2019", "team": "PI Vinod Vokkarane",
+     "desc": "Campus cyberinfrastructure to move and analyze large biomedical data sets at UMass Lowell.", "domain": "Networks"},
+    {"tag": "Completed", "sponsor": "National Institute of Justice", "role": "Co-PI",
+     "title": "Information Sharing and Its Effect on Tracking Sex Offenders and Community Awareness (SORNA)",
+     "amount": "$1M", "period": "2015 to 2019", "team": "Co-PI Vinod Vokkarane; Lead PI Andrew Harris (UMass Lowell)",
+     "desc": "Information sharing architecture and analysis for sex offender registration and notification systems.", "domain": "Data systems"},
+    {"tag": "Completed", "sponsor": "U.S. Air Force", "role": "Co-PI",
+     "title": "Command and Control Display Equipment (CCDE) Requirements Specification",
+     "amount": "$865K", "period": "2017 to 2018", "team": "Co-PI Vinod Vokkarane; Lead PI Kavitha Chandra (UMass Lowell)",
+     "desc": "Requirements analysis and specification for command and control display equipment.", "domain": "Defense"},
+    {"tag": "Completed", "sponsor": "U.S. Department of Energy, ASCR", "role": "PI",
+     "title": "PROPER: Parallel Resource-Optimized Provisioning of End-to-End Requests",
+     "amount": "$401K", "period": "2014 to 2018", "team": "PI Vinod Vokkarane",
+     "desc": "Provisioning algorithms for end-to-end circuits across Department of Energy science networks.", "domain": "Networks"},
+    {"tag": "Completed", "sponsor": "NSF CC*IIE", "role": "Co-PI",
+     "title": "FLowell: Accelerating Data-Driven Scientific Research at UMass Lowell",
+     "amount": "$500K", "period": "2014 to 2017", "team": "Co-PI Vinod Vokkarane; Lead PI Yan Luo (UMass Lowell)",
+     "desc": "Campus science network upgrade for data-intensive research across the university.", "domain": "Networks"},
+    {"tag": "Completed", "sponsor": "NSF NeTS Small", "role": "PI",
+     "title": "CARGONET: Coordinated Advance Reservation for Grid over Optical Networks",
+     "amount": "$325K", "share": "plus a $40K REU supplement", "period": "2012 to 2017", "team": "PI Vinod Vokkarane",
+     "desc": "Advance reservation of optical circuits for grid and data-intensive science workflows.", "domain": "Networks"},
+    {"tag": "Completed", "sponsor": "NSF CSR Small", "role": "Co-PI",
+     "title": "Bridging Reliability Analysis and Reality in Sensor Systems: Theories and Applications",
+     "amount": "$441K", "share": "UMass share $278K", "period": "2011 to 2015",
+     "team": "Co-PI Vinod Vokkarane; Lead PI Liudong Xing (UMass Dartmouth), with Yan Sun (URI)",
+     "desc": "Reliability and fault tolerance models for wireless sensor systems.", "domain": "Sensing"},
+    {"tag": "Completed", "sponsor": "U.S. Department of Energy, Office of Science", "role": "PI",
+     "title": "COMMON: Coordinated Multi-Layer Multi-Domain Optical Network",
+     "amount": "$525K", "period": "2010 to 2013", "team": "PI Vinod Vokkarane",
+     "desc": "Coordinated provisioning across layers and administrative domains in optical networks.", "domain": "Networks"},
+    {"tag": "Completed", "sponsor": "U.S. Marine Corps", "role": "PI",
+     "title": "MASCOT: Manycast Architecture for Service-Oriented Tactical Operations",
+     "amount": "$50K", "period": "2008", "team": "PI Vinod Vokkarane",
+     "desc": "Manycast communication architecture for service-oriented tactical networks.", "domain": "Defense"},
+    {"tag": "Completed", "sponsor": "NSF NeTS Small", "role": "PI",
+     "title": "SOON: Service-Oriented Optical Networks",
+     "amount": "$476K", "share": "UMass share $240K", "period": "2006 to 2011",
+     "team": "PI Vinod Vokkarane, with Jason Jue (UT Dallas)",
+     "desc": "Service-oriented architectures for provisioning in optical networks.", "domain": "Networks"},
+    {"tag": "Completed", "sponsor": "NSF CCLI", "role": "PI",
+     "title": "NET-SEAL: Teaching Computer Networks Through Simulation Experiments and Animation Library",
+     "amount": "$168K", "share": "UMass share $127K", "period": "2006 to 2010", "team": "PI Vinod Vokkarane",
+     "desc": "Simulation experiments and an animation library for teaching computer networking.", "domain": "Education"},
+]
 
 LOGOS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "logos")
 _MIME = {".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp"}
@@ -2779,6 +2841,11 @@ SCHOLAR = {
     "Vinod M. Vokkarane": "EIIbTe8AAAAJ", "Lewis Tseng": "DP_DMPAAAAAJ", "Hengyong Yu": "wQcl7k8AAAAJ", "Yuanchang Xie": "5kXk7FEAAAAJ",
     "Christopher Niezrecki": "bdmF58cAAAAJ", "Yan Luo": "H3ifH2gAAAAJ", "Yu Cao": "97RDUygAAAAJ", "Murat Inalpolat": "khGOgZgAAAAJ",
     "Yuzhang Lin": "AHw2wzUAAAAJ", "Seung Woo Son": "D9v08JgAAAAJ", "Sukesh Aghara": "tWlkv-kAAAAJ", "Paul Robinette": "izN2PKAAAAAJ", "Alkim Akyurtlu": "ixtU3E4AAAAJ",
+    "Chunxiao (Tricia) Chigan": "qoo1Tc0AAAAJ",
+    # Sent Sept. 2026 in this order: Arias, Chakrabarti, Evans, Ranasingha. Swap the IDs here if any
+    # profile opens on the wrong person.
+    "Orlando Arias": "LyL2zHwAAAAJ", "Supriya Chakrabarti": "N_0jmg8AAAAJ",
+    "Nicholas G. Evans": "-wPKnUAAAAAJ", "Oshadha Ranasingha": "_GtNYPMAAAAJ",
 }
 ORCID = {
     "Vinod M. Vokkarane": "0000-0001-9205-2120", "Orlando Arias": "0009-0002-3948-5773", "Lewis Tseng": "0000-0002-4717-4038", "Seung Woo Son": "0000-0001-8922-418X",
@@ -2787,13 +2854,14 @@ ORCID = {
     "Hengyong Yu": "0000-0002-5852-0813", "Alkim Akyurtlu": "0000-0002-8222-9663", "Oshadha Ranasingha": "0000-0001-7399-0058",
     "Arash Rezaee": "0000-0002-8578-4347", "Ryan McCann": "0009-0003-4807-7963", "Md Zahidul Islam": "0000-0002-9980-6148", "Shamsun Nahar Edib": "0000-0002-9060-0936",
 }
-SCHOLAR_CITES = {   # "Cited by" on the Google Scholar profile, read Sept. 16, 2026
-    "Vinod M. Vokkarane": 5863, "Lewis Tseng": 1832, "Hengyong Yu": 13799, "Yuanchang Xie": 6358, "Christopher Niezrecki": 8481,
-    "Yan Luo": 4772, "Yu Cao": 10284, "Murat Inalpolat": 2335,
-    "Yuzhang Lin": 2178, "Seung Woo Son": 1827, "Paul Robinette": 2299, "Alkim Akyurtlu": 1399,
-}
-# h-index as shown on the Google Scholar profile page. Scholar does not expose it to automated readers, so
-# fill this in by hand from each profile.
+# Citation figures live in scholar.json, written by update_scholar.py (paste them off the profile pages)
+# or by refresh.py when Google lets it read them. Every entry carries the date it was taken and the site
+# prints that date, so a figure is never shown as fresher than it is.
+SCHOLAR_DATA = {}
+try:
+    SCHOLAR_DATA = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "scholar.json")))
+except Exception:
+    pass
 LINKEDIN = {
     "Vinod M. Vokkarane": "https://www.linkedin.com/in/vinod-vokkarane-7656905/", "Lewis Tseng": "https://www.linkedin.com/in/lewis-tseng-a3164027/",
     "Yuanchang Xie": "https://www.linkedin.com/in/yuanchang-xie-38006b9/", "Hengyong Yu": "https://www.linkedin.com/in/hengyong-yu-72214a44/",
@@ -2802,13 +2870,9 @@ LINKEDIN = {
 }   # add the rest as "Name": "https://www.linkedin.com/in/..." and rebuild
 POSTDOC_URL = "https://careers.pageuppeople.com/822/lowell/en-us/job/530223/postdoctoral-research-associate-vokkarane-lab-electrical-computer-engineering"
 FUSION_URL = "https://github.com/SDNNetSim/FUSION"
-SCHOLAR_H = {}
-_auto_scholar = _load_overlay("scholar_auto.json", {})
-for _n, _v in _auto_scholar.items():
-    if _v.get("citations"): SCHOLAR_CITES[_n] = _v["citations"]
-    if _v.get("h"): SCHOLAR_H[_n] = _v["h"]
-SCHOLAR_DATE = max([v.get("date", "") for v in _auto_scholar.values()] + ["2026-09-16"])
-SCHOLAR_LABEL = datetime.datetime.strptime(SCHOLAR_DATE, "%Y-%m-%d").strftime("%b. %Y").replace("May.", "May")
+for _n, _v in _load_overlay("scholar_auto.json", {}).items():
+    if _v.get("citations") and _v.get("date", "") >= SCHOLAR_DATA.get(_n, {}).get("date", ""):
+        SCHOLAR_DATA[_n] = _v
 SCHOLAR_INST = {"Yuzhang Lin": "NYU", "Anurag Srivastava": "West Virginia University", "Md Zahidul Islam": "Southern Illinois University", "Shamsun Nahar Edib": "Montana State University"}
 def id_links(name, inst="UMass Lowell"):
     out = []
@@ -2821,12 +2885,15 @@ def id_links(name, inst="UMass Lowell"):
     if LINKEDIN.get(name): out.append(f'<a href="{esc(LINKEDIN[name])}">LinkedIn</a>')
     return out
 def scholar_line(name):
-    n = SCHOLAR_CITES.get(name); h = SCHOLAR_H.get(name)
-    if not n and not h: return ""
+    d = SCHOLAR_DATA.get(name) or {}
     bits = []
-    if n: bits.append(f'<b>{n:,}</b> citations')
-    if h: bits.append(f'<b>{h}</b> h-index')
-    return '<span class="gs">' + ", ".join(bits) + f' on Google Scholar, {SCHOLAR_LABEL}</span>'
+    if d.get("citations"): bits.append(f'<b>{d["citations"]:,}</b> citations')
+    if d.get("h"): bits.append(f'<b>{d["h"]}</b> h-index')
+    if d.get("i10"): bits.append(f'<b>{d["i10"]}</b> i10-index')
+    if not bits: return ""
+    try: when = datetime.datetime.strptime(d.get("date", ""), "%Y-%m-%d").strftime("%b. %Y").replace("May.", "May")
+    except Exception: when = ""
+    return '<span class="gs">' + ", ".join(bits) + f' on Google Scholar{", " + when if when else ""}</span>'
 
 # ---------------------------------------------------------------- themed SVG helpers
 _COLOR_CLASS = {
@@ -3068,7 +3135,7 @@ def build():
         share = f'<small>{esc(pr["share"])}</small>' if pr.get("share") else ''
         amt = f'<div class="amt">{esc(pr["amount"])}{share}<small>{esc(pr["period"])}</small></div>' if pr["amount"] else f'<div class="amt"><small>{esc(pr["period"])}</small></div>'
         projects_html += (f'<div class="proj"><div class="when"><span class="{tagcls}">{esc(pr["tag"])}</span><br>{esc(pr["domain"])}</div>'
-                          f'<div><h3>{esc(pr["title"])}</h3><div class="sponsor">{esc(pr["sponsor"])}</div>'
+                          f'<div><h3>{esc(pr["title"])}</h3><div class="sponsor">{("<span class=" + chr(34) + "role" + chr(34) + ">" + esc(pr["role"]) + "</span>") if pr.get("role") else ""}{esc(pr["sponsor"])}</div>'
                           f'<p class="desc">{esc(pr["desc"])}</p><p class="team">{esc(pr["team"])}</p></div>{amt}</div>')
 
     tools_html = "".join(f'<div class="tool">{("<img class=\"toolfig\" src=\"data:image/jpeg;base64," + IMG["fig_ryan"] + "\" alt=\"FUSION simulation of an optical mesh network\">") if t["name"] == "FUSION" and IMG.get("fig_ryan") else ""}<h4>{esc(t["name"])}</h4><p>{esc(t["what"])}</p>{("<p class=\"toollink\"><a href=\"" + esc(t["url"]) + "\">" + esc(t["link"]) + "</a></p>") if t.get("url") else ""}</div>' for t in TOOLS)
@@ -3339,7 +3406,7 @@ def build():
 
 <section id="projects">
   <div class="wrap">
-    <div class="shead"><h2>Funded projects</h2><p>Sponsored research led by center faculty since the center was founded in 2021, current awards first. Three new awards started in 2026, headed by the NSF MRI SUMMIT testbed.</p></div>
+    <div class="shead"><h2>Funded projects</h2><p>Sponsored research led by center faculty, current awards first, then completed awards. Three new awards started in 2026, headed by the NSF MRI SUMMIT testbed.</p></div>
     <div class="feature">
       <div class="copy">
         <span class="kicker">New in 2026</span>
@@ -3375,7 +3442,7 @@ def build():
 
 <section id="sponsors">
   <div class="wrap">
-    <div class="shead"><h2>Sponsors and partners</h2><p>The agencies, companies, and institutions behind the center's current research.</p></div>
+    <div class="shead"><h2>Sponsors and partners</h2><p>The agencies, companies, and institutions that have funded the center's research and that of its faculty.</p></div>
     {sponsors_html}
     <div class="ack">
       <p>This material is based upon work supported by the U.S. National Science Foundation under Grant No. 2511635. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.</p>

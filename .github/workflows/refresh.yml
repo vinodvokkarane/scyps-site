@@ -1,0 +1,40 @@
+name: Refresh site data and rebuild
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"      # every Monday 06:00 UTC
+  workflow_dispatch:         # or run it by hand from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Pull new publications, NSF awards, and Scholar counts
+        run: python3 refresh.py
+      - name: Bump the version if anything changed
+        run: |
+          if ! git diff --quiet -- pubs_auto.json grants_auto.json scholar_auto.json; then
+            python3 - <<'PY'
+          import re
+          s = open("build_site.py", encoding="utf-8").read()
+          m = re.search(r'SITE_VERSION = "(\d+)\.(\d+)"', s)
+          major, minor = int(m.group(1)), int(m.group(2)) + 1
+          s = s.replace(m.group(0), f'SITE_VERSION = "{major}.{minor:02d}"')
+          open("build_site.py", "w", encoding="utf-8").write(s)
+          PY
+          fi
+      - name: Rebuild index.html
+        run: python3 build_site.py index.html
+      - name: Commit if anything changed
+        run: |
+          git config user.name "scyps-bot"
+          git config user.email "SCyPS@uml.edu"
+          git add -A
+          git diff --cached --quiet && echo "No changes" || git commit -m "Scheduled refresh $(date -u +%Y-%m-%d)" && git push

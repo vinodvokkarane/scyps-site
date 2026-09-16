@@ -11,7 +11,8 @@ import sys
 OUT = sys.argv[1] if len(sys.argv) > 1 else "index.html"   # run: python3 build_site.py [output path]
 
 # ---------------------------------------------------------------- people
-CORE = {"Vokkarane", "Arias", "Tseng", "Son", "Aghara", "Lin"}
+CORE = {"Vokkarane", "Arias", "Tseng", "Son", "Aghara", "Lin", "Luo", "Xie", "Cao", "Chigan", "Inalpolat", "Robinette", "Yu", "Akyurtlu", "Niezrecki", "Ranasingha"}
+CORE_INITIAL = {"Son": "S", "Lin": "Y", "Luo": "Y", "Cao": "Y", "Yu": "H", "Xie": "Y"}   # common surnames: bold only with this first initial
 
 FACULTY = {
     "director": {
@@ -46,7 +47,7 @@ FACULTY = {
         {"name": "Sukesh Aghara", "photo": "aghara", "title": "Professor, Chemical (Nuclear) Engineering; Director, Nuclear Engineering Program",
          "areas": "Nuclear nonproliferation, nuclear security and safeguards, nuclear energy for decarbonization", "email": "Sukesh_Aghara@uml.edu", "phone": "978-934-3115", "role": "Leads the Massachusetts Advanced Nuclear and Fusion Energy Roadmaps; directs the Integrated Nuclear Security and Safeguards Laboratory (INSSL) and co-directs the IAEA-funded Intercontinental Nuclear Institute.", "url": "https://www.uml.edu/engineering/chemical/faculty/aghara-sukesh.aspx"},
 
-        {"name": "Yuzhang Lin", "photo": "lin", "title": "Assistant Professor, Electrical and Computer Engineering, NYU Tandon School of Engineering",
+        {"name": "Yuzhang Lin", "photo": "lin", "inst": "New York University", "title": "Assistant Professor, Electrical and Computer Engineering, NYU Tandon School of Engineering",
          "areas": "Smart grid and renewable energy: modeling, situational awareness, cyber-physical resilience, machine learning applications",
          "email": "yuzhang.lin@nyu.edu", "phone": "", "office": "",
          "url": "https://engineering.nyu.edu/faculty/yuzhang-lin",
@@ -74,13 +75,13 @@ FACULTY = {
          "areas": "Functional inks for printed electronics and additive manufacturing, fully printed micro-supercapacitors, energy harvesting, hardware authentication", "email": "oshadha_ranasingha@uml.edu", "phone": "978-934-2336", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/ranasingha-oshadha.aspx"},
     ],
     "external": [
-        {"name": "Anurag Srivastava", "tag": "External collaborator", "photo": "srivastava", "title": "Raymond J. Lane Professor and Chairperson, Lane Department of Computer Science and Electrical Engineering, West Virginia University; IEEE Fellow",
+        {"name": "Anurag Srivastava", "tag": "External collaborator", "photo": "srivastava", "inst": "West Virginia", "title": "Raymond J. Lane Professor and Chairperson, Lane Department of Computer Science and Electrical Engineering, West Virginia University; IEEE Fellow",
          "areas": "Data-driven algorithms for power system operation, control, and resilience; WVU partner on the SUMMIT federated smart grid testbed",
          "email": "anurag.srivastava@mail.wvu.edu", "phone": "", "url": "https://directory.statler.wvu.edu/faculty-staff-directory/anurag-srivastava"},
-        {"name": "Heidi Dempsey", "tag": "External collaborator", "photo": "dempsey", "title": "Research Director of the Northeast US, Red Hat",
+        {"name": "Heidi Dempsey", "tag": "External collaborator", "photo": "dempsey", "inst": None, "title": "Research Director of the Northeast US, Red Hat",
          "areas": "Grows research and open-source collaborations between Red Hat and academic partners; Red Hat partner for the center's Friendly Fedora and Podman work",
          "email": "hdempsey@redhat.com", "phone": "", "url": "https://www.bu.edu/hic/profile/heidi-dempsey/"},
-        {"name": "Babu Jain", "tag": "External collaborator", "photo": "jain", "title": "Founder and CEO, Navia Energy Inc.",
+        {"name": "Babu Jain", "tag": "External collaborator", "photo": "jain", "inst": None, "title": "Founder and CEO, Navia Energy Inc.",
          "areas": "AI-driven renewable energy systems; industry partner on the center's resilient smart grids project",
          "email": "", "phone": "", "url": "https://www.linkedin.com/in/babu-jain-188470/"},
     ],
@@ -190,7 +191,7 @@ pub(2026, ["A. Rezaee","F. Arpanaei","R. McCann","L. Nadal","J. A. Hernández","
 pub(2026, ["M. Z. Islam","Y. Lin","V. M. Vokkarane"],
     "Disaster-Resilient Cyber-Physical Distribution System Reconfiguration and Dynamic Networked Microgrid Formation Under Intermittent Generation",
     "IEEE Transactions on Industry Applications", "vol. 62, no. 2, pp. 3459-3471, Mar. 2026",
-    "10.1109/TIA.2025.3625866", "journal", ["Vokkarane"], "Smart grid")
+    "10.1109/TIA.2025.3625866", "journal", ["Vokkarane","Lin"], "Smart grid")
 pub(2026, ["H. Rabbani","A. Rezaee","H. Rabbani","V. M. Vokkarane","M. Brandt-Pearce"],
     "Experimental Determination of Filter Bandwidth Requirements for Coherent Pluggable Transceivers in Optical Data Center Networks",
     "IEEE International Conference on High Performance Switching and Routing (HPSR)", "pp. 1-5, June 2026",
@@ -225,11 +226,11 @@ pub(2025, ["L. Annadevula","S. K. Aghara","C. Gazze","K. Jarman","C. Norman"],
 pub(2025, ["M. Z. Islam","Y. Lin","V. M. Vokkarane"],
     "Cyber Security Constrained Economic Dispatch for Resilient Power System Operation",
     "IEEE International Conference on Communications, Control, and Computing Technologies for Smart Grids (SmartGridComm)", "pp. 1-6, Sept. 2025",
-    "10.1109/SmartGridComm65349.2025.11204587", "conference", ["Vokkarane"], "Smart grid")
+    "10.1109/SmartGridComm65349.2025.11204587", "conference", ["Vokkarane", "Lin"], "Smart grid")
 pub(2025, ["M. Sasaninia","V. M. Vokkarane","Y. Lin","O. Arias"],
     "Exploring a Smart FDI Attack and Enhancing Anomaly Detection in Smart Meters",
     "IEEE International Conference on Communications, Control, and Computing Technologies for Smart Grids (SmartGridComm)", "pp. 1-6, Sept. 2025",
-    "10.1109/SmartGridComm65349.2025.11204616", "conference", ["Vokkarane","Arias"], "Smart grid")
+    "10.1109/SmartGridComm65349.2025.11204616", "conference", ["Vokkarane","Arias","Lin"], "Smart grid")
 pub(2025, ["F. Arpanaei","A. Rezaee","M. Ranjbar Zefreh","R. McCann","L. Nadal","J. M. Rivas-Moscoso","Ó. González de Dios","A. Sánchez-Macián","D. Larrabeiti","V. M. Vokkarane","J. A. Hernández"],
     "Best Planning Practices for Ultra-High-Capacity Networks Based on Multi-Band over Space Division Multiplexing",
     "European Conference on Optical Communication (ECOC)", "pp. 1-4, Sept. 2025",
@@ -265,7 +266,7 @@ pub(2025, ["A. Rezaee","F. Arpanaei","R. McCann","H. Rabbani","J. A. Hernández"
 pub(2025, ["M. Z. Islam","Y. Lin","V. M. Vokkarane","J. Ogle"],
     "Observability-Aware Resilient PMU Networking",
     "IEEE Transactions on Power Systems", "vol. 40, no. 1, pp. 218-230, Jan. 2025",
-    "10.1109/TPWRS.2024.3387338", "journal", ["Vokkarane"], "Smart grid")
+    "10.1109/TPWRS.2024.3387338", "journal", ["Vokkarane","Lin"], "Smart grid")
 pub(2025, ["R. Dai","Z. Liu","O. Arias","X. Guo","T. Yavuz"],
     "Evaluating the Effectiveness of Hardware Trojan Detection Approaches at RTL",
     "IEEE International Symposium on Hardware Oriented Security and Trust (HOST)", "pp. 250-260, May 2025",
@@ -320,6 +321,436 @@ pub(2025, ["T. Bantikyan","J. Zarnstorff","T.-Y. Chou","L. Tseng","R. Palmieri"]
     None, "conference", ["Tseng"], "Distributed systems")
 
 # order: year desc, journals first within year, then by title
+# --- 2025-2026 papers of the wider center faculty (Crossref, vetted Sept. 2026)
+pub(2026, ["C. Pozzi", "C. Ng", "S. Lyon", "Y. Luo", "C. Niezrecki", "M. Inalpolat"],
+    "A Novel Distributed Sensor Network to Assess Wind Turbine Blade Acoustics for Structural Health Monitoring",
+    "Wind Energy", "vol. 29, no. 10, Sept. 2026",
+    "10.1002/we.70148", "journal", ["Inalpolat", "Niezrecki", "Luo"], "Structural dynamics and health monitoring")
+pub(2026, ["X. Yan", "Z. Bhuyan", "J. Oke", "G. Wu", "Y. Xie"],
+    "A two-stage detection and segmentation framework for pedestrian crosswalk inventory and condition assessment from aerial imagery",
+    "Engineering Applications of Artificial Intelligence", "vol. 182, art. 115851, Oct. 2026",
+    "10.1016/j.engappai.2026.115851", "journal", ["Xie"], "Transportation")
+pub(2026, ["M. Zhu", "H. Yu", "Y. Chu"],
+    "A two-stage tone mapping network based on attention mechanism for high dynamic range images",
+    "Journal of Visual Communication and Image Representation", "vol. 115, art. 104672, Jan. 2026",
+    "10.1016/j.jvcir.2025.104672", "journal", ["Yu"], "Medical imaging")
+pub(2026, ["S. Han", "B. Morovati", "Y. Liu", "C. Fang", "S. Fan", "L. Zhou", "Y. Shi", "G. Wang", "H. Yu"],
+    "Accelerated Physics-Guided Diffusion Model for 3-D Limited-Angle Reconstruction of Cardiac Computed Tomography",
+    "IEEE Transactions on Radiation and Plasma Medical Sciences", "vol. 10, no. 7, pp. 1088-1098, Sept. 2026",
+    "10.1109/trpms.2025.3650342", "journal", ["Yu"], "Medical imaging")
+pub(2026, ["A. Moeinaddini", "T. Zhang", "C. D\u2019Agostino", "Y. Xie", "Y. Zou"],
+    "Accounting for under-reporting in wildlife\u2013vehicle collision hotspot identification using copulas and Bayesian model averaging",
+    "Accident Analysis & Prevention", "vol. 233, art. 108583, Aug. 2026",
+    "10.1016/j.aap.2026.108583", "journal", ["Xie"], "Transportation")
+pub(2026, ["S. Islam", "X. Ma", "C. Chigan"],
+    "Adaptive Nonlinear Digital Self-Interference Cancellation for Full-Duplex Wireless Systems Using Hypernetwork-Based Incremental Learning",
+    "IEEE Transactions on Machine Learning in Communications and Networking", "vol. 4, pp. 60-75, 2026",
+    "10.1109/tmlcn.2025.3639365", "journal", ["Chigan"], "Wireless networks")
+pub(2026, ["L. Unger", "A. Akyurtlu"],
+    "Additively Manufactured Multilayer Fan-Out Interposer",
+    "IEEE International Symposium on Antennas and Propagation and USNC-URSI Radio Science Meeting (AP-S/USNC-URSI)", "pp. 146-149, July 2026",
+    "10.1109/ap-s/usnc-ursi60190.2026.11675622", "conference", ["Akyurtlu"], "Printed electronics")
+pub(2026, ["G. C. Modak", "M. Cohn", "J. Allspaw", "H. Yanco", "C. Niezrecki", "A. Sabato"],
+    "An integrated deep learning and virtual reality framework for automated, remote thermal inspection of buildings",
+    "Health Monitoring of Structural and Biological Systems XX", "art. 32, Apr. 2026",
+    "10.1117/12.3090803", "conference", ["Niezrecki"], "Renewable energy and structural monitoring")
+pub(2026, ["X. Zhang", "S. Wang", "N. Liang", "Z. Zheng", "A. Cai", "L. Li", "H. Yu", "B. Yan"],
+    "An interpretable cascaded residual iterative network for sparse-view spectral CT imaging",
+    "Quantitative Imaging in Medicine and Surgery", "vol. 16, no. 3, pp. 203-203, Mar. 2026",
+    "10.21037/qims-2025-1895", "journal", ["Yu"], "Medical imaging")
+pub(2026, ["L. Zhou", "C. Fang", "B. Morovati", "S. Han", "S. Fan", "Y. shi", "H. Yu"],
+    "CBCT-Pose: Few-Shot Viewpoint-Conditioned Diffusion for Sparse-View CBCT Reconstruction",
+    "IEEE 23rd International Symposium on Biomedical Imaging (ISBI)", "pp. 1-5, Apr. 2026",
+    "10.1109/isbi61048.2026.11515365", "conference", ["Yu"], "Medical imaging")
+pub(2026, ["Y. Shi", "S. Fan", "C. Fang", "S. Han", "H. Li", "L. Zhou", "B. Morovati", "D. Wang", "H. Yu"],
+    "Clinical Metadata-Guided Limited-Angle CT Image Reconstruction",
+    "IEEE Transactions on Medical Imaging", "vol. 45, no. 7, pp. 3490-3504, July 2026",
+    "10.1109/tmi.2026.3677586", "journal", ["Yu"], "Medical imaging")
+pub(2026, ["L. Zhou", "B. Morovati", "D. Wang", "Y. Xu", "S. Han", "S. Fan", "C. Fang", "Y. Shi", "H. Yu"],
+    "Co-Retention feature pyramid network for low-dose CT denoising via spatial and frequency domain learning",
+    "Biomedical Signal Processing and Control", "vol. 123, art. 110584, Sept. 2026",
+    "10.1016/j.bspc.2026.110584", "journal", ["Yu"], "Medical imaging")
+pub(2026, ["V. Eniola", "J. Cimorelli", "X. Jin", "D. Willis", "C. Niezrecki"],
+    "Co-optimization of costs and curtailment in hybrid wind-hydrogen powered microgrids: understanding the impact of overbuilding",
+    "Energy Conversion and Management", "vol. 351, art. 121046, Mar. 2026",
+    "10.1016/j.enconman.2026.121046", "journal", ["Niezrecki"], "Renewable energy and structural monitoring")
+pub(2026, ["J. Cimorelli", "V. Eniola", "C. Niezrecki", "X. Jin", "D. Willis"],
+    "Comparing the sizing and costs of wind versus solar energy generation for a compressed hydrogen energy storage remote microgrid",
+    "Renewable Energy", "vol. 274, art. 126206, Oct. 2026",
+    "10.1016/j.renene.2026.126206", "journal", ["Niezrecki"], "Renewable energy and structural monitoring")
+pub(2026, ["C. Niezrecki"],
+    "Coupling Wind and Solar Power Generation to Hydrogen Energy Storage",
+    "World Congress on Civil, Structural, and Environmental Engineering", "Apr. 2026",
+    "10.11159/iceptp26.004", "conference", ["Niezrecki"], "Renewable energy and structural monitoring")
+pub(2026, ["H. Li", "S. Han", "H. Mao", "Y. Shi", "C. Fang", "J. Zhang", "W. Wu", "H. Yu"],
+    "Cross-Distribution Diffusion Priors-Driven Iterative Reconstruction for Sparse-View CT",
+    "IEEE Transactions on Medical Imaging", "vol. 45, no. 7, pp. 3878-3894, July 2026",
+    "10.1109/tmi.2026.3687173", "journal", ["Yu"], "Medical imaging")
+pub(2026, ["M. Huang", "S. Li", "Y. Lin", "K. Sun", "G. Sun", "Z. Wei"],
+    "Data-driven linear state estimation for distribution systems with high penetration of photovoltaics",
+    "Sustainable Energy, Grids and Networks", "vol. 47, art. 102345, Sept. 2026",
+    "10.1016/j.segan.2026.102345", "journal", ["Lin"], "Smart grid")
+pub(2026, ["M. Li", "C. Niu", "G. Wang", "M. R. Amma", "K. M. Chapagain", "S. Gabrielson", "A. Li", "K. Jonker", "N. de Ruiter", "J. A. Clark", "P. Butler", "A. Butler", "H. Yu"],
+    "Deep Few-View High-Resolution Photon-Counting CT at Halved Dose for Extremity Imaging",
+    "IEEE Transactions on Medical Imaging", "vol. 45, no. 3, pp. 1193-1207, Mar. 2026",
+    "10.1109/tmi.2025.3618754", "journal", ["Yu"], "Medical imaging")
+pub(2026, ["F. Bottalico", "J. S. Syed", "C. Niezrecki", "A. Sabato"],
+    "Drone-based super-resolution imaging for automated wind turbine blade inspection",
+    "Health Monitoring of Structural and Biological Systems XX", "art. 9, Apr. 2026",
+    "10.1117/12.3086541", "conference", ["Niezrecki"], "Renewable energy and structural monitoring")
+pub(2026, ["P. Wu", "R. Guo", "Z. Zhao", "J. Meng", "H. Yu"],
+    "EEA-UNet: An efficient element-wise adaptive attention-based network for abdominal multi-organ segmentation",
+    "Journal of X-Ray Science and Technology", "July 2026",
+    "10.1177/08953996261462020", "journal", ["Yu"], "Medical imaging")
+pub(2026, ["T. Zhang", "Y. Zou", "Y. Chen", "Y. Xie", "Y. Wang"],
+    "Evaluating Personal Driving Risk and Road Safety in the Context of Road Navigation",
+    "IEEE Transactions on Intelligent Transportation Systems", "vol. 27, no. 3, pp. 3021-3037, Mar. 2026",
+    "10.1109/tits.2026.3652272", "journal", ["Xie"], "Transportation")
+pub(2026, ["L. Han", "X. Zou", "Y. Huang", "H. Yu", "K. Xia", "H. Zhang"],
+    "FMCS_YOLOV8m: A double-dimension anchor-free pulmonary nodule detection method that fuses multi-scale features",
+    "Biomedical Signal Processing and Control", "vol. 118, art. 109797, June 2026",
+    "10.1016/j.bspc.2026.109797", "journal", ["Yu"], "Medical imaging")
+pub(2026, ["H. Huang", "A. Kumar", "Y. Lin"],
+    "From Islanding Detection to Islanding Identification: A Critical Step Toward Self-Healing Distribution Networks With Grid-Forming Inverter Fleets",
+    "IEEE Transactions on Smart Grid", "vol. 17, no. 4, pp. 3194-3206, July 2026",
+    "10.1109/tsg.2026.3658159", "journal", ["Lin"], "Smart grid")
+pub(2026, ["G. Wu", "X. Yan", "Y. Zou", "Y. Xie"],
+    "From crash reports to safer roads: a multimodal framework integrating vision-language models and street view analysis",
+    "Accident Analysis & Prevention", "vol. 228, art. 108419, Apr. 2026",
+    "10.1016/j.aap.2026.108419", "journal", ["Xie"], "Transportation")
+pub(2026, ["J. Sun", "D. Ke", "J. Xu", "Y. Lin"],
+    "GNN-LSTM-Based Adaptive Discretization of PDEs in District Heating Networks Considering Multiple PV Scenarios",
+    "IEEE PES International Meeting (PES IM)", "pp. 1-5, Jan. 2026",
+    "10.1109/pesim67009.2026.11438494", "conference", ["Lin"], "Smart grid")
+pub(2026, ["Y. Xu", "Y. Lin"],
+    "GPU-Native Multi-Area State Estimation via SIMD Abstraction and Boundary Condensation",
+    "ACM International Conference on Future and Sustainable Energy Systems (e-Energy)", "pp. 70-74, June 2026",
+    "10.1145/3744255.3811735", "conference", ["Lin"], "Smart grid")
+pub(2026, ["J. Xu", "G. Chen", "J. Lu", "Y. Lin"],
+    "Graph Neural Networks with Diversity-Aware Neighbor Selection and Dynamic Multi-Scale Fusion for Multivariate Time Series Forecasting",
+    "ICASSP 2026 - 2026 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)", "pp. 3431-3435, May 2026",
+    "10.1109/icassp55912.2026.11461407", "conference", ["Lin"], "Smart grid")
+pub(2026, ["A. Moeinaddini", "Y. Chen", "T. Zhang", "Y. Xie", "Y. Zou"],
+    "Hybrid transformer and large language model framework for lane-level short-term travel time prediction",
+    "Engineering Applications of Artificial Intelligence", "vol. 182, art. 115838, Oct. 2026",
+    "10.1016/j.engappai.2026.115838", "journal", ["Xie"], "Transportation")
+pub(2026, ["P. Wu", "X. Gao", "H. Yu"],
+    "ISTNet: a multi-scale transformer-based architecture for malaria cell classification",
+    "Medical & Biological Engineering & Computing", "vol. 64, no. 4, pp. 1423-1439, Feb. 2026",
+    "10.1007/s11517-026-03538-8", "journal", ["Yu"], "Medical imaging")
+pub(2026, ["J. Warrier", "H. Huang", "Y. Lin", "S. Q. Zhang"],
+    "LARA: LLM-based Agile Power Distribution Network Restoration from Disastrous Events",
+    "Findings of the Association for Computational Linguistics: EACL 2026", "pp. 6108-6116, 2026",
+    "10.18653/v1/2026.findings-eacl.321", "conference", ["Lin"], "Smart grid")
+pub(2026, ["H. Huang", "Y. Lin"],
+    "Learning to Model the Dynamics of Black-Box Inverter-Based Resources With Multiple Unknown Control Modes From Noisy Measurement Data",
+    "IEEE Transactions on Smart Grid", "vol. 17, no. 3, pp. 2530-2543, May 2026",
+    "10.1109/tsg.2025.3647551", "journal", ["Lin"], "Smart grid")
+pub(2026, ["P. Wu", "X. Ma", "Z. Zhao", "J. Zhang", "D. He", "Y. Zhang", "R. Guo", "H. Yu"],
+    "MCEPANet: a connectivity-edge guided attention network for robust medical image segmentation with multi-scale boundary preservation",
+    "Biomedical Physics & Engineering Express", "vol. 12, no. 4, art. 045020, July 2026",
+    "10.1088/2057-1976/ae7c06", "journal", ["Yu"], "Medical imaging")
+pub(2026, ["Z. Jia", "E. G. Holliday", "E. C. Tang", "H. B. Russo", "T. R. Rootes", "Y. Luo", "H. Yu", "D. Wang", "B. Zhang"],
+    "Machine learning\u2013driven nanoparticle\u2013enhanced paper chromogenic array sensor approach for detecting sub-lethally injured Salmonella in low moisture food",
+    "Food Research International", "vol. 229, art. 118523, Apr. 2026",
+    "10.1016/j.foodres.2026.118523", "journal", ["Yu"], "Medical imaging")
+pub(2026, ["M. Shahriar", "M. Z. Islam", "W. Zhang", "Y. Lin"],
+    "Making Low-Voltage Networks Granularly Visible: Strategic Metering and Data-Driven Estimation via Graph Analytics and Learning",
+    "ACM International Conference on Future and Sustainable Energy Systems (e-Energy)", "pp. 726-733, June 2026",
+    "10.1145/3744255.3811721", "conference", ["Lin"], "Smart grid")
+pub(2026, ["E. Lamport", "L. Unger", "S. G. R. Avuthu", "S. Chen", "J. Mapkar", "A. Akyurtlu"],
+    "Materials and process optimizations for fabricating digital AM temperature and relative humidity sensor system circuits for use in high thermal stress environments",
+    "Flexible and Printed Electronics", "vol. 11, no. 1, art. 015009, Feb. 2026",
+    "10.1088/2058-8585/ae4528", "journal", ["Akyurtlu"], "Printed electronics")
+pub(2026, ["X. Yan", "Y. Xie", "Z. Bhuyan", "B. Xiang", "G. Wu", "M. Shirazi"],
+    "Merging behavior under varying work zone sign scenarios: A heterogeneity-based analysis",
+    "Accident Analysis & Prevention", "vol. 235, art. 108614, Sept. 2026",
+    "10.1016/j.aap.2026.108614", "journal", ["Xie"], "Transportation")
+pub(2026, ["D. Bourzgui", "J. Shepard", "M. Inalpolat", "C. Niezrecki"],
+    "Microturbine energy harvesting for acoustic-based wind turbine blade structural health monitoring",
+    "Digital Twins, AI, and NDE for Industry Applications and Energy Systems 2026", "art. 19, Apr. 2026",
+    "10.1117/12.3090465", "conference", ["Inalpolat", "Niezrecki"], "Structural dynamics and health monitoring")
+pub(2026, ["W. Zhang", "Y. Lin", "M. Z. Islam", "H. Huang"],
+    "Neuro-Physics Hybrid State Estimation of Distribution System With Smart Meter Voltage Measurements",
+    "IEEE Transactions on Smart Grid", "vol. 17, no. 4, pp. 3546-3563, July 2026",
+    "10.1109/tsg.2026.3658202", "journal", ["Lin"], "Smart grid")
+pub(2026, ["H. A. Ahmad", "M. Civera", "C. Surace", "C. Niezrecki", "A. Sabato"],
+    "Optical Motion Magnification for Vibration-based Condition Monitoring of Hydroelectric Turbines",
+    "Computer Vision and SLDV for Structural Dynamics, 2026, Vol. 6", "pp. 85-94, 2026",
+    "10.13052/rp-9788743814177a09", "conference", ["Niezrecki"], "Renewable energy and structural monitoring")
+pub(2026, ["N. Sharma", "Y. Lin"],
+    "Parameter Error Identification for Validation and Calibration of Dynamic Models of Inverter-Based Resources",
+    "IEEE Transactions on Power Systems", "vol. 41, no. 1, pp. 396-412, Jan. 2026",
+    "10.1109/tpwrs.2025.3596027", "journal", ["Lin"], "Smart grid")
+pub(2026, ["J. Sun", "J. Xu", "Y. Lin", "D. Ke", "G. Chen"],
+    "Planning distributed energy systems with low-grade heat sources integration: Geography-Based clustering and risk-informed thermal pipeline layout design approaches",
+    "Energy", "vol. 344, art. 140004, Feb. 2026",
+    "10.1016/j.energy.2026.140004", "journal", ["Lin"], "Smart grid")
+pub(2026, ["F. Bottalico", "C. Niezrecki", "A. Sabato"],
+    "Preliminary validation of a hybrid visual-inertial stereocamera calibration for 3D point tracking using independent UAVs",
+    "Measurement", "vol. 264, art. 120287, Mar. 2026",
+    "10.1016/j.measurement.2025.120287", "journal", ["Niezrecki"], "Renewable energy and structural monitoring")
+pub(2026, ["P. Wu", "Z. Liu", "Z. Zhao", "R. Guo", "H. Yu"],
+    "QLViT: ALightweight Cell ClassificationMethod forMicroscope Images Based on MViTv2 and Linear Attention",
+    "Contemporary Mathematics", "pp. 593-612, Jan. 2026",
+    "10.37256/cm.7120267713", "journal", ["Yu"], "Medical imaging")
+pub(2026, ["S. Xu", "Y. Chen", "Y. Xie", "C. Wang"],
+    "Quantifying the safety effects of left-turn signal control mode: A heterogeneous causal inference framework",
+    "Accident Analysis & Prevention", "vol. 233, art. 108549, Aug. 2026",
+    "10.1016/j.aap.2026.108549", "journal", ["Xie"], "Transportation")
+pub(2026, ["C. Fang", "Y. Liu", "B. Morovati", "S. Han", "Y. Shi", "L. Zhou", "S. Fan", "H. Yu"],
+    "ResPF: Residual Poisson Flow Generative Model for Efficient and Physically Consistent Sparse-View CT Reconstruction",
+    "IEEE Transactions on Radiation and Plasma Medical Sciences", "vol. 10, no. 4, pp. 520-534, Apr. 2026",
+    "10.1109/trpms.2025.3615836", "journal", ["Yu"], "Medical imaging")
+pub(2026, ["M. Z. Islam", "Y. Yao", "Y. Lin", "S. Nahar Edib", "F. Ding"],
+    "Risk-Aware Measurement Synchronization and Recovery for DSSE With Heterogeneous Data Sources",
+    "IEEE Transactions on Instrumentation and Measurement", "vol. 75, pp. 9006215-9006215, 2026",
+    "10.1109/tim.2026.3706155", "journal", ["Lin"], "Smart grid")
+pub(2026, ["G. Chen", "Y. Lin"],
+    "Robust State Estimation for Distribution Systems Based on Reinforcement-Learning-Assisted Memory-Augmented Deep Kalman Filter",
+    "IEEE Transactions on Smart Grid", "pp. 1-1, 2026",
+    "10.1109/tsg.2026.3711800", "journal", ["Lin"], "Smart grid")
+pub(2026, ["B. Morovati", "S. Han", "C. Fang", "L. Zhou", "D. Wang", "S. Fan", "Y. Shi", "H. Yu"],
+    "STABLE-PCCT: A Spectral Transformer Architecture with Bayesian Learning and Edge Preservation for Photon-Counting CT Image Reconstruction",
+    "IEEE Transactions on Radiation and Plasma Medical Sciences", "pp. 1-1, 2026",
+    "10.1109/trpms.2026.3676708", "journal", ["Yu"], "Medical imaging")
+pub(2026, ["S. Lyon", "C. A. Ng", "C. Pozzi", "M. Inalpolat", "C. Niezrecki", "Y. Luo"],
+    "Signal Strength and Network Performance Optimization of a Wireless Acoustic Sensor for Wind Turbine Blade Health Monitoring",
+    "IEEE Sensors Journal", "vol. 26, no. 3, pp. 5195-5203, Feb. 2026",
+    "10.1109/jsen.2025.3647370", "journal", ["Inalpolat", "Niezrecki", "Luo"], "Structural dynamics and health monitoring")
+pub(2026, ["M. Z. Islam", "Y. Lin", "W. Zhang"],
+    "Smart Meter Scheduling for Data-Driven Granular Customer Voltage Visibility",
+    "IEEE Transactions on Smart Grid", "vol. 17, no. 1, pp. 832-844, Jan. 2026",
+    "10.1109/tsg.2025.3624570", "journal", ["Lin"], "Smart grid")
+pub(2026, ["J. Wang", "M. Li", "H. Fan", "Y. Chen", "Y. Yao", "Y. Liu", "Z. Wu", "Q. Du", "H. Yu", "J. Zheng"],
+    "Sparse-View CT Reconstruction via Implicit Neural Representation Learning Powered by Dual-Domain Vision Foundation Models",
+    "IEEE Transactions on Circuits and Systems for Video Technology", "vol. 36, no. 5, pp. 6108-6121, May 2026",
+    "10.1109/tcsvt.2026.3655963", "journal", ["Yu"], "Medical imaging")
+pub(2026, ["A. Seifelnasr", "X. A. Si", "M. Inalpolat", "J. Xi"],
+    "Structural vibration and pulsatile flow enhance maxillary sinus ventilation: a combined experimental study and FEA modal analysis",
+    "Journal of Biomechanics Open", "vol. 1, no. 1, art. 100006, June 2026",
+    "10.1016/j.jbmo.2026.100006", "journal", ["Inalpolat"], "Structural dynamics and health monitoring")
+pub(2026, ["R. Perkins", "B. Berkovich", "P. Robinette"],
+    "The Cobra Effect in Trust Repair: Unintended Consequences of Rebuilding Trust in Human-Robot Collaboration",
+    "Lecture Notes in Computer Science", "pp. 664-670, 2026",
+    "10.1007/978-981-95-2382-5_57", "chapter", ["Robinette"], "Robotics and human-robot interaction")
+pub(2026, ["F. Bottalico", "C. Niezrecki", "A. Sabato"],
+    "Three-Dimensional Point Tracking Using UAV-Based Stereo Vision",
+    "Computer Vision and SLDV for Structural Dynamics, 2026, Vol. 6", "pp. 1-8, 2026",
+    "10.13052/rp-9788743814177a01", "conference", ["Niezrecki"], "Renewable energy and structural monitoring")
+pub(2026, ["Z. Wu", "Y. Yang", "Y. Guo", "D. Wang", "T. Lyu", "Y. Xi", "Y. Chen", "H. Yu"],
+    "UPMCL-Net: Unsupervised Projection-Domain Multiview Constraint Learning for CBCT Metal Artifact Reduction",
+    "IEEE Transactions on Medical Imaging", "vol. 45, no. 5, pp. 1776-1786, May 2026",
+    "10.1109/tmi.2025.3638630", "journal", ["Yu"], "Medical imaging")
+pub(2026, ["C. Fang", "B. Morovati", "S. Han", "Y. Shi", "L. Zhou", "S. Fan", "D. Wang", "H. Yu"],
+    "WDK-Net: Lightweight Wavelet Diffusion with Kolmogorov\u2013Arnold Network for Limited-angle Cardiac CT Reconstruction",
+    "IEEE Transactions on Medical Imaging", "pp. 1-1, 2026",
+    "10.1109/tmi.2026.3711942", "journal", ["Yu"], "Medical imaging")
+pub(2025, ["J. Cimorelli", "V. Eniola", "C. Niezrecki", "X. Jin", "D. Willis"],
+    "A Design and Optimization Tool for Sustainable Renewable\u2010Hydrogen Microgrid Systems",
+    "International Journal of Energy Research", "vol. 2025, no. 1, Jan. 2025",
+    "10.1155/er/3270718", "journal", ["Niezrecki"], "Renewable energy and structural monitoring")
+pub(2025, ["B. Feng", "Y. Chu", "L. Zhou", "H. Yu"],
+    "A Novel Game Graphics Quality Evaluation Model Using Saliency and Resolution Information",
+    "IEEE International Conference on Image Processing (ICIP)", "pp. 1582-1587, Sept. 2025",
+    "10.1109/icip55913.2025.11084690", "conference", ["Yu"], "Medical imaging")
+pub(2025, ["T. N. Nagy", "Z. Rezaei Khavas", "M. R. Kotturu", "B. Liefooghe", "P. Robinette", "M. De Graaf"],
+    "A Robot Should Compensate for Its Mistakes: An Exploration of the Dynamics of Trust Violation and Repair Strategies in Human-Robot Collaboration",
+    "ACM Transactions on Human-Robot Interaction", "vol. 15, no. 1, pp. 1-34, Oct. 2025",
+    "10.1145/3767729", "journal", ["Robinette"], "Robotics and human-robot interaction")
+pub(2025, ["P. Drane", "M. Inalpolat"],
+    "A computational investigation into energy absorption characteristics of multicomponent facing-foam systems of helmets",
+    "Proceedings of the Institution of Mechanical Engineers, Part C: Journal of Mechanical Engineering Science", "vol. 239, no. 10, pp. 3867-3878, Jan. 2025",
+    "10.1177/09544062251315017", "journal", ["Inalpolat"], "Structural dynamics and health monitoring")
+pub(2025, ["E. T. Ozdemir", "M. Inalpolat", "H. K. Lee", "M. S. Kim"],
+    "A generalized multibody dynamic model for dual-clutch transmissions with wet clutchsets",
+    "Proceedings of the Institution of Mechanical Engineers, Part K: Journal of Multi-body Dynamics", "vol. 239, no. 3, pp. 254-273, June 2025",
+    "10.1177/14644193251346325", "journal", ["Inalpolat"], "Structural dynamics and health monitoring")
+pub(2025, ["D. B. Das", "O. Das", "M. Inalpolat"],
+    "A multi-modal sensing based terrain identification approach for active lower limb exoskeletons",
+    "Expert Systems with Applications", "vol. 275, art. 126862, May 2025",
+    "10.1016/j.eswa.2025.126862", "journal", ["Inalpolat"], "Structural dynamics and health monitoring")
+pub(2025, ["P. Wu", "P. An", "Z. Zhao", "R. Guo", "X. Ma", "Y. Qu", "Y. Xu", "H. Yu"],
+    "A multi-stage training and deep supervision based segmentation approach for 3D abdominal multi-organ segmentation",
+    "Journal of X-Ray Science and Technology", "vol. 33, no. 5, pp. 998-1011, July 2025",
+    "10.1177/08953996251355806", "journal", ["Yu"], "Medical imaging")
+pub(2025, ["C. Areias", "A. Luce", "E. Harper", "Y. Zhang", "A. Akyurtlu"],
+    "Additive Integration of a Bare Die High-Power Microwave Amplifier Using 3-D Printed Interconnects",
+    "IEEE Transactions on Microwave Theory and Techniques", "vol. 73, no. 10, pp. 7177-7187, Oct. 2025",
+    "10.1109/tmtt.2025.3563113", "journal", ["Akyurtlu"], "Printed electronics")
+pub(2025, ["C. Areias", "E. Harper", "Y. Zhang", "S. Trulli", "A. Akyurtlu"],
+    "Additively Manufactured 3-D Printed Shielded Interconnects for Enhanced Immunity to EMI",
+    "IEEE Transactions on Components, Packaging and Manufacturing Technology", "vol. 15, no. 12, pp. 2739-2749, Dec. 2025",
+    "10.1109/tcpmt.2025.3628992", "journal", ["Akyurtlu"], "Printed electronics")
+pub(2025, ["C. Areias", "A. Akyurtlu"],
+    "An Examination of Aerosol Jet\u2010Printed Surface Roughness and its Impact on the Performance of High\u2010Frequency Electronics",
+    "Advanced Engineering Materials", "vol. 27, no. 15, Mar. 2025",
+    "10.1002/adem.202402715", "journal", ["Akyurtlu"], "Printed electronics")
+pub(2025, ["R. Perkins", "P. Robinette"],
+    "Beyond Scripted Apologies: Calibrating Trust with Dynamically Generated Responses",
+    "34th IEEE International Conference on Robot and Human Interactive Communication (RO-MAN)", "pp. 2503-2509, Aug. 2025",
+    "10.1109/ro-man63969.2025.11217702", "conference", ["Robinette"], "Robotics and human-robot interaction")
+pub(2025, ["L. Clark", "F. Ouchen", "L. Davidson", "O. Ranasingha", "E. Heckman", "C. Bartsch", "A. Mian"],
+    "Characterization of Aerosol Jet-Printed Polyimide/h-BN Nanocomposite Thin Films for Space Applications",
+    "The Minerals, Metals & Materials Series", "pp. 185-199, 2025",
+    "10.1007/978-3-031-80748-0_16", "chapter", ["Ranasingha"], "Printed electronics")
+pub(2025, ["S. Tang", "Y. Zou", "S. Wu", "Y. Xie", "Y. Zhang"],
+    "Comparing Car-Following Behavior Patterns of Human-Driven Vehicles and Autonomous Vehicles in a Mixed Traffic Environment",
+    "IEEE Transactions on Intelligent Transportation Systems", "vol. 26, no. 5, pp. 6814-6830, May 2025",
+    "10.1109/tits.2025.3539757", "journal", ["Xie"], "Transportation")
+pub(2025, ["", "S. Hamid", "C. Niezrecki", "A. Eberle"],
+    "Contextualizing Wind Turbine Blade Waste: Comparison to Other Global Waste Streams",
+    "SAMPE Journal", "vol. 61, no. 3, pp. 16-27, May 2025",
+    "10.33599/sj.v61no3.02", "journal", ["Niezrecki"], "Renewable energy and structural monitoring")
+pub(2025, ["Y. Xie", "C. Wang"],
+    "Data analytics for safety applications",
+    "Data Analytics for Intelligent Transportation Systems", "pp. 235-261, 2025",
+    "10.1016/b978-0-443-13878-2.00014-x", "chapter", ["Xie"], "Transportation")
+pub(2025, ["H. Yue", "W. Zhang", "Y. Lin", "H. Liu"],
+    "Data-Centric Physics-Informed Graph Neural Networks for Ultra-Fast Power Flow Analysis",
+    "IEEE Power &amp; Energy Society General Meeting (PESGM)", "pp. 1-5, July 2025",
+    "10.1109/pesgm52009.2025.11225353", "conference", ["Lin"], "Smart grid")
+pub(2025, ["H. Huang", "Y. Lin"],
+    "Dynamic State Estimation for Power Systems With Uncertain Inputs",
+    "IEEE Transactions on Instrumentation and Measurement", "vol. 74, pp. 1-13, 2025",
+    "10.1109/tim.2025.3527495", "journal", ["Lin"], "Smart grid")
+pub(2025, ["P. Wu", "Y. Qu", "Z. Zhao", "Z. Liu", "H. Yu"],
+    "FQ-Conv-ViT: A quantized convolutional vision transformer model for diabetic retinopathy classification",
+    "Signal, Image and Video Processing", "vol. 19, no. 8, May 2025",
+    "10.1007/s11760-025-04254-w", "journal", ["Yu"], "Medical imaging")
+pub(2025, ["N. D\u2019Agati", "C. Areias", "A. Luce", "A. Akyurtlu"],
+    "Fully additive radio frequency front end system using vertical integration for circuit compaction <sup>*</sup>",
+    "Flexible and Printed Electronics", "vol. 10, no. 4, art. 045014, Dec. 2025",
+    "10.1088/2058-8585/ae2593", "journal", ["Akyurtlu"], "Printed electronics")
+pub(2025, ["G. Chen", "Y. Lin"],
+    "Gradient-Fused Multi-Step Deep Extended Kalman Filter for Forecasting Aided State Estimation in Distribution Systems",
+    "IEEE Power &amp; Energy Society General Meeting (PESGM)", "pp. 1-5, July 2025",
+    "10.1109/pesgm52009.2025.11225564", "conference", ["Lin"], "Smart grid")
+pub(2025, ["Z. Liu", "P. Wu", "Z. Zhao", "H. Yu"],
+    "ILViT: An Inception-Linear Attention-Based Lightweight Vision Transformer for Microscopic Cell Classification",
+    "Journal of Imaging", "vol. 11, no. 7, art. 219, July 2025",
+    "10.3390/jimaging11070219", "journal", ["Yu"], "Medical imaging")
+pub(2025, ["B. Sarikaya", "E. Ozdemir", "M. Inalpolat", "H. K. Lee", "M. S. Kim"],
+    "Influence of End\u2010Stop Design Variations on Dynamic Response of Centrifugal Pendulum Vibration Absorbers",
+    "Shock and Vibration", "vol. 2025, no. 1, Jan. 2025",
+    "10.1155/vib/6711505", "journal", ["Inalpolat"], "Structural dynamics and health monitoring")
+pub(2025, ["G. J. Barlow", "D. Bagci Das", "O. Das", "S. E. Stapleton", "M. Inalpolat"],
+    "Influence of helmet positioning on uncertainty of blunt impact absorption performance tests",
+    "Proceedings of the Institution of Mechanical Engineers, Part P: Journal of Sports Engineering and Technology", "vol. 240, no. 3, pp. 799-815, Mar. 2025",
+    "10.1177/17543371251323411", "journal", ["Inalpolat"], "Structural dynamics and health monitoring")
+pub(2025, ["M. Z. Islam", "Y. Ding", "Y. Tian", "T. Wang", "Y. Lin"],
+    "Integration of Fiber Optic Sensing and Sparse Grid Sensors for Accurate Fault Localization in Power Distribution Networks",
+    "IEEE Power &amp; Energy Society General Meeting (PESGM)", "pp. 1-5, July 2025",
+    "10.1109/pesgm52009.2025.11225816", "conference", ["Lin"], "Smart grid")
+pub(2025, ["V. Eniola", "J. Cimorelli", "C. Niezrecki", "D. Willis", "X. Jin"],
+    "Investigating the impact of wind speed variability on optimal sizing of hybrid wind-hydrogen microgrids for reliable power supply",
+    "International Journal of Hydrogen Energy", "vol. 106, pp. 834-849, Mar. 2025",
+    "10.1016/j.ijhydene.2025.01.444", "journal", ["Niezrecki"], "Renewable energy and structural monitoring")
+pub(2025, ["P. Wu", "Z. Liu", "Z. Zhao", "R. Guo", "H. Yu"],
+    "LCPT: A lightweight cell classification method for microscope images based on vicinityViT and channel-position attention",
+    "Signal, Image and Video Processing", "vol. 19, no. 14, Oct. 2025",
+    "10.1007/s11760-025-04829-7", "journal", ["Yu"], "Medical imaging")
+pub(2025, ["P. Christou", "M. Z. Islam", "Y. Lin", "J. Xiong"],
+    "LLM4DistReconfig: A Fine-tuned Large Language Model for Power Distribution Network Reconfiguration",
+    "Proceedings of the 2025 Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)", "pp. 4136-4155, 2025",
+    "10.18653/v1/2025.naacl-long.208", "conference", ["Lin"], "Smart grid")
+pub(2025, ["E. Hedlund-Botti", "J. Schalkwyk", "N. Moorman", "C. Yang", "L. Seelam", "S. Waveren", "R. Perkins", "P. Robinette", "M. Gombolay"],
+    "Learning Interpretable Features from Interventions",
+    "Robotics: Science and Systems XXI", "June 2025",
+    "10.15607/rss.2025.xxi.163", "conference", ["Robinette"], "Robotics and human-robot interaction")
+pub(2025, ["D. Wang", "F. L. Fan", "B. J. Hou", "H. Zhang", "Z. Jia", "B. Zhang", "R. Lai", "H. Yu", "F. Wang"],
+    "Manifoldron: Direct Space Partition via Manifold Discovery",
+    "IEEE Transactions on Neural Networks and Learning Systems", "vol. 36, no. 7, pp. 12311-12325, July 2025",
+    "10.1109/tnnls.2024.3486252", "journal", ["Yu"], "Medical imaging")
+pub(2025, ["E. Huynh", "P. Robinette"],
+    "Modality Matters: A Sim-to-Real Study of Sonar-Based Object Detection and Tracking",
+    "OCEANS 2025 - Great Lakes", "pp. 1-6, Sept. 2025",
+    "10.23919/oceans59106.2025.11244929", "conference", ["Robinette"], "Robotics and human-robot interaction")
+pub(2025, ["S. Wu", "Y. Zhang", "Y. Zou", "Y. Xie", "Y. Wang"],
+    "Modeling car\u2010following behaviors using a driving style\u2013based Bayesian model averaging Copula framework in mixed traffic flow",
+    "Computer-Aided Civil and Infrastructure Engineering", "vol. 40, no. 21, pp. 3316-3332, Aug. 2025",
+    "10.1111/mice.13514", "journal", ["Xie"], "Transportation")
+pub(2025, ["Y. Chen", "Y. Zou", "J. Liu", "Y. Xie", "J. Tang"],
+    "Modeling decision-making during unprotected left turns using interpretable deep learning and uncertainty quantification",
+    "Accident Analysis & Prevention", "vol. 220, art. 108136, Sept. 2025",
+    "10.1016/j.aap.2025.108136", "journal", ["Xie"], "Transportation")
+pub(2025, ["A. Nickelson", "R. Perkins", "A. J. London", "P. Robinette", "K. Tumer"],
+    "Multi-objective reinforcement learning framework for beneficent artificial intelligence",
+    "Neural Computing and Applications", "vol. 37, no. 30, pp. 24773-24791, June 2025",
+    "10.1007/s00521-025-11311-5", "journal", ["Robinette"], "Robotics and human-robot interaction")
+pub(2025, ["Y. Chen", "Y. Zou", "Y. Xie", "Y. Zhang", "J. Tang"],
+    "Multimodal vehicle trajectory prediction based on intention inference with lane graph representation",
+    "Expert Systems with Applications", "vol. 262, art. 125708, Mar. 2025",
+    "10.1016/j.eswa.2024.125708", "journal", ["Xie"], "Transportation")
+pub(2025, ["H. Huang", "Y. Lin"],
+    "Neural Dynamic State Estimation and Prediction for Black-Box Inverter-Based Resources",
+    "IEEE Power &amp; Energy Society General Meeting (PESGM)", "pp. 1-5, July 2025",
+    "10.1109/pesgm52009.2025.11225334", "conference", ["Lin"], "Smart grid")
+pub(2025, ["Z. Wu", "X. Zhong", "T. Lyu", "Y. Xi", "X. Ji", "Y. Zhang", "S. Xie", "H. Yu", "Y. Chen"],
+    "PRAISE-Net: Deep Projection-Domain Data-Consistent Learning Network for CBCT Metal Artifact Reduction",
+    "IEEE Transactions on Instrumentation and Measurement", "vol. 74, pp. 1-13, 2025",
+    "10.1109/tim.2025.3551446", "journal", ["Yu"], "Medical imaging")
+pub(2025, ["B. Morovati", "M. Li", "S. Han", "L. Zhou", "D. Wang", "G. Wang", "H. Yu"],
+    "Patch-based dual-domain photon-counting CT data correction with residual-based WGAN-ViT",
+    "Physics in Medicine & Biology", "vol. 70, no. 4, art. 045008, Feb. 2025",
+    "10.1088/1361-6560/adaf71", "journal", ["Yu"], "Medical imaging")
+pub(2025, ["B. Morovati", "S. Han", "L. Zhou", "D. Wang", "H. Yu"],
+    "Photon-Counting CT Reconstruction Using Separable Attention-Based Tensor Neural Network Prior",
+    "IEEE 22nd International Symposium on Biomedical Imaging (ISBI)", "pp. 1-4, Apr. 2025",
+    "10.1109/isbi60581.2025.10981198", "conference", ["Yu"], "Medical imaging")
+pub(2025, ["S. Han", "Y. Xu", "D. Wang", "B. Morovati", "L. Zhou", "J. S. Maltz", "G. Wang", "H. Yu"],
+    "Physics-Informed Score-Based Diffusion Model for Limited-Angle Reconstruction of Cardiac Computed Tomography",
+    "IEEE Transactions on Medical Imaging", "vol. 44, no. 9, pp. 3629-3640, Sept. 2025",
+    "10.1109/tmi.2024.3494271", "journal", ["Yu"], "Medical imaging")
+pub(2025, ["A. Kajenski", "G. Strack", "S. Khushrushahi", "A. Akyurtlu"],
+    "Printed textile metasurfaces for gain and directivity enhancement",
+    "Flexible and Printed Electronics", "vol. 10, no. 1, art. 015002, Jan. 2025",
+    "10.1088/2058-8585/ada1e1", "journal", ["Akyurtlu"], "Printed electronics")
+pub(2025, ["E. Lamport", "S. G. Avuthu", "S. Chen", "J. Mapkar", "A. Akyurtlu"],
+    "Process Optimization of Additively Manufactured Conformal Temperature and Humidity Sensor for High-Temperature Applications",
+    "Journal of Microelectronics and Electronic Packaging", "vol. 22, no. 1, Mar. 2025",
+    "10.4071/001c.133286", "journal", ["Akyurtlu"], "Printed electronics")
+pub(2025, ["F. Bottalico", "N. A. Valente", "C. Niezrecki", "K. Jerath", "Y. Luo", "A. Sabato"],
+    "Rapid 3D Camera Calibration for Large-Scale Structural Monitoring",
+    "Remote Sensing", "vol. 17, no. 15, art. 2720, Aug. 2025",
+    "10.3390/rs17152720", "journal", ["Niezrecki", "Luo"], "Renewable energy and structural monitoring")
+pub(2025, ["Y. Ding", "M. Z. Islama", "J. Shiau", "A. Amico", "Y. Tian", "Z. Jiang", "S. Ozharar", "T. Wang", "Y. Lin"],
+    "Resilient DFOS placement strategy for power grid monitoring: integrating fiber and power network dependencies",
+    "29th International Conference on Optical Fiber Sensors", "art. 70, May 2025",
+    "10.1117/12.3060520", "conference", ["Lin"], "Smart grid")
+pub(2025, ["H. Huang", "Y. Lin"],
+    "Switching Dynamic State Estimation and Event Detection for Inverter-Based Resources With Multiple Control Modes",
+    "IEEE Transactions on Power Systems", "vol. 40, no. 4, pp. 3439-3451, July 2025",
+    "10.1109/tpwrs.2024.3523490", "journal", ["Lin"], "Smart grid")
+pub(2025, ["Z. R. Khavas", "A. Majdi", "S. R. Azadeh", "P. Robinette"],
+    "The Role of Drone Appearance and Capability in Human Trust: A Comparative vs. Isolated Analysis",
+    "22nd International Conference on Ubiquitous Robots (UR)", "pp. 320-327, June 2025",
+    "10.1109/ur65550.2025.11078060", "conference", ["Robinette"], "Robotics and human-robot interaction")
+pub(2025, ["P. Wu", "Y. Xu", "Z. Zhao", "Z. Liu", "X. Gao", "L. Ren", "Y. Zhang", "R. Guo", "H. Yu"],
+    "Three dimensional segmentation of abdominal arteries and veins using vision transformers and domain adaptation",
+    "Physics in Medicine & Biology", "vol. 71, no. 1, art. 015021, Dec. 2025",
+    "10.1088/1361-6560/ae2c3b", "journal", ["Yu"], "Medical imaging")
+pub(2025, ["Y. Chen", "Y. Xie", "C. Wang", "L. Yang", "N. Zheng", "L. Wu"],
+    "Time-dependent effect of advanced driver assistance systems on driver behavior based on connected vehicle data",
+    "Analytic Methods in Accident Research", "vol. 45, art. 100370, Mar. 2025",
+    "10.1016/j.amar.2025.100370", "journal", ["Xie"], "Transportation")
+pub(2025, ["Y. Chen", "Y. Xie", "S. Xu", "L. Zhao", "C. Wang"],
+    "Trade-Offs Between Safety and Volatility in Driving Interactions: Evidence from A Connected Vehicle Pilot Study",
+    "IEEE Intelligent Vehicles Symposium (IV)", "pp. 2089-2095, June 2025",
+    "10.1109/iv64158.2025.11097600", "conference", ["Xie"], "Transportation")
+pub(2025, ["Y. Chen", "C. Lu", "S. Xu", "M. Wu", "Y. Xie", "C. Wang"],
+    "VUD-FC: A Heterogeneous Behavior-Oriented Adaptive Control Approach Using Variable Universe of Discourse Fuzzy Strategy",
+    "IEEE 28th International Conference on Intelligent Transportation Systems (ITSC)", "pp. 2032-2038, Nov. 2025",
+    "10.1109/itsc60802.2025.11423549", "conference", ["Xie"], "Transportation")
+pub(2025, ["F. BOTTALICO", "J. S. SYED", "C. NIEZRECKI", "A. SABATO"],
+    "mproving Image Resolution for Drone-Borne Inspection of Wind Turbine Blades",
+    "Proceedings of the 15th International Workshop on Structural Health Monitoring", "Sept. 2025",
+    "10.12783/shm2025/37411", "conference", ["Niezrecki"], "Renewable energy and structural monitoring")
+pub(2025, ["L. Zhou", "C. Fang", "B. Morovati", "Y. Liu", "S. Han", "Y. Xu", "H. Yu"],
+    "\u03c1-NeRF: Leveraging Attenuation Priors in Neural Radiance Field for 3d Computed Tomography Reconstruction",
+    "IEEE International Conference on Image Processing (ICIP)", "pp. 1636-1641, Sept. 2025",
+    "10.1109/icip55913.2025.11084616", "conference", ["Yu"], "Medical imaging")
+
 MONTHS = {"Jan.":1,"Feb.":2,"Mar.":3,"Apr.":4,"May":5,"June":6,"July":7,"Aug.":8,"Sept.":9,"Oct.":10,"Nov.":11,"Dec.":12}
 def month_of(p):
     for k, v in MONTHS.items():
@@ -351,8 +782,9 @@ def slug(s):
 def fmt_authors(auths):
     out = []
     for a in auths:
+        if not a.strip(): continue
         fam = a.split()[-1]
-        if fam in CORE and (fam != "Son" or a.startswith("S. W.")):
+        if fam in CORE and (fam not in CORE_INITIAL or a.startswith(CORE_INITIAL[fam] + ".")):
             out.append(f'<b>{esc(a)}</b>')
         else:
             out.append(esc(a))
@@ -368,6 +800,7 @@ def person_card(p, big=False):
     if p.get("office"): meta.append(f'<span>{esc(p["office"])}</span>')
     if p.get("url"): meta.append(f'<a href="{esc(p["url"])}">{"NYU profile" if "nyu.edu" in p["url"] else ("LinkedIn" if "linkedin.com" in p["url"] else "UMass Lowell profile")}</a>')
     lines.append('<p class="pmeta">' + " ".join(f'<span class="mi">{m}</span>' for m in meta) + '</p>')
+    lines.append(metrics_slot(p))
     return '<article class="person">' + "".join(lines) + '</article>'
 
 def person_row(p):
@@ -632,6 +1065,9 @@ section.tint{background:var(--bg-2)}
 .pmeta{font-size:13.5px;color:var(--ink-3);margin:0;display:flex;flex-wrap:wrap;gap:4px 0}
 .pmeta .mi::after{content:"\00a0\00b7\00a0";color:var(--line)}
 .pmeta .mi:last-child::after{content:""}
+.metrics{display:flex;gap:6px 14px;flex-wrap:wrap;font-size:13px;color:var(--ink-3);margin-top:10px;min-height:18px}
+.metrics b{color:var(--ink);font-weight:600}
+.metrics .src{font-size:11px;border:1px solid var(--line);border-radius:4px;padding:1px 6px;letter-spacing:.02em}
 @media (max-width:760px){.director{grid-template-columns:1fr;padding:22px}}
 .core{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:18px}
 .core .person{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
@@ -698,7 +1134,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 @media (max-width:860px){.alumcols{grid-template-columns:1fr}}
 
 /* publications */
-.filters{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;margin-bottom:22px;padding:14px 18px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-2)}
+.filters{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin-bottom:22px;padding:14px 18px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-2)}
 .fgroup{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 .fgroup .lab{font-size:13.5px;color:var(--ink-3);margin-right:4px}
 .chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 13px;font:inherit;font-size:14px;color:var(--ink-2);cursor:pointer}
@@ -718,6 +1154,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .pubs .side{font-size:13px;color:var(--ink-3);text-align:right;line-height:1.5;overflow-wrap:anywhere}
 .pubs .side .kind{display:inline-block;padding:2px 8px;border-radius:4px;background:var(--line-2);color:var(--ink-2);font-size:12.5px;margin-bottom:6px}
 .pubs .side .kind.j{background:var(--journal-bg);color:var(--journal-fg)}
+.pubs .side .kind.c{background:var(--amber-2);color:var(--amber-text)}
 .pubs .side a{display:block}
 @media (max-width:640px){.pubs li{grid-template-columns:1fr}.pubs .side{text-align:left}.search{margin-left:0;width:100%}.search input{width:100%}}
 .pubnote{font-size:13.5px;color:var(--ink-3);margin-top:18px;max-width:60em}
@@ -760,6 +1197,15 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .uml-footer .dir a{color:#fff;text-decoration:underline;text-underline-offset:.15em}
 .uml-footer.no-fa .social a{width:auto;height:auto;border-radius:6px;padding:6px 10px;font-size:13px;border-color:rgba(255,255,255,.35)}
 .uml-footer.no-fa .social .label{position:static;width:auto;height:auto;clip:auto}
+.follow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:16px;font-size:14px}
+.follow .lbl{color:#C7D6E5;margin-right:2px}
+.follow a{display:inline-flex;align-items:center;gap:6px;color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:6px 12px}
+.follow a:hover{text-decoration:none;border-color:#fff}
+.follow i{font-size:15px}
+.follow-light{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+.follow-light .lbl{color:var(--ink-3)}
+.follow-light a{color:var(--ink);border-color:var(--line);background:var(--surface)}
+.follow-light a:hover{border-color:var(--ink-3)}
 .uml-footer .social{text-align:right}
 .uml-footer .social ul{list-style:none;margin:0;padding:0;display:flex;justify-content:flex-end;gap:14px;flex-wrap:wrap}
 .uml-footer .social a{display:inline-flex;width:36px;height:36px;align-items:center;justify-content:center;border-radius:50%;color:#C7D6E5;font-size:20px;border:1px solid transparent}
@@ -937,6 +1383,20 @@ ALUMNI_PHD = [
 ]
 ALUMNI_POSTDOC = [("Arash Deylamsalehi", "Google"), ("Jeremy M. Plante", "Hitachi Vantara"), ("Juzi Zhao", "San José State University"), ("Arush Gadkar", ""), ("Joan Triay", ""), ("Balagangadhar Bathula", "AT&T")]
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172"
+
+# Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
+# footer and the contact block only for entries that are filled in.
+SOCIAL = {
+    "linkedin": "",   # e.g. https://www.linkedin.com/company/<page-name>
+    "x": "",          # e.g. https://x.com/<handle>
+}
+def social_links(cls="follow"):
+    items = []
+    if SOCIAL.get("linkedin"):
+        items.append(f'<a href="{esc(SOCIAL["linkedin"])}" title="SCyPS on LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a>')
+    if SOCIAL.get("x"):
+        items.append(f'<a href="{esc(SOCIAL["x"])}" title="SCyPS on X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i><span>X</span></a>')
+    return f'<div class="{cls}"><span class="lbl">Follow SCyPS</span>{"".join(items)}</div>' if items else ""
 
 def initials(name):
     return "".join(w[0] for w in name.replace("(", "").split() if w[0].isupper())[:2]
@@ -1164,6 +1624,10 @@ ART = {
 ART = {k: theme_svg(v) for k, v in ART.items()}
 SCHEMATIC = theme_svg(SCHEMATIC)
 
+def metrics_slot(p):
+    if p.get("inst", "Lowell") is None: return ""
+    return f'<div class="metrics" data-name="{esc(p["name"])}" data-inst="{esc(p.get("inst", "Lowell"))}" aria-live="polite"></div>'
+
 def person_card(p, size="lg", with_photo=True):
     lines = []
     if with_photo:
@@ -1178,6 +1642,7 @@ def person_card(p, size="lg", with_photo=True):
     if p.get("office"): meta.append(f'<span>{esc(p["office"])}</span>')
     if p.get("url"): meta.append(f'<a href="{esc(p["url"])}">{"NYU profile" if "nyu.edu" in p["url"] else ("LinkedIn" if "linkedin.com" in p["url"] else "UMass Lowell profile")}</a>')
     lines.append('<p class="pmeta">' + " ".join(f'<span class="mi">{m}</span>' for m in meta) + '</p>')
+    lines.append(metrics_slot(p))
     return '<article class="person">' + "".join(lines) + '</article>'
 
 def person_row(p):
@@ -1187,7 +1652,7 @@ def person_row(p):
     if p.get("url"): meta.append(f'<a href="{esc(p["url"])}">{"LinkedIn" if "linkedin.com" in p["url"] else "Profile"}</a>')
     tag = f'<span class="ptag">{esc(p["tag"])}</span>' if p.get("tag") else ''
     return ('<li class="prow">' + avatar(p, "sm") + '<div><span class="pname">' + esc(p["name"]) + tag + '</span><span class="ptitle2">' + esc(p["title"]) + '</span>'
-            '<span class="pareas2">' + esc(p["areas"]) + '</span><div class="pcontact">' + '<span class="sep"></span>'.join(meta) + '</div></div></li>')
+            '<span class="pareas2">' + esc(p["areas"]) + '</span><div class="pcontact">' + '<span class="sep"></span>'.join(meta) + '</div>' + metrics_slot(p) + '</div></li>')
 
 # ---------------------------------------------------------------- counts
 n_pubs = len(P)
@@ -1233,7 +1698,7 @@ def build():
             if p["year"] != cur:
                 if cur is not None: out += "</ul>"
                 cur = p["year"]; out += f'<div class="yearhead">{cur}</div><ul class="pubs">'
-            kind = '<span class="kind j">Journal</span>' if p["type"] == "journal" else '<span class="kind">Conference</span>'
+            kind = {"journal": '<span class="kind j">Journal</span>', "chapter": '<span class="kind c">Chapter</span>'}.get(p["type"], '<span class="kind">Conference</span>')
             link = f'https://doi.org/{p["doi"]}' if p["doi"] else None
             title = f'<a class="t" href="{esc(link)}">{esc(p["title"])}</a>' if link else f'<span class="t">{esc(p["title"])}</span>'
             side = kind + (f'<a href="{esc(link)}" title="doi:{esc(p["doi"])}">Publisher record</a>' if link else "")
@@ -1401,7 +1866,7 @@ def build():
 
 <section id="people" class="tint">
   <div class="wrap">
-    <div class="shead"><h2>People</h2><p>Faculty from the Francis College of Engineering and the Kennedy College of Sciences, plus long-running collaborators at partner universities and companies.</p></div>
+    <div class="shead"><h2>People</h2><p>Faculty from the Francis College of Engineering and the Kennedy College of Sciences, plus long-running collaborators at partner universities and companies. Citation counts and h-index load live from OpenAlex, an open index of the scholarly record, so they stay current without manual updates.</p></div>
     {director_html}
     {core_html}
     <div class="group"><h3>Affiliated researchers</h3><p>UMass Lowell faculty who collaborate on center projects and proposals.</p>{aff_html}</div>
@@ -1430,7 +1895,7 @@ def build():
 
 <section id="publications">
   <div class="wrap">
-    <div class="shead"><h2>Publications</h2><p>Peer-reviewed journal and conference papers from center faculty since January 2025, with links to the publisher's record. Center faculty are shown in bold.</p></div>
+    <div class="shead"><h2>Publications</h2><p>Peer-reviewed journal papers, conference papers, and book chapters from center faculty since January 2025, with links to the publisher's record. Center faculty are shown in bold; a paper with several center authors appears once.</p></div>
     <div class="filters" role="group" aria-label="Filter publications">
       <div class="fgroup"><span class="lab">Faculty</span>
         <button class="chip" data-f="fac" data-v="all" aria-pressed="true">All</button>
@@ -1439,17 +1904,28 @@ def build():
         <button class="chip" data-f="fac" data-v="Tseng" aria-pressed="false">Tseng</button>
         <button class="chip" data-f="fac" data-v="Son" aria-pressed="false">Son</button>
         <button class="chip" data-f="fac" data-v="Aghara" aria-pressed="false">Aghara</button>
+        <button class="chip" data-f="fac" data-v="Lin" aria-pressed="false">Lin</button>
+        <button class="chip" data-f="fac" data-v="Luo" aria-pressed="false">Luo</button>
+        <button class="chip" data-f="fac" data-v="Xie" aria-pressed="false">Xie</button>
+        <button class="chip" data-f="fac" data-v="Chigan" aria-pressed="false">Chigan</button>
+        <button class="chip" data-f="fac" data-v="Inalpolat" aria-pressed="false">Inalpolat</button>
+        <button class="chip" data-f="fac" data-v="Robinette" aria-pressed="false">Robinette</button>
+        <button class="chip" data-f="fac" data-v="Yu" aria-pressed="false">Yu</button>
+        <button class="chip" data-f="fac" data-v="Akyurtlu" aria-pressed="false">Akyurtlu</button>
+        <button class="chip" data-f="fac" data-v="Niezrecki" aria-pressed="false">Niezrecki</button>
+        <button class="chip" data-f="fac" data-v="Ranasingha" aria-pressed="false">Ranasingha</button>
       </div>
       <div class="fgroup"><span class="lab">Type</span>
         <button class="chip" data-f="type" data-v="all" aria-pressed="true">All</button>
         <button class="chip" data-f="type" data-v="journal" aria-pressed="false">Journal</button>
         <button class="chip" data-f="type" data-v="conference" aria-pressed="false">Conference</button>
+        <button class="chip" data-f="type" data-v="chapter" aria-pressed="false">Chapter</button>
       </div>
       <div class="search"><label for="q" class="lab">Search</label><input id="q" type="search" placeholder="title, author, or venue" autocomplete="off"></div>
     </div>
     <div class="count" id="count" aria-live="polite">Showing {n_pubs} of {n_pubs} papers</div>
     <div id="publist">{pubs_html}</div>
-    <p class="pubnote">Records verified against Crossref; the NSDI paper is listed from the USENIX program. Send corrections or additions to SCyPS@uml.edu.</p>
+    <p class="pubnote">Records verified against Crossref (the NSDI paper is listed from the USENIX program). Venues that do not register DOIs, such as ANS Transactions and INMM proceedings, are not captured, and for faculty with common names only papers with a confirmed UMass Lowell affiliation are included. Send corrections or additions to SCyPS@uml.edu.</p>
   </div>
 </section>
 
@@ -1484,6 +1960,7 @@ def build():
           <p>Contribute to research and workforce development that keeps power, transportation, and health infrastructure secure and resilient. Your gift to the center supports the SUMMIT testbed, student travel and summer research positions, and the students whose careers will run the systems a smart society depends on.</p>
           <a class="btn-gift" href="{GIFT_URL}">Donate to the Center</a>
         </div>
+        {social_links("follow follow-light")}
       </div>
     </div>
   </div>
@@ -1497,6 +1974,7 @@ def build():
         <div class="flogo"><img src="{img_src("logo_name")}" alt="SCyPS, Center for Smart Cyber-Physical Systems" width="594" height="453"></div>
         <a href="https://www.uml.edu/" title="UMass Lowell home">{UML_LOGO}</a>
         <address><strong>Center for Smart Cyber-Physical Systems (SCyPS)</strong><br>UMass Lowell<br>1 University Ave. Lowell, MA 01854<br>Email: <a href="mailto:SCyPS@uml.edu">SCyPS@uml.edu</a></address>
+        {social_links("follow")}
       </div>
       <div class="col menu">
         <nav aria-label="Footer menu"><h2>Menu</h2>
@@ -1580,6 +2058,35 @@ def build():
     }});
   }});
   document.getElementById('q').addEventListener('input',function(e){{state.q=e.target.value;apply();}});
+
+  // live citation metrics from OpenAlex (name + institution match; cached per browser for 7 days)
+  (function(){{
+    var els=[].slice.call(document.querySelectorAll('.metrics[data-name]')); if(!els.length) return;
+    var KEY='scyps-metrics-v1', TTL=7*864e5, cache={{}};
+    try{{cache=JSON.parse(localStorage.getItem(KEY)||'{{}}')||{{}};}}catch(e){{cache={{}};}}
+    function fmt(n){{return (n||0).toLocaleString();}}
+    function render(el,m){{el.innerHTML='<span><b>'+fmt(m.c)+'</b> citations</span><span><b>'+m.h+'</b> h-index</span><span><b>'+fmt(m.w)+'</b> works</span><span class="src">OpenAlex</span>';}}
+    els.forEach(function(el,i){{
+      var name=el.getAttribute('data-name'), inst=el.getAttribute('data-inst')||'Lowell', k=name+'|'+inst;
+      if(cache[k]&&(Date.now()-cache[k].t)<TTL){{render(el,cache[k]);return;}}
+      setTimeout(function(){{
+        fetch('https://api.openalex.org/authors?search='+encodeURIComponent(name)+'&per_page=10&mailto=SCyPS@uml.edu')
+          .then(function(r){{return r.json();}})
+          .then(function(d){{
+            var res=d.results||[];
+            var pick=null;
+            for(var j=0;j<res.length;j++){{
+              var a=res[j], insts=(a.last_known_institutions||[]).concat((a.affiliations||[]).map(function(x){{return x.institution||{{}};}}));
+              if(JSON.stringify(insts).indexOf(inst)>-1){{pick=a;break;}}
+            }}
+            if(!pick){{el.innerHTML='';return;}}
+            var m={{c:pick.cited_by_count||0,h:(pick.summary_stats||{{}}).h_index||0,w:pick.works_count||0,t:Date.now()}};
+            cache[k]=m; try{{localStorage.setItem(KEY,JSON.stringify(cache));}}catch(e){{}}
+            render(el,m);
+          }}).catch(function(){{el.innerHTML='';}});
+      }}, i*120);
+    }});
+  }})();
 }})();
 </script>
 </body>

@@ -1,0 +1,40 @@
+{
+ "ignore": [],
+ "entries": [
+  {
+   "year": 2026,
+   "authors": [
+    "T. Miskell",
+    "Y. Luo",
+    "P. Li",
+    "S. W. Lim"
+   ],
+   "title": "LLM Based Static Malware Analysis for Windows Portable Executables",
+   "venue": "35th International Conference on Computer Communications and Networks (ICCCN)",
+   "details": "pp. 1-6, July 2026",
+   "doi": "10.1109/icccn69946.2026.11662587",
+   "type": "conference",
+   "faculty": [
+    "Luo"
+   ],
+   "area": "Sensing and networks",
+   "found": "2026-09-16"
+  },
+  {
+   "year": 2026,
+   "authors": [
+    "N. G. Evans"
+   ],
+   "title": "Mapping the Scientific Mesolevel: Where Are We Aiming?",
+   "venue": "Hastings Center Report",
+   "details": "vol. 56, no. 4, pp. 48-50, July 2026",
+   "doi": "10.1002/hast.70088",
+   "type": "journal",
+   "faculty": [
+    "Evans"
+   ],
+   "area": "Ethics of technology",
+   "found": "2026-09-16"
+  }
+ ]
+}

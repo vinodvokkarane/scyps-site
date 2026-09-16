@@ -7,7 +7,7 @@ Grants: figures confirmed on the director's NSF Current & Pending (Sept 2026).
 """
 import html, json, re
 
-import sys
+import sys, datetime, os
 OUT = sys.argv[1] if len(sys.argv) > 1 else "index.html"   # run: python3 build_site.py [output path]
 
 # ---------------------------------------------------------------- people
@@ -16,7 +16,7 @@ CORE_INITIAL = {"Son": "S", "Lin": "Y", "Luo": "Y", "Cao": "Y", "Yu": "H", "Xie"
 
 FACULTY = {
     "director": {
-        "name": "Vinod M. Vokkarane", "photo": "vokkarane", "title": "Professor, Electrical and Computer Engineering; Director, SCyPS",
+        "name": "Vinod M. Vokkarane", "photo": "vokkarane", "title": "Professor, Electrical and Computer Engineering", "title2": "Director, Center for Smart Cyber-Physical Systems (SCyPS)",
         "areas": "Cyber-physical systems, smart grid cybersecurity and resilience, optical and 6G network optimization, AI/ML for networked systems",
         "email": "vinod_vokkarane@uml.edu", "phone": "978-934-3345", "office": "Ball Hall 409",
         "url": "https://www.uml.edu/engineering/electrical-computer/faculty/vokkarane-vinod.aspx",
@@ -29,14 +29,20 @@ FACULTY = {
                 "SUMMIT testbed award and a technical advisor to the UMass Lowell Applied Research Corporation (UMLARC)."),
     },
     "core": [
+        {"name": "Sukesh Aghara", "photo": "aghara", "title": "Professor, Chemical (Nuclear) Engineering; Director, Nuclear Engineering Program",
+         "areas": "Nuclear nonproliferation, nuclear security and safeguards, nuclear energy for decarbonization", "email": "Sukesh_Aghara@uml.edu", "phone": "978-934-3115", "role": "Leads the Massachusetts Advanced Nuclear and Fusion Energy Roadmaps; directs the Integrated Nuclear Security and Safeguards Laboratory (INSSL) and co-directs the IAEA-funded Intercontinental Nuclear Institute.", "url": "https://www.uml.edu/engineering/chemical/faculty/aghara-sukesh.aspx"},
         {"name": "Orlando Arias", "photo": "arias", "title": "Assistant Professor, Electrical and Computer Engineering",
          "areas": "Hardware security, hardware-software co-design, embedded and microarchitectural security, cyber security",
          "email": "Orlando_Arias@uml.edu", "phone": "978-934-3476", "office": "Ball Hall 407A",
          "url": "https://www.uml.edu/engineering/electrical-computer/faculty/arias-orlando.aspx",
          "role": "Co-PI on the SUMMIT testbed and the ONR post-disaster restoration project; leads hardware attestation and embedded security for grid devices."},
-        {"name": "Sukesh Aghara", "photo": "aghara", "title": "Professor, Chemical (Nuclear) Engineering; Director, Nuclear Engineering Program",
-         "areas": "Nuclear nonproliferation, nuclear security and safeguards, nuclear energy for decarbonization", "email": "Sukesh_Aghara@uml.edu", "phone": "978-934-3115", "role": "Leads the Massachusetts Advanced Nuclear and Fusion Energy Roadmaps; directs the Integrated Nuclear Security and Safeguards Laboratory (INSSL) and co-directs the IAEA-funded Intercontinental Nuclear Institute.", "url": "https://www.uml.edu/engineering/chemical/faculty/aghara-sukesh.aspx"},
-
+        {"name": "Yuzhang Lin", "photo": "lin", "inst": "New York University", "title": "Assistant Professor, Electrical and Computer Engineering, NYU Tandon School of Engineering",
+         "areas": "Smart grid and renewable energy: modeling, situational awareness, cyber-physical resilience, machine learning applications",
+         "email": "yuzhang.lin@nyu.edu", "phone": "", "office": "",
+         "url": "https://engineering.nyu.edu/faculty/yuzhang-lin",
+         "role": "External center member; UMass Lowell ECE faculty 2018 to 2023. NSF CAREER awardee; Co-PI on SUMMIT and the ONR post-disaster restoration project, and a co-author on the center's smart grid papers."},
+        {"name": "Yan Luo", "photo": "luo", "title": "Professor, Electrical and Computer Engineering; Robotics",
+         "areas": "Computer architecture, network systems", "email": "yan_luo@uml.edu", "phone": "978-934-2592", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/luo-yan.aspx"},
         {"name": "Seung Woo Son", "photo": "son", "title": "Associate Professor, Electrical and Computer Engineering",
          "areas": "High performance computing, parallel I/O and data-intensive computing, compiler optimizations, embedded systems",
          "email": "SeungWoo_Son@uml.edu", "phone": "978-934-6846", "office": "Ball Hall 419",
@@ -47,43 +53,43 @@ FACULTY = {
          "email": "Lewis_Tseng@uml.edu", "phone": "", "office": "Ball Hall, 3rd floor",
          "url": "https://www.uml.edu/engineering/electrical-computer/faculty/tseng-lewis.aspx",
          "role": "NSF CAREER awardee (2023) on fault-tolerant edge computing for cyber-physical systems under cyber attack; Co-PI on SUMMIT. Joined UMass Lowell in 2024 after Clark University, Boston College, and Toyota InfoTechnology Center."},
-        {"name": "Yuzhang Lin", "photo": "lin", "inst": "New York University", "title": "Assistant Professor, Electrical and Computer Engineering, NYU Tandon School of Engineering",
-         "areas": "Smart grid and renewable energy: modeling, situational awareness, cyber-physical resilience, machine learning applications",
-         "email": "yuzhang.lin@nyu.edu", "phone": "", "office": "",
-         "url": "https://engineering.nyu.edu/faculty/yuzhang-lin",
-         "role": "External center member; UMass Lowell ECE faculty 2018 to 2023. NSF CAREER awardee; Co-PI on SUMMIT and the ONR post-disaster restoration project, and a co-author on the center's smart grid papers."},
-        {"name": "Yan Luo", "photo": "luo", "title": "Professor, Electrical and Computer Engineering; Robotics",
-         "areas": "Computer architecture, network systems", "email": "yan_luo@uml.edu", "phone": "978-934-2592", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/luo-yan.aspx"},
         {"name": "Yuanchang Xie", "photo": "xie", "title": "Professor, Civil and Environmental Engineering",
-         "areas": "Transportation engineering, smart and connected transportation", "email": "Yuanchang_Xie@uml.edu", "phone": "978-934-3681", "url": "https://www.uml.edu/engineering/civil-environmental/faculty-staff-students/faculty/xie-yuanchang.aspx"},    ],
+         "areas": "Transportation engineering, smart and connected transportation", "email": "Yuanchang_Xie@uml.edu", "phone": "978-934-3681", "url": "https://www.uml.edu/engineering/civil-environmental/faculty-staff-students/faculty/xie-yuanchang.aspx"},
+    ],
     "affiliated": [
-        {"name": "Yu Cao", "photo": "cao", "title": "Professor, Miner School of Computer and Information Sciences; Director, UMass Center for Digital Health",
-         "areas": "Medical imaging, multimodal deep learning, computer vision, AI, digital health", "email": "yu_cao@uml.edu", "phone": "978-934-3628", "url": "https://www.uml.edu/sciences/computer-science/people/cao-yu.aspx"},
-        {"name": "Chunxiao (Tricia) Chigan", "photo": "chigan", "title": "Professor, Electrical and Computer Engineering",
-         "areas": "Communication networks and network security", "email": "Tricia_Chigan@uml.edu", "phone": "978-934-3364", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/chigan-tricia.aspx"},
-        {"name": "Murat Inalpolat", "photo": "inalpolat", "title": "Professor, Mechanical and Industrial Engineering; Associate Chair for Doctoral Studies",
-         "areas": "Structural health monitoring, diagnostics and prognostics, structural dynamics, vibrations, acoustics, signal processing", "email": "Murat_Inalpolat@uml.edu", "phone": "978-934-2556", "url": "https://www.uml.edu/engineering/mechanical-industrial/faculty/inalpolat-murat.aspx"},
-        {"name": "Paul Robinette", "photo": "robinette", "title": "Associate Professor, Electrical and Computer Engineering; Associate Chair for M.S. Programs",
-         "areas": "Robotics, human-robot interaction; Printed Electronics Research Collaborative; Raytheon UMass Lowell Research Institute", "email": "Paul_Robinette@uml.edu", "phone": "978-934-3347", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/robinette-paul.aspx"},
-        {"name": "Hengyong Yu", "photo": "yu", "title": "Professor, Electrical and Computer Engineering",
-         "areas": "Biomedical imaging, medical image reconstruction, image processing and analysis", "email": "Hengyong_Yu@uml.edu", "phone": "978-934-6756", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/yu-hengyong.aspx"},
         {"name": "Alkim Akyurtlu", "photo": "akyurtlu", "title": "Professor, Electrical and Computer Engineering; Director, Raytheon UMass Lowell Research Institute (RURI); Director, Printed Electronics Research Collaborative (PERC)",
          "areas": "Additive manufacturing and printed electronics for RF and microwave devices, wearables, functional printable inks, metamaterials", "email": "Alkim_Akyurtlu@uml.edu", "phone": "978-934-3336", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/akyurtlu-alkim.aspx"},
+        {"name": "Yu Cao", "photo": "cao", "title": "Professor, Miner School of Computer and Information Sciences; Director, UMass Center for Digital Health",
+         "areas": "Medical imaging, multimodal deep learning, computer vision, AI, digital health", "email": "yu_cao@uml.edu", "phone": "978-934-3628", "url": "https://www.uml.edu/sciences/computer-science/people/cao-yu.aspx"},
+        {"name": "Supriya Chakrabarti", "photo": "chakrabarti", "title": "Professor, Physics and Applied Physics; Director, Lowell Center for Space Science and Technology (LoCSST)",
+         "areas": "Space experiments and instrumentation, hyperspectral imaging from the UV to the near infrared, lidar, exoplanets and planetary atmospheres", "email": "Supriya_Chakrabarti@uml.edu", "phone": "978-934-3287",
+         "url": "https://www.uml.edu/research/locsst/about/faculty-staff/chakrabarti-supriya.aspx"},
+        {"name": "Chunxiao (Tricia) Chigan", "photo": "chigan", "title": "Professor, Electrical and Computer Engineering",
+         "areas": "Communication networks and network security", "email": "Tricia_Chigan@uml.edu", "phone": "978-934-3364", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/chigan-tricia.aspx"},
+        {"name": "Nicholas G. Evans", "photo": "evans", "title": "Associate Professor, Philosophy, College of Fine Arts, Humanities and Social Sciences",
+         "areas": "Ethics of emerging technologies and national security, dual-use research, bioethics and public health ethics, military ethics", "email": "Nicholas_Evans@uml.edu", "phone": "978-934-3996",
+         "url": "https://www.uml.edu/fahss/political-science/faculty/evans-nicholas.aspx"},
+        {"name": "Murat Inalpolat", "photo": "inalpolat", "title": "Professor, Mechanical and Industrial Engineering; Associate Chair for Doctoral Studies",
+         "areas": "Structural health monitoring, diagnostics and prognostics, structural dynamics, vibrations, acoustics, signal processing", "email": "Murat_Inalpolat@uml.edu", "phone": "978-934-2556", "url": "https://www.uml.edu/engineering/mechanical-industrial/faculty/inalpolat-murat.aspx"},
         {"name": "Christopher Niezrecki", "photo": "niezrecki", "title": "Distinguished University Professor, Mechanical and Industrial Engineering; Director, Center for Energy Innovation; Co-director, Rist Institute for Sustainability and Energy",
          "areas": "Renewable energy systems, wind turbine dynamics, structural health monitoring and inspection, structural dynamics and acoustics, smart materials", "email": "Christopher_Niezrecki@uml.edu", "phone": "978-934-2963", "url": "https://www.uml.edu/engineering/mechanical-industrial/faculty/niezrecki-christopher.aspx"},
         {"name": "Oshadha Ranasingha", "photo": "ranasingha", "title": "Assistant Professor, Electrical and Computer Engineering; PERC and RURI",
          "areas": "Functional inks for printed electronics and additive manufacturing, fully printed micro-supercapacitors, energy harvesting, hardware authentication", "email": "oshadha_ranasingha@uml.edu", "phone": "978-934-2336", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/ranasingha-oshadha.aspx"},
+        {"name": "Paul Robinette", "photo": "robinette", "title": "Associate Professor, Electrical and Computer Engineering; Associate Chair for M.S. Programs",
+         "areas": "Robotics, human-robot interaction; Printed Electronics Research Collaborative; Raytheon UMass Lowell Research Institute", "email": "Paul_Robinette@uml.edu", "phone": "978-934-3347", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/robinette-paul.aspx"},
+        {"name": "Hengyong Yu", "photo": "yu", "title": "Professor, Electrical and Computer Engineering",
+         "areas": "Biomedical imaging, medical image reconstruction, image processing and analysis", "email": "Hengyong_Yu@uml.edu", "phone": "978-934-6756", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/yu-hengyong.aspx"},
     ],
     "external": [
-        {"name": "Anurag Srivastava", "tag": "External collaborator", "photo": "srivastava", "inst": "West Virginia", "title": "Raymond J. Lane Professor and Chairperson, Lane Department of Computer Science and Electrical Engineering, West Virginia University; IEEE Fellow",
-         "areas": "Data-driven algorithms for power system operation, control, and resilience; WVU partner on the SUMMIT federated smart grid testbed",
-         "email": "anurag.srivastava@mail.wvu.edu", "phone": "", "url": "https://directory.statler.wvu.edu/faculty-staff-directory/anurag-srivastava"},
         {"name": "Heidi Dempsey", "tag": "External collaborator", "photo": "dempsey", "inst": None, "title": "Research Director of the Northeast US, Red Hat",
          "areas": "Grows research and open-source collaborations between Red Hat and academic partners; Red Hat partner for the center's Friendly Fedora and Podman work",
          "email": "hdempsey@redhat.com", "phone": "", "url": "https://www.bu.edu/hic/profile/heidi-dempsey/"},
         {"name": "Babu Jain", "tag": "External collaborator", "photo": "jain", "inst": None, "title": "Founder and CEO, Navia Energy Inc.",
          "areas": "AI-driven renewable energy systems; industry partner on the center's resilient smart grids project",
          "email": "", "phone": "", "url": "https://www.linkedin.com/in/babu-jain-188470/"},
+        {"name": "Anurag Srivastava", "tag": "External collaborator", "photo": "srivastava", "inst": "West Virginia", "title": "Raymond J. Lane Professor and Chairperson, Lane Department of Computer Science and Electrical Engineering, West Virginia University; IEEE Fellow",
+         "areas": "Data-driven algorithms for power system operation, control, and resilience; WVU partner on the SUMMIT federated smart grid testbed",
+         "email": "anurag.srivastava@mail.wvu.edu", "phone": "", "url": "https://directory.statler.wvu.edu/faculty-staff-directory/anurag-srivastava"},
     ],
     "collaborators": [
         {"name": "NYU Tandon School of Engineering", "org": "SUMMIT federation site", "note": "Second node of the multi-site smart grid testbed, led by center member Yuzhang Lin"},
@@ -181,9 +187,9 @@ PROJECTS = [
 ]
 
 TOOLS = [
-    {"name": "FUSION", "what": "Open-source benchmarking and simulation framework for reproducible optical network research (routing, spectrum and space assignment, QoT models). Described in JOCN, Sept. 2026."},
+    {"name": "FUSION", "what": "Open-source benchmarking and simulation framework for reproducible optical network research (routing, spectrum and space assignment, QoT models). Described in JOCN, Sept. 2026.", "url": "https://github.com/SDNNetSim/FUSION", "link": "Source code on GitHub"},
     {"name": "Containerized grid co-simulation testbed", "what": "Docker-packaged HELICS, GridLAB-D, and ns-3 federation for cyber-physical power studies on the IEEE 123-bus feeder, with DNP3 traffic between control center and devices."},
-    {"name": "SUMMIT (in development)", "what": "Three-site federated smart grid testbed built around RTDS real-time simulators and a wide-area SDN, funded by the NSF MRI award and opening in 2026-2027 to collaborators as HIL Simulation-as-a-Service."},
+    {"name": "SUMMIT (in development)", "what": "Three-site federated smart grid testbed built around RTDS real-time simulators and a wide-area SDN, funded by the NSF MRI award and opening in 2026-2027 to collaborators as HIL Simulation-as-a-Service.", "url": "summit.html", "link": "SUMMIT project page"},
 ]
 
 # ---------------------------------------------------------------- publications
@@ -1914,6 +1920,17 @@ pub(2021, ["T. Griffin", "Q. Chen", "X. Sun", "D. Wang", "M. J. Brunette", "Y. C
     "Third International Conference on Transdisciplinary AI (TransAI)", "pp. 47-56, Sept. 2021",
     "10.1109/transai51903.2021.00017", "conference", ["Cao"], "Digital health")
 
+# --- overlay: papers found by refresh.py since the curated list was written
+def _load_overlay(name, default):
+    p = os.path.join(os.path.dirname(os.path.abspath(__file__)), name)
+    return json.load(open(p)) if os.path.exists(p) else default
+_auto_pubs = _load_overlay("pubs_auto.json", {"entries": []})
+_known = {p["doi"].lower() for p in P if p.get("doi")}
+for e in _auto_pubs.get("entries", []):
+    if e["doi"].lower() in _known: continue
+    P.append(dict(year=e["year"], authors=e["authors"], title=e["title"], venue=e["venue"], details=e["details"], doi=e["doi"],
+                  type=e["type"], faculty=e["faculty"], area=e.get("area", ""), url=None)); _known.add(e["doi"].lower())
+
 MONTHS = {"Jan.":1,"Feb.":2,"Mar.":3,"Apr.":4,"May":5,"June":6,"July":7,"Aug.":8,"Sept.":9,"Oct.":10,"Nov.":11,"Dec.":12}
 def month_of(p):
     for k, v in MONTHS.items():
@@ -2191,6 +2208,8 @@ section.tint{background:var(--bg-2)}
 .feature .paradigms li{margin-bottom:9px}
 .feature .paradigms li b{color:#fff;font-weight:600}
 .feature .paradigms .scope{font-size:13.5px;color:var(--on-navy-3);margin:0}
+.feature .paradigms .more{margin:18px 0 0}
+.summit-btn{display:inline-block;max-width:none;background:#3BA995;color:#062B24;padding:11px 18px;font-size:14.5px}
 .feature .arch{grid-column:1 / -1;margin:0;background:#fff;padding:18px 22px 14px;border-top:1px solid rgba(255,255,255,.15)}
 .feature .arch img{width:100%;height:auto;display:block}
 .feature .arch figcaption{font-size:13px;color:#5B6B82;text-align:center;margin-top:10px}
@@ -2217,6 +2236,7 @@ section.tint{background:var(--bg-2)}
 .tool h4{font-size:17px;margin-bottom:6px}
 .toolfig{width:100%;height:150px;object-fit:contain;background:#fff;border-radius:8px;border:1px solid var(--line);margin-bottom:12px;display:block}
 .tool p{font-size:14.5px;color:var(--ink-2);margin:0}
+.tool .toollink{margin-top:10px;font-weight:500}
 @media (max-width:760px){.tools{grid-template-columns:1fr}}
 
 /* people */
@@ -2231,6 +2251,7 @@ section.tint{background:var(--bg-2)}
 .director .bio p{margin:0}
 .person h3{margin-bottom:4px}
 .ptitle{color:var(--ink-2);font-size:14.5px;margin-bottom:8px}
+.ptitle.strong{color:var(--ink);font-weight:700;font-size:16px;margin:-4px 0 10px}
 .pareas{font-size:15px;margin-bottom:8px}
 .prole{font-size:14.5px;color:var(--ink-2);margin-bottom:8px}
 .pmeta{font-size:13.5px;color:var(--ink-3);margin:0;display:flex;flex-wrap:wrap;gap:4px 0}
@@ -2238,7 +2259,7 @@ section.tint{background:var(--bg-2)}
 .pmeta .mi a[href^="mailto"]{overflow-wrap:anywhere;white-space:normal}
 .pmeta{gap:4px 14px}
 .pmeta .mi::after{content:""}
-.metrics{display:flex;gap:6px 14px;flex-wrap:wrap;font-size:13px;color:var(--ink-3);margin-top:10px;min-height:0}
+.metrics{display:none}
 .metrics:empty{display:none}
 .metrics b{color:var(--ink);font-weight:600}
 .metrics .src{font-size:11px;border:1px solid var(--line);border-radius:4px;padding:1px 6px;letter-spacing:.02em}
@@ -2296,6 +2317,8 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .stu .focus{font-size:14.5px;color:var(--ink-2);margin:6px 0 8px}
 .stufig{margin:14px 0 0;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px}
 .stufig img{width:100%;height:150px;object-fit:contain;display:block}
+.stufig .svgfig{height:150px}
+.stufig .svgfig svg{width:100%;height:100%;display:block}
 .stufig figcaption{font-size:12px;color:#5B6B82;text-align:center;margin-top:6px}
 .gsline{font-size:13px;color:var(--ink-3);margin:6px 0 0}
 .gsline b{color:var(--ink)}
@@ -2549,11 +2572,11 @@ THRUSTS = [
 # ---------------------------------------------------------------- students and alumni (from the director's CV, Sept. 2026)
 STUDENTS = [
     {"name": "Arash Rezaee", "photo": "arash", "fig": "fig_arash", "figcap": "AI services over a software-defined, multi-layer network", "status": "Ph.D. Candidate, joined 2022", "focus": "AI-driven resource allocation in optical networks; impairment-aware provisioning in multi-band, space-division multiplexed networks; spectral versus spatial capacity scaling; reproducible optical network benchmarking with FUSION.", "linkedin": ""},
-    {"name": "Ryan McCann", "photo": "ryan", "fig": "fig_ryan", "figcap": "FUSION: reinforcement learning over a software-defined optical mesh", "status": "Ph.D. Student, joined 2024", "focus": "Co-founder and lead developer of FUSION, supported by MIT I-Corps and AT&T; reinforcement learning for software-defined elastic optical networks; failure-aware routing and realistic simulation of elastic optical and mesh networks.", "linkedin": ""},
+    {"name": "Ryan McCann", "photo": "ryan", "fig": "fig_ryan", "figcap": "FUSION: reinforcement learning over a software-defined optical mesh", "status": "Ph.D. Student, joined 2024", "focus": "Co-founder and lead developer of FUSION (github.com/SDNNetSim/FUSION), supported by MIT I-Corps and AT&T; reinforcement learning for software-defined elastic optical networks; failure-aware routing and realistic simulation of elastic optical and mesh networks.", "linkedin": ""},
     {"name": "Ken Patrick Watts", "photo": "ken", "fig": "fig_ken", "figcap": "NATIG co-simulation of a distribution grid and its wireless network", "status": "Ph.D. Student, joined 2022", "focus": "Scalable, real-time detection of cyber attacks on smart power grids with machine learning; adaptive transfer learning for day-zero network intrusion detection; the NATIG cyber-physical co-simulation testbed (HELICS, GridLAB-D, ns-3).", "linkedin": ""},
     {"name": "Mehran Sasaninia", "photo": "mehran", "fig": "fig_mehran", "figcap": "Federated learning across grid sites with a global model aggregator", "status": "Ph.D. Student, joined 2023", "focus": "Federated learning to detect cyber attacks in the smart grid; smart false data injection attacks and anomaly detection in smart meters (IEEE SmartGridComm 2025); centralized versus federated learning for grid anomaly detection.", "linkedin": ""},
-    {"name": "Ayush Pandey", "status": "Ph.D. Student, joined 2024", "focus": "Newest member of the group; smart grid cybersecurity and AI for cyber-physical systems.", "linkedin": ""},
-    {"name": "Suvhasis Mukhopadhyay", "photo": "suvhasis", "status": "Ph.D. Student, joined 2024", "focus": "Impact of individual physical layer impairments on elastic optical network performance; impairment-aware routing, spectrum, modulation, and power allocation; dynamic optical networking.", "linkedin": ""},
+    {"name": "Ayush Pandey", "status": "Ph.D. Student, joined 2024", "figsvg": "ayush", "figcap": "AI-based intrusion detection protecting a transmission grid's control loop", "focus": "Smart grid cybersecurity and AI for cyber-physical systems.", "linkedin": ""},
+    {"name": "Suvhasis Mukhopadhyay", "photo": "suvhasis", "figsvg": "suvhasis", "figcap": "Impairment-aware allocation of spectrum, modulation, and power on a flex-grid link", "status": "Ph.D. Student, joined 2024", "focus": "Impact of individual physical layer impairments on elastic optical network performance; impairment-aware routing, spectrum, modulation, and power allocation; dynamic optical networking.", "linkedin": ""},
 ]
 ALUMNI_FEATURED = [
     {"name": "Md Zahidul Islam", "photo": "zahidul", "degree": "Ph.D. 2025", "role": "Assistant Professor", "org": "Southern Illinois University Carbondale", "focus": "Resilient PMU networking and cyber-physical restoration of power distribution systems. Primary advisor Yuzhang Lin.", "linkedin": ""},
@@ -2573,7 +2596,7 @@ ALUMNI_PHD = [
     ("2014", "Thilo Schöndienst", "European Patent Office"),
 ]
 ALUMNI_POSTDOC = [("Arash Deylamsalehi", "Google"), ("Jeremy M. Plante", "Hitachi Vantara"), ("Juzi Zhao", "San José State University"), ("Arush Gadkar", "Kilpatrick Townsend & Stockton LLP"), ("Joan Triay", "DOCOMO Euro-Labs"), ("Balagangadhar Bathula", "AT&T")]
-SITE_VERSION = "0.05"   # bump by 0.01 with every update to the site
+SITE_VERSION = "0.10"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -2598,16 +2621,18 @@ def stu_avatar(p):
         return f'<img class="avatar lg round" src="data:image/png;base64,{IMG["head_" + key]}" alt="{esc(p["name"])}" width="360" height="360">'
     return f'<span class="avatar mono lg round" aria-hidden="true">{esc(initials(p["name"]))}</span>'
 def student_card(st):
-    links = ([f'<a href="{esc(st["linkedin"])}">LinkedIn</a>'] if st.get("linkedin") else []) + id_links(st["name"])
+    links = ([f'<a href="{esc(st["linkedin"])}">LinkedIn</a>'] if st.get("linkedin") and not LINKEDIN.get(st["name"]) else []) + id_links(st["name"])
     fig = ''
     if st.get("fig") and IMG.get(st["fig"]):
         fig = f'<figure class="stufig"><img src="data:image/jpeg;base64,{IMG[st["fig"]]}" alt="{esc(st.get("figcap", "Research figure"))}" loading="lazy"><figcaption>{esc(st.get("figcap", ""))}</figcaption></figure>'
+    elif st.get("figsvg") and STUDENT_FIGS.get(st["figsvg"]):
+        fig = f'<figure class="stufig"><div class="svgfig" role="img" aria-label="{esc(st.get("figcap", "Research figure"))}">{STUDENT_FIGS[st["figsvg"]]}</div><figcaption>{esc(st.get("figcap", ""))}</figcaption></figure>'
     return (f'<article class="stu">{stu_avatar(st)}'
             f'<h3>{esc(st["name"])}</h3><p class="ptitle">{esc(st["status"])}</p><p class="focus">{esc(st["focus"])}</p>'
             + '<p class="pmeta">' + " ".join(f'<span class="mi">{m}</span>' for m in links) + '</p>'
             + metrics_slot({"name": st["name"]}) + fig + '</article>')
 def alum_feature(a):
-    links = ([f'<a href="{esc(a["linkedin"])}">LinkedIn</a>'] if a.get("linkedin") else []) + id_links(a["name"])
+    links = ([f'<a href="{esc(a["linkedin"])}">LinkedIn</a>'] if a.get("linkedin") and not LINKEDIN.get(a["name"]) else []) + id_links(a["name"])
     inst = "Southern Illinois" if a["org"].startswith("Southern") else "Montana"
     return (f'<article class="stu feat">{stu_avatar(a)}'
             f'<h3>{esc(a["name"])} <span class="ptag">{esc(a["degree"])}</span></h3><p class="ptitle"><b>{esc(a["role"])}</b>, {esc(a["org"])}</p>'
@@ -2637,6 +2662,28 @@ SPONSORS = {
         {"key": "umlarc", "name": "UMass Lowell Applied Research Corporation", "url": "", "note": "Place of performance for the ARPO projects"},
     ],
 }
+# --- overlay: NSF awards found by refresh.py that are not in the curated ledger
+_auto_grants = _load_overlay("grants_auto.json", {"awards": []})
+def _fmt_amt(v):
+    try: v = float(v)
+    except (TypeError, ValueError): return ""
+    return f"${v/1e6:.1f}M" if v >= 1e6 else f"${v/1e3:.0f}K"
+def _fmt_period(a, b):
+    def f(d):
+        try: return datetime.datetime.strptime(d, "%m/%d/%Y").strftime("%b %Y")
+        except Exception: return ""
+    return " to ".join(x for x in (f(a), f(b)) if x)
+for a in _auto_grants.get("awards", []):
+    end_ok = True
+    try: end_ok = datetime.datetime.strptime(a.get("end", ""), "%m/%d/%Y").date() >= datetime.date.today() - datetime.timedelta(days=365)
+    except Exception: pass
+    if not end_ok: continue
+    PROJECTS.append({"tag": "New" if a.get("found", "") >= (datetime.date.today() - datetime.timedelta(days=120)).isoformat() else "Active",
+                     "sponsor": "National Science Foundation" + (f", {a['program']}" if a.get("program") else "") + f" (Award #{a['id']})",
+                     "title": a["title"], "amount": _fmt_amt(a.get("amount")), "period": _fmt_period(a.get("start"), a.get("end")),
+                     "team": "PI " + a.get("pi", "") + ("; Co-PIs " + ", ".join(a["copis"]) if a.get("copis") else ""),
+                     "desc": "Added automatically from the NSF Awards database; edit or remove it in grants_auto.json.", "domain": "NSF"})
+
 LOGOS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "logos")
 _MIME = {".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp"}
 def logo_src(key):
@@ -2654,6 +2701,76 @@ def logo_tile(sp):
         return f'<a class="logo-tile" href="{esc(sp["url"])}" title="{esc(sp["name"])}">{inner}</a>'
     return f'<div class="logo-tile">{inner}</div>'
 
+
+
+STUDENT_FIGS = {
+"ayush": """<svg viewBox="30 50 740 530" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-linecap="round" stroke-linejoin="round" font-family="IBM Plex Sans, Arial, sans-serif">
+<rect x="0" y="0" width="800" height="600" fill="#fff"/>
+<!-- transmission grid -->
+<g stroke="#044978" stroke-width="3">
+  <path d="M80 470l30-230h30l30 230M100 400h70M108 340h54M116 280h38M64 400h102M72 340h90M84 280h70"/>
+  <path d="M640 470l30-230h30l30 230M660 400h70M668 340h54M676 280h38M624 400h102M632 340h90M644 280h70"/>
+</g>
+<path d="M116 280Q400 400 676 280M84 340Q400 470 644 340" stroke="#D5DCE5" stroke-width="4"/>
+<path d="M116 280Q400 400 676 280" stroke="#0A777F" stroke-width="5" stroke-dasharray="10 18"/>
+<path d="M84 340Q400 470 644 340" stroke="#0A777F" stroke-width="5" stroke-dasharray="10 18"/>
+<!-- substation with controller -->
+<rect x="330" y="420" width="140" height="60" rx="8" fill="#044978"/>
+<g stroke="#fff" stroke-width="2" opacity=".7"><path d="M360 428v44M390 428v44M420 428v44M450 428v44M330 450h140"/></g>
+<rect x="352" y="380" width="96" height="30" rx="6" fill="#fff" stroke="#044978" stroke-width="3"/>
+<text x="400" y="401" text-anchor="middle" font-size="16" fill="#044978" font-weight="600">controller</text>
+<!-- AI detector -->
+<rect x="290" y="70" width="220" height="160" rx="16" fill="#F3F7FA" stroke="#044978" stroke-width="3"/>
+<g fill="#044978"><circle cx="330" cy="110" r="9"/><circle cx="330" cy="150" r="9"/><circle cx="330" cy="190" r="9"/><circle cx="400" cy="90" r="9"/><circle cx="400" cy="130" r="9"/><circle cx="400" cy="170" r="9"/><circle cx="400" cy="210" r="9"/></g>
+<g fill="#0A777F"><circle cx="470" cy="130" r="10"/><circle cx="470" cy="170" r="10"/></g>
+<g stroke="#9AB0C4" stroke-width="1.5"><path d="M339 110L391 90M339 110L391 130M339 150L391 130M339 150L391 170M339 190L391 170M339 190L391 210M409 90L461 130M409 130L461 130M409 170L461 170M409 210L461 170M409 130L461 170M409 170L461 130"/></g>
+<text x="400" y="255" text-anchor="middle" font-size="16" fill="#5B6B82">anomaly and intrusion detection</text>
+<!-- telemetry up, decisions down -->
+<path d="M380 380V235" stroke="#0A777F" stroke-width="4" stroke-dasharray="8 12"/>
+<path d="M420 235V380" stroke="#3BA995" stroke-width="4" stroke-dasharray="8 12"/>
+<path d="M373 250l7-14 7 14M413 366l7 14 7-14" stroke="#0A777F" stroke-width="3"/>
+<text x="352" y="312" text-anchor="end" font-size="15" fill="#5B6B82">telemetry</text>
+<text x="448" y="312" font-size="15" fill="#5B6B82">control</text>
+<!-- shield -->
+<path d="M560 260l40 14v34c0 28-17 46-40 56-23-10-40-28-40-56v-34z" fill="#3BA995"/>
+<path d="M542 302l12 12 26-28" stroke="#fff" stroke-width="6"/>
+<!-- attacker -->
+<g stroke="#E25555" stroke-width="4"><path d="M700 150l-40 26 20 6-26 34"/></g>
+<circle cx="654" cy="216" r="7" fill="#E25555"/>
+<path d="M640 226l-60 40" stroke="#E25555" stroke-width="3" stroke-dasharray="6 8"/>
+<text x="640" y="130" text-anchor="middle" font-size="15" fill="#E25555">false data injection</text>
+<path d="M40 500h720" stroke="#D5DCE5" stroke-width="3"/>
+<text x="400" y="560" text-anchor="middle" font-size="18" fill="#0E2036" font-weight="600">AI-based defense of a cyber-physical power grid</text>
+</svg>""",
+"suvhasis": """<svg viewBox="30 80 740 500" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-linecap="round" stroke-linejoin="round" font-family="IBM Plex Sans, Arial, sans-serif">
+<rect x="0" y="0" width="800" height="600" fill="#fff"/>
+<!-- fiber link with amplifiers -->
+<g stroke="#044978" stroke-width="4"><path d="M60 140H740"/></g>
+<g fill="#fff" stroke="#044978" stroke-width="3"><path d="M200 120l40 20-40 20zM430 120l40 20-40 20zM660 120l40 20-40 20z"/></g>
+<g fill="#0A777F"><circle cx="60" cy="140" r="12"/><circle cx="740" cy="140" r="12"/></g>
+<text x="60" y="180" text-anchor="middle" font-size="15" fill="#5B6B82">transmitter</text>
+<text x="740" y="180" text-anchor="middle" font-size="15" fill="#5B6B82">receiver</text>
+<text x="450" y="105" text-anchor="middle" font-size="15" fill="#5B6B82">amplified spans</text>
+<!-- flex-grid spectrum -->
+<path d="M100 400H700" stroke="#5B6B82" stroke-width="2"/>
+<g stroke="#D5DCE5" stroke-width="1.5"><path d="M100 400V250M700 400V250"/></g>
+<g stroke="none">
+  <rect x="112" y="300" width="60" height="100" fill="#044978"/><rect x="180" y="330" width="40" height="70" fill="#0A777F"/><rect x="228" y="270" width="100" height="130" fill="#044978"/>
+  <rect x="336" y="345" width="40" height="55" fill="#3BA995"/><rect x="384" y="290" width="80" height="110" fill="#0A777F"/><rect x="472" y="320" width="60" height="80" fill="#3BA995"/>
+  <rect x="540" y="260" width="120" height="140" fill="#044978"/>
+</g>
+<!-- impairment noise floor rising with load -->
+<path d="M100 385C220 380 330 372 460 360S620 345 700 330" stroke="#E25555" stroke-width="3" stroke-dasharray="7 9"/>
+<text x="700" y="318" text-anchor="end" font-size="14" fill="#E25555">nonlinear interference</text>
+<g font-size="14" fill="#5B6B82" text-anchor="middle"><text x="142" y="420">16QAM</text><text x="278" y="420">8QAM</text><text x="424" y="420">QPSK</text><text x="600" y="420">64QAM</text></g>
+<text x="400" y="452" text-anchor="middle" font-size="15" fill="#5B6B82">flexible grid: spectrum, modulation, and power chosen per lightpath</text>
+<!-- constellation inset -->
+<rect x="590" y="200" width="150" height="40" rx="6" fill="#F3F7FA" stroke="#D5DCE5"/>
+<g fill="#0A777F"><circle cx="612" cy="212" r="3"/><circle cx="628" cy="212" r="3"/><circle cx="644" cy="212" r="3"/><circle cx="660" cy="212" r="3"/><circle cx="612" cy="228" r="3"/><circle cx="628" cy="228" r="3"/><circle cx="644" cy="228" r="3"/><circle cx="660" cy="228" r="3"/></g>
+<text x="705" y="225" text-anchor="middle" font-size="12" fill="#5B6B82">QoT</text>
+<text x="400" y="560" text-anchor="middle" font-size="18" fill="#0E2036" font-weight="600">Impairment-aware elastic optical networking</text>
+</svg>""",
+}
 
 # ---------------------------------------------------------------- researcher identifiers
 SCHOLAR = {
@@ -2674,8 +2791,22 @@ SCHOLAR_CITES = {   # "Cited by" on the Google Scholar profile, read Sept. 16, 2
     "Yuzhang Lin": 2178, "Seung Woo Son": 1827, "Paul Robinette": 2299, "Alkim Akyurtlu": 1399,
 }
 # h-index as shown on the Google Scholar profile page. Scholar does not expose it to automated readers, so
-# fill this in by hand from each profile; blank entries fall back to the live OpenAlex figure.
+# fill this in by hand from each profile.
+LINKEDIN = {
+    "Vinod M. Vokkarane": "https://www.linkedin.com/in/vinod-vokkarane-7656905/", "Lewis Tseng": "https://www.linkedin.com/in/lewis-tseng-a3164027/",
+    "Yuanchang Xie": "https://www.linkedin.com/in/yuanchang-xie-38006b9/", "Hengyong Yu": "https://www.linkedin.com/in/hengyong-yu-72214a44/",
+    "Seung Woo Son": "https://www.linkedin.com/in/seung-woo-son-uml/", "Yuzhang Lin": "https://www.linkedin.com/in/yuzhang-lin/",
+    "Sukesh Aghara": "https://www.linkedin.com/in/sukeshaghara/",
+}   # add the rest as "Name": "https://www.linkedin.com/in/..." and rebuild
+POSTDOC_URL = "https://careers.pageuppeople.com/822/lowell/en-us/job/530223/postdoctoral-research-associate-vokkarane-lab-electrical-computer-engineering"
+FUSION_URL = "https://github.com/SDNNetSim/FUSION"
 SCHOLAR_H = {}
+_auto_scholar = _load_overlay("scholar_auto.json", {})
+for _n, _v in _auto_scholar.items():
+    if _v.get("citations"): SCHOLAR_CITES[_n] = _v["citations"]
+    if _v.get("h"): SCHOLAR_H[_n] = _v["h"]
+SCHOLAR_DATE = max([v.get("date", "") for v in _auto_scholar.values()] + ["2026-09-16"])
+SCHOLAR_LABEL = datetime.datetime.strptime(SCHOLAR_DATE, "%Y-%m-%d").strftime("%b. %Y").replace("May.", "May")
 SCHOLAR_INST = {"Yuzhang Lin": "NYU", "Anurag Srivastava": "West Virginia University", "Md Zahidul Islam": "Southern Illinois University", "Shamsun Nahar Edib": "Montana State University"}
 def id_links(name, inst="UMass Lowell"):
     out = []
@@ -2685,6 +2816,7 @@ def id_links(name, inst="UMass Lowell"):
         q = name + " " + SCHOLAR_INST.get(name, inst)
         out.append(f'<a href="https://scholar.google.com/citations?view_op=search_authors&amp;mauthors={esc(q.replace(" ", "+"))}&amp;hl=en" title="Search Google Scholar profiles">Google Scholar</a>')
     if ORCID.get(name): out.append(f'<a href="https://orcid.org/{esc(ORCID[name])}">ORCID</a>')
+    if LINKEDIN.get(name): out.append(f'<a href="{esc(LINKEDIN[name])}">LinkedIn</a>')
     return out
 def scholar_line(name):
     n = SCHOLAR_CITES.get(name); h = SCHOLAR_H.get(name)
@@ -2692,7 +2824,7 @@ def scholar_line(name):
     bits = []
     if n: bits.append(f'<b>{n:,}</b> citations')
     if h: bits.append(f'<b>{h}</b> h-index')
-    return '<span class="gs">' + ", ".join(bits) + ' on Google Scholar, Sept. 2026</span>'
+    return '<span class="gs">' + ", ".join(bits) + f' on Google Scholar, {SCHOLAR_LABEL}</span>'
 
 # ---------------------------------------------------------------- themed SVG helpers
 _COLOR_CLASS = {
@@ -2871,7 +3003,7 @@ METRICS = {}
 _mp = os.path.join(os.path.dirname(os.path.abspath(__file__)), "metrics.json")
 if os.path.exists(_mp):
     METRICS = json.load(open(_mp))
-LIVE_METRICS = True    # every profile loads citations, h-index, and paper count from OpenAlex in the visitor's browser
+LIVE_METRICS = False   # OpenAlex figures retired; citation numbers come from Google Scholar only
 
 def metrics_slot(p):
     if p.get("inst", "Lowell") is None: return ""
@@ -2891,7 +3023,9 @@ def person_card(p, size="lg", with_photo=True):
     if with_photo:
         lines.append(avatar(p, size))
     tag = f' <span class="ptag">{esc(p["tag"])}</span>' if p.get("tag") else ''
-    lines += [f'<h3>{esc(p["name"])}{tag}</h3>', f'<p class="ptitle">{esc(p["title"])}</p>', f'<p class="pareas">{esc(p["areas"])}</p>']
+    lines += [f'<h3>{esc(p["name"])}{tag}</h3>', f'<p class="ptitle">{esc(p["title"])}</p>']
+    if p.get("title2"): lines.append(f'<p class="ptitle strong">{esc(p["title2"])}</p>')
+    lines.append(f'<p class="pareas">{esc(p["areas"])}</p>')
     if p.get("role"):
         lines.append(f'<p class="prole">{esc(p["role"])}</p>')
     meta = []
@@ -2935,7 +3069,7 @@ def build():
                           f'<div><h3>{esc(pr["title"])}</h3><div class="sponsor">{esc(pr["sponsor"])}</div>'
                           f'<p class="desc">{esc(pr["desc"])}</p><p class="team">{esc(pr["team"])}</p></div>{amt}</div>')
 
-    tools_html = "".join(f'<div class="tool">{("<img class=\"toolfig\" src=\"data:image/jpeg;base64," + IMG["fig_ryan"] + "\" alt=\"FUSION simulation of an optical mesh network\">") if t["name"] == "FUSION" and IMG.get("fig_ryan") else ""}<h4>{esc(t["name"])}</h4><p>{esc(t["what"])}</p></div>' for t in TOOLS)
+    tools_html = "".join(f'<div class="tool">{("<img class=\"toolfig\" src=\"data:image/jpeg;base64," + IMG["fig_ryan"] + "\" alt=\"FUSION simulation of an optical mesh network\">") if t["name"] == "FUSION" and IMG.get("fig_ryan") else ""}<h4>{esc(t["name"])}</h4><p>{esc(t["what"])}</p>{("<p class=\"toollink\"><a href=\"" + esc(t["url"]) + "\">" + esc(t["link"]) + "</a></p>") if t.get("url") else ""}</div>' for t in TOOLS)
 
     d = FACULTY["director"]
     director_html = ('<div class="director">' + avatar(d, "xl") + '<div>' + person_card(d, with_photo=False) +
@@ -2992,6 +3126,102 @@ def build():
         for k, alt, cap in gallery_items if IMG.get(k)) + '</div>'
     lab_img = f'<div class="photo"><img src="{img_src("lab_robot")}" alt="Two UMass Lowell electrical and computer engineering students assembling a robot in a lab" width="1200" height="696"></div>' if IMG.get("lab_robot") else ""
 
+    footer_html = f"""<footer id="contact" class="uml-footer" role="contentinfo">
+  <div class="wrap">
+    <div class="cols">
+      <div class="col">
+        <div class="flogo"><img src="{img_src("logo_name")}" alt="SCyPS, Center for Smart Cyber-Physical Systems" width="594" height="453"></div>
+        <a href="https://www.uml.edu/" title="UMass Lowell home">{UML_LOGO}</a>
+        <address><strong>Center for Smart Cyber-Physical Systems (SCyPS)</strong><br>UMass Lowell<br>1 University Ave. Lowell, MA 01854<br>Email: <a href="mailto:SCyPS@uml.edu">SCyPS@uml.edu</a></address>
+        {social_links("follow")}
+      </div>
+      <div class="col menu">
+        <nav aria-label="Footer menu"><h2>Menu</h2>
+          <ul><li><a href="#about">About</a></li><li><a href="#research">Research</a></li><li><a href="#projects">Projects</a></li><li><a href="#sponsors">Sponsors</a></li><li><a href="#people">People</a></li><li><a href="#students">Students</a></li><li><a href="#alumni">Alumni</a></li><li><a href="#publications">Publications</a></li><li><a href="#news">News</a></li><li><a href="{GIFT_URL}">Make a Gift</a></li></ul>
+        </nav>
+      </div>
+      <div class="col dir">
+        <h2>Director</h2>
+        <p>Vinod M. Vokkarane<br>Ball Hall 409, North Campus<br><a href="mailto:vinod_vokkarane@uml.edu">vinod_vokkarane@uml.edu</a><br>978-934-3345</p>
+      </div>
+      <div class="col social">
+        <ul>
+          <li><a href="https://www.tiktok.com/@umass_lowell" title="Find us on TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i><span class="label">Find us on TikTok</span></a></li>
+          <li><a href="https://www.facebook.com/umlowell" title="Find us on Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i><span class="label">Find us on Facebook</span></a></li>
+          <li><a href="https://twitter.com/umasslowell" title="Follow us on X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i><span class="label">Follow us on X</span></a></li>
+          <li><a href="https://www.youtube.com/user/umasslowell" title="Watch us on YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i><span class="label">Watch us on YouTube</span></a></li>
+          <li><a href="https://instagram.com/umasslowell" title="Find us on Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i><span class="label">Find us on Instagram</span></a></li>
+          <li><a href="https://www.linkedin.com/school/university-of-massachusetts-lowell/" title="Find us on LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i><span class="label">Find us on LinkedIn</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="wrap">
+      <ul>
+        <li><a href="https://www.uml.edu/maps/" title="Interactive Campus Map and Directions">Maps &amp; Directions</a></li>
+        <li><a href="https://www.uml.edu/directory/question.aspx" title="Contact Us at UMass Lowell">Contact Us</a></li>
+        <li><a href="https://www.massachusetts.edu/" title="UMass System">UMass System</a></li>
+        <li><a href="https://www.uml.edu/privacy-policy.aspx" title="Privacy Policy and Terms of Use">Privacy Policy</a></li>
+        <li><a href="https://www.uml.edu/accessibility/" title="Accessibility and Accommodations">Accessibility</a></li>
+        <li><a href="https://www.uml.edu/service/Apps/Forms/Form?configId=ccde10d9-949a-4891-a810-ca2cfa641f6f&amp;tfa_26=https://www.uml.edu/research/scyps/" title="Website Feedback">Feedback</a></li>
+      </ul>
+      <p class="fine">Updated {datetime.date.today().strftime("%B %Y")}. Grant figures are total awards as reported by sponsors; the UMass Lowell share is noted where a project is a multi-institution consortium. Photographs courtesy of UMass Lowell.</p>
+      <p class="version">v {SITE_VERSION}</p>
+    </div>
+  </div>
+</footer>"""
+    script_html = f"""<script>
+(function(){{
+  var root=document.documentElement, tb=document.getElementById('theme');
+  function effective(){{ var t=root.getAttribute('data-theme'); if(t) return t; return (window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light'; }}
+  function paintToggle(){{ var d=effective()==='dark'; tb.setAttribute('aria-label', d?'Switch to light mode':'Switch to dark mode'); tb.querySelector('.lbl').textContent=d?'Light':'Dark'; }}
+  tb.addEventListener('click',function(){{ var next=effective()==='dark'?'light':'dark'; root.setAttribute('data-theme',next); try{{localStorage.setItem('scyps-theme',next);}}catch(e){{}} paintToggle(); }});
+  paintToggle();
+  var tg=document.querySelector('.navtoggle'),menu=document.getElementById('menu');
+  window.addEventListener('load',function(){{ var ic=document.querySelector('.uml-footer .fa-brands'); if(ic){{ var ff=getComputedStyle(ic).fontFamily||''; if(ff.indexOf('Font Awesome')<0) document.querySelector('.uml-footer').classList.add('no-fa'); }} }});
+  tg.addEventListener('click',function(){{var o=menu.classList.toggle('open');tg.setAttribute('aria-expanded',o);}});
+  menu.addEventListener('click',function(e){{if(e.target.tagName==='A'){{menu.classList.remove('open');tg.setAttribute('aria-expanded','false');}}}});
+
+  var links=[].slice.call(document.querySelectorAll('.links a'));
+  var secs=links.map(function(a){{return document.querySelector(a.getAttribute('href'));}}).filter(Boolean);
+  if('IntersectionObserver' in window){{
+    var io=new IntersectionObserver(function(es){{
+      es.forEach(function(en){{ if(en.isIntersecting){{ links.forEach(function(a){{a.setAttribute('aria-current',a.getAttribute('href')==='#'+en.target.id);}}); }} }});
+    }},{{rootMargin:'-40% 0px -55% 0px'}});
+    secs.forEach(function(s){{io.observe(s);}});
+  }}
+
+  var state={{fac:'all',type:'all',year:'all',q:''}};
+  var items=[].slice.call(document.querySelectorAll('#publist .pubs li'));
+  var total=items.length, count=document.getElementById('count');
+  function apply(){{
+    var q=state.q.trim().toLowerCase(), shown=0;
+    items.forEach(function(li){{
+      var ok=(state.fac==='all'||li.getAttribute('data-fac').split(' ').indexOf(state.fac)>-1)
+          &&(state.type==='all'||li.getAttribute('data-type')===state.type)
+          &&(state.year==='all'||li.getAttribute('data-year')===state.year)
+          &&(!q||li.textContent.toLowerCase().indexOf(q)>-1);
+      li.style.display=ok?'':'none'; if(ok)shown++;
+    }});
+    document.querySelectorAll('#publist .yearhead').forEach(function(h){{
+      var ul=h.nextElementSibling, any=[].some.call(ul.children,function(li){{return li.style.display!=='none';}});
+      h.style.display=any?'':'none'; ul.style.display=any?'':'none';
+    }});
+    if(count) count.textContent='Showing '+shown+' of '+total+' papers'+(shown?'':'. Nothing matches these filters; clear one to see more.');
+  }}
+  document.querySelectorAll('.chip').forEach(function(b){{
+    b.addEventListener('click',function(){{
+      var f=b.getAttribute('data-f');
+      document.querySelectorAll('.chip[data-f="'+f+'"]').forEach(function(x){{x.setAttribute('aria-pressed','false');}});
+      b.setAttribute('aria-pressed','true'); state[f]=b.getAttribute('data-v'); apply();
+    }});
+  }});
+  var qEl=document.getElementById('q'); if(qEl) qEl.addEventListener('input',function(e){{state.q=e.target.value;apply();}});
+
+  // (citation figures are printed at build time; no runtime lookups)
+}})();
+</script>"""
     page = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -3102,7 +3332,7 @@ def build():
           <div><b>$2.0M</b><span>NSF MRI Track 2, Award #2511635</span></div>
           <div><b>Oct 2026 to Sep 2029</b><span>award period</span></div>
           <div><b>Vinod Vokkarane, PI</b><span>Co-PIs Orlando Arias, Lewis Tseng, Yuzhang Lin, Anurag Srivastava; with Yan Luo and Seung Woo Son</span></div>
-          <div><b>Postdoc search open</b><span>postdoctoral research associate, Fall 2026</span></div>
+          <div><b>Postdoc search open</b><span><a href="{POSTDOC_URL}">Apply for the postdoctoral research associate position</a></span></div>
         </div>
       </div>
       <div class="paradigms">
@@ -3114,6 +3344,7 @@ def build():
           <li><b>Federated platform for HIL Simulation-as-a-Service.</b> The central objective: a federation limited in this phase to the three partner universities, with WVU's existing testbed as the first instrument federated. National-scale federation is planned for Phase 2.</li>
         </ol>
         <p class="scope">Phase 1 models the backbone transmission grid of the Northeast; distribution grids are future work. All power components, including generation, storage, and inverters, are modeled at high fidelity inside the RTDS simulators, so no power hardware is installed on site. Grid instances are small to medium scale for proof of concept while keeping every capability needed to scale to regional and national models. Physical asset monitoring and the electric vehicle course move to Phase 2.</p>
+        <p class="more"><a class="btn-gift summit-btn" href="summit.html">Full SUMMIT project page</a></p>
       </div>
       <figure class="arch">
         <img src="{img_src("summit_arch")}" alt="SUMMIT architecture: at the UMass Lowell main site, signal generator, power amplifier, grid simulator, network emulator, and optical, RF, and FPGA equipment connect to an RTDS real-time digital simulator and a control and monitoring workstation through a core network switch; a wide-area network over the Internet links the WVU and NYU sites, each with its own switch, controller, and simulator" width="1800" height="748">
@@ -3138,7 +3369,7 @@ def build():
 
 <section id="people" class="tint">
   <div class="wrap">
-    <div class="shead"><h2>People</h2><p>Faculty from the Francis College of Engineering and the Kennedy College of Sciences, plus long-running collaborators at partner universities and companies. Each profile links to the person's Google Scholar and ORCID records; citation totals are quoted from Google Scholar where the profile is public, and every profile also shows live citation, h-index, and paper counts from OpenAlex, an open index whose counts run somewhat below Scholar's.</p></div>
+    <div class="shead"><h2>People</h2><p>Faculty from the Francis College of Engineering, the Kennedy College of Sciences, and the College of Fine Arts, Humanities and Social Sciences, plus long-running collaborators at partner universities and companies. Each profile links to the person's Google Scholar and ORCID records; citation totals are quoted from Google Scholar where the profile is public.</p></div>
     {director_html}
     {core_html}
     <div class="group"><h3>Affiliated researchers</h3><p>UMass Lowell faculty who collaborate on center projects and proposals.</p>{aff_html}</div>
@@ -3230,13 +3461,13 @@ def build():
       <div>
         <div class="block">
           <h3>Students and postdocs</h3>
-          <p>Ph.D. and M.S. students in the center work on real instruments and real data: the federated smart grid testbed, multi-band optical network simulation, fault-tolerant edge systems, and hardware security. A postdoctoral research associate position on SUMMIT is open in Fall 2026. Prospective students should write to a faculty member whose work matches their interests and copy SCyPS@uml.edu.</p>
+          <p>Ph.D. and M.S. students in the center work on real instruments and real data: the federated smart grid testbed, multi-band optical network simulation, fault-tolerant edge systems, and hardware security. A postdoctoral research associate position on SUMMIT is open in Fall 2026 (<a href="{POSTDOC_URL}">application</a>). Prospective students should write to a faculty member whose work matches their interests and copy SCyPS@uml.edu.</p>
         </div>
         <div class="block">
           <h3>Industry and agency partners</h3>
           <ul>
             <li>Run attack, defense, and restoration experiments on the SUMMIT testbed once it opens to collaborators.</li>
-            <li>Sponsor targeted research and gain early access to results and open-source tools such as FUSION.</li>
+            <li>Sponsor targeted research and gain early access to results and open-source tools such as <a href="{FUSION_URL}">FUSION</a>.</li>
             <li>Recruit co-ops, interns, and graduates trained on cyber-physical infrastructure.</li>
             <li>Join proposals to NSF, DOE, DoD, and state programs as a partner site or end user.</li>
           </ul>
@@ -3253,136 +3484,197 @@ def build():
 </section>
 </main>
 
-<footer id="contact" class="uml-footer" role="contentinfo">
-  <div class="wrap">
-    <div class="cols">
-      <div class="col">
-        <div class="flogo"><img src="{img_src("logo_name")}" alt="SCyPS, Center for Smart Cyber-Physical Systems" width="594" height="453"></div>
-        <a href="https://www.uml.edu/" title="UMass Lowell home">{UML_LOGO}</a>
-        <address><strong>Center for Smart Cyber-Physical Systems (SCyPS)</strong><br>UMass Lowell<br>1 University Ave. Lowell, MA 01854<br>Email: <a href="mailto:SCyPS@uml.edu">SCyPS@uml.edu</a></address>
-        {social_links("follow")}
-      </div>
-      <div class="col menu">
-        <nav aria-label="Footer menu"><h2>Menu</h2>
-          <ul><li><a href="#about">About</a></li><li><a href="#research">Research</a></li><li><a href="#projects">Projects</a></li><li><a href="#sponsors">Sponsors</a></li><li><a href="#people">People</a></li><li><a href="#students">Students</a></li><li><a href="#alumni">Alumni</a></li><li><a href="#publications">Publications</a></li><li><a href="#news">News</a></li><li><a href="{GIFT_URL}">Make a Gift</a></li></ul>
-        </nav>
-      </div>
-      <div class="col dir">
-        <h2>Director</h2>
-        <p>Vinod M. Vokkarane<br>Ball Hall 409, North Campus<br><a href="mailto:vinod_vokkarane@uml.edu">vinod_vokkarane@uml.edu</a><br>978-934-3345</p>
-      </div>
-      <div class="col social">
-        <ul>
-          <li><a href="https://www.tiktok.com/@umass_lowell" title="Find us on TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i><span class="label">Find us on TikTok</span></a></li>
-          <li><a href="https://www.facebook.com/umlowell" title="Find us on Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i><span class="label">Find us on Facebook</span></a></li>
-          <li><a href="https://twitter.com/umasslowell" title="Follow us on X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i><span class="label">Follow us on X</span></a></li>
-          <li><a href="https://www.youtube.com/user/umasslowell" title="Watch us on YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i><span class="label">Watch us on YouTube</span></a></li>
-          <li><a href="https://instagram.com/umasslowell" title="Find us on Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i><span class="label">Find us on Instagram</span></a></li>
-          <li><a href="https://www.linkedin.com/school/university-of-massachusetts-lowell/" title="Find us on LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i><span class="label">Find us on LinkedIn</span></a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="bottom">
-    <div class="wrap">
-      <ul>
-        <li><a href="https://www.uml.edu/maps/" title="Interactive Campus Map and Directions">Maps &amp; Directions</a></li>
-        <li><a href="https://www.uml.edu/directory/question.aspx" title="Contact Us at UMass Lowell">Contact Us</a></li>
-        <li><a href="https://www.massachusetts.edu/" title="UMass System">UMass System</a></li>
-        <li><a href="https://www.uml.edu/privacy-policy.aspx" title="Privacy Policy and Terms of Use">Privacy Policy</a></li>
-        <li><a href="https://www.uml.edu/accessibility/" title="Accessibility and Accommodations">Accessibility</a></li>
-        <li><a href="https://www.uml.edu/service/Apps/Forms/Form?configId=ccde10d9-949a-4891-a810-ca2cfa641f6f&amp;tfa_26=https://www.uml.edu/research/scyps/" title="Website Feedback">Feedback</a></li>
-      </ul>
-      <p class="fine">Updated September 2026. Grant figures are total awards as reported by sponsors; the UMass Lowell share is noted where a project is a multi-institution consortium. Photographs courtesy of UMass Lowell.</p>
-      <p class="version">v {SITE_VERSION}</p>
-    </div>
-  </div>
-</footer>
+{footer_html}
 
-<script>
-(function(){{
-  var root=document.documentElement, tb=document.getElementById('theme');
-  function effective(){{ var t=root.getAttribute('data-theme'); if(t) return t; return (window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light'; }}
-  function paintToggle(){{ var d=effective()==='dark'; tb.setAttribute('aria-label', d?'Switch to light mode':'Switch to dark mode'); tb.querySelector('.lbl').textContent=d?'Light':'Dark'; }}
-  tb.addEventListener('click',function(){{ var next=effective()==='dark'?'light':'dark'; root.setAttribute('data-theme',next); try{{localStorage.setItem('scyps-theme',next);}}catch(e){{}} paintToggle(); }});
-  paintToggle();
-  var tg=document.querySelector('.navtoggle'),menu=document.getElementById('menu');
-  window.addEventListener('load',function(){{ var ic=document.querySelector('.uml-footer .fa-brands'); if(ic){{ var ff=getComputedStyle(ic).fontFamily||''; if(ff.indexOf('Font Awesome')<0) document.querySelector('.uml-footer').classList.add('no-fa'); }} }});
-  tg.addEventListener('click',function(){{var o=menu.classList.toggle('open');tg.setAttribute('aria-expanded',o);}});
-  menu.addEventListener('click',function(e){{if(e.target.tagName==='A'){{menu.classList.remove('open');tg.setAttribute('aria-expanded','false');}}}});
-
-  var links=[].slice.call(document.querySelectorAll('.links a'));
-  var secs=links.map(function(a){{return document.querySelector(a.getAttribute('href'));}}).filter(Boolean);
-  if('IntersectionObserver' in window){{
-    var io=new IntersectionObserver(function(es){{
-      es.forEach(function(en){{ if(en.isIntersecting){{ links.forEach(function(a){{a.setAttribute('aria-current',a.getAttribute('href')==='#'+en.target.id);}}); }} }});
-    }},{{rootMargin:'-40% 0px -55% 0px'}});
-    secs.forEach(function(s){{io.observe(s);}});
-  }}
-
-  var state={{fac:'all',type:'all',year:'all',q:''}};
-  var items=[].slice.call(document.querySelectorAll('#publist .pubs li'));
-  var total=items.length, count=document.getElementById('count');
-  function apply(){{
-    var q=state.q.trim().toLowerCase(), shown=0;
-    items.forEach(function(li){{
-      var ok=(state.fac==='all'||li.getAttribute('data-fac').split(' ').indexOf(state.fac)>-1)
-          &&(state.type==='all'||li.getAttribute('data-type')===state.type)
-          &&(state.year==='all'||li.getAttribute('data-year')===state.year)
-          &&(!q||li.textContent.toLowerCase().indexOf(q)>-1);
-      li.style.display=ok?'':'none'; if(ok)shown++;
-    }});
-    document.querySelectorAll('#publist .yearhead').forEach(function(h){{
-      var ul=h.nextElementSibling, any=[].some.call(ul.children,function(li){{return li.style.display!=='none';}});
-      h.style.display=any?'':'none'; ul.style.display=any?'':'none';
-    }});
-    count.textContent='Showing '+shown+' of '+total+' papers'+(shown?'':'. Nothing matches these filters; clear one to see more.');
-  }}
-  document.querySelectorAll('.chip').forEach(function(b){{
-    b.addEventListener('click',function(){{
-      var f=b.getAttribute('data-f');
-      document.querySelectorAll('.chip[data-f="'+f+'"]').forEach(function(x){{x.setAttribute('aria-pressed','false');}});
-      b.setAttribute('aria-pressed','true'); state[f]=b.getAttribute('data-v'); apply();
-    }});
-  }});
-  document.getElementById('q').addEventListener('input',function(e){{state.q=e.target.value;apply();}});
-
-  // live citation metrics from OpenAlex (name + institution match; cached per browser for 7 days)
-  (function(){{
-    var els=[].slice.call(document.querySelectorAll('.metrics[data-name]')); if(!els.length) return;
-    var KEY='scyps-metrics-v1', TTL=7*864e5, cache={{}};
-    try{{cache=JSON.parse(localStorage.getItem(KEY)||'{{}}')||{{}};}}catch(e){{cache={{}};}}
-    function fmt(n){{return (n||0).toLocaleString();}}
-    function render(el,m){{el.innerHTML='<span><b>'+fmt(m.c)+'</b> citations</span><span><b>'+m.h+'</b> h-index</span><span><b>'+fmt(m.w)+'</b> works</span><span class="src">OpenAlex</span>';}}
-    els.forEach(function(el,i){{
-      var name=el.getAttribute('data-name'), inst=el.getAttribute('data-inst')||'Lowell', k=name+'|'+inst;
-      if(cache[k]&&(Date.now()-cache[k].t)<TTL){{render(el,cache[k]);return;}}
-      setTimeout(function(){{
-        fetch('https://api.openalex.org/authors?search='+encodeURIComponent(name)+'&per_page=10&mailto=SCyPS@uml.edu')
-          .then(function(r){{return r.json();}})
-          .then(function(d){{
-            var res=d.results||[];
-            var pick=null;
-            for(var j=0;j<res.length;j++){{
-              var a=res[j], insts=(a.last_known_institutions||[]).concat((a.affiliations||[]).map(function(x){{return x.institution||{{}};}}));
-              if(JSON.stringify(insts).indexOf(inst)>-1){{pick=a;break;}}
-            }}
-            if(!pick){{el.innerHTML='';return;}}
-            var m={{c:pick.cited_by_count||0,h:(pick.summary_stats||{{}}).h_index||0,w:pick.works_count||0,t:Date.now()}};
-            cache[k]=m; try{{localStorage.setItem(KEY,JSON.stringify(cache));}}catch(e){{}}
-            render(el,m);
-          }}).catch(function(){{el.innerHTML='';}});
-      }}, i*120);
-    }});
-  }})();
-}})();
-</script>
+{script_html}
 </body>
 </html>
 """
     with open(OUT, "w", encoding="utf-8") as f:
         f.write(page)
+    build_summit(footer_html, script_html)
     print(f"wrote {OUT} (v{SITE_VERSION}): {len(page)/1024:.0f} KB; {n_pubs} pubs ({n_journal} journal); {n_faculty} faculty; {len(IMG)} images embedded")
+
+
+def build_summit(footer_html, script_html):
+    """Stand-alone project page for the NSF MRI SUMMIT testbed, written next to the main page."""
+    out = os.path.join(os.path.dirname(os.path.abspath(OUT)) or ".", "summit.html")
+    core = {p["name"]: p for p in [FACULTY["director"]] + FACULTY["core"] + FACULTY["affiliated"] + FACULTY["external"]}
+    def person(name, role):
+        p = core[name]
+        return f'<div class="tm">{avatar(p, "lg")}<b>{esc(name)}</b><span>{esc(role)}</span><small>{esc(p.get("title", "").split(";")[0])}</small></div>'
+    team = "".join([
+        person("Vinod M. Vokkarane", "Principal Investigator"), person("Orlando Arias", "Co-PI, hardware security"), person("Lewis Tseng", "Co-PI, distributed systems"),
+        person("Yuzhang Lin", "Co-PI, NYU Tandon site"), person("Anurag Srivastava", "Co-PI, WVU site"), person("Yan Luo", "Senior personnel, networks"), person("Seung Woo Son", "Senior personnel, HPC"),
+    ])
+    nav = ' '.join(f'<li><a href="index.html#{a}">{t}</a></li>' for a, t in [("about", "About"), ("research", "Research"), ("projects", "Projects"), ("sponsors", "Sponsors"), ("people", "People"), ("students", "Students"), ("alumni", "Alumni"), ("publications", "Publications"), ("news", "News"), ("contact", "Contact")])
+    footer_html = footer_html.replace('href="#', 'href="index.html#')
+    page = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SUMMIT: Secure and Resilient Multi-site Smart Grid Testbed | SCyPS, UMass Lowell</title>
+<meta name="description" content="SUMMIT is an NSF Major Research Instrumentation Track 2 award building a three-site federated smart grid cybersecurity testbed across UMass Lowell, NYU Tandon, and West Virginia University, delivered as hardware-in-the-loop Simulation-as-a-Service.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="icon" type="image/png" href="{img_src("favicon")}">
+<style>{CSS}
+.shero{{background:var(--navy);color:#fff;padding:clamp(48px,7vw,88px) 0 clamp(40px,6vw,64px)}}
+.shero .kicker{{display:inline-block;background:#3BA995;color:#062B24;font-weight:600;font-size:13px;padding:4px 10px;border-radius:5px;margin-bottom:16px}}
+.shero h1{{color:#fff;max-width:14em;font-size:clamp(34px,4.6vw,58px)}}
+.shero p.sub{{font-size:clamp(17px,1.4vw,20px);color:#D6DEE8;max-width:40em;margin:18px 0 26px}}
+.shero .facts{{margin-top:34px;background:transparent;border-color:rgba(255,255,255,.2);box-shadow:none}}
+.shero .facts div{{border-color:rgba(255,255,255,.2)}} .shero .facts strong{{color:#fff}} .shero .facts span{{color:#B7C4D4}}
+.archwrap{{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px 22px 12px;margin-top:-40px;position:relative;z-index:2;box-shadow:0 22px 60px -34px var(--shadow)}}
+.archwrap img{{width:100%;height:auto;display:block}} .archwrap p{{font-size:13px;color:#5B6B82;text-align:center;margin:10px 0 0}}
+.two{{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,5vw,64px);align-items:start}}
+.two h3{{margin-bottom:10px}} .two p,.two li{{color:var(--ink-2)}}
+.plist2{{margin:0;padding-left:20px}} .plist2 li{{margin-bottom:10px}} .plist2 b{{color:var(--ink)}}
+.instr{{display:grid;grid-template-columns:300px 1fr;gap:clamp(24px,4vw,56px);align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px}}
+.instr img{{width:100%;height:auto;display:block;border-radius:10px;background:radial-gradient(ellipse at 50% 35%,#1A3D63,#0E2036 70%);padding:14px}}
+.instr ul{{margin:8px 0 0;padding-left:18px;color:var(--ink-2)}}
+.sites{{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}}
+.site{{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px}}
+.site h3{{font-size:20px;margin-bottom:6px}} .site .role{{color:var(--signal-2);font-weight:600;font-size:13.5px;margin-bottom:8px}} .site p{{font-size:14.5px;color:var(--ink-2);margin:0}}
+.teamgrid{{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}}
+.tm{{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px;text-align:center}}
+.tm .avatar{{margin:0 auto 12px;width:120px;height:120px}} .tm b{{display:block}} .tm span{{display:block;font-size:13.5px;color:var(--signal-2);font-weight:600}} .tm small{{display:block;font-size:12.5px;color:var(--ink-3);margin-top:4px}}
+.phases{{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}}
+.phases li{{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:14px 0;border-bottom:1px solid var(--line)}}
+.phases b{{color:var(--ink-2)}} .phases p{{margin:0;color:var(--ink-2)}}
+.cta2{{display:grid;grid-template-columns:1fr 1fr;gap:18px}}
+.cta2 .box{{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px}}
+.cta2 h3{{margin-bottom:8px}} .cta2 p{{color:var(--ink-2);font-size:15px}}
+@media (max-width:900px){{.two,.instr,.cta2{{grid-template-columns:1fr}}.sites{{grid-template-columns:1fr}}.teamgrid{{grid-template-columns:1fr 1fr}}.phases li{{grid-template-columns:1fr;gap:4px}}}}
+</style>
+<script>(function(){{try{{var t=localStorage.getItem('scyps-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}}catch(e){{}}}})();</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="SCyPS home"><span class="mark"><img src="{img_src("logo_mark")}" alt="" width="576" height="271"></span><span>SCyPS<small>Center for Smart Cyber-Physical Systems, UMass Lowell</small></span></a>
+    <div class="navright">
+    <ul class="links" id="menu">{nav}</ul>
+    <a class="gift" href="{GIFT_URL}">Make a Gift</a>
+    <button class="theme" id="theme" type="button" aria-label="Switch to dark mode"><svg class="moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg><span class="lbl">Dark</span></button>
+    <button class="navtoggle" aria-expanded="false" aria-controls="menu">Menu</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+<div class="shero">
+  <div class="wrap">
+    <span class="kicker">NSF Major Research Instrumentation, Track 2</span>
+    <h1>SUMMIT: a secure and resilient multi-site smart grid testbed</h1>
+    <p class="sub">A federated instrument for research and training on attacks, defenses, and recovery in cyber-physical power systems, built by UMass Lowell with NYU Tandon and West Virginia University and delivered to collaborators as hardware-in-the-loop Simulation-as-a-Service.</p>
+    <div class="cta"><a class="btn primary" href="{POSTDOC_URL}">Apply: postdoctoral research associate</a><a class="btn" href="mailto:vinod_vokkarane@uml.edu?subject=SUMMIT%20collaboration">Propose a collaboration</a><a class="btn" href="index.html">Back to SCyPS</a></div>
+    <div class="facts">
+      <div><strong>$2.0M</strong><span>NSF award #2511635; UMass Lowell share $1.56M with subawards to NYU and WVU</span></div>
+      <div><strong>3 sites</strong><span>UMass Lowell (lead), NYU Tandon, West Virginia University</span></div>
+      <div><strong>Oct 2026</strong><span>award start; three-year Phase 1 through Sept 2029</span></div>
+      <div><strong>4 paradigms</strong><span>distributed HIL, Internet-in-the-loop, distributed digital twins, HIL Simulation-as-a-Service</span></div>
+    </div>
+  </div>
+</div>
+<div class="wrap"><figure class="archwrap"><img src="{img_src("summit_arch")}" alt="SUMMIT architecture diagram" width="1800" height="748"><p>SUMMIT architecture: the UMass Lowell main site with its real-time digital simulator and control, network, and instrumentation equipment; a wide-area software-defined network over the Internet; and the WVU and NYU federation sites.</p></figure></div>
+
+<section id="overview">
+  <div class="wrap">
+    <div class="shead"><h2>What SUMMIT is</h2><p>A shared instrument that couples high-fidelity real-time simulation of the Northeast transmission grid with real control, networking, and cybersecurity hardware in the loop, at three universities linked over the Internet.</p></div>
+    <div class="two">
+      <div>
+        <h3>Four paradigms</h3>
+        <ol class="plist2">
+          <li><b>Distributed hardware-in-the-loop (HIL) simulation.</b> Control, networking, and cybersecurity hardware closes the loop with grid models running in real time on RTDS simulators.</li>
+          <li><b>Internet-in-the-loop simulation.</b> The three sites exchange live simulation signals over a wide-area software-defined network across the public Internet, so the network itself is part of every experiment.</li>
+          <li><b>Heterogeneous distributed digital twins.</b> Scoped in Phase 1 to the RTDS simulators and the existing OPAL-RT simulator, which is relocated to UML North.</li>
+          <li><b>Federated platform for HIL Simulation-as-a-Service.</b> The central objective. In Phase 1 the federation covers the three partner universities, with WVU's existing testbed as the first instrument federated. National-scale federation is planned for Phase 2.</li>
+        </ol>
+      </div>
+      <div>
+        <h3>Scope of Phase 1</h3>
+        <p>Modeling and simulation focus on the backbone transmission grid of the Northeast; local distribution grids are left to future work. The instrument is built for high-fidelity real-time simulation with control, networking, and cybersecurity hardware in the loop, and it eliminates power hardware on site: no power amplifier, inverters, solar panels, batteries, microgrid, or drones. All power components are modeled at high fidelity inside the RTDS simulators.</p>
+        <p>The cyber-physical grid instances built and tested on the simulators are small to medium scale for proof of concept, while keeping every capability needed to scale to the regional and national models originally planned. The physical asset monitoring thrust and the electric vehicle course are outside the funded scope for this phase; multimodal asset monitoring is planned for Phase 2.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="instrument" class="tint">
+  <div class="wrap">
+    <div class="shead"><h2>The instrument</h2><p>Real-time digital simulation at the core, surrounded by the hardware that makes an experiment cyber-physical.</p></div>
+    <div class="instr">
+      <img src="{img_src("rtds")}" alt="RTDS NovaCor real-time digital simulator rack" width="507" height="760">
+      <div>
+        <h3>RTDS NovaCor real-time digital simulators</h3>
+        <p>RTDS simulators run grid models at time steps small enough to drive real relays, controllers, and network devices in closed loop. Every power component, from generation and storage to inverters, lives inside the simulation, which is what lets the testbed stay safe, repeatable, and free of power hardware on site.</p>
+        <p>Around the simulators at the UMass Lowell main site:</p>
+        <ul>
+          <li>Signal generator and grid simulator for excitation and disturbance injection</li>
+          <li>Network emulator for latency, loss, and attack scenarios on the communication layer</li>
+          <li>Optical, RF, and FPGA equipment for the transport and edge layers</li>
+          <li>Control and GPS equipment for time synchronization and protection</li>
+          <li>Core network switch and the control and monitoring workstations</li>
+          <li>Wide-area SDN links to the WVU and NYU sites, each with its own switch, controller, and simulator</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sites">
+  <div class="wrap">
+    <div class="shead"><h2>Three sites, one instrument</h2><p>Each site runs part of the grid and part of the experiment; the federation layer makes them behave as one testbed.</p></div>
+    <div class="sites">
+      <div class="site"><h3>UMass Lowell</h3><div class="role">Lead site and instrument host</div><p>Main site at UML North with the RTDS simulators, the relocated OPAL-RT simulator, control and instrumentation equipment, and the federation controller. Home of the Center for Smart Cyber-Physical Systems.</p></div>
+      <div class="site"><h3>NYU Tandon School of Engineering</h3><div class="role">Federation site, Co-PI Yuzhang Lin</div><p>Power system modeling, state estimation, and cyber-physical resilience; the NYU node carries its own switch, controller, and simulator.</p></div>
+      <div class="site"><h3>West Virginia University</h3><div class="role">Federation site, Co-PI Anurag Srivastava</div><p>WVU's existing grid testbed is the first external instrument federated into SUMMIT, the proof point for Simulation-as-a-Service.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="team" class="tint">
+  <div class="wrap">
+    <div class="shead"><h2>Team</h2><p>Faculty across three universities and two UMass Lowell departments.</p></div>
+    <div class="teamgrid">{team}</div>
+  </div>
+</section>
+
+<section id="plan">
+  <div class="wrap">
+    <div class="shead"><h2>Plan</h2><p>Phase 1 runs three years from October 2026. Milestones below are the planning targets; they will be updated as the project moves.</p></div>
+    <ul class="phases">
+      <li><b>Year 1, 2026 to 2027</b><p>Instrument acquisition and installation at UML North; RTDS commissioning; relocation of the OPAL-RT simulator; site network and control equipment; postdoctoral researcher joins to lead federation development.</p></li>
+      <li><b>Year 2, 2027 to 2028</b><p>Three-site federation over the wide-area SDN; Internet-in-the-loop experiments; WVU testbed federated as the first external instrument; first shared attack, defense, and restoration experiments.</p></li>
+      <li><b>Year 3, 2028 to 2029</b><p>HIL Simulation-as-a-Service opened to partner-university researchers and students; training modules; documentation and access process for future federation members.</p></li>
+      <li><b>Phase 2, planned</b><p>National-scale federation, multimodal physical asset monitoring, and distribution-grid modeling.</p></li>
+    </ul>
+  </div>
+</section>
+
+<section id="join" class="tint">
+  <div class="wrap">
+    <div class="shead"><h2>Work on SUMMIT</h2><p>Openings for a postdoctoral researcher and graduate students, and a path for collaborators who want time on the instrument.</p></div>
+    <div class="cta2">
+      <div class="box"><h3>Postdoctoral research associate</h3><p>Lead the federation software and the Internet-in-the-loop experiments across the three sites, working with the PI and Co-PIs at UMass Lowell. Position open for Fall 2026.</p><a class="btn-gift summit-btn" href="{POSTDOC_URL}">View the posting and apply</a></div>
+      <div class="box"><h3>Students and collaborators</h3><p>Ph.D. and M.S. students join through the UMass Lowell ECE program; write to a faculty member whose work matches yours and copy <a href="mailto:SCyPS@uml.edu">SCyPS@uml.edu</a>. Researchers at other institutions who want to run experiments on SUMMIT once the federation opens should contact the PI.</p><a class="btn-gift summit-btn" href="mailto:vinod_vokkarane@uml.edu?subject=SUMMIT">Contact the PI</a></div>
+    </div>
+    <div class="ack" style="margin-top:32px"><p>This material is based upon work supported by the U.S. National Science Foundation under Grant No. 2511635. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.</p></div>
+  </div>
+</section>
+</main>
+{footer_html}
+{script_html}
+</body>
+</html>
+"""
+    with open(out, "w", encoding="utf-8") as f:
+        f.write(page)
+    print(f"wrote {out}: {len(page)/1024:.0f} KB")
 
 if __name__ == "__main__":
     build()

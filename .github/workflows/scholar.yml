@@ -1,1 +1,44 @@
-hi
+name: Update Google Scholar figures
+
+# Paste the numbers straight off the Scholar profile pages. No local setup, no checkout, no Python
+# on your machine: run it from the Actions tab in the browser.
+on:
+  workflow_dispatch:
+    inputs:
+      figures:
+        description: "One line per person: <name> <citations> <h-index> [i10]. Example: Vokkarane 5990 37 96"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  scholar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Apply the pasted figures
+        env:
+          FIGURES: ${{ inputs.figures }}
+        run: printf '%s\n\n' "$FIGURES" | python3 update_scholar.py
+      - name: Rebuild both pages
+        run: |
+          python3 - <<'PY'
+          import re
+          s = open("build_site.py", encoding="utf-8").read()
+          m = re.search(r'SITE_VERSION = "(\d+)\.(\d+)"', s)
+          major, minor = int(m.group(1)), int(m.group(2)) + 1
+          open("build_site.py", "w", encoding="utf-8").write(s.replace(m.group(0), f'SITE_VERSION = "{major}.{minor:02d}"'))
+          PY
+          python3 build_site.py index.html
+      - name: Commit
+        run: |
+          git config user.name "scyps-bot"
+          git config user.email "SCyPS@uml.edu"
+          git add -A
+          git diff --cached --quiet && echo "No changes" || git commit -m "Scholar figures updated $(date -u +%Y-%m-%d)" && git push
+

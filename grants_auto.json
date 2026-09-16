@@ -1,0 +1,1493 @@
+{
+ "ignore": [],
+ "awards": [
+  {
+   "id": "2551316",
+   "title": "CSR: A New Frontier in Acceleration: Unlocking Irregular Computing for Multiple Application Domains with Ray Tracing Hardware",
+   "pi": "Hung-Wei Tseng",
+   "copis": [],
+   "start": "08/01/2026",
+   "end": "07/31/2030",
+   "amount": "765060",
+   "program": "CSR-Computer Systems Research",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2609490",
+   "title": "Category III: Planning Federated AI-Ready Cyberinfrastructure for Advanced Microscopy and Imaging: A Teach-Explore-Design Framework for Community-Driven Infrastructure",
+   "pi": "Lewis Tseng",
+   "copis": [
+    "Hsien-Yuan Hsu HsienYuan_Hsu@uml.edu",
+    "Yu-Tsun Shao yutsunsh@usc.edu"
+   ],
+   "start": "08/01/2026",
+   "end": "07/31/2028",
+   "amount": "499490",
+   "program": "Data Cyberinfrastructure",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2521343",
+   "title": "Collaborative Research: FEC: Establishing Infrastructure for AI-Driven Discovery of Small Molecules to Combat Antibiotic Resistance, Biofilms, and Aflatoxin Contamination",
+   "pi": "Boo Shan Tseng",
+   "copis": [],
+   "start": "08/15/2025",
+   "end": "07/31/2029",
+   "amount": "999470",
+   "program": "EPSCoR RII: Focused EPSCoR Col",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2449640",
+   "title": "CAREER: Towards Fault-tolerant Edge Computing for Cyber-Physical Systems: Distributed Primitives for Coordination under Cyber Attacks",
+   "pi": "Lewis Tseng",
+   "copis": [],
+   "start": "09/01/2024",
+   "end": "12/31/2028",
+   "amount": "342193",
+   "program": "Special Projects - CNS, CSR-Computer Systems Research",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2231877",
+   "title": "CNS Core Small: Simultaneous and Heterogeneous Multithreading",
+   "pi": "Hung-Wei Tseng",
+   "copis": [],
+   "start": "10/01/2023",
+   "end": "09/30/2026",
+   "amount": "604104",
+   "program": "CSR-Computer Systems Research, Special Projects - CNS",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2334021",
+   "title": "CAREER: Towards Fault-tolerant Edge Computing for Cyber-Physical Systems: Distributed Primitives for Coordination under Cyber Attacks",
+   "pi": "Lewis Tseng",
+   "copis": [],
+   "start": "07/01/2023",
+   "end": "10/31/2024",
+   "amount": "333190",
+   "program": "Special Projects - CNS, CSR-Computer Systems Research",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2216396",
+   "title": "Improving Student Engagement and Training in Healthcare Engineering",
+   "pi": "Bill Tseng",
+   "copis": [
+    "Sreenath Chalil Madathil schalil@binghamton.edu",
+    "Md Fashiar Rahman mrahman13@utep.edu",
+    "Michael Pokojovy (Former) mpokojovy@odu.edu"
+   ],
+   "start": "10/01/2022",
+   "end": "09/30/2026",
+   "amount": "300000",
+   "program": "IUSE",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2128146",
+   "title": "IntBIO: Disentangling the genetic, biomechanical, and deep-time factors underlying mammalian skeletal diversity",
+   "pi": "Jack Tseng",
+   "copis": [
+    "Leslea Hlusko hlusko@berkeley.edu",
+    "Chris Law cjlaw@uw.edu"
+   ],
+   "start": "09/15/2021",
+   "end": "08/31/2026",
+   "amount": "656957",
+   "program": "RaMP-Res & Mentoring Postbac, Cross-BIO Activities",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2344793",
+   "title": "Collaborative Research: Investigating the Impact of Video-based Analysis of Classroom Teaching on STEM Teacher Preparation, Effectiveness, and Retention",
+   "pi": "Anna Maria Arias",
+   "copis": [],
+   "start": "06/01/2024",
+   "end": "05/31/2027",
+   "amount": "117457",
+   "program": "Robert Noyce Scholarship Pgm",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2315617",
+   "title": "Hopscotch 4 Scientific Investigation: Promoting Elementary Preservice Teacher Three-Dimensional Learning during Science Content Courses",
+   "pi": "Anna Maria Arias",
+   "copis": [
+    "Soon C Lee slee263@kennesaw.edu",
+    "Jessica R Stephenson Reaves jstep198@kennesaw.edu",
+    "Preethi Titu ptitu@kennesaw.edu",
+    "Rasheda S Likely rlikely@kennesaw.edu"
+   ],
+   "start": "10/01/2023",
+   "end": "09/30/2027",
+   "amount": "397911",
+   "program": "Robert Noyce Scholarship Pgm, IUSE",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2311400",
+   "title": "I-Corps:  Low-cost biochemical sensors to optimize agricultural inputs",
+   "pi": "Ana Arias",
+   "copis": [],
+   "start": "04/15/2023",
+   "end": "03/31/2025",
+   "amount": "50000",
+   "program": "I-Corps",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2309583",
+   "title": "Conference: Nature-based Solutions for Resilient Communities: Preparing Students to Address Grand Challenges in Ecological Engineering",
+   "pi": "Mauricio Arias",
+   "copis": [],
+   "start": "01/01/2023",
+   "end": "12/31/2023",
+   "amount": "25000",
+   "program": "EnvS-Environmtl Sustainability",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2150652",
+   "title": "Collaborative Research: Building Capacity for Cross-site Research on Promoting Noticing for Equity and Equitable Science Teaching Practice through Video Analysis",
+   "pi": "Anna Maria Arias",
+   "copis": [],
+   "start": "07/01/2022",
+   "end": "06/30/2023",
+   "amount": "14119",
+   "program": "Robert Noyce Scholarship Pgm",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2548041",
+   "title": "REU Site: Hands-On Research in Federated Learning Security through Red Team vs. Blue Team Exercises",
+   "pi": "Junggab Son",
+   "copis": [
+    "Zuobin Xiong zuobin.xiong@unlv.edu"
+   ],
+   "start": "10/01/2026",
+   "end": "09/30/2029",
+   "amount": "460922",
+   "program": "RSCH EXPER FOR UNDERGRAD SITES",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2304936",
+   "title": "Harnessing the Advantages of Dark Exciton in Perovskite Nanostructures as the Quantum Emitter and the Source of Charge Carriers",
+   "pi": "Dong Son",
+   "copis": [],
+   "start": "09/01/2023",
+   "end": "08/31/2027",
+   "amount": "489703",
+   "program": "Macromolec/Supramolec/Nano",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2308807",
+   "title": "Photocatalytic N2 reduction utilizing the upconverted hot electron",
+   "pi": "Dong Son",
+   "copis": [
+    "Michael Nippe nippe@chem.tamu.edu"
+   ],
+   "start": "09/01/2023",
+   "end": "08/31/2026",
+   "amount": "449998",
+   "program": "Catalysis",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2312982",
+   "title": "OAC Core: Improving Data Integrity for HPC Datasets using Sparsity Profile",
+   "pi": "Seung Woo Son",
+   "copis": [
+    "Orlando R Arias orlando_arias@uml.edu"
+   ],
+   "start": "06/01/2023",
+   "end": "05/31/2027",
+   "amount": "600000",
+   "program": "OAC-Advanced Cyberinfrast Core",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2555020",
+   "title": "GOALI: Cooperative Homogeneous-Heterogeneous Catalysis for Hydrogen Isotope Labeling of Pharmaceuticals",
+   "pi": "Long Luo",
+   "copis": [
+    "Jingwei Li JINGWEI.LI1@MERCK.COM"
+   ],
+   "start": "12/01/2026",
+   "end": "11/30/2029",
+   "amount": "562468",
+   "program": "Chemical Catalysis",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2551962",
+   "title": "Collaborative Research: CER: From Classroom to Career Readiness: Enhancing Undergraduate Computing Education Through Collaborative Research Experience in AI Security and Privacy",
+   "pi": "zhengping luo",
+   "copis": [],
+   "start": "10/01/2026",
+   "end": "09/30/2029",
+   "amount": "217779",
+   "program": "CER-ComputingEducationResearch",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2555492",
+   "title": "Collaborative Research: SaTC 2.0: RES: Modeling and Mitigating Reflective Backscatter Side-Channel Attacks (ReBac) in Everyday Devices",
+   "pi": "Yu Luo",
+   "copis": [],
+   "start": "10/01/2026",
+   "end": "09/30/2029",
+   "amount": "299999",
+   "program": "Secure &Trustworthy Cyberspace",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2522977",
+   "title": "Collaborative Research: DMREF: Anharmonicity and Defect Engineering of Compositionally Complex Oxides for Anomalous Coupling Properties",
+   "pi": "Jian Luo",
+   "copis": [],
+   "start": "10/01/2026",
+   "end": "09/30/2030",
+   "amount": "400000",
+   "program": "DMREF",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2616828",
+   "title": "Collaborative Research: AIMing: Statistically Guided Discovery for Certified and Efficient Randomized Numerical Linear Algebra Algorithms",
+   "pi": "HENGRUI LUO",
+   "copis": [],
+   "start": "09/15/2026",
+   "end": "08/31/2029",
+   "amount": "150000",
+   "program": "MSPA-INTERDISCIPLINARY",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2544593",
+   "title": "CAREER: Control of Networked Mobile Robot Teams for Reliable Communication under Uncertainty",
+   "pi": "Wenhao Luo",
+   "copis": [],
+   "start": "09/01/2026",
+   "end": "08/31/2031",
+   "amount": "600000",
+   "program": "FRR-Foundationl Rsrch Robotics",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2556092",
+   "title": "Phase Transitions in Stochastic Fracture of Disordered Architected Materials",
+   "pi": "Wen Luo",
+   "copis": [],
+   "start": "09/01/2026",
+   "end": "08/31/2029",
+   "amount": "391940",
+   "program": "Mechanics of Materials and Str",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2617772",
+   "title": "Collaborative Research: GCR: Bioengineered Approaches to Recover Critical Minerals and Produce Sustainable Silicon-Based Materials from Silicon-Rich Wastes",
+   "pi": "Jian Luo",
+   "copis": [],
+   "start": "09/01/2026",
+   "end": "08/31/2031",
+   "amount": "165000",
+   "program": "GCR-Growing Convergence Resear",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2606336",
+   "title": "Collaborative Research: Scalable Methods for Incomplete Tensors: To Complete or Not to Complete?",
+   "pi": "HENGRUI LUO",
+   "copis": [],
+   "start": "09/01/2026",
+   "end": "08/31/2029",
+   "amount": "99725",
+   "program": "APPLIED MATHEMATICS",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2616633",
+   "title": "Collaborative Research: III: Towards Reliable, Efficient, and Adaptive Multi-Agent Collaboration: A Graph-Centric Design",
+   "pi": "Xiao Luo",
+   "copis": [],
+   "start": "08/01/2026",
+   "end": "07/31/2029",
+   "amount": "249999",
+   "program": "Info Integration & Informatics",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2551666",
+   "title": "AF: Advancing the Theory of Online Optimization and Learning within Multi-Agent Systems",
+   "pi": "Haipeng Luo",
+   "copis": [],
+   "start": "08/01/2026",
+   "end": "07/31/2030",
+   "amount": "871225",
+   "program": "Algorithmic Foundations",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2541038",
+   "title": "CAREER: Programmable cellular remodeling of anisotropic hydrogels",
+   "pi": "Yimin Luo",
+   "copis": [],
+   "start": "07/01/2026",
+   "end": "06/30/2031",
+   "amount": "369358",
+   "program": "CONDENSED MATTER PHYSICS",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2542815",
+   "title": "CAREER: Uncovering Molecular Design Principles Linking Additive Chemistry to Zn Anode Structure and Interfacial Electrochemistry",
+   "pi": "Yuting Luo",
+   "copis": [],
+   "start": "04/01/2026",
+   "end": "03/31/2031",
+   "amount": "695630",
+   "program": "EchemS-Electrochemical Systems",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2526201",
+   "title": "Collaborative Research: Beginnings: Engaging and Preparing the Offshore Wind Workforce through Hybrid Experiential Learning",
+   "pi": "Feiya Luo",
+   "copis": [],
+   "start": "10/01/2025",
+   "end": "09/30/2028",
+   "amount": "117163",
+   "program": "ExLENT",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2513189",
+   "title": "Viral impacts on microbial carbon cycling at deep-sea hydrothermal vents",
+   "pi": "Elaine Luo",
+   "copis": [],
+   "start": "09/01/2025",
+   "end": "08/31/2028",
+   "amount": "699493",
+   "program": "BIOLOGICAL OCEANOGRAPHY",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2504438",
+   "title": "Collaborative Research: Scientific Computing Assisted Machine Learning for Wave Imaging",
+   "pi": "Songting Luo",
+   "copis": [],
+   "start": "09/01/2025",
+   "end": "08/31/2028",
+   "amount": "281836",
+   "program": "COMPUTATIONAL MATHEMATICS, MSPA-INTERDISCIPLINARY, CDS&E-MSS, OFFICE OF MULTIDISCIPLINARY AC",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2452134",
+   "title": "Extremal Problems Related to Cycles and Spanning Structures in Graphs and Hypergraphs",
+   "pi": "Ruth Luo",
+   "copis": [],
+   "start": "08/01/2025",
+   "end": "07/31/2028",
+   "amount": "182494",
+   "program": "OFFICE OF MULTIDISCIPLINARY AC, Combinatorics",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2501286",
+   "title": "Discrete conformal geometry of polyhedral surfaces",
+   "pi": "Feng Luo",
+   "copis": [],
+   "start": "07/01/2025",
+   "end": "06/30/2028",
+   "amount": "177900",
+   "program": "ANALYSIS PROGRAM",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2508384",
+   "title": "GOALI: Developing New Hydrogen Isotope Exchange Strategies for Isotope Labelling of Pharmaceuticals",
+   "pi": "Long Luo",
+   "copis": [],
+   "start": "03/01/2025",
+   "end": "02/28/2027",
+   "amount": "329206",
+   "program": "Chemical Synthesis, Chemical Catalysis",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2530297",
+   "title": "Collaborative Research: CPS: Medium: Harmonious and Safe Coordination of Vehicles with Diverse Human / Machine Autonomy",
+   "pi": "Wenhao Luo",
+   "copis": [],
+   "start": "01/01/2025",
+   "end": "06/30/2027",
+   "amount": "260118",
+   "program": "CPS-Cyber-Physical Systems, Special Projects - CNS, CISE Education and Workforce",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2528997",
+   "title": "ERI: Adaptive and Resilient Communication-Aware Multi-Robot Coordination",
+   "pi": "Wenhao Luo",
+   "copis": [],
+   "start": "01/01/2025",
+   "end": "08/31/2026",
+   "amount": "100076",
+   "program": "FRR-Foundationl Rsrch Robotics, ERI-Eng. Research Initiation",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2503459",
+   "title": "CAREER: CAS: Developing Gas Bubbles as a New Tool for Surface-Active Agent Analysis",
+   "pi": "Long Luo",
+   "copis": [],
+   "start": "11/15/2024",
+   "end": "04/30/2026",
+   "amount": "101088",
+   "program": "Chemical Measurement & Imaging",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2438950",
+   "title": "Planning: DCL-EPSCOR: SaTC Frontier: Exploring the Synergy Between Generative AI and Cybersecurity",
+   "pi": "Bo Luo",
+   "copis": [
+    "Michael S Branicky msb@ku.edu",
+    "Fengjun Li fli@ku.edu",
+    "Warren P Alexander palexand@ku.edu",
+    "Jennifer Lohoefener jlohoefener@ku.edu"
+   ],
+   "start": "10/01/2024",
+   "end": "09/30/2026",
+   "amount": "100000",
+   "program": "Information Technology Researc",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2430295",
+   "title": "Collaborative Research: Ideas Lab: Partnership for Advancing Research Capacity in Semiconductors at Historically Black Colleges and Universities",
+   "pi": "Zhiping Luo",
+   "copis": [
+    "Shubo Han shan@uncfsu.edu",
+    "Bhoj R Gautam bgautam@uncfsu.edu",
+    "Sangeetha Balabhadra Sbalabhadra@uncfsu.edu",
+    "Chandra M Adhikari cadhikari@uncfsu.edu"
+   ],
+   "start": "09/15/2024",
+   "end": "08/31/2027",
+   "amount": "537468",
+   "program": "HBCU-EiR - HBCU-Excellence in, EDUCATION AND WORKFORCE",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2616467",
+   "title": "Collaborative Research: CSR: VERITAS: Secure Vehicular Systems through Intelligent Information Flow Verification",
+   "pi": "Fei Xie",
+   "copis": [],
+   "start": "10/01/2026",
+   "end": "09/30/2030",
+   "amount": "300000",
+   "program": "CSR-Computer Systems Research",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2536109",
+   "title": "Collaborative Research: Development of a new autonomous surface vehicle for detection of seafloor subduction zone earthquakes and tsunamis",
+   "pi": "Surui Xie",
+   "copis": [],
+   "start": "08/01/2026",
+   "end": "07/31/2029",
+   "amount": "186758",
+   "program": "OCEAN TECH & INTERDISC COORDIN",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2610696",
+   "title": "Uncertainty Quantification for Low-Rank Factorization Models in Complex Setups: Theory, Computation, and Applications",
+   "pi": "Fangzheng Xie",
+   "copis": [],
+   "start": "07/15/2026",
+   "end": "06/30/2029",
+   "amount": "170000",
+   "program": "STATISTICS",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2543818",
+   "title": "CAREER: Rational Synthesis of Epitaxial 2D Heterostructures",
+   "pi": "Saien Xie",
+   "copis": [],
+   "start": "07/01/2026",
+   "end": "06/30/2031",
+   "amount": "522322",
+   "program": "CERAMICS",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2525393",
+   "title": "Collaborative Research: Novel Designs of GNSS-Acoustic Surveying for Low-Cost Seafloor Geodesy",
+   "pi": "Surui Xie",
+   "copis": [],
+   "start": "01/01/2026",
+   "end": "12/31/2028",
+   "amount": "690855",
+   "program": "OCEAN TECH & INTERDISC COORDIN",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2530610",
+   "title": "Collaborative Research: CAIG: Emulating Water Isotopes in Fully-coupled Global Climate Models using Knowledge-guided Machine Learning",
+   "pi": "Yiqun Xie",
+   "copis": [],
+   "start": "11/01/2025",
+   "end": "10/31/2028",
+   "amount": "319907",
+   "program": "GEO CI - GEO Cyberinfrastrctre",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2453370",
+   "title": "SaTC: CORE: Small: Novel Hardware Acceleration for Post-Quantum Digital Signature Scheme FALCON",
+   "pi": "Jiafeng Xie",
+   "copis": [
+    "Kyle Juretus kyle.juretus@villanova.edu"
+   ],
+   "start": "10/01/2025",
+   "end": "09/30/2028",
+   "amount": "329663",
+   "program": "Secure &Trustworthy Cyberspace",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2501501",
+   "title": "ERI: Understanding the Vibration-induced Integrated Degradation in the Li-ion battery",
+   "pi": "Yuanyuan Xie",
+   "copis": [],
+   "start": "09/01/2025",
+   "end": "08/31/2027",
+   "amount": "200000",
+   "program": "EchemS-Electrochemical Systems",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2442970",
+   "title": "CAREER: Mechanism-Informed AI for Biological Systems-of-Systems to Accelerate Biomanufacturing Systems Integration and Innovations",
+   "pi": "Wei Xie",
+   "copis": [],
+   "start": "09/01/2025",
+   "end": "08/31/2030",
+   "amount": "596920",
+   "program": "MSI-Manufacturing Systms Integ",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2441654",
+   "title": "CAREER: Safe and Reliable Human-Robot Shared Control for Robotic Telemanipulation in Complex and Extreme Environments",
+   "pi": "Biyun Xie",
+   "copis": [],
+   "start": "09/01/2025",
+   "end": "08/31/2030",
+   "amount": "602698",
+   "program": "FRR-Foundationl Rsrch Robotics",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2515766",
+   "title": "Collaborative Research: Performance Guaranteed Statistical Learning with Multiple Classes of Models (guided by PCS)",
+   "pi": "Minge Xie",
+   "copis": [],
+   "start": "08/15/2025",
+   "end": "07/31/2028",
+   "amount": "159940",
+   "program": "OFFICE OF MULTIDISCIPLINARY AC, STATISTICS",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2503139",
+   "title": "Excellence in Research: Elucidating the mechanisms of fungal bioluminescence through comparative genomic and biochemical approaches",
+   "pi": "Xianfa Xie",
+   "copis": [],
+   "start": "08/01/2025",
+   "end": "07/31/2028",
+   "amount": "1148010",
+   "program": "HBCU-EiR - HBCU-Excellence in",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2515425",
+   "title": "Mechanism Study of Superfast (De)lithiation Process of Conversion Materials",
+   "pi": "Jian Xie",
+   "copis": [],
+   "start": "08/01/2025",
+   "end": "07/31/2028",
+   "amount": "396048",
+   "program": "EchemS-Electrochemical Systems",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2437812",
+   "title": "CPS: Medium: An Autonomous Robotic System for Precision and High-Throughput Tomato Phenotyping in Large-Scale Greenhouses",
+   "pi": "Biyun Xie",
+   "copis": [
+    "Hongkai Yu h.yu19@csuohio.edu",
+    "JiangBiao He jiangbiao.he@utk.edu",
+    "Qinglu Ying qinglu.ying@uky.edu",
+    "Lauren J Brzozowski (Former) lauren.brzozowski@uky.edu"
+   ],
+   "start": "07/15/2025",
+   "end": "06/30/2028",
+   "amount": "1179584",
+   "program": "CPS-Cyber-Physical Systems",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2447675",
+   "title": "REU Site: Deep Learning for Dynamical Systems in Biological and Physical Sciences",
+   "pi": "Zhifu Xie",
+   "copis": [
+    "Qingguang Guan qingguang.guan@usm.edu"
+   ],
+   "start": "07/01/2025",
+   "end": "06/30/2028",
+   "amount": "301326",
+   "program": "RSCH EXPER FOR UNDERGRAD SITES",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2502693",
+   "title": "Conference: 2025 Midwest Several Complex Variables Conference",
+   "pi": "Zhizhang Xie",
+   "copis": [
+    "Siqi M Fu sfu@camden.rutgers.edu",
+    "Sonmez Sahutoglu sonmez.sahutoglu@utoledo.edu",
+    "Yunus Zeytuncu zeytuncu@umich.edu",
+    "Samangi Munasinghe samangi.munasinghe@wku.edu"
+   ],
+   "start": "06/01/2025",
+   "end": "05/31/2026",
+   "amount": "35000",
+   "program": "ANALYSIS PROGRAM",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2443885",
+   "title": "CAREER: Holistic Cross-layer Solution Towards Instant, Adaptive, and Evolving Intelligence for Battery-less Systems",
+   "pi": "Mimi Xie",
+   "copis": [],
+   "start": "06/01/2025",
+   "end": "05/31/2030",
+   "amount": "219227",
+   "program": "CSR-Computer Systems Research",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2443404",
+   "title": "CAREER: A Hybrid Parametric and Nonparametric Approach for Grounding Visual Intelligence in the Real World",
+   "pi": "Saining Xie",
+   "copis": [],
+   "start": "02/15/2025",
+   "end": "01/31/2030",
+   "amount": "227673",
+   "program": "Robust Intelligence",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2453511",
+   "title": "Conference: Workshop Proposal for Hardware Security in the Era of Quantum Computing & Post-Quantum Cryptography",
+   "pi": "Jiafeng Xie",
+   "copis": [],
+   "start": "11/15/2024",
+   "end": "05/31/2027",
+   "amount": "50000",
+   "program": "Secure &Trustworthy Cyberspace",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2425844",
+   "title": "Collaborative Research: CAIG: Toward Next-Generation Global Forest Carbon Monitoring via Integrated Sensing, Modeling and AI to Advance Carbon Cycle Science",
+   "pi": "Yiqun Xie",
+   "copis": [
+    "George C Hurtt gchurtt@umd.edu",
+    "Lei Ma lma6@umd.edu"
+   ],
+   "start": "10/01/2024",
+   "end": "09/30/2027",
+   "amount": "506675",
+   "program": "NDCC-Natl Discvry Cloud Climat, GEO CI - GEO Cyberinfrastrctre",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2432546",
+   "title": "Collaborative Research: New Algorithms and Theory for Weakly Coupled Markov Decision Processes",
+   "pi": "Qiaomin Xie",
+   "copis": [],
+   "start": "10/01/2024",
+   "end": "09/30/2027",
+   "amount": "275000",
+   "program": "EPCL: Energy, Power, Control,",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2422361",
+   "title": "Collaborative Research: DMR-TMRP: Unlocking New Phases under High Pressure in Ruddlesden-Popper Iridates",
+   "pi": "Weiwei Xie",
+   "copis": [],
+   "start": "09/15/2024",
+   "end": "08/31/2027",
+   "amount": "461379",
+   "program": "SOLID STATE & MATERIALS CHEMIS",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2405974",
+   "title": "SCH: Develop Clinical Time Series Foundation Models for Sepsis Early Detection",
+   "pi": "Pengtao Xie",
+   "copis": [
+    "Farinaz Koushanfar farinaz@ucsd.edu",
+    "Shamim Nemati snemati@health.ucsd.edu"
+   ],
+   "start": "09/15/2024",
+   "end": "08/31/2028",
+   "amount": "1200000",
+   "program": "Smart and Connected Health",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2339216",
+   "title": "CAREER: Mitigating the Lack of Labeled Training Data in Machine Learning Based on Multi-level Optimization",
+   "pi": "Pengtao Xie",
+   "copis": [],
+   "start": "09/01/2024",
+   "end": "08/31/2029",
+   "amount": "370000",
+   "program": "Info Integration & Informatics",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2417907",
+   "title": "Collaborative Research: CyberTraining: Pilot: Training on Unmanned Aerial Systems Cyber Infrastructure",
+   "pi": "Junfei Xie",
+   "copis": [],
+   "start": "09/01/2024",
+   "end": "08/31/2026",
+   "amount": "177560",
+   "program": "CyberTraining - Training-based",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2624439",
+   "title": "Collaborative Research: Federated Bilevel Optimization over Wireless Networks",
+   "pi": "Xuanyu Cao",
+   "copis": [],
+   "start": "01/01/2027",
+   "end": "12/31/2029",
+   "amount": "220000",
+   "program": "CSCS: Circuits and Systems for",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2613350",
+   "title": "CICI:IPAAI:CERTIFY:Contractual Integrity for Scientific AI-Ready Data Pipelines",
+   "pi": "Charles Cao",
+   "copis": [
+    "Tabitha K Samuel tsamuel@utk.edu",
+    "Gary Rogers grogers3@utk.edu"
+   ],
+   "start": "10/01/2026",
+   "end": "09/30/2029",
+   "amount": "900000",
+   "program": "Cybersecurity Innovation",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2602886",
+   "title": "Excellence in Research: Advancing Scalability of Connected and Autonomous Vehicles via Bottom-up Hardware-Software Co-design",
+   "pi": "Deng Cao",
+   "copis": [
+    "Yu Liang yu-liang@utc.edu",
+    "Dalei Wu dalei-wu@utc.edu",
+    "Yukun Yuan yukun-yuan@utc.edu",
+    "Xiaojun Shang xiaojun.shang@uta.edu"
+   ],
+   "start": "10/01/2026",
+   "end": "09/30/2029",
+   "amount": "799947",
+   "program": "HBCU-EiR - HBCU-Excellence in",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2623456",
+   "title": "Collaborative Research: Novel Interface Driven Designs for Advanced Resistive Switching Schemes",
+   "pi": "Ye Cao",
+   "copis": [],
+   "start": "09/01/2026",
+   "end": "08/31/2029",
+   "amount": "265000",
+   "program": "ELECTRONIC/PHOTONIC MATERIALS",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2613629",
+   "title": "CICI: UCSS: Trustworthy Cyberinfrastructure-Enabled Data-Driven Electronic Design Automation for Collaborative Design of Analog/Mixed-Signal Integrated Circuits",
+   "pi": "Weidong Cao",
+   "copis": [
+    "Tian Lan tlan@gwu.edu",
+    "Mengxin Zheng mengxin.zheng@ucf.edu"
+   ],
+   "start": "09/01/2026",
+   "end": "08/31/2029",
+   "amount": "600000",
+   "program": "Cybersecurity Innovation",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2605492",
+   "title": "Collaborative Research: Mechanics of Confined Interfaces in Hierarchical Ceramic Composites Under Extreme Conditions",
+   "pi": "Changyong Cao",
+   "copis": [],
+   "start": "09/01/2026",
+   "end": "08/31/2029",
+   "amount": "439710",
+   "program": "Mechanics of Materials and Str",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2622440",
+   "title": "Collaborative Research: MPS/CHE-EPSRC: Magic as a Quantum Descriptor for Chemistry",
+   "pi": "Chun Jun Cao",
+   "copis": [],
+   "start": "09/01/2026",
+   "end": "08/31/2029",
+   "amount": "325000",
+   "program": "CSD-Chem Strcture and Dynamics, GVF - Global Venture Fund, QIS - Quantum Information Scie, PROJECTS",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2542568",
+   "title": "CAREER: Quantum Gravity-Inspired Quantum Error Correction and Quantum Lego",
+   "pi": "Chun Jun Cao",
+   "copis": [],
+   "start": "08/01/2026",
+   "end": "07/31/2031",
+   "amount": "335239",
+   "program": "QIS - Quantum Information Scie",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2542853",
+   "title": "CAREER: Understanding the Inner Mechanism of Transformer Neural Operators",
+   "pi": "Shuhao Cao",
+   "copis": [],
+   "start": "08/01/2026",
+   "end": "07/31/2031",
+   "amount": "273408",
+   "program": "COMPUTATIONAL MATHEMATICS",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2552091",
+   "title": "Collaborative Research: SHF: SensABridge: Learnable Sensor-AI Bridge for Ubiquitous Edge Intelligent Processing",
+   "pi": "Weidong Cao",
+   "copis": [
+    "Luyao Lu luyaolu@gwu.edu"
+   ],
+   "start": "08/01/2026",
+   "end": "07/31/2029",
+   "amount": "400256",
+   "program": "Software & Hardware Foundation",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2553817",
+   "title": "Collaborative Research: DMS/NIGSM 1: Statistical methods for estimating direct genetic effect",
+   "pi": "Hongyuan Cao",
+   "copis": [],
+   "start": "07/01/2026",
+   "end": "08/31/2026",
+   "amount": "300000",
+   "program": "NIGMS",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2540512",
+   "title": "CAREER: Developing Synthetic Microbiome Mimics to Study Microbe-Host Interactions",
+   "pi": "Shijie Cao",
+   "copis": [],
+   "start": "07/01/2026",
+   "end": "06/30/2031",
+   "amount": "574462",
+   "program": "Engineering of Biomed Systems",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2638451",
+   "title": "Collaborative Research: DMS/NIGSM 1: Statistical methods for estimating direct genetic effect",
+   "pi": "Hongyuan Cao",
+   "copis": [],
+   "start": "07/01/2026",
+   "end": "06/30/2029",
+   "amount": "300000",
+   "program": "NIGMS",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2514071",
+   "title": "Elements: AnalogEDA-Hub: At-Scale Analog Circuit Electronic Design Automation with An Open and Efficient Platform",
+   "pi": "Weidong Cao",
+   "copis": [
+    "Tian Lan tlan@gwu.edu"
+   ],
+   "start": "05/01/2026",
+   "end": "04/30/2029",
+   "amount": "599971",
+   "program": "Software Institutes",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2532588",
+   "title": "Collaborative Research: EAGER: FDASS: Protect Intellectual Property of Software Code in the Age of Generative AI",
+   "pi": "Qitong Cao",
+   "copis": [
+    "Yingjie Lao yingjie.lao@tufts.edu"
+   ],
+   "start": "10/01/2025",
+   "end": "09/30/2027",
+   "amount": "180000",
+   "program": "DASS-Dsgng Accntble SW Systms",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2520347",
+   "title": "Collaborative Research: AI-ENGAGE: HARVEST: Holistic AI-powered Agricultural Response Validation and Early Prediction System across Territories",
+   "pi": "Charles Cao",
+   "copis": [
+    "Shigetoshi Eda seda@utk.edu"
+   ],
+   "start": "10/01/2025",
+   "end": "02/29/2028",
+   "amount": "175000",
+   "program": "MultiPLEx",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2501827",
+   "title": "ERI: Towards Extra-Large-Pore Zeolite Catalysis Performance with Multilayer Zeolite Nanosheets",
+   "pi": "Zishu Cao",
+   "copis": [],
+   "start": "09/15/2025",
+   "end": "08/31/2027",
+   "amount": "199850",
+   "program": "Catalysis, Interfacial Engineering Progra",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2446127",
+   "title": "Collaborative Research: RTG: Building a robust mathematical foundation for AI and integrated data science at Auburn and Tuskegee University",
+   "pi": "Yanzhao Cao",
+   "copis": [
+    "Shiwen Mao smao@auburn.edu",
+    "Nedret Billor billone@auburn.edu",
+    "Asheber Abebe abebeas@auburn.edu",
+    "Junshan Lin jzl0097@auburn.edu"
+   ],
+   "start": "09/01/2025",
+   "end": "08/31/2030",
+   "amount": "1323521",
+   "program": "COMPUTATIONAL MATHEMATICS, WORKFORCE IN THE MATHEMAT SCI, OFFICE OF MULTIDISCIPLINARY AC",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2537355",
+   "title": "EAGER: Unmasking HPC Abuse: AI Graph Inference from Scheduling Metadata",
+   "pi": "Phuong Cao",
+   "copis": [
+    "Ravishankar K Iyer rkiyer@illinois.edu"
+   ],
+   "start": "09/01/2025",
+   "end": "08/31/2027",
+   "amount": "274654",
+   "program": "Research on Research Security",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2451577",
+   "title": "CRII: OAC: SEAM: Scalable and Efficient Adaptive Mixed-Precision Framework for Scientific and AI Workloads on GPUs",
+   "pi": "Qinglei Cao",
+   "copis": [],
+   "start": "08/01/2025",
+   "end": "07/31/2027",
+   "amount": "174666",
+   "program": "CRII CISE Research Initiation",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2530738",
+   "title": "CICI:RSSD: Live Evaluations of Real-World Security Data Lake from National Cyberinfrastructure",
+   "pi": "Phuong Cao",
+   "copis": [
+    "Ravishankar K Iyer rkiyer@illinois.edu"
+   ],
+   "start": "08/01/2025",
+   "end": "07/31/2028",
+   "amount": "600000",
+   "program": "Cybersecurity Innovation",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2450485",
+   "title": "Monolithic Three-Dimensional Integrated Circuit Technology Based on High-Performance Junctionless Transistors Built on Single-Crystalline Silicon Nanomembranes",
+   "pi": "Qing Cao",
+   "copis": [],
+   "start": "06/01/2025",
+   "end": "05/31/2028",
+   "amount": "455489",
+   "program": "EPMQD: Electronic, Photonic, M",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2443219",
+   "title": "CAREER: Towards Disaggregated Persistent Key-Value Stores",
+   "pi": "Zhichao Cao",
+   "copis": [],
+   "start": "02/01/2025",
+   "end": "01/31/2030",
+   "amount": "420815",
+   "program": "CSR-Computer Systems Research, Unallocated Program Costs",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2441893",
+   "title": "CAREER: Investigating unconventional superconductivity with reconfigurable graphene heterostructures",
+   "pi": "Yuan Cao",
+   "copis": [],
+   "start": "02/01/2025",
+   "end": "01/31/2030",
+   "amount": "303710",
+   "program": "ELECTRONIC/PHOTONIC MATERIALS",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2429775",
+   "title": "EPSCoR Research Fellows: NSF: Investigating Spatial Photonic Sintering of Metallic Nanoparticles Toward Intense Pulsed Light Assisted Electrohydrodynamic 3D Printing",
+   "pi": "Yang Cao",
+   "copis": [],
+   "start": "01/15/2025",
+   "end": "12/31/2027",
+   "amount": "257665",
+   "program": "EPSCoR RII: EPSCoR Research Fe",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2535164",
+   "title": "EPSCoR Graduate Fellowship Program (EGFP): Empowering STEM doctoral education through cohort-based NSF EPSCoR Graduate Fellowship Program",
+   "pi": "Lingyu Yu",
+   "copis": [
+    "Ann Vail ann.vail@sc.edu",
+    "Matthew Klopfenstein klopfenm@mailbox.sc.edu",
+    "Lara L Anderson lomicka@sc.edu"
+   ],
+   "start": "03/15/2027",
+   "end": "02/28/2030",
+   "amount": "1431000",
+   "program": "EGF-EPSCoR Graduate Fellowship",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2555727",
+   "title": "Incremental Sheet Forming of Continuous Fiber Reinforced Polymer Composites with Artificial Intelligence-Assisted Process Modeling",
+   "pi": "Kai Yu",
+   "copis": [
+    "Martin L Dunn martin.dunn@ucdenver.edu"
+   ],
+   "start": "10/01/2026",
+   "end": "09/30/2029",
+   "amount": "607204",
+   "program": "AM-Advanced Manufacturing",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2630534",
+   "title": "I-Corps:  Translation Potential of a Hong-Ou-Mandel Quantum Imaging System Combined with a Microscope for Live-Cell Analysis",
+   "pi": "Ping Yu",
+   "copis": [],
+   "start": "09/01/2026",
+   "end": "08/31/2027",
+   "amount": "50000",
+   "program": "TIP-CHIPS KTA-3 Quantum",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2623133",
+   "title": "CyberAI Innovation: Securing the Engineering Enterprise through AI-integrated Operational Technology Systems Cybersecurity Education",
+   "pi": "Chansu Yu",
+   "copis": [
+    "Marvin E Thrash m.thrash@csuohio.edu",
+    "Wenbing Zhao w.zhao1@csuohio.edu",
+    "Josiah S Owusu-Danquah j.owusudanquah@csuohio.edu",
+    "Bogdan Kozul b.kozul@csuohio.edu"
+   ],
+   "start": "09/01/2026",
+   "end": "08/31/2029",
+   "amount": "500000",
+   "program": "CyberAICorps SFS",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2606125",
+   "title": "Collaborative Research: Establishing the theoretical framework for eccentric interacting binaries",
+   "pi": "Hang Yu",
+   "copis": [],
+   "start": "09/01/2026",
+   "end": "08/31/2029",
+   "amount": "266905",
+   "program": "OFFICE OF MULTIDISCIPLINARY AC, STELLAR ASTRONOMY & ASTROPHYSC",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2551891",
+   "title": "Collaborative Research: RI: Structural Skeletons for Robust Scene Understanding",
+   "pi": "Rui Yu",
+   "copis": [],
+   "start": "08/01/2026",
+   "end": "07/31/2030",
+   "amount": "481101",
+   "program": "Robust Intelligence",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2546786",
+   "title": "Collaborative Research: CS2: Formally Verified and Performance-Optimized Tensor Contraction Sequences in Quantum Many-Body Computations",
+   "pi": "Cunxi Yu",
+   "copis": [],
+   "start": "05/01/2026",
+   "end": "04/30/2029",
+   "amount": "266000",
+   "program": "Correct SciComp Systems (CS2)",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2541579",
+   "title": "CAREER: Theoretical Models of Neutron Star Matter Effects from Inspiral to Post-Merger",
+   "pi": "Hang Yu",
+   "copis": [],
+   "start": "04/01/2026",
+   "end": "03/31/2031",
+   "amount": "205958",
+   "program": "Gravity Exp. & Data Analysis",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2435423",
+   "title": "Center: IUCRC Phase III University of Massachusetts Lowell: Center for Wind Energy Science, Technology, and Research (WindSTAR)",
+   "pi": "Christopher Niezrecki",
+   "copis": [
+    "Margaret SobkowiczKline Margaret_sobkowiczkline@uml.edu",
+    "Murat Inalpolat Murat_Inalpolat@uml.edu",
+    "Scott E Stapleton Scott_Stapleton@uml.edu",
+    "Alessandro Sabato Alessandro_Sabato@uml.edu"
+   ],
+   "start": "12/01/2025",
+   "end": "11/30/2030",
+   "amount": "250000",
+   "program": "IUCRC-Indust-Univ Coop Res Ctr",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2301693",
+   "title": "ERI: Enabling tunable electronic device fabrication on flexible substrates using Barium Strontium Titanate (BST) printable ink development",
+   "pi": "Oshadha Ranasingha",
+   "copis": [],
+   "start": "06/01/2023",
+   "end": "05/31/2026",
+   "amount": "197500",
+   "program": "ERI-Eng. Research Initiation",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2312857",
+   "title": "BRC-BIO: Deciphering the roles of RNA modifications in regulating responses to abiotic stresses in cereal crops",
+   "pi": "Manohar Chakrabarti",
+   "copis": [],
+   "start": "01/01/2024",
+   "end": "12/31/2027",
+   "amount": "503000",
+   "program": "NFE-New Faculty Enhancement",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2305425",
+   "title": "Collaborative Research: Expanding the Dynamical Map of the Milky Way with Asteroseismic Distances",
+   "pi": "Sukanya Chakrabarti",
+   "copis": [],
+   "start": "12/15/2022",
+   "end": "07/31/2024",
+   "amount": "151847",
+   "program": "GALACTIC ASTRONOMY PROGRAM",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2153907",
+   "title": "New Frontiers in Several Complex Variables",
+   "pi": "Debraj Chakrabarti",
+   "copis": [],
+   "start": "09/01/2022",
+   "end": "08/31/2026",
+   "amount": "223754",
+   "program": "ANALYSIS PROGRAM",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2549660",
+   "title": "Light-Emitting Devices Enabled by Large-Area Correlated-Electron Transparent Conductors",
+   "pi": "Paul Evans",
+   "copis": [],
+   "start": "10/15/2026",
+   "end": "09/30/2029",
+   "amount": "400000",
+   "program": "EPMQD: Electronic, Photonic, M",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2554808",
+   "title": "Interface structure and precrystalline order in complex-oxide solid phase epitaxy: direct insights from in situ x-ray scattering",
+   "pi": "Paul Evans",
+   "copis": [],
+   "start": "09/01/2026",
+   "end": "08/31/2029",
+   "amount": "554081",
+   "program": "CERAMICS",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2540250",
+   "title": "CAREER: Electrode-Macromolecule Interactions Influence the Selectivity of Electrolytic Polymer Transformation, Deconstruction, and Depolymerization",
+   "pi": "Austin Evans",
+   "copis": [],
+   "start": "09/01/2026",
+   "end": "08/31/2031",
+   "amount": "661953",
+   "program": "Macromolec/Supramolec/Nano",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2626041",
+   "title": "Conference: Society for Research on Biological Rhythms 2026 - Time Matters: Biological Rhythms Shaping Life and Health",
+   "pi": "Jennifer Evans",
+   "copis": [],
+   "start": "08/01/2026",
+   "end": "07/31/2027",
+   "amount": "20000",
+   "program": "Cell, Dev, & Physio",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2608685",
+   "title": "Iron Isotope Fractionation of Seafloor Hydrothermal Fluids and Minerals",
+   "pi": "Guy Evans",
+   "copis": [
+    "William E Seyfried wes@umn.edu",
+    "Xinyuan Zheng zhengxy@umn.edu"
+   ],
+   "start": "07/01/2026",
+   "end": "06/30/2028",
+   "amount": "403841",
+   "program": "NSF CriticalMinerals&Materials",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2522611",
+   "title": "Collaborative Research: DMREF: AI-guided Discovery of Sustainable Ion-Conducting Peptide Electrolytes",
+   "pi": "Christopher Evans",
+   "copis": [
+    "Charles M Schroeder cschroeder@princeton.edu",
+    "Nicholas Jackson jacksonn@illinois.edu"
+   ],
+   "start": "10/01/2025",
+   "end": "09/30/2029",
+   "amount": "1500000",
+   "program": "OFFICE OF MULTIDISCIPLINARY AC, BIOMATERIALS PROGRAM, DMREF",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2448308",
+   "title": "Collaborative Research: Improving Teacher Retention and Effectiveness through Knowledge Sharing (iTREKS): Studying STEM Teachers in High Need Schools across a Community of Practice",
+   "pi": "Paige Evans",
+   "copis": [
+    "Karen E Graham kemcintu@central.uh.edu"
+   ],
+   "start": "10/01/2025",
+   "end": "09/30/2028",
+   "amount": "329308",
+   "program": "Robert Noyce Scholarship Pgm",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2452677",
+   "title": "Expanding Reductive Chemistry and Oxidation State Variability Using the Synthetic Chemistry of the Rare-Earth Metals",
+   "pi": "William Evans",
+   "copis": [],
+   "start": "07/15/2025",
+   "end": "06/30/2028",
+   "amount": "600000",
+   "program": "Chemical Synthesis",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2449718",
+   "title": "New Methods for Measuring Expert Influence",
+   "pi": "Kenneth Evans",
+   "copis": [
+    "Kirstin R Matthews krwm@rice.edu"
+   ],
+   "start": "07/01/2025",
+   "end": "06/30/2028",
+   "amount": "400000",
+   "program": "Science of Science",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2434174",
+   "title": "EDU EPSCoR DCL: Strengthening the Frontlines of Computer Science Education: Empowering Teachers to Lead Rigorous CS Programs in South Carolina",
+   "pi": "Marvin Evans",
+   "copis": [
+    "Crystal Cox crystal@coastal.edu"
+   ],
+   "start": "01/01/2025",
+   "end": "12/31/2026",
+   "amount": "293330",
+   "program": "CSforAll-Computer Sci for All",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2308972",
+   "title": "Collaborative Research: Local Gravity Disturbances and Next-Generation Gravitational-Wave Astrophysics",
+   "pi": "Matthew Evans",
+   "copis": [],
+   "start": "08/15/2024",
+   "end": "07/31/2027",
+   "amount": "214449",
+   "program": "LIGO RESEARCH SUPPORT",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2339296",
+   "title": "CAREER: Shallow geophysics of fault creep: linking slip and surface deformation on the San Andreas fault",
+   "pi": "Eileen Evans",
+   "copis": [],
+   "start": "08/15/2024",
+   "end": "07/31/2029",
+   "amount": "400952",
+   "program": "Geophysics, EDUCATION AND HUMAN RESOURCES, SPSE-Study of Physics of Earth",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2409604",
+   "title": "Research on Gravitational Waves and Compact Binaries",
+   "pi": "Charles Evans",
+   "copis": [],
+   "start": "08/01/2024",
+   "end": "07/31/2027",
+   "amount": "180000",
+   "program": "Gravity Exp. & Data Analysis, Gravity Theory",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2404109",
+   "title": "APTO: Collaborative Research: Global Observatory and Virtual Laboratory for Science and Technology Advance",
+   "pi": "James Evans",
+   "copis": [
+    "Ian Foster foster@uchicago.edu",
+    "Ufuk Akcigit uakcigit@uchicago.edu"
+   ],
+   "start": "07/01/2024",
+   "end": "06/30/2029",
+   "amount": "11005288",
+   "program": "APTO-Assess-Predict Tech Outcm",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2345134",
+   "title": "Developing STEM Teacher Leaders in Classroom Management, Engineering Design, and Induction",
+   "pi": "Paige Evans",
+   "copis": [
+    "Jerrod A Henderson jahende6@central.uh.edu",
+    "Virginia Rangel vrangel3@uh.edu",
+    "Ramona C Mateer rcmateer@central.uh.edu",
+    "Amanda Campos arcampos5@uh.edu"
+   ],
+   "start": "05/01/2024",
+   "end": "04/30/2029",
+   "amount": "2994298",
+   "program": "Robert Noyce Scholarship Pgm",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2347093",
+   "title": "AGS-FIRP Track 1: Learning by Doing: Observing the Lake Michigan Lake-Breeze Circulation",
+   "pi": "Allen Evans",
+   "copis": [],
+   "start": "03/15/2024",
+   "end": "08/31/2024",
+   "amount": "22270",
+   "program": "FARE-Facil for Atmos Res & Ed",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2235308",
+   "title": "CAREER: Hydrogeologic implications of permafrost thaw - Developing a process-based understanding of biophysical controls and educational tools for rural communities",
+   "pi": "Sarah Evans",
+   "copis": [],
+   "start": "01/15/2024",
+   "end": "12/31/2028",
+   "amount": "499727",
+   "program": "Hydrologic Sciences, ANS-Arctic Natural Sciences, WaLCZ-Water, Land, & Crit Zone",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2321162",
+   "title": "SCC-CIVIC-FA Track A: Assessing the Performance of Green Stormwater Infrastructure for Climate Adaptation and Coastal Resilience in the City of Cape Canaveral, Florida",
+   "pi": "Jason Evans",
+   "copis": [
+    "Nickolas D Macchiarella macchian@erau.edu"
+   ],
+   "start": "10/01/2023",
+   "end": "09/30/2025",
+   "amount": "1000000",
+   "program": "S&CC: Smart & Connected Commun",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2309064",
+   "title": "Launching the Cosmic Explorer Conceptual Design",
+   "pi": "Matthew Evans",
+   "copis": [
+    "Stefan W Ballmer sballmer@syr.edu",
+    "Joey S Key joeykey@uw.edu",
+    "Bangalore S Sathyaprakash bss25@psu.edu",
+    "Hannah M Hansen hmhansen@caltech.edu"
+   ],
+   "start": "08/01/2023",
+   "end": "07/31/2027",
+   "amount": "3300932",
+   "program": "LIGO RESEARCH SUPPORT",
+   "found": "2026-09-16"
+  },
+  {
+   "id": "2303530",
+   "title": "DeepGreen: A Deep Learning Based Tree-Ring Width Data Model for Paleoclimatic Data Assimilation",
+   "pi": "Michael Evans",
+   "copis": [],
+   "start": "07/01/2023",
+   "end": "06/30/2027",
+   "amount": "494591",
+   "program": "P4CLIMATE",
+   "found": "2026-09-16"
+  }
+ ]
+}

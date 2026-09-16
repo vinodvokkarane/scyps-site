@@ -11,7 +11,7 @@ import sys
 OUT = sys.argv[1] if len(sys.argv) > 1 else "index.html"   # run: python3 build_site.py [output path]
 
 # ---------------------------------------------------------------- people
-CORE = {"Vokkarane", "Arias", "Tseng", "Son"}
+CORE = {"Vokkarane", "Arias", "Tseng", "Son", "Aghara", "Lin"}
 
 FACULTY = {
     "director": {
@@ -43,31 +43,49 @@ FACULTY = {
          "email": "SeungWoo_Son@uml.edu", "phone": "978-934-6846", "office": "Ball Hall 419",
          "url": "https://www.uml.edu/engineering/electrical-computer/faculty/son-seung-woo.aspx",
          "role": "NSF CAREER awardee (2018); brings HPC, silent-data-corruption detection, and on-device stream analytics to the center's data-intensive CPS work."},
-    ],
-    "board": [
-        {"name": "Jomol Mathew", "title": "Chief Research Informatics Officer, UMass Chan Medical School",
-         "areas": "Research informatics, digital health", "email": "Jomol.Mathew@umassmed.edu", "phone": ""},
+        {"name": "Sukesh Aghara", "photo": "aghara", "title": "Professor, Chemical (Nuclear) Engineering; Director, Nuclear Engineering Program",
+         "areas": "Nuclear nonproliferation, nuclear security and safeguards, nuclear energy for decarbonization", "email": "Sukesh_Aghara@uml.edu", "phone": "978-934-3115", "role": "Leads the Massachusetts Advanced Nuclear and Fusion Energy Roadmaps; directs the Integrated Nuclear Security and Safeguards Laboratory (INSSL) and co-directs the IAEA-funded Intercontinental Nuclear Institute.", "url": "https://www.uml.edu/engineering/chemical/faculty/aghara-sukesh.aspx"},
+
+        {"name": "Yuzhang Lin", "photo": "lin", "title": "Assistant Professor, Electrical and Computer Engineering, NYU Tandon School of Engineering",
+         "areas": "Smart grid and renewable energy: modeling, situational awareness, cyber-physical resilience, machine learning applications",
+         "email": "yuzhang.lin@nyu.edu", "phone": "", "office": "",
+         "url": "https://engineering.nyu.edu/faculty/yuzhang-lin",
+         "role": "External center member; UMass Lowell ECE faculty 2018 to 2023. NSF CAREER awardee; Co-PI on SUMMIT and the ONR post-disaster restoration project, and a co-author on the center's smart grid papers."},
         {"name": "Yan Luo", "photo": "luo", "title": "Professor, Electrical and Computer Engineering; Robotics",
-         "areas": "Computer architecture, network systems", "email": "yan_luo@uml.edu", "phone": "978-934-2592"},
+         "areas": "Computer architecture, network systems", "email": "yan_luo@uml.edu", "phone": "978-934-2592", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/luo-yan.aspx"},
         {"name": "Yuanchang Xie", "photo": "xie", "title": "Professor, Civil and Environmental Engineering",
-         "areas": "Transportation engineering, smart and connected transportation", "email": "Yuanchang_Xie@uml.edu", "phone": "978-934-3681"},
-        {"name": "Sukesh Aghara", "photo": "aghara", "title": "Professor, Chemical (Nuclear) Engineering; Associate Dean of Graduate Studies and Research",
-         "areas": "Nuclear nonproliferation, nuclear security and safeguards, nuclear energy for decarbonization", "email": "Sukesh_Aghara@uml.edu", "phone": "978-934-3115"},
-    ],
+         "areas": "Transportation engineering, smart and connected transportation", "email": "Yuanchang_Xie@uml.edu", "phone": "978-934-3681", "url": "https://www.uml.edu/engineering/civil-environmental/faculty-staff-students/faculty/xie-yuanchang.aspx"},    ],
     "affiliated": [
         {"name": "Yu Cao", "photo": "cao", "title": "Professor, Miner School of Computer and Information Sciences; Director, UMass Center for Digital Health",
-         "areas": "Medical imaging, multimodal deep learning, computer vision, AI, digital health", "email": "yu_cao@uml.edu", "phone": "978-934-3628"},
+         "areas": "Medical imaging, multimodal deep learning, computer vision, AI, digital health", "email": "yu_cao@uml.edu", "phone": "978-934-3628", "url": "https://www.uml.edu/sciences/computer-science/people/cao-yu.aspx"},
         {"name": "Chunxiao (Tricia) Chigan", "photo": "chigan", "title": "Professor, Electrical and Computer Engineering",
-         "areas": "Communication networks and network security", "email": "Tricia_Chigan@uml.edu", "phone": "978-934-3364"},
+         "areas": "Communication networks and network security", "email": "Tricia_Chigan@uml.edu", "phone": "978-934-3364", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/chigan-tricia.aspx"},
         {"name": "Murat Inalpolat", "photo": "inalpolat", "title": "Professor, Mechanical and Industrial Engineering; Associate Chair for Doctoral Studies",
-         "areas": "Structural health monitoring, diagnostics and prognostics, structural dynamics, vibrations, acoustics, signal processing", "email": "Murat_Inalpolat@uml.edu", "phone": "978-934-2556"},
+         "areas": "Structural health monitoring, diagnostics and prognostics, structural dynamics, vibrations, acoustics, signal processing", "email": "Murat_Inalpolat@uml.edu", "phone": "978-934-2556", "url": "https://www.uml.edu/engineering/mechanical-industrial/faculty/inalpolat-murat.aspx"},
         {"name": "Paul Robinette", "photo": "robinette", "title": "Associate Professor, Electrical and Computer Engineering; Associate Chair for M.S. Programs",
-         "areas": "Robotics, human-robot interaction; Printed Electronics Research Collaborative; Raytheon UMass Lowell Research Institute", "email": "Paul_Robinette@uml.edu", "phone": "978-934-3347"},
+         "areas": "Robotics, human-robot interaction; Printed Electronics Research Collaborative; Raytheon UMass Lowell Research Institute", "email": "Paul_Robinette@uml.edu", "phone": "978-934-3347", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/robinette-paul.aspx"},
         {"name": "Hengyong Yu", "photo": "yu", "title": "Professor, Electrical and Computer Engineering",
-         "areas": "Biomedical imaging, medical image reconstruction, image processing and analysis", "email": "Hengyong_Yu@uml.edu", "phone": "978-934-6756"},
+         "areas": "Biomedical imaging, medical image reconstruction, image processing and analysis", "email": "Hengyong_Yu@uml.edu", "phone": "978-934-6756", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/yu-hengyong.aspx"},
+        {"name": "Alkim Akyurtlu", "photo": "akyurtlu", "title": "Professor, Electrical and Computer Engineering; Director, Raytheon UMass Lowell Research Institute (RURI); Director, Printed Electronics Research Collaborative (PERC)",
+         "areas": "Additive manufacturing and printed electronics for RF and microwave devices, wearables, functional printable inks, metamaterials", "email": "Alkim_Akyurtlu@uml.edu", "phone": "978-934-3336", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/akyurtlu-alkim.aspx"},
+        {"name": "Christopher Niezrecki", "photo": "niezrecki", "title": "Distinguished University Professor, Mechanical and Industrial Engineering; Director, Center for Energy Innovation; Co-director, Rist Institute for Sustainability and Energy",
+         "areas": "Renewable energy systems, wind turbine dynamics, structural health monitoring and inspection, structural dynamics and acoustics, smart materials", "email": "Christopher_Niezrecki@uml.edu", "phone": "978-934-2963", "url": "https://www.uml.edu/engineering/mechanical-industrial/faculty/niezrecki-christopher.aspx"},
+        {"name": "Oshadha Ranasingha", "photo": "ranasingha", "title": "Assistant Professor, Electrical and Computer Engineering; PERC and RURI",
+         "areas": "Functional inks for printed electronics and additive manufacturing, fully printed micro-supercapacitors, energy harvesting, hardware authentication", "email": "oshadha_ranasingha@uml.edu", "phone": "978-934-2336", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/ranasingha-oshadha.aspx"},
+    ],
+    "external": [
+        {"name": "Anurag Srivastava", "tag": "External collaborator", "photo": "srivastava", "title": "Raymond J. Lane Professor and Chairperson, Lane Department of Computer Science and Electrical Engineering, West Virginia University; IEEE Fellow",
+         "areas": "Data-driven algorithms for power system operation, control, and resilience; WVU partner on the SUMMIT federated smart grid testbed",
+         "email": "anurag.srivastava@mail.wvu.edu", "phone": "", "url": "https://directory.statler.wvu.edu/faculty-staff-directory/anurag-srivastava"},
+        {"name": "Heidi Dempsey", "tag": "External collaborator", "photo": "dempsey", "title": "Research Director of the Northeast US, Red Hat",
+         "areas": "Grows research and open-source collaborations between Red Hat and academic partners; Red Hat partner for the center's Friendly Fedora and Podman work",
+         "email": "hdempsey@redhat.com", "phone": "", "url": "https://www.bu.edu/hic/profile/heidi-dempsey/"},
+        {"name": "Babu Jain", "tag": "External collaborator", "photo": "jain", "title": "Founder and CEO, Navia Energy Inc.",
+         "areas": "AI-driven renewable energy systems; industry partner on the center's resilient smart grids project",
+         "email": "", "phone": "", "url": "https://www.linkedin.com/in/babu-jain-188470/"},
     ],
     "collaborators": [
-        {"name": "Yuzhang Lin", "org": "NYU Tandon School of Engineering", "note": "Co-PI, SUMMIT and ONR restoration project; six years of joint smart grid research with the center"},
+        {"name": "NYU Tandon School of Engineering", "org": "SUMMIT federation site", "note": "Second node of the multi-site smart grid testbed, led by center member Yuzhang Lin"},
         {"name": "West Virginia University", "org": "SUMMIT federation site", "note": "Third node of the multi-site smart grid testbed"},
         {"name": "UMass Lowell Applied Research Corporation (UMLARC)", "org": "Defense and state applied research", "note": "Place of performance for the ARPO projects"},
         {"name": "Navia Energy Inc.", "org": "Industry partner", "note": "Resilient smart grid research"},
@@ -99,9 +117,9 @@ PROJECTS = [
      "team": "PI Vinod Vokkarane; UMLARC and UMass Lowell",
      "desc": "Planning and optimization methods for autonomous robotic systems operating over contested tactical networks.",
      "domain": "Autonomy"},
-    {"tag": "Active", "sponsor": "Office of Naval Research",
+    {"tag": "Completed", "sponsor": "Office of Naval Research",
      "title": "Unified Post-Disaster Restoration Planning for Cyber-Physical Power Distribution Systems",
-     "amount": "$550K", "period": "Jan 2024 to Dec 2026",
+     "amount": "$550K", "period": "Jan 2024 to Oct 2025",
      "team": "PI Vinod Vokkarane; Co-PIs Orlando Arias (UMass Lowell), Yuzhang Lin (NYU)",
      "desc": ("Joint restoration of the power and communication layers of a distribution grid after a disaster, "
               "including networked microgrid formation and communication-aware state recovery."),
@@ -112,6 +130,18 @@ PROJECTS = [
      "team": "UMass Lowell PI Vinod Vokkarane; multi-university consortium",
      "desc": "A regional university center on cybersecurity for energy delivery systems, combining research with workforce training.",
      "domain": "Energy"},
+    {"tag": "Active", "sponsor": "Commonwealth of Massachusetts, Healey-Driscoll Administration",
+     "title": "Massachusetts Advanced Nuclear and Fusion Energy Roadmaps",
+     "amount": "", "period": "Oct 2025 to 2026",
+     "team": "Lead: Sukesh Aghara, with UMass Lowell's Rist Institute for Sustainability and Energy",
+     "desc": "A statewide assessment, commissioned by Gov. Healey, of what Massachusetts would need to lead in advanced nuclear and fusion energy: stakeholder engagement across utilities, regulators, industry, labor, and communities, a public discussion series, and recommendations on workforce, regional coordination, and research capacity.",
+     "domain": "Energy"},
+    {"tag": "Active", "sponsor": "International Atomic Energy Agency",
+     "title": "Intercontinental Nuclear Institute (INI)",
+     "amount": "", "period": "Ongoing",
+     "team": "Co-director: Sukesh Aghara",
+     "desc": "An IAEA-funded international training program in nuclear technology, security, and safeguards for early-career professionals, run with partner institutions.",
+     "domain": "Nuclear"},
     {"tag": "Active", "sponsor": "National Science Foundation, CAREER",
      "title": "Towards Fault-tolerant Edge Computing for Cyber-Physical Systems: Distributed Primitives for Coordination under Cyber Attacks",
      "amount": "About $500K", "period": "2023 onward",
@@ -135,7 +165,7 @@ PROJECTS = [
 TOOLS = [
     {"name": "FUSION", "what": "Open-source benchmarking and simulation framework for reproducible optical network research (routing, spectrum and space assignment, QoT models). Described in JOCN, Sept. 2026."},
     {"name": "Containerized grid co-simulation testbed", "what": "Docker-packaged HELICS, GridLAB-D, and ns-3 federation for cyber-physical power studies on the IEEE 123-bus feeder, with DNP3 traffic between control center and devices."},
-    {"name": "SUMMIT (in development)", "what": "Three-site federated smart grid testbed funded by the NSF MRI award, opening in 2026-2027 to collaborators for attack, defense, and restoration experiments."},
+    {"name": "SUMMIT (in development)", "what": "Three-site federated smart grid testbed built around RTDS NovaCor real-time simulators, funded by the NSF MRI award and opening in 2026-2027 to collaborators for attack, defense, and restoration experiments."},
 ]
 
 # ---------------------------------------------------------------- publications
@@ -182,7 +212,16 @@ pub(2026, ["L. Tseng","C. Siems","K. Neupane","M. Aloqaily"],
     "IEEE International Conference on Consumer Electronics (ICCE)", "pp. 1-6, Jan. 2026",
     "10.1109/ICCE67443.2026.11449682", "conference", ["Tseng"], "Distributed systems")
 
+pub(2026, ["T. Korinek","S. Aghara","L. Annadevula","R. Skoda"],
+    "Future of Central Heating of University Campus: Phasing in Clean Sustainable Alternatives",
+    "Energy Reports", "vol. 15, art. 108954, June 2026",
+    "10.1016/j.egyr.2025.108954", "journal", ["Aghara"], "Nuclear energy and security")
+
 # --- 2025
+pub(2025, ["L. Annadevula","S. K. Aghara","C. Gazze","K. Jarman","C. Norman"],
+    "Modeling Detector Response Curves for a High-Fidelity Uranium Measurement for Use in Simulations",
+    "Radiation Measurements", "vol. 180, art. 107332, Jan. 2025",
+    "10.1016/j.radmeas.2024.107332", "journal", ["Aghara"], "Nuclear energy and security")
 pub(2025, ["M. Z. Islam","Y. Lin","V. M. Vokkarane"],
     "Cyber Security Constrained Economic Dispatch for Resilient Power System Operation",
     "IEEE International Conference on Communications, Control, and Computing Technologies for Smart Grids (SmartGridComm)", "pp. 1-6, Sept. 2025",
@@ -293,9 +332,11 @@ NEWS = [
     ("Sep 2026", "The FUSION benchmarking framework paper appears in JOCN's special issue on benchmarking in optical networks, followed in October by a QoT-aware grooming paper for multi-band SDM networks."),
     ("Sep 2026", "ARPO-Sensor Fusion starts under the Massachusetts Technology Collaborative's Applied AI Models program ($625K), performed at UMLARC."),
     ("Aug 2026", "Lewis Tseng presents timely control for quantum clouds at the ACM SIGCOMM 2026 QuNet workshop."),
+    ("Jun 2026", "Sukesh Aghara's group publishes in Energy Reports on phasing clean, sustainable alternatives into a university campus's central heating, and the Massachusetts nuclear roadmap enters its public discussion series with events in Boston, Worcester, and Lowell."),
     ("Mar 2026", "The U.S. Army ARPO project on autonomous robotic planning and optimization begins ($225K)."),
     ("Dec 2025", "Two GLOBECOM 2025 papers from the Tseng group: satellite-edge-enabled multi-drone search and content-aware gossip for mobile device clouds."),
     ("Sep 2025", "Two SmartGridComm 2025 papers: cyber-security-constrained economic dispatch, and smart false-data-injection attacks on smart meters with Orlando Arias and Yuzhang Lin; plus a joint ECOC 2025 paper on planning ultra-high-capacity multi-band SDM networks."),
+    ("Oct 2025", "Gov. Maura Healey names Sukesh Aghara to lead the Massachusetts Advanced Nuclear and Fusion Energy Roadmaps, a statewide effort run from UMass Lowell."),
     ("Sep 2025", "Orlando Arias and Seung Woo Son publish on detecting silent data corruption from hardware counters at IEEE CLUSTER 2025."),
     ("Apr 2025", "Pineapple, which unifies Multi-Paxos and atomic shared registers, appears at USENIX NSDI 2025."),
 ]
@@ -325,7 +366,7 @@ def person_card(p, big=False):
     if p.get("email"): meta.append(f'<a href="mailto:{esc(p["email"])}">{esc(p["email"])}</a>')
     if p.get("phone"): meta.append(f'<span>{esc(p["phone"])}</span>')
     if p.get("office"): meta.append(f'<span>{esc(p["office"])}</span>')
-    if p.get("url"): meta.append(f'<a href="{esc(p["url"])}">UMass Lowell profile</a>')
+    if p.get("url"): meta.append(f'<a href="{esc(p["url"])}">{"NYU profile" if "nyu.edu" in p["url"] else ("LinkedIn" if "linkedin.com" in p["url"] else "UMass Lowell profile")}</a>')
     lines.append('<p class="pmeta">' + " ".join(f'<span class="mi">{m}</span>' for m in meta) + '</p>')
     return '<article class="person">' + "".join(lines) + '</article>'
 
@@ -339,7 +380,7 @@ def person_row(p):
 # ---------------------------------------------------------------- counts
 n_pubs = len(P)
 n_journal = sum(1 for p in P if p["type"] == "journal")
-n_faculty = 1 + len(FACULTY["core"]) + len(FACULTY["board"]) + len(FACULTY["affiliated"])
+n_faculty = 1 + len(FACULTY["core"]) + len(FACULTY["affiliated"])
 pub_json = json.dumps([{k: v for k, v in p.items()} for p in P], ensure_ascii=False)
 
 # ---------------------------------------------------------------- images
@@ -367,8 +408,8 @@ def avatar(p, size_cls):
 CSS = r"""
 :root{
   --bg:#FFFFFF; --bg-2:#F3F5F8; --surface:#FFFFFF; --ink:#0E2036; --ink-2:#2B4162; --ink-3:#5B6B82;
-  --line:#D5DCE5; --line-2:#E8EDF2; --signal:#0E8FA3; --signal-2:#0B7385; --signal-tint:#E3F3F6;
-  --amber:#E39A16; --amber-2:#FBEFD3; --amber-text:#7A4E00;
+  --line:#D5DCE5; --line-2:#E8EDF2; --signal:#0A777F; --signal-2:#08616A; --signal-tint:#E2F2F3;
+  --amber:#3BA995; --amber-2:#DFF3EC; --amber-text:#1E6B5A; --green:#3BA995; --brand-blue:#044978;
   --navy:#0E2036; --navy-2:#09162A; --on-navy:#FFFFFF; --on-navy-2:#C9D3E0; --on-navy-3:#9AA9BC;
   --journal-bg:#DCEFF3; --journal-fg:#0B5A69; --shadow:rgba(14,32,54,.35); --nav-bg:rgba(255,255,255,.9);
   --grid-line:rgba(14,32,54,.07); --illus-bg:#EEF4F8; --illus-bg-2:#E2EDF4;
@@ -377,7 +418,7 @@ CSS = r"""
 :root[data-theme="dark"]{
   --bg:#0B1729; --bg-2:#0F1E33; --surface:#142640; --ink:#E8EEF5; --ink-2:#C2CDDB; --ink-3:#92A1B5;
   --line:#24384F; --line-2:#1B2D45; --signal:#3FC1D6; --signal-2:#5FD0E2; --signal-tint:#123645;
-  --amber:#E9A83A; --amber-2:#3B2C0E; --amber-text:#F5C766;
+  --amber:#5FD0B6; --amber-2:#123A32; --amber-text:#9FE8D6; --green:#5FD0B6; --brand-blue:#7FB6E8;
   --navy:#08111F; --navy-2:#060C17; --journal-bg:#123645; --journal-fg:#7ADCEB; --shadow:rgba(0,0,0,.6);
   --nav-bg:rgba(11,23,41,.86); --grid-line:rgba(232,238,245,.06); --illus-bg:#0F2238; --illus-bg-2:#16304C;
   color-scheme:dark;
@@ -386,7 +427,7 @@ CSS = r"""
   :root:not([data-theme="light"]){
     --bg:#0B1729; --bg-2:#0F1E33; --surface:#142640; --ink:#E8EEF5; --ink-2:#C2CDDB; --ink-3:#92A1B5;
     --line:#24384F; --line-2:#1B2D45; --signal:#3FC1D6; --signal-2:#5FD0E2; --signal-tint:#123645;
-    --amber:#E9A83A; --amber-2:#3B2C0E; --amber-text:#F5C766;
+    --amber:#5FD0B6; --amber-2:#123A32; --amber-text:#9FE8D6; --green:#5FD0B6; --brand-blue:#7FB6E8;
     --navy:#08111F; --navy-2:#060C17; --journal-bg:#123645; --journal-fg:#7ADCEB; --shadow:rgba(0,0,0,.6);
     --nav-bg:rgba(11,23,41,.86); --grid-line:rgba(232,238,245,.06); --illus-bg:#0F2238; --illus-bg-2:#16304C;
     color-scheme:dark;
@@ -412,15 +453,19 @@ img{max-width:100%;height:auto}
 
 /* nav */
 .nav{position:sticky;top:0;z-index:50;background:var(--nav-bg);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;gap:16px}
-.brand{display:flex;align-items:center;gap:12px;color:var(--ink);font-family:"Fraunces",Georgia,serif;font-size:19px;font-weight:600;letter-spacing:-.01em;min-width:0}
-.brand span{white-space:nowrap}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;gap:12px}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ink);font-family:"Fraunces",Georgia,serif;font-size:19px;font-weight:600;letter-spacing:-.01em;min-width:0;flex:0 1 auto;overflow:hidden}
+.brand>span{white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis}
 .brand small{display:block;font-family:"IBM Plex Sans",Arial,sans-serif;font-weight:400;font-size:12px;color:var(--ink-3);letter-spacing:0}
-.brand svg{width:34px;height:34px;flex:none}
-.brand .lg-bg{fill:var(--ink)} .brand .lg-dot{fill:var(--bg)} .brand .lg-line{stroke:var(--bg)}
-.navright{display:flex;align-items:center;gap:8px}
-.links{display:flex;gap:2px;list-style:none;margin:0;padding:0}
-.links a{display:block;padding:8px 12px;color:var(--ink-2);font-size:14.5px;border-radius:6px}
+.brand .mark{display:inline-flex;align-items:center;justify-content:center;width:58px;height:40px;background:#fff;border-radius:8px;padding:3px;flex:none;border:1px solid transparent}
+.brand .mark img{width:100%;height:100%;object-fit:contain;display:block}
+:root[data-theme="dark"] .brand .mark{border-color:rgba(255,255,255,.25)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .brand .mark{border-color:rgba(255,255,255,.25)}}
+.navright{display:flex;align-items:center;gap:6px;flex:0 0 auto}
+.gift{display:inline-block;background:var(--green);color:#062B24;font-weight:600;font-size:13.5px;padding:8px 12px;border-radius:999px;white-space:nowrap}
+.gift:hover{text-decoration:none;filter:brightness(1.06)}
+.links{display:flex;gap:0;list-style:none;margin:0;padding:0}
+.links a{display:block;padding:8px 9px;color:var(--ink-2);font-size:14px;border-radius:6px;white-space:nowrap}
 .links a:hover{background:var(--line-2);text-decoration:none;color:var(--ink)}
 .links a[aria-current="true"]{color:var(--ink);box-shadow:inset 0 -2px 0 var(--signal)}
 .navtoggle{display:none;background:none;border:1px solid var(--line);border-radius:6px;padding:7px 10px;font:inherit;color:var(--ink)}
@@ -431,9 +476,11 @@ img{max-width:100%;height:auto}
 :root[data-theme="dark"] .theme .sun{display:block}
 :root[data-theme="dark"] .theme .moon{display:none}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .theme .sun{display:block}:root:not([data-theme="light"]) .theme .moon{display:none}}
-@media (max-width:600px){.brand small{display:none}.theme .lbl{display:none}.theme{padding:7px 8px}}
-@media (max-width:920px){
+@media (max-width:1460px){.brand small{display:none}}
+@media (max-width:1240px){.theme .lbl{display:none}.theme{padding:7px 8px}}
+@media (max-width:1100px){
   .links{display:none;position:absolute;left:0;right:0;top:66px;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;padding:8px var(--gutter) 14px}
+  .links a{font-size:15px;padding:10px 12px}
   .links.open{display:flex}
   .navtoggle{display:inline-block}
 }
@@ -445,6 +492,10 @@ img{max-width:100%;height:auto}
 :root[data-theme="dark"] .hero .veil{background:linear-gradient(100deg,rgba(6,12,23,.96) 0%,rgba(6,12,23,.88) 38%,rgba(6,12,23,.55) 70%,rgba(6,12,23,.35) 100%)}
 @media (max-width:860px){.hero .veil{background:linear-gradient(180deg,rgba(9,22,40,.9) 0%,rgba(9,22,40,.82) 60%,rgba(9,22,40,.55) 100%)}}
 .hero .wrap{padding-top:clamp(64px,9vw,120px);padding-bottom:clamp(96px,11vw,150px);width:100%}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,5vw,64px);align-items:center}
+.hero-logo{background:#fff;border-radius:16px;padding:clamp(18px,2.4vw,30px);box-shadow:0 30px 70px -30px rgba(0,0,0,.6);max-width:420px;justify-self:end}
+.hero-logo img{width:100%;height:auto;display:block}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-logo{justify-self:start;max-width:320px}}
 .hero h1{color:#fff}
 .hero p.lede{font-size:clamp(17px,1.45vw,20.5px);line-height:1.5;color:#D6DEE8;max-width:33em;margin:26px 0 32px}
 .cta{display:flex;gap:12px;flex-wrap:wrap}
@@ -466,7 +517,7 @@ section{padding:clamp(60px,7vw,104px) 0}
 section.tint{background:var(--bg-2)}
 .shead{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:20px clamp(24px,5vw,72px);align-items:end;margin-bottom:clamp(30px,4vw,52px)}
 .shead h2{position:relative;padding-top:18px}
-.shead h2::before{content:"";position:absolute;left:0;top:0;width:44px;height:3px;background:var(--signal);border-radius:2px}
+.shead h2::before{content:"";position:absolute;left:0;top:0;width:52px;height:3px;background:linear-gradient(90deg,var(--brand-blue),var(--green));border-radius:2px}
 .shead p{color:var(--ink-2);font-size:clamp(16px,1.25vw,18.5px);max-width:38em;margin:0}
 @media (max-width:760px){.shead{grid-template-columns:1fr}}
 
@@ -485,13 +536,14 @@ section.tint{background:var(--bg-2)}
 .domains{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
 .domains span{border:1px solid var(--line);background:var(--bg-2);border-radius:999px;padding:6px 14px;font-size:14px}
 @media (max-width:760px){.about-grid{grid-template-columns:1fr}}
-.loop{margin-top:clamp(40px,5vw,64px);display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:clamp(20px,4vw,56px);align-items:center}
-.schem{margin:0;border:1px solid var(--line);border-radius:var(--radius);color:var(--ink);background:
-  linear-gradient(var(--grid-line) 1px,transparent 1px) 0 0/24px 24px,
-  linear-gradient(90deg,var(--grid-line) 1px,transparent 1px) 0 0/24px 24px,var(--surface);padding:16px;box-shadow:0 12px 40px -28px var(--shadow)}
+.loop{margin-top:clamp(40px,5vw,64px);display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,.6fr);gap:clamp(20px,4vw,56px);align-items:center}
+.schem{margin:0;border:1px solid var(--line);border-radius:var(--radius);color:var(--ink);background:linear-gradient(180deg,var(--surface),var(--bg-2));padding:22px 18px 14px;box-shadow:0 12px 40px -28px var(--shadow)}
 .schem svg{width:100%;height:auto;display:block}
 .schem .s-ink{stroke:var(--ink)} .schem .f-ink{fill:var(--ink)} .schem .f-surface{fill:var(--surface)} .schem .f-muted{fill:var(--ink-3)} .schem .f-ink2{fill:var(--ink-2)}
-.schem .s-sig{stroke:var(--signal)} .schem .f-amb{fill:var(--amber)} .schem .s-amb{stroke:var(--amber)}
+.schem .s-sig{stroke:var(--signal)} .schem .f-sig{fill:var(--signal)} .schem .f-amb{fill:var(--amber)} .schem .s-amb{stroke:var(--amber)}
+.schem .f-brand{fill:var(--brand-blue)} .schem .s-brand{stroke:var(--brand-blue)} .schem .f-grn{fill:var(--green)} .schem .s-grn{stroke:var(--green)} .schem .f-tint{fill:var(--bg-2)} .schem .s-line{stroke:var(--line)} .schem .f-line{fill:var(--line)}
+.schem .card{filter:drop-shadow(0 6px 14px rgba(4,73,120,.12))}
+:root[data-theme="dark"] .schem .card{filter:drop-shadow(0 6px 14px rgba(0,0,0,.45))}
 .loop .txt h3{margin-bottom:10px}
 .loop .txt p{color:var(--ink-2);font-size:15.5px}
 @media (max-width:900px){.loop{grid-template-columns:1fr}}
@@ -500,15 +552,25 @@ section.tint{background:var(--bg-2)}
 @keyframes flow{to{stroke-dashoffset:-48}}
 .pulse{animation:pulse 3s ease-in-out infinite;transform-origin:center;transform-box:fill-box}
 @keyframes pulse{0%,100%{opacity:.35}50%{opacity:1}}
-@media (prefers-reduced-motion:reduce){.flow,.pulse{animation:none}.flow{stroke-dasharray:none}}
+.spin{animation:spin 7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.grow{animation:grow 3.2s ease-in-out infinite}
+@keyframes grow{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.72)}}
+.trace{stroke-dasharray:120 160;animation:trace 2.4s linear infinite}
+@keyframes trace{to{stroke-dashoffset:-280}}
+@media (prefers-reduced-motion:reduce){.flow,.pulse,.spin,.grow,.trace{animation:none}.flow{stroke-dasharray:none}.trace{stroke-dasharray:none}}
 
 /* research */
 .thrusts{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .thrust{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
-.thrust .art{aspect-ratio:2/1;background:linear-gradient(160deg,var(--illus-bg),var(--illus-bg-2));color:var(--ink);border-bottom:1px solid var(--line)}
+.thrust .art{aspect-ratio:2/1;background:linear-gradient(160deg,var(--illus-bg),var(--illus-bg-2));color:var(--ink);border-bottom:1px solid var(--line);padding:6px}
 .thrust .art svg{width:100%;height:100%;display:block}
 .thrust .art .s-ink{stroke:var(--ink)} .thrust .art .f-ink{fill:var(--ink)} .thrust .art .f-surface{fill:var(--surface)} .thrust .art .f-muted{fill:var(--ink-3)}
-.thrust .art .s-sig{stroke:var(--signal)} .thrust .art .f-sig{fill:var(--signal)} .thrust .art .f-sigt{fill:var(--signal-tint)} .thrust .art .f-amb{fill:var(--amber)} .thrust .art .s-amb{stroke:var(--amber)} .thrust .art .s-muted{stroke:var(--ink-3)}
+.thrust .art .card{filter:drop-shadow(0 4px 10px rgba(4,73,120,.10))}
+:root[data-theme="dark"] .thrust .art .card{filter:drop-shadow(0 4px 10px rgba(0,0,0,.4))}
+.thrust .art .f-alert{fill:#E25555} .thrust .art .s-alert{stroke:#E25555} .thrust .art .f-alert-tint{fill:#FDECEC}
+:root[data-theme="dark"] .thrust .art .f-alert-tint{fill:#3A1E20}
+.thrust .art .s-sig{stroke:var(--signal)} .thrust .art .f-sig{fill:var(--signal)} .thrust .art .f-brand{fill:var(--brand-blue)} .thrust .art .s-brand{stroke:var(--brand-blue)} .thrust .art .f-grn{fill:var(--green)} .thrust .art .s-grn{stroke:var(--green)} .thrust .art .f-tint{fill:var(--bg-2)} .thrust .art .s-line{stroke:var(--line)} .thrust .art .f-line{fill:var(--line)} .thrust .art .f-sigt{fill:var(--signal-tint)} .thrust .art .f-amb{fill:var(--amber)} .thrust .art .s-amb{stroke:var(--amber)} .thrust .art .s-muted{stroke:var(--ink-3)}
 .thrust .body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
 .thrust h3{font-size:20px;margin-bottom:8px}
 .thrust p{color:var(--ink-2);font-size:15px;margin:0 0 12px}
@@ -519,16 +581,18 @@ section.tint{background:var(--bg-2)}
 /* SUMMIT feature */
 .feature{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);background:var(--navy);color:#fff;border-radius:var(--radius);overflow:hidden;margin-bottom:clamp(36px,5vw,56px);isolation:isolate;border:1px solid var(--line)}
 .feature .copy{padding:clamp(28px,4vw,52px)}
-.feature .kicker{display:inline-block;background:var(--amber);color:#2B1B00;font-weight:500;font-size:13px;padding:4px 10px;border-radius:5px;margin-bottom:18px}
+.feature .kicker{display:inline-block;background:#3BA995;color:#062B24;font-weight:500;font-size:13px;padding:4px 10px;border-radius:5px;margin-bottom:18px}
 .feature h3{font-size:clamp(24px,2.4vw,32px);color:#fff;margin-bottom:12px}
 .feature p{color:var(--on-navy-2);max-width:36em}
 .feature .meta{display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.15)}
 .feature .meta b{display:block;color:#fff;font-weight:600;font-size:15px}
 .feature .meta span{font-size:13.5px;color:var(--on-navy-3)}
-.feature .visual{position:relative;min-height:320px;background-size:cover;background-position:center}
-.feature .visual::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--navy) 0%,rgba(14,32,54,.55) 35%,rgba(14,32,54,.25) 100%)}
-.feature .visual svg{position:absolute;inset:0;width:100%;height:100%}
-@media (max-width:860px){.feature{grid-template-columns:1fr}.feature .visual{min-height:280px}.feature .visual::before{background:linear-gradient(180deg,var(--navy) 0%,rgba(14,32,54,.45) 40%,rgba(14,32,54,.25) 100%)}}
+.feature .visual.rtds{margin:0;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:26px 24px 18px;background:radial-gradient(ellipse at 50% 35%,#1A3D63 0%,#0E2036 60%,var(--navy) 100%)}
+.feature .visual.rtds img{max-height:420px;width:auto;max-width:100%;object-fit:contain;filter:drop-shadow(0 24px 40px rgba(0,0,0,.55))}
+.feature .visual.rtds figcaption{margin-top:14px;font-size:13px;color:var(--on-navy-2);text-align:center;max-width:30em}
+.feature .fed{grid-column:1 / -1;border-top:1px solid rgba(255,255,255,.15);padding:6px 24px 4px}
+.feature .fed svg{width:100%;max-width:900px;height:auto;display:block;margin:0 auto}
+@media (max-width:860px){.feature{grid-template-columns:1fr}.feature .visual.rtds img{max-height:340px}}
 .fed-flow{stroke-dasharray:2 8;animation:flow 3.4s linear infinite}
 @media (prefers-reduced-motion:reduce){.fed-flow{animation:none;stroke-dasharray:none}}
 
@@ -569,9 +633,10 @@ section.tint{background:var(--bg-2)}
 .pmeta .mi::after{content:"\00a0\00b7\00a0";color:var(--line)}
 .pmeta .mi:last-child::after{content:""}
 @media (max-width:760px){.director{grid-template-columns:1fr;padding:22px}}
-.core{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+.core{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:18px}
 .core .person{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
 .core .avatar{margin-bottom:16px}
+.core .avatar.lg{width:128px;height:128px}
 @media (max-width:860px){.core{grid-template-columns:1fr}}
 .group{margin-top:48px}
 .group h3{font-size:22px;margin-bottom:6px}
@@ -579,6 +644,7 @@ section.tint{background:var(--bg-2)}
 .plist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .prow{display:flex;gap:16px;padding:16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);align-items:flex-start}
 .pname{font-weight:600;display:block}
+.ptag{display:inline-block;margin-left:8px;vertical-align:3px;font-family:"IBM Plex Sans",Arial,sans-serif;letter-spacing:0;font-size:11.5px;font-weight:500;padding:2px 8px;border-radius:999px;background:var(--signal-tint);color:var(--signal-2)}
 .ptitle2{color:var(--ink-2);font-size:14px;display:block}
 .pareas2{display:block;font-size:13.5px;color:var(--ink-3);margin-top:3px}
 .pcontact{font-size:13px;color:var(--ink-3);margin-top:6px}
@@ -589,6 +655,47 @@ section.tint{background:var(--bg-2)}
 .partners b{display:block;font-weight:600;margin-bottom:2px}
 .partners span{display:block;color:var(--ink-3);font-size:13.5px}
 @media (max-width:760px){.partners{grid-template-columns:1fr}}
+
+/* sponsors */
+.sgroup{margin-bottom:34px}
+.sgroup h3{font-size:20px;margin-bottom:12px}
+.logos{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.logo-tile{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:168px;padding:22px 20px;background:#FFFFFF;border:1px solid var(--line);border-radius:var(--radius);color:#0E2036;text-decoration:none;transition:box-shadow .2s ease,transform .2s ease}
+a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow);transform:translateY(-2px)}
+.logo-tile .mark{display:flex;align-items:center;justify-content:center;min-height:92px;width:100%}
+.logo-tile img{max-height:88px;max-width:82%;width:auto;object-fit:contain}
+.logo-tile .wm{font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:19px;line-height:1.2;letter-spacing:-.01em;color:#0E2036;max-width:14em}
+.logo-tile .note{font-size:12.5px;color:#5B6B82;margin-top:12px;line-height:1.4;max-width:22em}
+@media (max-width:980px){.logos{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.logos{grid-template-columns:1fr}}
+.ack{margin-top:10px;padding:22px 24px;border-left:3px solid var(--signal);background:var(--bg-2);border-radius:0 var(--radius) var(--radius) 0;font-size:14.5px;color:var(--ink-2);max-width:70em}
+.ack p{margin:0 0 8px}
+.ack p:last-child{margin:0}
+
+/* students and alumni */
+.stugrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.stugrid.two{grid-template-columns:repeat(2,1fr);margin-bottom:40px}
+.stu{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px 22px 20px}
+.stu .avatar{margin-bottom:14px;width:88px;height:88px;font-size:26px}
+.stu h3{font-size:20px;margin-bottom:4px}
+.stu .focus{font-size:14.5px;color:var(--ink-2);margin:6px 0 8px}
+.stu.feat{display:grid;grid-template-columns:88px 1fr;gap:6px 18px;align-items:start}
+.stu.feat .avatar{grid-row:1/4;margin:0}
+.stu.feat .focus{grid-column:2}
+@media (max-width:980px){.stugrid{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.stugrid,.stugrid.two{grid-template-columns:1fr}.stu.feat{grid-template-columns:1fr}.stu.feat .avatar{grid-row:auto;margin-bottom:12px}.stu.feat .focus{grid-column:auto}}
+.alumcols{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,5vw,64px)}
+.alumcols h3{font-size:22px;margin-bottom:10px}
+.alumlist{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
+.alumlist li{display:grid;grid-template-columns:62px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
+.alumlist .yr{color:var(--ink-3);font-size:14px;padding-top:1px}
+.alumlist.nodate li{grid-template-columns:1fr}
+.alumlist .where{display:block;color:var(--ink-3);font-size:13.5px}
+.giftbox h3{font-size:21px;margin-bottom:10px}
+.giftbox p{font-size:15px;color:var(--ink-2);margin-bottom:16px}
+.btn-gift{display:block;text-align:center;background:#0B5ED7;color:#fff;font-weight:600;padding:14px 20px;border-radius:6px;font-size:16px;max-width:36em}
+.btn-gift:hover{text-decoration:none;background:#0A4FB5}
+@media (max-width:860px){.alumcols{grid-template-columns:1fr}}
 
 /* publications */
 .filters{display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;margin-bottom:22px;padding:14px 18px;border:1px solid var(--line);border-radius:var(--radius);background:var(--bg-2)}
@@ -639,6 +746,8 @@ section.tint{background:var(--bg-2)}
 .uml-footer .cols{display:grid;grid-template-columns:1.15fr 1fr 1fr 1fr;padding:44px 0 40px}
 .uml-footer .col{padding:0 32px;border-left:1px solid rgba(255,255,255,.26)}
 .uml-footer .col:first-child{padding-left:0;border-left:0}
+.uml-footer .flogo{background:#fff;border-radius:10px;padding:12px 14px;width:190px;margin-bottom:18px}
+.uml-footer .flogo img{width:100%;height:auto;display:block}
 .uml-footer .uml-logo{width:56px;height:auto;display:block;margin-bottom:22px}
 .uml-footer address{font-style:normal;font-size:14px;line-height:1.55;color:#C7D6E5}
 .uml-footer address strong{color:#fff;font-weight:700;font-size:14.5px}
@@ -668,103 +777,104 @@ UML_LOGO = '<svg class="uml-logo" width="311" height="393" role="img" aria-label
 LOGO = """<svg viewBox="0 0 34 34" aria-hidden="true"><rect class="lg-bg" x="1.5" y="1.5" width="31" height="31" rx="6"/><circle class="lg-dot" cx="10" cy="10" r="2.6"/><circle class="lg-dot" cx="24" cy="10" r="2.6"/><circle class="lg-dot" cx="10" cy="24" r="2.6"/><circle cx="24" cy="24" r="2.6" fill="#E39A16"/><path class="lg-line" d="M10 10h14M10 10v14M24 10v14M10 24h14M10 10l14 14" stroke-width="1.4" fill="none" opacity=".85"/></svg>"""
 
 # three-site federation diagram for the SUMMIT feature (abstract, not a map)
-FEDERATION = """<svg viewBox="0 0 440 440" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SUMMIT federates testbed sites at UMass Lowell, NYU, and West Virginia University">
-<defs><radialGradient id="g1" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#0E8FA3" stop-opacity=".6"/><stop offset="1" stop-color="#0E8FA3" stop-opacity="0"/></radialGradient></defs>
-<g fill="none" stroke="#FFFFFF" stroke-opacity=".55" stroke-width="1.5">
-  <path d="M230 96C180 150 130 195 96 236"/><path d="M230 96C226 180 214 260 200 336"/><path d="M96 236C130 280 165 315 200 336"/>
-</g>
-<g fill="none" stroke="#E39A16" stroke-width="2.6" stroke-linecap="round">
-  <path class="fed-flow" d="M230 96C180 150 130 195 96 236"/><path class="fed-flow" d="M230 96C226 180 214 260 200 336" style="animation-delay:1.1s"/><path class="fed-flow" d="M96 236C130 280 165 315 200 336" style="animation-delay:2.2s"/>
-</g>
-<g>
-  <circle cx="230" cy="96" r="54" fill="url(#g1)"/><circle cx="230" cy="96" r="13" fill="#FFFFFF"/><circle cx="230" cy="96" r="5.5" fill="#0E2036"/>
-  <circle cx="96" cy="236" r="40" fill="url(#g1)"/><circle cx="96" cy="236" r="10" fill="#FFFFFF"/>
-  <circle cx="200" cy="336" r="40" fill="url(#g1)"/><circle cx="200" cy="336" r="10" fill="#FFFFFF"/>
-</g>
-<g font-family="IBM Plex Sans, Arial, sans-serif" fill="#FFFFFF" font-size="15">
-  <text x="254" y="90" font-weight="600">UMass Lowell</text><text x="254" y="109" fill="#C9D3E0" font-size="13">lead site, instrument host</text>
-  <text x="40" y="274" font-weight="600">NYU Tandon</text><text x="40" y="293" fill="#C9D3E0" font-size="13">Yuzhang Lin, Co-PI</text>
-  <text x="222" y="342" font-weight="600" font-size="14">West Virginia University</text><text x="222" y="361" fill="#C9D3E0" font-size="13">partner site</text>
-</g>
+FEDERATION = """<svg viewBox="0 0 900 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SUMMIT federates testbed sites at UMass Lowell, NYU Tandon, and West Virginia University" font-family="IBM Plex Sans, Arial, sans-serif">
+<g fill="none" stroke="#FFFFFF" stroke-opacity=".35" stroke-width="1.5"><path d="M190 60H400M500 60H710"/></g>
+<g fill="none" stroke="#5FD0B6" stroke-width="2.6" stroke-linecap="round"><path class="fed-flow" d="M190 60H400"/><path class="fed-flow" d="M500 60H710" style="animation-delay:1.2s"/></g>
+<g fill="#FFFFFF"><circle cx="150" cy="60" r="11"/><circle cx="450" cy="60" r="11"/><circle cx="750" cy="60" r="11"/></g>
+<g fill="#0A777F"><circle cx="150" cy="60" r="5"/><circle cx="450" cy="60" r="5"/><circle cx="750" cy="60" r="5"/></g>
+<g fill="#FFFFFF" font-size="15" font-weight="600" text-anchor="middle"><text x="150" y="98">UMass Lowell</text><text x="450" y="98">NYU Tandon</text><text x="750" y="98">West Virginia University</text></g>
+<g fill="#C9D3E0" font-size="12.5" text-anchor="middle"><text x="150" y="34">lead site and instrument host</text><text x="450" y="34">Yuzhang Lin, Co-PI</text><text x="750" y="34">Anurag Srivastava, partner</text></g>
 </svg>"""
 
 # cyber-physical loop schematic (About section)
-SCHEMATIC = """<svg viewBox="0 0 660 424" role="img" aria-labelledby="schemTitle schemDesc" xmlns="http://www.w3.org/2000/svg">
+SCHEMATIC = """<svg viewBox="0 0 760 470" role="img" aria-labelledby="schemTitle schemDesc" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Sans, Arial, sans-serif">
 <title id="schemTitle">How a smart cyber-physical system closes the loop</title>
-<desc id="schemDesc">Physical systems in energy, transportation, and healthcare are sensed, connected over a secure network, analysed by AI at the edge and cloud, and controlled in real time.</desc>
+<desc id="schemDesc">Physical systems in energy, transportation, and healthcare are sensed at the edge, connected over a secure network, analysed by AI and high-performance computing, and controlled in real time.</desc>
 <defs>
-  <marker id="arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0.5 8 4 0 7.5z" fill="#0E2036"/></marker>
+  <marker id="arrI" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#0E2036"/></marker>
+  <marker id="arrS" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#0A777F"/></marker>
+  <marker id="arrG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#3BA995"/></marker>
 </defs>
-<g font-family="IBM Plex Sans, Arial, sans-serif" font-size="15" fill="#0E2036">
-  <text x="70" y="26" text-anchor="middle" fill="#5B6B82">physical world</text>
-  <text x="320" y="26" text-anchor="middle" fill="#5B6B82">secure network</text>
-  <text x="538" y="26" text-anchor="middle" fill="#5B6B82">compute and control</text>
 
-  <g stroke="#0E2036" stroke-width="1.7" fill="#fff" stroke-linecap="round" stroke-linejoin="round">
-    <g transform="translate(40,54)">
-      <path d="M8 46V14l22-10 22 10v32M8 46h44"/><path d="M18 24h24M18 34h24"/><path d="M0 46h60"/>
-      <path d="M4 56c11 0 11 8 22 8s11-8 22-8" stroke="#0E8FA3" stroke-width="1.6"/>
-    </g>
-    <g transform="translate(40,170)">
-      <path d="M6 30h48l-6-14H14z"/><circle cx="16" cy="34" r="5"/><circle cx="44" cy="34" r="5"/>
-      <path d="M0 42h60" stroke-dasharray="6 5"/><path d="M30 8V2M23 6l-4-4M37 6l4-4" stroke="#0E8FA3" stroke-width="1.6"/>
-    </g>
-    <g transform="translate(40,284)">
-      <rect x="6" y="4" width="48" height="40" rx="4"/><path d="M30 14v20M20 24h20"/>
-      <path d="M2 56c8 0 9-12 16-12s7 20 14 20 6-14 13-14 7 6 13 6" stroke="#0E8FA3" stroke-width="1.6"/>
-    </g>
-  </g>
-  <text x="70" y="140" text-anchor="middle">energy and power</text>
-  <text x="70" y="236" text-anchor="middle">transportation</text>
-  <text x="70" y="370" text-anchor="middle">healthcare</text>
-
-  <g fill="#fff" stroke="#0E2036" stroke-width="1.7">
-    <rect x="176" y="80" width="38" height="38" rx="7"/><rect x="176" y="194" width="38" height="38" rx="7"/><rect x="176" y="302" width="38" height="38" rx="7"/>
-  </g>
-  <g font-size="13" text-anchor="middle"><text x="195" y="104">edge</text><text x="195" y="218">edge</text><text x="195" y="326">edge</text></g>
-
-  <g stroke="#0E2036" stroke-width="1.2" fill="none"><path d="M106 99H172"/><path d="M106 213H172"/><path d="M106 321H172"/></g>
-  <g stroke="#E39A16" stroke-width="2.6" fill="none" stroke-linecap="round">
-    <path class="flow" d="M106 99H172"/><path class="flow slow" d="M106 213H172"/><path class="flow" d="M106 321H172"/>
-  </g>
-
-  <g transform="translate(322,213)">
-    <circle r="64" fill="#fff" stroke="#0E2036" stroke-width="1.7"/>
-    <circle r="64" fill="none" stroke="#0E8FA3" stroke-width="2.4" class="flow slow"/>
-    <circle r="6" fill="#0E2036"/>
-    <g fill="#0E2036"><circle cx="0" cy="-64" r="4.5"/><circle cx="55" cy="-32" r="4.5"/><circle cx="55" cy="32" r="4.5"/><circle cx="0" cy="64" r="4.5"/><circle cx="-55" cy="32" r="4.5"/><circle cx="-55" cy="-32" r="4.5"/></g>
-    <g stroke="#0E2036" stroke-width="1" opacity=".5"><path d="M0-64 0 64M55-32-55 32M55 32-55-32"/></g>
-    <text y="-78" text-anchor="middle" font-size="13.5">optical and 5G/6G transport</text>
-    <text y="92" text-anchor="middle" font-size="13.5">zero trust, attestation, IDS</text>
-  </g>
-
-  <g stroke="#0E2036" stroke-width="1.2" fill="none">
-    <path d="M214 99C244 99 248 150 266 176"/><path d="M214 213H256"/><path d="M214 321C244 321 248 274 266 250"/>
-  </g>
-  <g stroke="#0E8FA3" stroke-width="2.6" fill="none" stroke-linecap="round">
-    <path class="flow" d="M214 99C244 99 248 150 266 176"/><path class="flow slow" d="M214 213H256"/><path class="flow" d="M214 321C244 321 248 274 266 250"/>
-  </g>
-
-  <g transform="translate(446,136)">
-    <rect width="186" height="154" rx="9" fill="#fff" stroke="#0E2036" stroke-width="1.7"/>
-    <text x="93" y="32" text-anchor="middle" font-weight="600" font-size="15">AI, digital twins, HPC</text>
-    <g stroke="#0E2036" stroke-width="1.3" fill="none">
-      <rect x="16" y="48" width="154" height="22" rx="4"/><rect x="16" y="76" width="154" height="22" rx="4"/><rect x="16" y="104" width="154" height="22" rx="4"/>
-    </g>
-    <g font-size="12" fill="#2B4162"><text x="24" y="63">anomaly detection</text><text x="24" y="91">state estimation</text><text x="24" y="119">planning, optimization</text></g>
-    <g fill="#E39A16"><circle cx="160" cy="59" r="3.5" class="pulse"/><circle cx="160" cy="87" r="3.5" class="pulse" style="animation-delay:1s"/><circle cx="160" cy="115" r="3.5" class="pulse" style="animation-delay:2s"/></g>
-    <text x="93" y="144" text-anchor="middle" font-size="12" fill="#5B6B82">edge to cloud</text>
-  </g>
-
-  <g stroke="#0E2036" stroke-width="1.2" fill="none"><path d="M386 199H442" marker-end="url(#arr)"/><path d="M442 227H388" marker-end="url(#arr)"/></g>
-  <g stroke="#0E8FA3" stroke-width="2.6" fill="none" stroke-linecap="round"><path class="flow" d="M386 199H432"/></g>
-  <g stroke="#E39A16" stroke-width="2.6" fill="none" stroke-linecap="round"><path class="flow" d="M432 227H396"/></g>
-  <text x="414" y="189" text-anchor="middle" font-size="12" fill="#5B6B82">telemetry</text>
-  <text x="414" y="246" text-anchor="middle" font-size="12" fill="#5B6B82">control</text>
-
-  <path d="M539 291V396H70V384" fill="none" stroke="#0E2036" stroke-width="1.2" stroke-dasharray="4 4" marker-end="url(#arr)"/>
-  <text x="330" y="416" text-anchor="middle" font-size="13" fill="#5B6B82">closed loop: sense, communicate, decide, act</text>
+<!-- column headers -->
+<g font-size="13" font-weight="600" fill="#5B6B82" letter-spacing=".02em">
+  <text x="105" y="34" text-anchor="middle">PHYSICAL WORLD</text><text x="392" y="34" text-anchor="middle">SECURE NETWORK</text><text x="622" y="34" text-anchor="middle">COMPUTE AND CONTROL</text>
 </g>
+<g stroke="#D5DCE5" stroke-width="1"><path d="M30 44h150M317 44h150M512 44h220"/></g>
+
+<!-- domain cards -->
+<g class="card">
+  <rect x="30" y="62" width="150" height="96" rx="12" fill="#fff" stroke="#D5DCE5"/>
+  <g transform="translate(48,74)" fill="none" stroke="#044978" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M6 44V14l16-8 16 8v30M6 44h32M14 24h16M14 33h16"/>
+  </g>
+  <path d="M112 78l-10 16h8l-6 16 16-20h-8l6-12z" fill="#3BA995"/>
+  <text x="105" y="146" text-anchor="middle" font-size="13.5" font-weight="600" fill="#0E2036">Energy and power</text>
+</g>
+<g class="card">
+  <rect x="30" y="192" width="150" height="96" rx="12" fill="#fff" stroke="#D5DCE5"/>
+  <g transform="translate(60,206)">
+    <path d="M6 30h60l-9-17H16z" fill="#044978"/><path d="M0 30h72v8H0z" fill="#044978" opacity=".85"/>
+    <circle cx="16" cy="40" r="6" fill="#fff" stroke="#044978" stroke-width="2"/><circle cx="56" cy="40" r="6" fill="#fff" stroke="#044978" stroke-width="2"/>
+    <g fill="none" stroke="#3BA995" stroke-width="2" stroke-linecap="round"><path d="M28 8a10 10 0 0 1 16 0M22 2a18 18 0 0 1 28 0"/></g>
+  </g>
+  <text x="105" y="276" text-anchor="middle" font-size="13.5" font-weight="600" fill="#0E2036">Transportation</text>
+</g>
+<g class="card">
+  <rect x="30" y="322" width="150" height="96" rx="12" fill="#fff" stroke="#D5DCE5"/>
+  <circle cx="86" cy="362" r="19" fill="#0A777F"/><path d="M86 352v20M76 362h20" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+  <path d="M108 366h8l5-10 7 20 6-14 4 6h10" fill="none" stroke="#3BA995" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="105" y="406" text-anchor="middle" font-size="13.5" font-weight="600" fill="#0E2036">Healthcare</text>
+</g>
+
+<!-- edge nodes -->
+<g class="card">
+  <rect x="212" y="96" width="62" height="30" rx="15" fill="#fff" stroke="#0A777F" stroke-width="1.6"/><rect x="212" y="226" width="62" height="30" rx="15" fill="#fff" stroke="#0A777F" stroke-width="1.6"/><rect x="212" y="356" width="62" height="30" rx="15" fill="#fff" stroke="#0A777F" stroke-width="1.6"/>
+</g>
+<g font-size="12.5" font-weight="600" fill="#0A777F" text-anchor="middle"><text x="243" y="115">edge</text><text x="243" y="245">edge</text><text x="243" y="375">edge</text></g>
+
+<!-- sense links: card -> edge -->
+<g fill="none" stroke="#D5DCE5" stroke-width="2"><path d="M180 111h32M180 241h32M180 371h32"/></g>
+<g fill="none" stroke="#3BA995" stroke-width="2.6" stroke-linecap="round"><path class="flow" d="M180 111h32"/><path class="flow slow" d="M180 241h32"/><path class="flow" d="M180 371h32"/></g>
+
+<!-- network core -->
+<g class="card">
+  <circle cx="378" cy="241" r="74" fill="#fff" stroke="#044978" stroke-width="1.6"/>
+  <circle cx="378" cy="241" r="74" fill="none" stroke="#0A777F" stroke-width="3" class="flow slow"/>
+  <g stroke="#D5DCE5" stroke-width="1.2"><path d="M378 167v148M314 204l128 74M314 278l128-74"/></g>
+  <g fill="#044978"><circle cx="378" cy="167" r="5.5"/><circle cx="442" cy="204" r="5.5"/><circle cx="442" cy="278" r="5.5"/><circle cx="378" cy="315" r="5.5"/><circle cx="314" cy="278" r="5.5"/><circle cx="314" cy="204" r="5.5"/></g>
+  <circle cx="378" cy="241" r="14" fill="#0A777F"/><circle cx="378" cy="241" r="5" fill="#fff"/>
+</g>
+<text x="378" y="148" text-anchor="middle" font-size="12.5" fill="#5B6B82">optical and 5G/6G transport</text>
+<text x="378" y="338" text-anchor="middle" font-size="12.5" fill="#5B6B82">zero trust, attestation, intrusion detection</text>
+
+<!-- edge -> core links -->
+<g fill="none" stroke="#D5DCE5" stroke-width="2"><path d="M274 111C296 111 302 172 316 200"/><path d="M274 241h30"/><path d="M274 371C296 371 302 310 316 282"/></g>
+<g fill="none" stroke="#0A777F" stroke-width="2.6" stroke-linecap="round"><path class="flow" d="M274 111C296 111 302 172 316 200"/><path class="flow slow" d="M274 241h30"/><path class="flow" d="M274 371C296 371 302 310 316 282"/></g>
+
+<!-- compute card -->
+<g class="card">
+  <rect x="512" y="132" width="220" height="218" rx="14" fill="#fff" stroke="#D5DCE5"/>
+  <rect x="512" y="132" width="220" height="44" rx="14" fill="#044978"/><rect x="512" y="160" width="220" height="16" fill="#044978"/>
+  <text x="622" y="160" text-anchor="middle" font-size="14" font-weight="600" fill="#fff">AI, digital twins, HPC</text>
+  <g fill="#F3F7FA" stroke="#D5DCE5"><rect x="528" y="190" width="188" height="34" rx="8"/><rect x="528" y="234" width="188" height="34" rx="8"/><rect x="528" y="278" width="188" height="34" rx="8"/></g>
+  <g fill="none" stroke="#0A777F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M540 212l6-8 5 5 6-10 5 6"/><path d="M539 256h8l4-8 4 12 4-6h8"/><path d="M540 302l7-7 5 5 9-9M563 291h-6v6"/>
+  </g>
+  <g font-size="12.5" fill="#0E2036"><text x="576" y="211">Anomaly detection</text><text x="576" y="255">State estimation</text><text x="576" y="299">Plan and optimize</text></g>
+  <g fill="#3BA995"><circle cx="702" cy="207" r="4" class="pulse"/><circle cx="702" cy="251" r="4" class="pulse" style="animation-delay:1s"/><circle cx="702" cy="295" r="4" class="pulse" style="animation-delay:2s"/></g>
+  <text x="622" y="336" text-anchor="middle" font-size="12" fill="#5B6B82">edge to cloud</text>
+</g>
+
+<!-- core <-> compute -->
+<g fill="none" stroke="#0A777F" stroke-width="2.2"><path d="M454 226h50" marker-end="url(#arrS)"/></g>
+<g fill="none" stroke="#3BA995" stroke-width="2.2"><path d="M506 256h-50" marker-end="url(#arrG)"/></g>
+<text x="481" y="215" text-anchor="middle" font-size="11.5" fill="#5B6B82">telemetry</text>
+<text x="481" y="275" text-anchor="middle" font-size="11.5" fill="#5B6B82">control</text>
+
+<!-- return loop -->
+<path d="M622 350v70H105v-2" fill="none" stroke="#3BA995" stroke-width="2" stroke-dasharray="5 6" marker-end="url(#arrG)"/>
+<text x="392" y="452" text-anchor="middle" font-size="12.5" fill="#5B6B82">closed loop: sense, communicate, decide, act</text>
 </svg>"""
 
 ICONS = {
@@ -779,7 +889,7 @@ ICONS = {
 THRUSTS = [
     ("grid", "Smart grid cybersecurity and resilience",
      "Attack-aware dispatch, false-data-injection detection in smart meters, observability-aware PMU networking, and joint power-communication restoration after disasters. Anchored by the SUMMIT federated testbed.",
-     "Vokkarane, Arias, Tseng, with Yuzhang Lin (NYU)"),
+     "Vokkarane, Arias, Tseng, Lin"),
     ("ai", "AI and agentic systems for cyber-physical control",
      "Machine learning for intrusion detection and state recovery, physics-grounded models for network provisioning, and safety enforcement for AI agents that touch physical infrastructure.",
      "Vokkarane, Cao, Son"),
@@ -794,11 +904,98 @@ THRUSTS = [
      "Arias, Son"),
     ("health", "Connected transportation, health, and infrastructure",
      "Intelligent traffic and vehicular computing, medical imaging and digital health platforms, structural health monitoring, nuclear security, and robotics for critical facilities.",
-     "Xie, Tseng, Cao, Yu, Inalpolat, Aghara, Robinette, Mathew"),
+     "Xie, Tseng, Cao, Yu, Inalpolat, Aghara, Robinette, Niezrecki"),
 ]
+
+
+
+# ---------------------------------------------------------------- students and alumni (from the director's CV, Sept. 2026)
+STUDENTS = [
+    {"name": "Arash Rezaee", "status": "Ph.D. Candidate", "focus": "AI-driven resource allocation in optical networks; impairment-aware provisioning in multi-band, space-division multiplexed networks; spectral versus spatial capacity scaling; reproducible optical network benchmarking with FUSION.", "linkedin": ""},
+    {"name": "Ryan McCann", "status": "Ph.D. Student, since 2024", "focus": "Co-founder and lead developer of FUSION, supported by MIT I-Corps and AT&T; reinforcement learning for software-defined elastic optical networks; failure-aware routing and realistic simulation of elastic optical and mesh networks.", "linkedin": ""},
+    {"name": "Ken Patrick Watts", "status": "Ph.D. Student, since 2022", "focus": "Scalable, real-time detection of cyber attacks on smart power grids with machine learning; adaptive transfer learning for day-zero network intrusion detection; the NATIG cyber-physical co-simulation testbed (HELICS, GridLAB-D, ns-3).", "linkedin": ""},
+    {"name": "Suvhasis Mukhopadhyay", "status": "Ph.D. Student", "focus": "Impact of individual physical layer impairments on elastic optical network performance; impairment-aware routing, spectrum, modulation, and power allocation; dynamic optical networking.", "linkedin": ""},
+    {"name": "Mehran Sasaninia", "status": "Ph.D. Student", "focus": "Federated learning to detect cyber attacks in the smart grid; smart false data injection attacks and anomaly detection in smart meters (IEEE SmartGridComm 2025); centralized versus federated learning for grid anomaly detection.", "linkedin": ""},
+    {"name": "Ayush Pandey", "status": "Ph.D. Student, since 2024", "focus": "Smart grid cybersecurity and AI for cyber-physical systems.", "linkedin": ""},
+]
+ALUMNI_FEATURED = [
+    {"name": "Md Zahidul Islam", "degree": "Ph.D. 2025", "role": "Assistant Professor", "org": "Southern Illinois University Carbondale", "focus": "Resilient PMU networking and cyber-physical restoration of power distribution systems. Co-advised with Yuzhang Lin.", "linkedin": ""},
+    {"name": "Shamsun Nahar Edib", "degree": "Ph.D. 2024", "role": "Assistant Professor", "org": "Montana State University", "focus": "Cross-domain resilient sensing and communication architectures for power grid monitoring. Co-advised with Yuzhang Lin.", "linkedin": ""},
+]
+ALUMNI_PHD = [
+    ("2025", "Md Zahidul Islam", "Assistant Professor, Southern Illinois University Carbondale"),
+    ("2024", "Shamsun Nahar Edib", "Assistant Professor, Montana State University"),
+    ("2023", "Travis Kessler", "Best Ph.D. Student Award"),
+    ("2022", "Yue Wang", "KLA"),
+    ("2020", "Pegah Afsharlar", ""),
+    ("2019", "Yan Cui", "San José State University"),
+    ("2018", "Dylan A. P. Davis", "Hitachi Vantara"),
+    ("2017", "Arash Deylamsalehi", "Google"),
+    ("2017", "Jeremy M. Plante", "Hitachi Vantara; Best Ph.D. Student Award"),
+    ("2015", "Amir Ehsani Zonouz", "AirSys"),
+    ("2014", "Thilo Schöndienst", "European Patent Office"),
+]
+ALUMNI_POSTDOC = [("Arash Deylamsalehi", "Google"), ("Jeremy M. Plante", "Hitachi Vantara"), ("Juzi Zhao", "San José State University"), ("Arush Gadkar", ""), ("Joan Triay", ""), ("Balagangadhar Bathula", "AT&T")]
+GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172"
+
+def initials(name):
+    return "".join(w[0] for w in name.replace("(", "").split() if w[0].isupper())[:2]
+def student_card(st):
+    li = f'<a href="{esc(st["linkedin"])}">LinkedIn</a>' if st.get("linkedin") else ''
+    return (f'<article class="stu"><span class="avatar mono lg" aria-hidden="true">{esc(initials(st["name"]))}</span>'
+            f'<h3>{esc(st["name"])}</h3><p class="ptitle">{esc(st["status"])}</p><p class="focus">{esc(st["focus"])}</p>'
+            + (f'<p class="pmeta"><span class="mi">{li}</span></p>' if li else '') + '</article>')
+def alum_feature(a):
+    li = f'<span class="mi"><a href="{esc(a["linkedin"])}">LinkedIn</a></span>' if a.get("linkedin") else ''
+    return (f'<article class="stu feat"><span class="avatar mono lg" aria-hidden="true">{esc(initials(a["name"]))}</span>'
+            f'<h3>{esc(a["name"])} <span class="ptag">{esc(a["degree"])}</span></h3><p class="ptitle"><b>{esc(a["role"])}</b>, {esc(a["org"])}</p>'
+            f'<p class="focus">{esc(a["focus"])}</p>' + (f'<p class="pmeta">{li}</p>' if li else '') + '</article>')
+
+# ---------------------------------------------------------------- sponsors
+# Drop official logo files into a "logos" folder next to this script, named by key
+# (nsf.svg, doe.png, redhat.svg ...). SVG, PNG, or JPG. Tiles fall back to a typeset name.
+SPONSORS = {
+    "Federal sponsors": [
+        {"key": "nsf", "name": "U.S. National Science Foundation", "url": "https://www.nsf.gov", "note": "SUMMIT (MRI Track 2, Award #2511635) and CAREER awards"},
+        {"key": "doe", "name": "U.S. Department of Energy", "url": "https://www.energy.gov", "note": "CyberCARE cybersecurity center for energy delivery"},
+        {"key": "onr", "name": "Office of Naval Research", "url": "https://www.onr.navy.mil", "note": "Department of the Navy. Post-disaster restoration of cyber-physical distribution grids"},
+        {"key": "army", "name": "U.S. Army", "url": "https://www.army.mil", "note": "ARPO autonomous robotic planning and optimization"},
+    ],
+    "State, international, and industry sponsors": [
+        {"key": "mass", "name": "Commonwealth of Massachusetts", "url": "https://www.mass.gov", "note": "Advanced Nuclear and Fusion Energy Roadmaps, Healey-Driscoll Administration"},
+        {"key": "iaea", "name": "International Atomic Energy Agency", "url": "https://www.iaea.org", "note": "Intercontinental Nuclear Institute training program"},
+        {"key": "masstech", "name": "Massachusetts Technology Collaborative", "url": "https://masstech.org", "note": "ARPO-Sensor Fusion, Applied AI Models program"},
+        {"key": "redhat", "name": "Red Hat", "url": "https://www.redhat.com", "note": "Open-source research: Friendly Fedora and Podman"},
+        {"key": "navia", "name": "Navia Energy", "url": "https://naviaenergy.com", "note": "Resilient smart grids"},
+    ],
+    "Partner institutions": [
+        {"key": "nyu", "name": "NYU Tandon School of Engineering", "url": "https://engineering.nyu.edu", "note": "SUMMIT federation site; Yuzhang Lin, Co-PI"},
+        {"key": "wvu", "name": "West Virginia University", "url": "https://www.wvu.edu", "note": "SUMMIT federation site; Anurag Srivastava"},
+        {"key": "umlarc", "name": "UMass Lowell Applied Research Corporation", "url": "", "note": "Place of performance for the ARPO projects"},
+    ],
+}
+LOGOS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "logos")
+_MIME = {".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp"}
+def logo_src(key):
+    for ext, mime in _MIME.items():
+        p = os.path.join(LOGOS_DIR, key + ext)
+        if os.path.exists(p):
+            import base64
+            return f"data:{mime};base64," + base64.b64encode(open(p, "rb").read()).decode()
+    return ""
+def logo_tile(sp):
+    src = logo_src(sp["key"])
+    mark = f'<img src="{src}" alt="{esc(sp["name"])} logo">' if src else f'<span class="wm">{esc(sp["name"])}</span>'
+    inner = f'<div class="mark">{mark}</div><div class="note">{esc(sp["note"])}</div>'
+    if sp.get("url"):
+        return f'<a class="logo-tile" href="{esc(sp["url"])}" title="{esc(sp["name"])}">{inner}</a>'
+    return f'<div class="logo-tile">{inner}</div>'
 
 # ---------------------------------------------------------------- themed SVG helpers
 _COLOR_CLASS = {
+    ("fill", "#044978"): "f-brand", ("stroke", "#044978"): "s-brand", ("fill", "#0A777F"): "f-sig", ("stroke", "#0A777F"): "s-sig",
+    ("fill", "#3BA995"): "f-grn", ("stroke", "#3BA995"): "s-grn", ("fill", "#F3F7FA"): "f-tint", ("stroke", "#D5DCE5"): "s-line", ("fill", "#D5DCE5"): "f-line",
+    ("fill", "#E25555"): "f-alert", ("stroke", "#E25555"): "s-alert", ("fill", "#FDECEC"): "f-alert-tint",
     ("stroke", "#0E2036"): "s-ink", ("fill", "#0E2036"): "f-ink",
     ("fill", "#fff"): "f-surface", ("fill", "#FFFFFF"): "f-surface", ("fill", "#ffffff"): "f-surface",
     ("fill", "#5B6B82"): "f-muted", ("stroke", "#5B6B82"): "s-muted", ("fill", "#2B4162"): "f-ink2",
@@ -828,139 +1025,140 @@ def theme_svg(svg):
     return re.sub(r'<[A-Za-z][^>]*>', fix_tag, svg)
 
 # ---------------------------------------------------------------- research thrust illustrations (original line art)
-_ART_HEAD = '<svg viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="none" stroke="#0E2036" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">'
+_ART_HEAD = '<svg viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round">'
 
 ART = {
 "grid": _ART_HEAD + """
-<!-- transmission towers -->
-<g>
-  <path d="M46 150L60 42h12l14 108M50 122h36M53 96h30M57 70h22"/><path d="M40 122h56M44 96h48M50 70h36"/>
-  <path d="M292 150l14-108h12l14 108M296 122h36M299 96h30M303 70h22"/><path d="M286 122h56M290 96h48M296 70h36"/>
+<g class="card"><rect x="14" y="14" width="332" height="152" rx="12" fill="#fff" stroke="#D5DCE5"/></g>
+<!-- towers -->
+<g stroke="#044978" stroke-width="1.7">
+  <path d="M46 146l12-92h12l12 92M50 122h32M53 100h26M57 78h18M36 122h60M40 100h52M46 78h40"/>
+  <path d="M284 146l12-92h12l12 92M288 122h32M291 100h26M295 78h18M274 122h60M278 100h52M284 78h40"/>
 </g>
-<!-- lines sagging between towers -->
-<path d="M44 96Q180 150 290 96M50 70Q180 118 296 70" stroke-width="1.2"/>
+<!-- power lines with moving energy -->
+<path d="M46 78Q180 128 284 78M40 100Q180 150 290 100" stroke="#D5DCE5" stroke-width="1.6"/>
+<path class="flow" d="M46 78Q180 128 284 78" stroke="#0A777F" stroke-width="2.4"/><path class="flow slow" d="M40 100Q180 150 290 100" stroke="#0A777F" stroke-width="2.4"/>
 <!-- substation -->
-<rect x="140" y="112" width="80" height="38" rx="4" fill="#fff"/>
-<path d="M156 150v-38M172 150v-38M188 150v-38M204 150v-38" stroke-width="1.1" stroke="#5B6B82"/>
-<path d="M140 128h80" stroke-width="1.1" stroke="#5B6B82"/>
+<rect x="140" y="118" width="80" height="30" rx="5" fill="#044978"/>
+<g stroke="#fff" stroke-width="1.2" opacity=".7"><path d="M156 122v22M172 122v22M188 122v22M204 122v22M140 133h80"/></g>
 <!-- smart meters -->
-<g fill="#fff">
-  <rect x="100" y="24" width="30" height="34" rx="5"/><rect x="165" y="24" width="30" height="34" rx="5"/><rect x="230" y="24" width="30" height="34" rx="5"/>
-</g>
-<g stroke="#0E8FA3"><path d="M106 44a9 9 0 0 1 18 0M171 44a9 9 0 0 1 18 0M236 44a9 9 0 0 1 18 0"/><path d="M115 44l5-6M180 44l4-7M245 44l3-8"/></g>
-<!-- telemetry to control -->
-<g stroke="#0E8FA3" stroke-dasharray="3 6" stroke-width="1.8"><path d="M115 58v54M180 58v54M245 58v54"/></g>
-<!-- shield over the substation -->
-<path d="M180 76l14 5v10c0 9-6 15-14 18-8-3-14-9-14-18V81z" fill="#E3F3F6" stroke="#0E8FA3" stroke-width="1.8"/>
-<path d="M174 91l4 4 8-9" stroke="#0E8FA3" stroke-width="1.8"/>
+<g fill="#fff" stroke="#044978" stroke-width="1.6"><rect x="104" y="30" width="28" height="30" rx="6"/><rect x="166" y="30" width="28" height="30" rx="6"/><rect x="228" y="30" width="28" height="30" rx="6"/></g>
+<g stroke="#0A777F" stroke-width="1.7"><path d="M110 48a8 8 0 0 1 16 0M172 48a8 8 0 0 1 16 0M234 48a8 8 0 0 1 16 0M118 48l4-5M180 48l4-6M242 48l3-7"/></g>
+<g stroke="#D5DCE5" stroke-width="1.6"><path d="M118 60v58M180 60v58M242 60v58"/></g>
+<g stroke="#3BA995" stroke-width="2.2"><path class="flow" d="M118 60v58"/><path class="flow slow" d="M180 60v58"/><path class="flow" d="M242 60v58"/></g>
+<!-- shield -->
+<path d="M180 70l14 5v10c0 9-6 15-14 18-8-3-14-9-14-18V75z" fill="#3BA995"/><path d="M174 85l4 4 8-9" stroke="#fff" stroke-width="2"/>
 <!-- attack bolt deflected -->
-<path d="M262 70l-16 10 8 2-10 14" stroke="#E39A16" stroke-width="2"/>
-<circle cx="242" cy="98" r="3" fill="#E39A16" stroke="none"/>
-<path d="M20 150h320" stroke="#5B6B82" stroke-width="1.1"/>
+<g class="pulse"><path d="M266 64l-14 9 7 2-9 12" stroke="#E25555" stroke-width="2.2"/><circle cx="250" cy="87" r="3" fill="#E25555"/></g>
+<path d="M30 148h300" stroke="#D5DCE5" stroke-width="1.2"/>
 </svg>""",
 
 "ai": _ART_HEAD + """
-<!-- neural network -->
-<g fill="#fff">
-  <circle cx="46" cy="60" r="8"/><circle cx="46" cy="92" r="8"/><circle cx="46" cy="124" r="8"/>
-  <circle cx="96" cy="44" r="8"/><circle cx="96" cy="76" r="8"/><circle cx="96" cy="108" r="8"/><circle cx="96" cy="140" r="8"/>
-  <circle cx="146" cy="76" r="8"/><circle cx="146" cy="108" r="8"/>
+<g class="card"><rect x="14" y="14" width="332" height="152" rx="12" fill="#fff" stroke="#D5DCE5"/></g>
+<!-- network links with signal -->
+<g stroke="#D5DCE5" stroke-width="1.2">
+  <path d="M52 62L92 46M52 62L92 78M52 62L92 110M52 92L92 46M52 92L92 78M52 92L92 110M52 92L92 142M52 122L92 78M52 122L92 110M52 122L92 142M100 46L138 78M100 78L138 78M100 110L138 110M100 142L138 110M100 78L138 110M100 110L138 78"/>
 </g>
-<g stroke="#5B6B82" stroke-width="1">
-  <path d="M54 60L88 44M54 60L88 76M54 60L88 108M54 92L88 44M54 92L88 76M54 92L88 108M54 92L88 140M54 124L88 76M54 124L88 108M54 124L88 140"/>
-  <path d="M104 44L138 76M104 76L138 76M104 108L138 108M104 140L138 108M104 76L138 108M104 108L138 76"/>
-</g>
-<circle cx="146" cy="76" r="3" fill="#0E8FA3" stroke="none"/><circle cx="146" cy="108" r="3" fill="#0E8FA3" stroke="none"/>
+<g stroke="#0A777F" stroke-width="1.6"><path class="flow" d="M52 62L92 46L138 78"/><path class="flow slow" d="M52 122L92 110L138 110"/></g>
+<g fill="#044978"><circle cx="52" cy="62" r="7"/><circle cx="52" cy="92" r="7"/><circle cx="52" cy="122" r="7"/><circle cx="92" cy="46" r="7"/><circle cx="92" cy="78" r="7"/><circle cx="92" cy="110" r="7"/><circle cx="92" cy="142" r="7"/></g>
+<g fill="#0A777F"><circle cx="138" cy="78" r="7"/><circle cx="138" cy="110" r="7"/></g>
 <!-- safety gate -->
-<rect x="176" y="70" width="44" height="44" rx="8" fill="#E3F3F6" stroke="#0E8FA3" stroke-width="1.8"/>
-<path d="M188 92h20M198 82v20" stroke="#0E8FA3" stroke-width="1.8"/>
-<path d="M154 92h22M220 92h22" stroke="#0E8FA3" stroke-width="1.8" marker-end="none"/>
-<path d="M238 88l6 4-6 4" stroke="#0E8FA3" stroke-width="1.8"/>
-<!-- plant: turbine and gauge -->
-<circle cx="292" cy="92" r="34" fill="#fff"/>
-<path d="M292 92l-18-14M292 92l20-10M292 92l-2 24" stroke-width="1.4"/>
-<circle cx="292" cy="92" r="5" fill="#fff"/>
-<path d="M268 128a34 34 0 0 0 48 0" stroke="#5B6B82" stroke-width="1.2"/>
-<!-- feedback loop back to the network -->
-<path d="M292 132V152H46V136" stroke="#E39A16" stroke-width="1.6" stroke-dasharray="4 5"/>
-<path d="M42 142l4-6 4 6" stroke="#E39A16" stroke-width="1.6"/>
-<text x="180" y="150" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#5B6B82" stroke="none" text-anchor="middle">learn, check, act</text>
+<path d="M146 94h26" stroke="#D5DCE5" stroke-width="1.6"/><path class="flow" d="M146 94h26" stroke="#0A777F" stroke-width="2.2"/>
+<rect x="174" y="72" width="44" height="44" rx="10" fill="#3BA995"/><path d="M186 94l6 6 12-13" stroke="#fff" stroke-width="2.6"/>
+<path d="M220 94h28" stroke="#D5DCE5" stroke-width="1.6"/><path class="flow" d="M220 94h28" stroke="#3BA995" stroke-width="2.2"/><path d="M244 89l6 5-6 5" stroke="#3BA995" stroke-width="2"/>
+<!-- turbine -->
+<circle cx="292" cy="94" r="34" fill="#F3F7FA" stroke="#D5DCE5"/>
+<g class="spin" style="transform-origin:292px 94px"><path d="M292 94l-4-26 8 0zM292 94l22 14-4 7zM292 94l-22 14 4 7z" fill="#044978"/></g>
+<circle cx="292" cy="94" r="5" fill="#fff" stroke="#044978" stroke-width="2"/>
+<!-- feedback loop -->
+<path d="M292 130v22H52v-14" stroke="#3BA995" stroke-width="1.6" stroke-dasharray="4 5" class="flow slow"/><path d="M47 144l5-7 5 7" stroke="#3BA995" stroke-width="1.6"/>
+<text x="180" y="150" font-size="11" fill="#5B6B82" text-anchor="middle">learn, check, act</text>
 </svg>""",
 
 "fiber": _ART_HEAD + """
+<g class="card"><rect x="14" y="14" width="332" height="152" rx="12" fill="#fff" stroke="#D5DCE5"/></g>
 <!-- fiber cross-section -->
-<circle cx="62" cy="92" r="38" fill="#fff"/><circle cx="62" cy="92" r="26" stroke="#5B6B82" stroke-width="1.2"/><circle cx="62" cy="92" r="9" fill="#E3F3F6" stroke="#0E8FA3"/>
-<g fill="#0E8FA3" stroke="none"><circle cx="62" cy="92" r="2.5"/><circle cx="52" cy="80" r="2"/><circle cx="74" cy="82" r="2"/><circle cx="50" cy="104" r="2"/><circle cx="74" cy="104" r="2"/></g>
-<!-- spectrum axis with bands -->
-<path d="M126 128h150" stroke="#5B6B82" stroke-width="1.2"/>
-<g stroke="none">
-  <rect x="130" y="72" width="40" height="56" fill="#E3F3F6"/><rect x="176" y="56" width="44" height="72" fill="#0E8FA3" opacity=".75"/><rect x="226" y="84" width="46" height="44" fill="#E39A16" opacity=".8"/>
-</g>
-<g stroke="#0E2036" stroke-width="1.2"><path d="M130 72h40v56M176 56h44v72M226 84h46v44"/></g>
-<g font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#5B6B82" stroke="none" text-anchor="middle"><text x="150" y="144">S</text><text x="198" y="144">C</text><text x="249" y="144">L</text><text x="201" y="162">multi-band spectrum</text></g>
-<!-- 6G mast -->
-<path d="M320 150V70M312 150h16" stroke-width="1.4"/><path d="M314 70h12l-6-10z" fill="#fff"/>
-<g stroke="#0E8FA3" stroke-width="1.6"><path d="M306 64a20 20 0 0 1 28 0M300 56a29 29 0 0 1 40 0"/></g>
-<!-- link from fiber to spectrum -->
-<path d="M100 92h24" stroke="#0E8FA3" stroke-width="1.8" stroke-dasharray="3 6"/>
+<circle cx="66" cy="92" r="36" fill="#F3F7FA" stroke="#044978" stroke-width="1.6"/><circle cx="66" cy="92" r="24" stroke="#D5DCE5" stroke-width="1.2"/>
+<g fill="#0A777F"><circle cx="66" cy="92" r="4.5"/><circle cx="56" cy="80" r="3.2"/><circle cx="78" cy="82" r="3.2"/><circle cx="54" cy="104" r="3.2"/><circle cx="78" cy="104" r="3.2"/></g>
+<g fill="#3BA995" class="pulse"><circle cx="66" cy="92" r="8" opacity=".35"/></g>
+<!-- light pulses along the fiber to the spectrum -->
+<path d="M104 92h24" stroke="#D5DCE5" stroke-width="1.6"/><path class="flow" d="M104 92h24" stroke="#0A777F" stroke-width="2.6"/>
+<!-- spectrum -->
+<path d="M132 128h146" stroke="#5B6B82" stroke-width="1.2"/>
+<g class="grow"><rect x="136" y="70" width="40" height="58" rx="3" fill="#044978" opacity=".85" style="transform-origin:156px 128px"/></g>
+<g class="grow" style="animation-delay:.6s"><rect x="182" y="52" width="44" height="76" rx="3" fill="#0A777F" style="transform-origin:204px 128px"/></g>
+<g class="grow" style="animation-delay:1.2s"><rect x="232" y="82" width="44" height="46" rx="3" fill="#3BA995" style="transform-origin:254px 128px"/></g>
+<g font-size="11" fill="#5B6B82" text-anchor="middle"><text x="156" y="143">S</text><text x="204" y="143">C</text><text x="254" y="143">L</text><text x="205" y="158">multi-band spectrum</text></g>
+<!-- 6G mast with expanding waves -->
+<path d="M322 148V72M314 148h16" stroke="#044978" stroke-width="1.6"/><path d="M316 72h12l-6-10z" fill="#044978"/>
+<g stroke="#0A777F" stroke-width="1.6" fill="none"><path class="pulse" d="M310 64a17 17 0 0 1 24 0"/><path class="pulse" style="animation-delay:.7s" d="M304 56a26 26 0 0 1 36 0"/><path class="pulse" style="animation-delay:1.4s" d="M298 48a34 34 0 0 1 48 0"/></g>
 </svg>""",
 
 "edge": _ART_HEAD + """
-<!-- replicated cluster -->
-<g fill="#fff"><rect x="60" y="60" width="34" height="26" rx="5"/><rect x="128" y="36" width="34" height="26" rx="5"/><rect x="196" y="60" width="34" height="26" rx="5"/><rect x="94" y="118" width="34" height="26" rx="5"/><rect x="162" y="118" width="34" height="26" rx="5"/></g>
-<g stroke="#5B6B82" stroke-width="1.1"><path d="M94 73h34M162 62l34 11M77 86l17 32M213 86l-17 32M128 131h34M94 73l34-11M145 62v56"/></g>
-<g stroke="#0E8FA3" stroke-width="1.8"><path d="M70 74l4 4 8-8M138 50l4 4 8-8M206 74l4 4 8-8M104 132l4 4 8-8"/></g>
-<!-- one faulty node -->
-<path d="M172 126l14 12M186 126l-14 12" stroke="#E39A16" stroke-width="2"/>
+<g class="card"><rect x="14" y="14" width="332" height="152" rx="12" fill="#fff" stroke="#D5DCE5"/></g>
+<!-- links -->
+<g stroke="#D5DCE5" stroke-width="1.4"><path d="M96 74h38M168 60l36 12M80 90l18 30M220 90l-18 30M130 134h34M96 74l38-14M148 62v58"/></g>
+<g stroke="#0A777F" stroke-width="2"><path class="flow" d="M96 74h38"/><path class="flow slow" d="M168 60l36 12"/><path class="flow" d="M80 90l18 30"/><path class="flow slow" d="M220 90l-18 30"/></g>
+<!-- replicas -->
+<g fill="#fff" stroke="#044978" stroke-width="1.6"><rect x="62" y="60" width="36" height="28" rx="7"/><rect x="130" y="34" width="36" height="28" rx="7"/><rect x="200" y="60" width="36" height="28" rx="7"/><rect x="96" y="120" width="36" height="28" rx="7"/></g>
+<g stroke="#3BA995" stroke-width="2.2"><path d="M72 74l5 5 9-10M140 48l5 5 9-10M210 74l5 5 9-10M106 134l5 5 9-10"/></g>
+<!-- faulty replica -->
+<g class="pulse"><rect x="164" y="120" width="36" height="28" rx="7" fill="#FDECEC" stroke="#E25555" stroke-width="1.6"/><path d="M176 128l12 12M188 128l-12 12" stroke="#E25555" stroke-width="2.2"/></g>
 <!-- drone -->
-<g transform="translate(272,54)"><path d="M0 12h40M8 12v-6h-8M32 12v-6h8" stroke-width="1.4"/><rect x="12" y="10" width="16" height="9" rx="2" fill="#fff"/><path d="M-6 6h12M34 6h12" stroke="#5B6B82"/></g>
-<!-- satellite arc and link -->
-<path d="M262 36a48 48 0 0 1 60 0" stroke="#0E8FA3" stroke-width="1.4" stroke-dasharray="3 5"/>
-<circle cx="292" cy="20" r="4" fill="#0E8FA3" stroke="none"/>
-<path d="M292 74v40" stroke="#0E8FA3" stroke-width="1.8" stroke-dasharray="3 6"/>
-<path d="M292 114l-62 14" stroke="#0E8FA3" stroke-width="1.4" stroke-dasharray="3 6"/>
-<text x="292" y="146" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#5B6B82" stroke="none" text-anchor="middle">edge</text>
-<text x="145" y="164" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#5B6B82" stroke="none" text-anchor="middle">consensus with a faulty replica</text>
+<g transform="translate(266,56)"><path d="M0 12h44M10 12V6H0M34 12V6h44" stroke="#044978" stroke-width="1.6"/><rect x="13" y="9" width="18" height="10" rx="3" fill="#044978"/><g stroke="#0A777F" stroke-width="1.6" class="spin" style="transform-origin:5px 6px"><path d="M-3 6h16"/></g><g stroke="#0A777F" stroke-width="1.6" class="spin" style="transform-origin:39px 6px"><path d="M31 6h16"/></g></g>
+<!-- satellite link -->
+<path d="M262 40a40 40 0 0 1 56 0" stroke="#D5DCE5" stroke-width="1.4"/><path class="flow slow" d="M262 40a40 40 0 0 1 56 0" stroke="#3BA995" stroke-width="2"/>
+<circle cx="290" cy="24" r="4.5" fill="#3BA995"/>
+<path d="M288 74v32" stroke="#D5DCE5" stroke-width="1.4"/><path class="flow" d="M288 74v32" stroke="#0A777F" stroke-width="2"/>
+<path d="M288 106l-52 22" stroke="#D5DCE5" stroke-width="1.4"/><path class="flow slow" d="M288 106l-52 22" stroke="#0A777F" stroke-width="2"/>
+<text x="288" y="122" font-size="11" fill="#5B6B82" text-anchor="middle">edge</text>
+<text x="150" y="162" font-size="11" fill="#5B6B82" text-anchor="middle">consensus with a faulty replica</text>
 </svg>""",
 
 "chip": _ART_HEAD + """
-<!-- chip package -->
-<rect x="70" y="52" width="88" height="88" rx="8" fill="#fff"/>
-<rect x="92" y="74" width="44" height="44" rx="4" fill="#E3F3F6" stroke="#0E8FA3"/>
-<g stroke-width="1.3"><path d="M86 52V38M102 52V38M118 52V38M134 52V38M86 140v14M102 140v14M118 140v14M134 140v14M70 70H56M70 88H56M70 106H56M70 124H56M158 70h14M158 88h14M158 106h14M158 124h14"/></g>
-<!-- lock on die -->
-<rect x="106" y="94" width="16" height="13" rx="2" fill="#fff" stroke="#0E8FA3" stroke-width="1.6"/><path d="M109 94v-4a5 5 0 0 1 10 0v4" stroke="#0E8FA3" stroke-width="1.6"/>
+<g class="card"><rect x="14" y="14" width="332" height="152" rx="12" fill="#fff" stroke="#D5DCE5"/></g>
+<!-- chip -->
+<rect x="66" y="48" width="88" height="88" rx="10" fill="#044978"/>
+<rect x="88" y="70" width="44" height="44" rx="6" fill="#0A777F"/>
+<g stroke="#044978" stroke-width="2"><path d="M82 48V36M100 48V36M118 48V36M136 48V36M82 136v12M100 136v12M118 136v12M136 136v12M66 66H54M66 84H54M66 102H54M66 120H54M154 66h12M154 84h12M154 102h12M154 120h12"/></g>
+<rect x="102" y="90" width="16" height="13" rx="2" fill="#fff"/><path d="M105 90v-4a5 5 0 0 1 10 0v4" stroke="#fff" stroke-width="1.8"/>
+<!-- data out -->
+<path d="M166 92h28" stroke="#D5DCE5" stroke-width="1.6"/><path class="flow" d="M166 92h28" stroke="#0A777F" stroke-width="2.4"/>
 <!-- hardware counters -->
-<g stroke="none" fill="#0E8FA3"><rect x="204" y="98" width="10" height="42"/><rect x="220" y="80" width="10" height="60"/><rect x="236" y="110" width="10" height="30"/><rect x="252" y="66" width="10" height="74"/></g>
-<rect x="268" y="120" width="10" height="20" fill="#E39A16" stroke="none"/>
-<path d="M198 140h90" stroke="#5B6B82" stroke-width="1.2"/>
-<text x="243" y="156" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#5B6B82" stroke="none" text-anchor="middle">hardware counters</text>
+<g class="grow"><rect x="200" y="94" width="10" height="42" fill="#0A777F" style="transform-origin:205px 136px"/></g>
+<g class="grow" style="animation-delay:.5s"><rect x="216" y="76" width="10" height="60" fill="#0A777F" style="transform-origin:221px 136px"/></g>
+<g class="grow" style="animation-delay:1s"><rect x="232" y="106" width="10" height="30" fill="#0A777F" style="transform-origin:237px 136px"/></g>
+<g class="grow" style="animation-delay:1.5s"><rect x="248" y="62" width="10" height="74" fill="#0A777F" style="transform-origin:253px 136px"/></g>
+<g class="pulse"><rect x="264" y="116" width="10" height="20" fill="#E25555"/></g>
+<path d="M194 136h90" stroke="#5B6B82" stroke-width="1.2"/>
+<text x="239" y="152" font-size="11" fill="#5B6B82" text-anchor="middle">hardware counters</text>
 <!-- rack -->
-<rect x="300" y="44" width="40" height="96" rx="4" fill="#fff"/>
-<g stroke="#5B6B82" stroke-width="1.1"><path d="M300 64h40M300 84h40M300 104h40M300 124h40"/></g>
-<g fill="#0E8FA3" stroke="none"><circle cx="332" cy="54" r="2"/><circle cx="332" cy="74" r="2"/><circle cx="332" cy="94" r="2"/><circle cx="332" cy="114" r="2"/></g>
-<path d="M172 96h26" stroke="#0E8FA3" stroke-width="1.8" stroke-dasharray="3 6"/>
+<rect x="296" y="42" width="44" height="98" rx="5" fill="#fff" stroke="#044978" stroke-width="1.6"/>
+<g stroke="#D5DCE5" stroke-width="1.1"><path d="M296 62h44M296 82h44M296 102h44M296 122h44"/></g>
+<g fill="#3BA995"><circle cx="331" cy="52" r="2.5" class="pulse"/><circle cx="331" cy="72" r="2.5" class="pulse" style="animation-delay:.8s"/><circle cx="331" cy="92" r="2.5" class="pulse" style="animation-delay:1.6s"/><circle cx="331" cy="112" r="2.5" class="pulse" style="animation-delay:.4s"/><circle cx="331" cy="132" r="2.5" class="pulse" style="animation-delay:2s"/></g>
 </svg>""",
 
 "health": _ART_HEAD + """
-<!-- road with connected vehicles -->
-<path d="M20 132h200" stroke-width="1.4"/><path d="M28 126h184" stroke="#5B6B82" stroke-width="1" stroke-dasharray="10 8"/>
-<g fill="#fff"><path d="M44 120h52l-8-16H56z"/><path d="M130 120h52l-8-16h-36z"/></g>
-<g fill="#fff"><circle cx="54" cy="122" r="5"/><circle cx="86" cy="122" r="5"/><circle cx="140" cy="122" r="5"/><circle cx="172" cy="122" r="5"/></g>
-<path d="M92 96q32-26 64 0" stroke="#0E8FA3" stroke-width="1.6" stroke-dasharray="3 5"/>
-<g stroke="#0E8FA3" stroke-width="1.4"><path d="M70 98v-8M64 92l6-6 6 6M156 98v-8M150 92l6-6 6 6"/></g>
+<g class="card"><rect x="14" y="14" width="332" height="152" rx="12" fill="#fff" stroke="#D5DCE5"/></g>
+<!-- road with moving lane marks -->
+<rect x="24" y="118" width="196" height="26" rx="4" fill="#F3F7FA" stroke="#D5DCE5"/>
+<path class="flow slow" d="M30 131h184" stroke="#5B6B82" stroke-width="1.4" stroke-dasharray="10 8"/>
+<!-- vehicles -->
+<g><path d="M44 118h48l-8-14H52z" fill="#044978"/><path d="M40 118h56v6H40z" fill="#044978" opacity=".85"/><circle cx="52" cy="126" r="4.5" fill="#fff" stroke="#044978" stroke-width="1.6"/><circle cx="84" cy="126" r="4.5" fill="#fff" stroke="#044978" stroke-width="1.6"/></g>
+<g><path d="M130 118h48l-8-14h-32z" fill="#0A777F"/><path d="M126 118h56v6h-56z" fill="#0A777F" opacity=".85"/><circle cx="138" cy="126" r="4.5" fill="#fff" stroke="#0A777F" stroke-width="1.6"/><circle cx="170" cy="126" r="4.5" fill="#fff" stroke="#0A777F" stroke-width="1.6"/></g>
+<path d="M92 96q32-30 64 0" stroke="#3BA995" stroke-width="1.8" stroke-dasharray="3 5" class="flow"/>
+<g stroke="#3BA995" stroke-width="1.6" class="pulse"><path d="M68 98v-9M62 93l6-6 6 6M154 98v-9M148 93l6-6 6 6"/></g>
 <!-- bridge with sensors -->
-<path d="M240 132h100M250 132V96M330 132V96M240 96h100" stroke-width="1.4"/>
-<path d="M250 96q40-36 80 0" stroke-width="1.4"/><path d="M270 132V84M290 132V76M310 132V84" stroke="#5B6B82" stroke-width="1"/>
-<g fill="#E39A16" stroke="none"><circle cx="270" cy="84" r="3"/><circle cx="290" cy="76" r="3"/><circle cx="310" cy="84" r="3"/></g>
+<path d="M232 144h104M244 144V100M324 144V100M232 100h104" stroke="#044978" stroke-width="1.6"/>
+<path d="M244 100q40-38 80 0" stroke="#044978" stroke-width="1.6"/><path d="M264 144V88M284 144V80M304 144V88" stroke="#D5DCE5" stroke-width="1.2"/>
+<g fill="#3BA995"><circle cx="264" cy="88" r="3.5" class="pulse"/><circle cx="284" cy="80" r="3.5" class="pulse" style="animation-delay:.7s"/><circle cx="304" cy="88" r="3.5" class="pulse" style="animation-delay:1.4s"/></g>
 <!-- hospital and ECG -->
-<rect x="236" y="26" width="44" height="40" rx="5" fill="#fff"/><path d="M258 36v20M248 46h20" stroke="#0E8FA3" stroke-width="2"/>
-<path d="M288 50h10l6-14 8 28 8-20 6 8h12" stroke="#0E8FA3" stroke-width="1.8"/>
-<!-- data uplinks -->
-<path d="M120 60h96" stroke="#0E8FA3" stroke-width="1.4" stroke-dasharray="3 6"/>
-<circle cx="120" cy="60" r="4" fill="#0E8FA3" stroke="none"/>
-<path d="M120 64v32" stroke="#0E8FA3" stroke-width="1.4" stroke-dasharray="3 6"/>
-<text x="180" y="160" font-family="IBM Plex Sans, Arial, sans-serif" font-size="11" fill="#5B6B82" stroke="none" text-anchor="middle">connected roads, hospitals, and structures</text>
+<rect x="236" y="28" width="40" height="36" rx="6" fill="#0A777F"/><path d="M256 36v20M246 46h20" stroke="#fff" stroke-width="3"/>
+<path class="trace" d="M284 48h10l6-14 8 28 8-20 6 6h14" stroke="#3BA995" stroke-width="2"/>
+<!-- data uplink from vehicles to the hospital and bridge -->
+<path d="M120 58h108" stroke="#D5DCE5" stroke-width="1.4"/><path class="flow" d="M120 58h108" stroke="#0A777F" stroke-width="2"/>
+<circle cx="120" cy="58" r="4.5" fill="#0A777F"/><path d="M120 62v34" stroke="#D5DCE5" stroke-width="1.4"/><path class="flow slow" d="M120 62v34" stroke="#0A777F" stroke-width="2"/>
+<text x="180" y="162" font-size="11" fill="#5B6B82" text-anchor="middle">connected roads, hospitals, and structures</text>
 </svg>""",
 }
 ART = {k: theme_svg(v) for k, v in ART.items()}
@@ -970,14 +1168,15 @@ def person_card(p, size="lg", with_photo=True):
     lines = []
     if with_photo:
         lines.append(avatar(p, size))
-    lines += [f'<h3>{esc(p["name"])}</h3>', f'<p class="ptitle">{esc(p["title"])}</p>', f'<p class="pareas">{esc(p["areas"])}</p>']
+    tag = f' <span class="ptag">{esc(p["tag"])}</span>' if p.get("tag") else ''
+    lines += [f'<h3>{esc(p["name"])}{tag}</h3>', f'<p class="ptitle">{esc(p["title"])}</p>', f'<p class="pareas">{esc(p["areas"])}</p>']
     if p.get("role"):
         lines.append(f'<p class="prole">{esc(p["role"])}</p>')
     meta = []
     if p.get("email"): meta.append(f'<a href="mailto:{esc(p["email"])}">{esc(p["email"])}</a>')
     if p.get("phone"): meta.append(f'<span>{esc(p["phone"])}</span>')
     if p.get("office"): meta.append(f'<span>{esc(p["office"])}</span>')
-    if p.get("url"): meta.append(f'<a href="{esc(p["url"])}">UMass Lowell profile</a>')
+    if p.get("url"): meta.append(f'<a href="{esc(p["url"])}">{"NYU profile" if "nyu.edu" in p["url"] else ("LinkedIn" if "linkedin.com" in p["url"] else "UMass Lowell profile")}</a>')
     lines.append('<p class="pmeta">' + " ".join(f'<span class="mi">{m}</span>' for m in meta) + '</p>')
     return '<article class="person">' + "".join(lines) + '</article>'
 
@@ -985,13 +1184,15 @@ def person_row(p):
     meta = []
     if p.get("email"): meta.append(f'<a href="mailto:{esc(p["email"])}">{esc(p["email"])}</a>')
     if p.get("phone"): meta.append(esc(p["phone"]))
-    return ('<li class="prow">' + avatar(p, "sm") + '<div><span class="pname">' + esc(p["name"]) + '</span><span class="ptitle2">' + esc(p["title"]) + '</span>'
+    if p.get("url"): meta.append(f'<a href="{esc(p["url"])}">{"LinkedIn" if "linkedin.com" in p["url"] else "Profile"}</a>')
+    tag = f'<span class="ptag">{esc(p["tag"])}</span>' if p.get("tag") else ''
+    return ('<li class="prow">' + avatar(p, "sm") + '<div><span class="pname">' + esc(p["name"]) + tag + '</span><span class="ptitle2">' + esc(p["title"]) + '</span>'
             '<span class="pareas2">' + esc(p["areas"]) + '</span><div class="pcontact">' + '<span class="sep"></span>'.join(meta) + '</div></div></li>')
 
 # ---------------------------------------------------------------- counts
 n_pubs = len(P)
 n_journal = sum(1 for p in P if p["type"] == "journal")
-n_faculty = 1 + len(FACULTY["core"]) + len(FACULTY["board"]) + len(FACULTY["affiliated"])
+n_faculty = 1 + len(FACULTY["core"]) + len(FACULTY["affiliated"])
 
 def build():
     thrusts_html = "".join(
@@ -1013,10 +1214,15 @@ def build():
     director_html = ('<div class="director">' + avatar(d, "xl") + '<div>' + person_card(d, with_photo=False) +
                      f'<div class="bio"><p>{esc(d["bio"])}</p></div></div></div>')
     core_html = '<div class="core">' + "".join(person_card(p, "lg") for p in FACULTY["core"]) + '</div>'
-    board_html = '<ul class="plist">' + "".join(person_row(p) for p in FACULTY["board"]) + '</ul>'
     aff_html = '<ul class="plist">' + "".join(person_row(p) for p in FACULTY["affiliated"]) + '</ul>'
-    partners_html = '<ul class="partners">' + "".join(
-        f'<li><b>{esc(c["name"])}</b><span>{esc(c["org"])}</span><span>{esc(c["note"])}</span></li>' for c in FACULTY["collaborators"]) + '</ul>'
+    ext_html = '<ul class="plist">' + "".join(person_row(p) for p in FACULTY["external"]) + '</ul>'
+    students_html = "".join(student_card(st) for st in STUDENTS)
+    alumni_feat_html = "".join(alum_feature(a) for a in ALUMNI_FEATURED)
+    alumni_phd_html = "".join(f'<li><span class="yr">{esc(y)}</span><span><b>{esc(n)}</b>{(" <span class=\"where\">" + esc(w) + "</span>") if w else ""}</span></li>' for y, n, w in ALUMNI_PHD)
+    alumni_pd_html = "".join(f'<li><span><b>{esc(n)}</b>{(" <span class=\"where\">" + esc(w) + "</span>") if w else ""}</span></li>' for n, w in ALUMNI_POSTDOC)
+    sponsors_html = "".join(
+        f'<div class="sgroup"><h3>{esc(group)}</h3><div class="logos">' + "".join(logo_tile(sp) for sp in items) + '</div></div>'
+        for group, items in SPONSORS.items())
 
     news_html = "".join(f'<li><time>{esc(w)}</time><p>{esc(t)}</p></li>' for w, t in NEWS)
 
@@ -1068,6 +1274,7 @@ def build():
 <meta property="og:title" content="Center for Smart Cyber-Physical Systems (SCyPS) | UMass Lowell">
 <meta property="og:description" content="Research, people, funded projects, and publications from UMass Lowell's Center for Smart Cyber-Physical Systems.">
 <meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="{img_src("favicon")}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
@@ -1079,17 +1286,21 @@ def build():
 <a class="skip" href="#main">Skip to content</a>
 <header class="nav">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="SCyPS home">{LOGO}<span>SCyPS<small>Center for Smart Cyber-Physical Systems, UMass Lowell</small></span></a>
+    <a class="brand" href="#top" aria-label="SCyPS home"><span class="mark"><img src="{img_src("logo_mark")}" alt="" width="576" height="271"></span><span>SCyPS<small>Center for Smart Cyber-Physical Systems, UMass Lowell</small></span></a>
     <div class="navright">
     <ul class="links" id="menu">
       <li><a href="#about">About</a></li>
       <li><a href="#research">Research</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#sponsors">Sponsors</a></li>
       <li><a href="#people">People</a></li>
+      <li><a href="#students">Students</a></li>
+      <li><a href="#alumni">Alumni</a></li>
       <li><a href="#publications">Publications</a></li>
       <li><a href="#news">News</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <a class="gift" href="{GIFT_URL}">Make a Gift</a>
     <button class="theme" id="theme" type="button" aria-label="Switch to dark mode"><svg class="moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg><span class="lbl">Dark</span></button>
     <button class="navtoggle" aria-expanded="false" aria-controls="menu">Menu</button>
     </div>
@@ -1100,10 +1311,13 @@ def build():
 <div class="hero" id="top">
   <div class="bg" role="img" aria-label="City skyline overlaid with a wireless communication network"{hero_bg}></div>
   <div class="veil"></div>
-  <div class="wrap">
+  <div class="wrap hero-grid">
+    <div>
     <h1>Where computation meets the physical world.</h1>
     <p class="lede">Power grids, roads, and hospitals now run on networks, sensors, and software. The Center for Smart Cyber-Physical Systems brings UMass Lowell researchers in networking, security, distributed computing, hardware, and AI together with domain experts to keep that infrastructure secure, resilient, and working under attack, failure, and disaster.</p>
     <div class="cta"><a class="btn primary" href="#research">Explore our research</a><a class="btn" href="#publications">Recent publications</a></div>
+    </div>
+    <div class="hero-logo"><img src="{img_src("logo_full")}" alt="SCyPS: Center for Smart Cyber-Physical Systems. People, systems, a safer tomorrow." width="598" height="508"></div>
   </div>
 </div>
 
@@ -1150,12 +1364,12 @@ def build():
 
 <section id="projects">
   <div class="wrap">
-    <div class="shead"><h2>Funded projects</h2><p>Active sponsored research led by center faculty. Three new awards started in 2026, headed by the NSF MRI SUMMIT testbed.</p></div>
+    <div class="shead"><h2>Funded projects</h2><p>Current and recently completed sponsored research led by center faculty. Three new awards started in 2026, headed by the NSF MRI SUMMIT testbed.</p></div>
     <div class="feature">
       <div class="copy">
         <span class="kicker">New in 2026</span>
         <h3>SUMMIT: a three-site smart grid testbed you can attack, defend, and restore</h3>
-        <p>NSF's Major Research Instrumentation program is funding a federated cyber-physical instrument that links real-time power system simulation, grid communication networks, and protection and control devices across UMass Lowell, NYU, and West Virginia University. Researchers at any site will be able to run attack, defense, and restoration experiments on the shared testbed, and students will train on the same equipment utilities and vendors use.</p>
+        <p>NSF's Major Research Instrumentation program is funding a federated cyber-physical instrument that links real-time power system simulation, grid communication networks, and protection and control devices across UMass Lowell, NYU, and West Virginia University. At its core are RTDS NovaCor real-time digital simulators, which run grid models fast enough to drive real relays, controllers, and network hardware in the loop. Researchers at any site will be able to run attack, defense, and restoration experiments on the shared testbed, and students will train on the same equipment utilities and vendors use.</p>
         <div class="meta">
           <div><b>$2.0M</b><span>NSF MRI Track 2, Award #2511635</span></div>
           <div><b>Oct 2026 to Sep 2029</b><span>award period</span></div>
@@ -1163,21 +1377,54 @@ def build():
           <div><b>Postdoc search open</b><span>postdoctoral research associate, Fall 2026</span></div>
         </div>
       </div>
-      <div class="visual"{cyber_bg}>{FEDERATION}</div>
+      <figure class="visual rtds">
+        <img src="{img_src("rtds")}" alt="An RTDS NovaCor real-time digital simulator rack" width="507" height="760">
+        <figcaption>RTDS NovaCor real-time digital simulator, the instrument at the heart of SUMMIT</figcaption>
+      </figure>
+      <div class="fed">{FEDERATION}</div>
     </div>
     <div class="ledger">{projects_html}</div>
     <div class="tools">{tools_html}</div>
   </div>
 </section>
 
+<section id="sponsors">
+  <div class="wrap">
+    <div class="shead"><h2>Sponsors and partners</h2><p>The agencies, companies, and institutions behind the center's current research.</p></div>
+    {sponsors_html}
+    <div class="ack">
+      <p>This material is based upon work supported by the U.S. National Science Foundation under Grant No. 2511635. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the National Science Foundation.</p>
+      <p>Research at the center is also supported by the U.S. Department of Energy, the Office of Naval Research, the U.S. Army, the Commonwealth of Massachusetts, the International Atomic Energy Agency, the Massachusetts Technology Collaborative, Red Hat, and Navia Energy.</p>
+    </div>
+  </div>
+</section>
+
 <section id="people" class="tint">
   <div class="wrap">
-    <div class="shead"><h2>People</h2><p>Faculty from the Francis College of Engineering, the Kennedy College of Sciences, and UMass Chan Medical School, plus long-running collaborators at partner universities and companies.</p></div>
+    <div class="shead"><h2>People</h2><p>Faculty from the Francis College of Engineering and the Kennedy College of Sciences, plus long-running collaborators at partner universities and companies.</p></div>
     {director_html}
     {core_html}
-    <div class="group"><h3>Board of directors</h3><p>Center governance and cross-college leadership.</p>{board_html}</div>
-    <div class="group"><h3>Affiliated researchers</h3><p>Faculty who collaborate on center projects and proposals.</p>{aff_html}</div>
-    <div class="group"><h3>Partners and collaborators</h3><p>Institutions and companies the center works with on current projects.</p>{partners_html}</div>
+    <div class="group"><h3>Affiliated researchers</h3><p>UMass Lowell faculty who collaborate on center projects and proposals.</p>{aff_html}</div>
+    <div class="group"><h3>External collaborators</h3><p>Partners at other universities and companies who work with the center on current projects.</p>{ext_html}</div>
+  </div>
+</section>
+
+<section id="students">
+  <div class="wrap">
+    <div class="shead"><h2>Students</h2><p>Doctoral students in the director's group, the Advanced Communication Networks Laboratory, working on center projects.</p></div>
+    <div class="stugrid">{students_html}</div>
+  </div>
+</section>
+
+<section id="alumni" class="tint">
+  <div class="wrap">
+    <div class="shead"><h2>Alumni</h2><p>Where the group's Ph.D. graduates and postdoctoral researchers have gone.</p></div>
+    <div class="stugrid two">{alumni_feat_html}</div>
+    <div class="alumcols">
+      <div><h3>Ph.D. graduates</h3><ul class="alumlist">{alumni_phd_html}</ul></div>
+      <div><h3>Postdoctoral alumni</h3><ul class="alumlist nodate">{alumni_pd_html}</ul>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1191,6 +1438,7 @@ def build():
         <button class="chip" data-f="fac" data-v="Arias" aria-pressed="false">Arias</button>
         <button class="chip" data-f="fac" data-v="Tseng" aria-pressed="false">Tseng</button>
         <button class="chip" data-f="fac" data-v="Son" aria-pressed="false">Son</button>
+        <button class="chip" data-f="fac" data-v="Aghara" aria-pressed="false">Aghara</button>
       </div>
       <div class="fgroup"><span class="lab">Type</span>
         <button class="chip" data-f="type" data-v="all" aria-pressed="true">All</button>
@@ -1231,6 +1479,11 @@ def build():
             <li>Join proposals to NSF, DOE, DoD, and state programs as a partner site or end user.</li>
           </ul>
         </div>
+        <div class="block giftbox">
+          <h3>Support the Center for Smart Cyber-Physical Systems</h3>
+          <p>Contribute to research and workforce development that keeps power, transportation, and health infrastructure secure and resilient. Your gift to the center supports the SUMMIT testbed, student travel and summer research positions, and the students whose careers will run the systems a smart society depends on.</p>
+          <a class="btn-gift" href="{GIFT_URL}">Donate to the Center</a>
+        </div>
       </div>
     </div>
   </div>
@@ -1241,12 +1494,13 @@ def build():
   <div class="wrap">
     <div class="cols">
       <div class="col">
+        <div class="flogo"><img src="{img_src("logo_name")}" alt="SCyPS, Center for Smart Cyber-Physical Systems" width="594" height="453"></div>
         <a href="https://www.uml.edu/" title="UMass Lowell home">{UML_LOGO}</a>
         <address><strong>Center for Smart Cyber-Physical Systems (SCyPS)</strong><br>UMass Lowell<br>1 University Ave. Lowell, MA 01854<br>Email: <a href="mailto:SCyPS@uml.edu">SCyPS@uml.edu</a></address>
       </div>
       <div class="col menu">
         <nav aria-label="Footer menu"><h2>Menu</h2>
-          <ul><li><a href="#about">About</a></li><li><a href="#research">Research</a></li><li><a href="#projects">Projects</a></li><li><a href="#people">People</a></li><li><a href="#publications">Publications</a></li><li><a href="#news">News</a></li></ul>
+          <ul><li><a href="#about">About</a></li><li><a href="#research">Research</a></li><li><a href="#projects">Projects</a></li><li><a href="#sponsors">Sponsors</a></li><li><a href="#people">People</a></li><li><a href="#students">Students</a></li><li><a href="#alumni">Alumni</a></li><li><a href="#publications">Publications</a></li><li><a href="#news">News</a></li><li><a href="{GIFT_URL}">Make a Gift</a></li></ul>
         </nav>
       </div>
       <div class="col dir">

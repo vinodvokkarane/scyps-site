@@ -100,7 +100,7 @@ PROJECTS = [
     {"tag": "New in 2026", "sponsor": "National Science Foundation, Major Research Instrumentation Track 2 (Award #2511635)",
      "title": "SUMMIT: A Secure and Resilient Multi-site Smart Grid Testbed for Multidisciplinary Research and Training",
      "amount": "$2.0M", "share": "UMass Lowell share $1.56M", "period": "Oct 2026 to Sep 2029",
-     "team": "PI Vinod Vokkarane; Co-PIs Orlando Arias, Lewis Tseng (UMass Lowell), Yuzhang Lin (NYU); partner site West Virginia University",
+     "team": "PI Vinod Vokkarane; Co-PIs Orlando Arias and Lewis Tseng (UMass Lowell), Yuzhang Lin (NYU), and Anurag Srivastava (WVU); with UMass Lowell faculty Yan Luo and Seung Woo Son",
      "desc": ("A federated cyber-physical testbed that links RTDS real-time simulation of the Northeast transmission grid with control, "
               "networking, and cybersecurity hardware in the loop across three universities over a wide-area SDN, delivered as "
               "HIL Simulation-as-a-Service. A postdoctoral researcher will lead federation development."),
@@ -1962,7 +1962,9 @@ def person_card(p, big=False):
     if p.get("phone"): meta.append(f'<span>{esc(p["phone"])}</span>')
     if p.get("office"): meta.append(f'<span>{esc(p["office"])}</span>')
     if p.get("url"): meta.append(f'<a href="{esc(p["url"])}">{"NYU profile" if "nyu.edu" in p["url"] else ("LinkedIn" if "linkedin.com" in p["url"] else "UMass Lowell profile")}</a>')
+    if p.get("inst", "Lowell") is not None: meta += id_links(p["name"])
     lines.append('<p class="pmeta">' + " ".join(f'<span class="mi">{m}</span>' for m in meta) + '</p>')
+    if scholar_line(p["name"]): lines.append('<p class="gsline">' + scholar_line(p["name"]) + '</p>')
     lines.append(metrics_slot(p))
     return '<article class="person">' + "".join(lines) + '</article>'
 
@@ -2050,8 +2052,8 @@ img{max-width:100%;height:auto}
 /* nav */
 .nav{position:sticky;top:0;z-index:50;background:var(--nav-bg);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:66px;gap:12px}
-.brand{display:flex;align-items:center;gap:10px;color:var(--ink);font-family:"Fraunces",Georgia,serif;font-size:19px;font-weight:600;letter-spacing:-.01em;min-width:0;flex:0 1 auto;overflow:hidden}
-.brand>span{white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ink);font-family:"Fraunces",Georgia,serif;font-size:19px;font-weight:600;letter-spacing:-.01em;flex:0 0 auto}
+.brand>span{white-space:nowrap}
 .brand small{display:block;font-family:"IBM Plex Sans",Arial,sans-serif;font-weight:400;font-size:12px;color:var(--ink-3);letter-spacing:0}
 .brand .mark{display:inline-flex;align-items:center;justify-content:center;width:58px;height:40px;background:#fff;border-radius:8px;padding:3px;flex:none;border:1px solid transparent}
 .brand .mark img{width:100%;height:100%;object-fit:contain;display:block}
@@ -2072,7 +2074,7 @@ img{max-width:100%;height:auto}
 :root[data-theme="dark"] .theme .sun{display:block}
 :root[data-theme="dark"] .theme .moon{display:none}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .theme .sun{display:block}:root:not([data-theme="light"]) .theme .moon{display:none}}
-@media (max-width:1460px){.brand small{display:none}}
+@media (max-width:1600px){.brand small{display:none}}
 @media (max-width:1240px){.theme .lbl{display:none}.theme{padding:7px 8px}}
 @media (max-width:1100px){
   .links{display:none;position:absolute;left:0;right:0;top:66px;background:var(--bg);border-bottom:1px solid var(--line);flex-direction:column;padding:8px var(--gutter) 14px}
@@ -2213,6 +2215,7 @@ section.tint{background:var(--bg-2)}
 .tools{margin-top:52px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .tool{background:var(--bg-2);border-radius:var(--radius);padding:22px 22px 24px;border:1px solid var(--line)}
 .tool h4{font-size:17px;margin-bottom:6px}
+.toolfig{width:100%;height:150px;object-fit:contain;background:#fff;border-radius:8px;border:1px solid var(--line);margin-bottom:12px;display:block}
 .tool p{font-size:14.5px;color:var(--ink-2);margin:0}
 @media (max-width:760px){.tools{grid-template-columns:1fr}}
 
@@ -2220,7 +2223,7 @@ section.tint{background:var(--bg-2)}
 .avatar{border-radius:14px;object-fit:cover;display:block;background:var(--line-2);flex:none}
 .avatar.xl{width:min(100%,300px);aspect-ratio:1/1;border-radius:18px}
 .avatar.lg{width:112px;height:112px}
-.avatar.sm{width:76px;height:76px;border-radius:10px}
+.avatar.sm{width:150px;height:150px;border-radius:14px}
 .avatar.mono{display:grid;place-items:center;font-family:"Fraunces",Georgia,serif;font-weight:600;color:var(--ink-2);background:var(--signal-tint)}
 .avatar.mono.sm{font-size:20px}
 .director{display:grid;grid-template-columns:300px minmax(0,1fr);gap:clamp(24px,4vw,56px);padding:34px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);align-items:start}
@@ -2231,8 +2234,10 @@ section.tint{background:var(--bg-2)}
 .pareas{font-size:15px;margin-bottom:8px}
 .prole{font-size:14.5px;color:var(--ink-2);margin-bottom:8px}
 .pmeta{font-size:13.5px;color:var(--ink-3);margin:0;display:flex;flex-wrap:wrap;gap:4px 0}
-.pmeta .mi::after{content:"\00a0\00b7\00a0";color:var(--line)}
-.pmeta .mi:last-child::after{content:""}
+.pmeta .mi{white-space:nowrap}
+.pmeta .mi a[href^="mailto"]{overflow-wrap:anywhere;white-space:normal}
+.pmeta{gap:4px 14px}
+.pmeta .mi::after{content:""}
 .metrics{display:flex;gap:6px 14px;flex-wrap:wrap;font-size:13px;color:var(--ink-3);margin-top:10px;min-height:0}
 .metrics:empty{display:none}
 .metrics b{color:var(--ink);font-weight:600}
@@ -2241,20 +2246,23 @@ section.tint{background:var(--bg-2)}
 .core{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:18px}
 .core .person{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
 .core .avatar{margin-bottom:16px}
-.core .avatar.lg{width:128px;height:128px}
+.core .avatar.lg{width:220px;height:220px;border-radius:16px}
 @media (max-width:860px){.core{grid-template-columns:1fr}}
 .group{margin-top:48px}
 .group h3{font-size:22px;margin-bottom:6px}
 .group>p{color:var(--ink-3);font-size:14.5px;margin-bottom:14px}
 .plist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .prow{display:flex;gap:16px;padding:16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);align-items:flex-start}
+.prow>div{min-width:0;flex:1 1 auto}
 .pname{font-weight:600;display:block}
 .ptag{display:inline-block;margin-left:8px;vertical-align:3px;font-family:"IBM Plex Sans",Arial,sans-serif;letter-spacing:0;font-size:11.5px;font-weight:500;padding:2px 8px;border-radius:999px;background:var(--signal-tint);color:var(--signal-2)}
 .ptitle2{color:var(--ink-2);font-size:14px;display:block}
 .pareas2{display:block;font-size:13.5px;color:var(--ink-3);margin-top:3px}
-.pcontact{font-size:13px;color:var(--ink-3);margin-top:6px}
-.pcontact .sep::before{content:"\00b7";margin:0 6px}
+.pcontact{font-size:13px;color:var(--ink-3);margin-top:6px;display:flex;flex-wrap:wrap;gap:3px 14px}
+.pcontact .ci{white-space:nowrap}
+.pcontact .ci a{overflow-wrap:anywhere;white-space:normal}
 @media (max-width:860px){.plist{grid-template-columns:1fr}}
+@media (max-width:520px){.avatar.sm{width:110px;height:110px}}
 .partners{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;list-style:none;margin:0;padding:0}
 .partners li{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;font-size:14.5px}
 .partners b{display:block;font-weight:600;margin-bottom:2px}
@@ -2281,16 +2289,21 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .stugrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .stugrid.two{grid-template-columns:repeat(2,1fr);margin-bottom:40px}
 .stu{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px 22px 20px}
-.stu .avatar{margin-bottom:14px;width:96px;height:96px;font-size:26px}
+.stu .avatar{margin-bottom:14px;width:180px;height:180px;font-size:40px}
 .avatar.round{border-radius:50%;background:transparent}
 .avatar.mono.round{background:var(--signal-tint)}
 .stu h3{font-size:20px;margin-bottom:4px}
 .stu .focus{font-size:14.5px;color:var(--ink-2);margin:6px 0 8px}
-.stu.feat{display:grid;grid-template-columns:96px 1fr;gap:6px 18px;align-items:start}
+.stufig{margin:14px 0 0;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px}
+.stufig img{width:100%;height:150px;object-fit:contain;display:block}
+.stufig figcaption{font-size:12px;color:#5B6B82;text-align:center;margin-top:6px}
+.gsline{font-size:13px;color:var(--ink-3);margin:6px 0 0}
+.gsline b{color:var(--ink)}
+.stu.feat{display:grid;grid-template-columns:180px 1fr;gap:6px 22px;align-items:start}
 .stu.feat .avatar{grid-row:1/4;margin:0}
 .stu.feat .focus{grid-column:2}
 @media (max-width:980px){.stugrid{grid-template-columns:1fr 1fr}}
-@media (max-width:640px){.stugrid,.stugrid.two{grid-template-columns:1fr}.stu.feat{grid-template-columns:1fr}.stu.feat .avatar{grid-row:auto;margin-bottom:12px}.stu.feat .focus{grid-column:auto}}
+@media (max-width:640px){.stugrid,.stugrid.two{grid-template-columns:1fr}.stu.feat{grid-template-columns:1fr}.stu .avatar{width:150px;height:150px}.stu.feat .avatar{grid-row:auto;margin-bottom:12px}.stu.feat .focus{grid-column:auto}}
 .lablife{margin-top:52px}
 .lablife h3{font-size:22px;margin-bottom:4px}
 .lablife>p{color:var(--ink-3);font-size:14.5px;margin-bottom:14px}
@@ -2392,6 +2405,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .uml-footer .bottom ul{list-style:none;margin:0;padding:0;display:flex;justify-content:center;gap:10px 26px;flex-wrap:wrap}
 .uml-footer .bottom a{font-size:13.5px;text-decoration:underline;text-underline-offset:.18em;color:#fff}
 .uml-footer .fine{text-align:center;font-size:12.5px;color:#9DB3CC;margin:14px 0 0}
+.uml-footer .version{text-align:center;font-size:12px;color:#7F97B3;margin:6px 0 0;font-variant-numeric:tabular-nums}
 @media (max-width:980px){.uml-footer .cols{grid-template-columns:1fr 1fr;gap:28px 0}.uml-footer .col{padding:0 24px}.uml-footer .col:nth-child(3){border-left:0;padding-left:0}.uml-footer .social{text-align:left}.uml-footer .social ul{justify-content:flex-start}}
 @media (max-width:600px){.uml-footer .cols{grid-template-columns:1fr}.uml-footer .col{padding:0;border-left:0;border-top:1px solid rgba(255,255,255,.18);padding-top:22px}.uml-footer .col:first-child{border-top:0;padding-top:0}}
 """
@@ -2534,12 +2548,12 @@ THRUSTS = [
 
 # ---------------------------------------------------------------- students and alumni (from the director's CV, Sept. 2026)
 STUDENTS = [
-    {"name": "Arash Rezaee", "photo": "arash", "status": "Ph.D. Candidate, joined 2022", "focus": "AI-driven resource allocation in optical networks; impairment-aware provisioning in multi-band, space-division multiplexed networks; spectral versus spatial capacity scaling; reproducible optical network benchmarking with FUSION.", "linkedin": ""},
-    {"name": "Ryan McCann", "photo": "ryan", "status": "Ph.D. Student, joined 2024", "focus": "Co-founder and lead developer of FUSION, supported by MIT I-Corps and AT&T; reinforcement learning for software-defined elastic optical networks; failure-aware routing and realistic simulation of elastic optical and mesh networks.", "linkedin": ""},
-    {"name": "Ken Patrick Watts", "photo": "ken", "status": "Ph.D. Student, joined 2022", "focus": "Scalable, real-time detection of cyber attacks on smart power grids with machine learning; adaptive transfer learning for day-zero network intrusion detection; the NATIG cyber-physical co-simulation testbed (HELICS, GridLAB-D, ns-3).", "linkedin": ""},
-    {"name": "Suvhasis Mukhopadhyay", "photo": "suvhasis", "status": "Ph.D. Student, joined 2023", "focus": "Impact of individual physical layer impairments on elastic optical network performance; impairment-aware routing, spectrum, modulation, and power allocation; dynamic optical networking.", "linkedin": ""},
-    {"name": "Mehran Sasaninia", "photo": "mehran", "status": "Ph.D. Student, joined 2023", "focus": "Federated learning to detect cyber attacks in the smart grid; smart false data injection attacks and anomaly detection in smart meters (IEEE SmartGridComm 2025); centralized versus federated learning for grid anomaly detection.", "linkedin": ""},
+    {"name": "Arash Rezaee", "photo": "arash", "fig": "fig_arash", "figcap": "AI services over a software-defined, multi-layer network", "status": "Ph.D. Candidate, joined 2022", "focus": "AI-driven resource allocation in optical networks; impairment-aware provisioning in multi-band, space-division multiplexed networks; spectral versus spatial capacity scaling; reproducible optical network benchmarking with FUSION.", "linkedin": ""},
+    {"name": "Ryan McCann", "photo": "ryan", "fig": "fig_ryan", "figcap": "FUSION: reinforcement learning over a software-defined optical mesh", "status": "Ph.D. Student, joined 2024", "focus": "Co-founder and lead developer of FUSION, supported by MIT I-Corps and AT&T; reinforcement learning for software-defined elastic optical networks; failure-aware routing and realistic simulation of elastic optical and mesh networks.", "linkedin": ""},
+    {"name": "Ken Patrick Watts", "photo": "ken", "fig": "fig_ken", "figcap": "NATIG co-simulation of a distribution grid and its wireless network", "status": "Ph.D. Student, joined 2022", "focus": "Scalable, real-time detection of cyber attacks on smart power grids with machine learning; adaptive transfer learning for day-zero network intrusion detection; the NATIG cyber-physical co-simulation testbed (HELICS, GridLAB-D, ns-3).", "linkedin": ""},
+    {"name": "Mehran Sasaninia", "photo": "mehran", "fig": "fig_mehran", "figcap": "Federated learning across grid sites with a global model aggregator", "status": "Ph.D. Student, joined 2023", "focus": "Federated learning to detect cyber attacks in the smart grid; smart false data injection attacks and anomaly detection in smart meters (IEEE SmartGridComm 2025); centralized versus federated learning for grid anomaly detection.", "linkedin": ""},
     {"name": "Ayush Pandey", "status": "Ph.D. Student, joined 2024", "focus": "Newest member of the group; smart grid cybersecurity and AI for cyber-physical systems.", "linkedin": ""},
+    {"name": "Suvhasis Mukhopadhyay", "photo": "suvhasis", "status": "Ph.D. Student, joined 2024", "focus": "Impact of individual physical layer impairments on elastic optical network performance; impairment-aware routing, spectrum, modulation, and power allocation; dynamic optical networking.", "linkedin": ""},
 ]
 ALUMNI_FEATURED = [
     {"name": "Md Zahidul Islam", "photo": "zahidul", "degree": "Ph.D. 2025", "role": "Assistant Professor", "org": "Southern Illinois University Carbondale", "focus": "Resilient PMU networking and cyber-physical restoration of power distribution systems. Primary advisor Yuzhang Lin.", "linkedin": ""},
@@ -2559,6 +2573,7 @@ ALUMNI_PHD = [
     ("2014", "Thilo Schöndienst", "European Patent Office"),
 ]
 ALUMNI_POSTDOC = [("Arash Deylamsalehi", "Google"), ("Jeremy M. Plante", "Hitachi Vantara"), ("Juzi Zhao", "San José State University"), ("Arush Gadkar", "Kilpatrick Townsend & Stockton LLP"), ("Joan Triay", "DOCOMO Euro-Labs"), ("Balagangadhar Bathula", "AT&T")]
+SITE_VERSION = "0.05"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -2583,15 +2598,21 @@ def stu_avatar(p):
         return f'<img class="avatar lg round" src="data:image/png;base64,{IMG["head_" + key]}" alt="{esc(p["name"])}" width="360" height="360">'
     return f'<span class="avatar mono lg round" aria-hidden="true">{esc(initials(p["name"]))}</span>'
 def student_card(st):
-    li = f'<a href="{esc(st["linkedin"])}">LinkedIn</a>' if st.get("linkedin") else ''
+    links = ([f'<a href="{esc(st["linkedin"])}">LinkedIn</a>'] if st.get("linkedin") else []) + id_links(st["name"])
+    fig = ''
+    if st.get("fig") and IMG.get(st["fig"]):
+        fig = f'<figure class="stufig"><img src="data:image/jpeg;base64,{IMG[st["fig"]]}" alt="{esc(st.get("figcap", "Research figure"))}" loading="lazy"><figcaption>{esc(st.get("figcap", ""))}</figcaption></figure>'
     return (f'<article class="stu">{stu_avatar(st)}'
             f'<h3>{esc(st["name"])}</h3><p class="ptitle">{esc(st["status"])}</p><p class="focus">{esc(st["focus"])}</p>'
-            + (f'<p class="pmeta"><span class="mi">{li}</span></p>' if li else '') + '</article>')
+            + '<p class="pmeta">' + " ".join(f'<span class="mi">{m}</span>' for m in links) + '</p>'
+            + metrics_slot({"name": st["name"]}) + fig + '</article>')
 def alum_feature(a):
-    li = f'<span class="mi"><a href="{esc(a["linkedin"])}">LinkedIn</a></span>' if a.get("linkedin") else ''
+    links = ([f'<a href="{esc(a["linkedin"])}">LinkedIn</a>'] if a.get("linkedin") else []) + id_links(a["name"])
+    inst = "Southern Illinois" if a["org"].startswith("Southern") else "Montana"
     return (f'<article class="stu feat">{stu_avatar(a)}'
             f'<h3>{esc(a["name"])} <span class="ptag">{esc(a["degree"])}</span></h3><p class="ptitle"><b>{esc(a["role"])}</b>, {esc(a["org"])}</p>'
-            f'<p class="focus">{esc(a["focus"])}</p>' + (f'<p class="pmeta">{li}</p>' if li else '') + '</article>')
+            f'<p class="focus">{esc(a["focus"])}</p>' + '<p class="pmeta">' + " ".join(f'<span class="mi">{m}</span>' for m in links) + '</p>'
+            + metrics_slot({"name": a["name"], "inst": inst}) + '</article>')
 
 # ---------------------------------------------------------------- sponsors
 # Drop official logo files into a "logos" folder next to this script, named by key
@@ -2632,6 +2653,46 @@ def logo_tile(sp):
     if sp.get("url"):
         return f'<a class="logo-tile" href="{esc(sp["url"])}" title="{esc(sp["name"])}">{inner}</a>'
     return f'<div class="logo-tile">{inner}</div>'
+
+
+# ---------------------------------------------------------------- researcher identifiers
+SCHOLAR = {
+    "Vinod M. Vokkarane": "EIIbTe8AAAAJ", "Lewis Tseng": "DP_DMPAAAAAJ", "Hengyong Yu": "wQcl7k8AAAAJ", "Yuanchang Xie": "5kXk7FEAAAAJ",
+    "Christopher Niezrecki": "bdmF58cAAAAJ", "Yan Luo": "H3ifH2gAAAAJ", "Yu Cao": "97RDUygAAAAJ", "Murat Inalpolat": "khGOgZgAAAAJ",
+    "Yuzhang Lin": "AHw2wzUAAAAJ", "Seung Woo Son": "D9v08JgAAAAJ", "Sukesh Aghara": "tWlkv-kAAAAJ", "Paul Robinette": "izN2PKAAAAAJ", "Alkim Akyurtlu": "ixtU3E4AAAAJ",
+}
+ORCID = {
+    "Vinod M. Vokkarane": "0000-0001-9205-2120", "Orlando Arias": "0009-0002-3948-5773", "Lewis Tseng": "0000-0002-4717-4038", "Seung Woo Son": "0000-0001-8922-418X",
+    "Sukesh Aghara": "0000-0002-9419-2423", "Yuzhang Lin": "0000-0002-1366-4637", "Yan Luo": "0000-0002-5301-5092", "Yuanchang Xie": "0000-0002-0139-9362",
+    "Yu Cao": "0000-0001-8624-1099", "Chunxiao (Tricia) Chigan": "0000-0002-0805-1932", "Murat Inalpolat": "0000-0002-2252-656X", "Paul Robinette": "0000-0001-8066-156X",
+    "Hengyong Yu": "0000-0002-5852-0813", "Alkim Akyurtlu": "0000-0002-8222-9663", "Oshadha Ranasingha": "0000-0001-7399-0058",
+    "Arash Rezaee": "0000-0002-8578-4347", "Ryan McCann": "0009-0003-4807-7963", "Md Zahidul Islam": "0000-0002-9980-6148", "Shamsun Nahar Edib": "0000-0002-9060-0936",
+}
+SCHOLAR_CITES = {   # "Cited by" on the Google Scholar profile, read Sept. 16, 2026
+    "Vinod M. Vokkarane": 5863, "Lewis Tseng": 1832, "Hengyong Yu": 13799, "Yuanchang Xie": 6358, "Christopher Niezrecki": 8481,
+    "Yan Luo": 4772, "Yu Cao": 10284, "Murat Inalpolat": 2335,
+    "Yuzhang Lin": 2178, "Seung Woo Son": 1827, "Paul Robinette": 2299, "Alkim Akyurtlu": 1399,
+}
+# h-index as shown on the Google Scholar profile page. Scholar does not expose it to automated readers, so
+# fill this in by hand from each profile; blank entries fall back to the live OpenAlex figure.
+SCHOLAR_H = {}
+SCHOLAR_INST = {"Yuzhang Lin": "NYU", "Anurag Srivastava": "West Virginia University", "Md Zahidul Islam": "Southern Illinois University", "Shamsun Nahar Edib": "Montana State University"}
+def id_links(name, inst="UMass Lowell"):
+    out = []
+    sid = SCHOLAR.get(name)
+    if sid: out.append(f'<a href="https://scholar.google.com/citations?user={esc(sid)}&amp;hl=en">Google Scholar</a>')
+    else:
+        q = name + " " + SCHOLAR_INST.get(name, inst)
+        out.append(f'<a href="https://scholar.google.com/citations?view_op=search_authors&amp;mauthors={esc(q.replace(" ", "+"))}&amp;hl=en" title="Search Google Scholar profiles">Google Scholar</a>')
+    if ORCID.get(name): out.append(f'<a href="https://orcid.org/{esc(ORCID[name])}">ORCID</a>')
+    return out
+def scholar_line(name):
+    n = SCHOLAR_CITES.get(name); h = SCHOLAR_H.get(name)
+    if not n and not h: return ""
+    bits = []
+    if n: bits.append(f'<b>{n:,}</b> citations')
+    if h: bits.append(f'<b>{h}</b> h-index')
+    return '<span class="gs">' + ", ".join(bits) + ' on Google Scholar, Sept. 2026</span>'
 
 # ---------------------------------------------------------------- themed SVG helpers
 _COLOR_CLASS = {
@@ -2810,10 +2871,12 @@ METRICS = {}
 _mp = os.path.join(os.path.dirname(os.path.abspath(__file__)), "metrics.json")
 if os.path.exists(_mp):
     METRICS = json.load(open(_mp))
-LIVE_METRICS = False   # True: also refresh the figures from OpenAlex in the visitor's browser (needs internet on the page)
+LIVE_METRICS = True    # every profile loads citations, h-index, and paper count from OpenAlex in the visitor's browser
 
 def metrics_slot(p):
     if p.get("inst", "Lowell") is None: return ""
+    if LIVE_METRICS:
+        return f'<div class="metrics" data-name="{esc(p["name"])}" data-inst="{esc(p.get("inst", "Lowell"))}" aria-live="polite"></div>'
     m = METRICS.get(p["name"])
     src = METRICS.get("_source", "")
     inner = ""
@@ -2836,7 +2899,9 @@ def person_card(p, size="lg", with_photo=True):
     if p.get("phone"): meta.append(f'<span>{esc(p["phone"])}</span>')
     if p.get("office"): meta.append(f'<span>{esc(p["office"])}</span>')
     if p.get("url"): meta.append(f'<a href="{esc(p["url"])}">{"NYU profile" if "nyu.edu" in p["url"] else ("LinkedIn" if "linkedin.com" in p["url"] else "UMass Lowell profile")}</a>')
+    if p.get("inst", "Lowell") is not None: meta += id_links(p["name"])
     lines.append('<p class="pmeta">' + " ".join(f'<span class="mi">{m}</span>' for m in meta) + '</p>')
+    if scholar_line(p["name"]): lines.append('<p class="gsline">' + scholar_line(p["name"]) + '</p>')
     lines.append(metrics_slot(p))
     return '<article class="person">' + "".join(lines) + '</article>'
 
@@ -2845,9 +2910,11 @@ def person_row(p):
     if p.get("email"): meta.append(f'<a href="mailto:{esc(p["email"])}">{esc(p["email"])}</a>')
     if p.get("phone"): meta.append(esc(p["phone"]))
     if p.get("url"): meta.append(f'<a href="{esc(p["url"])}">{"LinkedIn" if "linkedin.com" in p["url"] else "Profile"}</a>')
+    if p.get("inst", "Lowell") is not None: meta += id_links(p["name"])
+    gs = ('<div class="gsline">' + scholar_line(p["name"]) + '</div>') if scholar_line(p["name"]) else ''
     tag = f'<span class="ptag">{esc(p["tag"])}</span>' if p.get("tag") else ''
     return ('<li class="prow">' + avatar(p, "sm") + '<div><span class="pname">' + esc(p["name"]) + tag + '</span><span class="ptitle2">' + esc(p["title"]) + '</span>'
-            '<span class="pareas2">' + esc(p["areas"]) + '</span><div class="pcontact">' + '<span class="sep"></span>'.join(meta) + '</div>' + metrics_slot(p) + '</div></li>')
+            '<span class="pareas2">' + esc(p["areas"]) + '</span><div class="pcontact">' + "".join(f'<span class="ci">{m}</span>' for m in meta) + '</div>' + gs + metrics_slot(p) + '</div></li>')
 
 # ---------------------------------------------------------------- counts
 n_pubs = len(P)
@@ -2868,7 +2935,7 @@ def build():
                           f'<div><h3>{esc(pr["title"])}</h3><div class="sponsor">{esc(pr["sponsor"])}</div>'
                           f'<p class="desc">{esc(pr["desc"])}</p><p class="team">{esc(pr["team"])}</p></div>{amt}</div>')
 
-    tools_html = "".join(f'<div class="tool"><h4>{esc(t["name"])}</h4><p>{esc(t["what"])}</p></div>' for t in TOOLS)
+    tools_html = "".join(f'<div class="tool">{("<img class=\"toolfig\" src=\"data:image/jpeg;base64," + IMG["fig_ryan"] + "\" alt=\"FUSION simulation of an optical mesh network\">") if t["name"] == "FUSION" and IMG.get("fig_ryan") else ""}<h4>{esc(t["name"])}</h4><p>{esc(t["what"])}</p></div>' for t in TOOLS)
 
     d = FACULTY["director"]
     director_html = ('<div class="director">' + avatar(d, "xl") + '<div>' + person_card(d, with_photo=False) +
@@ -3034,7 +3101,7 @@ def build():
         <div class="meta">
           <div><b>$2.0M</b><span>NSF MRI Track 2, Award #2511635</span></div>
           <div><b>Oct 2026 to Sep 2029</b><span>award period</span></div>
-          <div><b>Vinod Vokkarane, PI</b><span>Co-PIs Orlando Arias, Lewis Tseng, Yuzhang Lin</span></div>
+          <div><b>Vinod Vokkarane, PI</b><span>Co-PIs Orlando Arias, Lewis Tseng, Yuzhang Lin, Anurag Srivastava; with Yan Luo and Seung Woo Son</span></div>
           <div><b>Postdoc search open</b><span>postdoctoral research associate, Fall 2026</span></div>
         </div>
       </div>
@@ -3071,7 +3138,7 @@ def build():
 
 <section id="people" class="tint">
   <div class="wrap">
-    <div class="shead"><h2>People</h2><p>Faculty from the Francis College of Engineering and the Kennedy College of Sciences, plus long-running collaborators at partner universities and companies. Citation counts and h-index are shown with their source; figures from different indexes are not directly comparable.</p></div>
+    <div class="shead"><h2>People</h2><p>Faculty from the Francis College of Engineering and the Kennedy College of Sciences, plus long-running collaborators at partner universities and companies. Each profile links to the person's Google Scholar and ORCID records; citation totals are quoted from Google Scholar where the profile is public, and every profile also shows live citation, h-index, and paper counts from OpenAlex, an open index whose counts run somewhat below Scholar's.</p></div>
     {director_html}
     {core_html}
     <div class="group"><h3>Affiliated researchers</h3><p>UMass Lowell faculty who collaborate on center projects and proposals.</p>{aff_html}</div>
@@ -3227,6 +3294,7 @@ def build():
         <li><a href="https://www.uml.edu/service/Apps/Forms/Form?configId=ccde10d9-949a-4891-a810-ca2cfa641f6f&amp;tfa_26=https://www.uml.edu/research/scyps/" title="Website Feedback">Feedback</a></li>
       </ul>
       <p class="fine">Updated September 2026. Grant figures are total awards as reported by sponsors; the UMass Lowell share is noted where a project is a multi-institution consortium. Photographs courtesy of UMass Lowell.</p>
+      <p class="version">v {SITE_VERSION}</p>
     </div>
   </div>
 </footer>
@@ -3314,7 +3382,7 @@ def build():
 """
     with open(OUT, "w", encoding="utf-8") as f:
         f.write(page)
-    print(f"wrote {OUT}: {len(page)/1024:.0f} KB; {n_pubs} pubs ({n_journal} journal); {n_faculty} faculty; {len(IMG)} images embedded")
+    print(f"wrote {OUT} (v{SITE_VERSION}): {len(page)/1024:.0f} KB; {n_pubs} pubs ({n_journal} journal); {n_faculty} faculty; {len(IMG)} images embedded")
 
 if __name__ == "__main__":
     build()

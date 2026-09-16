@@ -2429,6 +2429,8 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .uml-footer .bottom a{font-size:13.5px;text-decoration:underline;text-underline-offset:.18em;color:#fff}
 .uml-footer .fine{text-align:center;font-size:12.5px;color:#9DB3CC;margin:14px 0 0}
 .uml-footer .version{text-align:center;font-size:12px;color:#7F97B3;margin:6px 0 0;font-variant-numeric:tabular-nums}
+.uml-footer .vsep::before{content:"\00b7";margin:0 10px}
+.uml-footer #visits img{height:16px;vertical-align:middle}
 @media (max-width:980px){.uml-footer .cols{grid-template-columns:1fr 1fr;gap:28px 0}.uml-footer .col{padding:0 24px}.uml-footer .col:nth-child(3){border-left:0;padding-left:0}.uml-footer .social{text-align:left}.uml-footer .social ul{justify-content:flex-start}}
 @media (max-width:600px){.uml-footer .cols{grid-template-columns:1fr}.uml-footer .col{padding:0;border-left:0;border-top:1px solid rgba(255,255,255,.18);padding-top:22px}.uml-footer .col:first-child{border-top:0;padding-top:0}}
 """
@@ -2596,7 +2598,7 @@ ALUMNI_PHD = [
     ("2014", "Thilo Schöndienst", "European Patent Office"),
 ]
 ALUMNI_POSTDOC = [("Arash Deylamsalehi", "Google"), ("Jeremy M. Plante", "Hitachi Vantara"), ("Juzi Zhao", "San José State University"), ("Arush Gadkar", "Kilpatrick Townsend & Stockton LLP"), ("Joan Triay", "DOCOMO Euro-Labs"), ("Balagangadhar Bathula", "AT&T")]
-SITE_VERSION = "0.10"   # bump by 0.01 with every update to the site
+SITE_VERSION = "0.11"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3167,7 +3169,7 @@ def build():
         <li><a href="https://www.uml.edu/service/Apps/Forms/Form?configId=ccde10d9-949a-4891-a810-ca2cfa641f6f&amp;tfa_26=https://www.uml.edu/research/scyps/" title="Website Feedback">Feedback</a></li>
       </ul>
       <p class="fine">Updated {datetime.date.today().strftime("%B %Y")}. Grant figures are total awards as reported by sponsors; the UMass Lowell share is noted where a project is a multi-institution consortium. Photographs courtesy of UMass Lowell.</p>
-      <p class="version">v {SITE_VERSION}</p>
+      <p class="version">v {SITE_VERSION}<span class="vsep"></span><span id="visits" data-key="scyps-uml-lowell" title="Page loads counted by CounterAPI since the counter went live">&#8230; visits</span></p>
     </div>
   </div>
 </footer>"""
@@ -3178,6 +3180,21 @@ def build():
   function paintToggle(){{ var d=effective()==='dark'; tb.setAttribute('aria-label', d?'Switch to light mode':'Switch to dark mode'); tb.querySelector('.lbl').textContent=d?'Light':'Dark'; }}
   tb.addEventListener('click',function(){{ var next=effective()==='dark'?'light':'dark'; root.setAttribute('data-theme',next); try{{localStorage.setItem('scyps-theme',next);}}catch(e){{}} paintToggle(); }});
   paintToggle();
+  // visitor counter: counts one page load per browser session; falls back to a badge image if the API is unreachable
+  (function(){{
+    var el=document.getElementById('visits'); if(!el) return;
+    var key=el.getAttribute('data-key'), page=(location.pathname.split('/').pop()||'index.html').replace(/[^A-Za-z0-9]+/g,'-');
+    var cached=null; try{{cached=sessionStorage.getItem('scyps-visits');}}catch(e){{}}
+    function show(n){{ el.textContent=Number(n).toLocaleString()+' visits'; }}
+    var url='https://api.counterapi.dev/v1/'+key+'/'+page+(cached?'/':'/up');
+    fetch(url).then(function(r){{return r.json();}}).then(function(d){{
+      var n=d&&(d.count!=null?d.count:d.value); if(n==null) throw 0;
+      show(n); try{{sessionStorage.setItem('scyps-visits',String(n));}}catch(e){{}}
+    }}).catch(function(){{
+      if(cached){{show(cached);return;}}
+      el.innerHTML='<img src="https://hits.sh/'+key+'/'+page+'.svg?label=visits&color=044978&labelColor=0E2036" alt="visit counter">';
+    }});
+  }})();
   var tg=document.querySelector('.navtoggle'),menu=document.getElementById('menu');
   window.addEventListener('load',function(){{ var ic=document.querySelector('.uml-footer .fa-brands'); if(ic){{ var ff=getComputedStyle(ic).fontFamily||''; if(ff.indexOf('Font Awesome')<0) document.querySelector('.uml-footer').classList.add('no-fa'); }} }});
   tg.addEventListener('click',function(){{var o=menu.classList.toggle('open');tg.setAttribute('aria-expanded',o);}});
@@ -3490,11 +3507,20 @@ def build():
 </body>
 </html>
 """
+    page = new_tab_links(page)
     with open(OUT, "w", encoding="utf-8") as f:
         f.write(page)
     build_summit(footer_html, script_html)
     print(f"wrote {OUT} (v{SITE_VERSION}): {len(page)/1024:.0f} KB; {n_pubs} pubs ({n_journal} journal); {n_faculty} faculty; {len(IMG)} images embedded")
 
+
+def new_tab_links(page):
+    """Add target=_blank and rel=noopener to every http(s) link that lacks a target."""
+    def fix(m):
+        tag = m.group(0)
+        if 'target=' in tag: return tag
+        return tag[:-1] + ' target="_blank" rel="noopener noreferrer">'
+    return re.sub(r'<a\s[^>]*href="https?://[^"]*"[^>]*>', fix, page)
 
 def build_summit(footer_html, script_html):
     """Stand-alone project page for the NSF MRI SUMMIT testbed, written next to the main page."""
@@ -3672,6 +3698,7 @@ def build_summit(footer_html, script_html):
 </body>
 </html>
 """
+    page = new_tab_links(page)
     with open(out, "w", encoding="utf-8") as f:
         f.write(page)
     print(f"wrote {out}: {len(page)/1024:.0f} KB")

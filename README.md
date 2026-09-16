@@ -2,7 +2,13 @@ SCyPS site: how it stays current
 =================================
 
 Files
-  build_site.py      all curated content (people, projects, papers through Sept. 2026) and both page templates (index.html, summit.html)
+  build_site.py      all curated content and all four page templates:
+                       index.html         home: about, research, projects, sponsors, people, students, alumni,
+                                          plus teasers for the newest papers and the newest news
+                       publications.html  the full searchable, filterable list
+                       news.html          auto-generated from the last three months of papers, awards, and
+                                          milestones, with a live stream of the newest papers in the right column
+                       summit.html        the NSF MRI SUMMIT project page
   images.json        embedded photos and figures
   logos/             sponsor logos (see logos/README.txt for the expected file names)
   refresh.py         scheduled data pull (see below)
@@ -16,7 +22,7 @@ Files
 
 Build by hand
   python3 refresh.py          # optional: pull new data
-  python3 build_site.py index.html      # also writes summit.html (the NSF MRI SUMMIT project page) next to it
+  python3 build_site.py index.html      # also writes publications.html, news.html, and summit.html next to it
 
 Automatic updates
   Once this folder is a GitHub repository with Pages turned on, the workflow runs every Monday
@@ -42,7 +48,12 @@ Automatic updates
 
                    From a checkout: `python3 update_scholar.py` prints every profile link and takes the
                    same lines on standard input, then `python3 build_site.py index.html`.
-    News           not automated; edit NEWS in build_site.py.
+    News           news.html builds itself on every run from three sources: papers dated in the last three
+                   months, awards whose period starts in that window, and hand-written entries in NEWS that
+                   fall in it. If fewer than six items land in three months the window widens automatically
+                   until it finds six, and the page says which span it is showing. Journal issues dated up to
+                   four months ahead are included and labeled "issue" so a December issue does not read as
+                   something that already happened. To add something the data cannot know, put it in NEWS.
 
   Reviewing what it added
     refresh_log.json lists every change from the last run. To reject an automatic entry, delete it from

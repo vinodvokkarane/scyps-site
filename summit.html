@@ -199,7 +199,9 @@ section.tint{background:var(--bg-2)}
 .feature .paradigms li b{color:#fff;font-weight:600}
 .feature .paradigms .scope{font-size:13.5px;color:var(--on-navy-3);margin:0}
 .feature .paradigms .more{margin:18px 0 0}
-.summit-btn{display:inline-block;max-width:none;background:#3BA995;color:#062B24;padding:11px 18px;font-size:14.5px}
+.summit-btn{display:inline-block;width:auto;max-width:none;text-align:left;background:#3BA995;color:#062B24;padding:11px 18px;font-size:14.5px;border-radius:8px}
+.more{margin:22px 0 0}
+.more .summit-btn{background:var(--ink);color:#fff}
 .feature .arch{grid-column:1 / -1;margin:0;background:#fff;padding:18px 22px 14px;border-top:1px solid rgba(255,255,255,.15)}
 .feature .arch img{width:100%;height:auto;display:block}
 .feature .arch figcaption{font-size:13px;color:#5B6B82;text-align:center;margin-top:10px}
@@ -296,6 +298,42 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .ack{margin-top:10px;padding:22px 24px;border-left:3px solid var(--signal);background:var(--bg-2);border-radius:0 var(--radius) var(--radius) 0;font-size:14.5px;color:var(--ink-2);max-width:70em}
 .ack p{margin:0 0 8px}
 .ack p:last-child{margin:0}
+
+/* teasers, news page, article stream */
+.publist.teaser{margin-bottom:22px}
+.newsgrid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,.9fr);gap:clamp(28px,4vw,56px);align-items:start}
+.nitem{display:grid;grid-template-columns:104px 1fr;gap:20px;padding:20px 0;border-top:1px solid var(--line)}
+.nitem:first-child{border-top:2px solid var(--ink)}
+.nitem .nwhen{color:var(--ink-3);font-size:13.5px;padding-top:3px;line-height:1.35}
+.nitem .nkind{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--signal-tint);color:var(--signal-2);margin-bottom:7px}
+.nitem .nkind.award{background:var(--amber-2);color:var(--amber-text)}
+.nitem .nkind.milestone{background:var(--journal-bg);color:var(--journal-fg)}
+.nitem .nkind.journal{background:var(--journal-bg);color:var(--journal-fg)}
+.nitem .nkind.conf{background:var(--bg-2);color:var(--ink-2)}
+.nitem .nkind.chapter{background:var(--amber-2);color:var(--amber-text)}
+.nitem .nkind.talk{background:var(--signal-tint);color:var(--signal-2)}
+.nitem[hidden]{display:none}
+.nfilters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:2px}
+.nfilters .lab{font-size:13px;color:var(--ink-3);margin-right:4px}
+.nfilters .chip{font:inherit;font-size:13.5px;padding:6px 13px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;cursor:pointer}
+.nfilters .chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.nfilters .chip:disabled{opacity:.4;cursor:default}
+.ncount{font-size:13.5px;color:var(--ink-3);margin:14px 0 2px}
+.nitem h3{font-size:19px;margin-bottom:5px;line-height:1.3}
+.nitem p{font-size:15px;color:var(--ink-2);margin:0}
+.nitem .nlink{font-size:14px;margin-top:7px}
+.stream{position:sticky;top:86px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px 20px 8px}
+.stream h3{font-size:17px;margin-bottom:2px}
+.stream .sub{font-size:13px;color:var(--ink-3);margin-bottom:12px}
+.stream ol{list-style:none;margin:0;padding:0;max-height:70vh;overflow-y:auto}
+.stream li{padding:12px 0;border-top:1px solid var(--line-2)}
+.stream li:first-child{border-top:0}
+.stream .t{font-size:14px;font-weight:600;line-height:1.35;display:block}
+.stream .v{font-size:12.5px;color:var(--ink-3);display:block;margin-top:3px}
+.stream .k{font-size:10.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--signal-2)}
+.stream .foot{border-top:1px solid var(--line);padding:12px 0 10px;font-size:13px}
+@media (max-width:900px){.newsgrid{grid-template-columns:1fr}.stream{position:static}.stream ol{max-height:none}}
+@media (max-width:640px){.nitem{grid-template-columns:1fr;gap:4px}}
 
 /* students and alumni */
 .stugrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -421,7 +459,8 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .uml-footer .fine{text-align:center;font-size:12.5px;color:#9DB3CC;margin:14px 0 0}
 .uml-footer .version{text-align:center;font-size:12px;color:#7F97B3;margin:6px 0 0;font-variant-numeric:tabular-nums}
 .uml-footer .vsep::before{content:"\00b7";margin:0 10px}
-.uml-footer #visits img{height:16px;vertical-align:middle}
+.uml-footer #visits{display:inline-flex;vertical-align:-5px}
+.uml-footer #visits img{height:20px;display:block}
 @media (max-width:980px){.uml-footer .cols{grid-template-columns:1fr 1fr;gap:28px 0}.uml-footer .col{padding:0 24px}.uml-footer .col:nth-child(3){border-left:0;padding-left:0}.uml-footer .social{text-align:left}.uml-footer .social ul{justify-content:flex-start}}
 @media (max-width:600px){.uml-footer .cols{grid-template-columns:1fr}.uml-footer .col{padding:0;border-left:0;border-top:1px solid rgba(255,255,255,.18);padding-top:22px}.uml-footer .col:first-child{border-top:0;padding-top:0}}
 
@@ -581,7 +620,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
       </div>
       <div class="col menu">
         <nav aria-label="Footer menu"><h2>Menu</h2>
-          <ul><li><a href="index.html#about">About</a></li><li><a href="index.html#research">Research</a></li><li><a href="index.html#projects">Projects</a></li><li><a href="index.html#sponsors">Sponsors</a></li><li><a href="index.html#people">People</a></li><li><a href="index.html#students">Students</a></li><li><a href="index.html#alumni">Alumni</a></li><li><a href="index.html#publications">Publications</a></li><li><a href="index.html#news">News</a></li><li><a href="https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172" target="_blank" rel="noopener noreferrer">Make a Gift</a></li></ul>
+          <ul><li><a href="index.html#about">About</a></li><li><a href="index.html#research">Research</a></li><li><a href="index.html#projects">Projects</a></li><li><a href="index.html#sponsors">Sponsors</a></li><li><a href="index.html#people">People</a></li><li><a href="index.html#students">Students</a></li><li><a href="index.html#alumni">Alumni</a></li><li><a href="publications.html">Publications</a></li><li><a href="news.html">News</a></li><li><a href="https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172" target="_blank" rel="noopener noreferrer">Make a Gift</a></li></ul>
         </nav>
       </div>
       <div class="col dir">
@@ -611,7 +650,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
         <li><a href="https://www.uml.edu/service/Apps/Forms/Form?configId=ccde10d9-949a-4891-a810-ca2cfa641f6f&amp;tfa_26=https://www.uml.edu/research/scyps/" title="Website Feedback" target="_blank" rel="noopener noreferrer">Feedback</a></li>
       </ul>
       <p class="fine">Updated September 2026. Grant figures are total awards as reported by sponsors; the UMass Lowell share is noted where a project is a multi-institution consortium. Photographs courtesy of UMass Lowell.</p>
-      <p class="version">v 0.17<span class="vsep"></span><span id="visits" data-key="scyps-uml-lowell" title="Page loads counted by CounterAPI since the counter went live">&#8230; visits</span></p>
+      <p class="version">v 0.19<span class="vsep"></span><span id="visits" title="Visits counted since the counter went live"></span></p>
     </div>
   </div>
 </footer>
@@ -622,20 +661,34 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
   function paintToggle(){ var d=effective()==='dark'; tb.setAttribute('aria-label', d?'Switch to light mode':'Switch to dark mode'); tb.querySelector('.lbl').textContent=d?'Light':'Dark'; }
   tb.addEventListener('click',function(){ var next=effective()==='dark'?'light':'dark'; root.setAttribute('data-theme',next); try{localStorage.setItem('scyps-theme',next);}catch(e){} paintToggle(); });
   paintToggle();
-  // visitor counter: counts one page load per browser session; falls back to a badge image if the API is unreachable
+  // visitor counter: one count for the whole site, keyed on its own address. hits.sh needs a real
+  // host+path, so the badge is built at run time; on file:// there is nothing to count, so it hides.
   (function(){
     var el=document.getElementById('visits'); if(!el) return;
-    var key=el.getAttribute('data-key'), page=(location.pathname.split('/').pop()||'index.html').replace(/[^A-Za-z0-9]+/g,'-');
-    var cached=null; try{cached=sessionStorage.getItem('scyps-visits');}catch(e){}
-    function show(n){ el.textContent=Number(n).toLocaleString()+' visits'; }
-    var url='https://api.counterapi.dev/v1/'+key+'/'+page+(cached?'/':'/up');
-    fetch(url).then(function(r){return r.json();}).then(function(d){
-      var n=d&&(d.count!=null?d.count:d.value); if(n==null) throw 0;
-      show(n); try{sessionStorage.setItem('scyps-visits',String(n));}catch(e){}
-    }).catch(function(){
-      if(cached){show(cached);return;}
-      el.innerHTML='<img src="https://hits.sh/'+key+'/'+page+'.svg?label=visits&color=044978&labelColor=0E2036" alt="visit counter">';
-    });
+    if(!/^https?:$/.test(location.protocol)){ el.style.display='none'; return; }
+    var base=(location.host+location.pathname).replace(/[^/]*$/,'');   // one counter per site, not per page
+    var img=new Image();
+    img.alt='visitors'; img.height=20;
+    img.onerror=function(){ el.style.display='none'; };
+    img.src='https://hits.sh/'+base+'.svg?view=total&style=flat-square&label=visits&color=0A777F&labelColor=0E2036';
+    el.textContent=''; el.appendChild(img);
+  })();
+  // news filters
+  (function(){
+    var wrap=document.querySelector('.nfilters'); if(!wrap) return;
+    var chips=[].slice.call(wrap.querySelectorAll('.chip')),
+        items=[].slice.call(document.querySelectorAll('#newslist .nitem')),
+        out=document.getElementById('ncount');
+    function show(k){
+      var n=0;
+      items.forEach(function(li){
+        var ok=(k==='all'||li.getAttribute('data-kind')===k);
+        li.hidden=!ok; if(ok) n++;
+      });
+      chips.forEach(function(c){ c.setAttribute('aria-pressed', String(c.getAttribute('data-k')===k)); });
+      if(out) out.textContent = (k==='all' ? 'Showing all '+n+' items' : 'Showing '+n+' of '+items.length+' items');
+    }
+    chips.forEach(function(c){ if(!c.disabled) c.addEventListener('click', function(){ show(c.getAttribute('data-k')); }); });
   })();
   var tg=document.querySelector('.navtoggle'),menu=document.getElementById('menu');
   window.addEventListener('load',function(){ var ic=document.querySelector('.uml-footer .fa-brands'); if(ic){ var ff=getComputedStyle(ic).fontFamily||''; if(ff.indexOf('Font Awesome')<0) document.querySelector('.uml-footer').classList.add('no-fa'); } });

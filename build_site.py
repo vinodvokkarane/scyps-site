@@ -2215,7 +2215,9 @@ section.tint{background:var(--bg-2)}
 .feature .paradigms li b{color:#fff;font-weight:600}
 .feature .paradigms .scope{font-size:13.5px;color:var(--on-navy-3);margin:0}
 .feature .paradigms .more{margin:18px 0 0}
-.summit-btn{display:inline-block;max-width:none;background:#3BA995;color:#062B24;padding:11px 18px;font-size:14.5px}
+.summit-btn{display:inline-block;width:auto;max-width:none;text-align:left;background:#3BA995;color:#062B24;padding:11px 18px;font-size:14.5px;border-radius:8px}
+.more{margin:22px 0 0}
+.more .summit-btn{background:var(--ink);color:#fff}
 .feature .arch{grid-column:1 / -1;margin:0;background:#fff;padding:18px 22px 14px;border-top:1px solid rgba(255,255,255,.15)}
 .feature .arch img{width:100%;height:auto;display:block}
 .feature .arch figcaption{font-size:13px;color:#5B6B82;text-align:center;margin-top:10px}
@@ -2312,6 +2314,42 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .ack{margin-top:10px;padding:22px 24px;border-left:3px solid var(--signal);background:var(--bg-2);border-radius:0 var(--radius) var(--radius) 0;font-size:14.5px;color:var(--ink-2);max-width:70em}
 .ack p{margin:0 0 8px}
 .ack p:last-child{margin:0}
+
+/* teasers, news page, article stream */
+.publist.teaser{margin-bottom:22px}
+.newsgrid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,.9fr);gap:clamp(28px,4vw,56px);align-items:start}
+.nitem{display:grid;grid-template-columns:104px 1fr;gap:20px;padding:20px 0;border-top:1px solid var(--line)}
+.nitem:first-child{border-top:2px solid var(--ink)}
+.nitem .nwhen{color:var(--ink-3);font-size:13.5px;padding-top:3px;line-height:1.35}
+.nitem .nkind{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--signal-tint);color:var(--signal-2);margin-bottom:7px}
+.nitem .nkind.award{background:var(--amber-2);color:var(--amber-text)}
+.nitem .nkind.milestone{background:var(--journal-bg);color:var(--journal-fg)}
+.nitem .nkind.journal{background:var(--journal-bg);color:var(--journal-fg)}
+.nitem .nkind.conf{background:var(--bg-2);color:var(--ink-2)}
+.nitem .nkind.chapter{background:var(--amber-2);color:var(--amber-text)}
+.nitem .nkind.talk{background:var(--signal-tint);color:var(--signal-2)}
+.nitem[hidden]{display:none}
+.nfilters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:2px}
+.nfilters .lab{font-size:13px;color:var(--ink-3);margin-right:4px}
+.nfilters .chip{font:inherit;font-size:13.5px;padding:6px 13px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;cursor:pointer}
+.nfilters .chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.nfilters .chip:disabled{opacity:.4;cursor:default}
+.ncount{font-size:13.5px;color:var(--ink-3);margin:14px 0 2px}
+.nitem h3{font-size:19px;margin-bottom:5px;line-height:1.3}
+.nitem p{font-size:15px;color:var(--ink-2);margin:0}
+.nitem .nlink{font-size:14px;margin-top:7px}
+.stream{position:sticky;top:86px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px 20px 8px}
+.stream h3{font-size:17px;margin-bottom:2px}
+.stream .sub{font-size:13px;color:var(--ink-3);margin-bottom:12px}
+.stream ol{list-style:none;margin:0;padding:0;max-height:70vh;overflow-y:auto}
+.stream li{padding:12px 0;border-top:1px solid var(--line-2)}
+.stream li:first-child{border-top:0}
+.stream .t{font-size:14px;font-weight:600;line-height:1.35;display:block}
+.stream .v{font-size:12.5px;color:var(--ink-3);display:block;margin-top:3px}
+.stream .k{font-size:10.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:var(--signal-2)}
+.stream .foot{border-top:1px solid var(--line);padding:12px 0 10px;font-size:13px}
+@media (max-width:900px){.newsgrid{grid-template-columns:1fr}.stream{position:static}.stream ol{max-height:none}}
+@media (max-width:640px){.nitem{grid-template-columns:1fr;gap:4px}}
 
 /* students and alumni */
 .stugrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -2437,7 +2475,8 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .uml-footer .fine{text-align:center;font-size:12.5px;color:#9DB3CC;margin:14px 0 0}
 .uml-footer .version{text-align:center;font-size:12px;color:#7F97B3;margin:6px 0 0;font-variant-numeric:tabular-nums}
 .uml-footer .vsep::before{content:"\00b7";margin:0 10px}
-.uml-footer #visits img{height:16px;vertical-align:middle}
+.uml-footer #visits{display:inline-flex;vertical-align:-5px}
+.uml-footer #visits img{height:20px;display:block}
 @media (max-width:980px){.uml-footer .cols{grid-template-columns:1fr 1fr;gap:28px 0}.uml-footer .col{padding:0 24px}.uml-footer .col:nth-child(3){border-left:0;padding-left:0}.uml-footer .social{text-align:left}.uml-footer .social ul{justify-content:flex-start}}
 @media (max-width:600px){.uml-footer .cols{grid-template-columns:1fr}.uml-footer .col{padding:0;border-left:0;border-top:1px solid rgba(255,255,255,.18);padding-top:22px}.uml-footer .col:first-child{border-top:0;padding-top:0}}
 """
@@ -2605,7 +2644,7 @@ ALUMNI_PHD = [
     ("2014", "Thilo Schöndienst", "European Patent Office"),
 ]
 ALUMNI_POSTDOC = [("Arash Deylamsalehi", "Google"), ("Jeremy M. Plante", "Hitachi Vantara"), ("Juzi Zhao", "San José State University"), ("Arush Gadkar", "Kilpatrick Townsend & Stockton LLP"), ("Joan Triay", "DOCOMO Euro-Labs"), ("Balagangadhar Bathula", "AT&T")]
-SITE_VERSION = "0.17"   # bump by 0.01 with every update to the site
+SITE_VERSION = "0.19"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3155,7 +3194,6 @@ def build():
         f'<div class="sgroup"><h3>{esc(group)}</h3><div class="logos">' + "".join(logo_tile(sp) for sp in items) + '</div></div>'
         for group, items in SPONSORS.items())
 
-    news_html = "".join(f'<li><time>{esc(w)}</time><p>{esc(t)}</p></li>' for w, t in NEWS)
 
     def render_pubs(items):
         out = ""
@@ -3174,6 +3212,12 @@ def build():
         if cur is not None: out += "</ul>"
         return out
     pubs_html = render_pubs(P)
+    _recent = sorted(P, key=lambda p: (-p["year"], -(month_of(p) or 0), p["title"]))[:6]
+    pub_teaser = render_pubs(_recent, grouped=False) if "grouped" in render_pubs.__code__.co_varnames else "".join(
+        f'<li class="pub"><div><div class="a">{fmt_authors(p["authors"])}</div>'
+        f'<div class="t">{("<a href=" + chr(34) + "https://doi.org/" + esc(p["doi"]) + chr(34) + ">" + esc(p["title"]) + "</a>") if p.get("doi") else esc(p["title"])}</div>'
+        f'<div class="v"><i>{esc(p["venue"])}</i>, {esc(p["details"])}</div></div></li>' for p in _recent)
+    news_teaser = render_news(build_news_items(3) or build_news_items(12), limit=4)
 
     facts = [
         ("$2M", "NSF MRI Track 2 award for the SUMMIT federated smart grid testbed, 2026 to 2029"),
@@ -3206,7 +3250,7 @@ def build():
       </div>
       <div class="col menu">
         <nav aria-label="Footer menu"><h2>Menu</h2>
-          <ul><li><a href="#about">About</a></li><li><a href="#research">Research</a></li><li><a href="#projects">Projects</a></li><li><a href="#sponsors">Sponsors</a></li><li><a href="#people">People</a></li><li><a href="#students">Students</a></li><li><a href="#alumni">Alumni</a></li><li><a href="#publications">Publications</a></li><li><a href="#news">News</a></li><li><a href="{GIFT_URL}">Make a Gift</a></li></ul>
+          <ul><li><a href="#about">About</a></li><li><a href="#research">Research</a></li><li><a href="#projects">Projects</a></li><li><a href="#sponsors">Sponsors</a></li><li><a href="#people">People</a></li><li><a href="#students">Students</a></li><li><a href="#alumni">Alumni</a></li><li><a href="publications.html">Publications</a></li><li><a href="news.html">News</a></li><li><a href="{GIFT_URL}">Make a Gift</a></li></ul>
         </nav>
       </div>
       <div class="col dir">
@@ -3236,7 +3280,7 @@ def build():
         <li><a href="https://www.uml.edu/service/Apps/Forms/Form?configId=ccde10d9-949a-4891-a810-ca2cfa641f6f&amp;tfa_26=https://www.uml.edu/research/scyps/" title="Website Feedback">Feedback</a></li>
       </ul>
       <p class="fine">Updated {datetime.date.today().strftime("%B %Y")}. Grant figures are total awards as reported by sponsors; the UMass Lowell share is noted where a project is a multi-institution consortium. Photographs courtesy of UMass Lowell.</p>
-      <p class="version">v {SITE_VERSION}<span class="vsep"></span><span id="visits" data-key="scyps-uml-lowell" title="Page loads counted by CounterAPI since the counter went live">&#8230; visits</span></p>
+      <p class="version">v {SITE_VERSION}<span class="vsep"></span><span id="visits" title="Visits counted since the counter went live"></span></p>
     </div>
   </div>
 </footer>"""
@@ -3247,20 +3291,34 @@ def build():
   function paintToggle(){{ var d=effective()==='dark'; tb.setAttribute('aria-label', d?'Switch to light mode':'Switch to dark mode'); tb.querySelector('.lbl').textContent=d?'Light':'Dark'; }}
   tb.addEventListener('click',function(){{ var next=effective()==='dark'?'light':'dark'; root.setAttribute('data-theme',next); try{{localStorage.setItem('scyps-theme',next);}}catch(e){{}} paintToggle(); }});
   paintToggle();
-  // visitor counter: counts one page load per browser session; falls back to a badge image if the API is unreachable
+  // visitor counter: one count for the whole site, keyed on its own address. hits.sh needs a real
+  // host+path, so the badge is built at run time; on file:// there is nothing to count, so it hides.
   (function(){{
     var el=document.getElementById('visits'); if(!el) return;
-    var key=el.getAttribute('data-key'), page=(location.pathname.split('/').pop()||'index.html').replace(/[^A-Za-z0-9]+/g,'-');
-    var cached=null; try{{cached=sessionStorage.getItem('scyps-visits');}}catch(e){{}}
-    function show(n){{ el.textContent=Number(n).toLocaleString()+' visits'; }}
-    var url='https://api.counterapi.dev/v1/'+key+'/'+page+(cached?'/':'/up');
-    fetch(url).then(function(r){{return r.json();}}).then(function(d){{
-      var n=d&&(d.count!=null?d.count:d.value); if(n==null) throw 0;
-      show(n); try{{sessionStorage.setItem('scyps-visits',String(n));}}catch(e){{}}
-    }}).catch(function(){{
-      if(cached){{show(cached);return;}}
-      el.innerHTML='<img src="https://hits.sh/'+key+'/'+page+'.svg?label=visits&color=044978&labelColor=0E2036" alt="visit counter">';
-    }});
+    if(!/^https?:$/.test(location.protocol)){{ el.style.display='none'; return; }}
+    var base=(location.host+location.pathname).replace(/[^/]*$/,'');   // one counter per site, not per page
+    var img=new Image();
+    img.alt='visitors'; img.height=20;
+    img.onerror=function(){{ el.style.display='none'; }};
+    img.src='https://hits.sh/'+base+'.svg?view=total&style=flat-square&label=visits&color=0A777F&labelColor=0E2036';
+    el.textContent=''; el.appendChild(img);
+  }})();
+  // news filters
+  (function(){{
+    var wrap=document.querySelector('.nfilters'); if(!wrap) return;
+    var chips=[].slice.call(wrap.querySelectorAll('.chip')),
+        items=[].slice.call(document.querySelectorAll('#newslist .nitem')),
+        out=document.getElementById('ncount');
+    function show(k){{
+      var n=0;
+      items.forEach(function(li){{
+        var ok=(k==='all'||li.getAttribute('data-kind')===k);
+        li.hidden=!ok; if(ok) n++;
+      }});
+      chips.forEach(function(c){{ c.setAttribute('aria-pressed', String(c.getAttribute('data-k')===k)); }});
+      if(out) out.textContent = (k==='all' ? 'Showing all '+n+' items' : 'Showing '+n+' of '+items.length+' items');
+    }}
+    chips.forEach(function(c){{ if(!c.disabled) c.addEventListener('click', function(){{ show(c.getAttribute('data-k')); }}); }});
   }})();
   var tg=document.querySelector('.navtoggle'),menu=document.getElementById('menu');
   window.addEventListener('load',function(){{ var ic=document.querySelector('.uml-footer .fa-brands'); if(ic){{ var ff=getComputedStyle(ic).fontFamily||''; if(ff.indexOf('Font Awesome')<0) document.querySelector('.uml-footer').classList.add('no-fa'); }} }});
@@ -3338,8 +3396,8 @@ def build():
       <li><a href="#people">People</a></li>
       <li><a href="#students">Students</a></li>
       <li><a href="#alumni">Alumni</a></li>
-      <li><a href="#publications">Publications</a></li>
-      <li><a href="#news">News</a></li>
+      <li><a href="publications.html">Publications</a></li>
+      <li><a href="news.html">News</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <a class="gift" href="{GIFT_URL}">Make a Gift</a>
@@ -3485,55 +3543,19 @@ def build():
   </div>
 </section>
 
-<section id="publications">
+<section id="publications" class="tint">
   <div class="wrap">
-    <div class="shead"><h2>Publications</h2><p>Peer-reviewed journal papers, conference papers, and book chapters from center faculty since the center was founded in 2021, with links to the publisher's record. Center faculty are shown in bold; a paper with several center authors appears once.</p></div>
-    <div class="filters" role="group" aria-label="Filter publications">
-      <div class="fgroup"><span class="lab">Faculty</span>
-        <button class="chip" data-f="fac" data-v="all" aria-pressed="true">All</button>
-        <button class="chip" data-f="fac" data-v="Vokkarane" aria-pressed="false">Vokkarane</button>
-        <button class="chip" data-f="fac" data-v="Arias" aria-pressed="false">Arias</button>
-        <button class="chip" data-f="fac" data-v="Tseng" aria-pressed="false">Tseng</button>
-        <button class="chip" data-f="fac" data-v="Son" aria-pressed="false">Son</button>
-        <button class="chip" data-f="fac" data-v="Aghara" aria-pressed="false">Aghara</button>
-        <button class="chip" data-f="fac" data-v="Lin" aria-pressed="false">Lin</button>
-        <button class="chip" data-f="fac" data-v="Luo" aria-pressed="false">Luo</button>
-        <button class="chip" data-f="fac" data-v="Xie" aria-pressed="false">Xie</button>
-        <button class="chip" data-f="fac" data-v="Chigan" aria-pressed="false">Chigan</button>
-        <button class="chip" data-f="fac" data-v="Inalpolat" aria-pressed="false">Inalpolat</button>
-        <button class="chip" data-f="fac" data-v="Robinette" aria-pressed="false">Robinette</button>
-        <button class="chip" data-f="fac" data-v="Yu" aria-pressed="false">Yu</button>
-        <button class="chip" data-f="fac" data-v="Akyurtlu" aria-pressed="false">Akyurtlu</button>
-        <button class="chip" data-f="fac" data-v="Niezrecki" aria-pressed="false">Niezrecki</button>
-        <button class="chip" data-f="fac" data-v="Ranasingha" aria-pressed="false">Ranasingha</button>
-      </div>
-      <div class="fgroup"><span class="lab">Year</span>
-        <button class="chip" data-f="year" data-v="all" aria-pressed="true">All</button>
-        <button class="chip" data-f="year" data-v="2026" aria-pressed="false">2026</button>
-        <button class="chip" data-f="year" data-v="2025" aria-pressed="false">2025</button>
-        <button class="chip" data-f="year" data-v="2024" aria-pressed="false">2024</button>
-        <button class="chip" data-f="year" data-v="2023" aria-pressed="false">2023</button>
-        <button class="chip" data-f="year" data-v="2022" aria-pressed="false">2022</button>
-        <button class="chip" data-f="year" data-v="2021" aria-pressed="false">2021</button>
-      </div>
-      <div class="fgroup"><span class="lab">Type</span>
-        <button class="chip" data-f="type" data-v="all" aria-pressed="true">All</button>
-        <button class="chip" data-f="type" data-v="journal" aria-pressed="false">Journal</button>
-        <button class="chip" data-f="type" data-v="conference" aria-pressed="false">Conference</button>
-        <button class="chip" data-f="type" data-v="chapter" aria-pressed="false">Chapter</button>
-      </div>
-      <div class="search"><label for="q" class="lab">Search</label><input id="q" type="search" placeholder="title, author, or venue" autocomplete="off"></div>
-    </div>
-    <div class="count" id="count" aria-live="polite">Showing {n_pubs} of {n_pubs} papers</div>
-    <div id="publist">{pubs_html}</div>
-    <p class="pubnote">Records verified against Crossref (the NSDI paper is listed from the USENIX program). Venues that do not register DOIs, such as ANS Transactions and INMM proceedings, are not captured, and for faculty with common names only papers with a confirmed UMass Lowell affiliation are included. Send corrections or additions to SCyPS@uml.edu.</p>
+    <div class="shead"><h2>Publications</h2><p>{n_pubs} peer-reviewed papers from center faculty since 2021, {n_journal} of them in journals. The newest are below; the full list is searchable and filterable on its own page.</p></div>
+    <ol class="publist teaser">{pub_teaser}</ol>
+    <p class="more"><a class="btn-gift summit-btn" href="publications.html">All {n_pubs} publications</a></p>
   </div>
 </section>
 
-<section id="news" class="tint">
+<section id="news">
   <div class="wrap">
-    <div class="shead"><h2>News</h2><p>Awards, papers, and milestones from the last eighteen months.</p></div>
-    <ul class="timeline">{news_html}</ul>
+    <div class="shead"><h2>News</h2><p>What has happened in the last few months, generated from the center's own record of papers, awards, and milestones.</p></div>
+    <ol class="timeline">{news_teaser}</ol>
+    <p class="more"><a class="btn-gift summit-btn" href="news.html">All news and the latest papers</a></p>
   </div>
 </section>
 
@@ -3578,6 +3600,8 @@ def build():
     with open(OUT, "w", encoding="utf-8") as f:
         f.write(page)
     build_summit(footer_html, script_html)
+    build_publications(PUBS_SECTION.replace("{n_pubs}", str(n_pubs)).replace("{pubs_html}", pubs_html), footer_html, script_html)
+    build_newspage(footer_html, script_html)
     print(f"wrote {OUT} (v{SITE_VERSION}): {len(page)/1024:.0f} KB; {n_pubs} pubs ({n_journal} journal); {n_faculty} faculty; {len(IMG)} images embedded")
 
 
@@ -3588,6 +3612,217 @@ def new_tab_links(page):
         if 'target=' in tag: return tag
         return tag[:-1] + ' target="_blank" rel="noopener noreferrer">'
     return re.sub(r'<a\s[^>]*href="https?://[^"]*"[^>]*>', fix, page)
+
+
+PUBS_SECTION = '<section id="publications">\n  <div class="wrap">\n    <div class="shead"><h2>Publications</h2><p>Peer-reviewed journal papers, conference papers, and book chapters from center faculty since the center was founded in 2021, with links to the publisher\'s record. Center faculty are shown in bold; a paper with several center authors appears once.</p></div>\n    <div class="filters" role="group" aria-label="Filter publications">\n      <div class="fgroup"><span class="lab">Faculty</span>\n        <button class="chip" data-f="fac" data-v="all" aria-pressed="true">All</button>\n        <button class="chip" data-f="fac" data-v="Vokkarane" aria-pressed="false">Vokkarane</button>\n        <button class="chip" data-f="fac" data-v="Arias" aria-pressed="false">Arias</button>\n        <button class="chip" data-f="fac" data-v="Tseng" aria-pressed="false">Tseng</button>\n        <button class="chip" data-f="fac" data-v="Son" aria-pressed="false">Son</button>\n        <button class="chip" data-f="fac" data-v="Aghara" aria-pressed="false">Aghara</button>\n        <button class="chip" data-f="fac" data-v="Lin" aria-pressed="false">Lin</button>\n        <button class="chip" data-f="fac" data-v="Luo" aria-pressed="false">Luo</button>\n        <button class="chip" data-f="fac" data-v="Xie" aria-pressed="false">Xie</button>\n        <button class="chip" data-f="fac" data-v="Chigan" aria-pressed="false">Chigan</button>\n        <button class="chip" data-f="fac" data-v="Inalpolat" aria-pressed="false">Inalpolat</button>\n        <button class="chip" data-f="fac" data-v="Robinette" aria-pressed="false">Robinette</button>\n        <button class="chip" data-f="fac" data-v="Yu" aria-pressed="false">Yu</button>\n        <button class="chip" data-f="fac" data-v="Akyurtlu" aria-pressed="false">Akyurtlu</button>\n        <button class="chip" data-f="fac" data-v="Niezrecki" aria-pressed="false">Niezrecki</button>\n        <button class="chip" data-f="fac" data-v="Ranasingha" aria-pressed="false">Ranasingha</button>\n      </div>\n      <div class="fgroup"><span class="lab">Year</span>\n        <button class="chip" data-f="year" data-v="all" aria-pressed="true">All</button>\n        <button class="chip" data-f="year" data-v="2026" aria-pressed="false">2026</button>\n        <button class="chip" data-f="year" data-v="2025" aria-pressed="false">2025</button>\n        <button class="chip" data-f="year" data-v="2024" aria-pressed="false">2024</button>\n        <button class="chip" data-f="year" data-v="2023" aria-pressed="false">2023</button>\n        <button class="chip" data-f="year" data-v="2022" aria-pressed="false">2022</button>\n        <button class="chip" data-f="year" data-v="2021" aria-pressed="false">2021</button>\n      </div>\n      <div class="fgroup"><span class="lab">Type</span>\n        <button class="chip" data-f="type" data-v="all" aria-pressed="true">All</button>\n        <button class="chip" data-f="type" data-v="journal" aria-pressed="false">Journal</button>\n        <button class="chip" data-f="type" data-v="conference" aria-pressed="false">Conference</button>\n        <button class="chip" data-f="type" data-v="chapter" aria-pressed="false">Chapter</button>\n      </div>\n      <div class="search"><label for="q" class="lab">Search</label><input id="q" type="search" placeholder="title, author, or venue" autocomplete="off"></div>\n    </div>\n    <div class="count" id="count" aria-live="polite">Showing {n_pubs} of {n_pubs} papers</div>\n    <div id="publist">{pubs_html}</div>\n    <p class="pubnote">Records verified against Crossref (the NSDI paper is listed from the USENIX program). Venues that do not register DOIs, such as ANS Transactions and INMM proceedings, are not captured, and for faculty with common names only papers with a confirmed UMass Lowell affiliation are included. Send corrections or additions to SCyPS@uml.edu.</p>\n  </div>\n</section>'
+
+FULL_NAME = {}
+for _g in ("director", "core", "affiliated", "external"):
+    for _p in ([FACULTY[_g]] if _g == "director" else FACULTY[_g]):
+        _sur = re.sub(r"\(.*?\)", "", _p["name"]).split()[-1]
+        FULL_NAME[_sur] = _p["name"]
+
+# ---------------------------------------------------------------- news generation
+def _pub_ym(p):
+    return (p["year"], month_of(p) or 12)
+
+def _period_start(period):
+    """'Oct 2026 to Sep 2029' or '2026 to 2027' -> (year, month)."""
+    m = re.match(r"([A-Z][a-z]{2})[a-z]*\.?\s+(\d{4})", period or "")
+    if m:
+        mon = {"Jan":1,"Feb":2,"Mar":3,"Apr":4,"May":5,"Jun":6,"Jul":7,"Aug":8,"Sep":9,"Oct":10,"Nov":11,"Dec":12}.get(m.group(1), 1)
+        return (int(m.group(2)), mon)
+    m = re.match(r"(\d{4})", period or "")
+    return (int(m.group(1)), 1) if m else None
+
+def _months_ago(ym, n, ahead=4):
+    """Inside the window: not older than n months, not dated more than `ahead` months in the future."""
+    total = ym[0] * 12 + ym[1]
+    now = datetime.date.today()
+    cur = now.year * 12 + now.month
+    return cur - n < total <= cur + ahead
+
+def _is_future(ym):
+    now = datetime.date.today()
+    return ym[0] * 12 + ym[1] > now.year * 12 + now.month
+
+def build_news_items(window_months=3):
+    """Everything the site knows that happened recently, newest first."""
+    items = []
+    # papers, grouped by venue so a three-paper month does not read as three identical lines
+    recent = [p for p in P if _months_ago(_pub_ym(p), window_months)]
+    by_venue = {}
+    for p in sorted(recent, key=lambda p: (-_pub_ym(p)[0], -_pub_ym(p)[1])):
+        by_venue.setdefault((p["venue"], _pub_ym(p)), []).append(p)
+    for (venue, ym), group in by_venue.items():
+        names = sorted({FULL_NAME.get(f, f) for p in group for f in p["faculty"]})
+        who = ", ".join(names[:3]) + (" and others" if len(names) > 3 else "")
+        if len(group) == 1:
+            title = group[0]["title"]
+            body = f"{who} published in {venue}."
+        else:
+            title = f"{len(group)} papers in {venue}"
+            body = f"{who} published {len(group)} papers in {venue}: " + "; ".join(g["title"] for g in group[:3]) + ("." if len(group) <= 3 else ", and more.")
+        link = ("https://doi.org/" + group[0]["doi"]) if group[0].get("doi") else None
+        kinds = {p["type"] for p in group}
+        if kinds == {"journal"}: kind, cls, key = "Journal", "journal", "journal"
+        elif kinds == {"conference"}: kind, cls, key = "Conference", "conf", "conference"
+        elif kinds == {"chapter"}: kind, cls, key = "Chapter", "chapter", "chapter"
+        else: kind, cls, key = "Papers", "", "journal"
+        items.append(dict(ym=ym, kind=kind, cls=cls, key=key, title=title, body=body,
+                          link=link, linktext="Publisher record" if link else ""))
+    # awards that started inside the window
+    for pr in PROJECTS:
+        ym = _period_start(pr.get("period", ""))
+        if not ym or not _months_ago(ym, window_months): continue
+        amt = f' ({pr["amount"]})' if pr.get("amount") else ""
+        items.append(dict(ym=ym, kind="Award", cls="award", key="award", title=pr["title"],
+                          body=f'{pr["sponsor"]}{amt}. {pr["desc"]}', link=None, linktext=""))
+    # curated milestones from NEWS
+    for when, text in NEWS:
+        m = re.match(r"([A-Za-z]{3})[a-z]*\s+(\d{4})", when)
+        if not m: continue
+        mon = {"Jan":1,"Feb":2,"Mar":3,"Apr":4,"May":5,"Jun":6,"Jul":7,"Aug":8,"Sep":9,"Oct":10,"Nov":11,"Dec":12}.get(m.group(1))
+        ym = (int(m.group(2)), mon or 1)
+        if not _months_ago(ym, window_months): continue
+        head = text.split(".")[0]
+        if any(head[:40] in it["title"] or it["title"][:40] in head for it in items): continue
+        talk = re.search(r"\b(present(s|ed|ation)|invited talk|keynote|panel|workshop|demo|poster|General Chair|chairs?)\b", text, re.I)
+        kind, cls, key = ("Presentation", "talk", "presentation") if talk else ("Milestone", "milestone", "milestone")
+        items.append(dict(ym=ym, kind=kind, cls=cls, key=key, title=head,
+                          body=text[len(head) + 2:].strip() or text, link=None, linktext=""))
+    items.sort(key=lambda i: (-i["ym"][0], -i["ym"][1]))
+    return items
+
+def render_news(items, limit=None):
+    out = []
+    for it in (items[:limit] if limit else items):
+        future = _is_future(it["ym"])
+        suffix = " issue" if (future and it.get("key") in ("journal", "chapter")) else (" start" if (future and it.get("key") == "award") else "")
+        when = f'{MONTH_NAME[it["ym"][1]]} {it["ym"][0]}' + suffix
+        link = f'<p class="nlink"><a href="{esc(it["link"])}">{esc(it["linktext"])}</a></p>' if it.get("link") else ""
+        out.append(f'<li class="nitem" data-kind="{esc(it.get("key", "milestone"))}"><div class="nwhen">{esc(when)}</div><div>'
+                   f'<span class="nkind {it["cls"]}">{esc(it["kind"])}</span>'
+                   f'<h3>{esc(it["title"])}</h3><p>{esc(it["body"])}</p>{link}</div></li>')
+    return "".join(out)
+
+MONTH_NAME = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+def stream_html(n=24):
+    """The right-hand column: the newest papers, newest first."""
+    rows = sorted(P, key=lambda p: (-p["year"], -(month_of(p) or 0), p["title"]))[:n]
+    out = []
+    for p in rows:
+        t = esc(p["title"])
+        t = f'<a href="https://doi.org/{esc(p["doi"])}">{t}</a>' if p.get("doi") else t
+        out.append(f'<li><span class="k">{esc(p["type"])}</span><span class="t">{t}</span>'
+                   f'<span class="v">{esc(p["venue"])}, {esc(p["details"])}</span></li>')
+    return "".join(out)
+
+# ---------------------------------------------------------------- shared page shell
+def page_shell(title, desc, body, footer_html, script_html, extra_css="", active=""):
+    nav = " ".join(
+        f'<li><a href="{href}"{" class=\"on\"" if key == active else ""}>{label}</a></li>'
+        for key, label, href in [
+            ("about", "About", "index.html#about"), ("research", "Research", "index.html#research"),
+            ("projects", "Projects", "index.html#projects"), ("sponsors", "Sponsors", "index.html#sponsors"),
+            ("people", "People", "index.html#people"), ("students", "Students", "index.html#students"),
+            ("alumni", "Alumni", "index.html#alumni"), ("publications", "Publications", "publications.html"),
+            ("news", "News", "news.html"), ("contact", "Contact", "index.html#contact")])
+    foot = footer_html.replace('href="#', 'href="index.html#')
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{esc(title)}</title>
+<meta name="description" content="{esc(desc)}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="icon" type="image/png" href="{img_src("favicon")}">
+<style>{CSS}
+.links a.on{{color:var(--ink);font-weight:600}}
+{extra_css}</style>
+<script>(function(){{try{{var t=localStorage.getItem('scyps-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}}catch(e){{}}}})();</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="SCyPS home"><span class="mark"><img src="{img_src("logo_mark")}" alt="" width="576" height="271"></span><span>SCyPS<small>Center for Smart Cyber-Physical Systems, UMass Lowell</small></span></a>
+    <div class="navright">
+    <ul class="links" id="menu">{nav}</ul>
+    <a class="gift" href="{GIFT_URL}">Make a Gift</a>
+    <button class="theme" id="theme" type="button" aria-label="Switch to dark mode"><svg class="moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg><span class="lbl">Dark</span></button>
+    <button class="navtoggle" aria-expanded="false" aria-controls="menu">Menu</button>
+    </div>
+  </div>
+</header>
+<main id="main">
+{body}
+</main>
+{foot}
+{script_html}
+</body>
+</html>
+"""
+
+def build_publications(pubs_section, footer_html, script_html):
+    out = os.path.join(os.path.dirname(os.path.abspath(OUT)) or ".", "publications.html")
+    body = pubs_section.replace('<section id="publications">', '<section id="publications" class="pubpage">')
+    page = page_shell("Publications | SCyPS, UMass Lowell",
+                      f"All {n_pubs} peer-reviewed papers from Center for Smart Cyber-Physical Systems faculty since 2021, searchable and filterable by faculty member, year, and type.",
+                      body, footer_html, script_html, active="publications")
+    page = new_tab_links(page)
+    open(out, "w", encoding="utf-8").write(page)
+    print(f"wrote {out}: {len(page)/1024:.0f} KB")
+
+def build_newspage(footer_html, script_html):
+    out = os.path.join(os.path.dirname(os.path.abspath(OUT)) or ".", "news.html")
+    window = 3
+    items = build_news_items(window)
+    while len(items) < 6 and window < 24:
+        window += 3
+        items = build_news_items(window)
+    span = "the last three months" if window == 3 else f"the last {window} months"
+    counts = {}
+    for it in items: counts[it.get("key", "milestone")] = counts.get(it.get("key", "milestone"), 0) + 1
+    chips = '<button class="chip" data-k="all" aria-pressed="true" type="button">All</button>'
+    for key, label in [("award", "Awards"), ("journal", "Journals"), ("conference", "Conferences"),
+                       ("chapter", "Chapters"), ("presentation", "Presentations"), ("milestone", "Milestones")]:
+        n = counts.get(key, 0)
+        dis = "" if n else " disabled"
+        chips += f'<button class="chip" data-k="{key}" aria-pressed="false" type="button"{dis}>{label} ({n})</button>'
+
+    body = f"""<section id="news">
+  <div class="wrap">
+    <div class="shead"><h2>News</h2><p>Generated from the center's own record: every paper, award, and milestone from {span}, newest first. The page rebuilds itself whenever the site is rebuilt, so nothing here goes stale by hand.</p></div>
+    <div class="newsgrid">
+      <div>
+        <div class="nfilters" role="group" aria-label="Filter news">
+          <span class="lab">Show</span>{chips}
+        </div>
+        <p class="ncount" id="ncount" aria-live="polite">Showing all {len(items)} items</p>
+        <ol class="timeline plain" id="newslist">{render_news(items)}</ol>
+      </div>
+      <aside class="stream" aria-label="Latest publications">
+        <h3>Latest papers</h3>
+        <p class="sub">The {min(24, n_pubs)} most recent, updated with every build.</p>
+        <ol>{stream_html()}</ol>
+        <p class="foot"><a href="publications.html">All {n_pubs} publications</a></p>
+      </aside>
+    </div>
+  </div>
+</section>"""
+    page = page_shell("News | SCyPS, UMass Lowell",
+                      "Recent papers, awards, and milestones from the Center for Smart Cyber-Physical Systems at UMass Lowell, with a live list of the newest publications.",
+                      body, footer_html, script_html, extra_css=".timeline.plain{list-style:none;margin:0;padding:0}", active="news")
+    page = new_tab_links(page)
+    open(out, "w", encoding="utf-8").write(page)
+    print(f"wrote {out}: {len(page)/1024:.0f} KB; {len(items)} news items from {span}")
+
 
 def build_summit(footer_html, script_html):
     """Stand-alone project page for the NSF MRI SUMMIT testbed, written next to the main page."""

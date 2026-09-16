@@ -11,7 +11,8 @@ Files
   scholar.json       citation figures the site prints, each with the date it was read
   update_scholar.py  paste figures off the Scholar profile pages into scholar.json
   scholar_auto.json  figures refresh.py managed to read on its own, if any
-  .github/workflows/refresh.yml   the weekly job
+  .github/workflows/refresh.yml   the weekly data job
+  .github/workflows/scholar.yml   the Scholar update you run by hand from the Actions tab
 
 Build by hand
   python3 refresh.py          # optional: pull new data
@@ -29,9 +30,18 @@ Automatic updates
                    Other sponsors (DOE, ONR, Army, state, industry) have no public award API; add those
                    by hand in build_site.py.
     Scholar        Google has no API and blocks automated readers, so this step often fails. The reliable
-                   route is `python3 update_scholar.py`: open each profile (the script prints the links),
-                   copy Citations / h-index / i10-index from the "Cited by" box, paste one line per person.
-                   Each figure is stored with the date it was entered and the site prints that date.
+                   route is to enter them yourself, either way below. Each figure is stored with the date it
+                   was entered and the site prints that date.
+
+                   From the browser (no setup): repository > Actions > "Update Google Scholar figures" >
+                   Run workflow. Paste one line per person into the box, one per line:
+                       Vokkarane 5990 37 96
+                       Chigan 1450 18 24
+                   Name fragment, citations, h-index, optional i10-index. The job writes scholar.json,
+                   bumps the version, rebuilds both pages, and commits. Pages redeploys on its own.
+
+                   From a checkout: `python3 update_scholar.py` prints every profile link and takes the
+                   same lines on standard input, then `python3 build_site.py index.html`.
     News           not automated; edit NEWS in build_site.py.
 
   Reviewing what it added

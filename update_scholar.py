@@ -41,13 +41,14 @@ def main():
     names = known_names()
     data = json.load(open(STORE)) if os.path.exists(STORE) else {}
     today = datetime.date.today().isoformat()
-    print("Paste one line per person: <name> <citations> <h-index> [i10-index]. Blank line to finish.")
-    print("Profiles:")
-    for n, sid in sorted(names.items()):
-        cur = data.get(n)
-        state = (f"{cur['citations']:,} citations" + (f", h {cur['h']}" if cur.get('h') else ", h-index missing") + f" ({cur['date']})") if cur else "no figures yet"
-        print(f"  {n:26s} https://scholar.google.com/citations?user={sid}&hl=en   [{state}]")
-    print()
+    if sys.stdin.isatty():
+        print("Paste one line per person: <name> <citations> <h-index> [i10-index]. Blank line to finish.")
+        print("Profiles:")
+        for n, sid in sorted(names.items()):
+            cur = data.get(n)
+            state = (f"{cur['citations']:,} citations" + (f", h {cur['h']}" if cur.get('h') else ", h-index missing") + f" ({cur['date']})") if cur else "no figures yet"
+            print(f"  {n:26s} https://scholar.google.com/citations?user={sid}&hl=en   [{state}]")
+        print()
     changed = 0
     for line in sys.stdin:
         line = line.strip()

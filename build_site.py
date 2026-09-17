@@ -106,7 +106,7 @@ PROJECTS = [
     {"tag": "New in 2026", "sponsor": "National Science Foundation, Major Research Instrumentation Track 2 (Award #2511635)",
      "role": "PI", "title": "SUMMIT: A Secure and Resilient Multi-site Smart Grid Testbed for Multidisciplinary Research and Training",
      "amount": "$2.0M", "share": "UMass Lowell share $1.56M", "period": "Oct 2026 to Sep 2029",
-     "team": "PI Vinod Vokkarane; Co-PIs Orlando Arias and Lewis Tseng (UMass Lowell), Yuzhang Lin (NYU), and Anurag Srivastava (WVU); with UMass Lowell faculty Yan Luo and Seung Woo Son",
+     "team": "PI Vinod Vokkarane; Co-PIs Orlando Arias and Lewis Tseng (UMass Lowell), Yuzhang Lin (NYU), and Anurag Srivastava (WVU); senior personnel Yan Luo, Seung Woo Son, and Christopher Niezrecki",
      "desc": ("A federated cyber-physical testbed that links RTDS real-time simulation of the Northeast transmission grid with control, "
               "networking, and cybersecurity hardware in the loop across three universities over a wide-area SDN, delivered as "
               "HIL Simulation-as-a-Service. A postdoctoral researcher will lead federation development."),
@@ -2373,20 +2373,26 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 /* students and alumni */
 .stugrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .stugrid.two{grid-template-columns:repeat(2,1fr);margin-bottom:40px}
-.stu{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px 22px 20px}
-.stu .avatar{margin-bottom:14px;width:180px;height:180px;font-size:40px}
+.stu{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px 22px 20px}
+.stu .avatar{display:block;margin:0 auto 16px;width:180px;height:180px;font-size:40px}
 .avatar.round{border-radius:50%;background:transparent}
 .avatar.mono.round{background:var(--signal-tint)}
-.stu h3{font-size:20px;margin-bottom:4px}
-.stu .focus{font-size:14.5px;color:var(--ink-2);margin:6px 0 8px}
-.stufig{margin:14px 0 0;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px}
+.stu h3{font-size:20px;margin-bottom:4px;text-align:center}
+.stu>.ptitle{text-align:center}
+.stu .focus{font-size:14.5px;color:var(--ink-2);margin:8px 0 8px}
+.stu .pmeta{margin-bottom:0}
+.stu .stufig{margin-top:auto}
+.stufig{margin:18px 0 0;align-self:stretch;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px}
 .stufig img{width:100%;height:150px;object-fit:contain;display:block}
+.stufig .svgfig,.stufig img{margin-bottom:6px}
 .stufig .svgfig{height:150px}
 .stufig .svgfig svg{width:100%;height:100%;display:block}
-.stufig figcaption{font-size:12px;color:#5B6B82;text-align:center;margin-top:6px}
+.stufig figcaption{font-size:12px;line-height:1.35;color:#5B6B82;text-align:center;margin-top:0;min-height:2.7em;display:flex;align-items:center;justify-content:center}
 .gsline{font-size:13px;color:var(--ink-3);margin:6px 0 0}
 .gsline b{color:var(--ink)}
 .stu.feat{display:grid;grid-template-columns:180px 1fr;gap:6px 22px;align-items:start}
+.stu.feat h3,.stu.feat>.ptitle{text-align:left}
+.stu.feat .avatar{margin:0}
 .stu.feat .avatar{grid-row:1/4;margin:0}
 .stu.feat .focus{grid-column:2}
 @media (max-width:980px){.stugrid{grid-template-columns:1fr 1fr}}
@@ -2737,7 +2743,7 @@ ALUMNI_PHD = [
 ]
 ALUMNI_POSTDOC = [("Arash Deylamsalehi", "Google"), ("Jeremy M. Plante", "Hitachi Vantara"), ("Juzi Zhao", "San José State University"), ("Arush Gadkar", "Kilpatrick Townsend & Stockton LLP"), ("Joan Triay", "DOCOMO Euro-Labs"), ("Balagangadhar Bathula", "AT&T")]
 SITE_URL = "https://vinodvokkarane.github.io/scyps-site/"   # set this to the live address
-SITE_VERSION = "0.35"   # bump by 0.01 with every update to the site
+SITE_VERSION = "0.38"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3878,7 +3884,7 @@ def build():
         <div class="meta">
           <div><b>$2.0M</b><span>NSF MRI Track 2, Award #2511635</span></div>
           <div><b>Oct 2026 to Sep 2029</b><span>award period</span></div>
-          <div><b>Vinod Vokkarane, PI</b><span>Co-PIs Orlando Arias, Lewis Tseng, Yuzhang Lin, Anurag Srivastava; with Yan Luo and Seung Woo Son</span></div>
+          <div><b>Vinod Vokkarane, PI</b><span>Co-PIs Orlando Arias, Lewis Tseng, Yuzhang Lin, Anurag Srivastava; senior personnel Yan Luo, Seung Woo Son, Christopher Niezrecki</span></div>
           <div><b>Postdoc search open</b><span><a href="{POSTDOC_URL}">Apply for the postdoctoral research associate position</a></span></div>
         </div>
       </div>
@@ -4421,6 +4427,7 @@ def build_summit(footer_html, script_html):
     team = "".join([
         person("Vinod M. Vokkarane", "Principal Investigator"), person("Orlando Arias", "Co-PI, hardware security"), person("Lewis Tseng", "Co-PI, distributed systems"),
         person("Yuzhang Lin", "Co-PI, NYU Tandon site"), person("Anurag Srivastava", "Co-PI, WVU site"), person("Yan Luo", "Senior personnel, networks"), person("Seung Woo Son", "Senior personnel, HPC"),
+        person("Christopher Niezrecki", "Senior personnel, energy systems"),
     ])
     nav = ' '.join(f'<li><a href="index.html#{a}">{t}</a></li>' for a, t in [("about", "About"), ("research", "Research"), ("projects", "Projects"), ("sponsors", "Sponsors"), ("people", "People"), ("students", "Students"), ("alumni", "Alumni"), ("publications", "Publications"), ("news", "News"), ("contact", "Contact")])
     footer_html = footer_html.replace('href="#', 'href="index.html#')
@@ -4455,6 +4462,7 @@ def build_summit(footer_html, script_html):
 .site{{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px}}
 .site h3{{font-size:20px;margin-bottom:6px}} .site .role{{color:var(--signal-2);font-weight:600;font-size:13.5px;margin-bottom:8px}} .site p{{font-size:14.5px;color:var(--ink-2);margin:0}}
 .teamgrid{{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}}
+.teamgrid .tm{{display:flex;flex-direction:column;justify-content:flex-start}}
 .tm{{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px;text-align:center}}
 .tm .avatar{{margin:0 auto 12px;width:120px;height:120px}} .tm b{{display:block}} .tm span{{display:block;font-size:13.5px;color:var(--signal-2);font-weight:600}} .tm small{{display:block;font-size:12.5px;color:var(--ink-3);margin-top:4px}}
 .phases{{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}}
@@ -4554,7 +4562,7 @@ def build_summit(footer_html, script_html):
 
 <section id="team" class="tint">
   <div class="wrap">
-    <div class="shead"><h2>Team</h2><p>Faculty across three universities and two UMass Lowell departments.</p></div>
+    <div class="shead"><h2>Team</h2><p>Faculty across three universities and three UMass Lowell departments.</p></div>
     <div class="teamgrid">{team}</div>
   </div>
 </section>

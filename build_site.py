@@ -2324,6 +2324,40 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .ack p{margin:0 0 8px}
 .ack p:last-child{margin:0}
 
+/* mission hub */
+.hubwrap{margin-bottom:clamp(36px,5vw,56px)}
+.hubfig{margin:0;background:#FFFFFF;border:1px solid var(--line);border-radius:var(--radius);padding:10px;--bg-2:#F3F7FA;--surface:#FFFFFF;--line:#D5DCE5;--ink:#0E2036;--ink-3:#5B6B82;--signal:#0A777F;--brand-blue:#044978;--green:#3BA995}
+.hubfig svg{width:100%;height:auto;display:block;max-height:none}
+.hublist{margin-top:26px}
+.hublist h3{font-size:22px;margin-bottom:14px;text-align:center}
+.hublist ol{margin:0 auto;padding-left:24px;max-width:70em;columns:2;column-gap:clamp(28px,5vw,64px)}
+.hublist li{font-size:15.5px;color:var(--ink-2);margin-bottom:12px;padding-left:4px;break-inside:avoid}
+.hublist li::marker{color:var(--signal-2);font-weight:600}
+@media (max-width:760px){.hublist ol{columns:1}}
+.hubfig .s-ink{stroke:var(--ink)}
+.hubfig .f-ink{fill:var(--ink)}
+.hubfig .f-surface{fill:var(--surface)}
+.hubfig .f-muted{fill:var(--ink-3)}
+.hubfig .card{filter:drop-shadow(0 4px 10px rgba(4,73,120,.10))}
+
+.hubfig .f-alert{fill:#E25555}
+.hubfig .s-alert{stroke:#E25555}
+.hubfig .f-alert-tint{fill:#FDECEC}
+
+.hubfig .s-sig{stroke:var(--signal)}
+.hubfig .f-sig{fill:var(--signal)}
+.hubfig .f-brand{fill:var(--brand-blue)}
+.hubfig .s-brand{stroke:var(--brand-blue)}
+.hubfig .f-grn{fill:var(--green)}
+.hubfig .s-grn{stroke:var(--green)}
+.hubfig .f-tint{fill:var(--bg-2)}
+.hubfig .s-line{stroke:var(--line)}
+.hubfig .f-line{fill:var(--line)}
+.hubfig .f-sigt{fill:var(--signal-tint)}
+.hubfig .f-amb{fill:var(--amber)}
+.hubfig .s-amb{stroke:var(--amber)}
+.hubfig .s-muted{stroke:var(--ink-3)}
+
 /* teasers, news page, article stream */
 .peoplecards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .pcard{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;color:var(--ink);transition:box-shadow .2s ease,transform .2s ease}
@@ -2743,7 +2777,7 @@ ALUMNI_PHD = [
 ]
 ALUMNI_POSTDOC = [("Arash Deylamsalehi", "Google"), ("Jeremy M. Plante", "Hitachi Vantara"), ("Juzi Zhao", "San José State University"), ("Arush Gadkar", "Kilpatrick Townsend & Stockton LLP"), ("Joan Triay", "DOCOMO Euro-Labs"), ("Balagangadhar Bathula", "AT&T")]
 SITE_URL = "https://vinodvokkarane.github.io/scyps-site/"   # set this to the live address
-SITE_VERSION = "0.39"   # bump by 0.01 with every update to the site
+SITE_VERSION = "0.42"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3206,6 +3240,48 @@ ART = {
 <text x="180" y="162" font-size="11" fill="#5B6B82" text-anchor="middle">connected roads, hospitals, and structures</text>
 </svg>""",
 }
+HUB = """<svg viewBox="0 0 1200 690" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="hubTitle hubDesc" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<title id="hubTitle">SCyPS serves as the center hub</title><desc id="hubDesc">Five activities radiate from the center: research on secure and resilient cyber-physical systems, shared testbeds and instruments, training the workforce, partnership with industry and agencies, and open-source tools and technology transfer.</desc>
+<defs><marker id="hubar" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#0A777F"/></marker></defs>
+<path d="M600 211L600 161" stroke="#0A777F" stroke-width="2.6" marker-end="url(#hubar)"/>
+<path d="M721 306L752 299" stroke="#0A777F" stroke-width="2.6" marker-end="url(#hubar)"/>
+<path d="M688 423L731 466" stroke="#0A777F" stroke-width="2.6" marker-end="url(#hubar)"/>
+<path d="M512 423L469 466" stroke="#0A777F" stroke-width="2.6" marker-end="url(#hubar)"/>
+<path d="M479 306L448 299" stroke="#0A777F" stroke-width="2.6" marker-end="url(#hubar)"/>
+<circle cx="600" cy="335" r="112" fill="#044978"/>
+<circle cx="600" cy="335" r="112" fill="none" stroke="#0A777F" stroke-width="3" class="flow slow"/>
+<text x="600" y="327" text-anchor="middle" font-size="31" font-weight="600" fill="#FFFFFF">SCyPS</text>
+<text x="600" y="357" text-anchor="middle" font-size="16" fill="#C9DCEA">serves as the</text>
+<text x="600" y="379" text-anchor="middle" font-size="16" fill="#C9DCEA">center hub</text>
+<g class="card"><rect x="448" y="37" width="304" height="112" rx="14" fill="#FFFFFF" stroke="#D5DCE5" stroke-width="1.5"/></g>
+<circle cx="600" cy="63" r="14" fill="#3BA995"/>
+<text x="600" y="68" text-anchor="middle" font-size="14" font-weight="700" fill="#062B24">1</text>
+<text x="600" y="103" text-anchor="middle" font-size="15.5" font-weight="600" fill="#0E2036">Research on secure, resilient</text>
+<text x="600" y="125" text-anchor="middle" font-size="15.5" font-weight="600" fill="#0E2036">cyber-physical systems</text>
+<g class="card"><rect x="764" y="204" width="304" height="112" rx="14" fill="#FFFFFF" stroke="#D5DCE5" stroke-width="1.5"/></g>
+<circle cx="916" cy="230" r="14" fill="#3BA995"/>
+<text x="916" y="235" text-anchor="middle" font-size="14" font-weight="700" fill="#062B24">2</text>
+<text x="916" y="270" text-anchor="middle" font-size="15.5" font-weight="600" fill="#0E2036">Shared testbeds and instruments,</text>
+<text x="916" y="292" text-anchor="middle" font-size="15.5" font-weight="600" fill="#0E2036">including SUMMIT</text>
+<g class="card"><rect x="643" y="475" width="304" height="112" rx="14" fill="#FFFFFF" stroke="#D5DCE5" stroke-width="1.5"/></g>
+<circle cx="795" cy="501" r="14" fill="#3BA995"/>
+<text x="795" y="506" text-anchor="middle" font-size="14" font-weight="700" fill="#062B24">3</text>
+<text x="795" y="541" text-anchor="middle" font-size="15.5" font-weight="600" fill="#0E2036">Training the cyber-physical</text>
+<text x="795" y="563" text-anchor="middle" font-size="15.5" font-weight="600" fill="#0E2036">systems workforce</text>
+<g class="card"><rect x="253" y="475" width="304" height="112" rx="14" fill="#FFFFFF" stroke="#D5DCE5" stroke-width="1.5"/></g>
+<circle cx="405" cy="501" r="14" fill="#3BA995"/>
+<text x="405" y="506" text-anchor="middle" font-size="14" font-weight="700" fill="#062B24">4</text>
+<text x="405" y="541" text-anchor="middle" font-size="15.5" font-weight="600" fill="#0E2036">Industry, agency, and</text>
+<text x="405" y="563" text-anchor="middle" font-size="15.5" font-weight="600" fill="#0E2036">community partnership</text>
+<g class="card"><rect x="132" y="204" width="304" height="112" rx="14" fill="#FFFFFF" stroke="#D5DCE5" stroke-width="1.5"/></g>
+<circle cx="284" cy="230" r="14" fill="#3BA995"/>
+<text x="284" y="235" text-anchor="middle" font-size="14" font-weight="700" fill="#062B24">5</text>
+<text x="284" y="270" text-anchor="middle" font-size="15.5" font-weight="600" fill="#0E2036">Open-source tools and</text>
+<text x="284" y="292" text-anchor="middle" font-size="15.5" font-weight="600" fill="#0E2036">technology transfer</text>
+<text x="600" y="674" text-anchor="middle" font-size="16" fill="#5B6B82">across energy and power, transportation, and healthcare</text>
+</svg>"""
+HUB = theme_svg(HUB)
+
 ART = {k: theme_svg(v) for k, v in ART.items()}
 
 HERO_ART = {
@@ -3839,6 +3915,19 @@ def build():
     <div class="shead"><h2>A center built around the systems a smart society runs on</h2>
       <p>Power grids, roads, and hospitals now depend on fast networks connected to instrumentation, control systems, and IoT devices. SCyPS develops practical, high-impact ways to make those heterogeneous distributed systems more reliable, scalable, secure, and private.</p></div>
     {about_photo}
+    <div class="hubwrap">
+      <figure class="hubfig">{HUB}</figure>
+      <div class="hublist">
+        <h3>The center serves as a hub for</h3>
+        <ol>
+          <li>research on secure, resilient, and efficient cyber-physical systems;</li>
+          <li>shared testbeds and instruments, including SUMMIT, open to collaborators;</li>
+          <li>training the cyber-physical systems workforce, from doctoral students to co-ops;</li>
+          <li>partnership with industry, agencies, and the community on problems they actually have; and</li>
+          <li>open-source tools and technology transfer that put results into practice.</li>
+        </ol>
+      </div>
+    </div>
     <div class="about-grid">
       <div>
         <h3>Mission</h3>

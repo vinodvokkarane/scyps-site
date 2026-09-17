@@ -12,6 +12,9 @@ Files
                        news.html          auto-generated from the last three months of papers, awards, and
                                           milestones, filterable by type, with a live stream of the newest
                                           papers in the right column
+                       research-*.html    one page per research thrust (grid, ai, fiber, edge, chip,
+                                          health): the question it asks, what the group builds, the faculty
+                                          on it, its projects and tools, and its recent papers
                        summit.html        the NSF MRI SUMMIT project page
   images.json        embedded photos and figures
   logos/             sponsor logos (see logos/README.txt for the expected file names)
@@ -24,9 +27,27 @@ Files
   .github/workflows/refresh.yml   the weekly data job
   .github/workflows/scholar.yml   the Scholar update you run by hand from the Actions tab
 
+Before you publish
+  SITE_URL at the top of build_site.py must match the live address. It feeds the canonical links,
+  the social-card metadata, robots.txt, and sitemap.xml. It is currently set to
+  https://vinodvokkarane.github.io/scyps-site/ — change it if the site moves to scyps.uml.edu.
+
+  og-card.png is referenced by the social metadata but is not generated. Drop a 1200x630 image with
+  that name in the repository root, or the link previews on LinkedIn and X will fall back to nothing.
+
+  Known limits, so they are decisions rather than surprises:
+    - The visitor counter is a third-party image from hits.sh. It counts image loads, not people,
+      and it sends each visitor's page address to that service.
+    - Google Fonts and Font Awesome load from Google and Cloudflare. Both are third-party requests
+      on every page view. Self-hosting the four font files would remove them.
+    - Citation figures print the date they were read. Anything older than about six months is
+      labelled as not refreshed, so a stale number cannot pass as current.
+    - The publication list counts every paper by any of the 18 faculty, not only work done under the
+      center. Use it as a reach figure, not as center output, in reports.
+
 Build by hand
   python3 refresh.py          # optional: pull new data
-  python3 build_site.py index.html      # also writes people, students, alumni, publications, news, summit
+  python3 build_site.py index.html      # writes all thirteen pages next to it
 
 Automatic updates
   Once this folder is a GitHub repository with Pages turned on, the workflow runs every Monday

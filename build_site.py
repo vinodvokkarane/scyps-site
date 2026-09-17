@@ -2063,6 +2063,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 b{font-weight:600}
 img{max-width:100%;height:auto}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--signal);outline-offset:3px;border-radius:4px}
 .skip{position:absolute;left:-999px;top:8px;background:var(--navy);color:#fff;padding:8px 12px;z-index:100}
 .skip:focus{left:8px}
 
@@ -2178,7 +2179,7 @@ section.tint{background:var(--bg-2)}
 /* research */
 .thrusts{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .thrust{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
-.thrust .art{aspect-ratio:2/1;background:linear-gradient(160deg,var(--illus-bg),var(--illus-bg-2));color:var(--ink);border-bottom:1px solid var(--line);padding:6px}
+.thrust .art{display:block;aspect-ratio:2/1;background:#FFFFFF;--bg-2:#F3F7FA;--surface:#FFFFFF;--line:#D5DCE5;--ink:#0E2036;--ink-3:#5B6B82;--signal:#0A777F;--brand-blue:#044978;--green:#3BA995;background:linear-gradient(160deg,var(--illus-bg),var(--illus-bg-2));color:var(--ink);border-bottom:1px solid var(--line);padding:6px}
 .thrust .art svg{width:100%;height:100%;display:block}
 .thrust .art .s-ink{stroke:var(--ink)} .thrust .art .f-ink{fill:var(--ink)} .thrust .art .f-surface{fill:var(--surface)} .thrust .art .f-muted{fill:var(--ink-3)}
 .thrust .art .card{filter:drop-shadow(0 4px 10px rgba(4,73,120,.10))}
@@ -2188,6 +2189,11 @@ section.tint{background:var(--bg-2)}
 .thrust .art .s-sig{stroke:var(--signal)} .thrust .art .f-sig{fill:var(--signal)} .thrust .art .f-brand{fill:var(--brand-blue)} .thrust .art .s-brand{stroke:var(--brand-blue)} .thrust .art .f-grn{fill:var(--green)} .thrust .art .s-grn{stroke:var(--green)} .thrust .art .f-tint{fill:var(--bg-2)} .thrust .art .s-line{stroke:var(--line)} .thrust .art .f-line{fill:var(--line)} .thrust .art .f-sigt{fill:var(--signal-tint)} .thrust .art .f-amb{fill:var(--amber)} .thrust .art .s-amb{stroke:var(--amber)} .thrust .art .s-muted{stroke:var(--ink-3)}
 .thrust .body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
 .thrust h3{font-size:20px;margin-bottom:8px}
+.thrust h3 a{color:var(--ink)}
+.thrust h3 a:hover{color:var(--signal-2)}
+.thrust .more2{margin:12px 0 0;font-size:14px;font-weight:500}
+.thrust .more2 a{color:var(--signal-2)}
+.thrust .more2 a::after{content:" \2192"}
 .thrust p{color:var(--ink-2);font-size:15px;margin:0 0 12px}
 .thrust .who{font-size:13.5px;color:var(--ink-3);border-top:1px solid var(--line-2);padding-top:10px;margin-top:auto}
 @media (max-width:980px){.thrusts{grid-template-columns:1fr 1fr}}
@@ -2273,7 +2279,9 @@ section.tint{background:var(--bg-2)}
 .core .avatar.lg{width:220px;height:220px;border-radius:16px}
 @media (max-width:860px){.core{grid-template-columns:1fr}}
 .group{margin-top:48px}
-.group h3{font-size:22px;margin-bottom:6px}
+.grouph{font-family:"Fraunces",Georgia,serif;font-size:22px;margin:0 0 14px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.group .grouph{font-family:"Fraunces",Georgia,serif;font-size:22px;margin-bottom:6px}
 .group>p{color:var(--ink-3);font-size:14.5px;margin-bottom:14px}
 .plist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .prow{display:flex;gap:16px;padding:16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);align-items:flex-start}
@@ -2343,7 +2351,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .nitem p{font-size:15px;color:var(--ink-2);margin:0}
 .nitem .nlink{font-size:14px;margin-top:7px}
 .stream{position:sticky;top:86px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px 20px 8px}
-.stream h3{font-size:17px;margin-bottom:2px}
+.stream .grouph{font-size:17px;margin-bottom:2px}
 .stream .sub{font-size:13px;color:var(--ink-3);margin-bottom:12px}
 .stream ol{list-style:none;margin:0;padding:0;max-height:70vh;overflow-y:auto}
 .stream li{padding:12px 0;border-top:1px solid var(--line-2)}
@@ -2377,13 +2385,13 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 @media (max-width:980px){.stugrid{grid-template-columns:1fr 1fr}}
 @media (max-width:640px){.stugrid,.stugrid.two{grid-template-columns:1fr}.stu.feat{grid-template-columns:1fr}.stu .avatar{width:150px;height:150px}.stu.feat .avatar{grid-row:auto;margin-bottom:12px}.stu.feat .focus{grid-column:auto}}
 .lablife{margin-top:52px}
-.lablife h3{font-size:22px;margin-bottom:4px}
+.lablife .grouph{font-size:22px;margin-bottom:4px}
 .lablife>p{color:var(--ink-3);font-size:14.5px;margin-bottom:14px}
 .labgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .labgrid img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius);border:1px solid var(--line);display:block}
 @media (max-width:760px){.labgrid{grid-template-columns:1fr 1fr}}
 .alumcols{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,5vw,64px)}
-.alumcols h3{font-size:22px;margin-bottom:10px}
+.alumcols .grouph{font-size:22px;margin-bottom:10px}
 .alumlist{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
 .alumlist li{display:grid;grid-template-columns:62px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:15px}
 .alumlist .yr{color:var(--ink-3);font-size:14px;padding-top:1px}
@@ -2598,6 +2606,79 @@ ICONS = {
     "health": '<svg viewBox="0 0 40 40"><path d="M4 22h8l4-10 6 18 4-10h10"/><rect x="6" y="6" width="28" height="28" rx="5"/></svg>',
 }
 
+
+# Longer material for each thrust page: the question the thrust asks, what the group actually builds,
+# and which projects and tools belong to it. Keys match THRUSTS.
+THRUST_DETAIL = {
+    "grid": {
+        "question": "What happens to a power grid when the computers and networks that run it are attacked, and how does it get back?",
+        "lede": "Modern distribution and transmission systems are steered by measurements that travel over networks. That makes the measurement path itself an attack surface: corrupt what the operator sees and you corrupt what the operator does. The center studies the whole loop, from the meter to the control room and back out to the breaker.",
+        "work": [
+            ("Detecting false data before it reaches control", "Smart meters and phasor measurement units can be spoofed. The group builds detectors, both centralized and federated across sites, that flag injected measurements without needing to pool raw data from every utility."),
+            ("Observability-aware communication design", "Where PMUs sit and how their traffic is routed determines whether the state estimator can still see the grid after a failure. The group co-designs sensor placement and network topology rather than treating them as separate problems."),
+            ("Joint power and communication restoration", "After a storm or an attack, the power layer and the communication layer have to come back together: a crew cannot reconfigure what it cannot observe. The group formulates restoration as one problem across both layers, including networked microgrid formation."),
+            ("Experiments on real hardware", "Claims about resilience are only as good as the testbed behind them. SUMMIT couples RTDS real-time simulation with actual controllers, relays, and network equipment across three universities."),
+        ],
+        "projects": ["SUMMIT", "Unified Post-Disaster Restoration", "CyberCARE", "Resilient Smart Grids", "Software-Defined Cyber-Physical Microgrids"],
+    },
+    "ai": {
+        "question": "When an AI system can move something physical, what keeps it inside the envelope?",
+        "lede": "Machine learning is now embedded in decisions that open breakers, route traffic, and provision networks. Accuracy on a benchmark says little about behavior during an attack, a sensor fault, or a distribution shift. The center works on models that respect the physics of the system they control and on enforcement that sits between a model's output and the actuator.",
+        "work": [
+            ("Learning-based intrusion and anomaly detection", "Scalable, real-time detection of attacks on grid control traffic, including adaptive transfer learning so a detector trained on one network still works on the next."),
+            ("Federated learning across operators", "Utilities cannot share raw operational data. Federated training lets detection models improve across sites while the measurements stay home, and the group measures what that costs in accuracy."),
+            ("Physics-grounded models", "A model that ignores power flow or optical impairment will confidently propose something impossible. The group grounds learned models in the physical constraints of the system."),
+            ("Safety enforcement for agentic systems", "As AI agents take actions rather than make predictions, the question becomes what the agent is permitted to do. The group works on enforcement layers that check actions against safety properties before they reach infrastructure."),
+        ],
+        "projects": ["ARPO-Sensor Fusion", "ARPO", "CyberCARE"],
+    },
+    "fiber": {
+        "question": "How do we get an order of magnitude more capacity out of deployed fiber without giving up service quality?",
+        "lede": "Traffic growth outpaces the capacity of the C band. The next increment comes from using more of the spectrum and more spatial paths in the same fiber, which makes provisioning far harder: impairments differ by band, by core, and by path. The center builds the algorithms and the open tools for that regime.",
+        "work": [
+            ("Multi-band and space-division multiplexing", "Routing, modulation, core, band, and spectrum assignment treated as one allocation problem, with the trade-off between spectral and spatial scaling measured rather than assumed."),
+            ("Quality-of-transmission-aware allocation", "Provisioning that accounts for physical-layer impairments, including nonlinear interference that grows with load, so a lightpath is not accepted and then quietly fails."),
+            ("Service prioritization for 6G transport", "Fronthaul and backhaul for 6G impose latency and reliability classes on the optical layer; the group studies how to honor them under load."),
+            ("Open-source, reproducible research", "FUSION is a benchmarking and simulation framework built so results in this field can be reproduced and compared rather than taken on faith."),
+        ],
+        "projects": ["Flexible Spectrum Allocation", "PROPER", "COMMON", "CARGONET", "SOON"],
+        "tools": [("FUSION", "https://github.com/SDNNetSim/FUSION", "Open-source optical network simulation and benchmarking")],
+    },
+    "edge": {
+        "question": "How do distributed systems keep agreeing when machines crash, links fail, and some nodes are hostile?",
+        "lede": "Cyber-physical systems increasingly run on clusters at the edge rather than a single controller. That buys resilience only if the replicas can agree under adversarial conditions, at latencies a physical process can tolerate. The center works on the protocols and the systems that make that true.",
+        "work": [
+            ("Fault-tolerant consensus and state machine replication", "Protocols that stay correct and fast when replicas crash or misbehave, with the latency budgets that control loops actually impose."),
+            ("Blockchain and decentralized coordination", "Where a shared, tamper-evident record is worth its cost, and where it is not."),
+            ("Satellite and drone edge coordination", "Coordination when connectivity is intermittent and nodes move, including satellite-edge and aerial platforms."),
+            ("Digital twins from hybrid clouds", "Delivering twin fidelity from a mix of on-premise and cloud resources without breaking real-time guarantees."),
+        ],
+        "projects": ["Tseng NSF CAREER", "SUMMIT"],
+    },
+    "chip": {
+        "question": "If the software stack is trustworthy but the silicon lies, what have you actually secured?",
+        "lede": "Grid edge devices, embedded controllers, and HPC nodes are all built on hardware that can be modified, faulted, or silently wrong. The center works at that layer: finding trojans before tape-out, catching corruption that leaves no error, and giving a remote verifier a reason to trust a device.",
+        "work": [
+            ("Hardware trojan detection at RTL", "Finding malicious logic in a design before it becomes silicon, where it can still be removed."),
+            ("Silent data corruption detection", "Corruption that produces a wrong answer without an error signal is the hardest fault in a large system. The group detects it from hardware performance counters, at a cost low enough to leave on."),
+            ("Attested embedded devices", "Remote attestation for the small devices at grid edges, so a controller can prove what it is running."),
+            ("Parallel I/O for data-intensive science", "High-performance storage and I/O paths for simulation and analysis at scale, including compression that preserves what the science needs."),
+        ],
+        "projects": ["SUMMIT", "Unified Post-Disaster Restoration"],
+    },
+    "health": {
+        "question": "What does this loop look like in a hospital, on a highway, on a bridge, and inside a reactor building?",
+        "lede": "The same sense-communicate-decide-act loop shows up wherever computation meets a physical system, and each domain stresses it differently: latency on a highway, privacy in a hospital, harsh environments on a bridge, regulation in a nuclear facility. The center's breadth across colleges is what lets it work in all four.",
+        "work": [
+            ("Intelligent traffic and vehicular computing", "Connected and automated vehicles, trajectory prediction, crosswalk and roadway condition assessment from aerial imagery, and the networks that carry it."),
+            ("Medical imaging and digital health", "Image reconstruction from limited data, multimodal deep learning, and platforms that move clinical data safely."),
+            ("Structural health monitoring", "Sensing and diagnostics for wind turbine blades, bridges, and buildings, including acoustic and vibration methods and drone-based inspection."),
+            ("Nuclear security and robotics", "Safeguards modeling, security of nuclear facilities, and robotic platforms for environments people should not enter."),
+        ],
+        "projects": ["Massachusetts Advanced Nuclear and Fusion Energy Roadmaps", "Intercontinental Nuclear Institute", "ARPO"],
+    },
+}
+
 THRUSTS = [
     ("grid", "Smart grid cybersecurity and resilience",
      "Attack-aware dispatch, false-data-injection detection in smart meters, observability-aware PMU networking, and joint power-communication restoration after disasters. Anchored by the SUMMIT federated testbed.",
@@ -2648,7 +2729,8 @@ ALUMNI_PHD = [
     ("2014", "Thilo Schöndienst", "European Patent Office"),
 ]
 ALUMNI_POSTDOC = [("Arash Deylamsalehi", "Google"), ("Jeremy M. Plante", "Hitachi Vantara"), ("Juzi Zhao", "San José State University"), ("Arush Gadkar", "Kilpatrick Townsend & Stockton LLP"), ("Joan Triay", "DOCOMO Euro-Labs"), ("Balagangadhar Bathula", "AT&T")]
-SITE_VERSION = "0.24"   # bump by 0.01 with every update to the site
+SITE_URL = "https://vinodvokkarane.github.io/scyps-site/"   # set this to the live address
+SITE_VERSION = "0.34"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -2934,7 +3016,10 @@ def scholar_line(name):
     if d.get("h"): bits.append(f'<b>{d["h"]}</b> h-index')
     if d.get("i10"): bits.append(f'<b>{d["i10"]}</b> i10-index')
     if not bits: return ""
-    try: when = datetime.datetime.strptime(d.get("date", ""), "%Y-%m-%d").strftime("%b. %Y").replace("May.", "May")
+    try:
+        dt = datetime.datetime.strptime(d.get("date", ""), "%Y-%m-%d").date()
+        when = dt.strftime("%b. %Y").replace("May.", "May")
+        if (datetime.date.today() - dt).days > 190: when += ", not refreshed since"
     except Exception: when = ""
     return '<span class="gs">' + ", ".join(bits) + f' on Google Scholar{", " + when if when else ""}</span>'
 
@@ -3109,6 +3194,310 @@ ART = {
 </svg>""",
 }
 ART = {k: theme_svg(v) for k, v in ART.items()}
+
+HERO_ART = {
+"grid": """<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round"><defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3F7FA"/><stop offset="1" stop-color="#FFFFFF"/></linearGradient>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#0A777F"/></marker>
+  <marker id="arg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#3BA995"/></marker>
+  <marker id="arb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#044978"/></marker>
+</defs><rect x="0" y="0" width="1200" height="600" fill="url(#sky)"/>
+<g font-size="15" font-weight="600" letter-spacing=".06em" fill="#5B6B82">
+  <text x="60" y="52">THE PHYSICAL GRID</text><text x="470" y="52">THE MEASUREMENT PATH</text><text x="880" y="52">CONTROL AND DEFENSE</text>
+</g>
+<g stroke="#D5DCE5" stroke-width="1"><path d="M60 68h330M470 68h330M880 68h260"/></g>
+<!-- towers and conductors -->
+<g stroke="#044978" stroke-width="3.2">
+  <path d="M120 470l18-250h20l18 250M126 400h44M132 340h32M138 285h20M96 400h88M104 340h72M114 285h52"/>
+  <path d="M400 470l18-250h20l18 250M406 400h44M412 340h32M418 285h20M376 400h88M384 340h72M394 285h52"/>
+</g>
+<path d="M158 285Q279 355 418 285M114 340Q279 420 394 340" stroke="#D5DCE5" stroke-width="3"/>
+<path class="flow" d="M158 285Q279 355 418 285" stroke="#0A777F" stroke-width="3.4"/>
+<path class="flow slow" d="M114 340Q279 420 394 340" stroke="#0A777F" stroke-width="3.4"/>
+<!-- substation -->
+<g class="card"><rect x="196" y="418" width="164" height="54" rx="8" fill="#044978"/></g>
+<g stroke="#FFFFFF" stroke-width="1.6" opacity=".55"><path d="M228 424v42M262 424v42M296 424v42M330 424v42M196 445h164"/></g>
+<text x="278" y="500" text-anchor="middle" font-size="14" fill="#5B6B82">substation and feeder</text>
+<!-- meters -->
+<g class="card" fill="#FFFFFF" stroke="#044978" stroke-width="2"><rect x="128" y="120" width="60" height="62" rx="10"/><rect x="248" y="120" width="60" height="62" rx="10"/><rect x="368" y="120" width="60" height="62" rx="10"/></g>
+<g stroke="#0A777F" stroke-width="2.4"><path d="M142 162a16 16 0 0 1 32 0M262 162a16 16 0 0 1 32 0M382 162a16 16 0 0 1 32 0"/><path d="M158 162l8-11M278 162l9-12M398 162l7-13"/></g>
+<g fill="#5B6B82" font-size="13" text-anchor="middle"><text x="158" y="108">meter</text><text x="278" y="108">PMU</text><text x="398" y="108">meter</text></g>
+<g stroke="#D5DCE5" stroke-width="2.4"><path d="M158 182v236M278 182v236M398 182v236"/></g>
+<g stroke="#3BA995" stroke-width="3"><path class="flow" d="M158 418V182"/><path class="flow slow" d="M278 418V182"/><path class="flow" d="M398 418V182"/></g>
+<!-- attack on the measurement path -->
+<g class="pulse"><path d="M470 150l-46 30 24 6-30 40" stroke="#E25555" stroke-width="3.4"/><circle cx="418" cy="226" r="7" fill="#E25555"/></g>
+<text x="470" y="132" font-size="14" fill="#E25555">false data injection</text>
+<!-- network core -->
+<g class="card"><circle cx="620" cy="300" r="96" fill="#FFFFFF" stroke="#044978" stroke-width="2"/></g>
+<circle cx="620" cy="300" r="96" fill="none" stroke="#0A777F" stroke-width="3.4" class="flow slow"/>
+<g stroke="#D5DCE5" stroke-width="1.4"><path d="M620 204v192M537 252l166 96M537 348l166-96"/></g>
+<g fill="#044978"><circle cx="620" cy="204" r="7"/><circle cx="703" cy="252" r="7"/><circle cx="703" cy="348" r="7"/><circle cx="620" cy="396" r="7"/><circle cx="537" cy="348" r="7"/><circle cx="537" cy="252" r="7"/></g>
+<circle cx="620" cy="300" r="18" fill="#0A777F"/><circle cx="620" cy="300" r="7" fill="#FFFFFF"/>
+<text x="620" y="180" text-anchor="middle" font-size="14" fill="#5B6B82">utility communication network</text>
+<text x="586" y="440" text-anchor="middle" font-size="14" fill="#5B6B82">observability-aware routing</text>
+<!-- meter to core -->
+<g stroke="#D5DCE5" stroke-width="2.4"><path d="M428 151C500 151 470 240 528 268M428 300h92M428 449C500 449 470 360 528 332"/></g>
+<g stroke="#0A777F" stroke-width="3"><path class="flow" d="M428 151C500 151 470 240 528 268"/><path class="flow slow" d="M428 300h92"/><path class="flow" d="M428 449C500 449 470 360 528 332"/></g>
+<!-- defense stack -->
+<g class="card"><rect x="880" y="110" width="260" height="250" rx="16" fill="#FFFFFF" stroke="#D5DCE5"/></g>
+<rect x="880" y="110" width="260" height="52" rx="16" fill="#044978"/><rect x="880" y="140" width="260" height="22" fill="#044978"/>
+<text x="1010" y="143" text-anchor="middle" font-size="17" font-weight="600" fill="#FFFFFF">detection and control</text>
+<g fill="#F3F7FA" stroke="#D5DCE5"><rect x="900" y="182" width="220" height="44" rx="9"/><rect x="900" y="238" width="220" height="44" rx="9"/><rect x="900" y="294" width="220" height="44" rx="9"/></g>
+<g stroke="#0A777F" stroke-width="2.4" fill="none">
+  <path d="M916 214l10-14 8 9 9-17 8 11"/>
+  <circle cx="932" cy="260" r="13"/><path d="M932 251v9l7 6"/>
+  <path d="M916 322l9-9 7 7 13-15M948 305h-7v7"/>
+</g>
+<g font-size="14.5" fill="#0E2036"><text x="962" y="209">false data detection</text><text x="962" y="265">state estimation</text><text x="962" y="321">restoration planning</text></g>
+<g fill="#3BA995"><circle cx="1104" cy="204" r="5" class="pulse"/><circle cx="1104" cy="260" r="5" class="pulse" style="animation-delay:1s"/><circle cx="1104" cy="316" r="5" class="pulse" style="animation-delay:2s"/></g>
+<!-- shield and control return -->
+<path d="M760 92l44 15v38c0 31-19 51-44 62-25-11-44-31-44-62v-38z" fill="#3BA995"/>
+<path d="M739 142l13 13 29-31" stroke="#FFFFFF" stroke-width="7"/>
+<text x="760" y="212" text-anchor="middle" font-size="13.5" fill="#5B6B82">verified measurements</text>
+<path d="M726 290h144" stroke="#0A777F" stroke-width="3" marker-end="url(#ar)"/>
+<text x="816" y="276" text-anchor="middle" font-size="13.5" fill="#5B6B82">telemetry</text>
+<path d="M880 392H620v-4" stroke="#3BA995" stroke-width="3" stroke-dasharray="7 9" marker-end="url(#arg)"/>
+<text x="780" y="418" text-anchor="middle" font-size="13.5" fill="#5B6B82">control action</text>
+<path d="M60 540h1080" stroke="#D5DCE5" stroke-width="1.4"/>
+<text x="600" y="572" text-anchor="middle" font-size="15" fill="#5B6B82">sense at the meter, carry it over the network, decide in the control room, act on the breaker</text>
+</svg>""",
+"ai": """<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round"><defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3F7FA"/><stop offset="1" stop-color="#FFFFFF"/></linearGradient>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#0A777F"/></marker>
+  <marker id="arg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#3BA995"/></marker>
+  <marker id="arb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#044978"/></marker>
+</defs><rect x="0" y="0" width="1200" height="600" fill="url(#sky)"/>
+<g font-size="15" font-weight="600" letter-spacing=".06em" fill="#5B6B82">
+  <text x="60" y="52">OBSERVATIONS</text><text x="470" y="52">MODEL AND ENFORCEMENT</text><text x="880" y="52">PHYSICAL PLANT</text>
+</g>
+<g stroke="#D5DCE5" stroke-width="1"><path d="M60 68h330M470 68h330M880 68h260"/></g>
+<!-- federated sites -->
+<g class="card" fill="#FFFFFF" stroke="#D5DCE5"><rect x="60" y="110" width="200" height="110" rx="12"/><rect x="60" y="248" width="200" height="110" rx="12"/><rect x="60" y="386" width="200" height="110" rx="12"/></g>
+<g font-size="15" font-weight="600" fill="#0E2036"><text x="84" y="142">Utility A</text><text x="84" y="280">Utility B</text><text x="84" y="418">Utility C</text></g>
+<g font-size="13" fill="#5B6B82"><text x="84" y="162">local data stays local</text><text x="84" y="300">local data stays local</text><text x="84" y="438">local data stays local</text></g>
+<g stroke="#0A777F" stroke-width="2.2"><path d="M84 186h40v18h-40zM134 186h40v18h-40zM184 186h40v18h-40z"/><path d="M84 324h40v18h-40zM134 324h40v18h-40zM184 324h40v18h-40z"/><path d="M84 462h40v18h-40zM134 462h40v18h-40zM184 462h40v18h-40z"/></g>
+<!-- gradients up, model down -->
+<g stroke="#D5DCE5" stroke-width="2.4"><path d="M260 165C340 165 330 250 400 262M260 303h140M260 441C340 441 330 356 400 344"/></g>
+<g stroke="#0A777F" stroke-width="3"><path class="flow" d="M260 165C340 165 330 250 400 262"/><path class="flow slow" d="M260 303h140"/><path class="flow" d="M260 441C340 441 330 356 400 344"/></g>
+<text x="330" y="150" text-anchor="middle" font-size="13" fill="#5B6B82">model updates only</text>
+<!-- the network -->
+<g class="card"><rect x="400" y="150" width="300" height="306" rx="16" fill="#FFFFFF" stroke="#D5DCE5"/></g>
+<g stroke="#D5DCE5" stroke-width="1.3">
+  <path d="M452 220L520 190M452 220L520 250M452 220L520 310M452 303L520 190M452 303L520 250M452 303L520 310M452 303L520 370M452 386L520 250M452 386L520 310M452 386L520 370M528 190L596 250M528 250L596 250M528 310L596 310M528 370L596 310M528 250L596 310M528 310L596 250"/>
+</g>
+<g stroke="#0A777F" stroke-width="2.2"><path class="flow" d="M452 220L520 190L596 250"/><path class="flow slow" d="M452 386L520 310L596 310"/></g>
+<g fill="#044978"><circle cx="452" cy="220" r="10"/><circle cx="452" cy="303" r="10"/><circle cx="452" cy="386" r="10"/><circle cx="520" cy="190" r="10"/><circle cx="520" cy="250" r="10"/><circle cx="520" cy="310" r="10"/><circle cx="520" cy="370" r="10"/></g>
+<g fill="#0A777F"><circle cx="596" cy="250" r="11"/><circle cx="596" cy="310" r="11"/></g>
+<text x="550" y="490" text-anchor="middle" font-size="14" fill="#5B6B82">federated model, grounded in the physics of the plant</text>
+<!-- safety gate -->
+<path d="M620 280h46" stroke="#D5DCE5" stroke-width="2.4"/><path class="flow" d="M620 280h46" stroke="#0A777F" stroke-width="3"/>
+<g class="card"><rect x="700" y="228" width="150" height="150" rx="18" fill="#3BA995"/></g>
+<path d="M740 300l18 20 42-46" stroke="#FFFFFF" stroke-width="9"/>
+<text x="775" y="408" text-anchor="middle" font-size="15" font-weight="600" fill="#0E2036">safety enforcement</text>
+<text x="775" y="430" text-anchor="middle" font-size="13" fill="#5B6B82">every action checked before it reaches the plant</text>
+<!-- plant -->
+<path d="M850 300h50" stroke="#D5DCE5" stroke-width="2.4"/><path class="flow" d="M850 300h50" stroke="#3BA995" stroke-width="3" marker-end="url(#arg)"/>
+<g class="card"><circle cx="1010" cy="290" r="94" fill="#F3F7FA" stroke="#D5DCE5"/></g>
+<g class="spin" style="transform-origin:1010px 290px"><path d="M1010 290l-11-70 22 0zM1010 290l60 38-11 19zM1010 290l-60 38 11 19z" fill="#044978"/></g>
+<circle cx="1010" cy="290" r="14" fill="#FFFFFF" stroke="#044978" stroke-width="4"/>
+<g stroke="#044978" stroke-width="3"><path d="M1010 384v66M970 450h80"/></g>
+<text x="1010" y="486" text-anchor="middle" font-size="15" font-weight="600" fill="#0E2036">generation, storage, and load</text>
+<!-- feedback -->
+<path d="M1010 512V540H160v-44" stroke="#3BA995" stroke-width="2.6" stroke-dasharray="7 9" class="flow slow" marker-end="url(#arg)"/>
+<text x="600" y="572" text-anchor="middle" font-size="15" fill="#5B6B82">measurements return, the model updates, the enforcement layer never moves</text>
+</svg>""",
+"fiber": """<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round"><defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3F7FA"/><stop offset="1" stop-color="#FFFFFF"/></linearGradient>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#0A777F"/></marker>
+  <marker id="arg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#3BA995"/></marker>
+  <marker id="arb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#044978"/></marker>
+</defs><rect x="0" y="0" width="1200" height="600" fill="url(#sky)"/>
+<g font-size="15" font-weight="600" letter-spacing=".06em" fill="#5B6B82">
+  <text x="60" y="52">FIBER AND BANDS</text><text x="470" y="52">IMPAIRMENT-AWARE ALLOCATION</text><text x="880" y="52">SERVICES</text>
+</g>
+<g stroke="#D5DCE5" stroke-width="1"><path d="M60 68h330M470 68h330M880 68h260"/></g>
+<!-- fiber cross-section -->
+<g class="card"><circle cx="170" cy="250" r="110" fill="#FFFFFF" stroke="#044978" stroke-width="2.4"/></g>
+<circle cx="170" cy="250" r="74" stroke="#D5DCE5" stroke-width="1.6"/>
+<g fill="#0A777F"><circle cx="170" cy="250" r="14"/><circle cx="134" cy="214" r="10"/><circle cx="206" cy="214" r="10"/><circle cx="134" cy="286" r="10"/><circle cx="206" cy="286" r="10"/><circle cx="170" cy="196" r="10"/><circle cx="170" cy="304" r="10"/></g>
+<circle cx="170" cy="250" r="26" fill="#3BA995" opacity=".3" class="pulse"/>
+<text x="170" y="394" text-anchor="middle" font-size="15" font-weight="600" fill="#0E2036">multi-core fiber</text>
+<text x="170" y="416" text-anchor="middle" font-size="13" fill="#5B6B82">space-division multiplexing</text>
+<!-- amplified span -->
+<path d="M290 250h160" stroke="#044978" stroke-width="3.4"/>
+<g fill="#FFFFFF" stroke="#044978" stroke-width="2.4"><path d="M352 228l34 22-34 22z"/></g>
+<path class="flow" d="M290 250h160" stroke="#0A777F" stroke-width="3.4"/>
+<text x="370" y="212" text-anchor="middle" font-size="13" fill="#5B6B82">amplified span</text>
+<!-- spectrum -->
+<path d="M470 470h420" stroke="#5B6B82" stroke-width="1.8"/>
+<g stroke="#D5DCE5" stroke-width="1.2"><path d="M470 470V150M890 470V150"/></g>
+<g class="grow"><rect x="482" y="330" width="86" height="140" rx="4" fill="#044978" style="transform-origin:525px 470px"/></g>
+<g class="grow" style="animation-delay:.4s"><rect x="576" y="270" width="60" height="200" rx="4" fill="#0A777F" style="transform-origin:606px 470px"/></g>
+<g class="grow" style="animation-delay:.8s"><rect x="644" y="360" width="70" height="110" rx="4" fill="#3BA995" style="transform-origin:679px 470px"/></g>
+<g class="grow" style="animation-delay:1.2s"><rect x="722" y="240" width="94" height="230" rx="4" fill="#044978" style="transform-origin:769px 470px"/></g>
+<g class="grow" style="animation-delay:1.6s"><rect x="824" y="330" width="56" height="140" rx="4" fill="#0A777F" style="transform-origin:852px 470px"/></g>
+<path d="M470 452C560 446 640 436 730 420S850 396 890 380" stroke="#E25555" stroke-width="3" stroke-dasharray="8 10"/>
+<text x="890" y="524" text-anchor="end" font-size="14" fill="#E25555">nonlinear interference grows with load</text>
+<g font-size="14" fill="#5B6B82" text-anchor="middle"><text x="525" y="494">S band</text><text x="606" y="494">C band</text><text x="679" y="494">C band</text><text x="769" y="494">L band</text><text x="852" y="494">L band</text></g>
+<g font-size="12.5" fill="#0E2036" text-anchor="middle" font-weight="600"><text x="525" y="316">16QAM</text><text x="606" y="256">QPSK</text><text x="679" y="346">8QAM</text><text x="769" y="226">64QAM</text><text x="852" y="316">16QAM</text></g>
+<text x="680" y="130" text-anchor="middle" font-size="14" fill="#5B6B82">each lightpath gets its own width, format, core, and power</text>
+<!-- services -->
+<g class="card" fill="#FFFFFF" stroke="#D5DCE5"><rect x="930" y="150" width="210" height="80" rx="12"/><rect x="930" y="248" width="210" height="80" rx="12"/><rect x="930" y="346" width="210" height="80" rx="12"/></g>
+<g stroke="#044978" stroke-width="2.6"><path d="M960 190h-1M956 176h48v28h-48z"/><path d="M956 274h48v28h-48zM968 288h24"/><path d="M980 402v-30M962 372h36"/></g>
+<g font-size="15" font-weight="600" fill="#0E2036"><text x="1020" y="184">6G fronthaul</text><text x="1020" y="282">data centers</text><text x="1020" y="380">science flows</text></g>
+<g font-size="12.5" fill="#5B6B82"><text x="1020" y="204">latency class</text><text x="1020" y="302">capacity class</text><text x="1020" y="400">scheduled circuits</text></g>
+<g stroke="#0A777F" stroke-width="2.6"><path class="flow" d="M890 210h34" marker-end="url(#ar)"/><path class="flow slow" d="M890 288h34" marker-end="url(#ar)"/><path class="flow" d="M890 386h34" marker-end="url(#ar)"/></g>
+<text x="600" y="572" text-anchor="middle" font-size="15" fill="#5B6B82">more spectrum and more cores, provisioned so the physics still holds</text>
+</svg>""",
+"edge": """<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round"><defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3F7FA"/><stop offset="1" stop-color="#FFFFFF"/></linearGradient>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#0A777F"/></marker>
+  <marker id="arg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#3BA995"/></marker>
+  <marker id="arb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#044978"/></marker>
+</defs><rect x="0" y="0" width="1200" height="600" fill="url(#sky)"/>
+<g font-size="15" font-weight="600" letter-spacing=".06em" fill="#5B6B82">
+  <text x="60" y="52">REPLICATED EDGE CLUSTER</text><text x="470" y="52">AGREEMENT UNDER FAULT</text><text x="880" y="52">WHAT IT CONTROLS</text>
+</g>
+<g stroke="#D5DCE5" stroke-width="1"><path d="M60 68h330M470 68h330M880 68h260"/></g>
+<!-- replicas -->
+<g stroke="#D5DCE5" stroke-width="1.8"><path d="M210 190L420 140M210 190L330 330M210 190L360 420M420 140L330 330M420 140L560 250M330 330L360 420M330 330L560 250M360 420L560 250"/></g>
+<g stroke="#0A777F" stroke-width="2.8"><path class="flow" d="M210 190L420 140"/><path class="flow slow" d="M330 330L560 250"/><path class="flow" d="M210 190L330 330"/></g>
+<g class="card" fill="#FFFFFF" stroke="#044978" stroke-width="2.4">
+  <rect x="150" y="160" width="120" height="62" rx="12"/><rect x="360" y="110" width="120" height="62" rx="12"/><rect x="270" y="300" width="120" height="62" rx="12"/>
+</g>
+<g stroke="#3BA995" stroke-width="3.4"><path d="M178 192l13 13 24-26M388 142l13 13 24-26M298 332l13 13 24-26"/></g>
+<g font-size="13" fill="#5B6B82" text-anchor="middle"><text x="210" y="244">replica</text><text x="420" y="194">replica</text><text x="330" y="384">replica</text></g>
+<!-- faulty replica -->
+<g class="pulse"><rect x="300" y="390" width="120" height="62" rx="12" fill="#FDECEC" stroke="#E25555" stroke-width="2.4"/><path d="M336 410l24 24M360 410l-24 24" stroke="#E25555" stroke-width="4"/></g>
+<text x="446" y="428" text-anchor="start" font-size="13" fill="#E25555">crashed or lying</text>
+<!-- quorum -->
+<g class="card"><circle cx="620" cy="250" r="66" fill="#FFFFFF" stroke="#0A777F" stroke-width="2.6"/></g>
+<text x="620" y="244" text-anchor="middle" font-size="17" font-weight="600" fill="#0A777F">quorum</text>
+<text x="620" y="268" text-anchor="middle" font-size="13.5" fill="#5B6B82">3 of 4 agree</text>
+<text x="620" y="356" text-anchor="middle" font-size="14" fill="#5B6B82">the decision survives the fault</text>
+<!-- mobile edge -->
+<g transform="translate(140,462)">
+  <rect x="42" y="20" width="44" height="22" rx="6" fill="#044978"/>
+  <path d="M20 8v12M108 8v12M20 20h22M108 20H86" stroke="#044978" stroke-width="2.6"/>
+  <g stroke="#0A777F" stroke-width="3" class="spin" style="transform-origin:20px 8px"><path d="M0 8h40"/></g>
+  <g stroke="#0A777F" stroke-width="3" class="spin" style="transform-origin:108px 8px"><path d="M88 8h40"/></g>
+</g>
+<text x="204" y="540" text-anchor="middle" font-size="13.5" fill="#5B6B82">aerial and satellite edge, intermittently connected</text>
+<circle cx="470" cy="516" r="8" fill="#3BA995"/>
+<path d="M268 492C336 480 404 498 462 512" stroke="#3BA995" stroke-width="2.6" stroke-dasharray="6 8" class="flow slow"/>
+<!-- controlled systems -->
+<g class="card" fill="#FFFFFF" stroke="#D5DCE5"><rect x="880" y="120" width="260" height="120" rx="14"/><rect x="880" y="262" width="260" height="120" rx="14"/></g>
+<g stroke="#044978" stroke-width="2.6"><path d="M916 196V150l24-14 24 14v46M916 196h48M926 166h28"/></g>
+<text x="1000" y="164" font-size="16" font-weight="600" fill="#0E2036">grid controllers</text>
+<text x="1000" y="188" font-size="13" fill="#5B6B82">real-time deadlines</text>
+<g stroke="#0A777F" stroke-width="2.6"><rect x="912" y="300" width="56" height="44" rx="6"/><path d="M924 322h32M940 306v32"/></g>
+<text x="1000" y="306" font-size="16" font-weight="600" fill="#0E2036">digital twins</text>
+<text x="1000" y="330" font-size="13" fill="#5B6B82">served from hybrid clouds</text>
+<g stroke="#0A777F" stroke-width="3"><path class="flow" d="M690 210h182" marker-end="url(#ar)"/><path class="flow slow" d="M690 300h182" marker-end="url(#ar)"/></g>
+<text x="600" y="572" text-anchor="middle" font-size="15" fill="#5B6B82">consensus fast enough for a control loop, correct even when a replica misbehaves</text>
+</svg>""",
+"chip": """<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round"><defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3F7FA"/><stop offset="1" stop-color="#FFFFFF"/></linearGradient>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#0A777F"/></marker>
+  <marker id="arg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#3BA995"/></marker>
+  <marker id="arb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#044978"/></marker>
+</defs><rect x="0" y="0" width="1200" height="600" fill="url(#sky)"/>
+<g font-size="15" font-weight="600" letter-spacing=".06em" fill="#5B6B82">
+  <text x="60" y="52">SILICON AND FIRMWARE</text><text x="470" y="52">EVIDENCE</text><text x="880" y="52">VERIFIER AND SCALE</text>
+</g>
+<g stroke="#D5DCE5" stroke-width="1"><path d="M60 68h330M470 68h330M880 68h260"/></g>
+<!-- die -->
+<g class="card"><rect x="110" y="150" width="270" height="270" rx="16" fill="#044978"/></g>
+<rect x="168" y="208" width="154" height="154" rx="10" fill="#0A777F"/>
+<g stroke="#044978" stroke-width="4">
+  <path d="M152 150v-34M196 150v-34M240 150v-34M284 150v-34M328 150v-34M152 420v34M196 420v34M240 420v34M284 420v34M328 420v34"/>
+  <path d="M110 190H76M110 236H76M110 282H76M110 328H76M110 374H76M380 190h34M380 236h34M380 282h34M380 328h34M380 374h34"/>
+</g>
+<rect x="222" y="268" width="46" height="38" rx="5" fill="#FFFFFF"/>
+<path d="M231 268v-12a14 14 0 0 1 28 0v12" stroke="#FFFFFF" stroke-width="5"/>
+<text x="245" y="486" text-anchor="middle" font-size="15" font-weight="600" fill="#0E2036">attested device</text>
+<text x="245" y="508" text-anchor="middle" font-size="13" fill="#5B6B82">trojan-checked at RTL, measured at boot</text>
+<!-- counters -->
+<path d="M414 282h56" stroke="#D5DCE5" stroke-width="2.6"/><path class="flow" d="M414 282h56" stroke="#0A777F" stroke-width="3.2"/>
+<path d="M490 470h300" stroke="#5B6B82" stroke-width="1.8"/>
+<g class="grow"><rect x="506" y="330" width="26" height="140" fill="#0A777F" style="transform-origin:519px 470px"/></g>
+<g class="grow" style="animation-delay:.3s"><rect x="548" y="270" width="26" height="200" fill="#0A777F" style="transform-origin:561px 470px"/></g>
+<g class="grow" style="animation-delay:.6s"><rect x="590" y="360" width="26" height="110" fill="#0A777F" style="transform-origin:603px 470px"/></g>
+<g class="grow" style="animation-delay:.9s"><rect x="632" y="240" width="26" height="230" fill="#0A777F" style="transform-origin:645px 470px"/></g>
+<g class="grow" style="animation-delay:1.2s"><rect x="674" y="320" width="26" height="150" fill="#0A777F" style="transform-origin:687px 470px"/></g>
+<g class="pulse"><rect x="716" y="408" width="26" height="62" fill="#E25555"/><circle cx="729" cy="386" r="9" fill="#E25555"/></g>
+<rect x="758" y="352" width="26" height="118" fill="#0A777F"/>
+<text x="640" y="200" text-anchor="middle" font-size="15" font-weight="600" fill="#0E2036">hardware performance counters</text>
+<text x="640" y="222" text-anchor="middle" font-size="13" fill="#5B6B82">an outlier here is corruption that raised no error</text>
+<text x="800" y="514" text-anchor="start" font-size="13.5" fill="#E25555">silent data corruption</text>
+<path d="M745 386h48v122" stroke="#E25555" stroke-width="1.6" stroke-dasharray="4 5"/>
+<text x="620" y="514" text-anchor="middle" font-size="13.5" fill="#5B6B82">cheap enough to leave running in production</text>
+<!-- rack -->
+<g class="card"><rect x="880" y="120" width="180" height="330" rx="12" fill="#FFFFFF" stroke="#044978" stroke-width="2.4"/></g>
+<g stroke="#D5DCE5" stroke-width="1.6"><path d="M880 176h180M880 232h180M880 288h180M880 344h180M880 400h180"/></g>
+<g fill="#3BA995"><circle cx="1036" cy="148" r="5" class="pulse"/><circle cx="1036" cy="204" r="5" class="pulse" style="animation-delay:.6s"/><circle cx="1036" cy="260" r="5" class="pulse" style="animation-delay:1.2s"/><circle cx="1036" cy="316" r="5" class="pulse" style="animation-delay:1.8s"/><circle cx="1036" cy="372" r="5" class="pulse" style="animation-delay:2.4s"/><circle cx="1036" cy="428" r="5" class="pulse" style="animation-delay:3s"/></g>
+<g stroke="#0A777F" stroke-width="2.2"><path d="M900 148h60M900 204h48M900 260h66M900 316h54M900 372h60M900 428h42"/></g>
+<text x="970" y="486" text-anchor="middle" font-size="15" font-weight="600" fill="#0E2036">HPC and parallel I/O</text>
+<text x="970" y="508" text-anchor="middle" font-size="13" fill="#5B6B82">data-intensive science at scale</text>
+<path d="M800 282h72" stroke="#0A777F" stroke-width="3" marker-end="url(#ar)"/>
+<text x="600" y="572" text-anchor="middle" font-size="15" fill="#5B6B82">trust the answer only if you can check the hardware that produced it</text>
+</svg>""",
+"health": """<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round"><defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3F7FA"/><stop offset="1" stop-color="#FFFFFF"/></linearGradient>
+  <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#0A777F"/></marker>
+  <marker id="arg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#3BA995"/></marker>
+  <marker id="arb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#044978"/></marker>
+</defs><rect x="0" y="0" width="1200" height="600" fill="url(#sky)"/>
+<g font-size="15" font-weight="600" letter-spacing=".06em" fill="#5B6B82">
+  <text x="60" y="52">TRANSPORTATION</text><text x="470" y="52">STRUCTURES</text><text x="880" y="52">HEALTH AND FACILITIES</text>
+</g>
+<g stroke="#D5DCE5" stroke-width="1"><path d="M60 68h330M470 68h330M880 68h260"/></g>
+<!-- road -->
+<g class="card"><rect x="60" y="286" width="330" height="76" rx="8" fill="#F3F7FA" stroke="#D5DCE5"/></g>
+<path class="flow slow" d="M72 344h306" stroke="#5B6B82" stroke-width="2.4" stroke-dasharray="20 16"/>
+<g transform="translate(0,26)"><path d="M96 300h104l-18-30H114z" fill="#044978"/><path d="M86 300h124v14H86z" fill="#044978" opacity=".85"/><circle cx="114" cy="318" r="10" fill="#FFFFFF" stroke="#044978" stroke-width="3"/><circle cx="182" cy="318" r="10" fill="#FFFFFF" stroke="#044978" stroke-width="3"/></g>
+<g transform="translate(0,26)"><path d="M248 300h104l-18-30H266z" fill="#0A777F"/><path d="M238 300h124v14H238z" fill="#0A777F" opacity=".85"/><circle cx="266" cy="318" r="10" fill="#FFFFFF" stroke="#0A777F" stroke-width="3"/><circle cx="334" cy="318" r="10" fill="#FFFFFF" stroke="#0A777F" stroke-width="3"/></g>
+<path d="M196 264q54-56 108 0" stroke="#3BA995" stroke-width="3" stroke-dasharray="5 8" class="flow"/>
+<g stroke="#3BA995" stroke-width="2.6" class="pulse"><path d="M148 268v-20M138 258l10-10 10 10M300 268v-20M290 258l10-10 10 10"/></g>
+<text x="225" y="416" text-anchor="middle" font-size="15" font-weight="600" fill="#0E2036">connected and automated vehicles</text>
+<text x="225" y="438" text-anchor="middle" font-size="13" fill="#5B6B82">trajectory prediction, roadway assessment</text>
+<!-- bridge -->
+<g stroke="#044978" stroke-width="3.2">
+  <path d="M450 420h300M490 420V290M710 420V290M450 290h300"/>
+  <path d="M490 290q110-104 220 0"/>
+</g>
+<g stroke="#D5DCE5" stroke-width="1.8"><path d="M540 420V252M600 420V232M660 420V252"/></g>
+<g fill="#3BA995"><circle cx="540" cy="252" r="8" class="pulse"/><circle cx="600" cy="232" r="8" class="pulse" style="animation-delay:.7s"/><circle cx="660" cy="252" r="8" class="pulse" style="animation-delay:1.4s"/></g>
+<g transform="translate(466,140)">
+  <rect x="34" y="18" width="34" height="18" rx="5" fill="#0A777F"/>
+  <path d="M18 8v10M84 8v10M18 18h16M84 18H68" stroke="#0A777F" stroke-width="2.4"/>
+  <g stroke="#3BA995" stroke-width="2.6" class="spin" style="transform-origin:18px 8px"><path d="M2 8h32"/></g>
+  <g stroke="#3BA995" stroke-width="2.6" class="spin" style="transform-origin:84px 8px"><path d="M68 8h32"/></g>
+</g>
+<path d="M517 180v46" stroke="#3BA995" stroke-width="2.4" stroke-dasharray="5 8" class="flow"/>
+<text x="600" y="466" text-anchor="middle" font-size="15" font-weight="600" fill="#0E2036">structural health monitoring</text>
+<text x="600" y="488" text-anchor="middle" font-size="13" fill="#5B6B82">blades, bridges, and buildings, inspected from the air</text>
+<!-- hospital and reactor -->
+<g class="card"><rect x="820" y="120" width="150" height="130" rx="14" fill="#0A777F"/></g>
+<path d="M895 152v66M862 185h66" stroke="#FFFFFF" stroke-width="10"/>
+<path d="M984 196h20l12-36 18 72 16-52 12 16h22" stroke="#3BA995" stroke-width="3"/>
+<text x="895" y="278" text-anchor="middle" font-size="15" font-weight="600" fill="#0E2036">digital health</text>
+<text x="895" y="300" text-anchor="middle" font-size="13" fill="#5B6B82">imaging and clinical platforms</text>
+<g class="card"><path d="M1020 450V376a60 60 0 0 1 120 0v74z" fill="#FFFFFF" stroke="#044978" stroke-width="2.4"/></g>
+<path d="M1020 396h120" stroke="#D5DCE5" stroke-width="1.8"/>
+<circle cx="1080" cy="412" r="26" stroke="#0A777F" stroke-width="3"/>
+<circle cx="1080" cy="412" r="8" fill="#0A777F"/>
+<g stroke="#3BA995" stroke-width="2.6"><path d="M1080 386a26 26 0 0 1 23 39M1080 438a26 26 0 0 1-23-39"/></g>
+<text x="1080" y="490" text-anchor="middle" font-size="15" font-weight="600" fill="#0E2036">nuclear security</text>
+<text x="1080" y="512" text-anchor="middle" font-size="13" fill="#5B6B82">safeguards and robotics</text>
+<path d="M820 200H700" stroke="#0A777F" stroke-width="2.6" stroke-dasharray="6 8" class="flow slow"/>
+<text x="600" y="572" text-anchor="middle" font-size="15" fill="#5B6B82">one loop, four domains, each stressing it in a different way</text>
+</svg>""",
+}
+HERO_ART = {k: theme_svg(v) for k, v in HERO_ART.items()}
+
+
+
 SCHEMATIC = theme_svg(SCHEMATIC)
 
 METRICS = {}
@@ -3169,7 +3558,7 @@ n_faculty = 1 + len(FACULTY["core"]) + len(FACULTY["affiliated"])
 
 def build():
     thrusts_html = "".join(
-        f'<div class="thrust"><div class="art">{ART[i]}</div><div class="body"><h3>{esc(t)}</h3><p>{esc(d)}</p><div class="who">{esc(w)}</div></div></div>'
+        f'<div class="thrust"><a class="art" href="research-{esc(i)}.html">{ART[i]}</a><div class="body"><h3><a href="research-{esc(i)}.html">{esc(t)}</a></h3><p>{esc(d)}</p><div class="who">{esc(w)}</div><p class="more2"><a href="research-{esc(i)}.html">More on this thrust</a></p></div></div>'
         for i, t, d, w in THRUSTS)
 
     projects_html = ""
@@ -3379,6 +3768,9 @@ def build():
 <meta name="description" content="UMass Lowell's Center for Smart Cyber-Physical Systems researches secure, resilient, and intelligent systems for energy, transportation, and healthcare: smart grid cybersecurity, optical and 6G networks, fault-tolerant edge computing, hardware security, and AI for cyber-physical control.">
 <meta property="og:title" content="Center for Smart Cyber-Physical Systems (SCyPS) | UMass Lowell">
 <meta property="og:description" content="Research, people, funded projects, and publications from UMass Lowell's Center for Smart Cyber-Physical Systems.">
+<meta property="og:image" content="{SITE_URL}og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="{SITE_URL}">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="{img_src("favicon")}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -3592,6 +3984,8 @@ def build():
                    .replace("{alumni_pd_html}", alumni_pd_html)),
     }, footer_html, script_html)
     build_newspage(footer_html, script_html)
+    build_thrust_pages(footer_html, script_html)
+    build_meta_files()
     print(f"wrote {OUT} (v{SITE_VERSION}): {len(page)/1024:.0f} KB; {n_pubs} pubs ({n_journal} journal); {n_faculty} faculty; {len(IMG)} images embedded")
 
 
@@ -3612,11 +4006,11 @@ for _g in ("director", "core", "affiliated", "external"):
         _sur = re.sub(r"\(.*?\)", "", _p["name"]).split()[-1]
         FULL_NAME[_sur] = _p["name"]
 
-PEOPLE_SECTION = '<section id="people" class="tint">\n  <div class="wrap">\n    <div class="shead"><h2>People</h2><p>Faculty from the Francis College of Engineering, the Kennedy College of Sciences, and the College of Fine Arts, Humanities and Social Sciences, plus long-running collaborators at partner universities and companies. Each profile links to the person\'s Google Scholar and ORCID records; citation totals are quoted from Google Scholar where the profile is public.</p></div>\n    {director_html}\n    {core_html}\n    <div class="group"><h3>Affiliated researchers</h3><p>UMass Lowell faculty who collaborate on center projects and proposals.</p>{aff_html}</div>\n    <div class="group"><h3>External collaborators</h3><p>Partners at other universities and companies who work with the center on current projects.</p>{ext_html}</div>\n  </div>\n</section>\n\n'
+PEOPLE_SECTION = '<section id="people" class="tint">\n  <div class="wrap">\n    <div class="shead"><h2>People</h2><p>Faculty from the Francis College of Engineering, the Kennedy College of Sciences, and the College of Fine Arts, Humanities and Social Sciences, plus long-running collaborators at partner universities and companies. Each profile links to the person\'s Google Scholar and ORCID records; citation totals are quoted from Google Scholar where the profile is public.</p></div>\n    <h2 class="grouph">Center faculty</h2>\n    {director_html}\n    {core_html}\n    <div class="group"><h2 class="grouph">Affiliated researchers</h2><p>UMass Lowell faculty who collaborate on center projects and proposals.</p>{aff_html}</div>\n    <div class="group"><h2 class="grouph">External collaborators</h2><p>Partners at other universities and companies who work with the center on current projects.</p>{ext_html}</div>\n  </div>\n</section>\n\n'
 
-STUDENTS_SECTION = '<section id="students">\n  <div class="wrap">\n    <div class="shead"><h2>Students</h2><p>Doctoral students in the director\'s group, the Advanced Communication Networks Laboratory, working on center projects.</p></div>\n    <div class="stugrid">{students_html}</div>\n    <div class="lablife">\n      <h3>Lab life</h3>\n      <p>The Advanced Communication Networks Laboratory through the years.</p>\n      <div class="labgrid">{lablife_html}</div>\n    </div>\n  </div>\n</section>\n\n'
+STUDENTS_SECTION = '<section id="students">\n  <div class="wrap">\n    <div class="shead"><h2>Students</h2><p>Doctoral students in the director\'s group, the Advanced Communication Networks Laboratory, working on center projects.</p></div>\n    <h2 class="grouph">Doctoral students</h2>\n    <div class="stugrid">{students_html}</div>\n    <div class="lablife">\n      <h3>Lab life</h3>\n      <p>The Advanced Communication Networks Laboratory through the years.</p>\n      <div class="labgrid">{lablife_html}</div>\n    </div>\n  </div>\n</section>\n\n'
 
-ALUMNI_SECTION = '<section id="alumni" class="tint">\n  <div class="wrap">\n    <div class="shead"><h2>Alumni</h2><p>Where the group\'s Ph.D. graduates and postdoctoral researchers have gone.</p></div>\n    <div class="stugrid two">{alumni_feat_html}</div>\n    <div class="alumcols">\n      <div><h3>Ph.D. graduates</h3><ul class="alumlist">{alumni_phd_html}</ul></div>\n      <div><h3>Postdoctoral alumni</h3><ul class="alumlist nodate">{alumni_pd_html}</ul>\n      </div>\n    </div>\n  </div>\n</section>\n\n'
+ALUMNI_SECTION = '<section id="alumni" class="tint">\n  <div class="wrap">\n    <div class="shead"><h2>Alumni</h2><p>Where the group\'s Ph.D. graduates and postdoctoral researchers have gone.</p></div>\n    <h2 class="grouph">Recent graduates</h2>\n    <div class="stugrid two">{alumni_feat_html}</div>\n    <div class="alumcols">\n      <div><h2 class="grouph">Ph.D. graduates</h2><ul class="alumlist">{alumni_phd_html}</ul></div>\n      <div><h2 class="grouph">Postdoctoral alumni</h2><ul class="alumlist nodate">{alumni_pd_html}</ul>\n      </div>\n    </div>\n  </div>\n</section>\n\n'
 
 # ---------------------------------------------------------------- news generation
 def _pub_ym(p):
@@ -3716,7 +4110,7 @@ def stream_html(n=24):
     return "".join(out)
 
 # ---------------------------------------------------------------- shared page shell
-def page_shell(title, desc, body, footer_html, script_html, extra_css="", active=""):
+def page_shell(title, desc, body, footer_html, script_html, extra_css="", active="", h1=None, canonical=""):
     nav = " ".join(
         f'<li><a href="{href}"{" class=\"on\"" if key == active else ""}>{label}</a></li>'
         for key, label, href in [
@@ -3733,6 +4127,12 @@ def page_shell(title, desc, body, footer_html, script_html, extra_css="", active
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{esc(title)}</title>
 <meta name="description" content="{esc(desc)}">
+<meta property="og:title" content="{esc(title)}">
+<meta property="og:description" content="{esc(desc)}">
+<meta property="og:type" content="website">
+<meta property="og:image" content="{SITE_URL}{esc(canonical) if canonical.endswith(".png") else "og-card.png"}">
+<meta name="twitter:card" content="summary_large_image">
+{f'<link rel="canonical" href="{SITE_URL}{esc(canonical)}">' if canonical else ""}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
@@ -3768,9 +4168,10 @@ def page_shell(title, desc, body, footer_html, script_html, extra_css="", active
 def build_publications(pubs_section, footer_html, script_html):
     out = os.path.join(os.path.dirname(os.path.abspath(OUT)) or ".", "publications.html")
     body = pubs_section.replace('<section id="publications">', '<section id="publications" class="pubpage">')
+    body = body.replace("<h2>", "<h1>", 1).replace("</h2>", "</h1>", 1)
     page = page_shell("Publications | SCyPS, UMass Lowell",
                       f"All {n_pubs} peer-reviewed papers from Center for Smart Cyber-Physical Systems faculty since 2021, searchable and filterable by faculty member, year, and type.",
-                      body, footer_html, script_html, active="publications")
+                      body, footer_html, script_html, active="publications", canonical="publications.html")
     page = new_tab_links(page)
     open(out, "w", encoding="utf-8").write(page)
     print(f"wrote {out}: {len(page)/1024:.0f} KB")
@@ -3794,17 +4195,18 @@ def build_newspage(footer_html, script_html):
 
     body = f"""<section id="news">
   <div class="wrap">
-    <div class="shead"><h2>News</h2><p>Generated from the center's own record: every paper, award, and milestone from {span}, newest first. The page rebuilds itself whenever the site is rebuilt, so nothing here goes stale by hand.</p></div>
+    <div class="shead"><h1>News</h1><p>Generated from the center's own record: every paper, award, and milestone from {span}, newest first. The page rebuilds itself whenever the site is rebuilt, so nothing here goes stale by hand.</p></div>
     <div class="newsgrid">
       <div>
         <div class="nfilters" role="group" aria-label="Filter news">
           <span class="lab">Show</span>{chips}
         </div>
         <p class="ncount" id="ncount" aria-live="polite">Showing all {len(items)} items</p>
+        <h2 class="grouph vh">Recent items</h2>
         <ol class="timeline plain" id="newslist">{render_news(items)}</ol>
       </div>
       <aside class="stream" aria-label="Latest publications">
-        <h3>Latest papers</h3>
+        <h2 class="grouph">Latest papers</h2>
         <p class="sub">The {min(24, n_pubs)} most recent, updated with every build.</p>
         <ol>{stream_html()}</ol>
         <p class="foot"><a href="publications.html">All {n_pubs} publications</a></p>
@@ -3814,7 +4216,7 @@ def build_newspage(footer_html, script_html):
 </section>"""
     page = page_shell("News | SCyPS, UMass Lowell",
                       "Recent papers, awards, and milestones from the Center for Smart Cyber-Physical Systems at UMass Lowell, with a live list of the newest publications.",
-                      body, footer_html, script_html, extra_css=".timeline.plain{list-style:none;margin:0;padding:0}", active="news")
+                      body, footer_html, script_html, extra_css=".timeline.plain{list-style:none;margin:0;padding:0}", active="news", canonical="news.html")
     page = new_tab_links(page)
     open(out, "w", encoding="utf-8").write(page)
     print(f"wrote {out}: {len(page)/1024:.0f} KB; {len(items)} news items from {span}")
@@ -3837,11 +4239,169 @@ def build_people_pages(filled, footer_html, script_html):
                 '<div class="wrap"><div class="giftbox" style="margin-bottom:56px"><h3>Support the next cohort</h3>'
                 '<p>Gifts to the center fund student travel to conferences, testbed equipment, and summer research positions.</p>'
                 f'<a class="btn-gift" href="{GIFT_URL}">Donate to the Center</a></div></div></section>', 1)
-        page = page_shell(title, desc, body, footer_html, script_html, active=active)
+        body = body.replace("<h2>", "<h1>", 1).replace("</h2>", "</h1>", 1)
+        page = page_shell(title, desc, body, footer_html, script_html, active=active, canonical=name + ".html")
         page = new_tab_links(page)
         open(out, "w", encoding="utf-8").write(page)
         print(f"wrote {out}: {len(page)/1024:.0f} KB")
 
+
+
+
+def build_meta_files():
+    """robots.txt and sitemap.xml, so the new pages are discoverable and the old single page is not the only entry."""
+    root = os.path.dirname(os.path.abspath(OUT)) or "."
+    pages = ["", "people.html", "students.html", "alumni.html", "publications.html", "news.html", "summit.html"] + \
+            [f"research-{k}.html" for k, _, _, _ in THRUSTS]
+    today = datetime.date.today().isoformat()
+    urls = "".join(f"  <url><loc>{SITE_URL}{p}</loc><lastmod>{today}</lastmod></url>\n" for p in pages)
+    open(os.path.join(root, "sitemap.xml"), "w", encoding="utf-8").write(
+        '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls + "</urlset>\n")
+    open(os.path.join(root, "robots.txt"), "w", encoding="utf-8").write(
+        f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}sitemap.xml\n")
+    print(f"wrote sitemap.xml ({len(pages)} urls) and robots.txt")
+
+def build_thrust_pages(footer_html, script_html):
+    """One page per research thrust, sharing the site shell."""
+    people_by_surname = {}
+    for grp in ("director", "core", "affiliated", "external"):
+        for p in ([FACULTY[grp]] if grp == "director" else FACULTY[grp]):
+            people_by_surname[re.sub(r"\(.*?\)", "", p["name"]).split()[-1]] = p
+    for k, title, blurb, who in THRUSTS:
+        d = THRUST_DETAIL.get(k, {})
+        out = os.path.join(os.path.dirname(os.path.abspath(OUT)) or ".", f"research-{k}.html")
+        # the faculty on this thrust
+        cards = ""
+        for sur in [w.strip() for w in who.split(",")]:
+            p = people_by_surname.get(sur)
+            if not p: continue
+            cards += (f'<a class="tperson" href="people.html">{avatar(p, "sm")}<span><b>{esc(p["name"])}</b>'
+                      f'<small>{esc(p.get("title", "").split(";")[0])}</small></span></a>')
+        # what the group builds
+        work = "".join(f'<div class="wcard"><h3>{esc(t)}</h3><p>{esc(b)}</p></div>' for t, b in d.get("work", []))
+        # papers tagged to the faculty on this thrust, newest first
+        tags = {w.strip() for w in who.split(",")}
+        papers = [p for p in P if tags & set(p["faculty"])]
+        papers.sort(key=lambda p: (-p["year"], -(month_of(p) or 0)))
+        plist = "".join(
+            f'<li class="pub"><div><div class="a">{fmt_authors(p["authors"])}</div>'
+            f'<div class="t">{("<a href=" + chr(34) + "https://doi.org/" + esc(p["doi"]) + chr(34) + ">" + esc(p["title"]) + "</a>") if p.get("doi") else esc(p["title"])}</div>'
+            f'<div class="v"><i>{esc(p["venue"])}</i>, {esc(p["details"])}</div></div></li>' for p in papers[:8])
+        # projects whose title matches one of the thrust's keys
+        names = d.get("projects", [])
+        projs = [pr for pr in PROJECTS if any(n.lower() in pr["title"].lower() or n.lower() in pr["sponsor"].lower() for n in names)]
+        seen, uniq = set(), []
+        for pr in projs:
+            if pr["title"] in seen: continue
+            seen.add(pr["title"]); uniq.append(pr)
+        prows = "".join(
+            f'<li class="tproj"><div><b>{esc(pr["title"])}</b><span class="sub">{esc(pr["sponsor"])}'
+            f'{(" &middot; " + esc(pr["amount"])) if pr.get("amount") else ""}'
+            f'{(" &middot; " + esc(pr["period"])) if pr.get("period") else ""}</span></div>'
+            f'<span class="pill">{esc(pr["tag"])}</span></li>' for pr in uniq[:6])
+        tools = "".join(
+            f'<p class="tooll"><a href="{esc(u)}">{esc(n)}</a> <span class="sub">{esc(w)}</span></p>'
+            for n, u, w in d.get("tools", []))
+        others = "".join(
+            f'<a class="othr" href="research-{esc(k2)}.html">{esc(t2)}</a>'
+            for k2, t2, _, _ in THRUSTS if k2 != k)
+        body = f"""<div class="thero">
+  <div class="wrap">
+    <p class="crumb"><a href="index.html#research">Research thrusts</a></p>
+    <h1>{esc(title)}</h1>
+    <p class="q">{esc(d.get("question", blurb))}</p>
+  </div>
+</div>
+<div class="wrap"><figure class="theroart">{HERO_ART.get(k, ART[k])}</figure></div>
+<section>
+  <div class="wrap">
+    <div class="tgrid">
+      <div>
+        <p class="lede">{esc(d.get("lede", blurb))}</p>
+        <h2 class="grouph vh">What the group builds</h2>
+        <div class="wgrid">{work}</div>
+      </div>
+      <aside class="tside">
+        <h2 class="sideh">Faculty</h2>
+        <div class="tpeople">{cards}</div>
+        {("<h2 class=\"sideh\">Projects</h2><ul class=" + chr(34) + "tprojs" + chr(34) + ">" + prows + "</ul>") if prows else ""}
+        {("<h2 class=\"sideh\">Tools</h2>" + tools) if tools else ""}
+      </aside>
+    </div>
+  </div>
+</section>
+<section class="tint">
+  <div class="wrap">
+    <div class="shead"><h2>Recent papers</h2><p>The newest work from the faculty on this thrust. {len(papers)} papers since 2021 carry one of their names.</p></div>
+    <ol class="publist">{plist}</ol>
+    <p class="more"><a class="btn-gift summit-btn" href="publications.html">All publications</a></p>
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <div class="shead"><h2>Other thrusts</h2><p>Most projects cut across two or three of them.</p></div>
+    <div class="others">{others}</div>
+  </div>
+</section>"""
+        css = """.thero{background:var(--navy);color:#fff;padding:clamp(44px,6vw,76px) 0 clamp(80px,9vw,120px)}
+.thero .crumb{font-size:14px;margin-bottom:14px}
+.thero .crumb a{color:#9FC4DF}
+.thero h1{color:#fff;font-size:clamp(32px,4.2vw,52px);max-width:16em}
+.thero .q{font-size:clamp(17px,1.5vw,21px);color:#D6DEE8;max-width:40em;margin-top:18px}
+.theroart{margin:-70px 0 0;background:#FFFFFF;border:1px solid var(--line);border-radius:var(--radius);padding:14px;position:relative;z-index:2;box-shadow:0 22px 60px -34px var(--shadow)}
+.theroart svg{width:100%;height:auto;display:block}\n.theroart{--bg-2:#F3F7FA;--surface:#FFFFFF;--line:#D5DCE5;--ink:#0E2036;--ink-3:#5B6B82;--signal:#0A777F;--brand-blue:#044978;--green:#3BA995}
+.tgrid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,.75fr);gap:clamp(28px,5vw,64px);align-items:start}
+.lede{font-size:clamp(17px,1.4vw,19px);color:var(--ink-2);margin-bottom:30px}
+.wgrid{display:grid;gap:18px}
+.wcard{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--signal);border-radius:0 var(--radius) var(--radius) 0;padding:20px 22px}
+.wcard h3{font-size:18px;margin-bottom:6px}
+.wcard p{font-size:15px;color:var(--ink-2);margin:0}
+.tside .sideh{font-size:17px;margin:0 0 12px;font-family:"Fraunces",Georgia,serif;font-weight:600}
+.tside .sideh+*{margin-top:0}
+.tside>.sideh~.sideh{margin-top:28px}
+.tpeople{display:grid;gap:10px}
+.tperson{display:flex;gap:12px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:10px 12px;color:var(--ink)}
+.tperson:hover{text-decoration:none;border-color:var(--ink-3)}
+.tperson .avatar{width:52px;height:52px;border-radius:8px;flex:none}
+.tperson b{display:block;font-size:14.5px}
+.tperson small{display:block;font-size:12px;color:var(--ink-3);line-height:1.3}
+.tprojs{list-style:none;margin:0;padding:0}
+.tproj{display:flex;gap:10px;justify-content:space-between;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--line);font-size:14px}
+.tproj .sub{display:block;color:var(--ink-3);font-size:12.5px;margin-top:2px}
+.tproj .pill{font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;background:var(--bg-2);color:var(--ink-2);white-space:nowrap}
+.tooll{font-size:14px;margin-bottom:8px}
+.tooll .sub{color:var(--ink-3);font-size:12.5px;display:block}
+.others{display:flex;flex-wrap:wrap;gap:10px}
+.othr{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:10px 18px;font-size:14.5px;color:var(--ink)}
+.othr:hover{text-decoration:none;border-color:var(--ink-3)}
+@media (max-width:900px){.tgrid{grid-template-columns:1fr}.theroart{margin-top:-50px}}
+.theroart .s-ink{stroke:var(--ink)}
+.theroart .f-ink{fill:var(--ink)}
+.theroart .f-surface{fill:var(--surface)}
+.theroart .f-muted{fill:var(--ink-3)}
+.theroart .card{filter:drop-shadow(0 4px 10px rgba(4,73,120,.10))}
+:root[data-theme="dark"] .theroart .card{filter:drop-shadow(0 4px 10px rgba(0,0,0,.4))}
+.theroart .f-alert{fill:#E25555}
+.theroart .s-alert{stroke:#E25555}
+.theroart .f-alert-tint{fill:#FDECEC}
+:root[data-theme="dark"] .theroart .f-alert-tint{fill:#3A1E20}
+.theroart .s-sig{stroke:var(--signal)}
+.theroart .f-sig{fill:var(--signal)}
+.theroart .f-brand{fill:var(--brand-blue)}
+.theroart .s-brand{stroke:var(--brand-blue)}
+.theroart .f-grn{fill:var(--green)}
+.theroart .s-grn{stroke:var(--green)}
+.theroart .f-tint{fill:var(--bg-2)}
+.theroart .s-line{stroke:var(--line)}
+.theroart .f-line{fill:var(--line)}
+.theroart .f-sigt{fill:var(--signal-tint)}
+.theroart .f-amb{fill:var(--amber)}
+.theroart .s-amb{stroke:var(--amber)}
+.theroart .s-muted{stroke:var(--ink-3)}"""
+        page = page_shell(f"{title} | SCyPS, UMass Lowell", blurb, body, footer_html, script_html, extra_css=css, active="research", canonical=f"research-{k}.html")
+        page = new_tab_links(page)
+        open(out, "w", encoding="utf-8").write(page)
+        print(f"wrote {out}: {len(page)/1024:.0f} KB")
 
 
 def build_summit(footer_html, script_html):

@@ -11,7 +11,7 @@ import sys, datetime, os
 OUT = next((a for a in sys.argv[1:] if not a.startswith("-")), "index.html")   # run: python3 build_site.py [output path]
 
 # ---------------------------------------------------------------- people
-CORE = {"Vokkarane", "Arias", "Tseng", "Son", "Aghara", "Lin", "Luo", "Xie", "Cao", "Chigan", "Inalpolat", "Robinette", "Yu", "Akyurtlu", "Niezrecki", "Ranasingha"}
+CORE = {"Vokkarane", "Aghara", "Arias", "Lin", "Luo", "Son", "Tseng", "Xie"}   # director + center faculty
 CORE_INITIAL = {"Son": "S", "Lin": "Y", "Luo": "Y", "Cao": "Y", "Yu": "H", "Xie": "Y"}   # common surnames: bold only with this first initial
 
 FACULTY = {
@@ -1920,6 +1920,12 @@ pub(2021, ["T. Griffin", "Q. Chen", "X. Sun", "D. Wang", "M. J. Brunette", "Y. C
     "Third International Conference on Transdisciplinary AI (TransAI)", "pp. 47-56, Sept. 2021",
     "10.1109/transai51903.2021.00017", "conference", ["Cao"], "Digital health")
 
+# --- the publication list covers the director and center faculty only. Affiliated researchers
+# and external collaborators keep their profile links; their own records live on their own pages.
+CENTER_AUTHORS = {"Vokkarane"} | {re.sub(r"\(.*?\)", "", p["name"]).split()[-1] for p in FACULTY["core"]}
+assert CENTER_AUTHORS == CORE, f"CORE at the top of this file is out of step with the roster: {CORE ^ CENTER_AUTHORS}"
+P = [dict(p, faculty=[f for f in p["faculty"] if f in CENTER_AUTHORS]) for p in P if set(p["faculty"]) & CENTER_AUTHORS]
+
 # --- overlay: papers found by refresh.py since the curated list was written
 def _load_overlay(name, default):
     p = os.path.join(os.path.dirname(os.path.abspath(__file__)), name)
@@ -1927,7 +1933,8 @@ def _load_overlay(name, default):
 _auto_pubs = _load_overlay("pubs_auto.json", {"entries": []})
 _known = {p["doi"].lower() for p in P if p.get("doi")}
 for e in _auto_pubs.get("entries", []):
-    if e["doi"].lower() in _known: continue
+    if e["doi"].lower() in _known or not set(e["faculty"]) & CENTER_AUTHORS: continue
+    e = dict(e, faculty=[f for f in e["faculty"] if f in CENTER_AUTHORS])
     P.append(dict(year=e["year"], authors=e["authors"], title=e["title"], venue=e["venue"], details=e["details"], doi=e["doi"],
                   type=e["type"], faculty=e["faculty"], area=e.get("area", ""), url=None)); _known.add(e["doi"].lower())
 
@@ -2730,7 +2737,7 @@ ALUMNI_PHD = [
 ]
 ALUMNI_POSTDOC = [("Arash Deylamsalehi", "Google"), ("Jeremy M. Plante", "Hitachi Vantara"), ("Juzi Zhao", "San José State University"), ("Arush Gadkar", "Kilpatrick Townsend & Stockton LLP"), ("Joan Triay", "DOCOMO Euro-Labs"), ("Balagangadhar Bathula", "AT&T")]
 SITE_URL = "https://vinodvokkarane.github.io/scyps-site/"   # set this to the live address
-SITE_VERSION = "0.34"   # bump by 0.01 with every update to the site
+SITE_VERSION = "0.35"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3617,7 +3624,7 @@ def build():
     facts = [
         ("$2M", "NSF MRI Track 2 award for the SUMMIT federated smart grid testbed, 2026 to 2029"),
         (str(n_faculty), "affiliated faculty across engineering, computing, and medicine"),
-        (str(n_pubs), f"peer-reviewed papers since 2021, {n_journal} of them in journals"),
+        (str(n_pubs), f"papers from center faculty since 2021, {n_journal} in journals"),
         ("3", "application domains: energy and power, transportation, healthcare"),
     ]
     facts_html = "".join(f'<div><strong>{esc(a)}</strong><span>{esc(b)}</span></div>' for a, b in facts)
@@ -3920,7 +3927,7 @@ def build():
 
 <section id="publications" class="tint">
   <div class="wrap">
-    <div class="shead"><h2>Publications</h2><p>{n_pubs} peer-reviewed papers from center faculty since 2021, {n_journal} of them in journals. The newest are below; the full list is searchable and filterable on its own page.</p></div>
+    <div class="shead"><h2>Publications</h2><p>{n_pubs} peer-reviewed papers from the director and center faculty since 2021, {n_journal} of them in journals. The newest are below; the full list is searchable and filterable on its own page.</p></div>
     <ol class="publist teaser">{pub_teaser}</ol>
     <p class="more"><a class="btn-gift summit-btn" href="publications.html">All {n_pubs} publications</a></p>
   </div>
@@ -3998,7 +4005,7 @@ def new_tab_links(page):
     return re.sub(r'<a\s[^>]*href="https?://[^"]*"[^>]*>', fix, page)
 
 
-PUBS_SECTION = '<section id="publications">\n  <div class="wrap">\n    <div class="shead"><h2>Publications</h2><p>Peer-reviewed journal papers, conference papers, and book chapters from center faculty since the center was founded in 2021, with links to the publisher\'s record. Center faculty are shown in bold; a paper with several center authors appears once.</p></div>\n    <div class="filters" role="group" aria-label="Filter publications">\n      <div class="fgroup"><span class="lab">Faculty</span>\n        <button class="chip" data-f="fac" data-v="all" aria-pressed="true">All</button>\n        <button class="chip" data-f="fac" data-v="Vokkarane" aria-pressed="false">Vokkarane</button>\n        <button class="chip" data-f="fac" data-v="Arias" aria-pressed="false">Arias</button>\n        <button class="chip" data-f="fac" data-v="Tseng" aria-pressed="false">Tseng</button>\n        <button class="chip" data-f="fac" data-v="Son" aria-pressed="false">Son</button>\n        <button class="chip" data-f="fac" data-v="Aghara" aria-pressed="false">Aghara</button>\n        <button class="chip" data-f="fac" data-v="Lin" aria-pressed="false">Lin</button>\n        <button class="chip" data-f="fac" data-v="Luo" aria-pressed="false">Luo</button>\n        <button class="chip" data-f="fac" data-v="Xie" aria-pressed="false">Xie</button>\n        <button class="chip" data-f="fac" data-v="Chigan" aria-pressed="false">Chigan</button>\n        <button class="chip" data-f="fac" data-v="Inalpolat" aria-pressed="false">Inalpolat</button>\n        <button class="chip" data-f="fac" data-v="Robinette" aria-pressed="false">Robinette</button>\n        <button class="chip" data-f="fac" data-v="Yu" aria-pressed="false">Yu</button>\n        <button class="chip" data-f="fac" data-v="Akyurtlu" aria-pressed="false">Akyurtlu</button>\n        <button class="chip" data-f="fac" data-v="Niezrecki" aria-pressed="false">Niezrecki</button>\n        <button class="chip" data-f="fac" data-v="Ranasingha" aria-pressed="false">Ranasingha</button>\n      </div>\n      <div class="fgroup"><span class="lab">Year</span>\n        <button class="chip" data-f="year" data-v="all" aria-pressed="true">All</button>\n        <button class="chip" data-f="year" data-v="2026" aria-pressed="false">2026</button>\n        <button class="chip" data-f="year" data-v="2025" aria-pressed="false">2025</button>\n        <button class="chip" data-f="year" data-v="2024" aria-pressed="false">2024</button>\n        <button class="chip" data-f="year" data-v="2023" aria-pressed="false">2023</button>\n        <button class="chip" data-f="year" data-v="2022" aria-pressed="false">2022</button>\n        <button class="chip" data-f="year" data-v="2021" aria-pressed="false">2021</button>\n      </div>\n      <div class="fgroup"><span class="lab">Type</span>\n        <button class="chip" data-f="type" data-v="all" aria-pressed="true">All</button>\n        <button class="chip" data-f="type" data-v="journal" aria-pressed="false">Journal</button>\n        <button class="chip" data-f="type" data-v="conference" aria-pressed="false">Conference</button>\n        <button class="chip" data-f="type" data-v="chapter" aria-pressed="false">Chapter</button>\n      </div>\n      <div class="search"><label for="q" class="lab">Search</label><input id="q" type="search" placeholder="title, author, or venue" autocomplete="off"></div>\n    </div>\n    <div class="count" id="count" aria-live="polite">Showing {n_pubs} of {n_pubs} papers</div>\n    <div id="publist">{pubs_html}</div>\n    <p class="pubnote">Records verified against Crossref (the NSDI paper is listed from the USENIX program). Venues that do not register DOIs, such as ANS Transactions and INMM proceedings, are not captured, and for faculty with common names only papers with a confirmed UMass Lowell affiliation are included. Send corrections or additions to SCyPS@uml.edu.</p>\n  </div>\n</section>'
+PUBS_SECTION = '<section id="publications">\n  <div class="wrap">\n    <div class="shead"><h2>Publications</h2><p>Peer-reviewed journal papers, conference papers, and book chapters from the director and center faculty since the center was founded in 2021, with links to the publisher\'s record. Center authors are shown in bold. Affiliated researchers and external collaborators publish widely in their own fields; their records are linked from their profiles.</p></div>\n    <div class="filters" role="group" aria-label="Filter publications">\n      <div class="fgroup"><span class="lab">Faculty</span>\n        <button class="chip" data-f="fac" data-v="all" aria-pressed="true">All</button>\n        <button class="chip" data-f="fac" data-v="Vokkarane" aria-pressed="false">Vokkarane</button>\n        <button class="chip" data-f="fac" data-v="Arias" aria-pressed="false">Arias</button>\n        <button class="chip" data-f="fac" data-v="Tseng" aria-pressed="false">Tseng</button>\n        <button class="chip" data-f="fac" data-v="Son" aria-pressed="false">Son</button>\n        <button class="chip" data-f="fac" data-v="Aghara" aria-pressed="false">Aghara</button>\n        <button class="chip" data-f="fac" data-v="Lin" aria-pressed="false">Lin</button>\n        <button class="chip" data-f="fac" data-v="Luo" aria-pressed="false">Luo</button>\n        <button class="chip" data-f="fac" data-v="Xie" aria-pressed="false">Xie</button>\n\n\n\n\n\n\n\n      </div>\n      <div class="fgroup"><span class="lab">Year</span>\n        <button class="chip" data-f="year" data-v="all" aria-pressed="true">All</button>\n        <button class="chip" data-f="year" data-v="2026" aria-pressed="false">2026</button>\n        <button class="chip" data-f="year" data-v="2025" aria-pressed="false">2025</button>\n        <button class="chip" data-f="year" data-v="2024" aria-pressed="false">2024</button>\n        <button class="chip" data-f="year" data-v="2023" aria-pressed="false">2023</button>\n        <button class="chip" data-f="year" data-v="2022" aria-pressed="false">2022</button>\n        <button class="chip" data-f="year" data-v="2021" aria-pressed="false">2021</button>\n      </div>\n      <div class="fgroup"><span class="lab">Type</span>\n        <button class="chip" data-f="type" data-v="all" aria-pressed="true">All</button>\n        <button class="chip" data-f="type" data-v="journal" aria-pressed="false">Journal</button>\n        <button class="chip" data-f="type" data-v="conference" aria-pressed="false">Conference</button>\n        <button class="chip" data-f="type" data-v="chapter" aria-pressed="false">Chapter</button>\n      </div>\n      <div class="search"><label for="q" class="lab">Search</label><input id="q" type="search" placeholder="title, author, or venue" autocomplete="off"></div>\n    </div>\n    <div class="count" id="count" aria-live="polite">Showing {n_pubs} of {n_pubs} papers</div>\n    <div id="publist">{pubs_html}</div>\n    <p class="pubnote">Records verified against Crossref (the NSDI paper is listed from the USENIX program). Venues that do not register DOIs, such as ANS Transactions and INMM proceedings, are not captured, and for faculty with common names only papers with a confirmed UMass Lowell affiliation are included. Send corrections or additions to SCyPS@uml.edu.</p>\n  </div>\n</section>'
 
 FULL_NAME = {}
 for _g in ("director", "core", "affiliated", "external"):

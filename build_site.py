@@ -8,7 +8,7 @@ Grants: figures confirmed on the director's NSF Current & Pending (Sept 2026).
 import html, json, re
 
 import sys, datetime, os
-OUT = sys.argv[1] if len(sys.argv) > 1 else "index.html"   # run: python3 build_site.py [output path]
+OUT = next((a for a in sys.argv[1:] if not a.startswith("-")), "index.html")   # run: python3 build_site.py [output path]
 
 # ---------------------------------------------------------------- people
 CORE = {"Vokkarane", "Arias", "Tseng", "Son", "Aghara", "Lin", "Luo", "Xie", "Cao", "Chigan", "Inalpolat", "Robinette", "Yu", "Akyurtlu", "Niezrecki", "Ranasingha"}
@@ -123,12 +123,6 @@ PROJECTS = [
      "team": "PI Vinod Vokkarane; UMLARC and UMass Lowell",
      "desc": "Planning and optimization methods for autonomous robotic systems operating over contested tactical networks.",
      "domain": "Autonomy"},
-    {"tag": "Active", "sponsor": "U.S. Department of Energy, NETL", "role": "PI",
-     "title": "QoT-Aware Ultra-High-Capacity Networking with Multi-Band Space-Division Multiplexing Optical Networks (FUSION FutureCore)",
-     "amount": "", "period": "2026 to 2027",
-     "team": "PI Vinod Vokkarane",
-     "desc": "Quality-of-transmission-aware provisioning for multi-band, space-division multiplexed optical networks, built on the open-source FUSION framework.",
-     "domain": "Networks"},
     {"tag": "Completed", "sponsor": "Office of Naval Research",
      "role": "PI", "title": "Unified Post-Disaster Restoration Planning for Cyber-Physical Power Distribution Systems",
      "amount": "$550K", "period": "Jan 2024 to Oct 2025",
@@ -2316,6 +2310,16 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .ack p:last-child{margin:0}
 
 /* teasers, news page, article stream */
+.peoplecards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pcard{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;color:var(--ink);transition:box-shadow .2s ease,transform .2s ease}
+.pcard:hover{text-decoration:none;box-shadow:0 16px 40px -26px var(--shadow);transform:translateY(-2px)}
+.pcard .pnum{font-family:"Fraunces",Georgia,serif;font-size:42px;font-weight:600;line-height:1;letter-spacing:-.02em}
+.pcard .plab{font-weight:600;margin:6px 0 10px}
+.pcard .pdesc{font-size:14.5px;color:var(--ink-2);flex:1}
+.pcard .pgo{margin-top:16px;font-size:14px;font-weight:500;color:var(--signal-2)}
+.pcard .pgo::after{content:" \2192"}
+@media (max-width:820px){.peoplecards{grid-template-columns:1fr}}
+
 .publist.teaser{margin-bottom:22px}
 .newsgrid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,.9fr);gap:clamp(28px,4vw,56px);align-items:start}
 .nitem{display:grid;grid-template-columns:104px 1fr;gap:20px;padding:20px 0;border-top:1px solid var(--line)}
@@ -2644,7 +2648,7 @@ ALUMNI_PHD = [
     ("2014", "Thilo Schöndienst", "European Patent Office"),
 ]
 ALUMNI_POSTDOC = [("Arash Deylamsalehi", "Google"), ("Jeremy M. Plante", "Hitachi Vantara"), ("Juzi Zhao", "San José State University"), ("Arush Gadkar", "Kilpatrick Townsend & Stockton LLP"), ("Joan Triay", "DOCOMO Euro-Labs"), ("Balagangadhar Bathula", "AT&T")]
-SITE_VERSION = "0.19"   # bump by 0.01 with every update to the site
+SITE_VERSION = "0.24"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3211,6 +3215,8 @@ def build():
                     f'<div class="v"><i>{esc(p["venue"])}</i>, {esc(p["details"])}</div></div><div class="side">{side}</div></li>')
         if cur is not None: out += "</ul>"
         return out
+    n_students = len(STUDENTS)
+    n_alumni = len(ALUMNI_PHD) + len(ALUMNI_POSTDOC)
     pubs_html = render_pubs(P)
     _recent = sorted(P, key=lambda p: (-p["year"], -(month_of(p) or 0), p["title"]))[:6]
     pub_teaser = render_pubs(_recent, grouped=False) if "grouped" in render_pubs.__code__.co_varnames else "".join(
@@ -3250,7 +3256,7 @@ def build():
       </div>
       <div class="col menu">
         <nav aria-label="Footer menu"><h2>Menu</h2>
-          <ul><li><a href="#about">About</a></li><li><a href="#research">Research</a></li><li><a href="#projects">Projects</a></li><li><a href="#sponsors">Sponsors</a></li><li><a href="#people">People</a></li><li><a href="#students">Students</a></li><li><a href="#alumni">Alumni</a></li><li><a href="publications.html">Publications</a></li><li><a href="news.html">News</a></li><li><a href="{GIFT_URL}">Make a Gift</a></li></ul>
+          <ul><li><a href="#about">About</a></li><li><a href="#research">Research</a></li><li><a href="#projects">Projects</a></li><li><a href="#sponsors">Sponsors</a></li><li><a href="people.html">People</a></li><li><a href="students.html">Students</a></li><li><a href="alumni.html">Alumni</a></li><li><a href="publications.html">Publications</a></li><li><a href="news.html">News</a></li><li><a href="{GIFT_URL}">Make a Gift</a></li></ul>
         </nav>
       </div>
       <div class="col dir">
@@ -3393,9 +3399,9 @@ def build():
       <li><a href="#research">Research</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#sponsors">Sponsors</a></li>
-      <li><a href="#people">People</a></li>
-      <li><a href="#students">Students</a></li>
-      <li><a href="#alumni">Alumni</a></li>
+      <li><a href="people.html">People</a></li>
+      <li><a href="students.html">Students</a></li>
+      <li><a href="alumni.html">Alumni</a></li>
       <li><a href="publications.html">Publications</a></li>
       <li><a href="news.html">News</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -3511,34 +3517,11 @@ def build():
 
 <section id="people" class="tint">
   <div class="wrap">
-    <div class="shead"><h2>People</h2><p>Faculty from the Francis College of Engineering, the Kennedy College of Sciences, and the College of Fine Arts, Humanities and Social Sciences, plus long-running collaborators at partner universities and companies. Each profile links to the person's Google Scholar and ORCID records; citation totals are quoted from Google Scholar where the profile is public.</p></div>
-    {director_html}
-    {core_html}
-    <div class="group"><h3>Affiliated researchers</h3><p>UMass Lowell faculty who collaborate on center projects and proposals.</p>{aff_html}</div>
-    <div class="group"><h3>External collaborators</h3><p>Partners at other universities and companies who work with the center on current projects.</p>{ext_html}</div>
-  </div>
-</section>
-
-<section id="students">
-  <div class="wrap">
-    <div class="shead"><h2>Students</h2><p>Doctoral students in the director's group, the Advanced Communication Networks Laboratory, working on center projects.</p></div>
-    <div class="stugrid">{students_html}</div>
-    <div class="lablife">
-      <h3>Lab life</h3>
-      <p>The Advanced Communication Networks Laboratory through the years.</p>
-      <div class="labgrid">{lablife_html}</div>
-    </div>
-  </div>
-</section>
-
-<section id="alumni" class="tint">
-  <div class="wrap">
-    <div class="shead"><h2>Alumni</h2><p>Where the group's Ph.D. graduates and postdoctoral researchers have gone.</p></div>
-    <div class="stugrid two">{alumni_feat_html}</div>
-    <div class="alumcols">
-      <div><h3>Ph.D. graduates</h3><ul class="alumlist">{alumni_phd_html}</ul></div>
-      <div><h3>Postdoctoral alumni</h3><ul class="alumlist nodate">{alumni_pd_html}</ul>
-      </div>
+    <div class="shead"><h2>People</h2><p>{n_faculty} faculty from three colleges, doctoral students in the director's group, and the graduates who have gone on to faculty positions and industry research.</p></div>
+    <div class="peoplecards">
+      <a class="pcard" href="people.html"><span class="pnum">{n_faculty}</span><span class="plab">Faculty</span><span class="pdesc">The director, center faculty, affiliated researchers across engineering, sciences, and humanities, and external collaborators.</span><span class="pgo">All faculty</span></a>
+      <a class="pcard" href="students.html"><span class="pnum">{n_students}</span><span class="plab">Doctoral students</span><span class="pdesc">Students in the Advanced Communication Networks Laboratory working on center projects, with their research focus.</span><span class="pgo">Meet the students</span></a>
+      <a class="pcard" href="alumni.html"><span class="pnum">{n_alumni}</span><span class="plab">Ph.D. alumni</span><span class="pdesc">Where the group's graduates and postdoctoral researchers went, from faculty posts to Google, AT&amp;T, and KLA.</span><span class="pgo">Where they are now</span></a>
     </div>
   </div>
 </section>
@@ -3601,6 +3584,13 @@ def build():
         f.write(page)
     build_summit(footer_html, script_html)
     build_publications(PUBS_SECTION.replace("{n_pubs}", str(n_pubs)).replace("{pubs_html}", pubs_html), footer_html, script_html)
+    build_people_pages({
+        "people": (PEOPLE_SECTION.replace("{director_html}", director_html).replace("{core_html}", core_html)
+                   .replace("{aff_html}", aff_html).replace("{ext_html}", ext_html)),
+        "students": (STUDENTS_SECTION.replace("{students_html}", students_html).replace("{lablife_html}", lablife_html)),
+        "alumni": (ALUMNI_SECTION.replace("{alumni_feat_html}", alumni_feat_html).replace("{alumni_phd_html}", alumni_phd_html)
+                   .replace("{alumni_pd_html}", alumni_pd_html)),
+    }, footer_html, script_html)
     build_newspage(footer_html, script_html)
     print(f"wrote {OUT} (v{SITE_VERSION}): {len(page)/1024:.0f} KB; {n_pubs} pubs ({n_journal} journal); {n_faculty} faculty; {len(IMG)} images embedded")
 
@@ -3621,6 +3611,12 @@ for _g in ("director", "core", "affiliated", "external"):
     for _p in ([FACULTY[_g]] if _g == "director" else FACULTY[_g]):
         _sur = re.sub(r"\(.*?\)", "", _p["name"]).split()[-1]
         FULL_NAME[_sur] = _p["name"]
+
+PEOPLE_SECTION = '<section id="people" class="tint">\n  <div class="wrap">\n    <div class="shead"><h2>People</h2><p>Faculty from the Francis College of Engineering, the Kennedy College of Sciences, and the College of Fine Arts, Humanities and Social Sciences, plus long-running collaborators at partner universities and companies. Each profile links to the person\'s Google Scholar and ORCID records; citation totals are quoted from Google Scholar where the profile is public.</p></div>\n    {director_html}\n    {core_html}\n    <div class="group"><h3>Affiliated researchers</h3><p>UMass Lowell faculty who collaborate on center projects and proposals.</p>{aff_html}</div>\n    <div class="group"><h3>External collaborators</h3><p>Partners at other universities and companies who work with the center on current projects.</p>{ext_html}</div>\n  </div>\n</section>\n\n'
+
+STUDENTS_SECTION = '<section id="students">\n  <div class="wrap">\n    <div class="shead"><h2>Students</h2><p>Doctoral students in the director\'s group, the Advanced Communication Networks Laboratory, working on center projects.</p></div>\n    <div class="stugrid">{students_html}</div>\n    <div class="lablife">\n      <h3>Lab life</h3>\n      <p>The Advanced Communication Networks Laboratory through the years.</p>\n      <div class="labgrid">{lablife_html}</div>\n    </div>\n  </div>\n</section>\n\n'
+
+ALUMNI_SECTION = '<section id="alumni" class="tint">\n  <div class="wrap">\n    <div class="shead"><h2>Alumni</h2><p>Where the group\'s Ph.D. graduates and postdoctoral researchers have gone.</p></div>\n    <div class="stugrid two">{alumni_feat_html}</div>\n    <div class="alumcols">\n      <div><h3>Ph.D. graduates</h3><ul class="alumlist">{alumni_phd_html}</ul></div>\n      <div><h3>Postdoctoral alumni</h3><ul class="alumlist nodate">{alumni_pd_html}</ul>\n      </div>\n    </div>\n  </div>\n</section>\n\n'
 
 # ---------------------------------------------------------------- news generation
 def _pub_ym(p):
@@ -3726,8 +3722,8 @@ def page_shell(title, desc, body, footer_html, script_html, extra_css="", active
         for key, label, href in [
             ("about", "About", "index.html#about"), ("research", "Research", "index.html#research"),
             ("projects", "Projects", "index.html#projects"), ("sponsors", "Sponsors", "index.html#sponsors"),
-            ("people", "People", "index.html#people"), ("students", "Students", "index.html#students"),
-            ("alumni", "Alumni", "index.html#alumni"), ("publications", "Publications", "publications.html"),
+            ("people", "People", "people.html"), ("students", "Students", "students.html"),
+            ("alumni", "Alumni", "alumni.html"), ("publications", "Publications", "publications.html"),
             ("news", "News", "news.html"), ("contact", "Contact", "index.html#contact")])
     foot = footer_html.replace('href="#', 'href="index.html#')
     return f"""<!DOCTYPE html>
@@ -3822,6 +3818,30 @@ def build_newspage(footer_html, script_html):
     page = new_tab_links(page)
     open(out, "w", encoding="utf-8").write(page)
     print(f"wrote {out}: {len(page)/1024:.0f} KB; {len(items)} news items from {span}")
+
+
+
+def build_people_pages(filled, footer_html, script_html):
+    """filled: dict of already-formatted section markup, one per page."""
+    for name, title, desc, active in [
+        ("people", "People | SCyPS, UMass Lowell",
+         "Faculty, affiliated researchers, and external collaborators of the Center for Smart Cyber-Physical Systems at UMass Lowell.", "people"),
+        ("students", "Students | SCyPS, UMass Lowell",
+         "Doctoral students in the Advanced Communication Networks Laboratory at UMass Lowell and their research.", "students"),
+        ("alumni", "Alumni | SCyPS, UMass Lowell",
+         "Ph.D. graduates and postdoctoral alumni of the Advanced Communication Networks Laboratory and where they are now.", "alumni")]:
+        out = os.path.join(os.path.dirname(os.path.abspath(OUT)) or ".", name + ".html")
+        body = filled[name]
+        if name == "alumni":
+            body = body.replace("</section>",
+                '<div class="wrap"><div class="giftbox" style="margin-bottom:56px"><h3>Support the next cohort</h3>'
+                '<p>Gifts to the center fund student travel to conferences, testbed equipment, and summer research positions.</p>'
+                f'<a class="btn-gift" href="{GIFT_URL}">Donate to the Center</a></div></div></section>', 1)
+        page = page_shell(title, desc, body, footer_html, script_html, active=active)
+        page = new_tab_links(page)
+        open(out, "w", encoding="utf-8").write(page)
+        print(f"wrote {out}: {len(page)/1024:.0f} KB")
+
 
 
 def build_summit(footer_html, script_html):

@@ -3,11 +3,15 @@ SCyPS site: how it stays current
 
 Files
   build_site.py      all curated content and all four page templates:
-                       index.html         home: about, research, projects, sponsors, people, students, alumni,
-                                          plus teasers for the newest papers and the newest news
+                       index.html         home: about, research, projects, sponsors, and teasers that link on
+                                          to people, publications, and news
+                       people.html        director, faculty, affiliated researchers, external collaborators
+                       students.html      doctoral students and the lab-life gallery
+                       alumni.html        Ph.D. graduates, postdoctoral alumni, and the giving box
                        publications.html  the full searchable, filterable list
                        news.html          auto-generated from the last three months of papers, awards, and
-                                          milestones, with a live stream of the newest papers in the right column
+                                          milestones, filterable by type, with a live stream of the newest
+                                          papers in the right column
                        summit.html        the NSF MRI SUMMIT project page
   images.json        embedded photos and figures
   logos/             sponsor logos (see logos/README.txt for the expected file names)
@@ -22,7 +26,7 @@ Files
 
 Build by hand
   python3 refresh.py          # optional: pull new data
-  python3 build_site.py index.html      # also writes publications.html, news.html, and summit.html next to it
+  python3 build_site.py index.html      # also writes people, students, alumni, publications, news, summit
 
 Automatic updates
   Once this folder is a GitHub repository with Pages turned on, the workflow runs every Monday

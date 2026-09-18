@@ -12,7 +12,7 @@
     <guid isPermaLink="false">scyps-2026-10-5a1c8df91f</guid>
     <category>Award</category>
     <pubDate>01 Oct 2026 00:00:00 +0000</pubDate>
-    <description>SCyPS has a new award: SUMMIT: A Secure and Resilient Multi-site Smart Grid Testbed for Multidisciplinary Research and Training. National Science Foundation, Major Research Instrumentation Track 2 (Award #2511635) ($2.</description>
+    <description>New award: SUMMIT: A Secure and Resilient Multi-site Smart Grid Testbed for Multidisciplinary Research and Training. National Science Foundation, Major Research Instrumentation Track 2 ($2.0M).</description>
   </item>
   <item>
     <title>SUMMIT begins</title>
@@ -23,20 +23,12 @@
     <description>SUMMIT begins. NSF&#x27;s $2M Major Research Instrumentation Track 2 award funds a three-site federated smart grid testbed with NYU and West Virginia University, starting October 1, 2026; a postdoctoral search is under way.</description>
   </item>
   <item>
-    <title>ARPO-Sensor Fusion: Autonomous Robotic Planning and Optimization for Intelligence Sensor Fusion</title>
-    <link>https://vinodvokkarane.github.io/scyps-site/news.html</link>
-    <guid isPermaLink="false">scyps-2026-09-a7e404d989</guid>
-    <category>Award</category>
-    <pubDate>01 Sep 2026 00:00:00 +0000</pubDate>
-    <description>SCyPS has a new award: ARPO-Sensor Fusion: Autonomous Robotic Planning and Optimization for Intelligence Sensor Fusion. Massachusetts Technology Collaborative, Applied AI Models program ($625K).</description>
-  </item>
-  <item>
     <title>The FUSION benchmarking framework paper appears in JOCN&#x27;s special issue on benchmarking in optical networks, followed in October by a QoT-aware grooming paper for multi-band SDM networks</title>
     <link>https://vinodvokkarane.github.io/scyps-site/news.html</link>
     <guid isPermaLink="false">scyps-2026-09-e556ccb1c0</guid>
     <category>Milestone</category>
     <pubDate>01 Sep 2026 00:00:00 +0000</pubDate>
-    <description>The FUSION benchmarking framework paper appears in JOCN&#x27;s special issue on benchmarking in optical networks, followed in October by a QoT-aware grooming paper for multi-band SDM networks. The FUSION benchmarking framework paper appears in JOCN&#x27;s special issue on...</description>
+    <description>The FUSION benchmarking framework paper appears in JOCN&#x27;s special issue on benchmarking in optical networks, followed in October by a QoT-aware grooming paper for multi-band SDM networks.</description>
   </item>
   <item>
     <title>ARPO-Sensor Fusion starts under the Massachusetts Technology Collaborative&#x27;s Applied AI Models program ($625K), performed at UMLARC</title>
@@ -44,15 +36,7 @@
     <guid isPermaLink="false">scyps-2026-09-dfa747677a</guid>
     <category>Milestone</category>
     <pubDate>01 Sep 2026 00:00:00 +0000</pubDate>
-    <description>ARPO-Sensor Fusion starts under the Massachusetts Technology Collaborative&#x27;s Applied AI Models program ($625K), performed at UMLARC. ARPO-Sensor Fusion starts under the Massachusetts Technology Collaborative&#x27;s Applied AI Models program ($625K), performed at UMLARC.</description>
-  </item>
-  <item>
-    <title>Lewis Tseng presents timely control for quantum clouds at the ACM SIGCOMM 2026 QuNet workshop</title>
-    <link>https://vinodvokkarane.github.io/scyps-site/news.html</link>
-    <guid isPermaLink="false">scyps-2026-08-e3ca62ae0f</guid>
-    <category>Presentation</category>
-    <pubDate>01 Aug 2026 00:00:00 +0000</pubDate>
-    <description>Lewis Tseng presents timely control for quantum clouds at the ACM SIGCOMM 2026 QuNet workshop. Lewis Tseng presents timely control for quantum clouds at the ACM SIGCOMM 2026 QuNet workshop.</description>
+    <description>ARPO-Sensor Fusion starts under the Massachusetts Technology Collaborative&#x27;s Applied AI Models program ($625K), performed at UMLARC.</description>
   </item>
   <item>
     <title>Sukesh Aghara&#x27;s group publishes in Energy Reports on phasing clean, sustainable alternatives into a university campus&#x27;s central heating, and the Massachusetts nuclear roadmap enters its public discussion series with events in Boston, Worcester, and Lowell</title>
@@ -60,23 +44,23 @@
     <guid isPermaLink="false">scyps-2026-06-b956c87c73</guid>
     <category>Milestone</category>
     <pubDate>01 Jun 2026 00:00:00 +0000</pubDate>
-    <description>Sukesh Aghara&#x27;s group publishes in Energy Reports on phasing clean, sustainable alternatives into a university campus&#x27;s central heating, and the Massachusetts nuclear roadmap enters its public discussion series with events in Boston, Worcester, and Lowell. Sukesh...</description>
+    <description>Sukesh Aghara&#x27;s group publishes in Energy Reports on phasing clean, sustainable alternatives into a university campus&#x27;s central heating, and the Massachusetts nuclear roadmap enters its public discussion series with events in Boston, Worcester, and Lowell.</description>
   </item>
   <item>
-    <title>ARPO: Autonomous Robotic Planning and Optimization</title>
+    <title>The U.S. Army ARPO project on autonomous robotic planning and optimization begins ($225K)</title>
     <link>https://vinodvokkarane.github.io/scyps-site/news.html</link>
-    <guid isPermaLink="false">scyps-2026-03-b0685a60bf</guid>
-    <category>Award</category>
-    <pubDate>01 Mar 2026 00:00:00 +0000</pubDate>
-    <description>SCyPS has a new award: ARPO: Autonomous Robotic Planning and Optimization. U.</description>
-  </item>
-  <item>
-    <title>The U</title>
-    <link>https://vinodvokkarane.github.io/scyps-site/news.html</link>
-    <guid isPermaLink="false">scyps-2026-03-2a07cc6b4a</guid>
+    <guid isPermaLink="false">scyps-2026-03-91918b8708</guid>
     <category>Milestone</category>
     <pubDate>01 Mar 2026 00:00:00 +0000</pubDate>
-    <description>The U. .</description>
+    <description>The U.S. Army ARPO project on autonomous robotic planning and optimization begins ($225K).</description>
+  </item>
+  <item>
+    <title>Two GLOBECOM 2025 papers from the Tseng group: satellite-edge-enabled multi-drone search and content-aware gossip for mobile device clouds</title>
+    <link>https://vinodvokkarane.github.io/scyps-site/news.html</link>
+    <guid isPermaLink="false">scyps-2025-12-7d65058b25</guid>
+    <category>Milestone</category>
+    <pubDate>01 Dec 2025 00:00:00 +0000</pubDate>
+    <description>Two GLOBECOM 2025 papers from the Tseng group: satellite-edge-enabled multi-drone search and content-aware gossip for mobile device clouds.</description>
   </item>
 </channel>
 </rss>

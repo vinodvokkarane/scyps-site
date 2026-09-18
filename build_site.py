@@ -2777,7 +2777,7 @@ ALUMNI_PHD = [
 ]
 ALUMNI_POSTDOC = [("Arash Deylamsalehi", "Google"), ("Jeremy M. Plante", "Hitachi Vantara"), ("Juzi Zhao", "San José State University"), ("Arush Gadkar", "Kilpatrick Townsend & Stockton LLP"), ("Joan Triay", "DOCOMO Euro-Labs"), ("Balagangadhar Bathula", "AT&T")]
 SITE_URL = "https://vinodvokkarane.github.io/scyps-site/"   # set this to the live address
-SITE_VERSION = "0.45"   # bump by 0.01 with every update to the site
+SITE_VERSION = "0.47"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3046,7 +3046,7 @@ LABS = [
                 "RF and microwave device characterization",
                 "Fully printed micro-supercapacitors and energy harvesting devices",
                 "Hardware authentication for printed and flexible devices"],
-     "links": [("PERC", "https://www.uml.edu/research/perc/"), ("RURI", "https://www.uml.edu/research/ruri/")],
+     "links": [("PERC", "https://www.uml.edu/research/perc/"), ("RURI", "https://www.uml.edu/Research/PERC/RURI/")],
      "art": "chip"},
     {"name": "Lowell Center for Space Science and Technology (LoCSST)", "lead": "Supriya Chakrabarti",
      "dept": "Physics and Applied Physics",
@@ -3062,7 +3062,7 @@ LABS = [
      "offers": ["Medical imaging and multimodal deep learning",
                 "Validation and evaluation of digital health tools",
                 "Clinical data platforms and academic-industry partnership"],
-     "links": [("Center for Digital Health", "https://www.uml.edu/research/cdh/")],
+     "links": [("Center for Digital Health", "https://www.uml.edu/research/digital-health/")],
      "art": "edge"},
     {"name": "Center for Energy Innovation and the Rist Institute for Sustainability and Energy",
      "lead": "Christopher Niezrecki, with Murat Inalpolat", "dept": "Mechanical and Industrial Engineering",
@@ -3070,7 +3070,7 @@ LABS = [
      "offers": ["Structural dynamics, vibration, and acoustic testing",
                 "Wind turbine blade inspection, including drone-based methods",
                 "Structural health monitoring for bridges and buildings"],
-     "links": [("Center for Energy Innovation", "https://www.uml.edu/research/cei/"), ("Rist Institute", "https://www.uml.edu/research/rist/")],
+     "links": [("Center for Energy Innovation", "https://www.uml.edu/research/energy/"), ("Rist Institute", "https://www.uml.edu/sustainability/")],
      "art": "health"},
 ]
 
@@ -4231,15 +4231,18 @@ def build_news_items(window_months=3):
         elif kinds == {"conference"}: kind, cls, key = "Conference", "conf", "conference"
         elif kinds == {"chapter"}: kind, cls, key = "Chapter", "chapter", "chapter"
         else: kind, cls, key = "Papers", "", "journal"
+        post = (f'{who}: "{group[0]["title"]}" in {venue}.' if len(group) == 1
+                else f'{who}: {len(group)} new papers in {venue}.')
         items.append(dict(ym=ym, kind=kind, cls=cls, key=key, title=title, body=body,
-                          link=link, linktext="Publisher record" if link else ""))
+                          link=link, linktext="Publisher record" if link else "", post=post))
     # awards that started inside the window
     for pr in PROJECTS:
         ym = _period_start(pr.get("period", ""))
         if not ym or not _months_ago(ym, window_months): continue
         amt = f' ({pr["amount"]})' if pr.get("amount") else ""
         items.append(dict(ym=ym, kind="Award", cls="award", key="award", title=pr["title"],
-                          body=f'{pr["sponsor"]}{amt}. {pr["desc"]}', link=None, linktext=""))
+                          body=f'{pr["sponsor"]}{amt}. {pr["desc"]}', link=None, linktext="",
+                          post=f'New award: {pr["title"]}. {re.sub(r" *\(Award #\d+\)", "", pr["sponsor"])}{amt}.'))
     # curated milestones from NEWS
     for when, text in NEWS:
         m = re.match(r"([A-Za-z]{3})[a-z]*\s+(\d{4})", when)
@@ -4247,12 +4250,21 @@ def build_news_items(window_months=3):
         mon = {"Jan":1,"Feb":2,"Mar":3,"Apr":4,"May":5,"Jun":6,"Jul":7,"Aug":8,"Sep":9,"Oct":10,"Nov":11,"Dec":12}.get(m.group(1))
         ym = (int(m.group(2)), mon or 1)
         if not _months_ago(ym, window_months): continue
-        head = text.split(".")[0]
+        parts = re.split(r"(?<=[a-z0-9\)])\.\s+(?=[A-Z])", text, maxsplit=1)
+        head = parts[0].rstrip(".")
         if any(head[:40] in it["title"] or it["title"][:40] in head for it in items): continue
         talk = re.search(r"\b(present(s|ed|ation)|invited talk|keynote|panel|workshop|demo|poster|General Chair|chairs?)\b", text, re.I)
         kind, cls, key = ("Presentation", "talk", "presentation") if talk else ("Milestone", "milestone", "milestone")
+        tail = parts[1].strip() if len(parts) > 1 else ""
         items.append(dict(ym=ym, kind=kind, cls=cls, key=key, title=head,
-                          body=text[len(head) + 2:].strip() or text, link=None, linktext=""))
+                          body=tail, link=None, linktext="", post=text))
+    # an award row and a hand-written note about the same award would post twice; keep one
+    seen = []
+    for it in sorted(items, key=lambda i: (0 if i["key"] == "milestone" else 1)):
+        key_words = set(re.findall(r"[A-Za-z]{4,}", it["title"].lower())[:6])
+        if any(len(key_words & s2) >= 3 for s2 in seen): it["dup"] = True
+        else: seen.append(key_words)
+    items = [i for i in items if not i.get("dup")]
     items.sort(key=lambda i: (-i["ym"][0], -i["ym"][1]))
     return items
 
@@ -4433,16 +4445,9 @@ def build_feed():
     root = os.path.dirname(os.path.abspath(OUT)) or "."
     items = build_news_items(12)[:40]
     def post_text(it):
-        who = it["body"].split(" published in ")[0] if " published in " in it["body"] else ""
-        if it["key"] in ("journal", "conference", "chapter"):
-            venue = it["body"].rsplit(" in ", 1)[-1].rstrip(".")
-            t = f'New from SCyPS: {who} on "{it["title"]}" in {venue}.' if who else f'New paper from SCyPS: {it["title"]}'
-        elif it["key"] == "award":
-            t = f'SCyPS has a new award: {it["title"]}. {it["body"].split(".")[0]}.'
-        else:
-            t = f'{it["title"]}. {it["body"].split(".")[0]}.'
-        t = re.sub(r"\s+", " ", t).strip()
-        return (t[:264].rsplit(" ", 1)[0] + "...") if len(t) > 267 else t
+        t = re.sub(r"\s+", " ", it.get("post") or f'{it["title"]}. {it["body"]}').strip()
+        if not t.endswith((".", "!", "?")): t += "."
+        return (t[:264].rsplit(" ", 1)[0].rstrip(",;:") + "...") if len(t) > 267 else t
     MON = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
     def entry(it):
         y, m = it["ym"]

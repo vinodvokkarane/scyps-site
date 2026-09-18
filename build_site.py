@@ -2171,6 +2171,7 @@ section.tint{background:var(--bg-2)}
 .loop .txt p{color:var(--ink-2);font-size:15.5px}
 @media (max-width:900px){.loop{grid-template-columns:1fr}}
 .flow{stroke-dasharray:3 9;animation:flow 2.6s linear infinite}
+.offscreen .flow,.offscreen .pulse,.offscreen .spin,.offscreen .grow,.offscreen .trace,.offscreen .fed-flow{animation-play-state:paused}
 .flow.slow{animation-duration:4.2s}
 @keyframes flow{to{stroke-dashoffset:-48}}
 .pulse{animation:pulse 3s ease-in-out infinite;transform-origin:center;transform-box:fill-box}
@@ -2179,8 +2180,8 @@ section.tint{background:var(--bg-2)}
 @keyframes spin{to{transform:rotate(360deg)}}
 .grow{animation:grow 3.2s ease-in-out infinite}
 @keyframes grow{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.72)}}
-.trace{stroke-dasharray:120 160;animation:trace 2.4s linear infinite}
-@keyframes trace{to{stroke-dashoffset:-280}}
+.trace{stroke-dasharray:60 100;animation:trace 3s linear infinite}
+@keyframes trace{from{stroke-dashoffset:60}to{stroke-dashoffset:-100}}
 @media (prefers-reduced-motion:reduce){.flow,.pulse,.spin,.grow,.trace{animation:none}.flow{stroke-dasharray:none}.trace{stroke-dasharray:none}}
 
 /* research */
@@ -2777,7 +2778,7 @@ ALUMNI_PHD = [
 ]
 ALUMNI_POSTDOC = [("Arash Deylamsalehi", "Google"), ("Jeremy M. Plante", "Hitachi Vantara"), ("Juzi Zhao", "San José State University"), ("Arush Gadkar", "Kilpatrick Townsend & Stockton LLP"), ("Joan Triay", "DOCOMO Euro-Labs"), ("Balagangadhar Bathula", "AT&T")]
 SITE_URL = "https://vinodvokkarane.github.io/scyps-site/"   # set this to the live address
-SITE_VERSION = "0.47"   # bump by 0.01 with every update to the site
+SITE_VERSION = "0.49"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3021,7 +3022,7 @@ LABS = [
                 "Reproducible benchmarking through the open-source FUSION framework",
                 "The NATIG cyber-physical co-simulation testbed (HELICS, GridLAB-D, ns-3)"],
      "links": [("Students in the group", "students.html"), ("FUSION on GitHub", "https://github.com/SDNNetSim/FUSION")],
-     "art": "fiber"},
+     "art": "acnl"},
     {"name": "SUMMIT federated smart grid testbed", "lead": "Vinod M. Vokkarane, with Arias, Tseng, Lin, and Srivastava",
      "dept": "NSF Major Research Instrumentation, Track 2",
      "what": "A three-site instrument linking real-time power system simulation with control, networking, and cybersecurity hardware in the loop across UMass Lowell, NYU Tandon, and West Virginia University, delivered to collaborators as hardware-in-the-loop Simulation-as-a-Service.",
@@ -3030,7 +3031,7 @@ LABS = [
                 "Optical, RF, and FPGA equipment for transport and edge layers",
                 "Wide-area software-defined networking between the three sites"],
      "links": [("SUMMIT project page", "summit.html")],
-     "art": "grid"},
+     "art": "summit"},
     {"name": "Integrated Nuclear Security and Safeguards Laboratory (INSSL)", "lead": "Sukesh Aghara",
      "dept": "Chemical (Nuclear) Engineering",
      "what": "Research, education, and training tools for global nuclear security and safeguards, alongside the UMass Lowell research reactor.",
@@ -3038,7 +3039,7 @@ LABS = [
                 "Security of nuclear facilities and robotic platforms for hazardous environments",
                 "Training through the IAEA-funded Intercontinental Nuclear Institute"],
      "links": [("INSSL", "https://www.uml.edu/Research/INSSL/")],
-     "art": "health"},
+     "art": "inssl"},
     {"name": "Printed Electronics Research Collaborative (PERC) and the Raytheon UMass Lowell Research Institute (RURI)",
      "lead": "Alkim Akyurtlu, with Oshadha Ranasingha", "dept": "Electrical and Computer Engineering",
      "what": "Additive manufacturing and printed electronics for RF and microwave devices, wearables, and functional printable inks, with RURI as the industry-facing research institute.",
@@ -3047,7 +3048,7 @@ LABS = [
                 "Fully printed micro-supercapacitors and energy harvesting devices",
                 "Hardware authentication for printed and flexible devices"],
      "links": [("PERC", "https://www.uml.edu/research/perc/"), ("RURI", "https://www.uml.edu/Research/PERC/RURI/")],
-     "art": "chip"},
+     "art": "perc"},
     {"name": "Lowell Center for Space Science and Technology (LoCSST)", "lead": "Supriya Chakrabarti",
      "dept": "Physics and Applied Physics",
      "what": "Space experiments and instrumentation, from hyperspectral imaging across the ultraviolet to the near infrared through lidar and exoplanet observation.",
@@ -3055,7 +3056,7 @@ LABS = [
                 "Balloon and sounding-rocket payload development",
                 "Hyperspectral imaging and lidar systems"],
      "links": [("LoCSST", "https://www.uml.edu/research/locsst/")],
-     "art": "ai"},
+     "art": "locsst"},
     {"name": "UMass Center for Digital Health", "lead": "Yu Cao",
      "dept": "Miner School of Computer and Information Sciences",
      "what": "A multi-campus partnership across Lowell, Worcester, and Boston working on digital health innovation, from medical imaging to platforms that move clinical data safely.",
@@ -3063,7 +3064,7 @@ LABS = [
                 "Validation and evaluation of digital health tools",
                 "Clinical data platforms and academic-industry partnership"],
      "links": [("Center for Digital Health", "https://www.uml.edu/research/digital-health/")],
-     "art": "edge"},
+     "art": "cdh"},
     {"name": "Center for Energy Innovation and the Rist Institute for Sustainability and Energy",
      "lead": "Christopher Niezrecki, with Murat Inalpolat", "dept": "Mechanical and Industrial Engineering",
      "what": "Renewable energy systems and structural health monitoring: wind turbine dynamics, inspection of blades and bridges, and the sensing that keeps large structures safe.",
@@ -3071,7 +3072,7 @@ LABS = [
                 "Wind turbine blade inspection, including drone-based methods",
                 "Structural health monitoring for bridges and buildings"],
      "links": [("Center for Energy Innovation", "https://www.uml.edu/research/energy/"), ("Rist Institute", "https://www.uml.edu/sustainability/")],
-     "art": "health"},
+     "art": "cei"},
 ]
 
 # ---------------------------------------------------------------- researcher identifiers
@@ -3230,9 +3231,9 @@ ART = {
 <path d="M104 92h24" stroke="#D5DCE5" stroke-width="1.6"/><path class="flow" d="M104 92h24" stroke="#0A777F" stroke-width="2.6"/>
 <!-- spectrum -->
 <path d="M132 128h146" stroke="#5B6B82" stroke-width="1.2"/>
-<g class="grow"><rect x="136" y="70" width="40" height="58" rx="3" fill="#044978" opacity=".85" style="transform-origin:156px 128px"/></g>
-<g class="grow" style="animation-delay:.6s"><rect x="182" y="52" width="44" height="76" rx="3" fill="#0A777F" style="transform-origin:204px 128px"/></g>
-<g class="grow" style="animation-delay:1.2s"><rect x="232" y="82" width="44" height="46" rx="3" fill="#3BA995" style="transform-origin:254px 128px"/></g>
+<rect x="136" y="70" width="40" height="58" rx="3" fill="#044978" opacity=".85" class="grow" style="transform-origin:156px 128px"/>
+<rect x="182" y="52" width="44" height="76" rx="3" fill="#0A777F" class="grow" style="transform-origin:204px 128px;animation-delay:.6s"/>
+<rect x="232" y="82" width="44" height="46" rx="3" fill="#3BA995" class="grow" style="transform-origin:254px 128px;animation-delay:1.2s"/>
 <g font-size="11" fill="#5B6B82" text-anchor="middle"><text x="156" y="143">S</text><text x="204" y="143">C</text><text x="254" y="143">L</text><text x="205" y="158">multi-band spectrum</text></g>
 <!-- 6G mast with expanding waves -->
 <path d="M322 148V72M314 148h16" stroke="#044978" stroke-width="1.6"/><path d="M316 72h12l-6-10z" fill="#044978"/>
@@ -3270,10 +3271,10 @@ ART = {
 <!-- data out -->
 <path d="M166 92h28" stroke="#D5DCE5" stroke-width="1.6"/><path class="flow" d="M166 92h28" stroke="#0A777F" stroke-width="2.4"/>
 <!-- hardware counters -->
-<g class="grow"><rect x="200" y="94" width="10" height="42" fill="#0A777F" style="transform-origin:205px 136px"/></g>
-<g class="grow" style="animation-delay:.5s"><rect x="216" y="76" width="10" height="60" fill="#0A777F" style="transform-origin:221px 136px"/></g>
-<g class="grow" style="animation-delay:1s"><rect x="232" y="106" width="10" height="30" fill="#0A777F" style="transform-origin:237px 136px"/></g>
-<g class="grow" style="animation-delay:1.5s"><rect x="248" y="62" width="10" height="74" fill="#0A777F" style="transform-origin:253px 136px"/></g>
+<rect x="200" y="94" width="10" height="42" fill="#0A777F" class="grow" style="transform-origin:205px 136px"/>
+<rect x="216" y="76" width="10" height="60" fill="#0A777F" class="grow" style="transform-origin:221px 136px;animation-delay:.5s"/>
+<rect x="232" y="106" width="10" height="30" fill="#0A777F" class="grow" style="transform-origin:237px 136px;animation-delay:1s"/>
+<rect x="248" y="62" width="10" height="74" fill="#0A777F" class="grow" style="transform-origin:253px 136px;animation-delay:1.5s"/>
 <g class="pulse"><rect x="264" y="116" width="10" height="20" fill="#E25555"/></g>
 <path d="M194 136h90" stroke="#5B6B82" stroke-width="1.2"/>
 <text x="239" y="152" font-size="11" fill="#5B6B82" text-anchor="middle">hardware counters</text>
@@ -3299,7 +3300,7 @@ ART = {
 <g fill="#3BA995"><circle cx="264" cy="88" r="3.5" class="pulse"/><circle cx="284" cy="80" r="3.5" class="pulse" style="animation-delay:.7s"/><circle cx="304" cy="88" r="3.5" class="pulse" style="animation-delay:1.4s"/></g>
 <!-- hospital and ECG -->
 <rect x="236" y="28" width="40" height="36" rx="6" fill="#0A777F"/><path d="M256 36v20M246 46h20" stroke="#fff" stroke-width="3"/>
-<path class="trace" d="M284 48h10l6-14 8 28 8-20 6 6h14" stroke="#3BA995" stroke-width="2"/>
+<path class="trace" pathLength="100" d="M284 48h10l6-14 8 28 8-20 6 6h14" stroke="#3BA995" stroke-width="2"/>
 <!-- data uplink from vehicles to the hospital and bridge -->
 <path d="M120 58h108" stroke="#D5DCE5" stroke-width="1.4"/><path class="flow" d="M120 58h108" stroke="#0A777F" stroke-width="2"/>
 <circle cx="120" cy="58" r="4.5" fill="#0A777F"/><path d="M120 62v34" stroke="#D5DCE5" stroke-width="1.4"/><path class="flow slow" d="M120 62v34" stroke="#0A777F" stroke-width="2"/>
@@ -3349,6 +3350,193 @@ HUB = """<svg viewBox="0 0 1200 690" xmlns="http://www.w3.org/2000/svg" role="im
 HUB = theme_svg(HUB)
 
 ART = {k: theme_svg(v) for k, v in ART.items()}
+LAB_ART = {
+"acnl": """<svg viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect width="720" height="480" fill="#FFFFFF"/>
+<g class="card"><rect x="250" y="40" width="220" height="60" rx="12" fill="#044978"/></g>
+<text x="360" y="77" text-anchor="middle" font-size="17" font-weight="600" fill="#FFFFFF">SDN controller</text>
+<g stroke="#D5DCE5" stroke-width="2" stroke-dasharray="4 7"><path d="M300 100L262 160M360 100L398 238M420 100L536 160"/></g>
+<!-- mesh -->
+<g stroke="#D5DCE5" stroke-width="3"><path d="M120 250L260 170M260 170L400 250M400 250L540 170M120 250L260 330M260 330L400 250M400 250L540 330M260 170L260 330M540 170L540 330M120 250L400 250"/></g>
+<g stroke="#0A777F" stroke-width="3.4"><path class="flow" d="M120 250L260 170L400 250L540 170"/><path class="flow slow" d="M120 250L260 330L400 250L540 330"/></g>
+<g fill="#044978"><circle cx="120" cy="250" r="12"/><circle cx="260" cy="170" r="12"/><circle cx="260" cy="330" r="12"/><circle cx="400" cy="250" r="12"/><circle cx="540" cy="170" r="12"/><circle cx="540" cy="330" r="12"/></g>
+<g fill="#FFFFFF"><circle cx="120" cy="250" r="4"/><circle cx="260" cy="170" r="4"/><circle cx="260" cy="330" r="4"/><circle cx="400" cy="250" r="4"/><circle cx="540" cy="170" r="4"/><circle cx="540" cy="330" r="4"/></g>
+<text x="360" y="378" text-anchor="middle" font-size="14" fill="#5B6B82">elastic optical mesh, multi-band and multi-core</text>
+<!-- spectrum readout -->
+<g class="card"><rect x="40" y="400" width="640" height="44" rx="10" fill="#F3F7FA" stroke="#D5DCE5"/></g>
+<rect x="60" y="410" width="90" height="24" rx="3" fill="#044978" class="grow" style="transform-origin:105px 434px;"/>
+<rect x="160" y="410" width="60" height="24" rx="3" fill="#0A777F" class="grow" style="transform-origin:190px 434px;animation-delay:.5s"/>
+<rect x="230" y="410" width="120" height="24" rx="3" fill="#3BA995" class="grow" style="transform-origin:290px 434px;animation-delay:1s"/>
+<rect x="360" y="410" width="80" height="24" rx="3" fill="#044978" class="grow" style="transform-origin:400px 434px;animation-delay:1.5s"/>
+<rect x="450" y="410" width="140" height="24" rx="3" fill="#0A777F" class="grow" style="transform-origin:520px 434px;animation-delay:2s"/>
+<rect x="600" y="410" width="60" height="24" rx="3" fill="#D5DCE5"/>
+<text x="670" y="468" text-anchor="end" font-size="12" fill="#5B6B82">spectrum allocation, S / C / L bands</text>
+</svg>""",
+"summit": """<svg viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect width="720" height="480" fill="#FFFFFF"/>
+<!-- wide area cloud -->
+<path d="M240 118c-20-44 60-70 84-38 20-30 84-18 84 20 36-4 52 44 18 58H256c-34-2-40-40-16-40z" fill="#F3F7FA" stroke="#D5DCE5" stroke-width="2"/>
+<text x="360" y="128" text-anchor="middle" font-size="13" fill="#5B6B82">wide-area SDN over the Internet</text>
+<!-- sites -->
+<g class="card" fill="#FFFFFF" stroke="#D5DCE5" stroke-width="1.5"><rect x="40" y="290" width="200" height="150" rx="14"/><rect x="260" y="290" width="200" height="150" rx="14"/><rect x="480" y="290" width="200" height="150" rx="14"/></g>
+<g font-size="15" font-weight="600" fill="#0E2036" text-anchor="middle"><text x="140" y="322">UMass Lowell</text><text x="360" y="322">NYU Tandon</text><text x="580" y="322">West Virginia</text></g>
+<g font-size="12" fill="#5B6B82" text-anchor="middle"><text x="140" y="340">lead site, RTDS</text><text x="360" y="340">federation site</text><text x="580" y="340">federation site</text></g>
+<!-- simulator racks -->
+<g fill="#044978"><rect x="110" y="352" width="60" height="76" rx="6"/><rect x="330" y="360" width="60" height="68" rx="6"/><rect x="550" y="360" width="60" height="68" rx="6"/></g>
+<g stroke="#3BA995" stroke-width="2.4"><path d="M120 366h40M120 380h40M120 394h40M120 408h40M340 374h40M340 388h40M340 402h40M560 374h40M560 388h40M560 402h40"/></g>
+<g fill="#3BA995"><circle cx="164" cy="416" r="3" class="pulse"/><circle cx="384" cy="416" r="3" class="pulse" style="animation-delay:.7s"/><circle cx="604" cy="416" r="3" class="pulse" style="animation-delay:1.4s"/></g>
+<!-- links to the cloud -->
+<g stroke="#D5DCE5" stroke-width="3"><path d="M140 290V170M360 290V160M580 290V170"/></g>
+<g stroke="#0A777F" stroke-width="3.4"><path class="flow" d="M140 290V170"/><path class="flow slow" d="M360 290V160"/><path class="flow" d="M580 290V170"/></g>
+<g stroke="#D5DCE5" stroke-width="2"><path d="M140 170Q250 100 360 160M360 160Q470 100 580 170"/></g>
+<!-- hardware in the loop -->
+<g class="card"><rect x="40" y="40" width="150" height="56" rx="10" fill="#FFFFFF" stroke="#0A777F" stroke-width="2"/></g>
+<text x="115" y="63" text-anchor="middle" font-size="12.5" font-weight="600" fill="#0A777F">relays and controllers</text>
+<text x="115" y="82" text-anchor="middle" font-size="11.5" fill="#5B6B82">hardware in the loop</text>
+<path d="M115 96v170" stroke="#3BA995" stroke-width="2.4" stroke-dasharray="6 8" class="flow slow"/>
+<text x="360" y="466" text-anchor="middle" font-size="13" fill="#5B6B82">one instrument across three universities</text>
+</svg>""",
+"inssl": """<svg viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect width="720" height="480" fill="#FFFFFF"/>
+<!-- containment building -->
+<path d="M70 420V270a110 110 0 0 1 220 0v150z" fill="#F3F7FA" stroke="#044978" stroke-width="3"/>
+<path d="M70 300h220" stroke="#D5DCE5" stroke-width="2"/>
+<circle cx="180" cy="330" r="38" stroke="#0A777F" stroke-width="3"/>
+<circle cx="180" cy="330" r="11" fill="#0A777F"/>
+<g stroke="#3BA995" stroke-width="3"><path d="M180 292a38 38 0 0 1 33 57M180 368a38 38 0 0 1-33-57"/></g>
+<text x="180" y="452" text-anchor="middle" font-size="13" fill="#5B6B82">research reactor and safeguards</text>
+<!-- detector -->
+<g class="card"><rect x="340" y="250" width="70" height="120" rx="10" fill="#044978"/></g>
+<rect x="352" y="262" width="46" height="60" rx="6" fill="#0A777F"/>
+<g fill="#3BA995"><circle cx="375" cy="345" r="5" class="pulse"/></g>
+<text x="375" y="392" text-anchor="middle" font-size="12" fill="#5B6B82">detector</text>
+<!-- counts travelling from source to detector -->
+<g stroke="#3BA995" stroke-width="2.6" stroke-dasharray="3 9"><path class="flow" d="M222 330H338"/></g>
+<!-- spectrum -->
+<g class="card"><rect x="440" y="60" width="240" height="300" rx="14" fill="#FFFFFF" stroke="#D5DCE5"/></g>
+<text x="560" y="86" text-anchor="middle" font-size="13" font-weight="600" fill="#0E2036">gamma spectrum</text>
+<path d="M460 330h200M460 330V100" stroke="#5B6B82" stroke-width="1.6"/>
+<path class="trace" pathLength="100" d="M462 318c20-4 30-30 40-30s8 24 20 26 14-120 30-120 12 100 26 100 10-40 24-40 16 30 28 30 8-10 24-14" stroke="#0A777F" stroke-width="2.6"/>
+<path d="M462 318c20-4 30-30 40-30s8 24 20 26 14-120 30-120 12 100 26 100 10-40 24-40 16 30 28 30 8-10 24-14" stroke="#D5DCE5" stroke-width="2"/>
+<g fill="#3BA995"><circle cx="552" cy="194" r="4" class="pulse"/><circle cx="602" cy="264" r="4" class="pulse" style="animation-delay:.8s"/></g>
+<text x="560" y="350" text-anchor="middle" font-size="11.5" fill="#5B6B82">energy</text>
+<!-- shield badge -->
+<path d="M560 400l30 10v26c0 22-13 36-30 44-17-8-30-22-30-44v-26z" fill="#3BA995"/>
+<path d="M546 434l9 9 20-22" stroke="#FFFFFF" stroke-width="5"/>
+</svg>""",
+"perc": """<svg viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect width="720" height="480" fill="#FFFFFF"/>
+<!-- substrate -->
+<path d="M80 380 L400 380 L520 300 L200 300 Z" fill="#F3F7FA" stroke="#D5DCE5" stroke-width="2"/>
+<!-- printed traces, drawn in over time -->
+<g stroke="#044978" stroke-width="4"><path d="M150 352h80l30-20h60l30 20h70l40-30"/></g>
+<g stroke="#0A777F" stroke-width="3.4"><path d="M170 330h60l30-20h80"/></g>
+<path class="flow" d="M150 352h80l30-20h60l30 20h70l40-30" stroke="#3BA995" stroke-width="2" stroke-dasharray="4 10"/>
+<!-- antenna spiral -->
+<path d="M420 320a26 26 0 1 1 -20 30a18 18 0 1 0 14 -22a10 10 0 1 1 -8 12" stroke="#044978" stroke-width="3"/>
+<!-- print head -->
+<g class="card"><rect x="300" y="60" width="90" height="130" rx="10" fill="#044978"/></g>
+<rect x="318" y="76" width="54" height="30" rx="4" fill="#0A777F"/>
+<path d="M345 190v40" stroke="#044978" stroke-width="8"/>
+<path d="M345 232l-10 40h20z" fill="#0A777F"/>
+<g fill="#3BA995"><circle cx="345" cy="285" r="3" class="pulse"/><circle cx="341" cy="298" r="2.5" class="pulse" style="animation-delay:.4s"/><circle cx="349" cy="310" r="2.5" class="pulse" style="animation-delay:.8s"/></g>
+<text x="345" y="50" text-anchor="middle" font-size="13" font-weight="600" fill="#0E2036">aerosol-jet head</text>
+<!-- gantry -->
+<path d="M120 200H620" stroke="#D5DCE5" stroke-width="6"/>
+<!-- RF output -->
+<g stroke="#3BA995" stroke-width="2.6"><path class="pulse" d="M560 250a30 30 0 0 1 0 60"/><path class="pulse" style="animation-delay:.6s" d="M578 236a48 48 0 0 1 0 88"/><path class="pulse" style="animation-delay:1.2s" d="M596 222a66 66 0 0 1 0 116"/></g>
+<text x="470" y="440" text-anchor="middle" font-size="13" fill="#5B6B82">printed RF antenna on a flexible substrate</text>
+<g class="card"><rect x="40" y="40" width="170" height="52" rx="10" fill="#FFFFFF" stroke="#D5DCE5"/></g>
+<text x="125" y="62" text-anchor="middle" font-size="12" font-weight="600" fill="#0E2036">functional inks</text>
+<text x="125" y="80" text-anchor="middle" font-size="11" fill="#5B6B82">conductive, dielectric, sensing</text>
+</svg>""",
+"locsst": """<svg viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect width="720" height="480" fill="#FFFFFF"/>
+<rect width="720" height="480" fill="#F3F7FA"/>
+<!-- stars -->
+<g fill="#044978"><circle cx="90" cy="60" r="2" class="pulse"/><circle cx="200" cy="40" r="1.6" class="pulse" style="animation-delay:.5s"/><circle cx="330" cy="70" r="2.2" class="pulse" style="animation-delay:1s"/><circle cx="470" cy="34" r="1.6" class="pulse" style="animation-delay:1.5s"/><circle cx="620" cy="66" r="2" class="pulse" style="animation-delay:2s"/><circle cx="560" cy="120" r="1.4"/><circle cx="140" cy="130" r="1.4"/></g>
+<!-- balloon -->
+<ellipse cx="180" cy="150" rx="70" ry="88" fill="#FFFFFF" stroke="#044978" stroke-width="3"/>
+<path d="M150 236l30 40 30-40" stroke="#044978" stroke-width="2.4"/>
+<!-- payload with telescope -->
+<g class="card"><rect x="150" y="276" width="60" height="50" rx="8" fill="#044978"/></g>
+<path d="M210 292l60-24" stroke="#0A777F" stroke-width="8"/>
+<circle cx="272" cy="266" r="7" fill="#3BA995"/>
+<text x="180" y="356" text-anchor="middle" font-size="12" fill="#5B6B82">balloon payload</text>
+<!-- light path into the spectrograph -->
+<path d="M282 262L470 150" stroke="#3BA995" stroke-width="2.4" stroke-dasharray="4 8" class="flow slow"/>
+<!-- spectrograph output: bands -->
+<g class="card"><rect x="400" y="200" width="280" height="200" rx="14" fill="#FFFFFF" stroke="#D5DCE5"/></g>
+<text x="540" y="228" text-anchor="middle" font-size="13" font-weight="600" fill="#0E2036">hyperspectral imager</text>
+<g><rect x="420" y="244" width="240" height="18" fill="#044978" opacity=".9"/><rect x="420" y="266" width="240" height="18" fill="#0A777F" opacity=".9"/><rect x="420" y="288" width="240" height="18" fill="#3BA995" opacity=".9"/><rect x="420" y="310" width="240" height="18" fill="#3BA995" opacity=".5"/></g>
+<g font-size="11" fill="#FFFFFF" font-weight="600"><text x="428" y="257">UV</text><text x="428" y="279">visible</text><text x="428" y="301">near IR</text></g>
+<path class="trace" pathLength="100" d="M420 372c30-6 40-40 60-40s20 30 40 30 16-22 36-22 18 26 40 26 22-12 44-10" stroke="#044978" stroke-width="2.4"/>
+<path d="M420 372c30-6 40-40 60-40s20 30 40 30 16-22 36-22 18 26 40 26 22-12 44-10" stroke="#D5DCE5" stroke-width="2"/>
+<!-- satellite orbit -->
+<circle cx="560" cy="96" r="62" stroke="#D5DCE5" stroke-width="1.6" stroke-dasharray="3 6"/>
+<g class="spin" style="transform-origin:560px 96px;animation-duration:14s"><g transform="translate(560,96)"><rect x="52" y="-7" width="18" height="14" rx="3" fill="#044978"/><path d="M48 0h-12M74 0h12" stroke="#0A777F" stroke-width="3.5"/></g></g>
+<text x="360" y="462" text-anchor="middle" font-size="13" fill="#5B6B82">instruments for space, from the stratosphere to orbit</text>
+</svg>""",
+"cdh": """<svg viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect width="720" height="480" fill="#FFFFFF"/>
+<!-- CT gantry -->
+<circle cx="170" cy="240" r="110" fill="#F3F7FA" stroke="#044978" stroke-width="3"/>
+<circle cx="170" cy="240" r="62" fill="#FFFFFF" stroke="#D5DCE5" stroke-width="2"/>
+<g class="spin" style="transform-origin:170px 240px;animation-duration:9s"><path d="M170 130a110 110 0 0 1 95 55" stroke="#0A777F" stroke-width="10"/><circle cx="170" cy="130" r="8" fill="#3BA995"/></g>
+<path d="M120 380h100" stroke="#044978" stroke-width="6"/>
+<text x="170" y="410" text-anchor="middle" font-size="12" fill="#5B6B82">medical imaging</text>
+<!-- reconstructed slice -->
+<g class="card"><rect x="320" y="140" width="130" height="130" rx="10" fill="#0E2036"/></g>
+<ellipse cx="385" cy="205" rx="50" ry="44" fill="#D5DCE5"/><ellipse cx="385" cy="205" rx="43" ry="37" fill="#5B6B82"/><ellipse cx="385" cy="205" rx="36" ry="30" fill="#F3F7FA" opacity=".85"/><path d="M385 178v54" stroke="#5B6B82" stroke-width="1.4"/><ellipse cx="379" cy="204" rx="4" ry="9" fill="#5B6B82"/><ellipse cx="391" cy="204" rx="4" ry="9" fill="#5B6B82"/>
+<text x="385" y="290" text-anchor="middle" font-size="12" fill="#5B6B82">reconstruction with learning</text>
+<path d="M282 240h30" stroke="#0A777F" stroke-width="3" class="flow"/>
+<!-- data platform -->
+<g class="card"><rect x="500" y="60" width="180" height="110" rx="14" fill="#044978"/></g>
+<text x="590" y="94" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">clinical data platform</text>
+<g stroke="#3BA995" stroke-width="2.4"><path d="M520 118h140M520 136h100M520 154h120"/></g>
+<path d="M450 205L500 140" stroke="#0A777F" stroke-width="2.6" stroke-dasharray="5 8" class="flow"/>
+<!-- wearable and ECG -->
+<g class="card"><rect x="520" y="250" width="70" height="90" rx="14" fill="#FFFFFF" stroke="#044978" stroke-width="3"/></g>
+<rect x="532" y="262" width="46" height="66" rx="6" fill="#F3F7FA"/>
+<path d="M538 300h8l5-14 8 26 7-18 5 6h9" stroke="#3BA995" stroke-width="2.2"/>
+<path d="M590 300h90" stroke="#D5DCE5" stroke-width="2"/>
+<path class="trace" pathLength="100" d="M594 300h14l8-22 10 44 10-32 8 10h30" stroke="#3BA995" stroke-width="2.6"/>
+<path d="M555 250V170" stroke="#0A777F" stroke-width="2.6" stroke-dasharray="5 8" class="flow slow"/>
+<text x="600" y="372" text-anchor="middle" font-size="12" fill="#5B6B82">wearables and remote monitoring</text>
+<text x="360" y="462" text-anchor="middle" font-size="13" fill="#5B6B82">imaging, sensing, and the platform that keeps the data safe</text>
+</svg>""",
+"cei": """<svg viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect width="720" height="480" fill="#FFFFFF"/>
+<!-- ground -->
+<path d="M40 420h640" stroke="#D5DCE5" stroke-width="3"/>
+<!-- turbine -->
+<path d="M200 420V200" stroke="#044978" stroke-width="8"/>
+<path d="M186 420h28" stroke="#044978" stroke-width="6"/>
+<g class="spin" style="transform-origin:200px 200px;animation-duration:8s">
+  <path d="M200 200l-8-120h16zM200 200l104 60-8 14zM200 200l-104 60 8 14z" fill="#0A777F"/>
+  <g fill="#3BA995"><circle cx="200" cy="120" r="5" class="pulse"/><circle cx="270" cy="240" r="5" class="pulse" style="animation-delay:.7s"/><circle cx="130" cy="240" r="5" class="pulse" style="animation-delay:1.4s"/></g>
+</g>
+<circle cx="200" cy="200" r="16" fill="#FFFFFF" stroke="#044978" stroke-width="5"/>
+<text x="200" y="450" text-anchor="middle" font-size="12" fill="#5B6B82">blade sensors, acoustic and vibration</text>
+<!-- inspection drone -->
+<g transform="translate(330,100)">
+  <rect x="34" y="18" width="34" height="18" rx="5" fill="#044978"/>
+  <path d="M18 8v10M84 8v10M18 18h16M84 18H68" stroke="#044978" stroke-width="2.4"/>
+  <g stroke="#3BA995" stroke-width="2.6" class="spin" style="transform-origin:18px 8px"><path d="M2 8h32"/></g>
+  <g stroke="#3BA995" stroke-width="2.6" class="spin" style="transform-origin:84px 8px"><path d="M68 8h32"/></g>
+</g>
+<path d="M381 136L292 180" stroke="#3BA995" stroke-width="2.4" stroke-dasharray="5 8" class="flow"/>
+<text x="381" y="90" text-anchor="middle" font-size="12" fill="#5B6B82">drone inspection</text>
+<!-- vibration signature -->
+<g class="card"><rect x="440" y="150" width="240" height="150" rx="14" fill="#FFFFFF" stroke="#D5DCE5"/></g>
+<text x="560" y="176" text-anchor="middle" font-size="13" font-weight="600" fill="#0E2036">vibration signature</text>
+<path d="M460 240h200" stroke="#D5DCE5" stroke-width="1.6"/>
+<path class="trace" pathLength="100" d="M460 240c8-30 12-30 20 0s12 30 20 0 12-30 20 0 12 60 20 0 12-30 20 0 12 30 20 0 12-30 20 0 12 30 20 0 12-30 20 0 12 30 20 0" stroke="#0A777F" stroke-width="2.4"/>
+<circle cx="540" cy="200" r="5" fill="#E25555" class="pulse"/>
+<text x="600" y="286" text-anchor="end" font-size="11.5" fill="#5B6B82">anomaly at the blade root</text>
+<!-- solar and hydrogen: the energy side -->
+<g class="card"><rect x="480" y="320" width="90" height="60" rx="8" fill="#044978"/></g>
+<g stroke="#FFFFFF" stroke-width="1.2" opacity=".6"><path d="M480 340h90M480 360h90M510 320v60M540 320v60"/></g>
+<g class="card"><rect x="590" y="320" width="90" height="60" rx="8" fill="#FFFFFF" stroke="#0A777F" stroke-width="2"/></g>
+<text x="635" y="356" text-anchor="middle" font-size="15" font-weight="700" fill="#0A777F">H2</text>
+<text x="580" y="402" text-anchor="middle" font-size="12" fill="#5B6B82">generation, storage, and sustainability</text>
+</svg>""",
+}
+LAB_ART = {k: theme_svg(v) for k, v in LAB_ART.items()}
+
 
 HERO_ART = {
 "grid": """<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round"><defs>
@@ -3486,11 +3674,11 @@ HERO_ART = {
 <!-- spectrum -->
 <path d="M470 470h420" stroke="#5B6B82" stroke-width="1.8"/>
 <g stroke="#D5DCE5" stroke-width="1.2"><path d="M470 470V150M890 470V150"/></g>
-<g class="grow"><rect x="482" y="330" width="86" height="140" rx="4" fill="#044978" style="transform-origin:525px 470px"/></g>
-<g class="grow" style="animation-delay:.4s"><rect x="576" y="270" width="60" height="200" rx="4" fill="#0A777F" style="transform-origin:606px 470px"/></g>
-<g class="grow" style="animation-delay:.8s"><rect x="644" y="360" width="70" height="110" rx="4" fill="#3BA995" style="transform-origin:679px 470px"/></g>
-<g class="grow" style="animation-delay:1.2s"><rect x="722" y="240" width="94" height="230" rx="4" fill="#044978" style="transform-origin:769px 470px"/></g>
-<g class="grow" style="animation-delay:1.6s"><rect x="824" y="330" width="56" height="140" rx="4" fill="#0A777F" style="transform-origin:852px 470px"/></g>
+<rect x="482" y="330" width="86" height="140" rx="4" fill="#044978" class="grow" style="transform-origin:525px 470px"/>
+<rect x="576" y="270" width="60" height="200" rx="4" fill="#0A777F" class="grow" style="transform-origin:606px 470px;animation-delay:.4s"/>
+<rect x="644" y="360" width="70" height="110" rx="4" fill="#3BA995" class="grow" style="transform-origin:679px 470px;animation-delay:.8s"/>
+<rect x="722" y="240" width="94" height="230" rx="4" fill="#044978" class="grow" style="transform-origin:769px 470px;animation-delay:1.2s"/>
+<rect x="824" y="330" width="56" height="140" rx="4" fill="#0A777F" class="grow" style="transform-origin:852px 470px;animation-delay:1.6s"/>
 <path d="M470 452C560 446 640 436 730 420S850 396 890 380" stroke="#E25555" stroke-width="3" stroke-dasharray="8 10"/>
 <text x="890" y="524" text-anchor="end" font-size="14" fill="#E25555">nonlinear interference grows with load</text>
 <g font-size="14" fill="#5B6B82" text-anchor="middle"><text x="525" y="494">S band</text><text x="606" y="494">C band</text><text x="679" y="494">C band</text><text x="769" y="494">L band</text><text x="852" y="494">L band</text></g>
@@ -3575,11 +3763,11 @@ HERO_ART = {
 <!-- counters -->
 <path d="M414 282h56" stroke="#D5DCE5" stroke-width="2.6"/><path class="flow" d="M414 282h56" stroke="#0A777F" stroke-width="3.2"/>
 <path d="M490 470h300" stroke="#5B6B82" stroke-width="1.8"/>
-<g class="grow"><rect x="506" y="330" width="26" height="140" fill="#0A777F" style="transform-origin:519px 470px"/></g>
-<g class="grow" style="animation-delay:.3s"><rect x="548" y="270" width="26" height="200" fill="#0A777F" style="transform-origin:561px 470px"/></g>
-<g class="grow" style="animation-delay:.6s"><rect x="590" y="360" width="26" height="110" fill="#0A777F" style="transform-origin:603px 470px"/></g>
-<g class="grow" style="animation-delay:.9s"><rect x="632" y="240" width="26" height="230" fill="#0A777F" style="transform-origin:645px 470px"/></g>
-<g class="grow" style="animation-delay:1.2s"><rect x="674" y="320" width="26" height="150" fill="#0A777F" style="transform-origin:687px 470px"/></g>
+<rect x="506" y="330" width="26" height="140" fill="#0A777F" class="grow" style="transform-origin:519px 470px"/>
+<rect x="548" y="270" width="26" height="200" fill="#0A777F" class="grow" style="transform-origin:561px 470px;animation-delay:.3s"/>
+<rect x="590" y="360" width="26" height="110" fill="#0A777F" class="grow" style="transform-origin:603px 470px;animation-delay:.6s"/>
+<rect x="632" y="240" width="26" height="230" fill="#0A777F" class="grow" style="transform-origin:645px 470px;animation-delay:.9s"/>
+<rect x="674" y="320" width="26" height="150" fill="#0A777F" class="grow" style="transform-origin:687px 470px;animation-delay:1.2s"/>
 <g class="pulse"><rect x="716" y="408" width="26" height="62" fill="#E25555"/><circle cx="729" cy="386" r="9" fill="#E25555"/></g>
 <rect x="758" y="352" width="26" height="118" fill="#0A777F"/>
 <text x="640" y="200" text-anchor="middle" font-size="15" font-weight="600" fill="#0E2036">hardware performance counters</text>
@@ -3870,6 +4058,11 @@ def build():
     }}
     chips.forEach(function(c){{ if(!c.disabled) c.addEventListener('click', function(){{ show(c.getAttribute('data-k')); }}); }});
   }})();
+  // pause SVG animations while their drawing is off screen
+  if('IntersectionObserver' in window){{
+    var io=new IntersectionObserver(function(es){{es.forEach(function(e){{e.target.classList.toggle('offscreen',!e.isIntersecting);}});}},{{rootMargin:'120px'}});
+    document.querySelectorAll('svg').forEach(function(sv){{ if(sv.querySelector('.flow,.pulse,.spin,.grow,.trace,.fed-flow')) io.observe(sv); }});
+  }}
   var tg=document.querySelector('.navtoggle'),menu=document.getElementById('menu');
   window.addEventListener('load',function(){{ var ic=document.querySelector('.uml-footer .fa-brands'); if(ic){{ var ff=getComputedStyle(ic).fontFamily||''; if(ff.indexOf('Font Awesome')<0) document.querySelector('.uml-footer').classList.add('no-fa'); }} }});
   tg.addEventListener('click',function(){{var o=menu.classList.toggle('open');tg.setAttribute('aria-expanded',o);}});
@@ -4503,7 +4696,7 @@ def build_labs(footer_html, script_html):
         lead = people.get(lab["lead"].split(",")[0].strip())
         face = avatar(lead, "sm") if lead else ""
         cards += f"""<article class="lab">
-  <div class="labart">{ART.get(lab["art"], "")}</div>
+  <div class="labart">{LAB_ART.get(lab["art"], ART.get(lab["art"], ""))}</div>
   <div class="labbody">
     <h2>{esc(lab["name"])}</h2>
     <p class="labwho">{face}<span><b>{esc(lab["lead"])}</b><small>{esc(lab["dept"])}</small></span></p>
@@ -4523,9 +4716,9 @@ def build_labs(footer_html, script_html):
   </div>
 </section>"""
     css = """.facgrid{display:grid;gap:22px}
-.lab{display:grid;grid-template-columns:minmax(0,.34fr) minmax(0,1fr);align-items:stretch;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
-.labart{background:#FFFFFF;justify-content:center;--bg-2:#F3F7FA;--surface:#FFFFFF;--line:#D5DCE5;--ink:#0E2036;--ink-3:#5B6B82;--signal:#0A777F;--brand-blue:#044978;--green:#3BA995;display:flex;align-items:center;padding:18px;border-right:1px solid var(--line)}
-.labart svg{width:100%;height:auto;display:block;max-height:220px}
+.lab{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:stretch;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.labart{background:#FFFFFF;justify-content:center;padding:26px;--bg-2:#F3F7FA;--surface:#FFFFFF;--line:#D5DCE5;--ink:#0E2036;--ink-3:#5B6B82;--signal:#0A777F;--brand-blue:#044978;--green:#3BA995;display:flex;align-items:center;padding:18px;border-right:1px solid var(--line)}
+.labart svg{width:100%;height:auto;display:block}
 .labbody{padding:26px 28px}
 .labbody h2{font-size:23px;line-height:1.25;margin-bottom:12px}
 .labwho{display:flex;align-items:center;gap:12px;margin-bottom:14px}

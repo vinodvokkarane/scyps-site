@@ -161,6 +161,7 @@ section.tint{background:var(--bg-2)}
 .loop .txt p{color:var(--ink-2);font-size:15.5px}
 @media (max-width:900px){.loop{grid-template-columns:1fr}}
 .flow{stroke-dasharray:3 9;animation:flow 2.6s linear infinite}
+.offscreen .flow,.offscreen .pulse,.offscreen .spin,.offscreen .grow,.offscreen .trace,.offscreen .fed-flow{animation-play-state:paused}
 .flow.slow{animation-duration:4.2s}
 @keyframes flow{to{stroke-dashoffset:-48}}
 .pulse{animation:pulse 3s ease-in-out infinite;transform-origin:center;transform-box:fill-box}
@@ -169,8 +170,8 @@ section.tint{background:var(--bg-2)}
 @keyframes spin{to{transform:rotate(360deg)}}
 .grow{animation:grow 3.2s ease-in-out infinite}
 @keyframes grow{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.72)}}
-.trace{stroke-dasharray:120 160;animation:trace 2.4s linear infinite}
-@keyframes trace{to{stroke-dashoffset:-280}}
+.trace{stroke-dasharray:60 100;animation:trace 3s linear infinite}
+@keyframes trace{from{stroke-dashoffset:60}to{stroke-dashoffset:-100}}
 @media (prefers-reduced-motion:reduce){.flow,.pulse,.spin,.grow,.trace{animation:none}.flow{stroke-dasharray:none}.trace{stroke-dasharray:none}}
 
 /* research */
@@ -728,7 +729,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
         <li><a href="https://www.uml.edu/service/Apps/Forms/Form?configId=ccde10d9-949a-4891-a810-ca2cfa641f6f&amp;tfa_26=https://www.uml.edu/research/scyps/" title="Website Feedback" target="_blank" rel="noopener noreferrer">Feedback</a></li>
       </ul>
       <p class="fine">Updated September 2026. Grant figures are total awards as reported by sponsors; the UMass Lowell share is noted where a project is a multi-institution consortium. Photographs courtesy of UMass Lowell.</p>
-      <p class="version">v 0.47<span class="vsep"></span><span id="visits" title="Visits counted since the counter went live"></span></p>
+      <p class="version">v 0.49<span class="vsep"></span><span id="visits" title="Visits counted since the counter went live"></span></p>
     </div>
   </div>
 </footer>
@@ -768,6 +769,11 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
     }
     chips.forEach(function(c){ if(!c.disabled) c.addEventListener('click', function(){ show(c.getAttribute('data-k')); }); });
   })();
+  // pause SVG animations while their drawing is off screen
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle('offscreen',!e.isIntersecting);});},{rootMargin:'120px'});
+    document.querySelectorAll('svg').forEach(function(sv){ if(sv.querySelector('.flow,.pulse,.spin,.grow,.trace,.fed-flow')) io.observe(sv); });
+  }
   var tg=document.querySelector('.navtoggle'),menu=document.getElementById('menu');
   window.addEventListener('load',function(){ var ic=document.querySelector('.uml-footer .fa-brands'); if(ic){ var ff=getComputedStyle(ic).fontFamily||''; if(ff.indexOf('Font Awesome')<0) document.querySelector('.uml-footer').classList.add('no-fa'); } });
   tg.addEventListener('click',function(){var o=menu.classList.toggle('open');tg.setAttribute('aria-expanded',o);});

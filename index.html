@@ -161,6 +161,7 @@ section.tint{background:var(--bg-2)}
 .loop .txt p{color:var(--ink-2);font-size:15.5px}
 @media (max-width:900px){.loop{grid-template-columns:1fr}}
 .flow{stroke-dasharray:3 9;animation:flow 2.6s linear infinite}
+.offscreen .flow,.offscreen .pulse,.offscreen .spin,.offscreen .grow,.offscreen .trace,.offscreen .fed-flow{animation-play-state:paused}
 .flow.slow{animation-duration:4.2s}
 @keyframes flow{to{stroke-dashoffset:-48}}
 .pulse{animation:pulse 3s ease-in-out infinite;transform-origin:center;transform-box:fill-box}
@@ -169,8 +170,8 @@ section.tint{background:var(--bg-2)}
 @keyframes spin{to{transform:rotate(360deg)}}
 .grow{animation:grow 3.2s ease-in-out infinite}
 @keyframes grow{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.72)}}
-.trace{stroke-dasharray:120 160;animation:trace 2.4s linear infinite}
-@keyframes trace{to{stroke-dashoffset:-280}}
+.trace{stroke-dasharray:60 100;animation:trace 3s linear infinite}
+@keyframes trace{from{stroke-dashoffset:60}to{stroke-dashoffset:-100}}
 @media (prefers-reduced-motion:reduce){.flow,.pulse,.spin,.grow,.trace{animation:none}.flow{stroke-dasharray:none}.trace{stroke-dasharray:none}}
 
 /* research */
@@ -801,9 +802,9 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 <path class="s-line" d="M104 92h24" stroke-width="1.6"/><path class="flow s-sig" d="M104 92h24" stroke-width="2.6"/>
 <!-- spectrum -->
 <path class="s-muted" d="M132 128h146" stroke-width="1.2"/>
-<g class="grow"><rect class="f-brand" x="136" y="70" width="40" height="58" rx="3" opacity=".85" style="transform-origin:156px 128px"/></g>
-<g class="grow" style="animation-delay:.6s"><rect class="f-sig" x="182" y="52" width="44" height="76" rx="3" style="transform-origin:204px 128px"/></g>
-<g class="grow" style="animation-delay:1.2s"><rect class="f-grn" x="232" y="82" width="44" height="46" rx="3" style="transform-origin:254px 128px"/></g>
+<rect x="136" y="70" width="40" height="58" rx="3" opacity=".85" class="grow f-brand" style="transform-origin:156px 128px"/>
+<rect x="182" y="52" width="44" height="76" rx="3" class="grow f-sig" style="transform-origin:204px 128px;animation-delay:.6s"/>
+<rect x="232" y="82" width="44" height="46" rx="3" class="grow f-grn" style="transform-origin:254px 128px;animation-delay:1.2s"/>
 <g class="f-muted" font-size="11" text-anchor="middle"><text x="156" y="143">S</text><text x="204" y="143">C</text><text x="254" y="143">L</text><text x="205" y="158">multi-band spectrum</text></g>
 <!-- 6G mast with expanding waves -->
 <path class="s-brand" d="M322 148V72M314 148h16" stroke-width="1.6"/><path class="f-brand" d="M316 72h12l-6-10z"/>
@@ -837,10 +838,10 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 <!-- data out -->
 <path class="s-line" d="M166 92h28" stroke-width="1.6"/><path class="flow s-sig" d="M166 92h28" stroke-width="2.4"/>
 <!-- hardware counters -->
-<g class="grow"><rect class="f-sig" x="200" y="94" width="10" height="42" style="transform-origin:205px 136px"/></g>
-<g class="grow" style="animation-delay:.5s"><rect class="f-sig" x="216" y="76" width="10" height="60" style="transform-origin:221px 136px"/></g>
-<g class="grow" style="animation-delay:1s"><rect class="f-sig" x="232" y="106" width="10" height="30" style="transform-origin:237px 136px"/></g>
-<g class="grow" style="animation-delay:1.5s"><rect class="f-sig" x="248" y="62" width="10" height="74" style="transform-origin:253px 136px"/></g>
+<rect x="200" y="94" width="10" height="42" class="grow f-sig" style="transform-origin:205px 136px"/>
+<rect x="216" y="76" width="10" height="60" class="grow f-sig" style="transform-origin:221px 136px;animation-delay:.5s"/>
+<rect x="232" y="106" width="10" height="30" class="grow f-sig" style="transform-origin:237px 136px;animation-delay:1s"/>
+<rect x="248" y="62" width="10" height="74" class="grow f-sig" style="transform-origin:253px 136px;animation-delay:1.5s"/>
 <g class="pulse"><rect class="f-alert" x="264" y="116" width="10" height="20"/></g>
 <path class="s-muted" d="M194 136h90" stroke-width="1.2"/>
 <text class="f-muted" x="239" y="152" font-size="11" text-anchor="middle">hardware counters</text>
@@ -864,7 +865,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 <g class="f-grn"><circle cx="264" cy="88" r="3.5" class="pulse"/><circle cx="284" cy="80" r="3.5" class="pulse" style="animation-delay:.7s"/><circle cx="304" cy="88" r="3.5" class="pulse" style="animation-delay:1.4s"/></g>
 <!-- hospital and ECG -->
 <rect class="f-sig" x="236" y="28" width="40" height="36" rx="6"/><path d="M256 36v20M246 46h20" stroke="#fff" stroke-width="3"/>
-<path class="trace s-grn" d="M284 48h10l6-14 8 28 8-20 6 6h14" stroke-width="2"/>
+<path class="trace s-grn" pathLength="100" d="M284 48h10l6-14 8 28 8-20 6 6h14" stroke-width="2"/>
 <!-- data uplink from vehicles to the hospital and bridge -->
 <path class="s-line" d="M120 58h108" stroke-width="1.4"/><path class="flow s-sig" d="M120 58h108" stroke-width="2"/>
 <circle class="f-sig" cx="120" cy="58" r="4.5"/><path class="s-line" d="M120 62v34" stroke-width="1.4"/><path class="flow slow s-sig" d="M120 62v34" stroke-width="2"/>
@@ -1019,7 +1020,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
         <li><a href="https://www.uml.edu/service/Apps/Forms/Form?configId=ccde10d9-949a-4891-a810-ca2cfa641f6f&amp;tfa_26=https://www.uml.edu/research/scyps/" title="Website Feedback" target="_blank" rel="noopener noreferrer">Feedback</a></li>
       </ul>
       <p class="fine">Updated September 2026. Grant figures are total awards as reported by sponsors; the UMass Lowell share is noted where a project is a multi-institution consortium. Photographs courtesy of UMass Lowell.</p>
-      <p class="version">v 0.47<span class="vsep"></span><span id="visits" title="Visits counted since the counter went live"></span></p>
+      <p class="version">v 0.49<span class="vsep"></span><span id="visits" title="Visits counted since the counter went live"></span></p>
     </div>
   </div>
 </footer>
@@ -1060,6 +1061,11 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
     }
     chips.forEach(function(c){ if(!c.disabled) c.addEventListener('click', function(){ show(c.getAttribute('data-k')); }); });
   })();
+  // pause SVG animations while their drawing is off screen
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle('offscreen',!e.isIntersecting);});},{rootMargin:'120px'});
+    document.querySelectorAll('svg').forEach(function(sv){ if(sv.querySelector('.flow,.pulse,.spin,.grow,.trace,.fed-flow')) io.observe(sv); });
+  }
   var tg=document.querySelector('.navtoggle'),menu=document.getElementById('menu');
   window.addEventListener('load',function(){ var ic=document.querySelector('.uml-footer .fa-brands'); if(ic){ var ff=getComputedStyle(ic).fontFamily||''; if(ff.indexOf('Font Awesome')<0) document.querySelector('.uml-footer').classList.add('no-fa'); } });
   tg.addEventListener('click',function(){var o=menu.classList.toggle('open');tg.setAttribute('aria-expanded',o);});

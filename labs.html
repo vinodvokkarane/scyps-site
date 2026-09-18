@@ -161,6 +161,7 @@ section.tint{background:var(--bg-2)}
 .loop .txt p{color:var(--ink-2);font-size:15.5px}
 @media (max-width:900px){.loop{grid-template-columns:1fr}}
 .flow{stroke-dasharray:3 9;animation:flow 2.6s linear infinite}
+.offscreen .flow,.offscreen .pulse,.offscreen .spin,.offscreen .grow,.offscreen .trace,.offscreen .fed-flow{animation-play-state:paused}
 .flow.slow{animation-duration:4.2s}
 @keyframes flow{to{stroke-dashoffset:-48}}
 .pulse{animation:pulse 3s ease-in-out infinite;transform-origin:center;transform-box:fill-box}
@@ -169,8 +170,8 @@ section.tint{background:var(--bg-2)}
 @keyframes spin{to{transform:rotate(360deg)}}
 .grow{animation:grow 3.2s ease-in-out infinite}
 @keyframes grow{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.72)}}
-.trace{stroke-dasharray:120 160;animation:trace 2.4s linear infinite}
-@keyframes trace{to{stroke-dashoffset:-280}}
+.trace{stroke-dasharray:60 100;animation:trace 3s linear infinite}
+@keyframes trace{from{stroke-dashoffset:60}to{stroke-dashoffset:-100}}
 @media (prefers-reduced-motion:reduce){.flow,.pulse,.spin,.grow,.trace{animation:none}.flow{stroke-dasharray:none}.trace{stroke-dasharray:none}}
 
 /* research */
@@ -531,9 +532,9 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 
 .links a.on{color:var(--ink);font-weight:600}
 .facgrid{display:grid;gap:22px}
-.lab{display:grid;grid-template-columns:minmax(0,.34fr) minmax(0,1fr);align-items:stretch;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
-.labart{background:#FFFFFF;justify-content:center;--bg-2:#F3F7FA;--surface:#FFFFFF;--line:#D5DCE5;--ink:#0E2036;--ink-3:#5B6B82;--signal:#0A777F;--brand-blue:#044978;--green:#3BA995;display:flex;align-items:center;padding:18px;border-right:1px solid var(--line)}
-.labart svg{width:100%;height:auto;display:block;max-height:220px}
+.lab{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:stretch;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.labart{background:#FFFFFF;justify-content:center;padding:26px;--bg-2:#F3F7FA;--surface:#FFFFFF;--line:#D5DCE5;--ink:#0E2036;--ink-3:#5B6B82;--signal:#0A777F;--brand-blue:#044978;--green:#3BA995;display:flex;align-items:center;padding:18px;border-right:1px solid var(--line)}
+.labart svg{width:100%;height:auto;display:block}
 .labbody{padding:26px 28px}
 .labbody h2{font-size:23px;line-height:1.25;margin-bottom:12px}
 .labwho{display:flex;align-items:center;gap:12px;margin-bottom:14px}
@@ -589,23 +590,25 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
   <div class="wrap">
     <div class="shead"><h1>Labs and facilities</h1><p>The center is not a building. It is a set of laboratories and instruments across four UMass Lowell colleges, run by the faculty listed on each one, and open to collaborators on the terms described below.</p></div>
     <div class="facgrid"><article class="lab">
-  <div class="labart"><svg viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round">
-<g class="card"><rect class="f-surface s-line" x="14" y="14" width="332" height="152" rx="12"/></g>
-<!-- fiber cross-section -->
-<circle class="f-tint s-brand" cx="66" cy="92" r="36" stroke-width="1.6"/><circle class="s-line" cx="66" cy="92" r="24" stroke-width="1.2"/>
-<g class="f-sig"><circle cx="66" cy="92" r="4.5"/><circle cx="56" cy="80" r="3.2"/><circle cx="78" cy="82" r="3.2"/><circle cx="54" cy="104" r="3.2"/><circle cx="78" cy="104" r="3.2"/></g>
-<g class="pulse f-grn"><circle cx="66" cy="92" r="8" opacity=".35"/></g>
-<!-- light pulses along the fiber to the spectrum -->
-<path class="s-line" d="M104 92h24" stroke-width="1.6"/><path class="flow s-sig" d="M104 92h24" stroke-width="2.6"/>
-<!-- spectrum -->
-<path class="s-muted" d="M132 128h146" stroke-width="1.2"/>
-<g class="grow"><rect class="f-brand" x="136" y="70" width="40" height="58" rx="3" opacity=".85" style="transform-origin:156px 128px"/></g>
-<g class="grow" style="animation-delay:.6s"><rect class="f-sig" x="182" y="52" width="44" height="76" rx="3" style="transform-origin:204px 128px"/></g>
-<g class="grow" style="animation-delay:1.2s"><rect class="f-grn" x="232" y="82" width="44" height="46" rx="3" style="transform-origin:254px 128px"/></g>
-<g class="f-muted" font-size="11" text-anchor="middle"><text x="156" y="143">S</text><text x="204" y="143">C</text><text x="254" y="143">L</text><text x="205" y="158">multi-band spectrum</text></g>
-<!-- 6G mast with expanding waves -->
-<path class="s-brand" d="M322 148V72M314 148h16" stroke-width="1.6"/><path class="f-brand" d="M316 72h12l-6-10z"/>
-<g class="s-sig" stroke-width="1.6" fill="none"><path class="pulse" d="M310 64a17 17 0 0 1 24 0"/><path class="pulse" style="animation-delay:.7s" d="M304 56a26 26 0 0 1 36 0"/><path class="pulse" style="animation-delay:1.4s" d="M298 48a34 34 0 0 1 48 0"/></g>
+  <div class="labart"><svg viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect class="f-surface" width="720" height="480"/>
+<g class="card"><rect class="f-brand" x="250" y="40" width="220" height="60" rx="12"/></g>
+<text class="f-surface" x="360" y="77" text-anchor="middle" font-size="17" font-weight="600">SDN controller</text>
+<g class="s-line" stroke-width="2" stroke-dasharray="4 7"><path d="M300 100L262 160M360 100L398 238M420 100L536 160"/></g>
+<!-- mesh -->
+<g class="s-line" stroke-width="3"><path d="M120 250L260 170M260 170L400 250M400 250L540 170M120 250L260 330M260 330L400 250M400 250L540 330M260 170L260 330M540 170L540 330M120 250L400 250"/></g>
+<g class="s-sig" stroke-width="3.4"><path class="flow" d="M120 250L260 170L400 250L540 170"/><path class="flow slow" d="M120 250L260 330L400 250L540 330"/></g>
+<g class="f-brand"><circle cx="120" cy="250" r="12"/><circle cx="260" cy="170" r="12"/><circle cx="260" cy="330" r="12"/><circle cx="400" cy="250" r="12"/><circle cx="540" cy="170" r="12"/><circle cx="540" cy="330" r="12"/></g>
+<g class="f-surface"><circle cx="120" cy="250" r="4"/><circle cx="260" cy="170" r="4"/><circle cx="260" cy="330" r="4"/><circle cx="400" cy="250" r="4"/><circle cx="540" cy="170" r="4"/><circle cx="540" cy="330" r="4"/></g>
+<text class="f-muted" x="360" y="378" text-anchor="middle" font-size="14">elastic optical mesh, multi-band and multi-core</text>
+<!-- spectrum readout -->
+<g class="card"><rect class="f-tint s-line" x="40" y="400" width="640" height="44" rx="10"/></g>
+<rect x="60" y="410" width="90" height="24" rx="3" class="grow f-brand" style="transform-origin:105px 434px;"/>
+<rect x="160" y="410" width="60" height="24" rx="3" class="grow f-sig" style="transform-origin:190px 434px;animation-delay:.5s"/>
+<rect x="230" y="410" width="120" height="24" rx="3" class="grow f-grn" style="transform-origin:290px 434px;animation-delay:1s"/>
+<rect x="360" y="410" width="80" height="24" rx="3" class="grow f-brand" style="transform-origin:400px 434px;animation-delay:1.5s"/>
+<rect x="450" y="410" width="140" height="24" rx="3" class="grow f-sig" style="transform-origin:520px 434px;animation-delay:2s"/>
+<rect class="f-line" x="600" y="410" width="60" height="24" rx="3"/>
+<text class="f-muted" x="670" y="468" text-anchor="end" font-size="12">spectrum allocation, S / C / L bands</text>
 </svg></div>
   <div class="labbody">
     <h2>Advanced Communication Networks Laboratory (ACNL)</h2>
@@ -616,29 +619,28 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
     <p class="lablinks"><a href="students.html">Students in the group</a> <a href="https://github.com/SDNNetSim/FUSION" target="_blank" rel="noopener noreferrer">FUSION on GitHub</a></p>
   </div>
 </article><article class="lab">
-  <div class="labart"><svg viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round">
-<g class="card"><rect class="f-surface s-line" x="14" y="14" width="332" height="152" rx="12"/></g>
-<!-- towers -->
-<g class="s-brand" stroke-width="1.7">
-  <path d="M46 146l12-92h12l12 92M50 122h32M53 100h26M57 78h18M36 122h60M40 100h52M46 78h40"/>
-  <path d="M284 146l12-92h12l12 92M288 122h32M291 100h26M295 78h18M274 122h60M278 100h52M284 78h40"/>
-</g>
-<!-- power lines with moving energy -->
-<path class="s-line" d="M46 78Q180 128 284 78M40 100Q180 150 290 100" stroke-width="1.6"/>
-<path class="flow s-sig" d="M46 78Q180 128 284 78" stroke-width="2.4"/><path class="flow slow s-sig" d="M40 100Q180 150 290 100" stroke-width="2.4"/>
-<!-- substation -->
-<rect class="f-brand" x="140" y="118" width="80" height="30" rx="5"/>
-<g stroke="#fff" stroke-width="1.2" opacity=".7"><path d="M156 122v22M172 122v22M188 122v22M204 122v22M140 133h80"/></g>
-<!-- smart meters -->
-<g class="f-surface s-brand" stroke-width="1.6"><rect x="104" y="30" width="28" height="30" rx="6"/><rect x="166" y="30" width="28" height="30" rx="6"/><rect x="228" y="30" width="28" height="30" rx="6"/></g>
-<g class="s-sig" stroke-width="1.7"><path d="M110 48a8 8 0 0 1 16 0M172 48a8 8 0 0 1 16 0M234 48a8 8 0 0 1 16 0M118 48l4-5M180 48l4-6M242 48l3-7"/></g>
-<g class="s-line" stroke-width="1.6"><path d="M118 60v58M180 60v58M242 60v58"/></g>
-<g class="s-grn" stroke-width="2.2"><path class="flow" d="M118 60v58"/><path class="flow slow" d="M180 60v58"/><path class="flow" d="M242 60v58"/></g>
-<!-- shield -->
-<path class="f-grn" d="M180 70l14 5v10c0 9-6 15-14 18-8-3-14-9-14-18V75z"/><path d="M174 85l4 4 8-9" stroke="#fff" stroke-width="2"/>
-<!-- attack bolt deflected -->
-<g class="pulse"><path class="s-alert" d="M266 64l-14 9 7 2-9 12" stroke-width="2.2"/><circle class="f-alert" cx="250" cy="87" r="3"/></g>
-<path class="s-line" d="M30 148h300" stroke-width="1.2"/>
+  <div class="labart"><svg viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect class="f-surface" width="720" height="480"/>
+<!-- wide area cloud -->
+<path class="f-tint s-line" d="M240 118c-20-44 60-70 84-38 20-30 84-18 84 20 36-4 52 44 18 58H256c-34-2-40-40-16-40z" stroke-width="2"/>
+<text class="f-muted" x="360" y="128" text-anchor="middle" font-size="13">wide-area SDN over the Internet</text>
+<!-- sites -->
+<g class="card f-surface s-line" stroke-width="1.5"><rect x="40" y="290" width="200" height="150" rx="14"/><rect x="260" y="290" width="200" height="150" rx="14"/><rect x="480" y="290" width="200" height="150" rx="14"/></g>
+<g class="f-ink" font-size="15" font-weight="600" text-anchor="middle"><text x="140" y="322">UMass Lowell</text><text x="360" y="322">NYU Tandon</text><text x="580" y="322">West Virginia</text></g>
+<g class="f-muted" font-size="12" text-anchor="middle"><text x="140" y="340">lead site, RTDS</text><text x="360" y="340">federation site</text><text x="580" y="340">federation site</text></g>
+<!-- simulator racks -->
+<g class="f-brand"><rect x="110" y="352" width="60" height="76" rx="6"/><rect x="330" y="360" width="60" height="68" rx="6"/><rect x="550" y="360" width="60" height="68" rx="6"/></g>
+<g class="s-grn" stroke-width="2.4"><path d="M120 366h40M120 380h40M120 394h40M120 408h40M340 374h40M340 388h40M340 402h40M560 374h40M560 388h40M560 402h40"/></g>
+<g class="f-grn"><circle cx="164" cy="416" r="3" class="pulse"/><circle cx="384" cy="416" r="3" class="pulse" style="animation-delay:.7s"/><circle cx="604" cy="416" r="3" class="pulse" style="animation-delay:1.4s"/></g>
+<!-- links to the cloud -->
+<g class="s-line" stroke-width="3"><path d="M140 290V170M360 290V160M580 290V170"/></g>
+<g class="s-sig" stroke-width="3.4"><path class="flow" d="M140 290V170"/><path class="flow slow" d="M360 290V160"/><path class="flow" d="M580 290V170"/></g>
+<g class="s-line" stroke-width="2"><path d="M140 170Q250 100 360 160M360 160Q470 100 580 170"/></g>
+<!-- hardware in the loop -->
+<g class="card"><rect class="f-surface s-sig" x="40" y="40" width="150" height="56" rx="10" stroke-width="2"/></g>
+<text class="f-sig" x="115" y="63" text-anchor="middle" font-size="12.5" font-weight="600">relays and controllers</text>
+<text class="f-muted" x="115" y="82" text-anchor="middle" font-size="11.5">hardware in the loop</text>
+<path d="M115 96v170" stroke-width="2.4" stroke-dasharray="6 8" class="flow slow s-grn"/>
+<text class="f-muted" x="360" y="466" text-anchor="middle" font-size="13">one instrument across three universities</text>
 </svg></div>
   <div class="labbody">
     <h2>SUMMIT federated smart grid testbed</h2>
@@ -649,27 +651,32 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
     <p class="lablinks"><a href="summit.html">SUMMIT project page</a></p>
   </div>
 </article><article class="lab">
-  <div class="labart"><svg viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round">
-<g class="card"><rect class="f-surface s-line" x="14" y="14" width="332" height="152" rx="12"/></g>
-<!-- road with moving lane marks -->
-<rect class="f-tint s-line" x="24" y="118" width="196" height="26" rx="4"/>
-<path class="flow slow s-muted" d="M30 131h184" stroke-width="1.4" stroke-dasharray="10 8"/>
-<!-- vehicles -->
-<g><path class="f-brand" d="M44 118h48l-8-14H52z"/><path class="f-brand" d="M40 118h56v6H40z" opacity=".85"/><circle class="f-surface s-brand" cx="52" cy="126" r="4.5" stroke-width="1.6"/><circle class="f-surface s-brand" cx="84" cy="126" r="4.5" stroke-width="1.6"/></g>
-<g><path class="f-sig" d="M130 118h48l-8-14h-32z"/><path class="f-sig" d="M126 118h56v6h-56z" opacity=".85"/><circle class="f-surface s-sig" cx="138" cy="126" r="4.5" stroke-width="1.6"/><circle class="f-surface s-sig" cx="170" cy="126" r="4.5" stroke-width="1.6"/></g>
-<path d="M92 96q32-30 64 0" stroke-width="1.8" stroke-dasharray="3 5" class="flow s-grn"/>
-<g stroke-width="1.6" class="pulse s-grn"><path d="M68 98v-9M62 93l6-6 6 6M154 98v-9M148 93l6-6 6 6"/></g>
-<!-- bridge with sensors -->
-<path class="s-brand" d="M232 144h104M244 144V100M324 144V100M232 100h104" stroke-width="1.6"/>
-<path class="s-brand" d="M244 100q40-38 80 0" stroke-width="1.6"/><path class="s-line" d="M264 144V88M284 144V80M304 144V88" stroke-width="1.2"/>
-<g class="f-grn"><circle cx="264" cy="88" r="3.5" class="pulse"/><circle cx="284" cy="80" r="3.5" class="pulse" style="animation-delay:.7s"/><circle cx="304" cy="88" r="3.5" class="pulse" style="animation-delay:1.4s"/></g>
-<!-- hospital and ECG -->
-<rect class="f-sig" x="236" y="28" width="40" height="36" rx="6"/><path d="M256 36v20M246 46h20" stroke="#fff" stroke-width="3"/>
-<path class="trace s-grn" d="M284 48h10l6-14 8 28 8-20 6 6h14" stroke-width="2"/>
-<!-- data uplink from vehicles to the hospital and bridge -->
-<path class="s-line" d="M120 58h108" stroke-width="1.4"/><path class="flow s-sig" d="M120 58h108" stroke-width="2"/>
-<circle class="f-sig" cx="120" cy="58" r="4.5"/><path class="s-line" d="M120 62v34" stroke-width="1.4"/><path class="flow slow s-sig" d="M120 62v34" stroke-width="2"/>
-<text class="f-muted" x="180" y="162" font-size="11" text-anchor="middle">connected roads, hospitals, and structures</text>
+  <div class="labart"><svg viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect class="f-surface" width="720" height="480"/>
+<!-- containment building -->
+<path class="f-tint s-brand" d="M70 420V270a110 110 0 0 1 220 0v150z" stroke-width="3"/>
+<path class="s-line" d="M70 300h220" stroke-width="2"/>
+<circle class="s-sig" cx="180" cy="330" r="38" stroke-width="3"/>
+<circle class="f-sig" cx="180" cy="330" r="11"/>
+<g class="s-grn" stroke-width="3"><path d="M180 292a38 38 0 0 1 33 57M180 368a38 38 0 0 1-33-57"/></g>
+<text class="f-muted" x="180" y="452" text-anchor="middle" font-size="13">research reactor and safeguards</text>
+<!-- detector -->
+<g class="card"><rect class="f-brand" x="340" y="250" width="70" height="120" rx="10"/></g>
+<rect class="f-sig" x="352" y="262" width="46" height="60" rx="6"/>
+<g class="f-grn"><circle cx="375" cy="345" r="5" class="pulse"/></g>
+<text class="f-muted" x="375" y="392" text-anchor="middle" font-size="12">detector</text>
+<!-- counts travelling from source to detector -->
+<g class="s-grn" stroke-width="2.6" stroke-dasharray="3 9"><path class="flow" d="M222 330H338"/></g>
+<!-- spectrum -->
+<g class="card"><rect class="f-surface s-line" x="440" y="60" width="240" height="300" rx="14"/></g>
+<text class="f-ink" x="560" y="86" text-anchor="middle" font-size="13" font-weight="600">gamma spectrum</text>
+<path class="s-muted" d="M460 330h200M460 330V100" stroke-width="1.6"/>
+<path class="trace s-sig" pathLength="100" d="M462 318c20-4 30-30 40-30s8 24 20 26 14-120 30-120 12 100 26 100 10-40 24-40 16 30 28 30 8-10 24-14" stroke-width="2.6"/>
+<path class="s-line" d="M462 318c20-4 30-30 40-30s8 24 20 26 14-120 30-120 12 100 26 100 10-40 24-40 16 30 28 30 8-10 24-14" stroke-width="2"/>
+<g class="f-grn"><circle cx="552" cy="194" r="4" class="pulse"/><circle cx="602" cy="264" r="4" class="pulse" style="animation-delay:.8s"/></g>
+<text class="f-muted" x="560" y="350" text-anchor="middle" font-size="11.5">energy</text>
+<!-- shield badge -->
+<path class="f-grn" d="M560 400l30 10v26c0 22-13 36-30 44-17-8-30-22-30-44v-26z"/>
+<path d="M546 434l9 9 20-22" stroke="#FFFFFF" stroke-width="5"/>
 </svg></div>
   <div class="labbody">
     <h2>Integrated Nuclear Security and Safeguards Laboratory (INSSL)</h2>
@@ -680,27 +687,30 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
     <p class="lablinks"><a href="https://www.uml.edu/Research/INSSL/" target="_blank" rel="noopener noreferrer">INSSL</a></p>
   </div>
 </article><article class="lab">
-  <div class="labart"><svg viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round">
-<g class="card"><rect class="f-surface s-line" x="14" y="14" width="332" height="152" rx="12"/></g>
-<!-- chip -->
-<rect class="f-brand" x="66" y="48" width="88" height="88" rx="10"/>
-<rect class="f-sig" x="88" y="70" width="44" height="44" rx="6"/>
-<g class="s-brand" stroke-width="2"><path d="M82 48V36M100 48V36M118 48V36M136 48V36M82 136v12M100 136v12M118 136v12M136 136v12M66 66H54M66 84H54M66 102H54M66 120H54M154 66h12M154 84h12M154 102h12M154 120h12"/></g>
-<rect class="f-surface" x="102" y="90" width="16" height="13" rx="2"/><path d="M105 90v-4a5 5 0 0 1 10 0v4" stroke="#fff" stroke-width="1.8"/>
-<!-- data out -->
-<path class="s-line" d="M166 92h28" stroke-width="1.6"/><path class="flow s-sig" d="M166 92h28" stroke-width="2.4"/>
-<!-- hardware counters -->
-<g class="grow"><rect class="f-sig" x="200" y="94" width="10" height="42" style="transform-origin:205px 136px"/></g>
-<g class="grow" style="animation-delay:.5s"><rect class="f-sig" x="216" y="76" width="10" height="60" style="transform-origin:221px 136px"/></g>
-<g class="grow" style="animation-delay:1s"><rect class="f-sig" x="232" y="106" width="10" height="30" style="transform-origin:237px 136px"/></g>
-<g class="grow" style="animation-delay:1.5s"><rect class="f-sig" x="248" y="62" width="10" height="74" style="transform-origin:253px 136px"/></g>
-<g class="pulse"><rect class="f-alert" x="264" y="116" width="10" height="20"/></g>
-<path class="s-muted" d="M194 136h90" stroke-width="1.2"/>
-<text class="f-muted" x="239" y="152" font-size="11" text-anchor="middle">hardware counters</text>
-<!-- rack -->
-<rect class="f-surface s-brand" x="296" y="42" width="44" height="98" rx="5" stroke-width="1.6"/>
-<g class="s-line" stroke-width="1.1"><path d="M296 62h44M296 82h44M296 102h44M296 122h44"/></g>
-<g class="f-grn"><circle cx="331" cy="52" r="2.5" class="pulse"/><circle cx="331" cy="72" r="2.5" class="pulse" style="animation-delay:.8s"/><circle cx="331" cy="92" r="2.5" class="pulse" style="animation-delay:1.6s"/><circle cx="331" cy="112" r="2.5" class="pulse" style="animation-delay:.4s"/><circle cx="331" cy="132" r="2.5" class="pulse" style="animation-delay:2s"/></g>
+  <div class="labart"><svg viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect class="f-surface" width="720" height="480"/>
+<!-- substrate -->
+<path class="f-tint s-line" d="M80 380 L400 380 L520 300 L200 300 Z" stroke-width="2"/>
+<!-- printed traces, drawn in over time -->
+<g class="s-brand" stroke-width="4"><path d="M150 352h80l30-20h60l30 20h70l40-30"/></g>
+<g class="s-sig" stroke-width="3.4"><path d="M170 330h60l30-20h80"/></g>
+<path class="flow s-grn" d="M150 352h80l30-20h60l30 20h70l40-30" stroke-width="2" stroke-dasharray="4 10"/>
+<!-- antenna spiral -->
+<path class="s-brand" d="M420 320a26 26 0 1 1 -20 30a18 18 0 1 0 14 -22a10 10 0 1 1 -8 12" stroke-width="3"/>
+<!-- print head -->
+<g class="card"><rect class="f-brand" x="300" y="60" width="90" height="130" rx="10"/></g>
+<rect class="f-sig" x="318" y="76" width="54" height="30" rx="4"/>
+<path class="s-brand" d="M345 190v40" stroke-width="8"/>
+<path class="f-sig" d="M345 232l-10 40h20z"/>
+<g class="f-grn"><circle cx="345" cy="285" r="3" class="pulse"/><circle cx="341" cy="298" r="2.5" class="pulse" style="animation-delay:.4s"/><circle cx="349" cy="310" r="2.5" class="pulse" style="animation-delay:.8s"/></g>
+<text class="f-ink" x="345" y="50" text-anchor="middle" font-size="13" font-weight="600">aerosol-jet head</text>
+<!-- gantry -->
+<path class="s-line" d="M120 200H620" stroke-width="6"/>
+<!-- RF output -->
+<g class="s-grn" stroke-width="2.6"><path class="pulse" d="M560 250a30 30 0 0 1 0 60"/><path class="pulse" style="animation-delay:.6s" d="M578 236a48 48 0 0 1 0 88"/><path class="pulse" style="animation-delay:1.2s" d="M596 222a66 66 0 0 1 0 116"/></g>
+<text class="f-muted" x="470" y="440" text-anchor="middle" font-size="13">printed RF antenna on a flexible substrate</text>
+<g class="card"><rect class="f-surface s-line" x="40" y="40" width="170" height="52" rx="10"/></g>
+<text class="f-ink" x="125" y="62" text-anchor="middle" font-size="12" font-weight="600">functional inks</text>
+<text class="f-muted" x="125" y="80" text-anchor="middle" font-size="11">conductive, dielectric, sensing</text>
 </svg></div>
   <div class="labbody">
     <h2>Printed Electronics Research Collaborative (PERC) and the Raytheon UMass Lowell Research Institute (RURI)</h2>
@@ -711,26 +721,31 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
     <p class="lablinks"><a href="https://www.uml.edu/research/perc/" target="_blank" rel="noopener noreferrer">PERC</a> <a href="https://www.uml.edu/Research/PERC/RURI/" target="_blank" rel="noopener noreferrer">RURI</a></p>
   </div>
 </article><article class="lab">
-  <div class="labart"><svg viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round">
-<g class="card"><rect class="f-surface s-line" x="14" y="14" width="332" height="152" rx="12"/></g>
-<!-- network links with signal -->
-<g class="s-line" stroke-width="1.2">
-  <path d="M52 62L92 46M52 62L92 78M52 62L92 110M52 92L92 46M52 92L92 78M52 92L92 110M52 92L92 142M52 122L92 78M52 122L92 110M52 122L92 142M100 46L138 78M100 78L138 78M100 110L138 110M100 142L138 110M100 78L138 110M100 110L138 78"/>
-</g>
-<g class="s-sig" stroke-width="1.6"><path class="flow" d="M52 62L92 46L138 78"/><path class="flow slow" d="M52 122L92 110L138 110"/></g>
-<g class="f-brand"><circle cx="52" cy="62" r="7"/><circle cx="52" cy="92" r="7"/><circle cx="52" cy="122" r="7"/><circle cx="92" cy="46" r="7"/><circle cx="92" cy="78" r="7"/><circle cx="92" cy="110" r="7"/><circle cx="92" cy="142" r="7"/></g>
-<g class="f-sig"><circle cx="138" cy="78" r="7"/><circle cx="138" cy="110" r="7"/></g>
-<!-- safety gate -->
-<path class="s-line" d="M146 94h26" stroke-width="1.6"/><path class="flow s-sig" d="M146 94h26" stroke-width="2.2"/>
-<rect class="f-grn" x="174" y="72" width="44" height="44" rx="10"/><path d="M186 94l6 6 12-13" stroke="#fff" stroke-width="2.6"/>
-<path class="s-line" d="M220 94h28" stroke-width="1.6"/><path class="flow s-grn" d="M220 94h28" stroke-width="2.2"/><path class="s-grn" d="M244 89l6 5-6 5" stroke-width="2"/>
-<!-- turbine -->
-<circle class="f-tint s-line" cx="292" cy="94" r="34"/>
-<g class="spin" style="transform-origin:292px 94px"><path class="f-brand" d="M292 94l-4-26 8 0zM292 94l22 14-4 7zM292 94l-22 14 4 7z"/></g>
-<circle class="f-surface s-brand" cx="292" cy="94" r="5" stroke-width="2"/>
-<!-- feedback loop -->
-<path d="M292 130v22H52v-14" stroke-width="1.6" stroke-dasharray="4 5" class="flow slow s-grn"/><path class="s-grn" d="M47 144l5-7 5 7" stroke-width="1.6"/>
-<text class="f-muted" x="180" y="150" font-size="11" text-anchor="middle">learn, check, act</text>
+  <div class="labart"><svg viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect class="f-surface" width="720" height="480"/>
+<rect class="f-tint" width="720" height="480"/>
+<!-- stars -->
+<g class="f-brand"><circle cx="90" cy="60" r="2" class="pulse"/><circle cx="200" cy="40" r="1.6" class="pulse" style="animation-delay:.5s"/><circle cx="330" cy="70" r="2.2" class="pulse" style="animation-delay:1s"/><circle cx="470" cy="34" r="1.6" class="pulse" style="animation-delay:1.5s"/><circle cx="620" cy="66" r="2" class="pulse" style="animation-delay:2s"/><circle cx="560" cy="120" r="1.4"/><circle cx="140" cy="130" r="1.4"/></g>
+<!-- balloon -->
+<ellipse class="f-surface s-brand" cx="180" cy="150" rx="70" ry="88" stroke-width="3"/>
+<path class="s-brand" d="M150 236l30 40 30-40" stroke-width="2.4"/>
+<!-- payload with telescope -->
+<g class="card"><rect class="f-brand" x="150" y="276" width="60" height="50" rx="8"/></g>
+<path class="s-sig" d="M210 292l60-24" stroke-width="8"/>
+<circle class="f-grn" cx="272" cy="266" r="7"/>
+<text class="f-muted" x="180" y="356" text-anchor="middle" font-size="12">balloon payload</text>
+<!-- light path into the spectrograph -->
+<path d="M282 262L470 150" stroke-width="2.4" stroke-dasharray="4 8" class="flow slow s-grn"/>
+<!-- spectrograph output: bands -->
+<g class="card"><rect class="f-surface s-line" x="400" y="200" width="280" height="200" rx="14"/></g>
+<text class="f-ink" x="540" y="228" text-anchor="middle" font-size="13" font-weight="600">hyperspectral imager</text>
+<g><rect class="f-brand" x="420" y="244" width="240" height="18" opacity=".9"/><rect class="f-sig" x="420" y="266" width="240" height="18" opacity=".9"/><rect class="f-grn" x="420" y="288" width="240" height="18" opacity=".9"/><rect class="f-grn" x="420" y="310" width="240" height="18" opacity=".5"/></g>
+<g class="f-surface" font-size="11" font-weight="600"><text x="428" y="257">UV</text><text x="428" y="279">visible</text><text x="428" y="301">near IR</text></g>
+<path class="trace s-brand" pathLength="100" d="M420 372c30-6 40-40 60-40s20 30 40 30 16-22 36-22 18 26 40 26 22-12 44-10" stroke-width="2.4"/>
+<path class="s-line" d="M420 372c30-6 40-40 60-40s20 30 40 30 16-22 36-22 18 26 40 26 22-12 44-10" stroke-width="2"/>
+<!-- satellite orbit -->
+<circle class="s-line" cx="560" cy="96" r="62" stroke-width="1.6" stroke-dasharray="3 6"/>
+<g class="spin" style="transform-origin:560px 96px;animation-duration:14s"><g transform="translate(560,96)"><rect class="f-brand" x="52" y="-7" width="18" height="14" rx="3"/><path class="s-sig" d="M48 0h-12M74 0h12" stroke-width="3.5"/></g></g>
+<text class="f-muted" x="360" y="462" text-anchor="middle" font-size="13">instruments for space, from the stratosphere to orbit</text>
 </svg></div>
   <div class="labbody">
     <h2>Lowell Center for Space Science and Technology (LoCSST)</h2>
@@ -741,25 +756,32 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
     <p class="lablinks"><a href="https://www.uml.edu/research/locsst/" target="_blank" rel="noopener noreferrer">LoCSST</a></p>
   </div>
 </article><article class="lab">
-  <div class="labart"><svg viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round">
-<g class="card"><rect class="f-surface s-line" x="14" y="14" width="332" height="152" rx="12"/></g>
-<!-- links -->
-<g class="s-line" stroke-width="1.4"><path d="M96 74h38M168 60l36 12M80 90l18 30M220 90l-18 30M130 134h34M96 74l38-14M148 62v58"/></g>
-<g class="s-sig" stroke-width="2"><path class="flow" d="M96 74h38"/><path class="flow slow" d="M168 60l36 12"/><path class="flow" d="M80 90l18 30"/><path class="flow slow" d="M220 90l-18 30"/></g>
-<!-- replicas -->
-<g class="f-surface s-brand" stroke-width="1.6"><rect x="62" y="60" width="36" height="28" rx="7"/><rect x="130" y="34" width="36" height="28" rx="7"/><rect x="200" y="60" width="36" height="28" rx="7"/><rect x="96" y="120" width="36" height="28" rx="7"/></g>
-<g class="s-grn" stroke-width="2.2"><path d="M72 74l5 5 9-10M140 48l5 5 9-10M210 74l5 5 9-10M106 134l5 5 9-10"/></g>
-<!-- faulty replica -->
-<g class="pulse"><rect class="f-alert-tint s-alert" x="164" y="120" width="36" height="28" rx="7" stroke-width="1.6"/><path class="s-alert" d="M176 128l12 12M188 128l-12 12" stroke-width="2.2"/></g>
-<!-- drone -->
-<g transform="translate(266,56)"><path class="s-brand" d="M0 12h44M10 12V6H0M34 12V6h44" stroke-width="1.6"/><rect class="f-brand" x="13" y="9" width="18" height="10" rx="3"/><g stroke-width="1.6" class="spin s-sig" style="transform-origin:5px 6px"><path d="M-3 6h16"/></g><g stroke-width="1.6" class="spin s-sig" style="transform-origin:39px 6px"><path d="M31 6h16"/></g></g>
-<!-- satellite link -->
-<path class="s-line" d="M262 40a40 40 0 0 1 56 0" stroke-width="1.4"/><path class="flow slow s-grn" d="M262 40a40 40 0 0 1 56 0" stroke-width="2"/>
-<circle class="f-grn" cx="290" cy="24" r="4.5"/>
-<path class="s-line" d="M288 74v32" stroke-width="1.4"/><path class="flow s-sig" d="M288 74v32" stroke-width="2"/>
-<path class="s-line" d="M288 106l-52 22" stroke-width="1.4"/><path class="flow slow s-sig" d="M288 106l-52 22" stroke-width="2"/>
-<text class="f-muted" x="288" y="122" font-size="11" text-anchor="middle">edge</text>
-<text class="f-muted" x="150" y="162" font-size="11" text-anchor="middle">consensus with a faulty replica</text>
+  <div class="labart"><svg viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect class="f-surface" width="720" height="480"/>
+<!-- CT gantry -->
+<circle class="f-tint s-brand" cx="170" cy="240" r="110" stroke-width="3"/>
+<circle class="f-surface s-line" cx="170" cy="240" r="62" stroke-width="2"/>
+<g class="spin" style="transform-origin:170px 240px;animation-duration:9s"><path class="s-sig" d="M170 130a110 110 0 0 1 95 55" stroke-width="10"/><circle class="f-grn" cx="170" cy="130" r="8"/></g>
+<path class="s-brand" d="M120 380h100" stroke-width="6"/>
+<text class="f-muted" x="170" y="410" text-anchor="middle" font-size="12">medical imaging</text>
+<!-- reconstructed slice -->
+<g class="card"><rect class="f-ink" x="320" y="140" width="130" height="130" rx="10"/></g>
+<ellipse class="f-line" cx="385" cy="205" rx="50" ry="44"/><ellipse class="f-muted" cx="385" cy="205" rx="43" ry="37"/><ellipse class="f-tint" cx="385" cy="205" rx="36" ry="30" opacity=".85"/><path class="s-muted" d="M385 178v54" stroke-width="1.4"/><ellipse class="f-muted" cx="379" cy="204" rx="4" ry="9"/><ellipse class="f-muted" cx="391" cy="204" rx="4" ry="9"/>
+<text class="f-muted" x="385" y="290" text-anchor="middle" font-size="12">reconstruction with learning</text>
+<path d="M282 240h30" stroke-width="3" class="flow s-sig"/>
+<!-- data platform -->
+<g class="card"><rect class="f-brand" x="500" y="60" width="180" height="110" rx="14"/></g>
+<text class="f-surface" x="590" y="94" text-anchor="middle" font-size="14" font-weight="600">clinical data platform</text>
+<g class="s-grn" stroke-width="2.4"><path d="M520 118h140M520 136h100M520 154h120"/></g>
+<path d="M450 205L500 140" stroke-width="2.6" stroke-dasharray="5 8" class="flow s-sig"/>
+<!-- wearable and ECG -->
+<g class="card"><rect class="f-surface s-brand" x="520" y="250" width="70" height="90" rx="14" stroke-width="3"/></g>
+<rect class="f-tint" x="532" y="262" width="46" height="66" rx="6"/>
+<path class="s-grn" d="M538 300h8l5-14 8 26 7-18 5 6h9" stroke-width="2.2"/>
+<path class="s-line" d="M590 300h90" stroke-width="2"/>
+<path class="trace s-grn" pathLength="100" d="M594 300h14l8-22 10 44 10-32 8 10h30" stroke-width="2.6"/>
+<path d="M555 250V170" stroke-width="2.6" stroke-dasharray="5 8" class="flow slow s-sig"/>
+<text class="f-muted" x="600" y="372" text-anchor="middle" font-size="12">wearables and remote monitoring</text>
+<text class="f-muted" x="360" y="462" text-anchor="middle" font-size="13">imaging, sensing, and the platform that keeps the data safe</text>
 </svg></div>
   <div class="labbody">
     <h2>UMass Center for Digital Health</h2>
@@ -770,27 +792,40 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
     <p class="lablinks"><a href="https://www.uml.edu/research/digital-health/" target="_blank" rel="noopener noreferrer">Center for Digital Health</a></p>
   </div>
 </article><article class="lab">
-  <div class="labart"><svg viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round">
-<g class="card"><rect class="f-surface s-line" x="14" y="14" width="332" height="152" rx="12"/></g>
-<!-- road with moving lane marks -->
-<rect class="f-tint s-line" x="24" y="118" width="196" height="26" rx="4"/>
-<path class="flow slow s-muted" d="M30 131h184" stroke-width="1.4" stroke-dasharray="10 8"/>
-<!-- vehicles -->
-<g><path class="f-brand" d="M44 118h48l-8-14H52z"/><path class="f-brand" d="M40 118h56v6H40z" opacity=".85"/><circle class="f-surface s-brand" cx="52" cy="126" r="4.5" stroke-width="1.6"/><circle class="f-surface s-brand" cx="84" cy="126" r="4.5" stroke-width="1.6"/></g>
-<g><path class="f-sig" d="M130 118h48l-8-14h-32z"/><path class="f-sig" d="M126 118h56v6h-56z" opacity=".85"/><circle class="f-surface s-sig" cx="138" cy="126" r="4.5" stroke-width="1.6"/><circle class="f-surface s-sig" cx="170" cy="126" r="4.5" stroke-width="1.6"/></g>
-<path d="M92 96q32-30 64 0" stroke-width="1.8" stroke-dasharray="3 5" class="flow s-grn"/>
-<g stroke-width="1.6" class="pulse s-grn"><path d="M68 98v-9M62 93l6-6 6 6M154 98v-9M148 93l6-6 6 6"/></g>
-<!-- bridge with sensors -->
-<path class="s-brand" d="M232 144h104M244 144V100M324 144V100M232 100h104" stroke-width="1.6"/>
-<path class="s-brand" d="M244 100q40-38 80 0" stroke-width="1.6"/><path class="s-line" d="M264 144V88M284 144V80M304 144V88" stroke-width="1.2"/>
-<g class="f-grn"><circle cx="264" cy="88" r="3.5" class="pulse"/><circle cx="284" cy="80" r="3.5" class="pulse" style="animation-delay:.7s"/><circle cx="304" cy="88" r="3.5" class="pulse" style="animation-delay:1.4s"/></g>
-<!-- hospital and ECG -->
-<rect class="f-sig" x="236" y="28" width="40" height="36" rx="6"/><path d="M256 36v20M246 46h20" stroke="#fff" stroke-width="3"/>
-<path class="trace s-grn" d="M284 48h10l6-14 8 28 8-20 6 6h14" stroke-width="2"/>
-<!-- data uplink from vehicles to the hospital and bridge -->
-<path class="s-line" d="M120 58h108" stroke-width="1.4"/><path class="flow s-sig" d="M120 58h108" stroke-width="2"/>
-<circle class="f-sig" cx="120" cy="58" r="4.5"/><path class="s-line" d="M120 62v34" stroke-width="1.4"/><path class="flow slow s-sig" d="M120 62v34" stroke-width="2"/>
-<text class="f-muted" x="180" y="162" font-size="11" text-anchor="middle">connected roads, hospitals, and structures</text>
+  <div class="labart"><svg viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect class="f-surface" width="720" height="480"/>
+<!-- ground -->
+<path class="s-line" d="M40 420h640" stroke-width="3"/>
+<!-- turbine -->
+<path class="s-brand" d="M200 420V200" stroke-width="8"/>
+<path class="s-brand" d="M186 420h28" stroke-width="6"/>
+<g class="spin" style="transform-origin:200px 200px;animation-duration:8s">
+  <path class="f-sig" d="M200 200l-8-120h16zM200 200l104 60-8 14zM200 200l-104 60 8 14z"/>
+  <g class="f-grn"><circle cx="200" cy="120" r="5" class="pulse"/><circle cx="270" cy="240" r="5" class="pulse" style="animation-delay:.7s"/><circle cx="130" cy="240" r="5" class="pulse" style="animation-delay:1.4s"/></g>
+</g>
+<circle class="f-surface s-brand" cx="200" cy="200" r="16" stroke-width="5"/>
+<text class="f-muted" x="200" y="450" text-anchor="middle" font-size="12">blade sensors, acoustic and vibration</text>
+<!-- inspection drone -->
+<g transform="translate(330,100)">
+  <rect class="f-brand" x="34" y="18" width="34" height="18" rx="5"/>
+  <path class="s-brand" d="M18 8v10M84 8v10M18 18h16M84 18H68" stroke-width="2.4"/>
+  <g stroke-width="2.6" class="spin s-grn" style="transform-origin:18px 8px"><path d="M2 8h32"/></g>
+  <g stroke-width="2.6" class="spin s-grn" style="transform-origin:84px 8px"><path d="M68 8h32"/></g>
+</g>
+<path d="M381 136L292 180" stroke-width="2.4" stroke-dasharray="5 8" class="flow s-grn"/>
+<text class="f-muted" x="381" y="90" text-anchor="middle" font-size="12">drone inspection</text>
+<!-- vibration signature -->
+<g class="card"><rect class="f-surface s-line" x="440" y="150" width="240" height="150" rx="14"/></g>
+<text class="f-ink" x="560" y="176" text-anchor="middle" font-size="13" font-weight="600">vibration signature</text>
+<path class="s-line" d="M460 240h200" stroke-width="1.6"/>
+<path class="trace s-sig" pathLength="100" d="M460 240c8-30 12-30 20 0s12 30 20 0 12-30 20 0 12 60 20 0 12-30 20 0 12 30 20 0 12-30 20 0 12 30 20 0 12-30 20 0 12 30 20 0" stroke-width="2.4"/>
+<circle cx="540" cy="200" r="5" class="pulse f-alert"/>
+<text class="f-muted" x="600" y="286" text-anchor="end" font-size="11.5">anomaly at the blade root</text>
+<!-- solar and hydrogen: the energy side -->
+<g class="card"><rect class="f-brand" x="480" y="320" width="90" height="60" rx="8"/></g>
+<g stroke="#FFFFFF" stroke-width="1.2" opacity=".6"><path d="M480 340h90M480 360h90M510 320v60M540 320v60"/></g>
+<g class="card"><rect class="f-surface s-sig" x="590" y="320" width="90" height="60" rx="8" stroke-width="2"/></g>
+<text class="f-sig" x="635" y="356" text-anchor="middle" font-size="15" font-weight="700">H2</text>
+<text class="f-muted" x="580" y="402" text-anchor="middle" font-size="12">generation, storage, and sustainability</text>
 </svg></div>
   <div class="labbody">
     <h2>Center for Energy Innovation and the Rist Institute for Sustainability and Energy</h2>
@@ -848,7 +883,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
         <li><a href="https://www.uml.edu/service/Apps/Forms/Form?configId=ccde10d9-949a-4891-a810-ca2cfa641f6f&amp;tfa_26=https://www.uml.edu/research/scyps/" title="Website Feedback" target="_blank" rel="noopener noreferrer">Feedback</a></li>
       </ul>
       <p class="fine">Updated September 2026. Grant figures are total awards as reported by sponsors; the UMass Lowell share is noted where a project is a multi-institution consortium. Photographs courtesy of UMass Lowell.</p>
-      <p class="version">v 0.47<span class="vsep"></span><span id="visits" title="Visits counted since the counter went live"></span></p>
+      <p class="version">v 0.49<span class="vsep"></span><span id="visits" title="Visits counted since the counter went live"></span></p>
     </div>
   </div>
 </footer>
@@ -888,6 +923,11 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
     }
     chips.forEach(function(c){ if(!c.disabled) c.addEventListener('click', function(){ show(c.getAttribute('data-k')); }); });
   })();
+  // pause SVG animations while their drawing is off screen
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle('offscreen',!e.isIntersecting);});},{rootMargin:'120px'});
+    document.querySelectorAll('svg').forEach(function(sv){ if(sv.querySelector('.flow,.pulse,.spin,.grow,.trace,.fed-flow')) io.observe(sv); });
+  }
   var tg=document.querySelector('.navtoggle'),menu=document.getElementById('menu');
   window.addEventListener('load',function(){ var ic=document.querySelector('.uml-footer .fa-brands'); if(ic){ var ff=getComputedStyle(ic).fontFamily||''; if(ff.indexOf('Font Awesome')<0) document.querySelector('.uml-footer').classList.add('no-fa'); } });
   tg.addEventListener('click',function(){var o=menu.classList.toggle('open');tg.setAttribute('aria-expanded',o);});

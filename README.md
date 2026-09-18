@@ -79,6 +79,16 @@ Auto-posting to LinkedIn and X
   The item ids in the feed are content hashes, so a rebuild never makes an old item look new. If you
   edit a news item's title after it has posted, it will post again under the new title.
 
+Animations
+  Every moving element is an SVG class: flow (dashes travelling along a path), pulse (opacity),
+  spin (rotation), grow (bar height), trace (a segment sweeping a line). Rules that keep them honest:
+    - transform-origin lives on the same element as the class. A class on a <g> with the origin on a
+      child scales about the canvas corner and the bars drift; that bug has been fixed once already.
+    - trace paths carry pathLength="100" so the sweep covers the whole line whatever its length.
+    - Figures pause while off screen (IntersectionObserver), so a page with sixty animated elements
+      only runs the ones in view.
+    - prefers-reduced-motion switches every animation off and draws the dashed paths solid.
+
 Build by hand
   python3 refresh.py          # optional: pull new data
   python3 build_site.py index.html      # writes all thirteen pages next to it

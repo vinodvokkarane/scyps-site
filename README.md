@@ -15,6 +15,8 @@ Files
                        research-*.html    one page per research thrust (grid, ai, fiber, edge, chip,
                                           health): the question it asks, what the group builds, the faculty
                                           on it, its projects and tools, and its recent papers
+                       labs.html          the laboratories and instruments behind the center's work,
+                                          and what each offers collaborators
                        summit.html        the NSF MRI SUMMIT project page
   images.json        embedded photos and figures
   logos/             sponsor logos (see logos/README.txt for the expected file names)
@@ -44,6 +46,38 @@ Before you publish
       labelled as not refreshed, so a stale number cannot pass as current.
     - The publication list counts every paper by any of the 18 faculty, not only work done under the
       center. Use it as a reach figure, not as center output, in reports.
+
+Auto-posting to LinkedIn and X
+  Two feeds are written on every build:
+    feed.xml              every news item, each with a category (Award, Journal, Conference, Chapter,
+                          Presentation, Milestone) and a description already written to fit a post,
+                          under 270 characters, with the publisher link.
+    feed-highlights.xml   only awards, milestones, and talks. Use this one for auto-posting: it is
+                          already filtered, so a free posting plan with no filter step still works,
+                          and it will not post twenty papers a quarter.
+
+  Wiring it up, once:
+    1. Create the accounts if they do not exist. For LinkedIn, ask UML communications for a Showcase
+       Page under the university's company page rather than a standalone page; it inherits their
+       verification. Put both URLs in the SOCIAL table in build_site.py so the site links to them.
+    2. Sign in to Zapier (or Make, or IFTTT) and create a Zap:
+         Trigger: RSS by Zapier, "New item in feed", https://<your site>/feed.xml
+         Filter:  only continue if Category contains Award  (or Award, Milestone, Presentation)
+         Action:  LinkedIn Pages, "Create Share"  and/or  X, "Create Tweet"
+         Map the post body to Description, and the link to Link.
+    3. Run it once by hand, check what it posted, then turn it on.
+
+  Two things to decide rather than discover:
+    - Post volume. Without the filter this posts every paper: 20 or more a quarter, mostly of narrow
+      interest, which trains people to scroll past. Filtering to Award and Milestone gives a handful
+      of posts a year that are actually worth reading. Journal filtering is a reasonable middle.
+    - Cost and access. Zapier's free tier covers a low-volume feed like this. Posting to X through
+      its own API now requires a paid tier for most use; going through Zapier avoids that. LinkedIn
+      company-page posting works through Zapier's LinkedIn Pages action and needs you to be a page
+      admin; posting to a personal profile from an app requires LinkedIn app review.
+
+  The item ids in the feed are content hashes, so a rebuild never makes an old item look new. If you
+  edit a news item's title after it has posted, it will post again under the new title.
 
 Build by hand
   python3 refresh.py          # optional: pull new data

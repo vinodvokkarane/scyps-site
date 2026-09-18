@@ -7,7 +7,7 @@ Grants: figures confirmed on the director's NSF Current & Pending (Sept 2026).
 """
 import html, json, re
 
-import sys, datetime, os
+import sys, datetime, os, hashlib
 OUT = next((a for a in sys.argv[1:] if not a.startswith("-")), "index.html")   # run: python3 build_site.py [output path]
 
 # ---------------------------------------------------------------- people
@@ -2777,7 +2777,7 @@ ALUMNI_PHD = [
 ]
 ALUMNI_POSTDOC = [("Arash Deylamsalehi", "Google"), ("Jeremy M. Plante", "Hitachi Vantara"), ("Juzi Zhao", "San José State University"), ("Arush Gadkar", "Kilpatrick Townsend & Stockton LLP"), ("Joan Triay", "DOCOMO Euro-Labs"), ("Balagangadhar Bathula", "AT&T")]
 SITE_URL = "https://vinodvokkarane.github.io/scyps-site/"   # set this to the live address
-SITE_VERSION = "0.42"   # bump by 0.01 with every update to the site
+SITE_VERSION = "0.45"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -2792,7 +2792,8 @@ def social_links(cls="follow"):
         items.append(f'<a href="{esc(SOCIAL["linkedin"])}" title="SCyPS on LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a>')
     if SOCIAL.get("x"):
         items.append(f'<a href="{esc(SOCIAL["x"])}" title="SCyPS on X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i><span>X</span></a>')
-    return f'<div class="{cls}"><span class="lbl">Follow SCyPS</span>{"".join(items)}</div>' if items else ""
+    items.append(f'<a href="{SITE_URL}feed.xml" title="News feed for readers and posting tools"><i class="fa-solid fa-rss" aria-hidden="true"></i><span>RSS</span></a>')
+    return f'<div class="{cls}"><span class="lbl">Follow SCyPS</span>{"".join(items)}</div>'
 
 def initials(name):
     return "".join(w[0] for w in name.replace("(", "").split() if w[0].isupper())[:2]
@@ -3007,6 +3008,71 @@ STUDENT_FIGS = {
 <text x="400" y="560" text-anchor="middle" font-size="18" fill="#0E2036" font-weight="600">Impairment-aware elastic optical networking</text>
 </svg>""",
 }
+
+
+# ---------------------------------------------------------------- laboratories and facilities
+# Each entry: the lab, who runs it, what it studies, and what it can offer a collaborator.
+LABS = [
+    {"name": "Advanced Communication Networks Laboratory (ACNL)", "lead": "Vinod M. Vokkarane",
+     "dept": "Electrical and Computer Engineering",
+     "what": "The director's group, working on optical and 6G transport, smart grid cybersecurity, and the AI that runs both. Doctoral students here build and test on real instruments and real data rather than on paper alone.",
+     "offers": ["Multi-band and space-division multiplexed optical network simulation",
+                "Grid intrusion detection and federated anomaly detection",
+                "Reproducible benchmarking through the open-source FUSION framework",
+                "The NATIG cyber-physical co-simulation testbed (HELICS, GridLAB-D, ns-3)"],
+     "links": [("Students in the group", "students.html"), ("FUSION on GitHub", "https://github.com/SDNNetSim/FUSION")],
+     "art": "fiber"},
+    {"name": "SUMMIT federated smart grid testbed", "lead": "Vinod M. Vokkarane, with Arias, Tseng, Lin, and Srivastava",
+     "dept": "NSF Major Research Instrumentation, Track 2",
+     "what": "A three-site instrument linking real-time power system simulation with control, networking, and cybersecurity hardware in the loop across UMass Lowell, NYU Tandon, and West Virginia University, delivered to collaborators as hardware-in-the-loop Simulation-as-a-Service.",
+     "offers": ["RTDS real-time digital simulation of the Northeast transmission grid",
+                "Network emulation for latency, loss, and attack scenarios",
+                "Optical, RF, and FPGA equipment for transport and edge layers",
+                "Wide-area software-defined networking between the three sites"],
+     "links": [("SUMMIT project page", "summit.html")],
+     "art": "grid"},
+    {"name": "Integrated Nuclear Security and Safeguards Laboratory (INSSL)", "lead": "Sukesh Aghara",
+     "dept": "Chemical (Nuclear) Engineering",
+     "what": "Research, education, and training tools for global nuclear security and safeguards, alongside the UMass Lowell research reactor.",
+     "offers": ["Safeguards measurement and detector response modeling",
+                "Security of nuclear facilities and robotic platforms for hazardous environments",
+                "Training through the IAEA-funded Intercontinental Nuclear Institute"],
+     "links": [("INSSL", "https://www.uml.edu/Research/INSSL/")],
+     "art": "health"},
+    {"name": "Printed Electronics Research Collaborative (PERC) and the Raytheon UMass Lowell Research Institute (RURI)",
+     "lead": "Alkim Akyurtlu, with Oshadha Ranasingha", "dept": "Electrical and Computer Engineering",
+     "what": "Additive manufacturing and printed electronics for RF and microwave devices, wearables, and functional printable inks, with RURI as the industry-facing research institute.",
+     "offers": ["Aerosol-jet and inkjet printing of functional materials",
+                "RF and microwave device characterization",
+                "Fully printed micro-supercapacitors and energy harvesting devices",
+                "Hardware authentication for printed and flexible devices"],
+     "links": [("PERC", "https://www.uml.edu/research/perc/"), ("RURI", "https://www.uml.edu/research/ruri/")],
+     "art": "chip"},
+    {"name": "Lowell Center for Space Science and Technology (LoCSST)", "lead": "Supriya Chakrabarti",
+     "dept": "Physics and Applied Physics",
+     "what": "Space experiments and instrumentation, from hyperspectral imaging across the ultraviolet to the near infrared through lidar and exoplanet observation.",
+     "offers": ["Optical instrument design, build, and calibration",
+                "Balloon and sounding-rocket payload development",
+                "Hyperspectral imaging and lidar systems"],
+     "links": [("LoCSST", "https://www.uml.edu/research/locsst/")],
+     "art": "ai"},
+    {"name": "UMass Center for Digital Health", "lead": "Yu Cao",
+     "dept": "Miner School of Computer and Information Sciences",
+     "what": "A multi-campus partnership across Lowell, Worcester, and Boston working on digital health innovation, from medical imaging to platforms that move clinical data safely.",
+     "offers": ["Medical imaging and multimodal deep learning",
+                "Validation and evaluation of digital health tools",
+                "Clinical data platforms and academic-industry partnership"],
+     "links": [("Center for Digital Health", "https://www.uml.edu/research/cdh/")],
+     "art": "edge"},
+    {"name": "Center for Energy Innovation and the Rist Institute for Sustainability and Energy",
+     "lead": "Christopher Niezrecki, with Murat Inalpolat", "dept": "Mechanical and Industrial Engineering",
+     "what": "Renewable energy systems and structural health monitoring: wind turbine dynamics, inspection of blades and bridges, and the sensing that keeps large structures safe.",
+     "offers": ["Structural dynamics, vibration, and acoustic testing",
+                "Wind turbine blade inspection, including drone-based methods",
+                "Structural health monitoring for bridges and buildings"],
+     "links": [("Center for Energy Innovation", "https://www.uml.edu/research/cei/"), ("Rist Institute", "https://www.uml.edu/research/rist/")],
+     "art": "health"},
+]
 
 # ---------------------------------------------------------------- researcher identifiers
 SCHOLAR = {
@@ -3734,7 +3800,7 @@ def build():
       </div>
       <div class="col menu">
         <nav aria-label="Footer menu"><h2>Menu</h2>
-          <ul><li><a href="#about">About</a></li><li><a href="#research">Research</a></li><li><a href="#projects">Projects</a></li><li><a href="#sponsors">Sponsors</a></li><li><a href="people.html">People</a></li><li><a href="students.html">Students</a></li><li><a href="alumni.html">Alumni</a></li><li><a href="publications.html">Publications</a></li><li><a href="news.html">News</a></li><li><a href="{GIFT_URL}">Make a Gift</a></li></ul>
+          <ul><li><a href="#about">About</a></li><li><a href="#research">Research</a></li><li><a href="#projects">Projects</a></li><li><a href="labs.html">Labs</a></li><li><a href="#sponsors">Sponsors</a></li><li><a href="people.html">People</a></li><li><a href="students.html">Students</a></li><li><a href="alumni.html">Alumni</a></li><li><a href="publications.html">Publications</a></li><li><a href="news.html">News</a></li><li><a href="{GIFT_URL}">Make a Gift</a></li></ul>
         </nav>
       </div>
       <div class="col dir">
@@ -3860,6 +3926,7 @@ def build():
 <meta property="og:image" content="{SITE_URL}og-card.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="{SITE_URL}">
+<link rel="alternate" type="application/rss+xml" title="SCyPS news" href="{SITE_URL}feed.xml">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="{img_src("favicon")}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -3879,6 +3946,7 @@ def build():
       <li><a href="#about">About</a></li>
       <li><a href="#research">Research</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="labs.html">Labs</a></li>
       <li><a href="#sponsors">Sponsors</a></li>
       <li><a href="people.html">People</a></li>
       <li><a href="students.html">Students</a></li>
@@ -4087,7 +4155,9 @@ def build():
     }, footer_html, script_html)
     build_newspage(footer_html, script_html)
     build_thrust_pages(footer_html, script_html)
+    build_labs(footer_html, script_html)
     build_meta_files()
+    build_feed()
     print(f"wrote {OUT} (v{SITE_VERSION}): {len(page)/1024:.0f} KB; {n_pubs} pubs ({n_journal} journal); {n_faculty} faculty; {len(IMG)} images embedded")
 
 
@@ -4217,7 +4287,8 @@ def page_shell(title, desc, body, footer_html, script_html, extra_css="", active
         f'<li><a href="{href}"{" class=\"on\"" if key == active else ""}>{label}</a></li>'
         for key, label, href in [
             ("about", "About", "index.html#about"), ("research", "Research", "index.html#research"),
-            ("projects", "Projects", "index.html#projects"), ("sponsors", "Sponsors", "index.html#sponsors"),
+            ("projects", "Projects", "index.html#projects"), ("labs", "Labs", "labs.html"),
+            ("sponsors", "Sponsors", "index.html#sponsors"),
             ("people", "People", "people.html"), ("students", "Students", "students.html"),
             ("alumni", "Alumni", "alumni.html"), ("publications", "Publications", "publications.html"),
             ("news", "News", "news.html"), ("contact", "Contact", "index.html#contact")])
@@ -4235,6 +4306,7 @@ def page_shell(title, desc, body, footer_html, script_html, extra_css="", active
 <meta property="og:image" content="{SITE_URL}{esc(canonical) if canonical.endswith(".png") else "og-card.png"}">
 <meta name="twitter:card" content="summary_large_image">
 {f'<link rel="canonical" href="{SITE_URL}{esc(canonical)}">' if canonical else ""}
+<link rel="alternate" type="application/rss+xml" title="SCyPS news" href="{SITE_URL}feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
@@ -4350,10 +4422,152 @@ def build_people_pages(filled, footer_html, script_html):
 
 
 
+
+def build_feed():
+    """feed.xml: the news items as RSS, with a ready-to-post sentence in each description.
+
+    A posting service (Zapier, Make, IFTTT, Hootsuite) polls this file and posts new items to X or
+    LinkedIn. Each item carries a category so a rule can post only awards and milestones rather than
+    every paper. The description is already written to fit a post, under 270 characters plus the link.
+    """
+    root = os.path.dirname(os.path.abspath(OUT)) or "."
+    items = build_news_items(12)[:40]
+    def post_text(it):
+        who = it["body"].split(" published in ")[0] if " published in " in it["body"] else ""
+        if it["key"] in ("journal", "conference", "chapter"):
+            venue = it["body"].rsplit(" in ", 1)[-1].rstrip(".")
+            t = f'New from SCyPS: {who} on "{it["title"]}" in {venue}.' if who else f'New paper from SCyPS: {it["title"]}'
+        elif it["key"] == "award":
+            t = f'SCyPS has a new award: {it["title"]}. {it["body"].split(".")[0]}.'
+        else:
+            t = f'{it["title"]}. {it["body"].split(".")[0]}.'
+        t = re.sub(r"\s+", " ", t).strip()
+        return (t[:264].rsplit(" ", 1)[0] + "...") if len(t) > 267 else t
+    MON = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    def entry(it):
+        y, m = it["ym"]
+        # RSS wants a full date; the first of the month is the honest approximation for a monthly item
+        pub = f"{MON[m]} {y} 00:00:00 +0000"
+        link = it.get("link") or (SITE_URL + "news.html")
+        return (
+            "  <item>\n"
+            f"    <title>{esc(it['title'])}</title>\n"
+            f"    <link>{esc(link)}</link>\n"
+            f"    <guid isPermaLink=\"false\">scyps-{y}-{m:02d}-{hashlib.md5(it['title'].encode()).hexdigest()[:10]}</guid>\n"
+            f"    <category>{esc(it['kind'])}</category>\n"
+            f"    <pubDate>01 {pub}</pubDate>\n"
+            f"    <description>{esc(post_text(it))}</description>\n"
+            "  </item>\n")
+    out = [entry(it) for it in items]
+    def wrap(body, title, path, desc):
+        return ('<?xml version="1.0" encoding="UTF-8"?>\n'
+                '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n<channel>\n'
+                f"  <title>{title}</title>\n"
+                f"  <link>{SITE_URL}news.html</link>\n"
+                f"  <description>{desc}</description>\n"
+                "  <language>en-us</language>\n"
+                f'  <atom:link href="{SITE_URL}{path}" rel="self" type="application/rss+xml"/>\n'
+                + body + "</channel>\n</rss>\n")
+
+    open(os.path.join(root, "feed.xml"), "w", encoding="utf-8").write(
+        wrap("".join(out), "SCyPS news", "feed.xml",
+             "Papers, awards, and milestones from the Center for Smart Cyber-Physical Systems at UMass Lowell."))
+
+    # A pre-filtered feed for auto-posting: awards, milestones, and talks, not every paper. A posting
+    # service on a free plan cannot add a filter step, so the filtering happens here instead.
+    HIGHLIGHT = {"award", "milestone", "presentation"}
+    hi = [entry(it) for it in items if it["key"] in HIGHLIGHT]
+    open(os.path.join(root, "feed-highlights.xml"), "w", encoding="utf-8").write(
+        wrap("".join(hi), "SCyPS highlights", "feed-highlights.xml",
+             "Awards, milestones, and talks from the Center for Smart Cyber-Physical Systems at UMass Lowell."))
+    print(f"wrote feed.xml: {len(items)} items; feed-highlights.xml: {len(hi)} items")
+
+
+
+def build_labs(footer_html, script_html):
+    """One page listing the laboratories and instruments behind the center's work."""
+    out = os.path.join(os.path.dirname(os.path.abspath(OUT)) or ".", "labs.html")
+    people = {}
+    for grp in ("director", "core", "affiliated", "external"):
+        for p in ([FACULTY[grp]] if grp == "director" else FACULTY[grp]):
+            people[p["name"]] = p
+    cards = ""
+    for i, lab in enumerate(LABS):
+        offers = "".join(f"<li>{esc(o)}</li>" for o in lab["offers"])
+        links = " ".join(f'<a href="{esc(u)}">{esc(t)}</a>' for t, u in lab["links"])
+        lead = people.get(lab["lead"].split(",")[0].strip())
+        face = avatar(lead, "sm") if lead else ""
+        cards += f"""<article class="lab">
+  <div class="labart">{ART.get(lab["art"], "")}</div>
+  <div class="labbody">
+    <h2>{esc(lab["name"])}</h2>
+    <p class="labwho">{face}<span><b>{esc(lab["lead"])}</b><small>{esc(lab["dept"])}</small></span></p>
+    <p class="labwhat">{esc(lab["what"])}</p>
+    <h3>What it offers collaborators</h3>
+    <ul class="laboffers">{offers}</ul>
+    <p class="lablinks">{links}</p>
+  </div>
+</article>"""
+    body = f"""<section id="labs">
+  <div class="wrap">
+    <div class="shead"><h1>Labs and facilities</h1><p>The center is not a building. It is a set of laboratories and instruments across four UMass Lowell colleges, run by the faculty listed on each one, and open to collaborators on the terms described below.</p></div>
+    <div class="facgrid">{cards}</div>
+    <div class="ack" style="margin-top:44px">
+      <p>Researchers outside UMass Lowell who want time on an instrument, and companies looking for a testbed or a co-op pipeline, should write to <a href="mailto:SCyPS@uml.edu">SCyPS@uml.edu</a> or to the faculty member who runs the facility.</p>
+    </div>
+  </div>
+</section>"""
+    css = """.facgrid{display:grid;gap:22px}
+.lab{display:grid;grid-template-columns:minmax(0,.34fr) minmax(0,1fr);align-items:stretch;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.labart{background:#FFFFFF;justify-content:center;--bg-2:#F3F7FA;--surface:#FFFFFF;--line:#D5DCE5;--ink:#0E2036;--ink-3:#5B6B82;--signal:#0A777F;--brand-blue:#044978;--green:#3BA995;display:flex;align-items:center;padding:18px;border-right:1px solid var(--line)}
+.labart svg{width:100%;height:auto;display:block;max-height:220px}
+.labbody{padding:26px 28px}
+.labbody h2{font-size:23px;line-height:1.25;margin-bottom:12px}
+.labwho{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.labwho .avatar{width:48px;height:48px;border-radius:8px;flex:none}
+.labwho b{display:block;font-size:14.5px}
+.labwho small{display:block;font-size:12.5px;color:var(--ink-3)}
+.labwhat{font-size:15.5px;color:var(--ink-2);margin-bottom:18px}
+.labbody h3{font-size:15px;letter-spacing:.02em;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px}
+.laboffers{margin:0 0 16px;padding-left:20px}
+.laboffers li{font-size:14.5px;color:var(--ink-2);margin-bottom:6px}
+.lablinks a{font-size:14.5px;margin-right:18px}
+@media (max-width:860px){.lab{grid-template-columns:1fr}.labart{border-right:0;border-bottom:1px solid var(--line)}}
+.labart .s-ink{stroke:var(--ink)}
+.labart .f-ink{fill:var(--ink)}
+.labart .f-surface{fill:var(--surface)}
+.labart .f-muted{fill:var(--ink-3)}
+.labart .card{filter:drop-shadow(0 4px 10px rgba(4,73,120,.10))}
+
+.labart .f-alert{fill:#E25555}
+.labart .s-alert{stroke:#E25555}
+.labart .f-alert-tint{fill:#FDECEC}
+
+.labart .s-sig{stroke:var(--signal)}
+.labart .f-sig{fill:var(--signal)}
+.labart .f-brand{fill:var(--brand-blue)}
+.labart .s-brand{stroke:var(--brand-blue)}
+.labart .f-grn{fill:var(--green)}
+.labart .s-grn{stroke:var(--green)}
+.labart .f-tint{fill:var(--bg-2)}
+.labart .s-line{stroke:var(--line)}
+.labart .f-line{fill:var(--line)}
+.labart .f-sigt{fill:var(--signal-tint)}
+.labart .f-amb{fill:var(--amber)}
+.labart .s-amb{stroke:var(--amber)}
+.labart .s-muted{stroke:var(--ink-3)}"""
+    page = page_shell("Labs and facilities | SCyPS, UMass Lowell",
+                      "The laboratories and instruments behind the Center for Smart Cyber-Physical Systems at UMass Lowell, and what each can offer collaborators.",
+                      body, footer_html, script_html, extra_css=css, active="labs", canonical="labs.html")
+    page = new_tab_links(page)
+    open(out, "w", encoding="utf-8").write(page)
+    print(f"wrote {out}: {len(page)/1024:.0f} KB; {len(LABS)} labs")
+
+
 def build_meta_files():
     """robots.txt and sitemap.xml, so the new pages are discoverable and the old single page is not the only entry."""
     root = os.path.dirname(os.path.abspath(OUT)) or "."
-    pages = ["", "people.html", "students.html", "alumni.html", "publications.html", "news.html", "summit.html"] + \
+    pages = ["", "people.html", "students.html", "alumni.html", "publications.html", "news.html", "summit.html", "labs.html"] + \
             [f"research-{k}.html" for k, _, _, _ in THRUSTS]
     today = datetime.date.today().isoformat()
     urls = "".join(f"  <url><loc>{SITE_URL}{p}</loc><lastmod>{today}</lastmod></url>\n" for p in pages)

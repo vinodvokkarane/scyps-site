@@ -239,9 +239,36 @@ section.tint{background:var(--bg-2)}
 .proj .amt small{display:block;font-family:"IBM Plex Sans",Arial,sans-serif;font-weight:400;font-size:13px;color:var(--ink-3);margin-top:6px;letter-spacing:0}
 @media (max-width:860px){.proj{grid-template-columns:1fr}.proj .amt{text-align:left}}
 .tools{margin-top:52px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.tool{background:var(--bg-2);border-radius:var(--radius);padding:22px 22px 24px;border:1px solid var(--line)}
+.tool{display:flex;flex-direction:column;background:var(--bg-2);border-radius:var(--radius);padding:22px 22px 24px;border:1px solid var(--line)}
 .tool h4{font-size:17px;margin-bottom:6px}
-.toolfig{width:100%;height:150px;object-fit:contain;background:#fff;border-radius:8px;border:1px solid var(--line);margin-bottom:12px;display:block}
+.toolfig{width:100%;aspect-ratio:64/30;background:#FFFFFF;border-radius:8px;border:1px solid var(--line);margin-bottom:14px;overflow:hidden;display:flex;align-items:center;
+  --bg-2:#F3F7FA;--surface:#FFFFFF;--line:#D5DCE5;--ink:#0E2036;--ink-3:#5B6B82;--signal:#0A777F;--brand-blue:#044978;--green:#3BA995}
+.toolfig svg,.toolfig img{width:100%;height:100%;object-fit:contain;display:block}
+.tool p{flex:1}
+.tool .toollink{margin-top:14px;flex:none}
+.toolfig .s-ink{stroke:var(--ink)}
+.toolfig .f-ink{fill:var(--ink)}
+.toolfig .f-surface{fill:var(--surface)}
+.toolfig .f-muted{fill:var(--ink-3)}
+.toolfig .card{filter:drop-shadow(0 4px 10px rgba(4,73,120,.10))}
+
+.toolfig .f-alert{fill:#E25555}
+.toolfig .s-alert{stroke:#E25555}
+.toolfig .f-alert-tint{fill:#FDECEC}
+
+.toolfig .s-sig{stroke:var(--signal)}
+.toolfig .f-sig{fill:var(--signal)}
+.toolfig .f-brand{fill:var(--brand-blue)}
+.toolfig .s-brand{stroke:var(--brand-blue)}
+.toolfig .f-grn{fill:var(--green)}
+.toolfig .s-grn{stroke:var(--green)}
+.toolfig .f-tint{fill:var(--bg-2)}
+.toolfig .s-line{stroke:var(--line)}
+.toolfig .f-line{fill:var(--line)}
+.toolfig .f-sigt{fill:var(--signal-tint)}
+.toolfig .f-amb{fill:var(--amber)}
+.toolfig .s-amb{stroke:var(--amber)}
+.toolfig .s-muted{stroke:var(--ink-3)}
 .tool p{font-size:14.5px;color:var(--ink-2);margin:0}
 .tool .toollink{margin-top:10px;font-weight:500}
 @media (max-width:760px){.tools{grid-template-columns:1fr}}
@@ -316,6 +343,36 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .ack{margin-top:10px;padding:22px 24px;border-left:3px solid var(--signal);background:var(--bg-2);border-radius:0 var(--radius) var(--radius) 0;font-size:14.5px;color:var(--ink-2);max-width:70em}
 .ack p{margin:0 0 8px}
 .ack p:last-child{margin:0}
+
+/* organization diagram */
+.orgh{margin:clamp(36px,5vw,56px) 0 16px;font-size:24px}
+.orgfig{margin:0;background:#FFFFFF;border:1px solid var(--line);border-radius:var(--radius);padding:14px;
+  --bg-2:#F3F7FA;--surface:#FFFFFF;--line:#D5DCE5;--ink:#0E2036;--ink-3:#5B6B82;--signal:#0A777F;--brand-blue:#044978;--green:#3BA995}
+.orgfig svg{width:100%;height:auto;display:block}
+.orgnote{font-size:15px;color:var(--ink-2);margin:16px auto 0;max-width:62em;text-align:center}
+.orgfig .s-ink{stroke:var(--ink)}
+.orgfig .f-ink{fill:var(--ink)}
+.orgfig .f-surface{fill:var(--surface)}
+.orgfig .f-muted{fill:var(--ink-3)}
+.orgfig .card{filter:drop-shadow(0 4px 10px rgba(4,73,120,.10))}
+
+.orgfig .f-alert{fill:#E25555}
+.orgfig .s-alert{stroke:#E25555}
+.orgfig .f-alert-tint{fill:#FDECEC}
+
+.orgfig .s-sig{stroke:var(--signal)}
+.orgfig .f-sig{fill:var(--signal)}
+.orgfig .f-brand{fill:var(--brand-blue)}
+.orgfig .s-brand{stroke:var(--brand-blue)}
+.orgfig .f-grn{fill:var(--green)}
+.orgfig .s-grn{stroke:var(--green)}
+.orgfig .f-tint{fill:var(--bg-2)}
+.orgfig .s-line{stroke:var(--line)}
+.orgfig .f-line{fill:var(--line)}
+.orgfig .f-sigt{fill:var(--signal-tint)}
+.orgfig .f-amb{fill:var(--amber)}
+.orgfig .s-amb{stroke:var(--amber)}
+.orgfig .s-muted{stroke:var(--ink-3)}
 
 /* mission hub */
 .hubwrap{margin-bottom:clamp(36px,5vw,56px)}
@@ -644,7 +701,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
         <li><a href="https://www.uml.edu/service/Apps/Forms/Form?configId=ccde10d9-949a-4891-a810-ca2cfa641f6f&amp;tfa_26=https://www.uml.edu/research/scyps/" title="Website Feedback" target="_blank" rel="noopener noreferrer">Feedback</a></li>
       </ul>
       <p class="fine">Updated September 2026. Grant figures are total awards as reported by sponsors; the UMass Lowell share is noted where a project is a multi-institution consortium. Photographs courtesy of UMass Lowell.</p>
-      <p class="version">v 0.60<span class="vsep"></span><span id="visits" title="Visits counted since the counter went live"></span></p>
+      <p class="version">v 0.68<span class="vsep"></span><span id="visits" title="Visits counted since the counter went live"></span></p>
     </div>
   </div>
 </footer>

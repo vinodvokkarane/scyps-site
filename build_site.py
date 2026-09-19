@@ -20,7 +20,7 @@ FACULTY = {
         "areas": "Cyber-physical systems, smart grid cybersecurity and resilience, optical and 6G network optimization, AI/ML for networked systems",
         "email": "vinod_vokkarane@uml.edu", "phone": "978-934-3345", "office": "Ball Hall 409",
         "url": "https://www.uml.edu/engineering/electrical-computer/faculty/vokkarane-vinod.aspx",
-        "bio": ("The center was founded on October 1, 2019, co-founded by Vinod Vokkarane and Martin Margala, then chair of Electrical and Computer Engineering. Vokkarane served on the founding Board of Directors from October 2019 to July 2021 and has been director since August 2021. His group works on secure and resilient "
+        "bio": ("The center was founded on October 1, 2019 by Vinod Vokkarane, Martin Margala, Yan Luo, Sukesh Aghara, and Yuanchang Xie. Vokkarane served on the founding Board of Directors from October 2019 to July 2021 and has been director since August 2021. His group works on secure and resilient "
                 "cyber-physical power systems, quality-of-transmission-aware multi-band and space-division "
                 "multiplexed optical networks, and open-source tools for reproducible network research. He is a "
                 "Senior Member of the IEEE, serves on the editorial board of the IEEE/Optica Journal of Optical "
@@ -30,7 +30,7 @@ FACULTY = {
     },
     "core": [
         {"name": "Sukesh Aghara", "photo": "aghara", "title": "Professor, Chemical (Nuclear) Engineering; Director, Nuclear Engineering Program",
-         "areas": "Nuclear nonproliferation, nuclear security and safeguards, nuclear energy for decarbonization", "email": "Sukesh_Aghara@uml.edu", "phone": "978-934-3115", "role": "Leads the Massachusetts Advanced Nuclear and Fusion Energy Roadmaps; directs the Integrated Nuclear Security and Safeguards Laboratory (INSSL) and co-directs the IAEA-funded Intercontinental Nuclear Institute.", "url": "https://www.uml.edu/engineering/chemical/faculty/aghara-sukesh.aspx"},
+         "areas": "Nuclear nonproliferation, nuclear security and safeguards, nuclear energy for decarbonization", "email": "Sukesh_Aghara@uml.edu", "phone": "978-934-3115", "role": "Co-founder of the center in 2019 and founding co-director for energy. Leads the nuclear energy and security thrust, the Massachusetts Advanced Nuclear and Fusion Energy Roadmaps, and directs the Integrated Nuclear Security and Safeguards Laboratory (INSSL) and co-directs the IAEA-funded Intercontinental Nuclear Institute.", "url": "https://www.uml.edu/engineering/chemical/faculty/aghara-sukesh.aspx"},
         {"name": "Orlando Arias", "photo": "arias", "title": "Assistant Professor, Electrical and Computer Engineering",
          "areas": "Hardware security, hardware-software co-design, embedded and microarchitectural security, cyber security",
          "email": "Orlando_Arias@uml.edu", "phone": "978-934-3476", "office": "Ball Hall 407A",
@@ -42,7 +42,9 @@ FACULTY = {
          "url": "https://engineering.nyu.edu/faculty/yuzhang-lin",
          "role": "External center member; UMass Lowell ECE faculty 2018 to 2023. NSF CAREER awardee; Co-PI on SUMMIT and the ONR post-disaster restoration project, and a co-author on the center's smart grid papers."},
         {"name": "Yan Luo", "photo": "luo", "title": "Professor, Electrical and Computer Engineering; Robotics",
-         "areas": "Computer architecture, network systems", "email": "yan_luo@uml.edu", "phone": "978-934-2592", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/luo-yan.aspx"},
+         "areas": "Computer architecture, network systems",
+         "role": "Co-founder of the center in 2019 and founding co-director for healthcare. Leads the AI for cyber-physical control thrust; senior personnel on SUMMIT; PI of the NSF-funded campus science network the center builds on.",
+         "email": "yan_luo@uml.edu", "phone": "978-934-2592", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/luo-yan.aspx"},
         {"name": "Seung Woo Son", "photo": "son", "title": "Associate Professor, Electrical and Computer Engineering",
          "areas": "High performance computing, parallel I/O and data-intensive computing, compiler optimizations, embedded systems",
          "email": "SeungWoo_Son@uml.edu", "phone": "978-934-6846", "office": "Ball Hall 419",
@@ -54,11 +56,13 @@ FACULTY = {
          "url": "https://www.uml.edu/engineering/electrical-computer/faculty/tseng-lewis.aspx",
          "role": "NSF CAREER awardee on fault-tolerant edge computing for cyber-physical systems under cyber attack (award #2449640 at UMass Lowell, $342K from Sept 2024); Co-PI on SUMMIT. Joined UMass Lowell in 2024 after Clark University, Boston College, and Toyota InfoTechnology Center."},
         {"name": "Yuanchang Xie", "photo": "xie", "title": "Professor, Civil and Environmental Engineering",
-         "areas": "Transportation engineering, smart and connected transportation", "email": "Yuanchang_Xie@uml.edu", "phone": "978-934-3681", "url": "https://www.uml.edu/engineering/civil-environmental/faculty-staff-students/faculty/xie-yuanchang.aspx"},
+         "areas": "Transportation engineering, smart and connected transportation",
+         "role": "Co-founder of the center in 2019 and founding co-director for transportation. Leads the connected transportation thrust; PI or Co-PI of the USDOT, MassDOT, and NETC transportation portfolio.", "email": "Yuanchang_Xie@uml.edu", "phone": "978-934-3681", "url": "https://www.uml.edu/engineering/civil-environmental/faculty-staff-students/faculty/xie-yuanchang.aspx"},
     ],
     "affiliated": [
         {"name": "Alkim Akyurtlu", "photo": "akyurtlu", "title": "Professor, Electrical and Computer Engineering; Director, Raytheon UMass Lowell Research Institute (RURI); Director, Printed Electronics Research Collaborative (PERC)",
-         "areas": "Additive manufacturing and printed electronics for RF and microwave devices, wearables, functional printable inks, metamaterials", "email": "Alkim_Akyurtlu@uml.edu", "phone": "978-934-3336", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/akyurtlu-alkim.aspx"},
+         "areas": "Additive manufacturing and printed electronics for RF and microwave devices, wearables, functional printable inks, metamaterials",
+         "note": "PI of BOND-AI, the NextFlex award on physics-informed reliability qualification for high-temperature printed interfaces, with the director as Co-PI.", "email": "Alkim_Akyurtlu@uml.edu", "phone": "978-934-3336", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/akyurtlu-alkim.aspx"},
         {"name": "Yu Cao", "photo": "cao", "title": "Professor, Miner School of Computer and Information Sciences; Director, UMass Center for Digital Health",
          "areas": "Medical imaging, multimodal deep learning, computer vision, AI, digital health", "email": "yu_cao@uml.edu", "phone": "978-934-3628", "url": "https://www.uml.edu/sciences/computer-science/people/cao-yu.aspx"},
         {"name": "Supriya Chakrabarti", "photo": "chakrabarti", "title": "Professor, Physics and Applied Physics; Director, Lowell Center for Space Science and Technology (LoCSST)",
@@ -79,7 +83,8 @@ FACULTY = {
          "email": "Sheree_Pagsuyoin@uml.edu", "phone": "978-934-5976",
          "url": "https://www.uml.edu/engineering/civil-environmental/faculty-staff-students/faculty/pagsuyoin-sheree.aspx"},
         {"name": "Oshadha Ranasingha", "photo": "ranasingha", "title": "Assistant Professor, Electrical and Computer Engineering; PERC and RURI",
-         "areas": "Functional inks for printed electronics and additive manufacturing, fully printed micro-supercapacitors, energy harvesting, hardware authentication", "email": "oshadha_ranasingha@uml.edu", "phone": "978-934-2336", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/ranasingha-oshadha.aspx"},
+         "areas": "Functional inks for printed electronics and additive manufacturing, fully printed micro-supercapacitors, energy harvesting, hardware authentication",
+         "note": "Co-PI on BOND-AI, the NextFlex award on high-temperature printed interfaces and bond joints.", "email": "oshadha_ranasingha@uml.edu", "phone": "978-934-2336", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/ranasingha-oshadha.aspx"},
         {"name": "Paul Robinette", "photo": "robinette", "title": "Associate Professor, Electrical and Computer Engineering; Associate Chair for M.S. Programs",
          "areas": "Robotics, human-robot interaction; Printed Electronics Research Collaborative; Raytheon UMass Lowell Research Institute", "email": "Paul_Robinette@uml.edu", "phone": "978-934-3347", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/robinette-paul.aspx"},
         {"name": "Hengyong Yu", "photo": "yu", "title": "Professor, Electrical and Computer Engineering",
@@ -123,10 +128,17 @@ PROJECTS = [
      "domain": "Energy"},
     {"tag": "New in 2026", "sponsor": "Massachusetts Technology Collaborative, Applied AI Models program",
      "role": "PI", "title": "ARPO-Sensor Fusion: Autonomous Robotic Planning and Optimization for Intelligence Sensor Fusion",
-     "amount": "$625K", "period": "Sep 2026 to Aug 2027",
+     "amount": "$625K", "share": "$500K direct plus $125K cost share; UMass Lowell and UMLARC share $247K", "period": "Sep 2026 to Aug 2027",
      "team": "PI Vinod Vokkarane; performed at UMLARC",
      "desc": "Applied AI models that fuse multi-sensor intelligence feeds to plan and optimize autonomous robotic missions.",
      "domain": "Autonomy"},
+    {"tag": "New in 2026", "sponsor": "NextFlex (FlexTech Alliance)", "role": "Co-PI",
+     "title": "BOND-AI: A Standardized Reliability Qualification Methodology for High-Temperature Printed Interfaces and Bond Joints, Enabled by Physics-Informed AI, on a 500 \u00b0C-Capable Alumina Platform",
+     "amount": "$1.0M", "share": "$500K direct plus $500K cost share", "period": "Oct 2026, 12 months",
+     "team": "PI Alkim Akyurtlu (Director, RURI and PERC); Co-PIs Vinod Vokkarane, Oshadha Ranasingha, and Scott Stapleton; with Applied Nanotech, Bayflex Solutions, RAGE Systems, and RTX",
+     "desc": "A qualification methodology for printed interfaces and bond joints that must survive 500 \u00b0C, using physics-informed AI to predict reliability rather than test it one sample at a time.",
+     "url": "https://bondai-portal.onrender.com/", "link": "Project portal",
+     "domain": "Printed electronics"},
     {"tag": "New in 2026", "sponsor": "U.S. Army",
      "role": "PI", "title": "ARPO: Autonomous Robotic Planning and Optimization",
      "amount": "$225K", "period": "Mar 2026 to Jul 2027",
@@ -241,9 +253,9 @@ PROJECTS = [
 ]
 
 TOOLS = [
-    {"name": "FUSION", "what": "Open-source benchmarking and simulation framework for reproducible optical network research (routing, spectrum and space assignment, QoT models). Described in JOCN, Sept. 2026.", "url": "https://github.com/SDNNetSim/FUSION", "link": "Source code on GitHub"},
-    {"name": "Containerized grid co-simulation testbed", "what": "Docker-packaged HELICS, GridLAB-D, and ns-3 federation for cyber-physical power studies on the IEEE 123-bus feeder, with DNP3 traffic between control center and devices."},
-    {"name": "SUMMIT (in development)", "what": "Three-site federated smart grid testbed built around RTDS real-time simulators and a wide-area SDN, funded by the NSF MRI award and opening in 2026-2027 to collaborators as HIL Simulation-as-a-Service.", "url": "summit.html", "link": "SUMMIT project page"},
+    {"name": "FUSION", "art": "fusion", "what": "Open-source benchmarking and simulation framework for reproducible optical network research (routing, spectrum and space assignment, QoT models). Described in JOCN, Sept. 2026.", "url": "https://github.com/SDNNetSim/FUSION", "link": "Source code on GitHub"},
+    {"name": "Containerized grid co-simulation testbed", "art": "cosim", "what": "Docker-packaged HELICS, GridLAB-D, and ns-3 federation for cyber-physical power studies on the IEEE 123-bus feeder, with DNP3 traffic between control center and devices.", "url": "research-grid.html", "link": "Smart grid thrust"},
+    {"name": "SUMMIT (in development)", "art": "summit_tool", "what": "Three-site federated smart grid testbed built around RTDS real-time simulators and a wide-area SDN, funded by the NSF MRI award and opening in 2026-2027 to collaborators as HIL Simulation-as-a-Service.", "url": "summit.html", "link": "SUMMIT project page"},
 ]
 
 # ---------------------------------------------------------------- publications
@@ -2320,9 +2332,36 @@ section.tint{background:var(--bg-2)}
 .proj .amt small{display:block;font-family:"IBM Plex Sans",Arial,sans-serif;font-weight:400;font-size:13px;color:var(--ink-3);margin-top:6px;letter-spacing:0}
 @media (max-width:860px){.proj{grid-template-columns:1fr}.proj .amt{text-align:left}}
 .tools{margin-top:52px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.tool{background:var(--bg-2);border-radius:var(--radius);padding:22px 22px 24px;border:1px solid var(--line)}
+.tool{display:flex;flex-direction:column;background:var(--bg-2);border-radius:var(--radius);padding:22px 22px 24px;border:1px solid var(--line)}
 .tool h4{font-size:17px;margin-bottom:6px}
-.toolfig{width:100%;height:150px;object-fit:contain;background:#fff;border-radius:8px;border:1px solid var(--line);margin-bottom:12px;display:block}
+.toolfig{width:100%;aspect-ratio:64/30;background:#FFFFFF;border-radius:8px;border:1px solid var(--line);margin-bottom:14px;overflow:hidden;display:flex;align-items:center;
+  --bg-2:#F3F7FA;--surface:#FFFFFF;--line:#D5DCE5;--ink:#0E2036;--ink-3:#5B6B82;--signal:#0A777F;--brand-blue:#044978;--green:#3BA995}
+.toolfig svg,.toolfig img{width:100%;height:100%;object-fit:contain;display:block}
+.tool p{flex:1}
+.tool .toollink{margin-top:14px;flex:none}
+.toolfig .s-ink{stroke:var(--ink)}
+.toolfig .f-ink{fill:var(--ink)}
+.toolfig .f-surface{fill:var(--surface)}
+.toolfig .f-muted{fill:var(--ink-3)}
+.toolfig .card{filter:drop-shadow(0 4px 10px rgba(4,73,120,.10))}
+
+.toolfig .f-alert{fill:#E25555}
+.toolfig .s-alert{stroke:#E25555}
+.toolfig .f-alert-tint{fill:#FDECEC}
+
+.toolfig .s-sig{stroke:var(--signal)}
+.toolfig .f-sig{fill:var(--signal)}
+.toolfig .f-brand{fill:var(--brand-blue)}
+.toolfig .s-brand{stroke:var(--brand-blue)}
+.toolfig .f-grn{fill:var(--green)}
+.toolfig .s-grn{stroke:var(--green)}
+.toolfig .f-tint{fill:var(--bg-2)}
+.toolfig .s-line{stroke:var(--line)}
+.toolfig .f-line{fill:var(--line)}
+.toolfig .f-sigt{fill:var(--signal-tint)}
+.toolfig .f-amb{fill:var(--amber)}
+.toolfig .s-amb{stroke:var(--amber)}
+.toolfig .s-muted{stroke:var(--ink-3)}
 .tool p{font-size:14.5px;color:var(--ink-2);margin:0}
 .tool .toollink{margin-top:10px;font-weight:500}
 @media (max-width:760px){.tools{grid-template-columns:1fr}}
@@ -2397,6 +2436,36 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .ack{margin-top:10px;padding:22px 24px;border-left:3px solid var(--signal);background:var(--bg-2);border-radius:0 var(--radius) var(--radius) 0;font-size:14.5px;color:var(--ink-2);max-width:70em}
 .ack p{margin:0 0 8px}
 .ack p:last-child{margin:0}
+
+/* organization diagram */
+.orgh{margin:clamp(36px,5vw,56px) 0 16px;font-size:24px}
+.orgfig{margin:0;background:#FFFFFF;border:1px solid var(--line);border-radius:var(--radius);padding:14px;
+  --bg-2:#F3F7FA;--surface:#FFFFFF;--line:#D5DCE5;--ink:#0E2036;--ink-3:#5B6B82;--signal:#0A777F;--brand-blue:#044978;--green:#3BA995}
+.orgfig svg{width:100%;height:auto;display:block}
+.orgnote{font-size:15px;color:var(--ink-2);margin:16px auto 0;max-width:62em;text-align:center}
+.orgfig .s-ink{stroke:var(--ink)}
+.orgfig .f-ink{fill:var(--ink)}
+.orgfig .f-surface{fill:var(--surface)}
+.orgfig .f-muted{fill:var(--ink-3)}
+.orgfig .card{filter:drop-shadow(0 4px 10px rgba(4,73,120,.10))}
+
+.orgfig .f-alert{fill:#E25555}
+.orgfig .s-alert{stroke:#E25555}
+.orgfig .f-alert-tint{fill:#FDECEC}
+
+.orgfig .s-sig{stroke:var(--signal)}
+.orgfig .f-sig{fill:var(--signal)}
+.orgfig .f-brand{fill:var(--brand-blue)}
+.orgfig .s-brand{stroke:var(--brand-blue)}
+.orgfig .f-grn{fill:var(--green)}
+.orgfig .s-grn{stroke:var(--green)}
+.orgfig .f-tint{fill:var(--bg-2)}
+.orgfig .s-line{stroke:var(--line)}
+.orgfig .f-line{fill:var(--line)}
+.orgfig .f-sigt{fill:var(--signal-tint)}
+.orgfig .f-amb{fill:var(--amber)}
+.orgfig .s-amb{stroke:var(--amber)}
+.orgfig .s-muted{stroke:var(--ink-3)}
 
 /* mission hub */
 .hubwrap{margin-bottom:clamp(36px,5vw,56px)}
@@ -2793,6 +2862,17 @@ THRUST_DETAIL = {
         ],
         "projects": ["SUMMIT", "Unified Post-Disaster Restoration"],
     },
+    "nuclear": {
+        "question": "How do you secure a facility where the consequences of being wrong are measured in decades?",
+        "lede": "Nuclear energy is returning to the center of the decarbonization conversation, and with it the questions of safeguards, physical and cyber security, and who is trained to run these systems. The center's nuclear work sits alongside its grid and AI work rather than apart from it: a reactor is a cyber-physical system with an unusually long shadow.",
+        "work": [
+            ("Safeguards measurement and detector modeling", "Modeling detector response for safeguards verification, and the measurement campaigns that support it, alongside the UMass Lowell research reactor."),
+            ("Security of nuclear facilities", "Physical and cyber security for facilities where an incident is not recoverable, including the analysis of security incidents at nuclear plants."),
+            ("Robotics for environments people should not enter", "Robotic platforms for inspection and response inside nuclear facilities, developed with national laboratory partners."),
+            ("Policy and training", "The Massachusetts Advanced Nuclear and Fusion Energy Roadmaps for the Commonwealth, and the IAEA-funded Intercontinental Nuclear Institute, which trains early-career professionals internationally."),
+        ],
+        "projects": ["Massachusetts Advanced Nuclear and Fusion Energy Roadmaps", "Intercontinental Nuclear Institute"],
+    },
     "health": {
         "question": "What does this loop look like in a hospital, on a highway, on a bridge, and inside a reactor building?",
         "lede": "The same sense-communicate-decide-act loop shows up wherever computation meets a physical system, and each domain stresses it differently: latency on a highway, privacy in a hospital, harsh environments on a bridge, regulation in a nuclear facility. The center's breadth across colleges is what lets it work in all four.",
@@ -2812,7 +2892,7 @@ THRUSTS = [
      "Vokkarane, Arias, Tseng, Lin"),
     ("ai", "AI and agentic systems for cyber-physical control",
      "Machine learning for intrusion detection and state recovery, physics-grounded models for network provisioning, and safety enforcement for AI agents that touch physical infrastructure.",
-     "Vokkarane, Cao, Son"),
+     "Luo, Cao, Vokkarane, Son"),
     ("fiber", "Next-generation optical and 6G transport",
      "Multi-band and space-division multiplexed elastic optical networks, quality-of-transmission-aware resource allocation and grooming, service prioritization for 6G transport, and the open-source FUSION framework.",
      "Vokkarane, Chigan"),
@@ -2823,8 +2903,11 @@ THRUSTS = [
      "Hardware trojan detection at RTL, silent data corruption detection from hardware counters, attested embedded devices for grid edges, and parallel I/O for data-intensive science.",
      "Arias, Son"),
     ("health", "Connected transportation, health, and infrastructure",
-     "Intelligent traffic and vehicular computing, medical imaging and digital health platforms, structural health monitoring, nuclear security, and robotics for critical facilities.",
-     "Xie, Tseng, Cao, Yu, Inalpolat, Aghara, Robinette, Niezrecki"),
+     "Intelligent traffic and vehicular computing, medical imaging and digital health platforms, and structural health monitoring for blades, bridges, and buildings.",
+     "Xie, Luo, Cao, Yu, Inalpolat, Robinette, Niezrecki"),
+    ("nuclear", "Nuclear energy and security",
+     "Safeguards measurement and detector modeling, security of nuclear facilities, robotic platforms for environments people should not enter, and the training that supports them.",
+     "Aghara, Niezrecki"),
 ]
 
 
@@ -2857,7 +2940,7 @@ ALUMNI_PHD = [
 ]
 ALUMNI_POSTDOC = [("Arash Deylamsalehi", "Google"), ("Jeremy M. Plante", "Hitachi Vantara"), ("Juzi Zhao", "San José State University"), ("Arush Gadkar", "Kilpatrick Townsend & Stockton LLP"), ("Joan Triay", "DOCOMO Euro-Labs"), ("Balagangadhar Bathula", "AT&T")]
 SITE_URL = "https://vinodvokkarane.github.io/scyps-site/"   # set this to the live address
-SITE_VERSION = "0.60"   # bump by 0.01 with every update to the site
+SITE_VERSION = "0.68"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3453,7 +3536,171 @@ HUB = """<svg viewBox="0 0 1200 690" xmlns="http://www.w3.org/2000/svg" role="im
 </svg>"""
 HUB = theme_svg(HUB)
 
+ART["nuclear"] = """<svg viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M40 150V92a44 44 0 0 1 88 0v58z" fill="#FFFFFF" stroke="#044978" stroke-width="3"/>
+<path d="M40 108h88" stroke="#D5DCE5" stroke-width="1.6"/>
+<circle cx="84" cy="124" r="18" stroke="#0A777F" stroke-width="3"/><circle cx="84" cy="124" r="5" fill="#0A777F"/>
+<g stroke="#3BA995" stroke-width="2.6"><path d="M84 106a18 18 0 0 1 16 27M84 142a18 18 0 0 1-16-27"/></g>
+<path d="M146 124h34" stroke="#3BA995" stroke-width="2.6" stroke-dasharray="3 8" class="flow"/>
+<rect x="188" y="96" width="34" height="56" rx="6" fill="#044978"/><rect x="195" y="103" width="20" height="26" rx="3" fill="#0A777F"/>
+<circle cx="205" cy="140" r="3.5" fill="#3BA995" class="pulse"/>
+<path d="M244 148h96M244 148V70" stroke="#D5DCE5" stroke-width="1.6"/>
+<path class="trace" pathLength="100" d="M246 142c10-2 14-14 20-14s4 12 10 13 8-58 15-58 6 50 13 50 5-20 12-20 8 15 14 15 4-5 12-7" stroke="#0A777F" stroke-width="2.4"/>
+<path d="M120 62l20 7v17c0 14-8 23-20 28-12-5-20-14-20-28V69z" fill="#3BA995"/>
+<path d="M110 85l6 6 13-14" stroke="#FFFFFF" stroke-width="4"/>
+<text x="180" y="174" text-anchor="middle" font-size="11" fill="#5B6B82">measure, verify, and secure</text>
+</svg>"""
+ORG = """<svg viewBox="0 0 1200 660" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="orgTitle orgDesc" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<title id="orgTitle">How the center is organized</title>
+<desc id="orgDesc">A director and an executive committee, advised by an external advisory board and an industry partners council; seven research thrusts each with a named lead; and the laboratories and instruments the work runs on.</desc>
+<rect width="1200" height="660" fill="#FFFFFF"/>
+
+<!-- director -->
+<g class="card"><rect x="440" y="24" width="320" height="92" rx="14" fill="#044978"/></g>
+<text x="600" y="58" text-anchor="middle" font-size="20" font-weight="600" fill="#FFFFFF">Director</text>
+<text x="600" y="84" text-anchor="middle" font-size="15" fill="#C9DCEA">Vinod M. Vokkarane</text>
+<text x="600" y="104" text-anchor="middle" font-size="13" fill="#9FC4DF">Electrical and Computer Engineering</text>
+
+<!-- advisory bodies -->
+<g class="card" fill="#FFFFFF" stroke="#0A777F" stroke-width="1.8"><rect x="40" y="34" width="330" height="72" rx="12"/><rect x="830" y="34" width="330" height="72" rx="12"/></g>
+<text x="205" y="62" text-anchor="middle" font-size="15" font-weight="600" fill="#0E2036">External Advisory Board</text>
+<text x="205" y="84" text-anchor="middle" font-size="13" fill="#5B6B82">agency, industry, and academic advisors</text>
+<text x="995" y="62" text-anchor="middle" font-size="15" font-weight="600" fill="#0E2036">Industry Partners Council</text>
+<text x="995" y="84" text-anchor="middle" font-size="13" fill="#5B6B82">companies working with the center</text>
+<g stroke="#0A777F" stroke-width="2.4"><path d="M370 70h70M760 70h70"/></g>
+
+<!-- executive committee -->
+<g class="card"><rect x="390" y="156" width="420" height="76" rx="14" fill="#0A777F"/></g>
+<text x="600" y="186" text-anchor="middle" font-size="18" font-weight="600" fill="#FFFFFF">Executive Committee</text>
+<text x="600" y="211" text-anchor="middle" font-size="13" fill="#CFE8E7">membership, priorities, instrument access, seed funding</text>
+<path d="M600 116v40" stroke="#044978" stroke-width="2.6"/>
+
+<!-- thrust band -->
+<rect x="28" y="266" width="1144" height="196" rx="16" fill="#F3F7FA"/>
+<g class="card"><rect x="440" y="252" width="320" height="34" rx="17" fill="#CDDFF0"/></g>
+<text x="600" y="274" text-anchor="middle" font-size="14" font-weight="600" fill="#044978">Seven research thrusts, each with a lead</text>
+<path d="M600 232v20" stroke="#0A777F" stroke-width="2.4"/>
+"""
+
+_TB = [("Smart grid security", "Vokkarane"), ("AI for cyber-physical control", "Luo"), ("Optical and 6G transport", "Vokkarane"),
+       ("Fault-tolerant edge", "Tseng"), ("Hardware security and HPC", "Arias"), ("Connected transportation", "Xie"),
+       ("Nuclear energy and security", "Aghara")]
+_bw, _gap, _x0, _y0 = 150, 14, 46, 306
+_boxes = []
+for _i, (_t, _who) in enumerate(_TB):
+    _x = _x0 + _i * (_bw + _gap)
+    _words = _t.split()
+    _l1, _l2 = _t, ""
+    if len(_t) > 18:
+        _half = len(_words) // 2 + (1 if len(_words) % 2 and len(_words) > 2 else 0)
+        _l1, _l2 = " ".join(_words[:_half]), " ".join(_words[_half:])
+    _boxes.append(
+        f'<g class="card"><rect x="{_x}" y="{_y0}" width="{_bw}" height="{110}" rx="11" fill="#FFFFFF" stroke="#D5DCE5" stroke-width="1.5"/></g>'
+        f'<rect x="{_x}" y="{_y0}" width="{_bw}" height="5" rx="2.5" fill="#0A777F"/>'
+        f'<text x="{_x + _bw/2}" y="{_y0 + 36}" text-anchor="middle" font-size="13.5" font-weight="600" fill="#0E2036">{_l1}</text>'
+        + (f'<text x="{_x + _bw/2}" y="{_y0 + 54}" text-anchor="middle" font-size="13.5" font-weight="600" fill="#0E2036">{_l2}</text>' if _l2 else "")
+        + f'<path d="M{_x + 22} {_y0 + 70}h{_bw - 44}" stroke="#D5DCE5" stroke-width="1"/>'
+          f'<text x="{_x + _bw/2}" y="{_y0 + 92}" text-anchor="middle" font-size="12.5" fill="#5B6B82">{_who} leads</text>'
+          f'<path d="M{_x + _bw/2} 286v20" stroke="#D5DCE5" stroke-width="1"/>')
+ORG = ORG.replace("</svg>", "") + "".join(_boxes) + """
+<g class="card" fill="#FFFFFF" stroke="#3BA995" stroke-width="1.8"><rect x="46" y="494" width="550" height="128" rx="14"/><rect x="616" y="494" width="538" height="128" rx="14"/></g>
+<text x="321" y="526" text-anchor="middle" font-size="16" font-weight="600" fill="#0E2036">People</text>
+<text x="321" y="554" text-anchor="middle" font-size="13.5" fill="#5B6B82">Faculty from four UMass Lowell colleges, external collaborators at</text>
+<text x="321" y="576" text-anchor="middle" font-size="13.5" fill="#5B6B82">NYU, West Virginia, Louisiana, Red Hat, and Navia Energy,</text>
+<text x="321" y="598" text-anchor="middle" font-size="13.5" fill="#5B6B82">doctoral students, and postdoctoral researchers</text>
+<text x="885" y="526" text-anchor="middle" font-size="16" font-weight="600" fill="#0E2036">Instruments</text>
+<text x="885" y="554" text-anchor="middle" font-size="13.5" fill="#5B6B82">The SUMMIT federated testbed, the NATIG co-simulation testbed,</text>
+<text x="885" y="576" text-anchor="middle" font-size="13.5" fill="#5B6B82">the open-source FUSION framework, and the member laboratories:</text>
+<text x="885" y="598" text-anchor="middle" font-size="13.5" fill="#5B6B82">ACNL, INSSL, PERC and RURI, LoCSST, CDH, and CEI</text>
+<path d="M321 462v32M885 462v32" stroke="#D5DCE5" stroke-width="1.4"/>
+</svg>"""
+ORG = theme_svg(ORG)
+
 ART = {k: theme_svg(v) for k, v in ART.items()}
+TOOL_ART = {
+"fusion": """<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<rect width="640" height="300" fill="#FFFFFF"/>
+<!-- optical mesh -->
+<g stroke="#D5DCE5" stroke-width="2.5"><path d="M70 150L170 80M170 80L290 150M290 150L400 80M70 150L170 220M170 220L290 150M290 150L400 220M170 80L170 220M400 80L400 220M70 150L290 150"/></g>
+<g stroke="#0A777F" stroke-width="3"><path class="flow" d="M70 150L170 80L290 150L400 80"/><path class="flow slow" d="M70 150L170 220L290 150L400 220"/></g>
+<g fill="#044978"><circle cx="70" cy="150" r="9"/><circle cx="170" cy="80" r="9"/><circle cx="170" cy="220" r="9"/><circle cx="290" cy="150" r="9"/><circle cx="400" cy="80" r="9"/><circle cx="400" cy="220" r="9"/></g>
+<g fill="#FFFFFF"><circle cx="70" cy="150" r="3"/><circle cx="170" cy="80" r="3"/><circle cx="170" cy="220" r="3"/><circle cx="290" cy="150" r="3"/><circle cx="400" cy="80" r="3"/><circle cx="400" cy="220" r="3"/></g>
+<text x="235" y="272" text-anchor="middle" font-size="12.5" fill="#5B6B82">multi-band, multi-core lightpath requests</text>
+<!-- benchmark panel -->
+<g class="card"><rect x="452" y="38" width="158" height="200" rx="10" fill="#F3F7FA" stroke="#D5DCE5"/></g>
+<text x="531" y="62" text-anchor="middle" font-size="12.5" font-weight="600" fill="#0E2036">reproducible run</text>
+<g stroke="#D5DCE5" stroke-width="1.4"><path d="M470 210h124M470 210V78"/></g>
+<rect x="480" y="150" width="20" height="60" class="grow" style="transform-origin:490px 210px" fill="#044978"/>
+<rect x="508" y="120" width="20" height="90" class="grow" style="transform-origin:518px 210px;animation-delay:.4s" fill="#0A777F"/>
+<rect x="536" y="170" width="20" height="40" class="grow" style="transform-origin:546px 210px;animation-delay:.8s" fill="#3BA995"/>
+<rect x="564" y="100" width="20" height="110" class="grow" style="transform-origin:574px 210px;animation-delay:1.2s" fill="#044978"/>
+<text x="531" y="230" text-anchor="middle" font-size="11.5" fill="#5B6B82">blocking, capacity, QoT</text>
+<path d="M410 150h36" stroke="#0A777F" stroke-width="3" class="flow"/>
+<text x="235" y="40" text-anchor="middle" font-size="12.5" fill="#5B6B82">same topology, same seed, same result</text>
+</svg>""",
+"cosim": """<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect width="640" height="300" fill="#FFFFFF"/>
+<!-- the three containers -->
+<g class="card" fill="#FFFFFF" stroke="#D5DCE5" stroke-width="1.5">
+  <rect x="40" y="38" width="160" height="84" rx="10"/><rect x="240" y="38" width="160" height="84" rx="10"/><rect x="440" y="38" width="160" height="84" rx="10"/>
+</g>
+<g fill="#044978"><rect x="40" y="38" width="160" height="26" rx="10"/><rect x="40" y="54" width="160" height="10"/>
+  <rect x="240" y="38" width="160" height="26" rx="10"/><rect x="240" y="54" width="160" height="10"/>
+  <rect x="440" y="38" width="160" height="26" rx="10"/><rect x="440" y="54" width="160" height="10"/></g>
+<g font-size="14" font-weight="600" fill="#FFFFFF" text-anchor="middle">
+  <text x="120" y="57">GridLAB-D</text><text x="320" y="57">HELICS</text><text x="520" y="57">ns-3</text></g>
+<g font-size="12.5" fill="#5B6B82" text-anchor="middle">
+  <text x="120" y="88">distribution feeder</text><text x="120" y="106">IEEE 123-bus</text>
+  <text x="320" y="88">federation broker</text><text x="320" y="106">time synchronization</text>
+  <text x="520" y="88">communication</text><text x="520" y="106">network model</text></g>
+<!-- broker links -->
+<g stroke="#D5DCE5" stroke-width="2.5"><path d="M200 80h40M400 80h40"/></g>
+<g stroke="#0A777F" stroke-width="3"><path class="flow" d="M200 80h40"/><path class="flow slow" d="M440 80H400"/></g>
+<!-- docker frame around the three -->
+<rect x="24" y="24" width="592" height="112" rx="14" stroke="#0A777F" stroke-width="1.6" stroke-dasharray="6 7"/>
+<text x="34" y="18" font-size="12.5" fill="#0A777F">one Docker image, one command to run</text>
+<!-- control centre and device, DNP3 between them -->
+<g class="card"><rect x="40" y="196" width="150" height="66" rx="10" fill="#044978"/></g>
+<text x="115" y="226" text-anchor="middle" font-size="14" font-weight="600" fill="#FFFFFF">control center</text>
+<text x="115" y="246" text-anchor="middle" font-size="12" fill="#C9DCEA">SCADA master</text>
+<g class="card"><rect x="450" y="196" width="150" height="66" rx="10" fill="#FFFFFF" stroke="#044978" stroke-width="2"/></g>
+<text x="525" y="226" text-anchor="middle" font-size="14" font-weight="600" fill="#0E2036">field devices</text>
+<text x="525" y="246" text-anchor="middle" font-size="12" fill="#5B6B82">relays and meters</text>
+<path d="M190 229h260" stroke="#D5DCE5" stroke-width="2.5"/>
+<path class="flow" d="M190 229h260" stroke="#3BA995" stroke-width="3"/>
+<text x="320" y="219" text-anchor="middle" font-size="12.5" fill="#5B6B82">DNP3 traffic</text>
+<g class="pulse"><path d="M356 196l-22 16 12 3-14 18" stroke="#E25555" stroke-width="2.6"/></g>
+<text x="320" y="276" text-anchor="middle" font-size="12.5" fill="#5B6B82">attack and fault scenarios injected on the wire</text>
+<g stroke="#D5DCE5" stroke-width="2" stroke-dasharray="4 6"><path d="M115 196v-60M525 196v-60"/></g>
+</svg>""",
+"summit_tool": """<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect width="640" height="300" fill="#FFFFFF"/>
+<!-- wide-area cloud -->
+<path d="M232 76c-16-34 46-54 64-30 16-24 66-14 66 16 28-3 40 34 14 45H246c-27-2-31-31-14-31z" fill="#F3F7FA" stroke="#D5DCE5" stroke-width="1.6"/>
+<text x="320" y="84" text-anchor="middle" font-size="12.5" fill="#5B6B82">wide-area SDN over the Internet</text>
+<!-- three sites -->
+<g class="card" fill="#FFFFFF" stroke="#D5DCE5" stroke-width="1.5">
+  <rect x="34" y="150" width="170" height="112" rx="10"/><rect x="235" y="150" width="170" height="112" rx="10"/><rect x="436" y="150" width="170" height="112" rx="10"/>
+</g>
+<g font-size="14" font-weight="600" fill="#0E2036" text-anchor="middle">
+  <text x="119" y="174">UMass Lowell</text><text x="320" y="174">NYU Tandon</text><text x="521" y="174">West Virginia</text></g>
+<g font-size="11.5" fill="#5B6B82" text-anchor="middle">
+  <text x="119" y="191">lead site</text><text x="320" y="191">federation site</text><text x="521" y="191">federation site</text></g>
+<!-- RTDS racks -->
+<g fill="#044978"><rect x="92" y="200" width="54" height="48" rx="5"/><rect x="293" y="200" width="54" height="48" rx="5"/><rect x="494" y="200" width="54" height="48" rx="5"/></g>
+<g stroke="#3BA995" stroke-width="2"><path d="M100 212h38M100 224h38M100 236h38M301 212h38M301 224h38M301 236h38M502 212h38M502 224h38M502 236h38"/></g>
+<g fill="#3BA995"><circle cx="140" cy="206" r="2.6" class="pulse"/><circle cx="341" cy="206" r="2.6" class="pulse" style="animation-delay:.7s"/><circle cx="542" cy="206" r="2.6" class="pulse" style="animation-delay:1.4s"/></g>
+<text x="320" y="284" text-anchor="middle" font-size="12.5" fill="#5B6B82">real-time simulation with hardware in the loop at every site</text>
+<!-- links up to the cloud -->
+<g stroke="#D5DCE5" stroke-width="2.5"><path d="M119 150v-38M320 150v-46M521 150v-38"/></g>
+<g stroke="#0A777F" stroke-width="3"><path class="flow" d="M119 150v-38"/><path class="flow slow" d="M320 150v-46"/><path class="flow" d="M521 150v-38"/></g>
+<!-- hardware in the loop badge -->
+<g class="card"><rect x="34" y="24" width="150" height="46" rx="9" fill="#FFFFFF" stroke="#0A777F" stroke-width="1.6"/></g>
+<text x="109" y="43" text-anchor="middle" font-size="12" font-weight="600" fill="#0A777F">relays, controllers</text>
+<text x="109" y="59" text-anchor="middle" font-size="11" fill="#5B6B82">hardware in the loop</text>
+<path d="M109 70v72" stroke="#3BA995" stroke-width="2.2" stroke-dasharray="5 7" class="flow slow"/>
+</svg>""",
+}
+TOOL_ART = {k: theme_svg(v) for k, v in TOOL_ART.items()}
+
 LAB_ART = {
 "acnl": """<svg viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect width="720" height="480" fill="#FFFFFF"/>
 <g class="card"><rect x="250" y="40" width="220" height="60" rx="12" fill="#044978"/></g>
@@ -3941,6 +4188,64 @@ HERO_ART = {
 <text x="600" y="572" text-anchor="middle" font-size="15" fill="#5B6B82">one loop, four domains, each stressing it in a different way</text>
 </svg>""",
 }
+HERO_ART["nuclear"] = """<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<rect width="1200" height="600" fill="url(#sky)"/>
+<defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3F7FA"/><stop offset="1" stop-color="#FFFFFF"/></linearGradient>
+<marker id="nar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#0A777F"/></marker></defs>
+<g font-size="15" font-weight="600" letter-spacing=".06em" fill="#5B6B82">
+  <text x="60" y="52">THE FACILITY</text><text x="470" y="52">MEASUREMENT AND VERIFICATION</text><text x="880" y="52">SAFEGUARDS AND TRAINING</text></g>
+<g stroke="#D5DCE5" stroke-width="1"><path d="M60 68h330M470 68h360M880 68h260"/></g>
+<!-- containment -->
+<path d="M96 470V300a130 130 0 0 1 260 0v170z" fill="#FFFFFF" stroke="#044978" stroke-width="3.4"/>
+<path d="M96 340h260" stroke="#D5DCE5" stroke-width="2"/>
+<circle cx="226" cy="382" r="52" stroke="#0A777F" stroke-width="3.4"/>
+<circle cx="226" cy="382" r="15" fill="#0A777F"/>
+<g stroke="#3BA995" stroke-width="3.4"><path d="M226 330a52 52 0 0 1 45 78M226 434a52 52 0 0 1-45-78"/></g>
+<text x="226" y="510" text-anchor="middle" font-size="15" font-weight="600" fill="#0E2036">research reactor and fuel cycle</text>
+<text x="226" y="532" text-anchor="middle" font-size="13" fill="#5B6B82">material accounting and containment</text>
+<!-- robot going where people should not -->
+<g transform="translate(60,108)">
+  <rect x="0" y="30" width="86" height="42" rx="8" fill="#044978"/>
+  <rect x="18" y="8" width="50" height="26" rx="6" fill="#0A777F"/>
+  <circle cx="30" cy="21" r="5" fill="#FFFFFF"/><circle cx="56" cy="21" r="5" fill="#FFFFFF"/>
+  <g stroke="#044978" stroke-width="4"><path d="M0 76h86"/></g>
+  <circle cx="18" cy="82" r="10" fill="#FFFFFF" stroke="#044978" stroke-width="4"/>
+  <circle cx="68" cy="82" r="10" fill="#FFFFFF" stroke="#044978" stroke-width="4"/>
+</g>
+<text x="103" y="224" text-anchor="middle" font-size="13" fill="#5B6B82">robotic inspection</text>
+<!-- detector and counts -->
+<g class="card"><rect x="430" y="330" width="86" height="130" rx="10" fill="#044978"/></g>
+<rect x="446" y="346" width="54" height="66" rx="6" fill="#0A777F"/>
+<circle cx="473" cy="436" r="6" fill="#3BA995" class="pulse"/>
+<text x="473" y="486" text-anchor="middle" font-size="13.5" fill="#5B6B82">detector</text>
+<g stroke="#3BA995" stroke-width="3" stroke-dasharray="3 10"><path class="flow" d="M290 382h132"/></g>
+<!-- spectrum -->
+<g class="card"><rect x="560" y="120" width="300" height="300" rx="16" fill="#FFFFFF" stroke="#D5DCE5"/></g>
+<text x="710" y="152" text-anchor="middle" font-size="15" font-weight="600" fill="#0E2036">gamma spectrum</text>
+<path d="M590 380h240M590 380V180" stroke="#5B6B82" stroke-width="1.8"/>
+<path d="M592 366c24-5 36-34 48-34s10 28 24 30 18-140 36-140 14 118 32 118 12-48 28-48 20 36 34 36 10-12 30-16" stroke="#D5DCE5" stroke-width="2.4"/>
+<path class="trace" pathLength="100" d="M592 366c24-5 36-34 48-34s10 28 24 30 18-140 36-140 14 118 32 118 12-48 28-48 20 36 34 36 10-12 30-16" stroke="#0A777F" stroke-width="3"/>
+<g fill="#3BA995"><circle cx="700" cy="222" r="6" class="pulse"/><circle cx="764" cy="304" r="5" class="pulse" style="animation-delay:.9s"/></g>
+<text x="710" y="404" text-anchor="middle" font-size="13" fill="#5B6B82">isotopic signatures verified against declarations</text>
+<!-- safeguards column -->
+<g class="card" fill="#FFFFFF" stroke="#D5DCE5"><rect x="900" y="120" width="250" height="96" rx="12"/><rect x="900" y="240" width="250" height="96" rx="12"/><rect x="900" y="360" width="250" height="96" rx="12"/></g>
+<text x="1025" y="156" text-anchor="middle" font-size="15" font-weight="600" fill="#0E2036">facility security</text>
+<text x="1025" y="180" text-anchor="middle" font-size="13" fill="#5B6B82">physical and cyber, with</text>
+<text x="1025" y="200" text-anchor="middle" font-size="13" fill="#5B6B82">incident analysis</text>
+<text x="1025" y="276" text-anchor="middle" font-size="15" font-weight="600" fill="#0E2036">state energy policy</text>
+<text x="1025" y="300" text-anchor="middle" font-size="13" fill="#5B6B82">Massachusetts nuclear and</text>
+<text x="1025" y="320" text-anchor="middle" font-size="13" fill="#5B6B82">fusion energy roadmaps</text>
+<text x="1025" y="396" text-anchor="middle" font-size="15" font-weight="600" fill="#0E2036">international training</text>
+<text x="1025" y="420" text-anchor="middle" font-size="13" fill="#5B6B82">IAEA Intercontinental</text>
+<text x="1025" y="440" text-anchor="middle" font-size="13" fill="#5B6B82">Nuclear Institute</text>
+<g stroke="#0A777F" stroke-width="3"><path class="flow" d="M866 168h26" marker-end="url(#nar)"/><path class="flow slow" d="M866 288h26" marker-end="url(#nar)"/><path class="flow" d="M866 408h26" marker-end="url(#nar)"/></g>
+<!-- shield -->
+<path d="M356 92l40 14v34c0 28-17 46-40 56-23-10-40-28-40-56v-34z" fill="#3BA995"/>
+<path d="M337 138l12 12 26-28" stroke="#FFFFFF" stroke-width="6.5"/>
+<text x="356" y="218" text-anchor="middle" font-size="13" fill="#5B6B82">safeguards verified</text>
+<path d="M60 560h1080" stroke="#D5DCE5" stroke-width="1.4"/>
+<text x="600" y="588" text-anchor="middle" font-size="15" fill="#5B6B82">measure what is there, verify it against what was declared, and secure the facility that holds it</text>
+</svg>"""
 HERO_ART = {k: theme_svg(v) for k, v in HERO_ART.items()}
 
 
@@ -4007,7 +4312,7 @@ n_faculty = 1 + len(FACULTY["core"]) + len(FACULTY["affiliated"])
 
 def build():
     thrusts_html = "".join(
-        f'<div class="thrust"><a class="art" href="research-{esc(i)}.html">{ART[i]}</a><div class="body"><h3><a href="research-{esc(i)}.html">{esc(t)}</a></h3><p>{esc(d)}</p><div class="who">{esc(w)}</div><p class="more2"><a href="research-{esc(i)}.html">More on this thrust</a></p></div></div>'
+        f'<div class="thrust"><a class="art" href="research-{esc(i)}.html">{ART[i]}</a><div class="body"><h3><a href="research-{esc(i)}.html">{esc(t)}</a></h3><p>{esc(d)}</p><div class="who"><b>{esc(w.split(",")[0])}</b> leads{esc("; with " + w.split(", ", 1)[1] if ", " in w else "")}</div><p class="more2"><a href="research-{esc(i)}.html">More on this thrust</a></p></div></div>'
         for i, t, d, w in THRUSTS)
 
     projects_html = ""
@@ -4017,9 +4322,18 @@ def build():
         amt = f'<div class="amt">{esc(pr["amount"])}{share}<small>{esc(pr["period"])}</small></div>' if pr["amount"] else f'<div class="amt"><small>{esc(pr["period"])}</small></div>'
         projects_html += (f'<div class="proj"><div class="when"><span class="{tagcls}">{esc(pr["tag"])}</span><br>{esc(pr["domain"])}</div>'
                           f'<div><h3>{esc(pr["title"])}</h3><div class="sponsor">{("<span class=" + chr(34) + "role" + chr(34) + ">" + esc(pr["role"]) + "</span>") if pr.get("role") else ""}{esc(pr["sponsor"])}</div>'
-                          f'<p class="desc">{esc(pr["desc"])}</p><p class="team">{esc(pr["team"])}</p></div>{amt}</div>')
+                          f'<p class="desc">{esc(pr["desc"])}</p><p class="team">{esc(pr["team"])}</p>'
+                          + (f'<p class="projlink"><a href="{esc(pr["url"])}">{esc(pr.get("link", "Project page"))}</a></p>' if pr.get("url") else "")
+                          + f'</div>{amt}</div>')
 
-    tools_html = "".join(f'<div class="tool">{("<img class=\"toolfig\" src=\"data:image/jpeg;base64," + IMG["fig_ryan"] + "\" alt=\"FUSION simulation of an optical mesh network\">") if t["name"] == "FUSION" and IMG.get("fig_ryan") else ""}<h4>{esc(t["name"])}</h4><p>{esc(t["what"])}</p>{("<p class=\"toollink\"><a href=\"" + esc(t["url"]) + "\">" + esc(t["link"]) + "</a></p>") if t.get("url") else ""}</div>' for t in TOOLS)
+    def tool_fig(t):
+        if TOOL_ART.get(t.get("art")):
+            return f'<div class="toolfig">{TOOL_ART[t["art"]]}</div>'
+        return ""
+    tools_html = "".join(
+        f'<div class="tool">{tool_fig(t)}<h4>{esc(t["name"])}</h4><p>{esc(t["what"])}</p>'
+        f'{("<p class=" + chr(34) + "toollink" + chr(34) + "><a href=" + chr(34) + esc(t["url"]) + chr(34) + ">" + esc(t["link"]) + "</a></p>") if t.get("url") else ""}</div>'
+        for t in TOOLS)
 
     d = FACULTY["director"]
     director_html = ('<div class="director">' + avatar(d, "xl") + '<div>' + person_card(d, with_photo=False) +
@@ -4289,7 +4603,7 @@ def build():
       <div class="hublist">
         <h3>The center serves as a hub for</h3>
         <ol>
-          <li>research on secure, resilient, and efficient cyber-physical systems;</li>
+          <li>research on secure, resilient, and efficient cyber-physical systems, in seven thrusts each with a named lead;</li>
           <li>shared testbeds and instruments, including SUMMIT, open to collaborators;</li>
           <li>training the cyber-physical systems workforce, from doctoral students to co-ops;</li>
           <li>partnership with industry, agencies, and the community on problems they actually have; and</li>
@@ -4297,6 +4611,10 @@ def build():
         </ol>
       </div>
     </div>
+    <h2 class="grouph orgh">How the center is organized</h2>
+    <figure class="orgfig">{ORG}</figure>
+    <p class="orgnote">A director and an executive committee, advised by an external board and an industry council. Seven research thrusts, each with a named lead who is the point of contact for collaborators and sponsors in that area. Write to <a href="mailto:SCyPS@uml.edu">SCyPS@uml.edu</a> or to the thrust lead directly.</p>
+
     <div class="about-grid">
       <div>
         <h3>Mission</h3>
@@ -4326,14 +4644,14 @@ def build():
 
 <section id="research" class="tint">
   <div class="wrap">
-    <div class="shead"><h2>Research thrusts</h2><p>Six connected lines of work. Most projects cut across two or three of them, which is the point of running them under one roof.</p></div>
+    <div class="shead"><h2>Research thrusts</h2><p>Seven connected lines of work, each with a named lead who is accountable for it. Most projects cut across two or three, which is the point of running them under one roof.</p></div>
     <div class="thrusts">{thrusts_html}</div>
   </div>
 </section>
 
 <section id="projects">
   <div class="wrap">
-    <div class="shead"><h2>Funded projects</h2><p>Sponsored research led by center faculty, current awards first, then completed awards. Three new awards started in 2026, headed by the NSF MRI SUMMIT testbed.</p></div>
+    <div class="shead"><h2>Funded projects</h2><p>Sponsored research led by center faculty, current awards first, then completed awards. Four new awards started in 2026, headed by the NSF MRI SUMMIT testbed.</p></div>
     <div class="feature">
       <div class="copy">
         <span class="kicker">New in 2026</span>
@@ -4479,7 +4797,7 @@ for _g in ("director", "core", "affiliated", "external"):
         _sur = re.sub(r"\(.*?\)", "", _p["name"]).split()[-1]
         FULL_NAME[_sur] = _p["name"]
 
-PEOPLE_SECTION = '<section id="people" class="tint">\n  <div class="wrap">\n    <div class="shead"><h2>People</h2><p>Faculty from the Francis College of Engineering, the Kennedy College of Sciences, and the College of Fine Arts, Humanities and Social Sciences, plus long-running collaborators at partner universities and companies. Each profile links to the person\'s Google Scholar and ORCID records; citation totals are quoted from Google Scholar where the profile is public.</p></div>\n    <p class="founding">The center was founded on October 1, 2019 by Vinod Vokkarane and Martin Margala. Vokkarane was a co-founder and a member of the founding Board of Directors from October 2019 to July 2021, and has been director since August 2021. Margala, then Professor and Chair of Electrical and Computer Engineering, was founding co-director until July 2021 and remains an external collaborator.</p>\n    <h2 class="grouph">Center faculty</h2>\n    {director_html}\n    {core_html}\n    <div class="group"><h2 class="grouph">Affiliated researchers</h2><p>UMass Lowell faculty who collaborate on center projects and proposals.</p>{aff_html}</div>\n    <div class="group"><h2 class="grouph">External collaborators</h2><p>Partners at other universities and companies who work with the center on current projects.</p>{ext_html}</div>\n  </div>\n</section>\n\n'
+PEOPLE_SECTION = '<section id="people" class="tint">\n  <div class="wrap">\n    <div class="shead"><h2>People</h2><p>Faculty from the Francis College of Engineering, the Kennedy College of Sciences, and the College of Fine Arts, Humanities and Social Sciences, plus long-running collaborators at partner universities and companies. Each profile links to the person\'s Google Scholar and ORCID records; citation totals are quoted from Google Scholar where the profile is public.</p></div>\n    <p class="founding">The center was founded on October 1, 2019 by Vinod Vokkarane, Martin Margala, Yan Luo, Sukesh Aghara, and Yuanchang Xie. Vokkarane served on the founding Board of Directors from October 2019 to July 2021 and has been director since August 2021. Margala, then Professor and Chair of Electrical and Computer Engineering, was founding co-director until July 2021 and remains an external collaborator.</p>\n    <h2 class="grouph">Center faculty</h2>\n    {director_html}\n    {core_html}\n    <div class="group"><h2 class="grouph">Affiliated researchers</h2><p>UMass Lowell faculty who collaborate on center projects and proposals.</p>{aff_html}</div>\n    <div class="group"><h2 class="grouph">External collaborators</h2><p>Partners at other universities and companies who work with the center on current projects.</p>{ext_html}</div>\n  </div>\n</section>\n\n'
 
 STUDENTS_SECTION = '<section id="students">\n  <div class="wrap">\n    <div class="shead"><h2>Students</h2><p>Doctoral students in the director\'s group, the Advanced Communication Networks Laboratory, working on center projects.</p></div>\n    <h2 class="grouph">Doctoral students</h2>\n    <div class="stugrid">{students_html}</div>\n    <div class="lablife">\n      <h3>Lab life</h3>\n      <p>The Advanced Communication Networks Laboratory through the years.</p>\n      <div class="labgrid">{lablife_html}</div>\n    </div>\n  </div>\n</section>\n\n'
 

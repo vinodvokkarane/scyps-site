@@ -128,7 +128,7 @@ PROJECTS = [
      "domain": "Energy"},
     {"tag": "New in 2026", "sponsor": "Massachusetts Technology Collaborative, Applied AI Models program",
      "role": "PI", "title": "ARPO-Sensor Fusion: Autonomous Robotic Planning and Optimization for Intelligence Sensor Fusion",
-     "amount": "$625K", "share": "$500K direct plus $125K cost share; UMass Lowell and UMLARC share $247K", "period": "Sep 2026 to Aug 2027",
+     "amount": "$625K", "share": "$500K direct plus $125K cost share; UMass Lowell and UMLARC share $247K", "period": "Oct 2026 to Sep 2027",
      "team": "PI Vinod Vokkarane; performed at UMLARC",
      "desc": "Applied AI models that fuse multi-sensor intelligence feeds to plan and optimize autonomous robotic missions.",
      "domain": "Autonomy"},
@@ -2031,7 +2031,7 @@ P.sort(key=lambda p: (-p["year"], -month_of(p), 0 if p["type"] == "journal" else
 NEWS = [
     ("Oct 2026", "SUMMIT begins. NSF's $2M Major Research Instrumentation Track 2 award funds a three-site federated smart grid testbed with NYU and West Virginia University, starting October 1, 2026; a postdoctoral search is under way."),
     ("Sep 2026", "The FUSION benchmarking framework paper appears in JOCN's special issue on benchmarking in optical networks, followed in October by a QoT-aware grooming paper for multi-band SDM networks."),
-    ("Sep 2026", "ARPO-Sensor Fusion starts under the Massachusetts Technology Collaborative's Applied AI Models program ($625K), performed at UMLARC."),
+    ("Oct 2026", "ARPO-Sensor Fusion starts under the Massachusetts Technology Collaborative's Applied AI Models program ($625K, of which $247K to UMass Lowell and UMLARC), performed at UMLARC."),
     ("Aug 2026", "Lewis Tseng presents timely control for quantum clouds at the ACM SIGCOMM 2026 QuNet workshop."),
     ("Jun 2026", "Sukesh Aghara's group publishes in Energy Reports on phasing clean, sustainable alternatives into a university campus's central heating, and the Massachusetts nuclear roadmap enters its public discussion series with events in Boston, Worcester, and Lowell."),
     ("Mar 2026", "The U.S. Army ARPO project on autonomous robotic planning and optimization begins ($225K)."),
@@ -2565,6 +2565,11 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .stu .focus{font-size:14.5px;color:var(--ink-2);margin:8px 0 8px}
 .stu .pmeta{margin-bottom:0}
 .stu .stufig{margin-top:auto}
+.stupubs{font-size:13.5px;color:var(--ink-3);margin:2px 0 10px}
+.stupubs b{color:var(--ink)}
+.stupub{background:var(--bg-2);border-left:3px solid var(--signal);border-radius:0 8px 8px 0;padding:10px 12px;margin:0 0 12px;font-size:13.5px;line-height:1.4}
+.stupub .lbl{display:block;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3);margin-bottom:4px}
+.stupub .v{display:block;color:var(--ink-3);font-size:12.5px;margin-top:4px}
 .stufig{margin:18px 0 0;align-self:stretch;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px}
 .stufig img{width:100%;height:150px;object-fit:contain;display:block}
 .stufig .svgfig,.stufig img{margin-bottom:6px}
@@ -2940,7 +2945,7 @@ ALUMNI_PHD = [
 ]
 ALUMNI_POSTDOC = [("Arash Deylamsalehi", "Google"), ("Jeremy M. Plante", "Hitachi Vantara"), ("Juzi Zhao", "San José State University"), ("Arush Gadkar", "Kilpatrick Townsend & Stockton LLP"), ("Joan Triay", "DOCOMO Euro-Labs"), ("Balagangadhar Bathula", "AT&T")]
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "0.69"   # bump by 0.01 with every update to the site
+SITE_VERSION = "0.71"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -2974,6 +2979,7 @@ def student_card(st):
         fig = f'<figure class="stufig"><div class="svgfig" role="img" aria-label="{esc(st.get("figcap", "Research figure"))}">{STUDENT_FIGS[st["figsvg"]]}</div><figcaption>{esc(st.get("figcap", ""))}</figcaption></figure>'
     return (f'<article class="stu">{stu_avatar(st)}'
             f'<h3>{esc(st["name"])}</h3><p class="ptitle">{esc(st["status"])}</p><p class="focus">{esc(st["focus"])}</p>'
+            + student_highlight(st["name"])
             + '<p class="pmeta">' + " ".join(f'<span class="mi">{m}</span>' for m in links) + '</p>'
             + metrics_slot({"name": st["name"]}) + fig + '</article>')
 def alum_feature(a):
@@ -2981,7 +2987,8 @@ def alum_feature(a):
     inst = "Southern Illinois" if a["org"].startswith("Southern") else "Montana"
     return (f'<article class="stu feat">{stu_avatar(a)}'
             f'<h3>{esc(a["name"])} <span class="ptag">{esc(a["degree"])}</span></h3><p class="ptitle"><b>{esc(a["role"])}</b>, {esc(a["org"])}</p>'
-            f'<p class="focus">{esc(a["focus"])}</p>' + '<p class="pmeta">' + " ".join(f'<span class="mi">{m}</span>' for m in links) + '</p>'
+            f'<p class="focus">{esc(a["focus"])}</p>' + student_highlight(a["name"])
+            + '<p class="pmeta">' + " ".join(f'<span class="mi">{m}</span>' for m in links) + '</p>'
             + metrics_slot({"name": a["name"], "inst": inst}) + '</article>')
 
 # ---------------------------------------------------------------- sponsors
@@ -3261,6 +3268,51 @@ def journal_chip(venue):
     if m.get("sjr"): bits.append(f'SJR {m["sjr"]}')
     if not bits: return ""
     return f'<span class="jm" title="{esc(m.get("source") or "journal metrics")}">' + " &middot; ".join(esc(b) for b in bits) + "</span>"
+
+
+# ---------------------------------------------------------------- student publication highlights
+# Papers are matched to a student by surname AND first initial AND the presence of their advisor on
+# the paper, which is what keeps a common surname from collecting someone else's work. Everything
+# here is computed from P; nothing is entered by hand.
+STUDENT_ADVISOR = {
+    "Arash Rezaee": ("Rezaee", "A", {"Vokkarane"}), "Ryan McCann": ("McCann", "R", {"Vokkarane"}),
+    "Ken Patrick Watts": ("Watts", "K", {"Vokkarane"}), "Suvhasis Mukhopadhyay": ("Mukhopadhyay", "S", {"Vokkarane"}),
+    "Mehran Sasaninia": ("Sasaninia", "M", {"Vokkarane"}), "Ayush Pandey": ("Pandey", "A", {"Vokkarane"}),
+    "Md Zahidul Islam": ("Islam", "M", {"Lin", "Vokkarane"}), "Shamsun Nahar Edib": ("Edib", "S", {"Lin", "Vokkarane"}),
+}
+def pat_of(name):
+    sur, ini, _ = STUDENT_ADVISOR[name]
+    return re.compile(r"\b" + ini + r"\.\s*(?:[A-Z]\.\s*)?" + re.escape(sur) + r"\b")
+
+def student_papers(name):
+    spec = STUDENT_ADVISOR.get(name)
+    if not spec: return []
+    sur, ini, adv = spec
+    pat = pat_of(name)
+    out = [p for p in P if (set(p["faculty"]) & adv) and pat.search(", ".join(p["authors"]) if isinstance(p["authors"], list) else p["authors"])]
+    return sorted(out, key=lambda p: (-p["year"], -(month_of(p) or 0)))
+
+def student_highlight(name):
+    """A one-line record plus the newest journal paper, for a student card."""
+    papers = student_papers(name)
+    if not papers: return ""
+    j = [p for p in papers if p["type"] == "journal"]
+    bits = []
+    if j: bits.append(f'<b>{len(j)}</b> journal paper' + ("s" if len(j) != 1 else ""))
+    other = len(papers) - len(j)
+    if other: bits.append(f'<b>{other}</b> conference paper' + ("s" if other != 1 else ""))
+    line = '<p class="stupubs">' + ", ".join(bits) + " with the center</p>"
+    # prefer a paper the student led, so co-authors do not all show the same highlight
+    def first_author(p):
+        au = p["authors"][0] if isinstance(p["authors"], list) else p["authors"].split(",")[0]
+        return pat_of(name).search(au) is not None
+    lead = [p for p in j if first_author(p)] or [p for p in papers if first_author(p)]
+    top = (lead or j or papers)[0]
+    title = esc(top["title"])
+    if top.get("doi"): title = f'<a href="https://doi.org/{esc(top["doi"])}">{title}</a>'
+    line += (f'<p class="stupub"><span class="lbl">Selected paper</span>{title}'
+             f'<span class="v"><i>{esc(top["venue"])}</i>, {esc(top["details"])}</span></p>')
+    return line
 
 # ---------------------------------------------------------------- researcher identifiers
 SCHOLAR = {

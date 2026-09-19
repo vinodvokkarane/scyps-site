@@ -1,0 +1,411 @@
+{
+ "note": "Center-attributed publications from the center's founding on October 1, 2019 through 2020, from Crossref with the site's vetting rules. Loaded by build_site.py.",
+ "entries": [
+  {
+   "year": 2020,
+   "authors": [
+    "X. Zhuo",
+    "I. Nandi",
+    "T. Azzaoui",
+    "S. W. Son"
+   ],
+   "title": "A Neural Network-Based Optimal Tile Size Selection Model for Embedded Vision Applications",
+   "venue": "IEEE 22nd International Conference on High Performance Computing and Communications; IEEE 18th International Conference on Smart City; IEEE 6th International Conference on Data Science and Systems (HPCC/SmartCity/DSS)",
+   "details": "pp. 607-612, Dec. 2020",
+   "doi": "10.1109/hpcc-smartcity-dss50907.2020.00077",
+   "type": "conference",
+   "faculty": [
+    "Son"
+   ],
+   "area": ""
+  },
+  {
+   "year": 2020,
+   "authors": [
+    "A. Moon",
+    "X. Zhuo",
+    "J. Zhang",
+    "S. W. Son",
+    "Y. Jeong Song"
+   ],
+   "title": "Anomaly Detection in Edge Nodes using Sparsity Profile",
+   "venue": "IEEE International Conference on Big Data (Big Data)",
+   "details": "pp. 1236-1245, Dec. 2020",
+   "doi": "10.1109/bigdata50022.2020.9377757",
+   "type": "conference",
+   "faculty": [
+    "Son"
+   ],
+   "area": ""
+  },
+  {
+   "year": 2020,
+   "authors": [
+    "S. N. Edib",
+    "Y. Lin",
+    "V. Vokkarane",
+    "F. Qiu",
+    "R. Yao",
+    "D. Zhao"
+   ],
+   "title": "PMU and Communication Infrastructure Restoration for Post-Attack Observability Recovery of Power Grids",
+   "venue": "IEEE International Conference on Communications, Control, and Computing Technologies for Smart Grids (SmartGridComm)",
+   "details": "pp. 1-6, Nov. 2020",
+   "doi": "10.1109/smartgridcomm47815.2020.9303014",
+   "type": "conference",
+   "faculty": [
+    "Vokkarane",
+    "Lin"
+   ],
+   "area": ""
+  },
+  {
+   "year": 2020,
+   "authors": [
+    "B. Xie",
+    "D. Zhao",
+    "T. Hong",
+    "A. Q. Huang",
+    "Z. Guo",
+    "Y. Lin"
+   ],
+   "title": "Dynamic State Estimation Based Monitoring of High Frequency Transformer",
+   "venue": "IEEE International Conference on Communications, Control, and Computing Technologies for Smart Grids (SmartGridComm)",
+   "details": "pp. 1-6, Nov. 2020",
+   "doi": "10.1109/smartgridcomm47815.2020.9302978",
+   "type": "conference",
+   "faculty": [
+    "Lin"
+   ],
+   "area": ""
+  },
+  {
+   "year": 2020,
+   "authors": [
+    "J. Zhang",
+    "J. Chen",
+    "A. Moon",
+    "X. Zhuo",
+    "S. W. Son"
+   ],
+   "title": "Bit-Error Aware Quantization for DCT-based Lossy Compression",
+   "venue": "IEEE High Performance Extreme Computing Conference (HPEC)",
+   "details": "pp. 1-7, Sept. 2020",
+   "doi": "10.1109/hpec43674.2020.9286177",
+   "type": "conference",
+   "faculty": [
+    "Son"
+   ],
+   "area": ""
+  },
+  {
+   "year": 2020,
+   "authors": [
+    "T. Ren",
+    "Y. Xie",
+    "L. Jiang"
+   ],
+   "title": "New England merge: a novel cooperative merge control method for improving highway work zone mobility and safety",
+   "venue": "Journal of Intelligent Transportation Systems",
+   "details": "vol. 25, no. 1, pp. 107-121, Sept. 2020",
+   "doi": "10.1080/15472450.2020.1822747",
+   "type": "journal",
+   "faculty": [
+    "Xie"
+   ],
+   "area": ""
+  },
+  {
+   "year": 2020,
+   "authors": [
+    "Y. Jia",
+    "Y. Liu",
+    "Y. Lin",
+    "B. Wang"
+   ],
+   "title": "Improved Dynamic State Estimation Based Protection on VSC-HVDC Transmission Lines with Full Exploitation of Information Redundancy",
+   "venue": "IEEE Power & Energy Society General Meeting (PESGM)",
+   "details": "pp. 1-5, Aug. 2020",
+   "doi": "10.1109/pesgm41954.2020.9282057",
+   "type": "conference",
+   "faculty": [
+    "Lin"
+   ],
+   "area": ""
+  },
+  {
+   "year": 2020,
+   "authors": [
+    "H. Xu",
+    "Y. Lin",
+    "X. Zhang",
+    "F. Wang"
+   ],
+   "title": "Power System Parameter Attack for Financial Profits in Electricity Markets",
+   "venue": "IEEE Transactions on Smart Grid",
+   "details": "vol. 11, no. 4, pp. 3438-3446, July 2020",
+   "doi": "10.1109/tsg.2020.2977088",
+   "type": "journal",
+   "faculty": [
+    "Lin"
+   ],
+   "area": ""
+  },
+  {
+   "year": 2020,
+   "authors": [
+    "T. Ren",
+    "Y. Xie",
+    "L. Jiang"
+   ],
+   "title": "Cooperative Highway Work Zone Merge Control Based on Reinforcement Learning in a Connected and Automated Environment",
+   "venue": "Transportation Research Record: Journal of the Transportation Research Board",
+   "details": "vol. 2674, no. 10, pp. 363-374, July 2020",
+   "doi": "10.1177/0361198120935873",
+   "type": "journal",
+   "faculty": [
+    "Xie"
+   ],
+   "area": ""
+  },
+  {
+   "year": 2020,
+   "authors": [
+    "L. Jiang",
+    "Y. Xie",
+    "X. Wen",
+    "T. Ren"
+   ],
+   "title": "Modeling highly imbalanced crash severity data by ensemble methods and global sensitivity analysis",
+   "venue": "Journal of Transportation Safety & Security",
+   "details": "vol. 14, no. 4, pp. 562-584, July 2020",
+   "doi": "10.1080/19439962.2020.1796863",
+   "type": "journal",
+   "faculty": [
+    "Xie"
+   ],
+   "area": ""
+  },
+  {
+   "year": 2020,
+   "authors": [
+    "Y. Wang",
+    "V. M. Vokkarane"
+   ],
+   "title": "Light-segment: Crosstalk-and Modulation-Aware Spectrum Allocation with Segmentation in SDM-EON",
+   "venue": "ICC 2020 - 2020 IEEE International Conference on Communications (ICC)",
+   "details": "pp. 1-6, June 2020",
+   "doi": "10.1109/icc40277.2020.9149215",
+   "type": "conference",
+   "faculty": [
+    "Vokkarane"
+   ],
+   "area": ""
+  },
+  {
+   "year": 2020,
+   "authors": [
+    "Z. Zhen",
+    "Z. Xuan",
+    "K. Li",
+    "F. Wang",
+    "Y. Lin",
+    "M. Shi",
+    "R. Yin",
+    "T. Wang"
+   ],
+   "title": "Surface Irradiance Distribution Mapping Model for Photovoltaic Power Station Based on Ground-based Sky Images",
+   "venue": "IEEE/IAS 56th Industrial and Commercial Power Systems Technical Conference (I&CPS)",
+   "details": "pp. 1-8, June 2020",
+   "doi": "10.1109/icps48389.2020.9176838",
+   "type": "conference",
+   "faculty": [
+    "Lin"
+   ],
+   "area": ""
+  },
+  {
+   "year": 2020,
+   "authors": [
+    "Z. Fang",
+    "Y. Lin",
+    "S. Song",
+    "C. Song",
+    "X. Lin",
+    "G. Cheng"
+   ],
+   "title": "Active distribution system state estimation incorporating photovoltaic generation system model",
+   "venue": "Electric Power Systems Research",
+   "details": "vol. 182, art. 106247, May 2020",
+   "doi": "10.1016/j.epsr.2020.106247",
+   "type": "journal",
+   "faculty": [
+    "Lin"
+   ],
+   "area": ""
+  },
+  {
+   "year": 2020,
+   "authors": [
+    "D. Kim",
+    "D. Jin",
+    "Y. M. Song",
+    "S. W. Son",
+    "J. H. Yoon",
+    "G. Kim"
+   ],
+   "title": "Construction of the Invasive Alien Plants Distribution Using Drone and Image Learning",
+   "venue": "Journal of the Association of Korean Geographers",
+   "details": "vol. 9, no. 1, pp. 103-114, Apr. 2020",
+   "doi": "10.25202/jakg.9.1.7",
+   "type": "journal",
+   "faculty": [
+    "Son"
+   ],
+   "area": ""
+  },
+  {
+   "year": 2020,
+   "authors": [
+    "D. A. Davis",
+    "V. M. Vokkarane"
+   ],
+   "title": "Failure-Aware Protection for Many-to-Many Routing in Content Centric Networks",
+   "venue": "IEEE Transactions on Network Science and Engineering",
+   "details": "vol. 7, no. 1, pp. 603-618, Jan. 2020",
+   "doi": "10.1109/tnse.2019.2892976",
+   "type": "journal",
+   "faculty": [
+    "Vokkarane"
+   ],
+   "area": ""
+  },
+  {
+   "year": 2020,
+   "authors": [
+    "S. Song",
+    "M. Wang",
+    "Y. Lin"
+   ],
+   "title": "An improved algorithm for incremental extreme learning machine",
+   "venue": "Systems Science & Control Engineering",
+   "details": "vol. 8, no. 1, pp. 308-317, Jan. 2020",
+   "doi": "10.1080/21642583.2020.1759156",
+   "type": "journal",
+   "faculty": [
+    "Lin"
+   ],
+   "area": ""
+  },
+  {
+   "year": 2020,
+   "authors": [
+    "Y. Wang",
+    "V. M. Vokkarane"
+   ],
+   "title": "Time-slice: Evaluation of SDM Lightpath Switching RMCSA Algorithms",
+   "venue": "OSA Advanced Photonics Congress (AP) 2020 (IPR, NP, NOMA, Networks, PVLED, PSC, SPPCom, SOF)",
+   "details": "art. NeW2B.4, 2020",
+   "doi": "10.1364/networks.2020.new2b.4",
+   "type": "conference",
+   "faculty": [
+    "Vokkarane"
+   ],
+   "area": ""
+  },
+  {
+   "year": 2020,
+   "authors": [
+    "Y. Cui",
+    "V. M. Vokkarane"
+   ],
+   "title": "Analytical Modeling of Survivable Anycast Communication in Optical Networks",
+   "venue": "Lecture Notes in Computer Science",
+   "details": "pp. 323-335, 2020",
+   "doi": "10.1007/978-3-030-38085-4_28",
+   "type": "chapter",
+   "faculty": [
+    "Vokkarane"
+   ],
+   "area": ""
+  },
+  {
+   "year": 2020,
+   "authors": [
+    "Y. Lin",
+    "A. Abur",
+    "H. Xu"
+   ],
+   "title": "Secure Market Operation in Presence of Critical Model Parameters in State Estimation",
+   "venue": "Journal of Modern Power Systems and Clean Energy",
+   "details": "vol. 8, no. 4, pp. 699-708, 2020",
+   "doi": "10.35833/mpce.2020.000007",
+   "type": "journal",
+   "faculty": [
+    "Lin"
+   ],
+   "area": ""
+  },
+  {
+   "year": 2020,
+   "authors": [
+    "Z. Zhen",
+    "J. Liu",
+    "Z. Zhang",
+    "F. Wang",
+    "H. Chai",
+    "Y. Yu",
+    "X. Lu",
+    "T. Wang",
+    "Y. Lin"
+   ],
+   "title": "Deep Learning Based Surface Irradiance Mapping Model for Solar PV Power Forecasting Using Sky Image",
+   "venue": "IEEE Transactions on Industry Applications",
+   "details": "pp. 1-1, 2020",
+   "doi": "10.1109/tia.2020.2984617",
+   "type": "journal",
+   "faculty": [
+    "Lin"
+   ],
+   "area": ""
+  },
+  {
+   "year": 2019,
+   "authors": [
+    "A. Moon",
+    "X. Zhuo",
+    "J. Zhang",
+    "S. W. Son"
+   ],
+   "title": "AD2: Improving Quality of IoT Data through Compressive Anomaly Detection",
+   "venue": "IEEE International Conference on Big Data (Big Data)",
+   "details": "pp. 1662-1668, Dec. 2019",
+   "doi": "10.1109/bigdata47090.2019.9005533",
+   "type": "conference",
+   "faculty": [
+    "Son"
+   ],
+   "area": ""
+  },
+  {
+   "year": 2019,
+   "authors": [
+    "G. Cheng",
+    "S. Song",
+    "Y. Lin",
+    "Q. Huang",
+    "X. Lin",
+    "F. Wang"
+   ],
+   "title": "Enhanced state estimation and bad data identification in active power distribution networks using photovoltaic power forecasting",
+   "venue": "Electric Power Systems Research",
+   "details": "vol. 177, art. 105974, Dec. 2019",
+   "doi": "10.1016/j.epsr.2019.105974",
+   "type": "journal",
+   "faculty": [
+    "Lin"
+   ],
+   "area": ""
+  }
+ ]
+}

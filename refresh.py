@@ -183,6 +183,39 @@ def refresh_scholar(scholar_ids):
     save("scholar_auto.json", auto)
     return changed
 
+# ------------------------------------------------------------------ journal metrics (SCImago, open data)
+def refresh_journals(venues):
+    """Fill quartile and SJR for each journal from SCImago's ranking export. The Journal Impact Factor
+    is Clarivate's and is not fetched; enter it by hand in journals.json from Journal Citation Reports."""
+    import csv, io
+    path = os.path.join(HERE, "journals.json")
+    data = json.load(open(path)) if os.path.exists(path) else {}
+    try:
+        raw = urllib.request.urlopen(urllib.request.Request("https://www.scimagojr.com/journalrank.php?out=xls", headers=UA), timeout=180).read().decode("utf-8", "ignore")
+    except Exception as e:
+        print(f"journals: SCImago fetch failed ({e})"); return []
+    rows = list(csv.DictReader(io.StringIO(raw), delimiter=";"))
+    def key(n): return re.sub(r"[^a-z0-9]+", " ", n.lower()).strip()
+    index = {key(row.get("Title", "")): row for row in rows}
+    changed = []
+    for v in venues:
+        row = index.get(key(v))
+        if not row: continue
+        entry = data.setdefault(v, {})
+        q = (row.get("SJR Best Quartile") or "").strip(); sjr = (row.get("SJR") or "").replace(",", ".").strip()
+        upd = {}
+        if q and q != entry.get("quartile"): upd["quartile"] = q
+        if sjr:
+            try:
+                val = float(sjr)
+                if val != entry.get("sjr"): upd["sjr"] = val
+            except ValueError: pass
+        if upd:
+            entry.update(upd); entry.setdefault("source", f"SCImago {TODAY.year}")
+            changed.append(f"{v}: {entry.get('quartile','')} SJR {entry.get('sjr','')}")
+    json.dump(data, open(path, "w"), indent=1, ensure_ascii=False, sort_keys=True)
+    return changed
+
 # ------------------------------------------------------------------ main
 def main():
     what = sys.argv[1] if len(sys.argv) > 1 else "all"
@@ -196,6 +229,12 @@ def main():
     if what in ("all", "pubs"): log["pubs"] = refresh_pubs(known_dois)
     if what in ("all", "grants"): log["grants"] = refresh_grants(known_ids, known_titles)
     if what in ("all", "scholar"): log["scholar"] = refresh_scholar(scholar_ids)
+    if what in ("all", "journals"):
+        try:
+            venues = sorted(json.load(open(os.path.join(HERE, "journals.json"))).keys())
+        except Exception:
+            venues = []
+        log["journals"] = refresh_journals(venues)
     save("refresh_log.json", log)
     for k, v in log.items():
         if isinstance(v, list): print(f"{k}: {len(v)} change(s)"); [print("  ", x) for x in v]

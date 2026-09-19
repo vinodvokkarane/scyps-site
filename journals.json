@@ -1,0 +1,352 @@
+{
+ "Accident Analysis & Prevention": {
+  "if": 5.7,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "Analytic Methods in Accident Research": {
+  "if": 12.5,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "Applied Energy": {
+  "if": 10.1,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "Cluster Computing": {
+  "if": 3.6,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "Computational Economics": {
+  "if": 2.0,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "Computer-Aided Civil and Infrastructure Engineering": {
+  "if": 8.5,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "Distributed Computing": {
+  "if": 1.3,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "Electric Power Systems Research": {
+  "if": 3.3,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "Energy": {
+  "if": 9.0,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "Energy Advances": {
+  "if": null,
+  "if_year": null,
+  "quartile": null,
+  "sjr": null,
+  "source": ""
+ },
+ "Energy Reports": {
+  "if": 4.7,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "Engineering Applications of Artificial Intelligence": {
+  "if": 7.5,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "Expert Systems with Applications": {
+  "if": 7.5,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "Frontiers in Energy Research": {
+  "if": 2.6,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "IEEE Internet of Things Journal": {
+  "if": 8.2,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "IEEE Journal on Flexible Electronics": {
+  "if": null,
+  "if_year": null,
+  "quartile": null,
+  "sjr": null,
+  "source": ""
+ },
+ "IEEE Network": {
+  "if": 6.8,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "IEEE Sensors Journal": {
+  "if": 4.3,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "IEEE Systems Journal": {
+  "if": 4.0,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems": {
+  "if": 2.7,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "IEEE Transactions on Control of Network Systems": {
+  "if": 4.0,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "IEEE Transactions on Industrial Informatics": {
+  "if": 11.7,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "IEEE Transactions on Industry Applications": {
+  "if": 4.2,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "IEEE Transactions on Information Forensics and Security": {
+  "if": 6.3,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "IEEE Transactions on Instrumentation and Measurement": {
+  "if": 5.6,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "IEEE Transactions on Intelligent Transportation Systems": {
+  "if": 7.9,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "IEEE Transactions on Network and Service Management": {
+  "if": 4.7,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "IEEE Transactions on Power Systems": {
+  "if": 6.5,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "IEEE Transactions on Smart Grid": {
+  "if": 8.6,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "IEEE Transactions on Sustainable Energy": {
+  "if": 8.6,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "IEEE Transactions on Systems, Man, and Cybernetics: Systems": {
+  "if": 8.6,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "IEEE/Optica Journal of Optical Communications and Networking": {
+  "if": 4.0,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "IFAC-PapersOnLine": {
+  "if": null,
+  "if_year": null,
+  "quartile": null,
+  "sjr": null,
+  "source": ""
+ },
+ "Journal of Intelligent Transportation Systems": {
+  "if": 2.8,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "Journal of Modern Power Systems and Clean Energy": {
+  "if": 5.7,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "Journal of Optical Communications and Networking": {
+  "if": 4.0,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "Journal of Safety Research": {
+  "if": 3.9,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "Micromachines": {
+  "if": 3.0,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "Nuclear Engineering and Design": {
+  "if": 1.9,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "OSA Continuum": {
+  "if": null,
+  "if_year": null,
+  "quartile": null,
+  "sjr": null,
+  "source": ""
+ },
+ "PLOS ONE": {
+  "if": 2.9,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "Radiation Measurements": {
+  "if": 1.6,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "Remote Sensing": {
+  "if": 4.2,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "Sustainable Energy, Grids and Networks": {
+  "if": 4.8,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "The Journal of the Acoustical Society of America": {
+  "if": 2.1,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "Transport Reviews": {
+  "if": 9.5,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "Transportation Research Part B: Methodological": {
+  "if": 5.8,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "Transportation Research Part C: Emerging Technologies": {
+  "if": 7.6,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "Wind Energy": {
+  "if": 4.1,
+  "if_year": 2023,
+  "quartile": null,
+  "sjr": null,
+  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "iEnergy": {
+  "if": null,
+  "if_year": null,
+  "quartile": null,
+  "sjr": null,
+  "source": ""
+ }
+}

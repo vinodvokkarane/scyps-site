@@ -278,6 +278,7 @@ section.tint{background:var(--bg-2)}
 @media (max-width:860px){.core{grid-template-columns:1fr}}
 .group{margin-top:48px}
 .grouph{font-family:"Fraunces",Georgia,serif;font-size:22px;margin:0 0 14px}
+.founding{font-size:14px;color:var(--ink-3);margin:-8px 0 26px}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .group .grouph{font-family:"Fraunces",Georgia,serif;font-size:22px;margin-bottom:6px}
 .group>p{color:var(--ink-3);font-size:14.5px;margin-bottom:14px}
@@ -288,6 +289,7 @@ section.tint{background:var(--bg-2)}
 .ptag{display:inline-block;margin-left:8px;vertical-align:3px;font-family:"IBM Plex Sans",Arial,sans-serif;letter-spacing:0;font-size:11.5px;font-weight:500;padding:2px 8px;border-radius:999px;background:var(--signal-tint);color:var(--signal-2)}
 .ptitle2{color:var(--ink-2);font-size:14px;display:block}
 .pareas2{display:block;font-size:13.5px;color:var(--ink-3);margin-top:3px}
+.pnote{display:block;font-size:13.5px;color:var(--ink-2);margin-top:7px}
 .pcontact{font-size:13px;color:var(--ink-3);margin-top:6px;display:flex;flex-wrap:wrap;gap:3px 14px}
 .pcontact .ci{white-space:nowrap}
 .pcontact .ci a{overflow-wrap:anywhere;white-space:normal}
@@ -394,6 +396,12 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .stream .foot{border-top:1px solid var(--line);padding:12px 0 10px;font-size:13px}
 @media (max-width:900px){.newsgrid{grid-template-columns:1fr}.stream{position:static}.stream ol{max-height:none}}
 @media (max-width:640px){.nitem{grid-template-columns:1fr;gap:4px}}
+
+/* DOI and journal metrics */
+.pub .doi{font-size:12.5px;color:var(--ink-3);margin-top:3px;font-variant-numeric:tabular-nums}
+.pub .doi a{color:var(--ink-3);text-decoration:underline dotted}
+.pub .doi a:hover{color:var(--signal-2)}
+.jm{display:inline-block;margin-left:10px;font-size:11.5px;font-weight:600;letter-spacing:.01em;padding:1px 8px;border-radius:999px;background:var(--journal-bg);color:var(--journal-fg);vertical-align:1px;white-space:nowrap}
 
 /* students and alumni */
 .stugrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -604,7 +612,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
         <li><a href="https://www.uml.edu/service/Apps/Forms/Form?configId=ccde10d9-949a-4891-a810-ca2cfa641f6f&amp;tfa_26=https://www.uml.edu/research/scyps/" title="Website Feedback" target="_blank" rel="noopener noreferrer">Feedback</a></li>
       </ul>
       <p class="fine">Updated September 2026. Grant figures are total awards as reported by sponsors; the UMass Lowell share is noted where a project is a multi-institution consortium. Photographs courtesy of UMass Lowell.</p>
-      <p class="version">v 0.49<span class="vsep"></span><span id="visits" title="Visits counted since the counter went live"></span></p>
+      <p class="version">v 0.60<span class="vsep"></span><span id="visits" title="Visits counted since the counter went live"></span></p>
     </div>
   </div>
 </footer>

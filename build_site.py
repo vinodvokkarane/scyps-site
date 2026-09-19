@@ -20,7 +20,7 @@ FACULTY = {
         "areas": "Cyber-physical systems, smart grid cybersecurity and resilience, optical and 6G network optimization, AI/ML for networked systems",
         "email": "vinod_vokkarane@uml.edu", "phone": "978-934-3345", "office": "Ball Hall 409",
         "url": "https://www.uml.edu/engineering/electrical-computer/faculty/vokkarane-vinod.aspx",
-        "bio": ("Vinod Vokkarane has directed the center since 2021. His group works on secure and resilient "
+        "bio": ("The center was founded on October 1, 2019, co-founded by Vinod Vokkarane and Martin Margala, then chair of Electrical and Computer Engineering. Vokkarane served on the founding Board of Directors from October 2019 to July 2021 and has been director since August 2021. His group works on secure and resilient "
                 "cyber-physical power systems, quality-of-transmission-aware multi-band and space-division "
                 "multiplexed optical networks, and open-source tools for reproducible network research. He is a "
                 "Senior Member of the IEEE, serves on the editorial board of the IEEE/Optica Journal of Optical "
@@ -52,7 +52,7 @@ FACULTY = {
          "areas": "High-performance fault-tolerant distributed systems, blockchain-based systems, intelligent traffic and vehicular computing",
          "email": "Lewis_Tseng@uml.edu", "phone": "", "office": "Ball Hall, 3rd floor",
          "url": "https://www.uml.edu/engineering/electrical-computer/faculty/tseng-lewis.aspx",
-         "role": "NSF CAREER awardee (2023) on fault-tolerant edge computing for cyber-physical systems under cyber attack; Co-PI on SUMMIT. Joined UMass Lowell in 2024 after Clark University, Boston College, and Toyota InfoTechnology Center."},
+         "role": "NSF CAREER awardee on fault-tolerant edge computing for cyber-physical systems under cyber attack (award #2449640 at UMass Lowell, $342K from Sept 2024); Co-PI on SUMMIT. Joined UMass Lowell in 2024 after Clark University, Boston College, and Toyota InfoTechnology Center."},
         {"name": "Yuanchang Xie", "photo": "xie", "title": "Professor, Civil and Environmental Engineering",
          "areas": "Transportation engineering, smart and connected transportation", "email": "Yuanchang_Xie@uml.edu", "phone": "978-934-3681", "url": "https://www.uml.edu/engineering/civil-environmental/faculty-staff-students/faculty/xie-yuanchang.aspx"},
     ],
@@ -73,6 +73,11 @@ FACULTY = {
          "areas": "Structural health monitoring, diagnostics and prognostics, structural dynamics, vibrations, acoustics, signal processing", "email": "Murat_Inalpolat@uml.edu", "phone": "978-934-2556", "url": "https://www.uml.edu/engineering/mechanical-industrial/faculty/inalpolat-murat.aspx"},
         {"name": "Christopher Niezrecki", "photo": "niezrecki", "title": "Distinguished University Professor, Mechanical and Industrial Engineering; Director, Center for Energy Innovation; Co-director, Rist Institute for Sustainability and Energy",
          "areas": "Renewable energy systems, wind turbine dynamics, structural health monitoring and inspection, structural dynamics and acoustics, smart materials", "email": "Christopher_Niezrecki@uml.edu", "phone": "978-934-2963", "url": "https://www.uml.edu/engineering/mechanical-industrial/faculty/niezrecki-christopher.aspx"},
+        {"name": "Sheree A. Pagsuyoin", "photo": "pagsuyoin", "title": "Professor, Civil and Environmental Engineering",
+         "areas": "Environmental fate of emerging contaminants, wastewater-based epidemiology, low-cost water treatment, environmental systems modeling",
+         "note": "Collaborator on machine learning for wastewater-based public health risk monitoring; NSF CAREER awardee.",
+         "email": "Sheree_Pagsuyoin@uml.edu", "phone": "978-934-5976",
+         "url": "https://www.uml.edu/engineering/civil-environmental/faculty-staff-students/faculty/pagsuyoin-sheree.aspx"},
         {"name": "Oshadha Ranasingha", "photo": "ranasingha", "title": "Assistant Professor, Electrical and Computer Engineering; PERC and RURI",
          "areas": "Functional inks for printed electronics and additive manufacturing, fully printed micro-supercapacitors, energy harvesting, hardware authentication", "email": "oshadha_ranasingha@uml.edu", "phone": "978-934-2336", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/ranasingha-oshadha.aspx"},
         {"name": "Paul Robinette", "photo": "robinette", "title": "Associate Professor, Electrical and Computer Engineering; Associate Chair for M.S. Programs",
@@ -87,6 +92,11 @@ FACULTY = {
         {"name": "Babu Jain", "tag": "External collaborator", "photo": "jain", "inst": None, "title": "Founder and CEO, Navia Energy Inc.",
          "areas": "AI-driven renewable energy systems; industry partner on the center's resilient smart grids project",
          "email": "", "phone": "", "url": "https://www.linkedin.com/in/babu-jain-188470/"},
+        {"name": "Martin Margala", "photo": "margala", "title": "Professor and Director, School of Computing and Informatics, University of Louisiana at Lafayette",
+         "areas": "Reconfigurable and secure architectures, energy-efficient and reliable systems, design for testability",
+         "note": "Co-founder and founding co-director of the center, October 2019 to July 2021, while Professor and Chair of Electrical and Computer Engineering at UMass Lowell.",
+         "email": "martin.margala@louisiana.edu", "tag": "External collaborator",
+         "url": "https://sciences.louisiana.edu/node/492", "inst": "Louisiana"},
         {"name": "Anurag Srivastava", "tag": "External collaborator", "photo": "srivastava", "inst": "West Virginia", "title": "Raymond J. Lane Professor and Chairperson, Lane Department of Computer Science and Electrical Engineering, West Virginia University; IEEE Fellow",
          "areas": "Data-driven algorithms for power system operation, control, and resilience; WVU partner on the SUMMIT federated smart grid testbed",
          "email": "anurag.srivastava@mail.wvu.edu", "phone": "", "url": "https://directory.statler.wvu.edu/faculty-staff-directory/anurag-srivastava"},
@@ -148,12 +158,56 @@ PROJECTS = [
      "team": "Co-director: Sukesh Aghara",
      "desc": "An IAEA-funded international training program in nuclear technology, security, and safeguards for early-career professionals, run with partner institutions.",
      "domain": "Nuclear"},
-    {"tag": "Active", "sponsor": "National Science Foundation, CAREER",
-     "title": "Towards Fault-tolerant Edge Computing for Cyber-Physical Systems: Distributed Primitives for Coordination under Cyber Attacks",
-     "amount": "About $500K", "period": "2023 onward",
+    {"tag": "Active", "sponsor": "U.S. Department of Transportation, ATCMTD, through MaineDOT", "role": "UMass Lowell PI",
+     "title": "Maine Advanced Signal Control and Connected Vehicle System for Safe, Efficient and Equitable Rural Transportation (MAST)",
+     "amount": "", "period": "Ongoing",
+     "team": "UMass Lowell PI Yuanchang Xie",
+     "desc": "Advanced signal control and connected vehicle systems for rural transportation in Maine.", "domain": "Transportation"},
+    {"tag": "Active", "sponsor": "Massachusetts Department of Transportation", "role": "PI",
+     "title": "Railroad Grade Crossing Profile Data Collection and Modeling",
+     "amount": "", "period": "Ongoing",
+     "team": "PI Yuanchang Xie",
+     "desc": "Collecting and modeling grade crossing profiles across the Commonwealth to support safety analysis.", "domain": "Transportation"},
+    {"tag": "Completed", "sponsor": "Massachusetts Department of Transportation", "role": "PI",
+     "title": "Smart Work Zone Control and Performance Evaluation Based on Trajectory Data",
+     "amount": "", "period": "Completed",
+     "team": "PI Yuanchang Xie",
+     "desc": "Work zone control and performance evaluation driven by vehicle trajectory data.", "domain": "Transportation"},
+    {"tag": "Completed", "sponsor": "Massachusetts Department of Transportation", "role": "Co-PI",
+     "title": "Artificial Intelligence Framework for Crosswalk Detection across Massachusetts",
+     "amount": "", "period": "Completed",
+     "team": "Co-PI Yuanchang Xie",
+     "desc": "Statewide crosswalk inventory and condition assessment from aerial imagery using deep learning.", "domain": "Transportation"},
+    {"tag": "Completed", "sponsor": "National Science Foundation", "role": "Co-PI",
+     "title": "Collaborative Research: Understanding the Impacts of Automated Vehicles on Traffic Flow Using Empirical Data",
+     "amount": "", "period": "Completed",
+     "team": "Co-PI Yuanchang Xie",
+     "desc": "Empirical study of how automated vehicles change traffic flow in mixed traffic.", "domain": "Transportation"},
+    {"tag": "Completed", "sponsor": "National Science Foundation", "role": "Co-PI",
+     "title": "Ethical Algorithms in Autonomous Vehicles",
+     "amount": "", "period": "Completed",
+     "team": "Co-PI Yuanchang Xie; with Nicholas Evans",
+     "desc": "The ethics of decision algorithms in autonomous vehicles, joining the center's transportation and ethics work.", "domain": "Transportation"},
+    {"tag": "Active", "sponsor": "National Science Foundation, OAC Category III (Award #2609490)",
+     "role": "PI", "title": "Planning Federated AI-Ready Cyberinfrastructure for Advanced Microscopy and Imaging: A Teach-Explore-Design Framework for Community-Driven Infrastructure",
+     "amount": "$499K", "period": "Aug 2026 onward",
+     "team": "PI Lewis Tseng; Co-PIs Hsien-Yuan Hsu (UMass Lowell) and Yu-Tsun Shao (University of Southern California)",
+     "desc": "Planning a federated, AI-ready cyberinfrastructure for advanced microscopy and imaging, designed with the community that will use it.", "domain": "Distributed systems"},
+    {"tag": "Active", "sponsor": "National Science Foundation, CNS CAREER (Award #2449640)",
+     "role": "PI", "title": "Towards Fault-tolerant Edge Computing for Cyber-Physical Systems: Distributed Primitives for Coordination under Cyber Attacks",
+     "amount": "$342K", "period": "Sept 2024 onward",
      "team": "PI Lewis Tseng",
-     "desc": "Coordination primitives that let edge computing systems keep working when some nodes are faulty or compromised.",
-     "domain": "Edge"},
+     "desc": "Coordination primitives that keep an edge cluster correct and fast enough for a control loop while under attack.", "domain": "Distributed systems"},
+    {"tag": "Active", "sponsor": "National Science Foundation, OAC Core (Award #2312982)",
+     "role": "Co-PI", "title": "Improving Data Integrity for HPC Datasets using Sparsity Profile",
+     "amount": "$600K", "period": "June 2023 onward",
+     "team": "PI Seung Woo Son; Co-PI Orlando Arias",
+     "desc": "Detecting and correcting corruption in high-performance computing datasets using their sparsity structure.", "domain": "HPC"},
+    {"tag": "Completed", "sponsor": "National Science Foundation, CAREER (Award #1751143)",
+     "role": "PI", "title": "Reliable and Efficient Data Encoding for Extreme-Scale Simulation and Analysis",
+     "amount": "$500K", "period": "Apr 2018 to 2024",
+     "team": "PI Seung Woo Son",
+     "desc": "Encoding schemes that keep simulation data usable and verifiable at extreme scale.", "domain": "HPC"},
     {"tag": "Completed", "sponsor": "Office of Naval Research",
      "role": "PI", "title": "Software-Defined Cyber-Physical Microgrids (SDCPM) for Agile Adaptation to High-Impact, Low-Probability Disturbances",
      "amount": "$300K", "period": "2021 to 2024",
@@ -1926,10 +1980,27 @@ CENTER_AUTHORS = {"Vokkarane"} | {re.sub(r"\(.*?\)", "", p["name"]).split()[-1] 
 assert CENTER_AUTHORS == CORE, f"CORE at the top of this file is out of step with the roster: {CORE ^ CENTER_AUTHORS}"
 P = [dict(p, faculty=[f for f in p["faculty"] if f in CENTER_AUTHORS]) for p in P if set(p["faculty"]) & CENTER_AUTHORS]
 
-# --- overlay: papers found by refresh.py since the curated list was written
 def _load_overlay(name, default):
     p = os.path.join(os.path.dirname(os.path.abspath(__file__)), name)
     return json.load(open(p)) if os.path.exists(p) else default
+
+# --- the founding years: papers from September 2019 through 2020, kept in their own file
+for e in _load_overlay("pubs_2019_2020.json", {"entries": []}).get("entries", []):
+    if e["doi"].lower() in {p["doi"].lower() for p in P if p.get("doi")}: continue
+    P.append(dict(year=e["year"], authors=e["authors"], title=e["title"], venue=e["venue"], details=e["details"], doi=e["doi"],
+                  type=e["type"], faculty=e["faculty"], area=e.get("area", ""), url=None))
+
+# --- attribution: a paper counts for a member only from the year they joined UMass Lowell
+JOIN_YEAR = {"Tseng": 2024, "Arias": 2021}
+# Yuzhang Lin is an external center member at NYU. His work counts as the center's only when it is
+# joint with the director; his independent NYU output belongs to his own program.
+REQUIRES_COAUTHOR = {"Lin": "Vokkarane"}
+def _attributed(p):
+    fac = [f for f in p["faculty"] if p["year"] >= JOIN_YEAR.get(f, 0)]
+    return [f for f in fac if REQUIRES_COAUTHOR.get(f) in (None, *fac)]
+P = [dict(p, faculty=_attributed(p)) for p in P if _attributed(p)]
+
+# --- overlay: papers found by refresh.py since the curated list was written
 _auto_pubs = _load_overlay("pubs_auto.json", {"entries": []})
 _known = {p["doi"].lower() for p in P if p.get("doi")}
 for e in _auto_pubs.get("entries", []):
@@ -2288,6 +2359,7 @@ section.tint{background:var(--bg-2)}
 @media (max-width:860px){.core{grid-template-columns:1fr}}
 .group{margin-top:48px}
 .grouph{font-family:"Fraunces",Georgia,serif;font-size:22px;margin:0 0 14px}
+.founding{font-size:14px;color:var(--ink-3);margin:-8px 0 26px}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .group .grouph{font-family:"Fraunces",Georgia,serif;font-size:22px;margin-bottom:6px}
 .group>p{color:var(--ink-3);font-size:14.5px;margin-bottom:14px}
@@ -2298,6 +2370,7 @@ section.tint{background:var(--bg-2)}
 .ptag{display:inline-block;margin-left:8px;vertical-align:3px;font-family:"IBM Plex Sans",Arial,sans-serif;letter-spacing:0;font-size:11.5px;font-weight:500;padding:2px 8px;border-radius:999px;background:var(--signal-tint);color:var(--signal-2)}
 .ptitle2{color:var(--ink-2);font-size:14px;display:block}
 .pareas2{display:block;font-size:13.5px;color:var(--ink-3);margin-top:3px}
+.pnote{display:block;font-size:13.5px;color:var(--ink-2);margin-top:7px}
 .pcontact{font-size:13px;color:var(--ink-3);margin-top:6px;display:flex;flex-wrap:wrap;gap:3px 14px}
 .pcontact .ci{white-space:nowrap}
 .pcontact .ci a{overflow-wrap:anywhere;white-space:normal}
@@ -2404,6 +2477,12 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .stream .foot{border-top:1px solid var(--line);padding:12px 0 10px;font-size:13px}
 @media (max-width:900px){.newsgrid{grid-template-columns:1fr}.stream{position:static}.stream ol{max-height:none}}
 @media (max-width:640px){.nitem{grid-template-columns:1fr;gap:4px}}
+
+/* DOI and journal metrics */
+.pub .doi{font-size:12.5px;color:var(--ink-3);margin-top:3px;font-variant-numeric:tabular-nums}
+.pub .doi a{color:var(--ink-3);text-decoration:underline dotted}
+.pub .doi a:hover{color:var(--signal-2)}
+.jm{display:inline-block;margin-left:10px;font-size:11.5px;font-weight:600;letter-spacing:.01em;padding:1px 8px;border-radius:999px;background:var(--journal-bg);color:var(--journal-fg);vertical-align:1px;white-space:nowrap}
 
 /* students and alumni */
 .stugrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -2778,7 +2857,7 @@ ALUMNI_PHD = [
 ]
 ALUMNI_POSTDOC = [("Arash Deylamsalehi", "Google"), ("Jeremy M. Plante", "Hitachi Vantara"), ("Juzi Zhao", "San José State University"), ("Arush Gadkar", "Kilpatrick Townsend & Stockton LLP"), ("Joan Triay", "DOCOMO Euro-Labs"), ("Balagangadhar Bathula", "AT&T")]
 SITE_URL = "https://vinodvokkarane.github.io/scyps-site/"   # set this to the live address
-SITE_VERSION = "0.49"   # bump by 0.01 with every update to the site
+SITE_VERSION = "0.60"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3075,11 +3154,36 @@ LABS = [
      "art": "cei"},
 ]
 
+
+# ---------------------------------------------------------------- journal metrics
+# journals.json maps a journal name (exactly as it appears in the publication records) to its metrics:
+#   {"IEEE Transactions on Smart Grid": {"if": 9.6, "if_year": 2024, "quartile": "Q1", "sjr": 3.1, "source": "JCR 2024"}}
+# The Journal Impact Factor is Clarivate's and comes from Journal Citation Reports, which UMass Lowell
+# licenses; enter it by hand from JCR. Quartile and SJR can be filled automatically from SCImago by
+# refresh.py, which is open data. Any field may be left out and the chip shows what is there.
+JOURNALS = {}
+try:
+    JOURNALS = json.load(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "journals.json")))
+except Exception:
+    pass
+def _jkey(name):
+    return re.sub(r"[^a-z0-9]+", " ", (name or "").lower().replace("&amp;", "&")).strip()
+_JLOOKUP = {_jkey(k): v for k, v in JOURNALS.items()}
+def journal_chip(venue):
+    m = _JLOOKUP.get(_jkey(venue))
+    if not m: return ""
+    bits = []
+    if m.get("if"): bits.append(f'IF {m["if"]}' + (f' ({m["if_year"]})' if m.get("if_year") else ""))
+    if m.get("quartile"): bits.append(str(m["quartile"]))
+    if m.get("sjr"): bits.append(f'SJR {m["sjr"]}')
+    if not bits: return ""
+    return f'<span class="jm" title="{esc(m.get("source") or "journal metrics")}">' + " &middot; ".join(esc(b) for b in bits) + "</span>"
+
 # ---------------------------------------------------------------- researcher identifiers
 SCHOLAR = {
     "Vinod M. Vokkarane": "EIIbTe8AAAAJ", "Lewis Tseng": "DP_DMPAAAAAJ", "Hengyong Yu": "wQcl7k8AAAAJ", "Yuanchang Xie": "5kXk7FEAAAAJ",
     "Christopher Niezrecki": "bdmF58cAAAAJ", "Yan Luo": "H3ifH2gAAAAJ", "Yu Cao": "97RDUygAAAAJ", "Murat Inalpolat": "khGOgZgAAAAJ",
-    "Yuzhang Lin": "AHw2wzUAAAAJ", "Seung Woo Son": "D9v08JgAAAAJ", "Sukesh Aghara": "tWlkv-kAAAAJ", "Paul Robinette": "izN2PKAAAAAJ", "Alkim Akyurtlu": "ixtU3E4AAAAJ",
+    "Martin Margala": "ANcbeNIAAAAJ", "Yuzhang Lin": "AHw2wzUAAAAJ", "Seung Woo Son": "D9v08JgAAAAJ", "Sukesh Aghara": "tWlkv-kAAAAJ", "Paul Robinette": "izN2PKAAAAAJ", "Alkim Akyurtlu": "ixtU3E4AAAAJ",
     "Chunxiao (Tricia) Chigan": "qoo1Tc0AAAAJ",
     # Sent Sept. 2026 in this order: Arias, Chakrabarti, Evans, Ranasingha. Swap the IDs here if any
     # profile opens on the wrong person.
@@ -3892,7 +3996,9 @@ def person_row(p):
     gs = ('<div class="gsline">' + scholar_line(p["name"]) + '</div>') if scholar_line(p["name"]) else ''
     tag = f'<span class="ptag">{esc(p["tag"])}</span>' if p.get("tag") else ''
     return ('<li class="prow">' + avatar(p, "sm") + '<div><span class="pname">' + esc(p["name"]) + tag + '</span><span class="ptitle2">' + esc(p["title"]) + '</span>'
-            '<span class="pareas2">' + esc(p["areas"]) + '</span><div class="pcontact">' + "".join(f'<span class="ci">{m}</span>' for m in meta) + '</div>' + gs + metrics_slot(p) + '</div></li>')
+            '<span class="pareas2">' + esc(p["areas"]) + '</span>'
+            + (f'<span class="pnote">{esc(p["note"])}</span>' if p.get("note") else "")
+            + '<div class="pcontact">' + "".join(f'<span class="ci">{m}</span>' for m in meta) + '</div>' + gs + metrics_slot(p) + '</div></li>')
 
 # ---------------------------------------------------------------- counts
 n_pubs = len(P)
@@ -3942,9 +4048,11 @@ def build():
             link = f'https://doi.org/{p["doi"]}' if p["doi"] else None
             title = f'<a class="t" href="{esc(link)}">{esc(p["title"])}</a>' if link else f'<span class="t">{esc(p["title"])}</span>'
             side = kind + (f'<a href="{esc(link)}" title="doi:{esc(p["doi"])}">Publisher record</a>' if link else "")
+            doi_line = f'<div class="doi">DOI <a href="{esc(link)}">{esc(p["doi"])}</a></div>' if link else ""
+            chip = journal_chip(p["venue"]) if p["type"] == "journal" else ""
             out += (f'<li data-year="{p["year"]}" data-type="{p["type"]}" data-fac="{" ".join(p["faculty"])}">'
                     f'<div><div class="a">{fmt_authors(p["authors"])}</div>{title}'
-                    f'<div class="v"><i>{esc(p["venue"])}</i>, {esc(p["details"])}</div></div><div class="side">{side}</div></li>')
+                    f'<div class="v"><i>{esc(p["venue"])}</i>, {esc(p["details"])}{chip}</div>{doi_line}</div><div class="side">{side}</div></li>')
         if cur is not None: out += "</ul>"
         return out
     n_students = len(STUDENTS)
@@ -3954,13 +4062,13 @@ def build():
     pub_teaser = render_pubs(_recent, grouped=False) if "grouped" in render_pubs.__code__.co_varnames else "".join(
         f'<li class="pub"><div><div class="a">{fmt_authors(p["authors"])}</div>'
         f'<div class="t">{("<a href=" + chr(34) + "https://doi.org/" + esc(p["doi"]) + chr(34) + ">" + esc(p["title"]) + "</a>") if p.get("doi") else esc(p["title"])}</div>'
-        f'<div class="v"><i>{esc(p["venue"])}</i>, {esc(p["details"])}</div></div></li>' for p in _recent)
+        f'<div class="v"><i>{esc(p["venue"])}</i>, {esc(p["details"])}{journal_chip(p["venue"]) if p["type"] == "journal" else ""}</div></div></li>' for p in _recent)
     news_teaser = render_news(build_news_items(3) or build_news_items(12), limit=4)
 
     facts = [
         ("$2M", "NSF MRI Track 2 award for the SUMMIT federated smart grid testbed, 2026 to 2029"),
         (str(n_faculty), "affiliated faculty across engineering, computing, and medicine"),
-        (str(n_pubs), f"papers from center faculty since 2021, {n_journal} in journals"),
+        (str(n_pubs), f"papers from center faculty since 2019, {n_journal} in journals"),
         ("3", "application domains: energy and power, transportation, healthcare"),
     ]
     facts_html = "".join(f'<div><strong>{esc(a)}</strong><span>{esc(b)}</span></div>' for a, b in facts)
@@ -4283,7 +4391,7 @@ def build():
 
 <section id="publications" class="tint">
   <div class="wrap">
-    <div class="shead"><h2>Publications</h2><p>{n_pubs} peer-reviewed papers from the director and center faculty since 2021, {n_journal} of them in journals. The newest are below; the full list is searchable and filterable on its own page.</p></div>
+    <div class="shead"><h2>Publications</h2><p>{n_pubs} peer-reviewed papers from the director and center faculty since 2019, {n_journal} of them in journals. The newest are below; the full list is searchable and filterable on its own page.</p></div>
     <ol class="publist teaser">{pub_teaser}</ol>
     <p class="more"><a class="btn-gift summit-btn" href="publications.html">All {n_pubs} publications</a></p>
   </div>
@@ -4363,7 +4471,7 @@ def new_tab_links(page):
     return re.sub(r'<a\s[^>]*href="https?://[^"]*"[^>]*>', fix, page)
 
 
-PUBS_SECTION = '<section id="publications">\n  <div class="wrap">\n    <div class="shead"><h2>Publications</h2><p>Peer-reviewed journal papers, conference papers, and book chapters from the director and center faculty since the center was founded in 2021, with links to the publisher\'s record. Center authors are shown in bold. Affiliated researchers and external collaborators publish widely in their own fields; their records are linked from their profiles.</p></div>\n    <div class="filters" role="group" aria-label="Filter publications">\n      <div class="fgroup"><span class="lab">Faculty</span>\n        <button class="chip" data-f="fac" data-v="all" aria-pressed="true">All</button>\n        <button class="chip" data-f="fac" data-v="Vokkarane" aria-pressed="false">Vokkarane</button>\n        <button class="chip" data-f="fac" data-v="Arias" aria-pressed="false">Arias</button>\n        <button class="chip" data-f="fac" data-v="Tseng" aria-pressed="false">Tseng</button>\n        <button class="chip" data-f="fac" data-v="Son" aria-pressed="false">Son</button>\n        <button class="chip" data-f="fac" data-v="Aghara" aria-pressed="false">Aghara</button>\n        <button class="chip" data-f="fac" data-v="Lin" aria-pressed="false">Lin</button>\n        <button class="chip" data-f="fac" data-v="Luo" aria-pressed="false">Luo</button>\n        <button class="chip" data-f="fac" data-v="Xie" aria-pressed="false">Xie</button>\n\n\n\n\n\n\n\n      </div>\n      <div class="fgroup"><span class="lab">Year</span>\n        <button class="chip" data-f="year" data-v="all" aria-pressed="true">All</button>\n        <button class="chip" data-f="year" data-v="2026" aria-pressed="false">2026</button>\n        <button class="chip" data-f="year" data-v="2025" aria-pressed="false">2025</button>\n        <button class="chip" data-f="year" data-v="2024" aria-pressed="false">2024</button>\n        <button class="chip" data-f="year" data-v="2023" aria-pressed="false">2023</button>\n        <button class="chip" data-f="year" data-v="2022" aria-pressed="false">2022</button>\n        <button class="chip" data-f="year" data-v="2021" aria-pressed="false">2021</button>\n      </div>\n      <div class="fgroup"><span class="lab">Type</span>\n        <button class="chip" data-f="type" data-v="all" aria-pressed="true">All</button>\n        <button class="chip" data-f="type" data-v="journal" aria-pressed="false">Journal</button>\n        <button class="chip" data-f="type" data-v="conference" aria-pressed="false">Conference</button>\n        <button class="chip" data-f="type" data-v="chapter" aria-pressed="false">Chapter</button>\n      </div>\n      <div class="search"><label for="q" class="lab">Search</label><input id="q" type="search" placeholder="title, author, or venue" autocomplete="off"></div>\n    </div>\n    <div class="count" id="count" aria-live="polite">Showing {n_pubs} of {n_pubs} papers</div>\n    <div id="publist">{pubs_html}</div>\n    <p class="pubnote">Records verified against Crossref (the NSDI paper is listed from the USENIX program). Venues that do not register DOIs, such as ANS Transactions and INMM proceedings, are not captured, and for faculty with common names only papers with a confirmed UMass Lowell affiliation are included. Send corrections or additions to SCyPS@uml.edu.</p>\n  </div>\n</section>'
+PUBS_SECTION = '<section id="publications">\n  <div class="wrap">\n    <div class="shead"><h2>Publications</h2><p>Peer-reviewed journal papers, conference papers, and book chapters from the director and center faculty since the center was founded in 2019, with links to the publisher\'s record. Center authors are shown in bold. Affiliated researchers and external collaborators publish widely in their own fields; their records are linked from their profiles.</p></div>\n    <div class="filters" role="group" aria-label="Filter publications">\n      <div class="fgroup"><span class="lab">Faculty</span>\n        <button class="chip" data-f="fac" data-v="all" aria-pressed="true">All</button>\n        <button class="chip" data-f="fac" data-v="Vokkarane" aria-pressed="false">Vokkarane</button>\n        <button class="chip" data-f="fac" data-v="Arias" aria-pressed="false">Arias</button>\n        <button class="chip" data-f="fac" data-v="Tseng" aria-pressed="false">Tseng</button>\n        <button class="chip" data-f="fac" data-v="Son" aria-pressed="false">Son</button>\n        <button class="chip" data-f="fac" data-v="Aghara" aria-pressed="false">Aghara</button>\n        <button class="chip" data-f="fac" data-v="Lin" aria-pressed="false">Lin</button>\n        <button class="chip" data-f="fac" data-v="Luo" aria-pressed="false">Luo</button>\n        <button class="chip" data-f="fac" data-v="Xie" aria-pressed="false">Xie</button>\n\n\n\n\n\n\n\n      </div>\n      <div class="fgroup"><span class="lab">Year</span>\n        <button class="chip" data-f="year" data-v="all" aria-pressed="true">All</button>\n        <button class="chip" data-f="year" data-v="2026" aria-pressed="false">2026</button>\n        <button class="chip" data-f="year" data-v="2025" aria-pressed="false">2025</button>\n        <button class="chip" data-f="year" data-v="2024" aria-pressed="false">2024</button>\n        <button class="chip" data-f="year" data-v="2023" aria-pressed="false">2023</button>\n        <button class="chip" data-f="year" data-v="2022" aria-pressed="false">2022</button>\n        <button class="chip" data-f="year" data-v="2021" aria-pressed="false">2021</button>\n        <button class="chip" data-f="year" data-v="2020" aria-pressed="false">2020</button>\n        <button class="chip" data-f="year" data-v="2019" aria-pressed="false">2019</button>\n      </div>\n      <div class="fgroup"><span class="lab">Type</span>\n        <button class="chip" data-f="type" data-v="all" aria-pressed="true">All</button>\n        <button class="chip" data-f="type" data-v="journal" aria-pressed="false">Journal</button>\n        <button class="chip" data-f="type" data-v="conference" aria-pressed="false">Conference</button>\n        <button class="chip" data-f="type" data-v="chapter" aria-pressed="false">Chapter</button>\n      </div>\n      <div class="search"><label for="q" class="lab">Search</label><input id="q" type="search" placeholder="title, author, or venue" autocomplete="off"></div>\n    </div>\n    <div class="count" id="count" aria-live="polite">Showing {n_pubs} of {n_pubs} papers</div>\n    <div id="publist">{pubs_html}</div>\n    <p class="pubnote">Records verified against Crossref (the NSDI paper is listed from the USENIX program). Journal chips show the Journal Impact Factor from Clarivate\'s Journal Citation Reports for the year given, and the SCImago quartile where available. Venues that do not register DOIs, such as ANS Transactions and INMM proceedings, are not captured, and for faculty with common names only papers with a confirmed UMass Lowell affiliation are included. A paper counts for a member only from the year they joined UMass Lowell. Send corrections or additions to SCyPS@uml.edu.</p>\n  </div>\n</section>'
 
 FULL_NAME = {}
 for _g in ("director", "core", "affiliated", "external"):
@@ -4371,7 +4479,7 @@ for _g in ("director", "core", "affiliated", "external"):
         _sur = re.sub(r"\(.*?\)", "", _p["name"]).split()[-1]
         FULL_NAME[_sur] = _p["name"]
 
-PEOPLE_SECTION = '<section id="people" class="tint">\n  <div class="wrap">\n    <div class="shead"><h2>People</h2><p>Faculty from the Francis College of Engineering, the Kennedy College of Sciences, and the College of Fine Arts, Humanities and Social Sciences, plus long-running collaborators at partner universities and companies. Each profile links to the person\'s Google Scholar and ORCID records; citation totals are quoted from Google Scholar where the profile is public.</p></div>\n    <h2 class="grouph">Center faculty</h2>\n    {director_html}\n    {core_html}\n    <div class="group"><h2 class="grouph">Affiliated researchers</h2><p>UMass Lowell faculty who collaborate on center projects and proposals.</p>{aff_html}</div>\n    <div class="group"><h2 class="grouph">External collaborators</h2><p>Partners at other universities and companies who work with the center on current projects.</p>{ext_html}</div>\n  </div>\n</section>\n\n'
+PEOPLE_SECTION = '<section id="people" class="tint">\n  <div class="wrap">\n    <div class="shead"><h2>People</h2><p>Faculty from the Francis College of Engineering, the Kennedy College of Sciences, and the College of Fine Arts, Humanities and Social Sciences, plus long-running collaborators at partner universities and companies. Each profile links to the person\'s Google Scholar and ORCID records; citation totals are quoted from Google Scholar where the profile is public.</p></div>\n    <p class="founding">The center was founded on October 1, 2019 by Vinod Vokkarane and Martin Margala. Vokkarane was a co-founder and a member of the founding Board of Directors from October 2019 to July 2021, and has been director since August 2021. Margala, then Professor and Chair of Electrical and Computer Engineering, was founding co-director until July 2021 and remains an external collaborator.</p>\n    <h2 class="grouph">Center faculty</h2>\n    {director_html}\n    {core_html}\n    <div class="group"><h2 class="grouph">Affiliated researchers</h2><p>UMass Lowell faculty who collaborate on center projects and proposals.</p>{aff_html}</div>\n    <div class="group"><h2 class="grouph">External collaborators</h2><p>Partners at other universities and companies who work with the center on current projects.</p>{ext_html}</div>\n  </div>\n</section>\n\n'
 
 STUDENTS_SECTION = '<section id="students">\n  <div class="wrap">\n    <div class="shead"><h2>Students</h2><p>Doctoral students in the director\'s group, the Advanced Communication Networks Laboratory, working on center projects.</p></div>\n    <h2 class="grouph">Doctoral students</h2>\n    <div class="stugrid">{students_html}</div>\n    <div class="lablife">\n      <h3>Lab life</h3>\n      <p>The Advanced Communication Networks Laboratory through the years.</p>\n      <div class="labgrid">{lablife_html}</div>\n    </div>\n  </div>\n</section>\n\n'
 
@@ -4549,7 +4657,7 @@ def build_publications(pubs_section, footer_html, script_html):
     body = pubs_section.replace('<section id="publications">', '<section id="publications" class="pubpage">')
     body = body.replace("<h2>", "<h1>", 1).replace("</h2>", "</h1>", 1)
     page = page_shell("Publications | SCyPS, UMass Lowell",
-                      f"All {n_pubs} peer-reviewed papers from Center for Smart Cyber-Physical Systems faculty since 2021, searchable and filterable by faculty member, year, and type.",
+                      f"All {n_pubs} peer-reviewed papers from Center for Smart Cyber-Physical Systems faculty since 2019, searchable and filterable by faculty member, year, and type.",
                       body, footer_html, script_html, active="publications", canonical="publications.html")
     page = new_tab_links(page)
     open(out, "w", encoding="utf-8").write(page)
@@ -4800,7 +4908,7 @@ def build_thrust_pages(footer_html, script_html):
         plist = "".join(
             f'<li class="pub"><div><div class="a">{fmt_authors(p["authors"])}</div>'
             f'<div class="t">{("<a href=" + chr(34) + "https://doi.org/" + esc(p["doi"]) + chr(34) + ">" + esc(p["title"]) + "</a>") if p.get("doi") else esc(p["title"])}</div>'
-            f'<div class="v"><i>{esc(p["venue"])}</i>, {esc(p["details"])}</div></div></li>' for p in papers[:8])
+            f'<div class="v"><i>{esc(p["venue"])}</i>, {esc(p["details"])}{journal_chip(p["venue"]) if p["type"] == "journal" else ""}</div></div></li>' for p in papers[:8])
         # projects whose title matches one of the thrust's keys
         names = d.get("projects", [])
         projs = [pr for pr in PROJECTS if any(n.lower() in pr["title"].lower() or n.lower() in pr["sponsor"].lower() for n in names)]
@@ -4846,7 +4954,7 @@ def build_thrust_pages(footer_html, script_html):
 </section>
 <section class="tint">
   <div class="wrap">
-    <div class="shead"><h2>Recent papers</h2><p>The newest work from the faculty on this thrust. {len(papers)} papers since 2021 carry one of their names.</p></div>
+    <div class="shead"><h2>Recent papers</h2><p>The newest work from the faculty on this thrust. {len(papers)} papers since 2019 carry one of their names.</p></div>
     <ol class="publist">{plist}</ol>
     <p class="more"><a class="btn-gift summit-btn" href="publications.html">All publications</a></p>
   </div>

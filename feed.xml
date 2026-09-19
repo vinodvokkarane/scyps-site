@@ -7,30 +7,6 @@
   <language>en-us</language>
   <atom:link href="https://vinodvokkarane.github.io/scyps-site/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
-    <title>Risk-Aware Measurement Synchronization and Recovery for DSSE With Heterogeneous Data Sources</title>
-    <link>https://doi.org/10.1109/tim.2026.3706155</link>
-    <guid isPermaLink="false">scyps-2026-12-f963ea87d4</guid>
-    <category>Journal</category>
-    <pubDate>01 Dec 2026 00:00:00 +0000</pubDate>
-    <description>Yuzhang Lin: &quot;Risk-Aware Measurement Synchronization and Recovery for DSSE With Heterogeneous Data Sources&quot; in IEEE Transactions on Instrumentation and Measurement.</description>
-  </item>
-  <item>
-    <title>Robust State Estimation for Distribution Systems Based on Reinforcement-Learning-Assisted Memory-Augmented Deep Kalman Filter</title>
-    <link>https://doi.org/10.1109/tsg.2026.3711800</link>
-    <guid isPermaLink="false">scyps-2026-12-b9ea6afecc</guid>
-    <category>Journal</category>
-    <pubDate>01 Dec 2026 00:00:00 +0000</pubDate>
-    <description>Yuzhang Lin: &quot;Robust State Estimation for Distribution Systems Based on Reinforcement-Learning-Assisted Memory-Augmented Deep Kalman Filter&quot; in IEEE Transactions on Smart Grid.</description>
-  </item>
-  <item>
-    <title>LARA: LLM-based Agile Power Distribution Network Restoration from Disastrous Events</title>
-    <link>https://doi.org/10.18653/v1/2026.findings-eacl.321</link>
-    <guid isPermaLink="false">scyps-2026-12-5e5c278601</guid>
-    <category>Conference</category>
-    <pubDate>01 Dec 2026 00:00:00 +0000</pubDate>
-    <description>Yuzhang Lin: &quot;LARA: LLM-based Agile Power Distribution Network Restoration from Disastrous Events&quot; in Findings of the Association for Computational Linguistics: EACL 2026.</description>
-  </item>
-  <item>
     <title>2 papers in Engineering Applications of Artificial Intelligence</title>
     <link>https://doi.org/10.1016/j.engappai.2026.115851</link>
     <guid isPermaLink="false">scyps-2026-10-04475abf21</guid>
@@ -119,12 +95,12 @@
     <description>Lewis Tseng: &quot;Timely Control for Quantum Cloud: Orchestrating Entanglement Under Decay&quot; in 3rd ACM SIGCOMM Workshop on Quantum Networks and Distributed Quantum Computing (QuNet), ACM SIGCOMM 2026.</description>
   </item>
   <item>
-    <title>2 papers in IEEE Transactions on Smart Grid</title>
-    <link>https://doi.org/10.1109/tsg.2026.3658159</link>
-    <guid isPermaLink="false">scyps-2026-07-0082ec6c25</guid>
-    <category>Journal</category>
-    <pubDate>01 Jul 2026 00:00:00 +0000</pubDate>
-    <description>Yuzhang Lin: 2 new papers in IEEE Transactions on Smart Grid.</description>
+    <title>Planning Federated AI-Ready Cyberinfrastructure for Advanced Microscopy and Imaging: A Teach-Explore-Design Framework for Community-Driven Infrastructure</title>
+    <link>https://vinodvokkarane.github.io/scyps-site/news.html</link>
+    <guid isPermaLink="false">scyps-2026-08-f34f497f26</guid>
+    <category>Award</category>
+    <pubDate>01 Aug 2026 00:00:00 +0000</pubDate>
+    <description>New award: Planning Federated AI-Ready Cyberinfrastructure for Advanced Microscopy and Imaging: A Teach-Explore-Design Framework for Community-Driven Infrastructure. National Science Foundation, OAC Category III ($499K).</description>
   </item>
   <item>
     <title>LLM Based Static Malware Analysis for Windows Portable Executables</title>
@@ -159,14 +135,6 @@
     <description>Vinod M. Vokkarane: &quot;Experimental Determination of Filter Bandwidth Requirements for Coherent Pluggable Transceivers in Optical Data Center Networks&quot; in IEEE International Conference on High Performance Switching and Routing (HPSR).</description>
   </item>
   <item>
-    <title>2 papers in ACM International Conference on Future and Sustainable Energy Systems (e-Energy)</title>
-    <link>https://doi.org/10.1145/3744255.3811735</link>
-    <guid isPermaLink="false">scyps-2026-06-a5d370b8e2</guid>
-    <category>Conference</category>
-    <pubDate>01 Jun 2026 00:00:00 +0000</pubDate>
-    <description>Yuzhang Lin: 2 new papers in ACM International Conference on Future and Sustainable Energy Systems (e-Energy).</description>
-  </item>
-  <item>
     <title>Green, Trust-Minimizing, and Sybil-Resistant? Rethinking How Blockchains Agree from an Energy Perspective</title>
     <link>https://doi.org/10.1145/3765611.3815150</link>
     <guid isPermaLink="false">scyps-2026-06-1dea7d9985</guid>
@@ -181,22 +149,6 @@
     <category>Milestone</category>
     <pubDate>01 Jun 2026 00:00:00 +0000</pubDate>
     <description>Sukesh Aghara&#x27;s group publishes in Energy Reports on phasing clean, sustainable alternatives into a university campus&#x27;s central heating, and the Massachusetts nuclear roadmap enters its public discussion series with events in Boston, Worcester, and Lowell.</description>
-  </item>
-  <item>
-    <title>Learning to Model the Dynamics of Black-Box Inverter-Based Resources With Multiple Unknown Control Modes From Noisy Measurement Data</title>
-    <link>https://doi.org/10.1109/tsg.2025.3647551</link>
-    <guid isPermaLink="false">scyps-2026-05-7b150d7366</guid>
-    <category>Journal</category>
-    <pubDate>01 May 2026 00:00:00 +0000</pubDate>
-    <description>Yuzhang Lin: &quot;Learning to Model the Dynamics of Black-Box Inverter-Based Resources With Multiple Unknown Control Modes From Noisy Measurement Data&quot; in IEEE Transactions on Smart Grid.</description>
-  </item>
-  <item>
-    <title>Graph Neural Networks with Diversity-Aware Neighbor Selection and Dynamic Multi-Scale Fusion for Multivariate Time Series Forecasting</title>
-    <link>https://doi.org/10.1109/icassp55912.2026.11461407</link>
-    <guid isPermaLink="false">scyps-2026-05-3313cd4560</guid>
-    <category>Conference</category>
-    <pubDate>01 May 2026 00:00:00 +0000</pubDate>
-    <description>Yuzhang Lin: &quot;Graph Neural Networks with Diversity-Aware Neighbor Selection and Dynamic Multi-Scale Fusion for Multivariate Time Series Forecasting&quot; in ICASSP 2026 - 2026 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP).</description>
   </item>
   <item>
     <title>From crash reports to safer roads: a multimodal framework integrating vision-language models and street view analysis</title>
@@ -231,44 +183,12 @@
     <description>The U.S. Army ARPO project on autonomous robotic planning and optimization begins ($225K).</description>
   </item>
   <item>
-    <title>Planning distributed energy systems with low-grade heat sources integration: Geography-Based clustering and risk-informed thermal pipeline layout design approaches</title>
-    <link>https://doi.org/10.1016/j.energy.2026.140004</link>
-    <guid isPermaLink="false">scyps-2026-02-ed6dbc515a</guid>
-    <category>Journal</category>
-    <pubDate>01 Feb 2026 00:00:00 +0000</pubDate>
-    <description>Yuzhang Lin: &quot;Planning distributed energy systems with low-grade heat sources integration: Geography-Based clustering and risk-informed thermal pipeline layout design approaches&quot; in Energy.</description>
-  </item>
-  <item>
     <title>Signal Strength and Network Performance Optimization of a Wireless Acoustic Sensor for Wind Turbine Blade Health Monitoring</title>
     <link>https://doi.org/10.1109/jsen.2025.3647370</link>
     <guid isPermaLink="false">scyps-2026-02-90868e69cc</guid>
     <category>Journal</category>
     <pubDate>01 Feb 2026 00:00:00 +0000</pubDate>
     <description>Yan Luo: &quot;Signal Strength and Network Performance Optimization of a Wireless Acoustic Sensor for Wind Turbine Blade Health Monitoring&quot; in IEEE Sensors Journal.</description>
-  </item>
-  <item>
-    <title>Parameter Error Identification for Validation and Calibration of Dynamic Models of Inverter-Based Resources</title>
-    <link>https://doi.org/10.1109/tpwrs.2025.3596027</link>
-    <guid isPermaLink="false">scyps-2026-01-056fd1e38f</guid>
-    <category>Journal</category>
-    <pubDate>01 Jan 2026 00:00:00 +0000</pubDate>
-    <description>Yuzhang Lin: &quot;Parameter Error Identification for Validation and Calibration of Dynamic Models of Inverter-Based Resources&quot; in IEEE Transactions on Power Systems.</description>
-  </item>
-  <item>
-    <title>Smart Meter Scheduling for Data-Driven Granular Customer Voltage Visibility</title>
-    <link>https://doi.org/10.1109/tsg.2025.3624570</link>
-    <guid isPermaLink="false">scyps-2026-01-71f04def12</guid>
-    <category>Journal</category>
-    <pubDate>01 Jan 2026 00:00:00 +0000</pubDate>
-    <description>Yuzhang Lin: &quot;Smart Meter Scheduling for Data-Driven Granular Customer Voltage Visibility&quot; in IEEE Transactions on Smart Grid.</description>
-  </item>
-  <item>
-    <title>GNN-LSTM-Based Adaptive Discretization of PDEs in District Heating Networks Considering Multiple PV Scenarios</title>
-    <link>https://doi.org/10.1109/pesim67009.2026.11438494</link>
-    <guid isPermaLink="false">scyps-2026-01-ec55a047bc</guid>
-    <category>Conference</category>
-    <pubDate>01 Jan 2026 00:00:00 +0000</pubDate>
-    <description>Yuzhang Lin: &quot;GNN-LSTM-Based Adaptive Discretization of PDEs in District Heating Networks Considering Multiple PV Scenarios&quot; in IEEE PES International Meeting (PES IM).</description>
   </item>
   <item>
     <title>Timing is the New Attack: Blockchain Cannot Prevent Market Manipulation at the Boundary</title>
@@ -303,14 +223,6 @@
     <description>Yuanchang Xie: &quot;Data analytics for safety applications&quot; in Data Analytics for Intelligent Transportation Systems.</description>
   </item>
   <item>
-    <title>LLM4DistReconfig: A Fine-tuned Large Language Model for Power Distribution Network Reconfiguration</title>
-    <link>https://doi.org/10.18653/v1/2025.naacl-long.208</link>
-    <guid isPermaLink="false">scyps-2025-12-cd67294b18</guid>
-    <category>Conference</category>
-    <pubDate>01 Dec 2025 00:00:00 +0000</pubDate>
-    <description>Yuzhang Lin: &quot;LLM4DistReconfig: A Fine-tuned Large Language Model for Power Distribution Network Reconfiguration&quot; in Proceedings of the 2025 Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics: Human Language...</description>
-  </item>
-  <item>
     <title>Two GLOBECOM 2025 papers from the Tseng group: satellite-edge-enabled multi-drone search and content-aware gossip for mobile device clouds</title>
     <link>https://vinodvokkarane.github.io/scyps-site/news.html</link>
     <guid isPermaLink="false">scyps-2025-12-7d65058b25</guid>
@@ -325,6 +237,38 @@
     <category>Conference</category>
     <pubDate>01 Nov 2025 00:00:00 +0000</pubDate>
     <description>Lewis Tseng: &quot;Revisiting State Machine Replication in Practice: Lessons from Building an etcd-inspired System&quot; in ACM Symposium on Cloud Computing (SoCC).</description>
+  </item>
+  <item>
+    <title>VUD-FC: A Heterogeneous Behavior-Oriented Adaptive Control Approach Using Variable Universe of Discourse Fuzzy Strategy</title>
+    <link>https://doi.org/10.1109/itsc60802.2025.11423549</link>
+    <guid isPermaLink="false">scyps-2025-11-1d260eb470</guid>
+    <category>Conference</category>
+    <pubDate>01 Nov 2025 00:00:00 +0000</pubDate>
+    <description>Yuanchang Xie: &quot;VUD-FC: A Heterogeneous Behavior-Oriented Adaptive Control Approach Using Variable Universe of Discourse Fuzzy Strategy&quot; in IEEE 28th International Conference on Intelligent Transportation Systems (ITSC).</description>
+  </item>
+  <item>
+    <title>WIP: What Employers Want: A Data-Driven Analysis of Soft Skill Trends in Computer Science Job Postings (2012-2024)</title>
+    <link>https://doi.org/10.1109/FIE63693.2025.11328524</link>
+    <guid isPermaLink="false">scyps-2025-11-684c08d325</guid>
+    <category>Conference</category>
+    <pubDate>01 Nov 2025 00:00:00 +0000</pubDate>
+    <description>Lewis Tseng: &quot;WIP: What Employers Want: A Data-Driven Analysis of Soft Skill Trends in Computer Science Job Postings (2012-2024)&quot; in IEEE Frontiers in Education Conference (FIE).</description>
+  </item>
+  <item>
+    <title>Massachusetts Advanced Nuclear and Fusion Energy Roadmaps</title>
+    <link>https://vinodvokkarane.github.io/scyps-site/news.html</link>
+    <guid isPermaLink="false">scyps-2025-10-6613d842b9</guid>
+    <category>Award</category>
+    <pubDate>01 Oct 2025 00:00:00 +0000</pubDate>
+    <description>New award: Massachusetts Advanced Nuclear and Fusion Energy Roadmaps. Commonwealth of Massachusetts, Healey-Driscoll Administration.</description>
+  </item>
+  <item>
+    <title>Gov</title>
+    <link>https://vinodvokkarane.github.io/scyps-site/news.html</link>
+    <guid isPermaLink="false">scyps-2025-10-f6c990ef43</guid>
+    <category>Milestone</category>
+    <pubDate>01 Oct 2025 00:00:00 +0000</pubDate>
+    <description>Gov. Maura Healey names Sukesh Aghara to lead the Massachusetts Advanced Nuclear and Fusion Energy Roadmaps, a statewide effort run from UMass Lowell.</description>
   </item>
 </channel>
 </rss>

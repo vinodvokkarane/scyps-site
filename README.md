@@ -24,6 +24,14 @@ Files
   pubs_auto.json     papers found by refresh.py after the curated list was written
   grants_auto.json   NSF awards found by refresh.py that were not in the curated ledger
   scholar.json       citation figures the site prints, each with the date it was read
+  journals.json      one row per journal on the site: impact factor, year, quartile, SJR, source.
+                     Empty fields show nothing; fill what you have. The Journal Impact Factor is
+                     Clarivate's, from Journal Citation Reports (UML has a licence), so it is entered
+                     by hand; quartile and SJR come from SCImago, which the weekly refresh fills in.
+                     The values in the file were entered in Sept 2026 from the 2023 JCR (the June 2024
+                     release), the most recent edition available to the person who entered them. Two
+                     JCR editions have come out since. To bring them current: open JCR, export the
+                     journal list, and update the "if" and "if_year" fields.
   update_scholar.py  paste figures off the Scholar profile pages into scholar.json
   scholar_auto.json  figures refresh.py managed to read on its own, if any
   .github/workflows/refresh.yml   the weekly data job
@@ -89,6 +97,11 @@ Animations
       only runs the ones in view.
     - prefers-reduced-motion switches every animation off and draws the dashed paths solid.
 
+Attribution rule
+  A paper counts for a member only from the year they joined UMass Lowell (JOIN_YEAR in build_site.py:
+  Tseng 2024, Arias 2021). Work done at a previous institution is dropped from the site and from the
+  center's counts, so the figures here match what the center can defend in a review.
+
 Build by hand
   python3 refresh.py          # optional: pull new data
   python3 build_site.py index.html      # writes all thirteen pages next to it
@@ -117,6 +130,9 @@ Automatic updates
 
                    From a checkout: `python3 update_scholar.py` prints every profile link and takes the
                    same lines on standard input, then `python3 build_site.py index.html`.
+    Journals       quartile and SJR from SCImago's public ranking export, matched by journal name into
+                   journals.json. Impact factor is never fetched: Clarivate licenses it, and displaying
+                   it publicly is something to check with the library before you do.
     News           news.html builds itself on every run from three sources: papers dated in the last three
                    months, awards whose period starts in that window, and hand-written entries in NEWS that
                    fall in it. If fewer than six items land in three months the window widens automatically

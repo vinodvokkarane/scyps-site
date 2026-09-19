@@ -2,13 +2,13 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>SCyPS highlights</title>
-  <link>https://vinodvokkarane.github.io/scyps-site/news.html</link>
+  <link>https://smartcyberphysical.org/news.html</link>
   <description>Awards, milestones, and talks from the Center for Smart Cyber-Physical Systems at UMass Lowell.</description>
   <language>en-us</language>
-  <atom:link href="https://vinodvokkarane.github.io/scyps-site/feed-highlights.xml" rel="self" type="application/rss+xml"/>
+  <atom:link href="https://smartcyberphysical.org/feed-highlights.xml" rel="self" type="application/rss+xml"/>
   <item>
     <title>SUMMIT: A Secure and Resilient Multi-site Smart Grid Testbed for Multidisciplinary Research and Training</title>
-    <link>https://vinodvokkarane.github.io/scyps-site/news.html</link>
+    <link>https://smartcyberphysical.org/news.html</link>
     <guid isPermaLink="false">scyps-2026-10-5a1c8df91f</guid>
     <category>Award</category>
     <pubDate>01 Oct 2026 00:00:00 +0000</pubDate>
@@ -16,7 +16,7 @@
   </item>
   <item>
     <title>BOND-AI: A Standardized Reliability Qualification Methodology for High-Temperature Printed Interfaces and Bond Joints, Enabled by Physics-Informed AI, on a 500 °C-Capable Alumina Platform</title>
-    <link>https://vinodvokkarane.github.io/scyps-site/news.html</link>
+    <link>https://smartcyberphysical.org/news.html</link>
     <guid isPermaLink="false">scyps-2026-10-28eda53187</guid>
     <category>Award</category>
     <pubDate>01 Oct 2026 00:00:00 +0000</pubDate>
@@ -24,7 +24,7 @@
   </item>
   <item>
     <title>SUMMIT begins</title>
-    <link>https://vinodvokkarane.github.io/scyps-site/news.html</link>
+    <link>https://smartcyberphysical.org/news.html</link>
     <guid isPermaLink="false">scyps-2026-10-1008c34e45</guid>
     <category>Milestone</category>
     <pubDate>01 Oct 2026 00:00:00 +0000</pubDate>
@@ -32,7 +32,7 @@
   </item>
   <item>
     <title>The FUSION benchmarking framework paper appears in JOCN&#x27;s special issue on benchmarking in optical networks, followed in October by a QoT-aware grooming paper for multi-band SDM networks</title>
-    <link>https://vinodvokkarane.github.io/scyps-site/news.html</link>
+    <link>https://smartcyberphysical.org/news.html</link>
     <guid isPermaLink="false">scyps-2026-09-e556ccb1c0</guid>
     <category>Milestone</category>
     <pubDate>01 Sep 2026 00:00:00 +0000</pubDate>
@@ -40,7 +40,7 @@
   </item>
   <item>
     <title>ARPO-Sensor Fusion starts under the Massachusetts Technology Collaborative&#x27;s Applied AI Models program ($625K), performed at UMLARC</title>
-    <link>https://vinodvokkarane.github.io/scyps-site/news.html</link>
+    <link>https://smartcyberphysical.org/news.html</link>
     <guid isPermaLink="false">scyps-2026-09-dfa747677a</guid>
     <category>Milestone</category>
     <pubDate>01 Sep 2026 00:00:00 +0000</pubDate>
@@ -48,7 +48,7 @@
   </item>
   <item>
     <title>Planning Federated AI-Ready Cyberinfrastructure for Advanced Microscopy and Imaging: A Teach-Explore-Design Framework for Community-Driven Infrastructure</title>
-    <link>https://vinodvokkarane.github.io/scyps-site/news.html</link>
+    <link>https://smartcyberphysical.org/news.html</link>
     <guid isPermaLink="false">scyps-2026-08-f34f497f26</guid>
     <category>Award</category>
     <pubDate>01 Aug 2026 00:00:00 +0000</pubDate>
@@ -56,7 +56,7 @@
   </item>
   <item>
     <title>Sukesh Aghara&#x27;s group publishes in Energy Reports on phasing clean, sustainable alternatives into a university campus&#x27;s central heating, and the Massachusetts nuclear roadmap enters its public discussion series with events in Boston, Worcester, and Lowell</title>
-    <link>https://vinodvokkarane.github.io/scyps-site/news.html</link>
+    <link>https://smartcyberphysical.org/news.html</link>
     <guid isPermaLink="false">scyps-2026-06-b956c87c73</guid>
     <category>Milestone</category>
     <pubDate>01 Jun 2026 00:00:00 +0000</pubDate>
@@ -64,7 +64,7 @@
   </item>
   <item>
     <title>The U.S. Army ARPO project on autonomous robotic planning and optimization begins ($225K)</title>
-    <link>https://vinodvokkarane.github.io/scyps-site/news.html</link>
+    <link>https://smartcyberphysical.org/news.html</link>
     <guid isPermaLink="false">scyps-2026-03-91918b8708</guid>
     <category>Milestone</category>
     <pubDate>01 Mar 2026 00:00:00 +0000</pubDate>
@@ -72,7 +72,7 @@
   </item>
   <item>
     <title>Two GLOBECOM 2025 papers from the Tseng group: satellite-edge-enabled multi-drone search and content-aware gossip for mobile device clouds</title>
-    <link>https://vinodvokkarane.github.io/scyps-site/news.html</link>
+    <link>https://smartcyberphysical.org/news.html</link>
     <guid isPermaLink="false">scyps-2025-12-7d65058b25</guid>
     <category>Milestone</category>
     <pubDate>01 Dec 2025 00:00:00 +0000</pubDate>
@@ -80,7 +80,7 @@
   </item>
   <item>
     <title>Massachusetts Advanced Nuclear and Fusion Energy Roadmaps</title>
-    <link>https://vinodvokkarane.github.io/scyps-site/news.html</link>
+    <link>https://smartcyberphysical.org/news.html</link>
     <guid isPermaLink="false">scyps-2025-10-6613d842b9</guid>
     <category>Award</category>
     <pubDate>01 Oct 2025 00:00:00 +0000</pubDate>
@@ -88,7 +88,7 @@
   </item>
   <item>
     <title>Gov</title>
-    <link>https://vinodvokkarane.github.io/scyps-site/news.html</link>
+    <link>https://smartcyberphysical.org/news.html</link>
     <guid isPermaLink="false">scyps-2025-10-f6c990ef43</guid>
     <category>Milestone</category>
     <pubDate>01 Oct 2025 00:00:00 +0000</pubDate>

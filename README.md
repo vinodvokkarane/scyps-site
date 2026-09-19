@@ -38,7 +38,11 @@ Files
   .github/workflows/scholar.yml   the Scholar update you run by hand from the Actions tab
 
 Before you publish
-  SITE_URL at the top of build_site.py must match the live address. It feeds the canonical links,
+  SITE_URL at the top of build_site.py is https://smartcyberphysical.org/ and must match the live address.
+  A CNAME file in the repository root holds the same domain; GitHub Pages reads it on every deploy, and
+  the build never deletes it. If the domain ever changes, change both.
+
+  SITE_URL must match the live address. It feeds the canonical links,
   the social-card metadata, robots.txt, and sitemap.xml. It is currently set to
   https://vinodvokkarane.github.io/scyps-site/ — change it if the site moves to scyps.uml.edu.
 

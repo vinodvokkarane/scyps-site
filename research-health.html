@@ -408,6 +408,16 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .hubfig .s-amb{stroke:var(--amber)}
 .hubfig .s-muted{stroke:var(--ink-3)}
 
+/* project filters */
+.pfilters{display:grid;gap:10px;margin:0 0 6px}
+.prow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.prow .plab{font-size:13px;color:var(--ink-3);width:52px;flex:none}
+.pfilters .chip{font:inherit;font-size:13.5px;padding:5px 12px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;cursor:pointer}
+.pfilters .chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pcount{font-size:13.5px;color:var(--ink-3);margin:14px 0 2px}
+.proj[hidden]{display:none}
+@media (max-width:640px){.prow .plab{width:100%}}
+
 /* teasers, news page, article stream */
 .peoplecards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .pcard{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;color:var(--ink);transition:box-shadow .2s ease,transform .2s ease}
@@ -758,7 +768,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 <section>
   <div class="wrap">
     <div class="shead"><h2>Other thrusts</h2><p>Most projects cut across two or three of them.</p></div>
-    <div class="others"><a class="othr" href="research-grid.html">Smart grid cybersecurity and resilience</a><a class="othr" href="research-ai.html">AI and agentic systems for cyber-physical control</a><a class="othr" href="research-fiber.html">Next-generation optical and 6G transport</a><a class="othr" href="research-edge.html">Fault-tolerant distributed and edge computing</a><a class="othr" href="research-chip.html">Hardware security and high performance computing</a><a class="othr" href="research-nuclear.html">Nuclear energy and security</a></div>
+    <div class="others"><a class="othr" href="research-grid.html">Smart grid cybersecurity and resilience</a><a class="othr" href="research-ai.html">AI and agentic systems for cyber-physical control</a><a class="othr" href="research-fiber.html">Next-generation optical and 6G transport</a><a class="othr" href="research-edge.html">Fault-tolerant distributed and edge computing</a><a class="othr" href="research-chip.html">Hardware security and trusted devices</a><a class="othr" href="research-hpc.html">High performance computing and data integrity</a><a class="othr" href="research-nuclear.html">Nuclear energy and security</a></div>
   </div>
 </section>
 </main>
@@ -803,7 +813,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
         <li><a href="https://www.uml.edu/service/Apps/Forms/Form?configId=ccde10d9-949a-4891-a810-ca2cfa641f6f&amp;tfa_26=https://www.uml.edu/research/scyps/" title="Website Feedback" target="_blank" rel="noopener noreferrer">Feedback</a></li>
       </ul>
       <p class="fine">Updated September 2026. Grant figures are total awards as reported by sponsors; the UMass Lowell share is noted where a project is a multi-institution consortium. Photographs courtesy of UMass Lowell.</p>
-      <p class="version">v 0.71<span class="vsep"></span><span id="visits" title="Visits counted since the counter went live"></span></p>
+      <p class="version">v 0.74<span class="vsep"></span><span id="visits" title="Visits counted since the counter went live"></span></p>
     </div>
   </div>
 </footer>
@@ -825,6 +835,30 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
     img.onerror=function(){ el.style.display='none'; };
     img.src='https://hits.sh/'+base+'.svg?view=total&style=flat-square&label=visits&color=0A777F&labelColor=0E2036';
     el.textContent=''; el.appendChild(img);
+  })();
+  // project filters: lead, thrust, and year, combined
+  (function(){
+    var wrap=document.querySelector('.pfilters'); if(!wrap) return;
+    var rows=[].slice.call(document.querySelectorAll('#projlist .proj')),
+        out=document.getElementById('pcount'), state={pi:'all',thrust:'all',year:'all'};
+    function apply(){
+      var n=0;
+      rows.forEach(function(r){
+        var ok=(state.pi==='all'||r.getAttribute('data-pi')===state.pi)
+             &&(state.thrust==='all'||r.getAttribute('data-thrust')===state.thrust)
+             &&(state.year==='all'||(r.getAttribute('data-years')||'').split(' ').indexOf(state.year)>-1);
+        r.hidden=!ok; if(ok) n++;
+      });
+      if(out) out.textContent = (n===rows.length ? 'Showing all '+n+' projects' : 'Showing '+n+' of '+rows.length+' projects');
+    }
+    wrap.querySelectorAll('.chip').forEach(function(c){
+      c.addEventListener('click', function(){
+        var f=c.getAttribute('data-f'); state[f]=c.getAttribute('data-v');
+        wrap.querySelectorAll('.chip[data-f="'+f+'"]').forEach(function(o){ o.setAttribute('aria-pressed', String(o===c)); });
+        apply();
+      });
+    });
+    apply();
   })();
   // news filters
   (function(){

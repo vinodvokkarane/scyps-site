@@ -49,7 +49,7 @@ FACULTY = {
          "areas": "High performance computing, parallel I/O and data-intensive computing, compiler optimizations, embedded systems",
          "email": "SeungWoo_Son@uml.edu", "phone": "978-934-6846", "office": "Ball Hall 419",
          "url": "https://www.uml.edu/engineering/electrical-computer/faculty/son-seung-woo.aspx",
-         "role": "NSF CAREER awardee (2018); brings HPC, silent-data-corruption detection, and on-device stream analytics to the center's data-intensive CPS work."},
+         "role": "Leads the high performance computing and data integrity thrust. NSF CAREER awardee (2018); brings HPC, silent-data-corruption detection, and on-device stream analytics to the center's data-intensive CPS work."},
         {"name": "Lewis Tseng", "photo": "tseng", "title": "Associate Professor, Electrical and Computer Engineering",
          "areas": "High-performance fault-tolerant distributed systems, blockchain-based systems, intelligent traffic and vehicular computing",
          "email": "Lewis_Tseng@uml.edu", "phone": "", "office": "Ball Hall, 3rd floor",
@@ -2501,6 +2501,16 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .hubfig .s-amb{stroke:var(--amber)}
 .hubfig .s-muted{stroke:var(--ink-3)}
 
+/* project filters */
+.pfilters{display:grid;gap:10px;margin:0 0 6px}
+.prow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.prow .plab{font-size:13px;color:var(--ink-3);width:52px;flex:none}
+.pfilters .chip{font:inherit;font-size:13.5px;padding:5px 12px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;cursor:pointer}
+.pfilters .chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pcount{font-size:13.5px;color:var(--ink-3);margin:14px 0 2px}
+.proj[hidden]{display:none}
+@media (max-width:640px){.prow .plab{width:100%}}
+
 /* teasers, news page, article stream */
 .peoplecards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .pcard{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;color:var(--ink);transition:box-shadow .2s ease,transform .2s ease}
@@ -2878,6 +2888,17 @@ THRUST_DETAIL = {
         ],
         "projects": ["Massachusetts Advanced Nuclear and Fusion Energy Roadmaps", "Intercontinental Nuclear Institute"],
     },
+    "hpc": {
+        "question": "If a machine gives you the wrong answer and no error, how would you ever know?",
+        "lede": "The hardest fault in a large computing system is the one that produces a plausible wrong answer and raises nothing. At the scale modern simulation and analysis run, that is not a rare event. The center works on detecting corruption that leaves no trace, on encoding data so it stays usable and verifiable, and on the I/O paths that decide whether a result can be reproduced at all.",
+        "work": [
+            ("Silent data corruption detection", "Corruption that produces a wrong answer without an error signal, detected from hardware performance counters at a cost low enough to leave running in production."),
+            ("Reliable and efficient data encoding", "Encoding schemes that keep simulation and analysis data usable, compact, and verifiable at extreme scale, funded by an NSF CAREER award."),
+            ("Data integrity for HPC datasets", "Using the sparsity structure of scientific datasets to find and correct corruption, with an NSF OAC Core award held jointly with the hardware security thrust."),
+            ("Parallel I/O for data-intensive science", "The storage and I/O paths that decide whether a large computation can be checkpointed, restarted, and reproduced."),
+        ],
+        "projects": ["Improving Data Integrity", "Reliable and Efficient Data Encoding"],
+    },
     "health": {
         "question": "What does this loop look like in a hospital, on a highway, on a bridge, and inside a reactor building?",
         "lede": "The same sense-communicate-decide-act loop shows up wherever computation meets a physical system, and each domain stresses it differently: latency on a highway, privacy in a hospital, harsh environments on a bridge, regulation in a nuclear facility. The center's breadth across colleges is what lets it work in all four.",
@@ -2904,9 +2925,12 @@ THRUSTS = [
     ("edge", "Fault-tolerant distributed and edge computing",
      "Consensus and state machine replication that stay correct under crashes and attacks, blockchain systems, satellite-edge drone coordination, and digital twins delivered from hybrid clouds.",
      "Tseng, Luo"),
-    ("chip", "Hardware security and high performance computing",
-     "Hardware trojan detection at RTL, silent data corruption detection from hardware counters, attested embedded devices for grid edges, and parallel I/O for data-intensive science.",
-     "Arias, Son"),
+    ("chip", "Hardware security and trusted devices",
+     "Hardware trojan detection at RTL, attested embedded devices for grid edges, and authentication for printed and flexible electronics.",
+     "Arias, Akyurtlu, Ranasingha"),
+    ("hpc", "High performance computing and data integrity",
+     "Detecting silent data corruption from hardware counters, reliable and efficient encoding for extreme-scale simulation, and the parallel I/O that data-intensive science runs on.",
+     "Son, Luo"),
     ("health", "Connected transportation, health, and infrastructure",
      "Intelligent traffic and vehicular computing, medical imaging and digital health platforms, and structural health monitoring for blades, bridges, and buildings.",
      "Xie, Luo, Cao, Yu, Inalpolat, Robinette, Niezrecki"),
@@ -2945,7 +2969,7 @@ ALUMNI_PHD = [
 ]
 ALUMNI_POSTDOC = [("Arash Deylamsalehi", "Google"), ("Jeremy M. Plante", "Hitachi Vantara"), ("Juzi Zhao", "San José State University"), ("Arush Gadkar", "Kilpatrick Townsend & Stockton LLP"), ("Joan Triay", "DOCOMO Euro-Labs"), ("Balagangadhar Bathula", "AT&T")]
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "0.71"   # bump by 0.01 with every update to the site
+SITE_VERSION = "0.74"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3179,6 +3203,37 @@ STUDENT_FIGS = {
 </svg>""",
 }
 
+
+
+# ---------------------------------------------------------------- project filters
+# Each project row carries three data attributes so the ledger can be filtered. All three are derived
+# from fields the row already has, so a new award needs no extra tagging.
+_DOMAIN_THRUST = {
+    "Energy": "grid", "Networks": "fiber", "Autonomy": "ai", "Distributed systems": "edge",
+    "HPC": "chip", "Printed electronics": "chip", "Transportation": "health", "Education": "health",
+    "Nuclear": "nuclear", "Data systems": "ai", "Defense": "fiber", "Sensing": "chip",
+}
+_NAME = r"([A-Z][a-zA-Z]+(?:\s+(?:[A-Z]\.|[A-Z][a-zA-Z]+)){1,2})"
+def project_pi(pr):
+    """The lead investigator, from the team line. Handles PI, UMass Lowell PI, Lead, Co-director, and
+    three-part names, falling back to the first Co-PI when no lead is named."""
+    team = pr.get("team", "")
+    for pat in (r"(?:^|; )(?:UMass Lowell )?PI " + _NAME,
+                r"(?:^|; )Lead: " + _NAME,
+                r"(?:^|; )Co-director: " + _NAME,
+                r"(?:^|; )Co-PIs? " + _NAME):
+        m = re.search(pat, team)
+        if m: return re.sub(r"\s+", " ", m.group(1)).strip()
+    return ""
+
+def project_years(pr):
+    """Every calendar year the award touches, so a filter on 2026 finds awards running through it."""
+    yrs = [int(y) for y in re.findall(r"(20\d\d)", pr.get("period", ""))]
+    if not yrs: return []
+    return list(range(min(yrs), max(yrs) + 1))
+
+def project_thrust(pr):
+    return _DOMAIN_THRUST.get(pr.get("domain", ""), "")
 
 # ---------------------------------------------------------------- laboratories and facilities
 # Each entry: the lab, who runs it, what it studies, and what it can offer a collaborator.
@@ -3588,6 +3643,21 @@ HUB = """<svg viewBox="0 0 1200 690" xmlns="http://www.w3.org/2000/svg" role="im
 </svg>"""
 HUB = theme_svg(HUB)
 
+ART["hpc"] = """<svg viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<rect x="28" y="30" width="86" height="120" rx="8" fill="#FFFFFF" stroke="#044978" stroke-width="2.4"/>
+<g stroke="#D5DCE5" stroke-width="1.4"><path d="M28 60h86M28 90h86M28 120h86"/></g>
+<g stroke="#0A777F" stroke-width="2"><path d="M40 45h34M40 75h26M40 105h38M40 135h22"/></g>
+<g fill="#3BA995"><circle cx="104" cy="45" r="3" class="pulse"/><circle cx="104" cy="75" r="3" class="pulse" style="animation-delay:.6s"/><circle cx="104" cy="105" r="3" class="pulse" style="animation-delay:1.2s"/><circle cx="104" cy="135" r="3" class="pulse" style="animation-delay:1.8s"/></g>
+<path d="M120 90h26" stroke="#0A777F" stroke-width="2.4" class="flow"/>
+<path d="M158 140h180" stroke="#D5DCE5" stroke-width="1.6"/>
+<rect x="166" y="86" width="18" height="54" class="grow" style="transform-origin:175px 140px" fill="#0A777F"/>
+<rect x="192" y="66" width="18" height="74" class="grow" style="transform-origin:201px 140px;animation-delay:.3s" fill="#0A777F"/>
+<rect x="218" y="100" width="18" height="40" class="grow" style="transform-origin:227px 140px;animation-delay:.6s" fill="#0A777F"/>
+<rect x="244" y="56" width="18" height="84" class="grow" style="transform-origin:253px 140px;animation-delay:.9s" fill="#0A777F"/>
+<g class="pulse"><rect x="270" y="112" width="18" height="28" fill="#E25555"/><circle cx="279" cy="100" r="6" fill="#E25555"/></g>
+<rect x="296" y="90" width="18" height="50" fill="#0A777F"/>
+<text x="248" y="166" text-anchor="middle" font-size="11" fill="#5B6B82">an outlier with no error raised</text>
+</svg>"""
 ART["nuclear"] = """<svg viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round">
 <path d="M40 150V92a44 44 0 0 1 88 0v58z" fill="#FFFFFF" stroke="#044978" stroke-width="3"/>
 <path d="M40 108h88" stroke="#D5DCE5" stroke-width="1.6"/>
@@ -3630,14 +3700,14 @@ ORG = """<svg viewBox="0 0 1200 660" xmlns="http://www.w3.org/2000/svg" role="im
 <!-- thrust band -->
 <rect x="28" y="266" width="1144" height="196" rx="16" fill="#F3F7FA"/>
 <g class="card"><rect x="440" y="252" width="320" height="34" rx="17" fill="#CDDFF0"/></g>
-<text x="600" y="274" text-anchor="middle" font-size="14" font-weight="600" fill="#044978">Seven research thrusts, each with a lead</text>
+<text x="600" y="274" text-anchor="middle" font-size="14" font-weight="600" fill="#044978">Eight research thrusts, each with a lead</text>
 <path d="M600 232v20" stroke="#0A777F" stroke-width="2.4"/>
 """
 
 _TB = [("Smart grid security", "Vokkarane"), ("AI for cyber-physical control", "Luo"), ("Optical and 6G transport", "Vokkarane"),
-       ("Fault-tolerant edge", "Tseng"), ("Hardware security and HPC", "Arias"), ("Connected transportation", "Xie"),
-       ("Nuclear energy and security", "Aghara")]
-_bw, _gap, _x0, _y0 = 150, 14, 46, 306
+       ("Fault-tolerant edge", "Tseng"), ("Hardware security", "Arias"), ("HPC and data integrity", "Son"),
+       ("Connected transportation", "Xie"), ("Nuclear energy and security", "Aghara")]
+_bw, _gap, _x0, _y0 = 130, 12, 46, 306
 _boxes = []
 for _i, (_t, _who) in enumerate(_TB):
     _x = _x0 + _i * (_bw + _gap)
@@ -4240,6 +4310,7 @@ HERO_ART = {
 <text x="600" y="572" text-anchor="middle" font-size="15" fill="#5B6B82">one loop, four domains, each stressing it in a different way</text>
 </svg>""",
 }
+HERO_ART["hpc"] = HERO_ART["chip"]
 HERO_ART["nuclear"] = """<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round">
 <rect width="1200" height="600" fill="url(#sky)"/>
 <defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3F7FA"/><stop offset="1" stop-color="#FFFFFF"/></linearGradient>
@@ -4367,12 +4438,29 @@ def build():
         f'<div class="thrust"><a class="art" href="research-{esc(i)}.html">{ART[i]}</a><div class="body"><h3><a href="research-{esc(i)}.html">{esc(t)}</a></h3><p>{esc(d)}</p><div class="who"><b>{esc(w.split(",")[0])}</b> leads{esc("; with " + w.split(", ", 1)[1] if ", " in w else "")}</div><p class="more2"><a href="research-{esc(i)}.html">More on this thrust</a></p></div></div>'
         for i, t, d, w in THRUSTS)
 
+    _pis = sorted({project_pi(pr) for pr in PROJECTS if project_pi(pr)}, key=lambda n: n.split()[-1])
+    _pi_counts = {p: sum(1 for pr in PROJECTS if project_pi(pr) == p) for p in _pis}
+    _yrs = sorted({y for pr in PROJECTS for y in project_years(pr)}, reverse=True)
+    _thrusts = [(k, t) for k, t, _, _ in THRUSTS if any(project_thrust(pr) == k for pr in PROJECTS)]
+    projfilters = (
+        '<div class="pfilters" role="group" aria-label="Filter projects">'
+        '<div class="prow"><span class="plab">Lead</span>'
+        '<button class="chip" data-f="pi" data-v="all" aria-pressed="true" type="button">All</button>'
+        + "".join(f'<button class="chip" data-f="pi" data-v="{esc(p)}" aria-pressed="false" type="button">{esc(p.split()[-1])} ({_pi_counts[p]})</button>' for p in _pis)
+        + '</div><div class="prow"><span class="plab">Thrust</span>'
+        '<button class="chip" data-f="thrust" data-v="all" aria-pressed="true" type="button">All</button>'
+        + "".join(f'<button class="chip" data-f="thrust" data-v="{esc(k)}" aria-pressed="false" type="button">{esc(t.split(" and ")[0].split(",")[0])}</button>' for k, t in _thrusts)
+        + '</div><div class="prow"><span class="plab">Year</span>'
+        '<button class="chip" data-f="year" data-v="all" aria-pressed="true" type="button">All</button>'
+        + "".join(f'<button class="chip" data-f="year" data-v="{y}" aria-pressed="false" type="button">{y}</button>' for y in _yrs if 2019 <= y <= datetime.date.today().year)
+        + '</div></div><p class="pcount" id="pcount" aria-live="polite"></p>')
     projects_html = ""
     for pr in PROJECTS:
         tagcls = "tag new" if pr["tag"].startswith("New") else "tag"
         share = f'<small>{esc(pr["share"])}</small>' if pr.get("share") else ''
         amt = f'<div class="amt">{esc(pr["amount"])}{share}<small>{esc(pr["period"])}</small></div>' if pr["amount"] else f'<div class="amt"><small>{esc(pr["period"])}</small></div>'
-        projects_html += (f'<div class="proj"><div class="when"><span class="{tagcls}">{esc(pr["tag"])}</span><br>{esc(pr["domain"])}</div>'
+        _pi = project_pi(pr); _yrs = " ".join(str(y) for y in project_years(pr))
+        projects_html += (f'<div class="proj" data-pi="{esc(_pi)}" data-thrust="{esc(project_thrust(pr))}" data-years="{esc(_yrs)}" data-status="{esc(pr["tag"])}"><div class="when"><span class="{tagcls}">{esc(pr["tag"])}</span><br>{esc(pr["domain"])}</div>'
                           f'<div><h3>{esc(pr["title"])}</h3><div class="sponsor">{("<span class=" + chr(34) + "role" + chr(34) + ">" + esc(pr["role"]) + "</span>") if pr.get("role") else ""}{esc(pr["sponsor"])}</div>'
                           f'<p class="desc">{esc(pr["desc"])}</p><p class="team">{esc(pr["team"])}</p>'
                           + (f'<p class="projlink"><a href="{esc(pr["url"])}">{esc(pr.get("link", "Project page"))}</a></p>' if pr.get("url") else "")
@@ -4515,6 +4603,30 @@ def build():
     img.src='https://hits.sh/'+base+'.svg?view=total&style=flat-square&label=visits&color=0A777F&labelColor=0E2036';
     el.textContent=''; el.appendChild(img);
   }})();
+  // project filters: lead, thrust, and year, combined
+  (function(){{
+    var wrap=document.querySelector('.pfilters'); if(!wrap) return;
+    var rows=[].slice.call(document.querySelectorAll('#projlist .proj')),
+        out=document.getElementById('pcount'), state={{pi:'all',thrust:'all',year:'all'}};
+    function apply(){{
+      var n=0;
+      rows.forEach(function(r){{
+        var ok=(state.pi==='all'||r.getAttribute('data-pi')===state.pi)
+             &&(state.thrust==='all'||r.getAttribute('data-thrust')===state.thrust)
+             &&(state.year==='all'||(r.getAttribute('data-years')||'').split(' ').indexOf(state.year)>-1);
+        r.hidden=!ok; if(ok) n++;
+      }});
+      if(out) out.textContent = (n===rows.length ? 'Showing all '+n+' projects' : 'Showing '+n+' of '+rows.length+' projects');
+    }}
+    wrap.querySelectorAll('.chip').forEach(function(c){{
+      c.addEventListener('click', function(){{
+        var f=c.getAttribute('data-f'); state[f]=c.getAttribute('data-v');
+        wrap.querySelectorAll('.chip[data-f="'+f+'"]').forEach(function(o){{ o.setAttribute('aria-pressed', String(o===c)); }});
+        apply();
+      }});
+    }});
+    apply();
+  }})();
   // news filters
   (function(){{
     var wrap=document.querySelector('.nfilters'); if(!wrap) return;
@@ -4655,7 +4767,7 @@ def build():
       <div class="hublist">
         <h3>The center serves as a hub for</h3>
         <ol>
-          <li>research on secure, resilient, and efficient cyber-physical systems, in seven thrusts each with a named lead;</li>
+          <li>research on secure, resilient, and efficient cyber-physical systems, in eight thrusts each with a named lead;</li>
           <li>shared testbeds and instruments, including SUMMIT, open to collaborators;</li>
           <li>training the cyber-physical systems workforce, from doctoral students to co-ops;</li>
           <li>partnership with industry, agencies, and the community on problems they actually have; and</li>
@@ -4696,7 +4808,7 @@ def build():
 
 <section id="research" class="tint">
   <div class="wrap">
-    <div class="shead"><h2>Research thrusts</h2><p>Seven connected lines of work, each with a named lead who is accountable for it. Most projects cut across two or three, which is the point of running them under one roof.</p></div>
+    <div class="shead"><h2>Research thrusts</h2><p>Eight connected lines of work, each with a named lead who is accountable for it. Most projects cut across two or three, which is the point of running them under one roof.</p></div>
     <div class="thrusts">{thrusts_html}</div>
   </div>
 </section>
@@ -4732,7 +4844,8 @@ def build():
         <figcaption>SUMMIT architecture: the UMass Lowell main site, the wide-area software-defined network, and the WVU and NYU federation sites</figcaption>
       </figure>
     </div>
-    <div class="ledger">{projects_html}</div>
+    {projfilters}
+    <div class="ledger" id="projlist">{projects_html}</div>
     <div class="tools">{tools_html}</div>
   </div>
 </section>

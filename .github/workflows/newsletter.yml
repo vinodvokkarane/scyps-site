@@ -1,0 +1,44 @@
+name: Monthly newsletter
+on:
+  schedule:
+    - cron: "0 13 1 * *"
+  workflow_dispatch:
+    inputs:
+      month:
+        description: "Month to build, YYYY-MM (leave blank for the previous month)"
+        required: false
+permissions:
+  contents: write
+jobs:
+  newsletter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install pillow
+      - name: Pick the month
+        id: m
+        run: |
+          if [ -n "${{ github.event.inputs.month }}" ]; then echo "ym=${{ github.event.inputs.month }}" >> "$GITHUB_OUTPUT";
+          else echo "ym=$(date -u -d 'last month' +%Y-%m)" >> "$GITHUB_OUTPUT"; fi
+      - name: Build the site and the issue
+        run: python3 build_site.py index.html --newsletter=${{ steps.m.outputs.ym }}
+      - name: Commit the issue
+        run: |
+          git config user.name "scyps-bot"
+          git config user.email "Vinod_Vokkarane@uml.edu"
+          git add -A
+          git commit -m "Newsletter ${{ steps.m.outputs.ym }}" || echo "nothing to commit"
+          git push
+      - name: Preview to the director
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+        run: python3 send_newsletter.py ${{ steps.m.outputs.ym }} --to director || echo "preview not sent (no RESEND_API_KEY yet)"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: newsletter-${{ steps.m.outputs.ym }}
+          path: |
+            newsletters/${{ steps.m.outputs.ym }}-email.html
+            newsletters/${{ steps.m.outputs.ym }}.txt

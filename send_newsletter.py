@@ -11,7 +11,7 @@ Recipients go in BCC so nobody sees the list. Sends in batches of 45, which is i
 per request. Every message carries a List-Unsubscribe header and a reply-to of the director's UML
 address, so replies land somewhere a person reads them.
 """
-import json, os, sys, urllib.request, datetime
+import json, os, sys, urllib.request, urllib.error, datetime
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 FROM = "Center for Smart Cyber-Physical Systems <director@smartcyberphysical.org>"
@@ -51,8 +51,15 @@ def send(to_addrs, subject, html, text, key, bcc=True):
         body["bcc"] = to_addrs
     req = urllib.request.Request("https://api.resend.com/emails", data=json.dumps(body).encode("utf-8"),
                                  headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return json.loads(r.read().decode("utf-8"))
+    try:
+        with urllib.request.urlopen(req, timeout=60) as r:
+            return json.loads(r.read().decode("utf-8"))
+    except urllib.error.HTTPError as e:
+        detail = e.read().decode("utf-8", "ignore")
+        sys.exit(f"Resend refused the request ({e.code}). Its message: {detail}\n"
+                 "403 usually means the API key lacks sending permission, belongs to a different Resend team, "
+                 "or is restricted to a domain other than smartcyberphysical.org. "
+                 "422 usually means the sending domain is not verified in this account.")
 
 
 def main():

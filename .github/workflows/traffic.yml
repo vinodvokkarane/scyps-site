@@ -15,7 +15,7 @@ jobs:
           python-version: "3.12"
       - name: Record the traffic figures
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TRAFFIC_TOKEN: ${{ secrets.TRAFFIC_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: python3 traffic_snapshot.py
       - name: Commit

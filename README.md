@@ -101,6 +101,12 @@ Animations
       only runs the ones in view.
     - prefers-reduced-motion switches every animation off and draws the dashed paths solid.
 
+Automatic NSF awards
+  The weekly pull keeps an NSF award only when a core member is its PI or a Co-PI, matching the
+  application's rule that affiliated members' awards belong to their own programs. It skips any award
+  whose number already appears in the curated ledger, and it maps every spelling of a name ("Yan Luo",
+  "YAN LUO", "Luo, Yan") to the one roster person, so the Lead filter shows one chip per person.
+
 Attribution rule
   A paper counts for a member only from the year they joined UMass Lowell (JOIN_YEAR in build_site.py:
   Tseng 2024, Arias 2021). Work done at a previous institution is dropped from the site and from the

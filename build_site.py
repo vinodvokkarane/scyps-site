@@ -2969,7 +2969,7 @@ ALUMNI_PHD = [
 ]
 ALUMNI_POSTDOC = [("Arash Deylamsalehi", "Google"), ("Jeremy M. Plante", "Hitachi Vantara"), ("Juzi Zhao", "San José State University"), ("Arush Gadkar", "Kilpatrick Townsend & Stockton LLP"), ("Joan Triay", "DOCOMO Euro-Labs"), ("Balagangadhar Bathula", "AT&T")]
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "0.75"   # bump by 0.01 with every update to the site
+SITE_VERSION = "0.77"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3052,7 +3052,16 @@ def _fmt_period(a, b):
         try: return datetime.datetime.strptime(d, "%m/%d/%Y").strftime("%b %Y")
         except Exception: return ""
     return " to ".join(x for x in (f(a), f(b)) if x)
+_CORE_SURNAMES = {"vokkarane", "aghara", "arias", "lin", "luo", "son", "tseng", "xie"}
+def _surname(name):
+    name = re.sub(r"\(.*?\)", "", name or "").strip()
+    if "," in name: name = name.split(",")[0]          # "Luo, Yan"
+    return (name.split() or [""])[-1].strip(".").lower() if "," not in (name or "") else name.strip().lower()
+_curated_ids = set(re.findall(r"#(\d{7})", " ".join(p.get("sponsor", "") + " " + p.get("title", "") for p in PROJECTS)))
 for a in _auto_grants.get("awards", []):
+    if str(a.get("id", "")) in _curated_ids: continue
+    _people = [a.get("pi", "")] + list(a.get("copis") or [])
+    if not any(_surname(x) in _CORE_SURNAMES for x in _people): continue
     end_ok = True
     try: end_ok = datetime.datetime.strptime(a.get("end", ""), "%m/%d/%Y").date() >= datetime.date.today() - datetime.timedelta(days=365)
     except Exception: pass
@@ -3179,7 +3188,7 @@ STUDENT_FIGS = {
 <g stroke="#044978" stroke-width="4"><path d="M60 140H740"/></g>
 <g fill="#fff" stroke="#044978" stroke-width="3"><path d="M200 120l40 20-40 20zM430 120l40 20-40 20zM660 120l40 20-40 20z"/></g>
 <g fill="#0A777F"><circle cx="60" cy="140" r="12"/><circle cx="740" cy="140" r="12"/></g>
-<text x="60" y="180" text-anchor="middle" font-size="15" fill="#5B6B82">transmitter</text>
+<text x="60" y="180" text-anchor="start" font-size="15" fill="#5B6B82" transform="translate(-40,0)">transmitter</text>
 <text x="740" y="180" text-anchor="middle" font-size="15" fill="#5B6B82">receiver</text>
 <text x="450" y="105" text-anchor="middle" font-size="15" fill="#5B6B82">amplified spans</text>
 <!-- flex-grid spectrum -->
@@ -3210,11 +3219,26 @@ STUDENT_FIGS = {
 # from fields the row already has, so a new award needs no extra tagging.
 _DOMAIN_THRUST = {
     "Energy": "grid", "Networks": "fiber", "Autonomy": "ai", "Distributed systems": "edge",
-    "HPC": "chip", "Printed electronics": "chip", "Transportation": "health", "Education": "health",
+    "HPC": "hpc", "Printed electronics": "chip", "Transportation": "health", "Education": "health",
     "Nuclear": "nuclear", "Data systems": "ai", "Defense": "fiber", "Sensing": "chip",
 }
 _NAME = r"([A-Z][a-zA-Z]+(?:\s+(?:[A-Z]\.|[A-Z][a-zA-Z]+)){1,2})"
-def project_pi(pr):
+def _roster():
+    out = {}
+    for grp in ("director", "core", "affiliated", "external"):
+        for p in ([FACULTY[grp]] if grp == "director" else FACULTY[grp]):
+            full = re.sub(r"\s*\(.*?\)", "", p["name"]).strip()
+            out[full.split()[-1].lower()] = full
+    return out
+
+def canonical_person(name):
+    """Map any spelling of a name to the roster's form of it; unknown people come back unchanged."""
+    if not name: return ""
+    n = re.sub(r"\s*\(.*?\)", "", name).strip()
+    sur = (n.split(",")[0] if "," in n else (n.split() or [""])[-1]).strip(".").lower()
+    return _roster().get(sur, n.title() if n.isupper() else n)
+
+def _project_pi_raw(pr):
     """The lead investigator, from the team line. Handles PI, UMass Lowell PI, Lead, Co-director, and
     three-part names, falling back to the first Co-PI when no lead is named."""
     team = pr.get("team", "")
@@ -3226,14 +3250,21 @@ def project_pi(pr):
         if m: return re.sub(r"\s+", " ", m.group(1)).strip()
     return ""
 
+def project_pi(pr):
+    return canonical_person(_project_pi_raw(pr))
+
 def project_years(pr):
     """Every calendar year the award touches, so a filter on 2026 finds awards running through it."""
     yrs = [int(y) for y in re.findall(r"(20\d\d)", pr.get("period", ""))]
     if not yrs: return []
     return list(range(min(yrs), max(yrs) + 1))
 
+_LEAD_THRUST = {"Vokkarane": "grid", "Lin": "grid", "Luo": "ai", "Tseng": "edge", "Arias": "chip",
+                "Son": "hpc", "Xie": "health", "Aghara": "nuclear", "Akyurtlu": "chip"}
 def project_thrust(pr):
-    return _DOMAIN_THRUST.get(pr.get("domain", ""), "")
+    t = _DOMAIN_THRUST.get(pr.get("domain", ""), "")
+    if t: return t
+    return _LEAD_THRUST.get(project_pi(pr).split()[-1] if project_pi(pr) else "", "")
 
 # ---------------------------------------------------------------- laboratories and facilities
 # Each entry: the lab, who runs it, what it studies, and what it can offer a collaborator.
@@ -3704,26 +3735,25 @@ ORG = """<svg viewBox="0 0 1200 660" xmlns="http://www.w3.org/2000/svg" role="im
 <path d="M600 232v20" stroke="#0A777F" stroke-width="2.4"/>
 """
 
-_TB = [("Smart grid security", "Vokkarane"), ("AI for cyber-physical control", "Luo"), ("Optical and 6G transport", "Vokkarane"),
-       ("Fault-tolerant edge", "Tseng"), ("Hardware security", "Arias"), ("HPC and data integrity", "Son"),
-       ("Connected transportation", "Xie"), ("Nuclear energy and security", "Aghara")]
+_TB = [(["Smart grid", "security"], "Vokkarane"), (["AI for", "cyber-physical", "control"], "Luo"),
+       (["Optical and", "6G transport"], "Vokkarane"), (["Fault-tolerant", "edge computing"], "Tseng"),
+       (["Hardware", "security"], "Arias"), (["HPC and", "data integrity"], "Son"),
+       (["Connected", "transportation"], "Xie"), (["Nuclear energy", "and security"], "Aghara")]
 _bw, _gap, _x0, _y0 = 130, 12, 46, 306
 _boxes = []
-for _i, (_t, _who) in enumerate(_TB):
+for _i, (_lines, _who) in enumerate(_TB):
     _x = _x0 + _i * (_bw + _gap)
-    _words = _t.split()
-    _l1, _l2 = _t, ""
-    if len(_t) > 18:
-        _half = len(_words) // 2 + (1 if len(_words) % 2 and len(_words) > 2 else 0)
-        _l1, _l2 = " ".join(_words[:_half]), " ".join(_words[_half:])
+    # title block vertically centred in the space above the rule, whatever its line count
+    _top = _y0 + (34 if len(_lines) == 2 else 26)
+    _t = "".join(f'<text x="{_x + _bw/2}" y="{_top + k*16}" text-anchor="middle" font-size="12.5" font-weight="600" fill="#0E2036">{ln}</text>'
+                 for k, ln in enumerate(_lines))
     _boxes.append(
-        f'<g class="card"><rect x="{_x}" y="{_y0}" width="{_bw}" height="{110}" rx="11" fill="#FFFFFF" stroke="#D5DCE5" stroke-width="1.5"/></g>'
+        f'<g class="card"><rect x="{_x}" y="{_y0}" width="{_bw}" height="110" rx="11" fill="#FFFFFF" stroke="#D5DCE5" stroke-width="1.5"/></g>'
         f'<rect x="{_x}" y="{_y0}" width="{_bw}" height="5" rx="2.5" fill="#0A777F"/>'
-        f'<text x="{_x + _bw/2}" y="{_y0 + 36}" text-anchor="middle" font-size="13.5" font-weight="600" fill="#0E2036">{_l1}</text>'
-        + (f'<text x="{_x + _bw/2}" y="{_y0 + 54}" text-anchor="middle" font-size="13.5" font-weight="600" fill="#0E2036">{_l2}</text>' if _l2 else "")
-        + f'<path d="M{_x + 22} {_y0 + 70}h{_bw - 44}" stroke="#D5DCE5" stroke-width="1"/>'
-          f'<text x="{_x + _bw/2}" y="{_y0 + 92}" text-anchor="middle" font-size="12.5" fill="#5B6B82">{_who} leads</text>'
-          f'<path d="M{_x + _bw/2} 286v20" stroke="#D5DCE5" stroke-width="1"/>')
+        + _t +
+        f'<path d="M{_x + 20} {_y0 + 72}h{_bw - 40}" stroke="#D5DCE5" stroke-width="1"/>'
+        f'<text x="{_x + _bw/2}" y="{_y0 + 94}" text-anchor="middle" font-size="12.5" fill="#5B6B82">{_who} leads</text>'
+        f'<path d="M{_x + _bw/2} 286v20" stroke="#D5DCE5" stroke-width="1"/>')
 ORG = ORG.replace("</svg>", "") + "".join(_boxes) + """
 <g class="card" fill="#FFFFFF" stroke="#3BA995" stroke-width="1.8"><rect x="46" y="494" width="550" height="128" rx="14"/><rect x="616" y="494" width="538" height="128" rx="14"/></g>
 <text x="321" y="526" text-anchor="middle" font-size="16" font-weight="600" fill="#0E2036">People</text>
@@ -4438,7 +4468,8 @@ def build():
         f'<div class="thrust"><a class="art" href="research-{esc(i)}.html">{ART[i]}</a><div class="body"><h3><a href="research-{esc(i)}.html">{esc(t)}</a></h3><p>{esc(d)}</p><div class="who"><b>{esc(w.split(",")[0])}</b> leads{esc("; with " + w.split(", ", 1)[1] if ", " in w else "")}</div><p class="more2"><a href="research-{esc(i)}.html">More on this thrust</a></p></div></div>'
         for i, t, d, w in THRUSTS)
 
-    _pis = sorted({project_pi(pr) for pr in PROJECTS if project_pi(pr)}, key=lambda n: n.split()[-1])
+    _pis = sorted({project_pi(pr) for pr in PROJECTS if project_pi(pr)},
+                  key=lambda n: (n.split()[-1].lower() not in _CORE_SURNAMES, n.split()[-1]))
     _pi_counts = {p: sum(1 for pr in PROJECTS if project_pi(pr) == p) for p in _pis}
     _yrs = sorted({y for pr in PROJECTS for y in project_years(pr)}, reverse=True)
     _thrusts = [(k, t) for k, t, _, _ in THRUSTS if any(project_thrust(pr) == k for pr in PROJECTS)]

@@ -7,22 +7,6 @@
   <language>en-us</language>
   <atom:link href="https://smartcyberphysical.org/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
-    <title>Collaborative Research: Federated Bilevel Optimization over Wireless Networks</title>
-    <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2027-01-794f993e83</guid>
-    <category>Award</category>
-    <pubDate>01 Jan 2027 00:00:00 +0000</pubDate>
-    <description>New award: Collaborative Research: Federated Bilevel Optimization over Wireless Networks. National Science Foundation, CSCS: Circuits and Systems for ($220K).</description>
-  </item>
-  <item>
-    <title>GOALI: Cooperative Homogeneous-Heterogeneous Catalysis for Hydrogen Isotope Labeling of Pharmaceuticals</title>
-    <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2026-12-be6edc7721</guid>
-    <category>Award</category>
-    <pubDate>01 Dec 2026 00:00:00 +0000</pubDate>
-    <description>New award: GOALI: Cooperative Homogeneous-Heterogeneous Catalysis for Hydrogen Isotope Labeling of Pharmaceuticals. National Science Foundation, Chemical Catalysis ($562K).</description>
-  </item>
-  <item>
     <title>2 papers in Engineering Applications of Artificial Intelligence</title>
     <link>https://doi.org/10.1016/j.engappai.2026.115851</link>
     <guid isPermaLink="false">scyps-2026-10-04475abf21</guid>
@@ -55,78 +39,6 @@
     <description>New award: BOND-AI: A Standardized Reliability Qualification Methodology for High-Temperature Printed Interfaces and Bond Joints, Enabled by Physics-Informed AI, on a 500 °C-Capable Alumina Platform. NextFlex (FlexTech Alliance) ($1.0M).</description>
   </item>
   <item>
-    <title>REU Site: Hands-On Research in Federated Learning Security through Red Team vs. Blue Team Exercises</title>
-    <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2026-10-2bd3cb5629</guid>
-    <category>Award</category>
-    <pubDate>01 Oct 2026 00:00:00 +0000</pubDate>
-    <description>New award: REU Site: Hands-On Research in Federated Learning Security through Red Team vs. Blue Team Exercises. National Science Foundation, RSCH EXPER FOR UNDERGRAD SITES ($461K).</description>
-  </item>
-  <item>
-    <title>Collaborative Research: CER: From Classroom to Career Readiness: Enhancing Undergraduate Computing Education Through Collaborative Research Experience in AI Security and Privacy</title>
-    <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2026-10-e7b50e993e</guid>
-    <category>Award</category>
-    <pubDate>01 Oct 2026 00:00:00 +0000</pubDate>
-    <description>New award: Collaborative Research: CER: From Classroom to Career Readiness: Enhancing Undergraduate Computing Education Through Collaborative Research Experience in AI Security and Privacy. National Science Foundation, CER-ComputingEducationResearch ($218K).</description>
-  </item>
-  <item>
-    <title>Collaborative Research: SaTC 2.0: RES: Modeling and Mitigating Reflective Backscatter Side-Channel Attacks (ReBac) in Everyday Devices</title>
-    <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2026-10-47c61c56e4</guid>
-    <category>Award</category>
-    <pubDate>01 Oct 2026 00:00:00 +0000</pubDate>
-    <description>New award: Collaborative Research: SaTC 2.0: RES: Modeling and Mitigating Reflective Backscatter Side-Channel Attacks (ReBac) in Everyday Devices. National Science Foundation, Secure &amp;Trustworthy Cyberspace ($300K).</description>
-  </item>
-  <item>
-    <title>Collaborative Research: DMREF: Anharmonicity and Defect Engineering of Compositionally Complex Oxides for Anomalous Coupling Properties</title>
-    <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2026-10-c173266f41</guid>
-    <category>Award</category>
-    <pubDate>01 Oct 2026 00:00:00 +0000</pubDate>
-    <description>New award: Collaborative Research: DMREF: Anharmonicity and Defect Engineering of Compositionally Complex Oxides for Anomalous Coupling Properties. National Science Foundation, DMREF ($400K).</description>
-  </item>
-  <item>
-    <title>Collaborative Research: CSR: VERITAS: Secure Vehicular Systems through Intelligent Information Flow Verification</title>
-    <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2026-10-77e9e0a6e0</guid>
-    <category>Award</category>
-    <pubDate>01 Oct 2026 00:00:00 +0000</pubDate>
-    <description>New award: Collaborative Research: CSR: VERITAS: Secure Vehicular Systems through Intelligent Information Flow Verification. National Science Foundation, CSR-Computer Systems Research ($300K).</description>
-  </item>
-  <item>
-    <title>CICI:IPAAI:CERTIFY:Contractual Integrity for Scientific AI-Ready Data Pipelines</title>
-    <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2026-10-da7f9df7c4</guid>
-    <category>Award</category>
-    <pubDate>01 Oct 2026 00:00:00 +0000</pubDate>
-    <description>New award: CICI:IPAAI:CERTIFY:Contractual Integrity for Scientific AI-Ready Data Pipelines. National Science Foundation, Cybersecurity Innovation ($900K).</description>
-  </item>
-  <item>
-    <title>Excellence in Research: Advancing Scalability of Connected and Autonomous Vehicles via Bottom-up Hardware-Software Co-design</title>
-    <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2026-10-689dbbc630</guid>
-    <category>Award</category>
-    <pubDate>01 Oct 2026 00:00:00 +0000</pubDate>
-    <description>New award: Excellence in Research: Advancing Scalability of Connected and Autonomous Vehicles via Bottom-up Hardware-Software Co-design. National Science Foundation, HBCU-EiR - HBCU-Excellence in ($800K).</description>
-  </item>
-  <item>
-    <title>Incremental Sheet Forming of Continuous Fiber Reinforced Polymer Composites with Artificial Intelligence-Assisted Process Modeling</title>
-    <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2026-10-af666c2a24</guid>
-    <category>Award</category>
-    <pubDate>01 Oct 2026 00:00:00 +0000</pubDate>
-    <description>New award: Incremental Sheet Forming of Continuous Fiber Reinforced Polymer Composites with Artificial Intelligence-Assisted Process Modeling. National Science Foundation, AM-Advanced Manufacturing ($607K).</description>
-  </item>
-  <item>
-    <title>Light-Emitting Devices Enabled by Large-Area Correlated-Electron Transparent Conductors</title>
-    <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2026-10-b667822f9d</guid>
-    <category>Award</category>
-    <pubDate>01 Oct 2026 00:00:00 +0000</pubDate>
-    <description>New award: Light-Emitting Devices Enabled by Large-Area Correlated-Electron Transparent Conductors. National Science Foundation, EPMQD: Electronic, Photonic, M ($400K).</description>
-  </item>
-  <item>
     <title>SUMMIT begins</title>
     <link>https://smartcyberphysical.org/news.html</link>
     <guid isPermaLink="false">scyps-2026-10-1008c34e45</guid>
@@ -157,110 +69,6 @@
     <category>Journal</category>
     <pubDate>01 Sep 2026 00:00:00 +0000</pubDate>
     <description>Yuanchang Xie: &quot;Merging behavior under varying work zone sign scenarios: A heterogeneity-based analysis&quot; in Accident Analysis &amp; Prevention.</description>
-  </item>
-  <item>
-    <title>Collaborative Research: AIMing: Statistically Guided Discovery for Certified and Efficient Randomized Numerical Linear Algebra Algorithms</title>
-    <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2026-09-2909b2fffd</guid>
-    <category>Award</category>
-    <pubDate>01 Sep 2026 00:00:00 +0000</pubDate>
-    <description>New award: Collaborative Research: AIMing: Statistically Guided Discovery for Certified and Efficient Randomized Numerical Linear Algebra Algorithms. National Science Foundation, MSPA-INTERDISCIPLINARY ($150K).</description>
-  </item>
-  <item>
-    <title>CAREER: Control of Networked Mobile Robot Teams for Reliable Communication under Uncertainty</title>
-    <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2026-09-509b12c2ba</guid>
-    <category>Award</category>
-    <pubDate>01 Sep 2026 00:00:00 +0000</pubDate>
-    <description>New award: CAREER: Control of Networked Mobile Robot Teams for Reliable Communication under Uncertainty. National Science Foundation, FRR-Foundationl Rsrch Robotics ($600K).</description>
-  </item>
-  <item>
-    <title>Phase Transitions in Stochastic Fracture of Disordered Architected Materials</title>
-    <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2026-09-c6783c7c71</guid>
-    <category>Award</category>
-    <pubDate>01 Sep 2026 00:00:00 +0000</pubDate>
-    <description>New award: Phase Transitions in Stochastic Fracture of Disordered Architected Materials. National Science Foundation, Mechanics of Materials and Str ($392K).</description>
-  </item>
-  <item>
-    <title>Collaborative Research: GCR: Bioengineered Approaches to Recover Critical Minerals and Produce Sustainable Silicon-Based Materials from Silicon-Rich Wastes</title>
-    <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2026-09-defd2617a9</guid>
-    <category>Award</category>
-    <pubDate>01 Sep 2026 00:00:00 +0000</pubDate>
-    <description>New award: Collaborative Research: GCR: Bioengineered Approaches to Recover Critical Minerals and Produce Sustainable Silicon-Based Materials from Silicon-Rich Wastes. National Science Foundation, GCR-Growing Convergence Resear ($165K).</description>
-  </item>
-  <item>
-    <title>Collaborative Research: Scalable Methods for Incomplete Tensors: To Complete or Not to Complete?</title>
-    <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2026-09-d431acaeba</guid>
-    <category>Award</category>
-    <pubDate>01 Sep 2026 00:00:00 +0000</pubDate>
-    <description>New award: Collaborative Research: Scalable Methods for Incomplete Tensors: To Complete or Not to Complete?. National Science Foundation, APPLIED MATHEMATICS ($100K).</description>
-  </item>
-  <item>
-    <title>CICI: UCSS: Trustworthy Cyberinfrastructure-Enabled Data-Driven Electronic Design Automation for Collaborative Design of Analog/Mixed-Signal Integrated Circuits</title>
-    <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2026-09-99b4b170a1</guid>
-    <category>Award</category>
-    <pubDate>01 Sep 2026 00:00:00 +0000</pubDate>
-    <description>New award: CICI: UCSS: Trustworthy Cyberinfrastructure-Enabled Data-Driven Electronic Design Automation for Collaborative Design of Analog/Mixed-Signal Integrated Circuits. National Science Foundation, Cybersecurity Innovation ($600K).</description>
-  </item>
-  <item>
-    <title>Collaborative Research: Mechanics of Confined Interfaces in Hierarchical Ceramic Composites Under Extreme Conditions</title>
-    <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2026-09-8f0231ee69</guid>
-    <category>Award</category>
-    <pubDate>01 Sep 2026 00:00:00 +0000</pubDate>
-    <description>New award: Collaborative Research: Mechanics of Confined Interfaces in Hierarchical Ceramic Composites Under Extreme Conditions. National Science Foundation, Mechanics of Materials and Str ($440K).</description>
-  </item>
-  <item>
-    <title>Collaborative Research: MPS/CHE-EPSRC: Magic as a Quantum Descriptor for Chemistry</title>
-    <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2026-09-cbcbf0422b</guid>
-    <category>Award</category>
-    <pubDate>01 Sep 2026 00:00:00 +0000</pubDate>
-    <description>New award: Collaborative Research: MPS/CHE-EPSRC: Magic as a Quantum Descriptor for Chemistry. National Science Foundation, CSD-Chem Strcture and Dynamics, GVF - Global Venture Fund, QIS - Quantum Information Scie, PROJECTS ($325K).</description>
-  </item>
-  <item>
-    <title>I-Corps:  Translation Potential of a Hong-Ou-Mandel Quantum Imaging System Combined with a Microscope for Live-Cell Analysis</title>
-    <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2026-09-6ba00f768d</guid>
-    <category>Award</category>
-    <pubDate>01 Sep 2026 00:00:00 +0000</pubDate>
-    <description>New award: I-Corps: Translation Potential of a Hong-Ou-Mandel Quantum Imaging System Combined with a Microscope for Live-Cell Analysis. National Science Foundation, TIP-CHIPS KTA-3 Quantum ($50K).</description>
-  </item>
-  <item>
-    <title>CyberAI Innovation: Securing the Engineering Enterprise through AI-integrated Operational Technology Systems Cybersecurity Education</title>
-    <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2026-09-19e582902e</guid>
-    <category>Award</category>
-    <pubDate>01 Sep 2026 00:00:00 +0000</pubDate>
-    <description>New award: CyberAI Innovation: Securing the Engineering Enterprise through AI-integrated Operational Technology Systems Cybersecurity Education. National Science Foundation, CyberAICorps SFS ($500K).</description>
-  </item>
-  <item>
-    <title>Collaborative Research: Establishing the theoretical framework for eccentric interacting binaries</title>
-    <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2026-09-675ee47e5d</guid>
-    <category>Award</category>
-    <pubDate>01 Sep 2026 00:00:00 +0000</pubDate>
-    <description>New award: Collaborative Research: Establishing the theoretical framework for eccentric interacting binaries. National Science Foundation, OFFICE OF MULTIDISCIPLINARY AC, STELLAR ASTRONOMY &amp; ASTROPHYSC ($267K).</description>
-  </item>
-  <item>
-    <title>Interface structure and precrystalline order in complex-oxide solid phase epitaxy: direct insights from in situ x-ray scattering</title>
-    <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2026-09-d2fdc02ba0</guid>
-    <category>Award</category>
-    <pubDate>01 Sep 2026 00:00:00 +0000</pubDate>
-    <description>New award: Interface structure and precrystalline order in complex-oxide solid phase epitaxy: direct insights from in situ x-ray scattering. National Science Foundation, CERAMICS ($554K).</description>
-  </item>
-  <item>
-    <title>CAREER: Electrode-Macromolecule Interactions Influence the Selectivity of Electrolytic Polymer Transformation, Deconstruction, and Depolymerization</title>
-    <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2026-09-b0be3e8c95</guid>
-    <category>Award</category>
-    <pubDate>01 Sep 2026 00:00:00 +0000</pubDate>
-    <description>New award: CAREER: Electrode-Macromolecule Interactions Influence the Selectivity of Electrolytic Polymer Transformation, Deconstruction, and Depolymerization. National Science Foundation, Macromolec/Supramolec/Nano ($662K).</description>
   </item>
   <item>
     <title>The FUSION benchmarking framework paper appears in JOCN&#x27;s special issue on benchmarking in optical networks, followed in October by a QoT-aware grooming paper for multi-band SDM networks</title>
@@ -303,28 +111,172 @@
     <description>New award: Planning Federated AI-Ready Cyberinfrastructure for Advanced Microscopy and Imaging: A Teach-Explore-Design Framework for Community-Driven Infrastructure. National Science Foundation, OAC Category III ($499K).</description>
   </item>
   <item>
-    <title>CSR: A New Frontier in Acceleration: Unlocking Irregular Computing for Multiple Application Domains with Ray Tracing Hardware</title>
-    <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2026-08-83f1d826c6</guid>
-    <category>Award</category>
-    <pubDate>01 Aug 2026 00:00:00 +0000</pubDate>
-    <description>New award: CSR: A New Frontier in Acceleration: Unlocking Irregular Computing for Multiple Application Domains with Ray Tracing Hardware. National Science Foundation, CSR-Computer Systems Research ($765K).</description>
+    <title>LLM Based Static Malware Analysis for Windows Portable Executables</title>
+    <link>https://doi.org/10.1109/icccn69946.2026.11662587</link>
+    <guid isPermaLink="false">scyps-2026-07-4c95196068</guid>
+    <category>Conference</category>
+    <pubDate>01 Jul 2026 00:00:00 +0000</pubDate>
+    <description>Yan Luo: &quot;LLM Based Static Malware Analysis for Windows Portable Executables&quot; in 35th International Conference on Computer Communications and Networks (ICCCN).</description>
   </item>
   <item>
-    <title>Collaborative Research: III: Towards Reliable, Efficient, and Adaptive Multi-Agent Collaboration: A Graph-Centric Design</title>
-    <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2026-08-fd5dd32063</guid>
-    <category>Award</category>
-    <pubDate>01 Aug 2026 00:00:00 +0000</pubDate>
-    <description>New award: Collaborative Research: III: Towards Reliable, Efficient, and Adaptive Multi-Agent Collaboration: A Graph-Centric Design. National Science Foundation, Info Integration &amp; Informatics ($250K).</description>
+    <title>Future of Central Heating of University Campus: Phasing in Clean Sustainable Alternatives</title>
+    <link>https://doi.org/10.1016/j.egyr.2025.108954</link>
+    <guid isPermaLink="false">scyps-2026-06-9636bec5a9</guid>
+    <category>Journal</category>
+    <pubDate>01 Jun 2026 00:00:00 +0000</pubDate>
+    <description>Sukesh Aghara: &quot;Future of Central Heating of University Campus: Phasing in Clean Sustainable Alternatives&quot; in Energy Reports.</description>
   </item>
   <item>
-    <title>AF: Advancing the Theory of Online Optimization and Learning within Multi-Agent Systems</title>
+    <title>NC-DHT: Designing DHT for Blockchain Systems: Robustness and Anonymity</title>
+    <link>https://doi.org/10.1007/s10586-026-06101-0</link>
+    <guid isPermaLink="false">scyps-2026-06-2c453c08ce</guid>
+    <category>Journal</category>
+    <pubDate>01 Jun 2026 00:00:00 +0000</pubDate>
+    <description>Lewis Tseng: &quot;NC-DHT: Designing DHT for Blockchain Systems: Robustness and Anonymity&quot; in Cluster Computing.</description>
+  </item>
+  <item>
+    <title>Experimental Determination of Filter Bandwidth Requirements for Coherent Pluggable Transceivers in Optical Data Center Networks</title>
+    <link>https://doi.org/10.1109/HPSR68369.2026.11615178</link>
+    <guid isPermaLink="false">scyps-2026-06-b6e5eba6c1</guid>
+    <category>Conference</category>
+    <pubDate>01 Jun 2026 00:00:00 +0000</pubDate>
+    <description>Vinod M. Vokkarane: &quot;Experimental Determination of Filter Bandwidth Requirements for Coherent Pluggable Transceivers in Optical Data Center Networks&quot; in IEEE International Conference on High Performance Switching and Routing (HPSR).</description>
+  </item>
+  <item>
+    <title>Green, Trust-Minimizing, and Sybil-Resistant? Rethinking How Blockchains Agree from an Energy Perspective</title>
+    <link>https://doi.org/10.1145/3765611.3815150</link>
+    <guid isPermaLink="false">scyps-2026-06-1dea7d9985</guid>
+    <category>Conference</category>
+    <pubDate>01 Jun 2026 00:00:00 +0000</pubDate>
+    <description>Lewis Tseng: &quot;Green, Trust-Minimizing, and Sybil-Resistant? Rethinking How Blockchains Agree from an Energy Perspective&quot; in ACM Sustainability Week 2026.</description>
+  </item>
+  <item>
+    <title>Sukesh Aghara&#x27;s group publishes in Energy Reports on phasing clean, sustainable alternatives into a university campus&#x27;s central heating, and the Massachusetts nuclear roadmap enters its public discussion series with events in Boston, Worcester, and Lowell</title>
     <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2026-08-4ca780d762</guid>
+    <guid isPermaLink="false">scyps-2026-06-b956c87c73</guid>
+    <category>Milestone</category>
+    <pubDate>01 Jun 2026 00:00:00 +0000</pubDate>
+    <description>Sukesh Aghara&#x27;s group publishes in Energy Reports on phasing clean, sustainable alternatives into a university campus&#x27;s central heating, and the Massachusetts nuclear roadmap enters its public discussion series with events in Boston, Worcester, and Lowell.</description>
+  </item>
+  <item>
+    <title>From crash reports to safer roads: a multimodal framework integrating vision-language models and street view analysis</title>
+    <link>https://doi.org/10.1016/j.aap.2026.108419</link>
+    <guid isPermaLink="false">scyps-2026-04-b08c09856e</guid>
+    <category>Journal</category>
+    <pubDate>01 Apr 2026 00:00:00 +0000</pubDate>
+    <description>Yuanchang Xie: &quot;From crash reports to safer roads: a multimodal framework integrating vision-language models and street view analysis&quot; in Accident Analysis &amp; Prevention.</description>
+  </item>
+  <item>
+    <title>Disaster-Resilient Cyber-Physical Distribution System Reconfiguration and Dynamic Networked Microgrid Formation Under Intermittent Generation</title>
+    <link>https://doi.org/10.1109/TIA.2025.3625866</link>
+    <guid isPermaLink="false">scyps-2026-03-8b498f4310</guid>
+    <category>Journal</category>
+    <pubDate>01 Mar 2026 00:00:00 +0000</pubDate>
+    <description>Vinod M. Vokkarane, Yuzhang Lin: &quot;Disaster-Resilient Cyber-Physical Distribution System Reconfiguration and Dynamic Networked Microgrid Formation Under Intermittent Generation&quot; in IEEE Transactions on Industry Applications.</description>
+  </item>
+  <item>
+    <title>Evaluating Personal Driving Risk and Road Safety in the Context of Road Navigation</title>
+    <link>https://doi.org/10.1109/tits.2026.3652272</link>
+    <guid isPermaLink="false">scyps-2026-03-e731c47a0d</guid>
+    <category>Journal</category>
+    <pubDate>01 Mar 2026 00:00:00 +0000</pubDate>
+    <description>Yuanchang Xie: &quot;Evaluating Personal Driving Risk and Road Safety in the Context of Road Navigation&quot; in IEEE Transactions on Intelligent Transportation Systems.</description>
+  </item>
+  <item>
+    <title>The U.S. Army ARPO project on autonomous robotic planning and optimization begins ($225K)</title>
+    <link>https://smartcyberphysical.org/news.html</link>
+    <guid isPermaLink="false">scyps-2026-03-91918b8708</guid>
+    <category>Milestone</category>
+    <pubDate>01 Mar 2026 00:00:00 +0000</pubDate>
+    <description>The U.S. Army ARPO project on autonomous robotic planning and optimization begins ($225K).</description>
+  </item>
+  <item>
+    <title>Signal Strength and Network Performance Optimization of a Wireless Acoustic Sensor for Wind Turbine Blade Health Monitoring</title>
+    <link>https://doi.org/10.1109/jsen.2025.3647370</link>
+    <guid isPermaLink="false">scyps-2026-02-90868e69cc</guid>
+    <category>Journal</category>
+    <pubDate>01 Feb 2026 00:00:00 +0000</pubDate>
+    <description>Yan Luo: &quot;Signal Strength and Network Performance Optimization of a Wireless Acoustic Sensor for Wind Turbine Blade Health Monitoring&quot; in IEEE Sensors Journal.</description>
+  </item>
+  <item>
+    <title>Timing is the New Attack: Blockchain Cannot Prevent Market Manipulation at the Boundary</title>
+    <link>https://doi.org/10.1109/ICCE67443.2026.11449682</link>
+    <guid isPermaLink="false">scyps-2026-01-8a07b1dc1c</guid>
+    <category>Conference</category>
+    <pubDate>01 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Lewis Tseng: &quot;Timing is the New Attack: Blockchain Cannot Prevent Market Manipulation at the Boundary&quot; in IEEE International Conference on Consumer Electronics (ICCE).</description>
+  </item>
+  <item>
+    <title>2 papers in IEEE Global Communications Conference (GLOBECOM)</title>
+    <link>https://doi.org/10.1109/GLOBECOM59602.2025.11432341</link>
+    <guid isPermaLink="false">scyps-2025-12-c7b4a33dcf</guid>
+    <category>Conference</category>
+    <pubDate>01 Dec 2025 00:00:00 +0000</pubDate>
+    <description>Lewis Tseng: 2 new papers in IEEE Global Communications Conference (GLOBECOM).</description>
+  </item>
+  <item>
+    <title>Lightweight Stream-Based On-Device Earthquake Detection: A Sparse Profile Analysis Approach</title>
+    <link>https://doi.org/10.1109/BigData66926.2025.11401927</link>
+    <guid isPermaLink="false">scyps-2025-12-9f19b8bc9c</guid>
+    <category>Conference</category>
+    <pubDate>01 Dec 2025 00:00:00 +0000</pubDate>
+    <description>Seung Woo Son: &quot;Lightweight Stream-Based On-Device Earthquake Detection: A Sparse Profile Analysis Approach&quot; in IEEE International Conference on Big Data (BigData).</description>
+  </item>
+  <item>
+    <title>Data analytics for safety applications</title>
+    <link>https://doi.org/10.1016/b978-0-443-13878-2.00014-x</link>
+    <guid isPermaLink="false">scyps-2025-12-cde8939190</guid>
+    <category>Chapter</category>
+    <pubDate>01 Dec 2025 00:00:00 +0000</pubDate>
+    <description>Yuanchang Xie: &quot;Data analytics for safety applications&quot; in Data Analytics for Intelligent Transportation Systems.</description>
+  </item>
+  <item>
+    <title>Two GLOBECOM 2025 papers from the Tseng group: satellite-edge-enabled multi-drone search and content-aware gossip for mobile device clouds</title>
+    <link>https://smartcyberphysical.org/news.html</link>
+    <guid isPermaLink="false">scyps-2025-12-7d65058b25</guid>
+    <category>Milestone</category>
+    <pubDate>01 Dec 2025 00:00:00 +0000</pubDate>
+    <description>Two GLOBECOM 2025 papers from the Tseng group: satellite-edge-enabled multi-drone search and content-aware gossip for mobile device clouds.</description>
+  </item>
+  <item>
+    <title>Revisiting State Machine Replication in Practice: Lessons from Building an etcd-inspired System</title>
+    <link>https://doi.org/10.1145/3772052.3772246</link>
+    <guid isPermaLink="false">scyps-2025-11-65ac593ae5</guid>
+    <category>Conference</category>
+    <pubDate>01 Nov 2025 00:00:00 +0000</pubDate>
+    <description>Lewis Tseng: &quot;Revisiting State Machine Replication in Practice: Lessons from Building an etcd-inspired System&quot; in ACM Symposium on Cloud Computing (SoCC).</description>
+  </item>
+  <item>
+    <title>VUD-FC: A Heterogeneous Behavior-Oriented Adaptive Control Approach Using Variable Universe of Discourse Fuzzy Strategy</title>
+    <link>https://doi.org/10.1109/itsc60802.2025.11423549</link>
+    <guid isPermaLink="false">scyps-2025-11-1d260eb470</guid>
+    <category>Conference</category>
+    <pubDate>01 Nov 2025 00:00:00 +0000</pubDate>
+    <description>Yuanchang Xie: &quot;VUD-FC: A Heterogeneous Behavior-Oriented Adaptive Control Approach Using Variable Universe of Discourse Fuzzy Strategy&quot; in IEEE 28th International Conference on Intelligent Transportation Systems (ITSC).</description>
+  </item>
+  <item>
+    <title>WIP: What Employers Want: A Data-Driven Analysis of Soft Skill Trends in Computer Science Job Postings (2012-2024)</title>
+    <link>https://doi.org/10.1109/FIE63693.2025.11328524</link>
+    <guid isPermaLink="false">scyps-2025-11-684c08d325</guid>
+    <category>Conference</category>
+    <pubDate>01 Nov 2025 00:00:00 +0000</pubDate>
+    <description>Lewis Tseng: &quot;WIP: What Employers Want: A Data-Driven Analysis of Soft Skill Trends in Computer Science Job Postings (2012-2024)&quot; in IEEE Frontiers in Education Conference (FIE).</description>
+  </item>
+  <item>
+    <title>Massachusetts Advanced Nuclear and Fusion Energy Roadmaps</title>
+    <link>https://smartcyberphysical.org/news.html</link>
+    <guid isPermaLink="false">scyps-2025-10-6613d842b9</guid>
     <category>Award</category>
-    <pubDate>01 Aug 2026 00:00:00 +0000</pubDate>
-    <description>New award: AF: Advancing the Theory of Online Optimization and Learning within Multi-Agent Systems. National Science Foundation, Algorithmic Foundations ($871K).</description>
+    <pubDate>01 Oct 2025 00:00:00 +0000</pubDate>
+    <description>New award: Massachusetts Advanced Nuclear and Fusion Energy Roadmaps. Commonwealth of Massachusetts, Healey-Driscoll Administration.</description>
+  </item>
+  <item>
+    <title>Gov</title>
+    <link>https://smartcyberphysical.org/news.html</link>
+    <guid isPermaLink="false">scyps-2025-10-f6c990ef43</guid>
+    <category>Milestone</category>
+    <pubDate>01 Oct 2025 00:00:00 +0000</pubDate>
+    <description>Gov. Maura Healey names Sukesh Aghara to lead the Massachusetts Advanced Nuclear and Fusion Energy Roadmaps, a statewide effort run from UMass Lowell.</description>
   </item>
 </channel>
 </rss>

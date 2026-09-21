@@ -174,12 +174,149 @@ def refresh_grants(known_ids, known_titles):
                          "program": a.get("fundProgramName", ""),
                          "found": next((x.get("found") for x in old.get("awards", []) if str(x.get("id")) == aid), TODAY.isoformat())})
         time.sleep(0.5)
+    try:
+        kept += [x for x in nih_awards(known_titles) if x["id"] not in ignore]
+    except Exception as e:
+        print(f"nih: skipped ({e})")
     before = {str(x.get("id")) for x in old.get("awards", [])}
     after = {x["id"] for x in kept}
     save("grants_auto.json", {"ignore": sorted(ignore), "awards": sorted(kept, key=lambda x: x.get("start") or "", reverse=True)})
     print(f"grants: {len(kept)} accurate awards kept, {rejected} rejected (wrong person or institution), "
           f"{len(before - after)} removed since last run, {len(after - before)} new")
     return [f"NSF #{x['id']} {x['roster_person']}: {x['title'][:60]}" for x in kept if x["id"] in after - before]
+
+
+# ------------------------------------------------------------------ NIH awards
+_ACRONYMS = {"ct", "mri", "pet", "ai", "ml", "hiv", "aids", "covid", "eeg", "ecg", "ekg", "dna", "rna", "nih", "iot",
+             "us", "usa", "ptsd", "adhd", "icu", "ehr", "fmri", "spect", "sars", "cov", "ii", "iii", "iv"}
+def _nih_title(t):
+    """RePORTER titles are all capitals. Sentence case, keeping acronyms and anything with a digit."""
+    if not t.isupper(): return t
+    words = t.lower().split()
+    out = []
+    for i, w in enumerate(words):
+        core = re.sub(r"[^a-z0-9]", "", w)
+        if core in _ACRONYMS or re.search(r"\d", w): out.append(w.upper())
+        elif i == 0: out.append(w[:1].upper() + w[1:])
+        else: out.append(w)
+    s = " ".join(out)
+    return re.sub(r"(:\s+)([a-z])", lambda m: m.group(1) + m.group(2).upper(), s)
+def nih_awards(known_titles):
+    """NIH and HHS projects led by a UML roster person at UMass Lowell, active since October 2019.
+
+    RePORTER returns one record per project per fiscal year; these are grouped by core project number,
+    with the amount summed across years and the dates spanning them. The same two checks as NSF apply:
+    the organization must be exactly UMass Lowell and a PI must match a roster person by first and last
+    name. RePORTER lists every PI on multi-PI awards, so a member who is one of several PIs is found.
+    """
+    out, rejected = {}, 0
+    this_year = TODAY.year
+    for first, last in UML_PEOPLE:
+        body = {"criteria": {"pi_names": [{"first_name": first, "last_name": last, "any_name": ""}],
+                             "fiscal_years": list(range(2020, this_year + 2))},
+                "include_fields": ["ApplId", "CoreProjectNum", "ProjectNum", "ProjectTitle", "Organization",
+                                   "PrincipalInvestigators", "ProjectStartDate", "ProjectEndDate", "AwardAmount",
+                                   "FiscalYear", "AgencyIcAdmin", "ProjectDetailUrl"],
+                "offset": 0, "limit": 500}
+        try:
+            req = urllib.request.Request("https://api.reporter.nih.gov/v2/projects/search",
+                                         data=json.dumps(body).encode("utf-8"),
+                                         headers={"Content-Type": "application/json", "Accept": "application/json",
+                                                  "User-Agent": "scyps-refresh/1.0 (+https://smartcyberphysical.org)"})
+            res = json.loads(urllib.request.urlopen(req, timeout=60).read().decode("utf-8")).get("results", [])
+        except Exception as e:
+            print(f"nih {first} {last}: RePORTER failed ({e})"); continue
+        for p in res:
+            org = (p.get("organization") or {}).get("org_name", "")
+            if not is_uml(org):
+                rejected += 1; continue
+            pis = p.get("principal_investigators") or []
+            person = next((roster_match(x.get("first_name", ""), x.get("last_name", "")) for x in pis
+                           if roster_match(x.get("first_name", ""), x.get("last_name", ""))), None)
+            if not person:
+                rejected += 1; continue
+            core = p.get("core_project_num") or p.get("project_num") or str(p.get("appl_id", ""))
+            end = (p.get("project_end_date") or "")[:10]
+            if end and end < "2019-10-01": continue
+            title = (p.get("project_title") or "").strip()
+            if any(norm(title) == norm(t) for t in known_titles): continue
+            e = out.setdefault(core, {"id": f"NIH-{core}", "source": "NIH", "title": _nih_title(title),
+                                      "awardee": org, "pi": person, "copis": [], "roster_person": person,
+                                      "role": "PI" if any(x.get("is_contact_pi") and roster_match(x.get("first_name",""), x.get("last_name","")) for x in pis) else "Co-PI",
+                                      "start": "", "end": "", "amount": 0, "years": [],
+                                      "program": ((p.get("agency_ic_admin") or {}).get("abbreviation") or "NIH"),
+                                      "url": p.get("project_detail_url", ""), "found": TODAY.isoformat()})
+            fy = p.get("fiscal_year")
+            if fy not in e["years"]:
+                e["years"].append(fy); e["amount"] += int(p.get("award_amount") or 0)
+            st = (p.get("project_start_date") or "")[:10]
+            if st and (not e["start"] or st < e["start"]): e["start"] = st
+            if end and end > e["end"]: e["end"] = end
+        time.sleep(0.5)
+    for e in out.values():   # NSF dates are MM/DD/YYYY; keep one format for the build
+        for k in ("start", "end"):
+            if e[k]: y, m, d = e[k].split("-"); e[k] = f"{m}/{d}/{y}"
+        e["amount"] = str(e["amount"])
+    print(f"nih: {len(out)} accurate projects kept, {rejected} rejected (wrong person or institution)")
+    return list(out.values())
+
+
+# ------------------------------------------------------------------ ORCID funding review
+def orcid_review(site_text):
+    """List funding that members record on their own ORCID records but the site does not show.
+
+    Nothing here is published. ORCID is self-reported and covers every agency, including the DOE, DOD,
+    ONR, Army, and state awards that have no public investigator-level search, so it is the best way to
+    notice what the curated list is missing. The report is written to funding_review.md for the director.
+    """
+    ids = dict(re.findall(r'"([^"]+)": "(\d{4}-\d{4}-\d{4}-\d{3}[\dX])"', site_text))
+    shown_text = site_text + json.dumps(load("grants_auto.json", {"awards": []}))
+    # compare against award titles only; matching anywhere in the site text let a research-area phrase
+    # like "photon-counting CT" hide a real, unlisted award with that phrase in its title
+    import difflib
+    award_titles = [norm(t) for t in re.findall(r'"title": "([^"]+)",\s*\n?\s*"(?:amount|share)"', site_text)]
+    award_titles += [norm(a.get("title", "")) for a in load("grants_auto.json", {"awards": []}).get("awards", [])]
+    def shown(title):
+        t = norm(title)
+        return any(t == x or difflib.SequenceMatcher(None, t, x).ratio() >= 0.9 for x in award_titles if x)
+    lines, found, people = [], 0, 0
+    for name, oid in sorted(ids.items(), key=lambda kv: kv[0].split()[-1]):
+        clean = re.sub(r"\s*\(.*?\)", "", name)
+        if not roster_match(*split_name(clean)): continue          # UML roster members only
+        people += 1
+        try:
+            req = urllib.request.Request(f"https://pub.orcid.org/v3.0/{oid}/fundings",
+                                         headers={"Accept": "application/json",
+                                                  "User-Agent": "scyps-refresh/1.0 (+https://smartcyberphysical.org)"})
+            data = json.loads(urllib.request.urlopen(req, timeout=60).read().decode("utf-8"))
+        except Exception as e:
+            lines.append(f"- {clean}: ORCID could not be read ({e})"); continue
+        missing = []
+        for g in data.get("group", []) or []:
+            for f in g.get("funding-summary", []) or []:
+                title = (((f.get("title") or {}).get("title") or {}).get("value") or "").strip()
+                org = ((f.get("organization") or {}).get("name") or "").strip()
+                sy = (((f.get("start-date") or {}).get("year") or {}).get("value") or "")
+                ey = (((f.get("end-date") or {}).get("year") or {}).get("value") or "")
+                if ey and ey < "2019": continue                 # ended before the center existed
+                nums = [x.get("external-id-value", "") for x in ((f.get("external-ids") or {}).get("external-id") or [])]
+                if any(n and n in shown_text for n in nums): continue
+                if title and shown(title): continue
+                missing.append(f"  - {title or '(untitled)'}. {org}. {sy or '?'} to {ey or 'ongoing'}"
+                               + (f". Grant {', '.join(n for n in nums if n)}" if any(nums) else ""))
+        if missing:
+            found += len(missing)
+            lines.append(f"- **{clean}** (ORCID {oid})"); lines += missing
+        time.sleep(0.5)
+    head = [f"# Funding to review, {TODAY.isoformat()}", "",
+            "Awards that center members list on their own ORCID records but the site does not show. Nothing",
+            "here is published. For each one that is real and belongs on the site, add it to PROJECTS in",
+            "build_site.py; for one that does not, ignore it (it will be listed again next time, which is",
+            "the price of never publishing self-reported data unseen).", "",
+            f"{people} members checked, {found} entries to review.", ""]
+    open(os.path.join(HERE, "funding_review.md"), "w", encoding="utf-8").write("\n".join(head + (lines or ["Nothing to review."])) + "\n")
+    print(f"orcid: {people} members checked, {found} entries to review in funding_review.md")
+    return [f"{found} ORCID funding entries to review"] if found else []
 
 # ------------------------------------------------------------------ Google Scholar
 def refresh_scholar(scholar_ids):
@@ -313,6 +450,9 @@ def main():
     log = {"date": TODAY.isoformat()}
     if what in ("all", "pubs"): log["pubs"] = refresh_pubs(known_dois)
     if what in ("all", "grants"): log["grants"] = refresh_grants(known_ids, known_titles)
+    if what in ("all", "grants", "orcid"):
+        try: log["orcid"] = orcid_review(site)
+        except Exception as e: print(f"orcid: skipped ({e})")
     if what in ("all", "scholar"): log["scholar"] = refresh_scholar(scholar_ids)
     if what in ("all", "journals"):
         try:

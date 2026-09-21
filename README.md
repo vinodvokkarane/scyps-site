@@ -346,6 +346,19 @@ Monthly newsletter > Run workflow > month YYYY-MM.
 
 Google Scholar figures, paste "Name citations h i10".
 
+NIH awards and the ORCID funding review
+  NIH: the weekly refresh also searches NIH RePORTER for each person in uml_roster.py, with the same
+  two checks as NSF (organization exactly UMass Lowell; a PI matching by first and last name). RePORTER
+  lists every PI on multi-PI grants, so a member who is one of several PIs is found and marked Co-PI.
+  One project appears once, with its amount summed across fiscal years. No key or setup needed.
+
+  ORCID: DOE, DOD, ONR, Army, DARPA, AFOSR, and state awards have no public search by investigator, so
+  they stay in the curated PROJECTS list. To catch what that list misses, the refresh reads the funding
+  each member records on their own ORCID record and writes funding_review.md: entries active since
+  2019 that the site does not show, matched by grant number or title. Nothing from ORCID is published.
+  Read funding_review.md after each refresh; add what is real to PROJECTS by hand. ORCID iDs come from
+  the ORCID table in build_site.py, so a member with no iD there is not checked.
+
 NSF awards: accuracy rules
   The weekly refresh pulls NSF awards for the UMass Lowell people listed in uml_roster.py, and the
   build shows an award only if both of these hold:

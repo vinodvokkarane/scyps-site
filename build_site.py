@@ -2975,7 +2975,7 @@ ALUMNI_PHD = [
 ALUMNI_POSTDOC = [("Arash Deylamsalehi", "Google"), ("Jeremy M. Plante", "Hitachi Vantara"), ("Juzi Zhao", "San José State University"), ("Arush Gadkar", "Kilpatrick Townsend & Stockton LLP"), ("Joan Triay", "DOCOMO Euro-Labs"), ("Balagangadhar Bathula", "AT&T")]
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "0.86"   # bump by 0.01 with every update to the site
+SITE_VERSION = "0.87"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3080,10 +3080,13 @@ for a in _auto_grants.get("awards", []):
     if not end_ok: continue
     PROJECTS.append({"tag": "New" if a.get("found", "") >= (datetime.date.today() - datetime.timedelta(days=120)).isoformat() else "Active",
                      "role": a["role"], "lead_person": a["roster_person"],
-                     "sponsor": "National Science Foundation" + (f", {a['program']}" if a.get("program") else "") + f" (Award #{a['id']})",
+                     "url": a.get("url", ""), "link": "NIH RePORTER record" if a.get("source") == "NIH" else "",
+                     "sponsor": ((f"National Institutes of Health, {a['program']} (Project {a['id'][4:]})") if a.get("source") == "NIH" else
+                                 ("National Science Foundation" + (f", {a['program']}" if a.get("program") else "") + f" (Award #{a['id']})")),
                      "title": a["title"], "amount": _fmt_amt(a.get("amount")), "period": _fmt_period(a.get("start"), a.get("end")),
                      "team": "PI " + a.get("pi", "") + ("; Co-PIs " + ", ".join(a["copis"]) if a.get("copis") else ""),
-                     "desc": "From the NSF Awards database, verified as a UMass Lowell award with a center member as " + a["role"] + ".", "domain": "NSF"})
+                     "desc": f"From the {'NIH RePORTER' if a.get('source') == 'NIH' else 'NSF Awards'} database, verified as a UMass Lowell award with a center member as " + a["role"] + ".",
+                     "domain": "NIH" if a.get("source") == "NIH" else "NSF"})
 
 
 # --- The director's earlier external awards, from the CV (Sept. 2026). Amounts are award face value;
@@ -3233,7 +3236,7 @@ STUDENT_FIGS = {
 _DOMAIN_THRUST = {
     "Energy": "grid", "Networks": "fiber", "Autonomy": "ai", "Distributed systems": "edge",
     "HPC": "hpc", "Printed electronics": "chip", "Transportation": "health", "Education": "health",
-    "Nuclear": "nuclear", "Data systems": "ai", "Defense": "fiber", "Sensing": "chip",
+    "Nuclear": "nuclear", "Data systems": "ai", "Defense": "fiber", "Sensing": "chip", "NIH": "health",
 }
 _NAME = r"([A-Z][a-zA-Z]+(?:\s+(?:[A-Z]\.|[A-Z][a-zA-Z]+)){1,2})"
 def _roster():

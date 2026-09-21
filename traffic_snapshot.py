@@ -6,20 +6,34 @@ appends each day's figures to traffic.json and keeps a monthly roll-up the annua
 
 Needs GITHUB_TOKEN (provided automatically in Actions) and GITHUB_REPOSITORY (owner/repo).
 """
-import json, os, urllib.request, datetime, collections
+import json, os, sys, urllib.request, urllib.error, datetime, collections
 
 repo = os.environ.get("GITHUB_REPOSITORY", "")
-token = os.environ.get("GITHUB_TOKEN", "")
-if not repo or not token:
-    raise SystemExit("GITHUB_REPOSITORY and GITHUB_TOKEN are required")
+# Traffic needs the repository's Administration: read permission. The token Actions issues to every
+# workflow (GITHUB_TOKEN) cannot be given that permission, so this uses a fine-grained personal token
+# stored as the TRAFFIC_TOKEN secret. See README, "Traffic snapshot".
+token = os.environ.get("TRAFFIC_TOKEN", "").strip()
+if not repo:
+    sys.exit("GITHUB_REPOSITORY is required")
+if not token:
+    sys.exit("TRAFFIC_TOKEN is not set. Create a fine-grained token with Administration: Read-only on this "
+             "repository and store it as the TRAFFIC_TOKEN secret (README, Traffic snapshot).")
 HERE = os.path.dirname(os.path.abspath(__file__))
 path = os.path.join(HERE, "traffic.json")
 data = json.load(open(path)) if os.path.exists(path) else {"days": {}, "months": {}, "popular": {}}
 
 def get(what):
     req = urllib.request.Request(f"https://api.github.com/repos/{repo}/traffic/{what}",
-                                 headers={"Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json"})
-    return json.loads(urllib.request.urlopen(req, timeout=60).read().decode("utf-8"))
+                                 headers={"Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json",
+                                          "X-GitHub-Api-Version": "2022-11-28",
+                                          "User-Agent": "scyps-traffic/1.0 (+https://smartcyberphysical.org)"})
+    try:
+        return json.loads(urllib.request.urlopen(req, timeout=60).read().decode("utf-8"))
+    except urllib.error.HTTPError as e:
+        detail = e.read().decode("utf-8", "ignore")
+        sys.exit(f"GitHub refused the traffic request ({e.code}). Its message: {detail}\n"
+                 "403 means the token lacks Administration: Read-only on this repository, or has expired. "
+                 "401 means the token is wrong or revoked.")
 
 views = get("views")
 for d in views.get("views", []):

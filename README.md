@@ -111,6 +111,21 @@ No third-party requests
   independent figure, GitHub's Insights > Traffic page reports views and unique visitors for the last
   fourteen days; the "Traffic snapshot" workflow records those numbers monthly in traffic.json.
 
+Traffic snapshot (one-time token)
+  GitHub keeps traffic figures for fourteen days. The "Traffic snapshot" workflow copies them into
+  traffic.json on the 1st and 15th. Reading traffic needs the repository's Administration: read
+  permission, which the automatic workflow token cannot have, so it uses a personal token:
+    1. GitHub, top right photo > Settings > Developer settings > Personal access tokens >
+       Fine-grained tokens > Generate new token.
+    2. Name: SCyPS traffic. Expiration: the longest allowed (a year). Resource owner: your account.
+       Repository access: Only select repositories > scyps-site.
+    3. Permissions > Repository permissions > Administration: Read-only. (Metadata: Read-only is added
+       by itself.) Nothing else. Generate, and copy the token; it is shown once.
+    4. The site repository > Settings > Secrets and variables > Actions > New repository secret.
+       Name: TRAFFIC_TOKEN. Value: the token.
+  The token expires. When it does, the snapshot run fails with "403 ... or has expired"; generate a
+  new one the same way and update the secret. A calendar reminder a week before expiry saves a gap.
+
 Sending the newsletter (director@smartcyberphysical.org)
   The site cannot send mail, and Cloudflare Email Routing only forwards mail in. Sending goes through
   Resend (resend.com), which lets the domain send authenticated mail from a GitHub workflow. The free
@@ -128,14 +143,14 @@ Sending the newsletter (director@smartcyberphysical.org)
   3. Add those three records in Cloudflare. Cloudflare dashboard > smartcyberphysical.org > DNS >
      Add record. For each, set Proxy status to DNS only (grey cloud), like the site's records:
 
-       Type  Name                 Content                                   Priority
-       TXT   resend._domainkey    p=MIGf...  (the long DKIM key)            -
-       TXT   send                 v=spf1 include:amazonses.com ~all         -
-       MX    send                 feedback-smtp.us-east-1.amazonses.com     10
+       Type   Name                 Content
+       TXT    resend._domainkey    p=MIGf...  (the long DKIM key)
+       CNAME  rsend                rsend.forge.rmta.net
+       CNAME  send                 send.forge.rmta.net
 
-     Copy the values from the Resend page, not from here: the region in the MX value and the DKIM
-     key are specific to your account, and the dashboard truncates the key on screen, so click it
-     to expand before copying. A key with characters missing fails silently.
+     Copy the values from the Resend page, not from here: the DKIM key is specific to your account
+     and the dashboard truncates it on screen, so click it to expand before copying. A key with
+     characters missing fails silently. (Verified for this domain in September 2026.)
 
   4. Add a DMARC record, which Resend does not create but mail providers now expect. Same DNS page:
 
@@ -154,7 +169,8 @@ Sending the newsletter (director@smartcyberphysical.org)
   7. Store it in the repository. GitHub > the site repository > Settings > Secrets and variables >
      Actions > New repository secret. Name: RESEND_API_KEY. Value: the key. Save.
 
-  8. Make replies work. Cloudflare > Email > Email Routing > Create address: director, forwarding to
+  8. Make replies work. Leave Resend's "Enable Receiving" switch off; Cloudflare handles inbound mail.
+     Cloudflare > Email > Email Routing > Create address: director, forwarding to
      Vinod_Vokkarane@uml.edu. Cloudflare sends a verification message to that inbox; click the link.
      The newsletter also sets Reply-To to the UML address, so replies reach a person either way.
 
@@ -251,6 +267,21 @@ Google Scholar figures
   marked "visitor counter" in the script and the #visits span in the footer to drop it. For a second,
   independent figure, GitHub's Insights > Traffic page reports views and unique visitors for the last
   fourteen days; the "Traffic snapshot" workflow records those numbers monthly in traffic.json.
+
+Traffic snapshot (one-time token)
+  GitHub keeps traffic figures for fourteen days. The "Traffic snapshot" workflow copies them into
+  traffic.json on the 1st and 15th. Reading traffic needs the repository's Administration: read
+  permission, which the automatic workflow token cannot have, so it uses a personal token:
+    1. GitHub, top right photo > Settings > Developer settings > Personal access tokens >
+       Fine-grained tokens > Generate new token.
+    2. Name: SCyPS traffic. Expiration: the longest allowed (a year). Resource owner: your account.
+       Repository access: Only select repositories > scyps-site.
+    3. Permissions > Repository permissions > Administration: Read-only. (Metadata: Read-only is added
+       by itself.) Nothing else. Generate, and copy the token; it is shown once.
+    4. The site repository > Settings > Secrets and variables > Actions > New repository secret.
+       Name: TRAFFIC_TOKEN. Value: the token.
+  The token expires. When it does, the snapshot run fails with "403 ... or has expired"; generate a
+  new one the same way and update the secret. A calendar reminder a week before expiry saves a gap.
 
 Sending the newsletter (director@smartcyberphysical.org)
   The site cannot send mail by itself and Cloudflare Email Routing only forwards, so sending goes
@@ -354,6 +385,21 @@ Automatic updates
   marked "visitor counter" in the script and the #visits span in the footer to drop it. For a second,
   independent figure, GitHub's Insights > Traffic page reports views and unique visitors for the last
   fourteen days; the "Traffic snapshot" workflow records those numbers monthly in traffic.json.
+
+Traffic snapshot (one-time token)
+  GitHub keeps traffic figures for fourteen days. The "Traffic snapshot" workflow copies them into
+  traffic.json on the 1st and 15th. Reading traffic needs the repository's Administration: read
+  permission, which the automatic workflow token cannot have, so it uses a personal token:
+    1. GitHub, top right photo > Settings > Developer settings > Personal access tokens >
+       Fine-grained tokens > Generate new token.
+    2. Name: SCyPS traffic. Expiration: the longest allowed (a year). Resource owner: your account.
+       Repository access: Only select repositories > scyps-site.
+    3. Permissions > Repository permissions > Administration: Read-only. (Metadata: Read-only is added
+       by itself.) Nothing else. Generate, and copy the token; it is shown once.
+    4. The site repository > Settings > Secrets and variables > Actions > New repository secret.
+       Name: TRAFFIC_TOKEN. Value: the token.
+  The token expires. When it does, the snapshot run fails with "403 ... or has expired"; generate a
+  new one the same way and update the secret. A calendar reminder a week before expiry saves a gap.
 
 Sending the newsletter (director@smartcyberphysical.org)
   The site cannot send mail by itself and Cloudflare Email Routing only forwards, so sending goes

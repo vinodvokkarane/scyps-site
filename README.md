@@ -346,6 +346,17 @@ Monthly newsletter > Run workflow > month YYYY-MM.
 
 Google Scholar figures, paste "Name citations h i10".
 
+NSF awards: accuracy rules
+  The weekly refresh pulls NSF awards for the UMass Lowell people listed in uml_roster.py, and the
+  build shows an award only if both of these hold:
+    1. the awardee institution is exactly the University of Massachusetts Lowell, and
+    2. its PI or a Co-PI matches a roster person by first AND last name.
+  Surname-only matching let in other UML faculty named Xie, Luo, Son, Yu, and Cao, plus awards from
+  other UMass campuses and from members' previous universities; both are now rejected. The file
+  grants_auto.json is rebuilt from scratch on every refresh, so a wrong award cannot linger.
+  To add a person, add their first and last name to uml_roster.py exactly as NSF records them. To
+  hide one correct award, put its number in the "ignore" list in grants_auto.json.
+
 Automatic NSF awards
   The weekly pull keeps an NSF award only when a core member is its PI or a Co-PI, matching the
   application's rule that affiliated members' awards belong to their own programs. It skips any award

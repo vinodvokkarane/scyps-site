@@ -2975,7 +2975,7 @@ ALUMNI_PHD = [
 ALUMNI_POSTDOC = [("Arash Deylamsalehi", "Google"), ("Jeremy M. Plante", "Hitachi Vantara"), ("Juzi Zhao", "San José State University"), ("Arush Gadkar", "Kilpatrick Townsend & Stockton LLP"), ("Joan Triay", "DOCOMO Euro-Labs"), ("Balagangadhar Bathula", "AT&T")]
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "0.85"   # bump by 0.01 with every update to the site
+SITE_VERSION = "0.86"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3064,19 +3064,26 @@ def _surname(name):
     if "," in name: name = name.split(",")[0]          # "Luo, Yan"
     return (name.split() or [""])[-1].strip(".").lower() if "," not in (name or "") else name.strip().lower()
 _curated_ids = set(re.findall(r"#(\d{7})", " ".join(p.get("sponsor", "") + " " + p.get("title", "") for p in PROJECTS)))
+from uml_roster import roster_match, split_name, is_uml
 for a in _auto_grants.get("awards", []):
     if str(a.get("id", "")) in _curated_ids: continue
-    _people = [a.get("pi", "")] + list(a.get("copis") or [])
-    if not any(_surname(x) in _CORE_SURNAMES for x in _people): continue
+    # the same checks the pull applies: exactly UMass Lowell, and a roster person by full name.
+    # Entries from the old surname-only pull carry no awardee field and are dropped here.
+    if not is_uml(a.get("awardee")): continue
+    _pi_person = roster_match(*split_name(a.get("pi", "")))
+    _co_people = [p for p in (roster_match(*split_name(c)) for c in (a.get("copis") or [])) if p]
+    if not _pi_person and not _co_people: continue
+    a = dict(a, roster_person=_pi_person or _co_people[0], role="PI" if _pi_person else "Co-PI")
     end_ok = True
     try: end_ok = datetime.datetime.strptime(a.get("end", ""), "%m/%d/%Y").date() >= datetime.date.today() - datetime.timedelta(days=365)
     except Exception: pass
     if not end_ok: continue
     PROJECTS.append({"tag": "New" if a.get("found", "") >= (datetime.date.today() - datetime.timedelta(days=120)).isoformat() else "Active",
+                     "role": a["role"], "lead_person": a["roster_person"],
                      "sponsor": "National Science Foundation" + (f", {a['program']}" if a.get("program") else "") + f" (Award #{a['id']})",
                      "title": a["title"], "amount": _fmt_amt(a.get("amount")), "period": _fmt_period(a.get("start"), a.get("end")),
                      "team": "PI " + a.get("pi", "") + ("; Co-PIs " + ", ".join(a["copis"]) if a.get("copis") else ""),
-                     "desc": "Added automatically from the NSF Awards database; edit or remove it in grants_auto.json.", "domain": "NSF"})
+                     "desc": "From the NSF Awards database, verified as a UMass Lowell award with a center member as " + a["role"] + ".", "domain": "NSF"})
 
 
 # --- The director's earlier external awards, from the CV (Sept. 2026). Amounts are award face value;
@@ -3257,6 +3264,7 @@ def _project_pi_raw(pr):
     return ""
 
 def project_pi(pr):
+    if pr.get("lead_person"): return canonical_person(pr["lead_person"])
     return canonical_person(_project_pi_raw(pr))
 
 def project_years(pr):
@@ -4476,8 +4484,8 @@ def build():
         f'<div class="thrust"><a class="art" href="research-{esc(i)}.html">{ART[i]}</a><div class="body"><h3><a href="research-{esc(i)}.html">{esc(t)}</a></h3><p>{esc(d)}</p><div class="who"><b>{esc(w.split(",")[0])}</b> leads{esc("; with " + w.split(", ", 1)[1] if ", " in w else "")}</div><p class="more2"><a href="research-{esc(i)}.html">More on this thrust</a></p></div></div>'
         for i, t, d, w in THRUSTS)
 
-    _pis = sorted({project_pi(pr) for pr in PROJECTS if project_pi(pr)},
-                  key=lambda n: (n.split()[-1].lower() not in _CORE_SURNAMES, n.split()[-1]))
+    _pis = sorted({project_pi(pr) for pr in PROJECTS if project_pi(pr) and project_pi(pr) in set(_roster().values())},
+                  key=lambda n: n.split()[-1])
     _pi_counts = {p: sum(1 for pr in PROJECTS if project_pi(pr) == p) for p in _pis}
     _yrs = sorted({y for pr in PROJECTS for y in project_years(pr)}, reverse=True)
     _thrusts = [(k, t) for k, t, _, _ in THRUSTS if any(project_thrust(pr) == k for pr in PROJECTS)]

@@ -132,32 +132,54 @@ def refresh_pubs(known_dois):
     return added
 
 # ------------------------------------------------------------------ NSF awards
-NSF_PIS = ["Vokkarane", "Tseng", "Arias", "Son", "Aghara", "Luo", "Xie", "Cao", "Chigan", "Inalpolat", "Robinette", "Yu", "Akyurtlu", "Niezrecki", "Ranasingha", "Chakrabarti", "Evans"]
+from uml_roster import UML_PEOPLE, roster_match, split_name, is_uml
 
 def refresh_grants(known_ids, known_titles):
-    auto = load("grants_auto.json", {"ignore": [], "awards": []})
-    have = {a["id"] for a in auto["awards"]} | set(known_ids) | set(auto.get("ignore", []))
-    added = []
-    for pi in NSF_PIS:
+    """Every NSF award active since the center's founding where a UML roster person is PI or Co-PI.
+
+    The file is rebuilt from scratch on each run, so an award that stops qualifying disappears rather
+    than lingering. Entries in the "ignore" list stay out. Each award is checked three ways: the awardee
+    must be exactly UMass Lowell, and the PI or a Co-PI must match a roster person by first and last name.
+    """
+    old = load("grants_auto.json", {"ignore": [], "awards": []})
+    ignore = set(str(x) for x in old.get("ignore", []))
+    kept, seen, rejected = [], set(), 0
+    for first, last in UML_PEOPLE:
         url = "https://api.nsf.gov/services/v1/awards.json?" + urllib.parse.urlencode({
-            "pdPIName": pi, "awardeeName": "University of Massachusetts Lowell", "dateStart": "01/01/2021",
-            "printFields": "id,title,startDate,expDate,fundsObligatedAmt,piFirstName,piLastName,coPDPI,agency,awardeeName,fundProgramName"})
+            "pdPIName": f"{first} {last}", "expDateStart": "10/01/2019",
+            "printFields": "id,title,startDate,expDate,fundsObligatedAmt,estimatedTotalAmt,piFirstName,piLastName,"
+                           "coPDPI,awardeeName,fundProgramName"})
         try:
             awards = get_json(url).get("response", {}).get("award", [])
         except Exception as e:
-            print(f"grants {pi}: NSF API failed ({e})"); continue
+            print(f"grants {first} {last}: NSF API failed ({e})"); continue
         for a in awards:
-            if a.get("id") in have: continue
-            if norm(a.get("piLastName")) != norm(pi): continue
+            aid = str(a.get("id", ""))
+            if not aid or aid in seen or aid in ignore or aid in set(map(str, known_ids)): continue
+            if not is_uml(a.get("awardeeName")):
+                rejected += 1; continue
+            pi_person = roster_match(a.get("piFirstName", ""), a.get("piLastName", ""))
+            copis = [c.split("~")[0].strip() for c in (a.get("coPDPI") or [])]
+            co_people = [p for p in (roster_match(*split_name(c)) for c in copis) if p]
+            if not pi_person and not co_people:
+                rejected += 1; continue
             title = a.get("title", "")
             if any(norm(title) == norm(t) for t in known_titles): continue
-            auto["awards"].append({"id": a["id"], "title": title, "pi": f"{a.get('piFirstName','')} {a.get('piLastName','')}".strip(),
-                                   "copis": a.get("coPDPI", []), "start": a.get("startDate"), "end": a.get("expDate"),
-                                   "amount": a.get("fundsObligatedAmt"), "program": a.get("fundProgramName", ""), "found": TODAY.isoformat()})
-            have.add(a["id"]); added.append(f"{pi}: NSF #{a['id']} {title[:60]}")
+            seen.add(aid)
+            kept.append({"id": aid, "title": title, "awardee": a.get("awardeeName", ""),
+                         "pi": f"{a.get('piFirstName','')} {a.get('piLastName','')}".strip(), "copis": copis,
+                         "roster_person": pi_person or co_people[0], "role": "PI" if pi_person else "Co-PI",
+                         "start": a.get("startDate"), "end": a.get("expDate"),
+                         "amount": a.get("estimatedTotalAmt") or a.get("fundsObligatedAmt"),
+                         "program": a.get("fundProgramName", ""),
+                         "found": next((x.get("found") for x in old.get("awards", []) if str(x.get("id")) == aid), TODAY.isoformat())})
         time.sleep(0.5)
-    save("grants_auto.json", auto)
-    return added
+    before = {str(x.get("id")) for x in old.get("awards", [])}
+    after = {x["id"] for x in kept}
+    save("grants_auto.json", {"ignore": sorted(ignore), "awards": sorted(kept, key=lambda x: x.get("start") or "", reverse=True)})
+    print(f"grants: {len(kept)} accurate awards kept, {rejected} rejected (wrong person or institution), "
+          f"{len(before - after)} removed since last run, {len(after - before)} new")
+    return [f"NSF #{x['id']} {x['roster_person']}: {x['title'][:60]}" for x in kept if x["id"] in after - before]
 
 # ------------------------------------------------------------------ Google Scholar
 def refresh_scholar(scholar_ids):

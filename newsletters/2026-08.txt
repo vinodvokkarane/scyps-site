@@ -1,14 +1,10 @@
 CENTER FOR SMART CYBER-PHYSICAL SYSTEMS, UMASS LOWELL
 Newsletter, August 2026
 
-August 2026 at the center: 5 new awards, 4 new papers, 3 in journals, 1 milestone.
+August 2026 at the center: 1 new award, 4 new papers, 3 in journals, 1 milestone.
 
 NEW AWARDS
 - Planning Federated AI-Ready Cyberinfrastructure for Advanced Microscopy and Imaging: A Teach-Explore-Design Framework for Community-Driven Infrastructure ($499K). National Science Foundation, OAC Category III (Award #2609490). PI Lewis Tseng; Co-PIs Hsien-Yuan Hsu (UMass Lowell) and Yu-Tsun Shao (University of Southern California)
-- CSR: A New Frontier in Acceleration: Unlocking Irregular Computing for Multiple Application Domains with Ray Tracing Hardware ($765K). National Science Foundation, CSR-Computer Systems Research (Award #2551316). PI Hung-Wei Tseng
-- Collaborative Research: III: Towards Reliable, Efficient, and Adaptive Multi-Agent Collaboration: A Graph-Centric Design ($250K). National Science Foundation, Info Integration & Informatics (Award #2616633). PI Xiao Luo
-- AF: Advancing the Theory of Online Optimization and Learning within Multi-Agent Systems ($871K). National Science Foundation, Algorithmic Foundations (Award #2551666). PI Haipeng Luo
-- Collaborative Research: Development of a new autonomous surface vehicle for detection of seafloor subduction zone earthquakes and tsunamis ($187K). National Science Foundation, OCEAN TECH & INTERDISC COORDIN (Award #2536109). PI Surui Xie
 
 NEW PAPERS
 - A. Moeinaddini, T. Zhang, C. D’Agostino, Y. Xie, Y. Zou. Accounting for under-reporting in wildlife–vehicle collision hotspot identification using copulas and Bayesian model averaging. Accident Analysis & Prevention, vol. 233, art. 108583, Aug. 2026. https://doi.org/10.1016/j.aap.2026.108583
@@ -18,13 +14,6 @@ NEW PAPERS
 
 MILESTONES
 - Lewis Tseng presents timely control for quantum clouds at the ACM SIGCOMM 2026 QuNet workshop.
-
-COMING UP
-- Collaborative Research: AIMing: Statistically Guided Discovery for Certified and Efficient Randomized Numerical Linear Algebra Algorithms starts Sep 2026.
-- CAREER: Control of Networked Mobile Robot Teams for Reliable Communication under Uncertainty starts Sep 2026.
-- Phase Transitions in Stochastic Fracture of Disordered Architected Materials starts Sep 2026.
-- Collaborative Research: GCR: Bioengineered Approaches to Recover Critical Minerals and Produce Sustainable Silicon-Based Materials from Silicon-Rich Wastes starts Sep 2026.
-- Collaborative Research: Scalable Methods for Incomplete Tensors: To Complete or Not to Complete? starts Sep 2026.
 
 Read on the web: https://smartcyberphysical.org/newsletters/2026-08.html
 Site: https://smartcyberphysical.org/

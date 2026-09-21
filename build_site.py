@@ -2975,7 +2975,7 @@ ALUMNI_PHD = [
 ALUMNI_POSTDOC = [("Arash Deylamsalehi", "Google"), ("Jeremy M. Plante", "Hitachi Vantara"), ("Juzi Zhao", "San José State University"), ("Arush Gadkar", "Kilpatrick Townsend & Stockton LLP"), ("Joan Triay", "DOCOMO Euro-Labs"), ("Balagangadhar Bathula", "AT&T")]
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "0.83"   # bump by 0.01 with every update to the site
+SITE_VERSION = "0.85"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3417,7 +3417,7 @@ SCHOLAR = {
     "Orlando Arias": "LyL2zHwAAAAJ",
     # Corrected Sept. 2026 against each profile's own name: the IDs were shifted by one position.
     # Supriya Chakrabarti has no Scholar profile found; the site links a Scholar search for him instead.
-    "Nicholas G. Evans": "N_0jmg8AAAAJ", "Oshadha Ranasingha": "-wPKnUAAAAAJ", "Anurag Srivastava": "_GtNYPMAAAAJ",
+    "Sheree A. Pagsuyoin": "CmHDkoIAAAAJ", "Nicholas G. Evans": "N_0jmg8AAAAJ", "Oshadha Ranasingha": "-wPKnUAAAAAJ", "Anurag Srivastava": "_GtNYPMAAAAJ",
 }
 ORCID = {
     "Vinod M. Vokkarane": "0000-0001-9205-2120", "Orlando Arias": "0009-0002-3948-5773", "Lewis Tseng": "0000-0002-4717-4038", "Seung Woo Son": "0000-0001-8922-418X",
@@ -5602,10 +5602,13 @@ def build_assets():
     root = os.path.dirname(os.path.abspath(OUT)) or "."
     import shutil
     src = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fonts")
-    if os.path.isdir(src):
-        os.makedirs(os.path.join(root, "fonts"), exist_ok=True)
+    dst = os.path.join(root, "fonts")
+    # In the repository the site is built in place, so source and destination are the same folder
+    # and there is nothing to copy. Only copy when building into a separate output folder.
+    if os.path.isdir(src) and os.path.realpath(src) != os.path.realpath(dst):
+        os.makedirs(dst, exist_ok=True)
         for f in os.listdir(src):
-            if f.endswith(".woff2"): shutil.copy(os.path.join(src, f), os.path.join(root, "fonts", f))
+            if f.endswith(".woff2"): shutil.copy(os.path.join(src, f), os.path.join(dst, f))
     import base64
     open(os.path.join(root, "logo-mark.png"), "wb").write(base64.b64decode(IMG["logo_mark"]))
     try:

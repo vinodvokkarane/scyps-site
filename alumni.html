@@ -614,7 +614,10 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .uml-footer .bottom ul{list-style:none;margin:0;padding:0;display:flex;justify-content:center;gap:10px 26px;flex-wrap:wrap}
 .uml-footer .bottom a{font-size:13.5px;text-decoration:underline;text-underline-offset:.18em;color:#fff}
 .uml-footer .fine{text-align:center;font-size:12.5px;color:#9DB3CC;margin:14px 0 0}
-.uml-footer .version{text-align:center;font-size:12px;color:#A9BDD3;margin:6px 0 0;font-variant-numeric:tabular-nums}
+.uml-footer .vsep{display:inline-block;width:1px;height:12px;background:rgba(255,255,255,.25);margin:0 10px;vertical-align:-2px}
+#visits img{vertical-align:middle}
+#visits:empty+.vsep,.vsep:has(+#visits:empty){display:none}
+.version{text-align:center;font-size:12px;color:#A9BDD3;margin:6px 0 0;font-variant-numeric:tabular-nums}
 .uml-footer .vsep::before{content:"\00b7";margin:0 10px}
 .uml-footer #visits{display:inline-flex;vertical-align:-5px}
 .uml-footer #visits img{height:20px;display:block}
@@ -695,7 +698,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
         <li><a href="https://www.uml.edu/service/Apps/Forms/Form?configId=ccde10d9-949a-4891-a810-ca2cfa641f6f&amp;tfa_26=https://www.uml.edu/research/scyps/" title="Website Feedback" target="_blank" rel="noopener noreferrer">Feedback</a></li>
       </ul>
       <p class="fine">Updated September 2026. Grant figures are total awards as reported by sponsors; the UMass Lowell share is noted where a project is a multi-institution consortium. Photographs courtesy of UMass Lowell.</p>
-      <p class="version">v 0.82</p>
+      <p class="version">v 0.83<span class="vsep"></span><span id="visits" title="Visits counted since the counter went live"></span></p>
     </div>
   </div>
 </footer>
@@ -706,6 +709,21 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
   function paintToggle(){ var d=effective()==='dark'; tb.setAttribute('aria-label', d?'Switch to light mode':'Switch to dark mode'); tb.querySelector('.lbl').textContent=d?'Light':'Dark'; }
   tb.addEventListener('click',function(){ var next=effective()==='dark'?'light':'dark'; root.setAttribute('data-theme',next); try{localStorage.setItem('scyps-theme',next);}catch(e){} paintToggle(); });
   paintToggle();
+  // visitor counter (hits.sh): the one request this site makes to another party. It is made once per
+  // visitor session, not on every page, and the badge hides if it cannot load or on file://.
+  (function(){
+    var el=document.getElementById('visits'); if(!el) return;
+    if(!/^https?:$/.test(location.protocol)){ el.style.display='none'; return; }
+    var base=location.host+'/';   // one counter for the whole site
+    var url='https://hits.sh/'+base+'.svg?view=total&style=flat-square&label=visits&color=0A777F&labelColor=0E2036';
+    var counted=false; try{ counted=sessionStorage.getItem('scyps-counted')==='1'; }catch(e){}
+    var img=new Image(); img.alt='visitors'; img.height=20;
+    img.onerror=function(){ el.style.display='none'; };
+    // the counting request happens once per session; later pages fetch the badge with view-only
+    img.src = counted ? url.replace('view=total','view=total&count=false') : url;
+    try{ sessionStorage.setItem('scyps-counted','1'); }catch(e){}
+    el.textContent=''; el.appendChild(img);
+  })();
   // project filters: lead, thrust, and year, combined
   (function(){
     var wrap=document.querySelector('.pfilters'); if(!wrap) return;

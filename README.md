@@ -105,34 +105,90 @@ No third-party requests
   The site loads nothing from anyone else. Fonts (Fraunces, IBM Plex Sans, Barlow; SIL OFL) are served
   from fonts/, copied there on every build from the fonts/ folder beside build_site.py. The seven social
   icons are inline SVG (Font Awesome Free, CC BY 4.0; the attribution is in each page's first line).
-  The visitor counter is gone. For traffic, use the repository's Insights > Traffic page on GitHub,
-  which reports views and unique visitors for the last fourteen days without any script on the site.
+  One exception, by choice: the visitor counter in the footer (hits.sh). It is the only request the
+  site makes to another party. It counts once per visitor session, not per page. Remove the block
+  marked "visitor counter" in the script and the #visits span in the footer to drop it. For a second,
+  independent figure, GitHub's Insights > Traffic page reports views and unique visitors for the last
+  fourteen days; the "Traffic snapshot" workflow records those numbers monthly in traffic.json.
 
 Sending the newsletter (director@smartcyberphysical.org)
-  The site cannot send mail by itself and Cloudflare Email Routing only forwards, so sending goes
-  through Resend (resend.com), which lets the domain send authenticated mail. One-time setup:
-    1. Create a Resend account. Add the domain smartcyberphysical.org. Resend shows three DNS records
-       (a DKIM TXT record, and an MX plus SPF TXT on a "send." subdomain). Add them in Cloudflare's DNS
-       page, all DNS-only (grey cloud). Click Verify in Resend. Takes a few minutes.
-    2. In Resend, create an API key with sending permission. In the repository: Settings > Secrets
-       and variables > Actions > New repository secret: RESEND_API_KEY.
-    3. In Cloudflare, Email > Email Routing: create director@smartcyberphysical.org forwarding to the
-       director's UML inbox, so replies to the newsletter reach a person. (Replies also carry a
-       Reply-To of the UML address, so this is belt and braces.)
-    4. Put the recipients in recipients.txt, one per line. They are sent as BCC.
+  The site cannot send mail, and Cloudflare Email Routing only forwards mail in. Sending goes through
+  Resend (resend.com), which lets the domain send authenticated mail from a GitHub workflow. The free
+  plan allows 3,000 messages a month and 100 a day; the newsletter uses about 22 a month. Sending
+  pauses at the cap rather than charging.
 
-  The monthly cycle, once the key is in place:
-    Day 1   "Monthly newsletter" builds the previous month's issue, commits it, and mails a preview
-            to the director with [Preview] in the subject.
-    Day 4   "Send newsletter" mails the issue to everyone in recipients.txt and logs the send in
-            newsletters/sent.log.
-  Three days is the review window. To stop a send: Settings > Secrets and variables > Actions >
-  Variables > NEWSLETTER_HOLD = true. The scheduled send skips while that is set; a manual run still
-  works. To send by hand: Actions > Send newsletter > Run workflow, choose the month and "director"
-  (preview) or "list".
+  A. One-time setup, about fifteen minutes, most of it waiting for DNS
 
-  The Resend free plan covers this comfortably (a few dozen messages a month against a limit in the
-  thousands); check the current limits when signing up.
+  1. Create a Resend account at resend.com. Any login works; use the UML address so a colleague can
+     take it over later.
+
+  2. Add the domain. Domains > Add Domain > smartcyberphysical.org. Region: US East. Resend shows
+     three DNS records. Leave that page open.
+
+  3. Add those three records in Cloudflare. Cloudflare dashboard > smartcyberphysical.org > DNS >
+     Add record. For each, set Proxy status to DNS only (grey cloud), like the site's records:
+
+       Type  Name                 Content                                   Priority
+       TXT   resend._domainkey    p=MIGf...  (the long DKIM key)            -
+       TXT   send                 v=spf1 include:amazonses.com ~all         -
+       MX    send                 feedback-smtp.us-east-1.amazonses.com     10
+
+     Copy the values from the Resend page, not from here: the region in the MX value and the DKIM
+     key are specific to your account, and the dashboard truncates the key on screen, so click it
+     to expand before copying. A key with characters missing fails silently.
+
+  4. Add a DMARC record, which Resend does not create but mail providers now expect. Same DNS page:
+
+       Type  Name      Content
+       TXT   _dmarc    v=DMARC1; p=none; rua=mailto:Vinod_Vokkarane@uml.edu
+
+     p=none means "report, do not reject", which is enough to pass the check. If a DMARC record
+     already exists (Cloudflare Email Routing sometimes adds one), edit it rather than adding a second.
+
+  5. Back in Resend, click Verify. Green within a few minutes, occasionally an hour. Until it is
+     verified, Resend will send only to the account's own address, so nothing can go out by mistake.
+
+  6. Create the API key. Resend > API Keys > Create API Key. Name: "SCyPS newsletter". Permission:
+     Sending access. Domain: smartcyberphysical.org. Copy the key; it is shown once.
+
+  7. Store it in the repository. GitHub > the site repository > Settings > Secrets and variables >
+     Actions > New repository secret. Name: RESEND_API_KEY. Value: the key. Save.
+
+  8. Make replies work. Cloudflare > Email > Email Routing > Create address: director, forwarding to
+     Vinod_Vokkarane@uml.edu. Cloudflare sends a verification message to that inbox; click the link.
+     The newsletter also sets Reply-To to the UML address, so replies reach a person either way.
+
+  9. Check recipients.txt in the repository. One address per line; lines starting with # are
+     ignored. Add students and anyone new. Recipients are sent as BCC.
+
+  10. Test. GitHub > Actions > Send newsletter > Run workflow. Month: blank (the previous month).
+      To: director. Run. The issue arrives in the UML inbox within a minute with [Preview] in the
+      subject. If it does not, open the run: the log names the failure (unverified domain, missing
+      key, or an empty recipients file are the three that happen).
+
+  B. The monthly cycle after that, with no one doing anything
+
+  Day 1   "Monthly newsletter" builds the previous month's issue from the site's records, commits it
+          to newsletters/, and mails a [Preview] to the director.
+  Day 4   "Send newsletter" mails the issue to everyone in recipients.txt and writes a line to
+          newsletters/sent.log.
+
+  The three days are the review window. If the preview is wrong (a misattributed paper, an award
+  that is not public yet), set a repository variable to stop the send: Settings > Secrets and
+  variables > Actions > Variables > New repository variable, name NEWSLETTER_HOLD, value true. The
+  scheduled send skips while that is set. Fix the data, rebuild, then send by hand (Actions > Send
+  newsletter > Run workflow, To: list) and delete the variable.
+
+  C. Things to know
+  - Resend's terms forbid cold email. A newsletter to colleagues and named collaborators is fine;
+    do not add addresses of people who have not worked with the center.
+  - The sender is director@smartcyberphysical.org; the display name is the center's. If the domain
+    ever changes with the center's name, the domain has to be verified in Resend again and FROM in
+    send_newsletter.py updated.
+  - Resend keeps 30 days of delivery logs (Resend > Emails). newsletters/sent.log in the repository
+    is the permanent record of what was sent when.
+  - Unsubscribe requests arrive as replies with the subject "Unsubscribe" (the link in the footer).
+    Remove the address from recipients.txt; nothing is automatic about that, by design.
 
 Monthly newsletter
   Every month the site can write an issue from its own records: new papers, new awards, milestones,
@@ -144,8 +200,11 @@ Monthly newsletter
   The site loads nothing from anyone else. Fonts (Fraunces, IBM Plex Sans, Barlow; SIL OFL) are served
   from fonts/, copied there on every build from the fonts/ folder beside build_site.py. The seven social
   icons are inline SVG (Font Awesome Free, CC BY 4.0; the attribution is in each page's first line).
-  The visitor counter is gone. For traffic, use the repository's Insights > Traffic page on GitHub,
-  which reports views and unique visitors for the last fourteen days without any script on the site.
+  One exception, by choice: the visitor counter in the footer (hits.sh). It is the only request the
+  site makes to another party. It counts once per visitor session, not per page. Remove the block
+  marked "visitor counter" in the script and the #visits span in the footer to drop it. For a second,
+  independent figure, GitHub's Insights > Traffic page reports views and unique visitors for the last
+  fourteen days; the "Traffic snapshot" workflow records those numbers monthly in traffic.json.
 
 Monthly newsletter" workflow runs on the first of each month for the previous month, commits
   the issue, and attaches the email and text versions to the run so you can download them. It can be
@@ -153,8 +212,11 @@ Monthly newsletter" workflow runs on the first of each month for the previous mo
   The site loads nothing from anyone else. Fonts (Fraunces, IBM Plex Sans, Barlow; SIL OFL) are served
   from fonts/, copied there on every build from the fonts/ folder beside build_site.py. The seven social
   icons are inline SVG (Font Awesome Free, CC BY 4.0; the attribution is in each page's first line).
-  The visitor counter is gone. For traffic, use the repository's Insights > Traffic page on GitHub,
-  which reports views and unique visitors for the last fourteen days without any script on the site.
+  One exception, by choice: the visitor counter in the footer (hits.sh). It is the only request the
+  site makes to another party. It counts once per visitor session, not per page. Remove the block
+  marked "visitor counter" in the script and the #visits span in the footer to drop it. For a second,
+  independent figure, GitHub's Insights > Traffic page reports views and unique visitors for the last
+  fourteen days; the "Traffic snapshot" workflow records those numbers monthly in traffic.json.
 
 Monthly newsletter > Run workflow > month YYYY-MM.
   Locally: python3 build_site.py index.html --newsletter=2026-08
@@ -184,8 +246,11 @@ Google Scholar figures
   The site loads nothing from anyone else. Fonts (Fraunces, IBM Plex Sans, Barlow; SIL OFL) are served
   from fonts/, copied there on every build from the fonts/ folder beside build_site.py. The seven social
   icons are inline SVG (Font Awesome Free, CC BY 4.0; the attribution is in each page's first line).
-  The visitor counter is gone. For traffic, use the repository's Insights > Traffic page on GitHub,
-  which reports views and unique visitors for the last fourteen days without any script on the site.
+  One exception, by choice: the visitor counter in the footer (hits.sh). It is the only request the
+  site makes to another party. It counts once per visitor session, not per page. Remove the block
+  marked "visitor counter" in the script and the #visits span in the footer to drop it. For a second,
+  independent figure, GitHub's Insights > Traffic page reports views and unique visitors for the last
+  fourteen days; the "Traffic snapshot" workflow records those numbers monthly in traffic.json.
 
 Sending the newsletter (director@smartcyberphysical.org)
   The site cannot send mail by itself and Cloudflare Email Routing only forwards, so sending goes
@@ -223,8 +288,11 @@ Monthly newsletter
   The site loads nothing from anyone else. Fonts (Fraunces, IBM Plex Sans, Barlow; SIL OFL) are served
   from fonts/, copied there on every build from the fonts/ folder beside build_site.py. The seven social
   icons are inline SVG (Font Awesome Free, CC BY 4.0; the attribution is in each page's first line).
-  The visitor counter is gone. For traffic, use the repository's Insights > Traffic page on GitHub,
-  which reports views and unique visitors for the last fourteen days without any script on the site.
+  One exception, by choice: the visitor counter in the footer (hits.sh). It is the only request the
+  site makes to another party. It counts once per visitor session, not per page. Remove the block
+  marked "visitor counter" in the script and the #visits span in the footer to drop it. For a second,
+  independent figure, GitHub's Insights > Traffic page reports views and unique visitors for the last
+  fourteen days; the "Traffic snapshot" workflow records those numbers monthly in traffic.json.
 
 Monthly newsletter" workflow runs on the first of each month for the previous month, commits
   the issue, and attaches the email and text versions to the run so you can download them. It can be
@@ -232,8 +300,11 @@ Monthly newsletter" workflow runs on the first of each month for the previous mo
   The site loads nothing from anyone else. Fonts (Fraunces, IBM Plex Sans, Barlow; SIL OFL) are served
   from fonts/, copied there on every build from the fonts/ folder beside build_site.py. The seven social
   icons are inline SVG (Font Awesome Free, CC BY 4.0; the attribution is in each page's first line).
-  The visitor counter is gone. For traffic, use the repository's Insights > Traffic page on GitHub,
-  which reports views and unique visitors for the last fourteen days without any script on the site.
+  One exception, by choice: the visitor counter in the footer (hits.sh). It is the only request the
+  site makes to another party. It counts once per visitor session, not per page. Remove the block
+  marked "visitor counter" in the script and the #visits span in the footer to drop it. For a second,
+  independent figure, GitHub's Insights > Traffic page reports views and unique visitors for the last
+  fourteen days; the "Traffic snapshot" workflow records those numbers monthly in traffic.json.
 
 Monthly newsletter > Run workflow > month YYYY-MM.
   Locally: python3 build_site.py index.html --newsletter=2026-08
@@ -278,8 +349,11 @@ Automatic updates
   The site loads nothing from anyone else. Fonts (Fraunces, IBM Plex Sans, Barlow; SIL OFL) are served
   from fonts/, copied there on every build from the fonts/ folder beside build_site.py. The seven social
   icons are inline SVG (Font Awesome Free, CC BY 4.0; the attribution is in each page's first line).
-  The visitor counter is gone. For traffic, use the repository's Insights > Traffic page on GitHub,
-  which reports views and unique visitors for the last fourteen days without any script on the site.
+  One exception, by choice: the visitor counter in the footer (hits.sh). It is the only request the
+  site makes to another party. It counts once per visitor session, not per page. Remove the block
+  marked "visitor counter" in the script and the #visits span in the footer to drop it. For a second,
+  independent figure, GitHub's Insights > Traffic page reports views and unique visitors for the last
+  fourteen days; the "Traffic snapshot" workflow records those numbers monthly in traffic.json.
 
 Sending the newsletter (director@smartcyberphysical.org)
   The site cannot send mail by itself and Cloudflare Email Routing only forwards, so sending goes
@@ -317,8 +391,11 @@ Monthly newsletter
   The site loads nothing from anyone else. Fonts (Fraunces, IBM Plex Sans, Barlow; SIL OFL) are served
   from fonts/, copied there on every build from the fonts/ folder beside build_site.py. The seven social
   icons are inline SVG (Font Awesome Free, CC BY 4.0; the attribution is in each page's first line).
-  The visitor counter is gone. For traffic, use the repository's Insights > Traffic page on GitHub,
-  which reports views and unique visitors for the last fourteen days without any script on the site.
+  One exception, by choice: the visitor counter in the footer (hits.sh). It is the only request the
+  site makes to another party. It counts once per visitor session, not per page. Remove the block
+  marked "visitor counter" in the script and the #visits span in the footer to drop it. For a second,
+  independent figure, GitHub's Insights > Traffic page reports views and unique visitors for the last
+  fourteen days; the "Traffic snapshot" workflow records those numbers monthly in traffic.json.
 
 Monthly newsletter" workflow runs on the first of each month for the previous month, commits
   the issue, and attaches the email and text versions to the run so you can download them. It can be
@@ -326,8 +403,11 @@ Monthly newsletter" workflow runs on the first of each month for the previous mo
   The site loads nothing from anyone else. Fonts (Fraunces, IBM Plex Sans, Barlow; SIL OFL) are served
   from fonts/, copied there on every build from the fonts/ folder beside build_site.py. The seven social
   icons are inline SVG (Font Awesome Free, CC BY 4.0; the attribution is in each page's first line).
-  The visitor counter is gone. For traffic, use the repository's Insights > Traffic page on GitHub,
-  which reports views and unique visitors for the last fourteen days without any script on the site.
+  One exception, by choice: the visitor counter in the footer (hits.sh). It is the only request the
+  site makes to another party. It counts once per visitor session, not per page. Remove the block
+  marked "visitor counter" in the script and the #visits span in the footer to drop it. For a second,
+  independent figure, GitHub's Insights > Traffic page reports views and unique visitors for the last
+  fourteen days; the "Traffic snapshot" workflow records those numbers monthly in traffic.json.
 
 Monthly newsletter > Run workflow > month YYYY-MM.
   Locally: python3 build_site.py index.html --newsletter=2026-08

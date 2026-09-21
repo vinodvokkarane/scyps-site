@@ -1,0 +1,20 @@
+CENTER FOR SMART CYBER-PHYSICAL SYSTEMS, UMASS LOWELL
+Newsletter, August 2026
+
+August 2026 at the center: 1 new award, 4 new papers, 3 in journals, 1 milestone.
+
+NEW AWARDS
+- Planning Federated AI-Ready Cyberinfrastructure for Advanced Microscopy and Imaging: A Teach-Explore-Design Framework for Community-Driven Infrastructure ($499K). National Science Foundation, OAC Category III (Award #2609490). PI Lewis Tseng; Co-PIs Hsien-Yuan Hsu (UMass Lowell) and Yu-Tsun Shao (University of Southern California)
+
+NEW PAPERS
+- A. Moeinaddini, T. Zhang, C. D’Agostino, Y. Xie, Y. Zou. Accounting for under-reporting in wildlife–vehicle collision hotspot identification using copulas and Bayesian model averaging. Accident Analysis & Prevention, vol. 233, art. 108583, Aug. 2026. https://doi.org/10.1016/j.aap.2026.108583
+- A. Rezaee, F. Arpanaei, R. McCann, L. Nadal, J. A. Hernández, V. M. Vokkarane. QoT-Aware Spectral and Spatial Scaling Trade-offs in Multi-Band Space Division Multiplexing over EONs [Invited]. IEEE/Optica Journal of Optical Communications and Networking, vol. 18, no. 8, pp. C160-C172, Aug. 2026. https://doi.org/10.1364/JOCN.596854
+- S. Xu, Y. Chen, Y. Xie, C. Wang. Quantifying the safety effects of left-turn signal control mode: A heterogeneous causal inference framework. Accident Analysis & Prevention, vol. 233, art. 108549, Aug. 2026. https://doi.org/10.1016/j.aap.2026.108549
+- L. Tseng. Timely Control for Quantum Cloud: Orchestrating Entanglement Under Decay. 3rd ACM SIGCOMM Workshop on Quantum Networks and Distributed Quantum Computing (QuNet), ACM SIGCOMM 2026, pp. 32-34, Aug. 2026. https://doi.org/10.1145/3833409.3833443
+
+MILESTONES
+- Lewis Tseng presents timely control for quantum clouds at the ACM SIGCOMM 2026 QuNet workshop.
+
+Read on the web: https://smartcyberphysical.org/newsletters/2026-08.html
+Site: https://smartcyberphysical.org/
+Unsubscribe: reply with the subject Unsubscribe.

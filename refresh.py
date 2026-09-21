@@ -161,27 +161,90 @@ def refresh_grants(known_ids, known_titles):
 
 # ------------------------------------------------------------------ Google Scholar
 def refresh_scholar(scholar_ids):
-    """Read 'Cited by' and h-index from each public profile. Scholar rate-limits automated readers; a
-    failed read keeps the previous value, so the site never shows a blank where a number used to be."""
+    """Current Google Scholar figures for every profile.
+
+    Why this is harder than it looks: Scholar has no API, and it refuses automated requests from
+    data-centre addresses. GitHub Actions runs on Azure, so a direct fetch from the weekly job is
+    usually answered with an "unusual traffic" page. Two routes, tried in order:
+
+      1. SerpApi, if a SERPAPI_KEY secret is set. It fetches Scholar on our behalf and returns the
+         figures as JSON; it works from GitHub reliably. The free plan covers this site if Scholar is
+         refreshed monthly (19 profiles a month), which is the default below.
+      2. A direct fetch of the public profile page, which works from ordinary networks and is kept as
+         the fallback.
+
+    Every figure is checked against the profile's own name before it is stored. Three IDs were once
+    shifted by one position, and a card showed another person's citations for months; this check
+    makes that impossible to repeat silently. A failed or mismatched read keeps the previous value.
+    """
     auto = load("scholar_auto.json", {})
-    changed = []
+    changed, problems = [], []
+    key = os.environ.get("SERPAPI_KEY", "").strip()
+    # Scholar moves slowly; a monthly refresh is plenty and keeps well inside a free SerpApi plan.
+    MIN_DAYS = int(os.environ.get("SCHOLAR_MIN_DAYS", "25"))
+
+    def surname(n):
+        n = re.sub(r"\s*\(.*?\)", "", n).strip()
+        return (n.split() or [""])[-1].lower()
+
     for name, sid in scholar_ids.items():
-        url = f"https://scholar.google.com/citations?user={sid}&hl=en"
+        prev = auto.get(name, {})
         try:
-            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36", "Accept-Language": "en-US,en;q=0.9"})
-            page = urllib.request.urlopen(req, timeout=60).read().decode("utf-8", "ignore")
-        except Exception as e:
-            print(f"scholar {name}: fetch failed ({e})"); continue
-        nums = re.findall(r'<td class="gsc_rsb_std">(\d[\d,]*)</td>', page)
-        if len(nums) < 4 or "unusual traffic" in page.lower():
-            print(f"scholar {name}: page blocked or changed"); continue
-        cites, h = int(nums[0].replace(",", "")), int(nums[2].replace(",", ""))
-        old = auto.get(name, {})
-        auto[name] = {"citations": cites, "h": h, "date": TODAY.isoformat()}
-        if old.get("citations") != cites or old.get("h") != h: changed.append(f"{name}: {cites:,} citations, h {h}")
-        time.sleep(4)
+            last = datetime.date.fromisoformat(prev.get("date", "1900-01-01"))
+            if (TODAY - last).days < MIN_DAYS:
+                continue
+        except ValueError:
+            pass
+
+        owner, cites, h, i10 = "", None, None, None
+        if key:
+            try:
+                url = ("https://serpapi.com/search.json?engine=google_scholar_author&hl=en&author_id="
+                       + urllib.parse.quote(sid) + "&api_key=" + urllib.parse.quote(key))
+                data = json.loads(urllib.request.urlopen(url, timeout=60).read().decode("utf-8"))
+                owner = (data.get("author") or {}).get("name", "")
+                table = (data.get("cited_by") or {}).get("table", [])
+                for row in table:
+                    if "citations" in row: cites = row["citations"].get("all")
+                    if "h_index" in row: h = row["h_index"].get("all")
+                    if "i10_index" in row: i10 = row["i10_index"].get("all")
+            except Exception as e:
+                problems.append(f"{name}: SerpApi failed ({e})")
+        if cites is None:
+            try:
+                req = urllib.request.Request(
+                    f"https://scholar.google.com/citations?user={sid}&hl=en",
+                    headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                                           "(KHTML, like Gecko) Chrome/124.0 Safari/537.36",
+                             "Accept-Language": "en-US,en;q=0.9"})
+                page = urllib.request.urlopen(req, timeout=60).read().decode("utf-8", "ignore")
+                if "unusual traffic" in page.lower():
+                    problems.append(f"{name}: Scholar blocked the request (set SERPAPI_KEY to fix)")
+                    continue
+                m = re.search(r'<div id="gsc_prf_in">([^<]+)</div>', page)
+                owner = m.group(1) if m else ""
+                nums = re.findall(r'<td class="gsc_rsb_std">(\d[\d,]*)</td>', page)
+                if len(nums) >= 6:
+                    cites, h, i10 = (int(nums[k].replace(",", "")) for k in (0, 2, 4))
+            except Exception as e:
+                problems.append(f"{name}: fetch failed ({e})")
+                continue
+            time.sleep(5)
+
+        if cites is None:
+            problems.append(f"{name}: no figures on the page")
+            continue
+        if surname(name) not in owner.lower():
+            problems.append(f"{name}: ID {sid} opens the profile of '{owner}'; rejected. Fix SCHOLAR in build_site.py")
+            continue
+        auto[name] = {"citations": int(cites), "h": int(h or 0), "i10": int(i10 or 0), "date": TODAY.isoformat()}
+        if prev.get("citations") != int(cites) or prev.get("h") != int(h or 0):
+            changed.append(f"{name}: {int(cites):,} citations, h {h}, i10 {i10}")
+
     save("scholar_auto.json", auto)
-    return changed
+    for p in problems:
+        print("scholar:", p)
+    return changed + [f"PROBLEM {p}" for p in problems]
 
 # ------------------------------------------------------------------ journal metrics (SCImago, open data)
 def refresh_journals(venues):

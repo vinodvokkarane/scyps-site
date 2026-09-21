@@ -101,6 +101,149 @@ Animations
       only runs the ones in view.
     - prefers-reduced-motion switches every animation off and draws the dashed paths solid.
 
+No third-party requests
+  The site loads nothing from anyone else. Fonts (Fraunces, IBM Plex Sans, Barlow; SIL OFL) are served
+  from fonts/, copied there on every build from the fonts/ folder beside build_site.py. The seven social
+  icons are inline SVG (Font Awesome Free, CC BY 4.0; the attribution is in each page's first line).
+  The visitor counter is gone. For traffic, use the repository's Insights > Traffic page on GitHub,
+  which reports views and unique visitors for the last fourteen days without any script on the site.
+
+Sending the newsletter (director@smartcyberphysical.org)
+  The site cannot send mail by itself and Cloudflare Email Routing only forwards, so sending goes
+  through Resend (resend.com), which lets the domain send authenticated mail. One-time setup:
+    1. Create a Resend account. Add the domain smartcyberphysical.org. Resend shows three DNS records
+       (a DKIM TXT record, and an MX plus SPF TXT on a "send." subdomain). Add them in Cloudflare's DNS
+       page, all DNS-only (grey cloud). Click Verify in Resend. Takes a few minutes.
+    2. In Resend, create an API key with sending permission. In the repository: Settings > Secrets
+       and variables > Actions > New repository secret: RESEND_API_KEY.
+    3. In Cloudflare, Email > Email Routing: create director@smartcyberphysical.org forwarding to the
+       director's UML inbox, so replies to the newsletter reach a person. (Replies also carry a
+       Reply-To of the UML address, so this is belt and braces.)
+    4. Put the recipients in recipients.txt, one per line. They are sent as BCC.
+
+  The monthly cycle, once the key is in place:
+    Day 1   "Monthly newsletter" builds the previous month's issue, commits it, and mails a preview
+            to the director with [Preview] in the subject.
+    Day 4   "Send newsletter" mails the issue to everyone in recipients.txt and logs the send in
+            newsletters/sent.log.
+  Three days is the review window. To stop a send: Settings > Secrets and variables > Actions >
+  Variables > NEWSLETTER_HOLD = true. The scheduled send skips while that is set; a manual run still
+  works. To send by hand: Actions > Send newsletter > Run workflow, choose the month and "director"
+  (preview) or "list".
+
+  The Resend free plan covers this comfortably (a few dozen messages a month against a limit in the
+  thousands); check the current limits when signing up.
+
+Monthly newsletter
+  Every month the site can write an issue from its own records: new papers, new awards, milestones,
+  and what starts next month, with a "work with us" close. Three files per issue land in newsletters/:
+    YYYY-MM.html        the web issue, in the site's design, listed at newsletters/index.html
+    YYYY-MM-email.html  the same issue laid out for email (tables, inline styles, hosted logo)
+    YYYY-MM.txt         plain text
+  The "No third-party requests
+  The site loads nothing from anyone else. Fonts (Fraunces, IBM Plex Sans, Barlow; SIL OFL) are served
+  from fonts/, copied there on every build from the fonts/ folder beside build_site.py. The seven social
+  icons are inline SVG (Font Awesome Free, CC BY 4.0; the attribution is in each page's first line).
+  The visitor counter is gone. For traffic, use the repository's Insights > Traffic page on GitHub,
+  which reports views and unique visitors for the last fourteen days without any script on the site.
+
+Monthly newsletter" workflow runs on the first of each month for the previous month, commits
+  the issue, and attaches the email and text versions to the run so you can download them. It can be
+  run by hand for any month: Actions > No third-party requests
+  The site loads nothing from anyone else. Fonts (Fraunces, IBM Plex Sans, Barlow; SIL OFL) are served
+  from fonts/, copied there on every build from the fonts/ folder beside build_site.py. The seven social
+  icons are inline SVG (Font Awesome Free, CC BY 4.0; the attribution is in each page's first line).
+  The visitor counter is gone. For traffic, use the repository's Insights > Traffic page on GitHub,
+  which reports views and unique visitors for the last fourteen days without any script on the site.
+
+Monthly newsletter > Run workflow > month YYYY-MM.
+  Locally: python3 build_site.py index.html --newsletter=2026-08
+
+  Sending is automated through Resend; see "Sending the newsletter" above. Read the preview that
+  arrives on the 1st; the opening line and the paper list are automatic, so a mis-attributed paper in
+  the site's records would reach subscribers on the 4th unless you set NEWSLETTER_HOLD.
+
+Google Scholar figures
+  Scholar has no API and blocks automated requests from data-centre addresses, which includes GitHub
+  Actions. That is why the weekly job kept the March figures: it reached Scholar, was refused, and
+  correctly kept the last good number rather than blanking it.
+
+  To make the weekly job work from GitHub, add a SerpApi key:
+    1. Create a free account at serpapi.com and copy the API key from the dashboard.
+    2. In the repository: Settings > Secrets and variables > Actions > New repository secret.
+       Name: SERPAPI_KEY   Value: the key.
+    3. Done. The refresh workflow passes it to refresh.py, which fetches through SerpApi.
+  Scholar is refreshed monthly (SCHOLAR_MIN_DAYS=25), about 20 lookups a month, inside the free plan.
+  Without the key the job still tries a direct fetch, which usually fails from GitHub.
+
+  Every figure is checked against the profile's own name before it is stored. If an ID in SCHOLAR
+  opens someone else's profile, the refresh log says so and the figure is rejected. Three IDs were once
+  shifted by one position and a card showed another person's citations; the check prevents a repeat.
+
+  The manual route still works: Actions > Update No third-party requests
+  The site loads nothing from anyone else. Fonts (Fraunces, IBM Plex Sans, Barlow; SIL OFL) are served
+  from fonts/, copied there on every build from the fonts/ folder beside build_site.py. The seven social
+  icons are inline SVG (Font Awesome Free, CC BY 4.0; the attribution is in each page's first line).
+  The visitor counter is gone. For traffic, use the repository's Insights > Traffic page on GitHub,
+  which reports views and unique visitors for the last fourteen days without any script on the site.
+
+Sending the newsletter (director@smartcyberphysical.org)
+  The site cannot send mail by itself and Cloudflare Email Routing only forwards, so sending goes
+  through Resend (resend.com), which lets the domain send authenticated mail. One-time setup:
+    1. Create a Resend account. Add the domain smartcyberphysical.org. Resend shows three DNS records
+       (a DKIM TXT record, and an MX plus SPF TXT on a "send." subdomain). Add them in Cloudflare's DNS
+       page, all DNS-only (grey cloud). Click Verify in Resend. Takes a few minutes.
+    2. In Resend, create an API key with sending permission. In the repository: Settings > Secrets
+       and variables > Actions > New repository secret: RESEND_API_KEY.
+    3. In Cloudflare, Email > Email Routing: create director@smartcyberphysical.org forwarding to the
+       director's UML inbox, so replies to the newsletter reach a person. (Replies also carry a
+       Reply-To of the UML address, so this is belt and braces.)
+    4. Put the recipients in recipients.txt, one per line. They are sent as BCC.
+
+  The monthly cycle, once the key is in place:
+    Day 1   "Monthly newsletter" builds the previous month's issue, commits it, and mails a preview
+            to the director with [Preview] in the subject.
+    Day 4   "Send newsletter" mails the issue to everyone in recipients.txt and logs the send in
+            newsletters/sent.log.
+  Three days is the review window. To stop a send: Settings > Secrets and variables > Actions >
+  Variables > NEWSLETTER_HOLD = true. The scheduled send skips while that is set; a manual run still
+  works. To send by hand: Actions > Send newsletter > Run workflow, choose the month and "director"
+  (preview) or "list".
+
+  The Resend free plan covers this comfortably (a few dozen messages a month against a limit in the
+  thousands); check the current limits when signing up.
+
+Monthly newsletter
+  Every month the site can write an issue from its own records: new papers, new awards, milestones,
+  and what starts next month, with a "work with us" close. Three files per issue land in newsletters/:
+    YYYY-MM.html        the web issue, in the site's design, listed at newsletters/index.html
+    YYYY-MM-email.html  the same issue laid out for email (tables, inline styles, hosted logo)
+    YYYY-MM.txt         plain text
+  The "No third-party requests
+  The site loads nothing from anyone else. Fonts (Fraunces, IBM Plex Sans, Barlow; SIL OFL) are served
+  from fonts/, copied there on every build from the fonts/ folder beside build_site.py. The seven social
+  icons are inline SVG (Font Awesome Free, CC BY 4.0; the attribution is in each page's first line).
+  The visitor counter is gone. For traffic, use the repository's Insights > Traffic page on GitHub,
+  which reports views and unique visitors for the last fourteen days without any script on the site.
+
+Monthly newsletter" workflow runs on the first of each month for the previous month, commits
+  the issue, and attaches the email and text versions to the run so you can download them. It can be
+  run by hand for any month: Actions > No third-party requests
+  The site loads nothing from anyone else. Fonts (Fraunces, IBM Plex Sans, Barlow; SIL OFL) are served
+  from fonts/, copied there on every build from the fonts/ folder beside build_site.py. The seven social
+  icons are inline SVG (Font Awesome Free, CC BY 4.0; the attribution is in each page's first line).
+  The visitor counter is gone. For traffic, use the repository's Insights > Traffic page on GitHub,
+  which reports views and unique visitors for the last fourteen days without any script on the site.
+
+Monthly newsletter > Run workflow > month YYYY-MM.
+  Locally: python3 build_site.py index.html --newsletter=2026-08
+
+  Sending is automated through Resend; see "Sending the newsletter" above. Read the preview that
+  arrives on the 1st; the opening line and the paper list are automatic, so a mis-attributed paper in
+  the site's records would reach subscribers on the 4th unless you set NEWSLETTER_HOLD.
+
+Google Scholar figures, paste "Name citations h i10".
+
 Automatic NSF awards
   The weekly pull keeps an NSF award only when a core member is its PI or a Co-PI, matching the
   application's rule that affiliated members' awards belong to their own programs. It skips any award
@@ -131,7 +274,69 @@ Automatic updates
                    route is to enter them yourself, either way below. Each figure is stored with the date it
                    was entered and the site prints that date.
 
-                   From the browser (no setup): repository > Actions > "Update Google Scholar figures" >
+                   From the browser (no setup): repository > Actions > "Update No third-party requests
+  The site loads nothing from anyone else. Fonts (Fraunces, IBM Plex Sans, Barlow; SIL OFL) are served
+  from fonts/, copied there on every build from the fonts/ folder beside build_site.py. The seven social
+  icons are inline SVG (Font Awesome Free, CC BY 4.0; the attribution is in each page's first line).
+  The visitor counter is gone. For traffic, use the repository's Insights > Traffic page on GitHub,
+  which reports views and unique visitors for the last fourteen days without any script on the site.
+
+Sending the newsletter (director@smartcyberphysical.org)
+  The site cannot send mail by itself and Cloudflare Email Routing only forwards, so sending goes
+  through Resend (resend.com), which lets the domain send authenticated mail. One-time setup:
+    1. Create a Resend account. Add the domain smartcyberphysical.org. Resend shows three DNS records
+       (a DKIM TXT record, and an MX plus SPF TXT on a "send." subdomain). Add them in Cloudflare's DNS
+       page, all DNS-only (grey cloud). Click Verify in Resend. Takes a few minutes.
+    2. In Resend, create an API key with sending permission. In the repository: Settings > Secrets
+       and variables > Actions > New repository secret: RESEND_API_KEY.
+    3. In Cloudflare, Email > Email Routing: create director@smartcyberphysical.org forwarding to the
+       director's UML inbox, so replies to the newsletter reach a person. (Replies also carry a
+       Reply-To of the UML address, so this is belt and braces.)
+    4. Put the recipients in recipients.txt, one per line. They are sent as BCC.
+
+  The monthly cycle, once the key is in place:
+    Day 1   "Monthly newsletter" builds the previous month's issue, commits it, and mails a preview
+            to the director with [Preview] in the subject.
+    Day 4   "Send newsletter" mails the issue to everyone in recipients.txt and logs the send in
+            newsletters/sent.log.
+  Three days is the review window. To stop a send: Settings > Secrets and variables > Actions >
+  Variables > NEWSLETTER_HOLD = true. The scheduled send skips while that is set; a manual run still
+  works. To send by hand: Actions > Send newsletter > Run workflow, choose the month and "director"
+  (preview) or "list".
+
+  The Resend free plan covers this comfortably (a few dozen messages a month against a limit in the
+  thousands); check the current limits when signing up.
+
+Monthly newsletter
+  Every month the site can write an issue from its own records: new papers, new awards, milestones,
+  and what starts next month, with a "work with us" close. Three files per issue land in newsletters/:
+    YYYY-MM.html        the web issue, in the site's design, listed at newsletters/index.html
+    YYYY-MM-email.html  the same issue laid out for email (tables, inline styles, hosted logo)
+    YYYY-MM.txt         plain text
+  The "No third-party requests
+  The site loads nothing from anyone else. Fonts (Fraunces, IBM Plex Sans, Barlow; SIL OFL) are served
+  from fonts/, copied there on every build from the fonts/ folder beside build_site.py. The seven social
+  icons are inline SVG (Font Awesome Free, CC BY 4.0; the attribution is in each page's first line).
+  The visitor counter is gone. For traffic, use the repository's Insights > Traffic page on GitHub,
+  which reports views and unique visitors for the last fourteen days without any script on the site.
+
+Monthly newsletter" workflow runs on the first of each month for the previous month, commits
+  the issue, and attaches the email and text versions to the run so you can download them. It can be
+  run by hand for any month: Actions > No third-party requests
+  The site loads nothing from anyone else. Fonts (Fraunces, IBM Plex Sans, Barlow; SIL OFL) are served
+  from fonts/, copied there on every build from the fonts/ folder beside build_site.py. The seven social
+  icons are inline SVG (Font Awesome Free, CC BY 4.0; the attribution is in each page's first line).
+  The visitor counter is gone. For traffic, use the repository's Insights > Traffic page on GitHub,
+  which reports views and unique visitors for the last fourteen days without any script on the site.
+
+Monthly newsletter > Run workflow > month YYYY-MM.
+  Locally: python3 build_site.py index.html --newsletter=2026-08
+
+  Sending is automated through Resend; see "Sending the newsletter" above. Read the preview that
+  arrives on the 1st; the opening line and the paper list are automatic, so a mis-attributed paper in
+  the site's records would reach subscribers on the 4th unless you set NEWSLETTER_HOLD.
+
+Google Scholar figures" >
                    Run workflow. Paste one line per person into the box, one per line:
                        Vokkarane 5990 37 96
                        Chigan 1450 18 24

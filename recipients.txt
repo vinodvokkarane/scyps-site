@@ -1,0 +1,33 @@
+# Newsletter recipients, one address per line. Lines starting with # are ignored.
+# Addresses are sent as BCC; nobody on the list sees the others.
+# Filled from the center site's roster in September 2026. Add students and partners below.
+
+# Core faculty
+Sukesh_Aghara@uml.edu
+Orlando_Arias@uml.edu
+yuzhang.lin@nyu.edu
+yan_luo@uml.edu
+SeungWoo_Son@uml.edu
+Lewis_Tseng@uml.edu
+Yuanchang_Xie@uml.edu
+
+# Affiliated faculty
+Alkim_Akyurtlu@uml.edu
+yu_cao@uml.edu
+Supriya_Chakrabarti@uml.edu
+Tricia_Chigan@uml.edu
+Nicholas_Evans@uml.edu
+Murat_Inalpolat@uml.edu
+Christopher_Niezrecki@uml.edu
+Sheree_Pagsuyoin@uml.edu
+oshadha_ranasingha@uml.edu
+Paul_Robinette@uml.edu
+Hengyong_Yu@uml.edu
+
+# External collaborators
+hdempsey@redhat.com
+martin.margala@louisiana.edu
+anurag.srivastava@mail.wvu.edu
+babu.jain@naviaenergy.com
+
+# Students (add addresses)

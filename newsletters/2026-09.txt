@@ -1,0 +1,21 @@
+CENTER FOR SMART CYBER-PHYSICAL SYSTEMS, UMASS LOWELL
+Newsletter, September 2026
+
+September 2026 at the center: 3 new papers, 3 in journals, 1 milestone.
+
+NEW PAPERS
+- C. Pozzi, C. Ng, S. Lyon, Y. Luo, C. Niezrecki, M. Inalpolat. A Novel Distributed Sensor Network to Assess Wind Turbine Blade Acoustics for Structural Health Monitoring. Wind Energy, vol. 29, no. 10, Sept. 2026. https://doi.org/10.1002/we.70148
+- A. Rezaee, R. McCann, V. M. Vokkarane. FUSION: A Unified Benchmarking Framework for Reproducible Optical Network Research. IEEE/Optica Journal of Optical Communications and Networking, vol. 18, no. 9, pp. D90-D105, Sept. 2026 (Special Issue on Benchmarking in Optical Networks). https://doi.org/10.1364/JOCN.593123
+- X. Yan, Y. Xie, Z. Bhuyan, B. Xiang, G. Wu, M. Shirazi. Merging behavior under varying work zone sign scenarios: A heterogeneity-based analysis. Accident Analysis & Prevention, vol. 235, art. 108614, Sept. 2026. https://doi.org/10.1016/j.aap.2026.108614
+
+MILESTONES
+- The FUSION benchmarking framework paper appears in JOCN's special issue on benchmarking in optical networks, followed in October by a QoT-aware grooming paper for multi-band SDM networks.
+
+COMING UP
+- SUMMIT: A Secure and Resilient Multi-site Smart Grid Testbed for Multidisciplinary Research and Training starts Oct 2026.
+- ARPO-Sensor Fusion: Autonomous Robotic Planning and Optimization for Intelligence Sensor Fusion starts Oct 2026.
+- BOND-AI: A Standardized Reliability Qualification Methodology for High-Temperature Printed Interfaces and Bond Joints, Enabled by Physics-Informed AI, on a 500 °C-Capable Alumina Platform starts Oct 2026, 12 months.
+
+Read on the web: https://smartcyberphysical.org/newsletters/2026-09.html
+Site: https://smartcyberphysical.org/
+Unsubscribe: reply with the subject Unsubscribe.

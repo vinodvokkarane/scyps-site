@@ -94,9 +94,8 @@ FACULTY = {
         {"name": "Heidi Dempsey", "tag": "External collaborator", "photo": "dempsey", "inst": None, "title": "Research Director of the Northeast US, Red Hat",
          "areas": "Grows research and open-source collaborations between Red Hat and academic partners; Red Hat partner for the center's Friendly Fedora and Podman work",
          "email": "hdempsey@redhat.com", "phone": "", "url": "https://www.bu.edu/hic/profile/heidi-dempsey/"},
-        {"name": "Babu Jain", "tag": "External collaborator", "photo": "jain", "inst": None, "title": "Founder and CEO, Navia Energy Inc.",
-         "areas": "AI-driven renewable energy systems; industry partner on the center's resilient smart grids project",
-         "email": "", "phone": "", "url": "https://www.linkedin.com/in/babu-jain-188470/"},
+        {"name": "Babu Jain", "tag": "External collaborator", "photo": "jain", "inst": None, "title": "Founder and CEO, Navia Energy Inc.", "areas": "AI-driven renewable energy systems; industry partner on the center's resilient smart grids project",
+         "email": "babu.jain@naviaenergy.com", "phone": "", "url": "https://www.linkedin.com/in/babu-jain-188470/"},
         {"name": "Martin Margala", "photo": "margala", "title": "Professor and Director, School of Computing and Informatics, University of Louisiana at Lafayette",
          "areas": "Reconfigurable and secure architectures, energy-efficient and reliable systems, design for testability",
          "note": "Co-founder and founding co-director of the center, October 2019 to July 2021, while Professor and Chair of Electrical and Computer Engineering at UMass Lowell.",
@@ -2018,8 +2017,10 @@ _known = {p["doi"].lower() for p in P if p.get("doi")}
 for e in _auto_pubs.get("entries", []):
     if e["doi"].lower() in _known or not set(e["faculty"]) & CENTER_AUTHORS: continue
     e = dict(e, faculty=[f for f in e["faculty"] if f in CENTER_AUTHORS])
+    _fac = _attributed(e)          # join-year and co-author rules apply to found papers too
+    if not _fac: continue
     P.append(dict(year=e["year"], authors=e["authors"], title=e["title"], venue=e["venue"], details=e["details"], doi=e["doi"],
-                  type=e["type"], faculty=e["faculty"], area=e.get("area", ""), url=None)); _known.add(e["doi"].lower())
+                  type=e["type"], faculty=_fac, area=e.get("area", ""), url=None)); _known.add(e["doi"].lower())
 
 MONTHS = {"Jan.":1,"Feb.":2,"Mar.":3,"Apr.":4,"May":5,"June":6,"July":7,"Aug.":8,"Sept.":9,"Oct.":10,"Nov.":11,"Dec.":12}
 def month_of(p):
@@ -2299,6 +2300,8 @@ section.tint{background:var(--bg-2)}
 .feature .meta{display:grid;grid-template-columns:1fr 1fr;gap:14px 24px;margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.15)}
 .feature .meta b{display:block;color:#fff;font-weight:600;font-size:15px}
 .feature .meta span{font-size:13.5px;color:var(--on-navy-3)}
+.meta a{color:#9FDCD6;text-decoration:underline;text-decoration-color:rgba(159,220,214,.5)}
+.meta a:hover{color:#fff}
 .feature .paradigms{padding:clamp(28px,4vw,52px) clamp(24px,3vw,40px) clamp(28px,4vw,52px) 0;border-left:1px solid rgba(255,255,255,.15);padding-left:clamp(24px,3vw,40px)}
 .feature .paradigms h4{color:#fff;font-size:18px;margin-bottom:12px}
 .feature .paradigms ol{margin:0 0 14px;padding-left:20px;color:var(--on-navy-2);font-size:14.5px;line-height:1.5}
@@ -2563,6 +2566,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .pub .doi a:hover{color:var(--signal-2)}
 .jm{display:inline-block;margin-left:10px;font-size:11.5px;font-weight:600;letter-spacing:.01em;padding:1px 8px;border-radius:999px;background:var(--journal-bg);color:var(--journal-fg);vertical-align:1px;white-space:nowrap}
 
+.ico{width:1em;height:1em;vertical-align:-.15em;display:inline-block}
 /* students and alumni */
 .stugrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .stugrid.two{grid-template-columns:repeat(2,1fr);margin-bottom:40px}
@@ -2676,8 +2680,6 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .uml-footer .menu a:hover{text-decoration:underline}
 .uml-footer .dir p{margin:0;font-size:14px;line-height:1.6;color:#C7D6E5}
 .uml-footer .dir a{color:#fff;text-decoration:underline;text-underline-offset:.15em}
-.uml-footer.no-fa .social a{width:auto;height:auto;border-radius:6px;padding:6px 10px;font-size:13px;border-color:rgba(255,255,255,.35)}
-.uml-footer.no-fa .social .label{position:static;width:auto;height:auto;clip:auto}
 .follow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:16px;font-size:14px}
 .follow .lbl{color:#C7D6E5;margin-right:2px}
 .follow a{display:inline-flex;align-items:center;gap:6px;color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:6px 12px}
@@ -2696,7 +2698,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .uml-footer .bottom ul{list-style:none;margin:0;padding:0;display:flex;justify-content:center;gap:10px 26px;flex-wrap:wrap}
 .uml-footer .bottom a{font-size:13.5px;text-decoration:underline;text-underline-offset:.18em;color:#fff}
 .uml-footer .fine{text-align:center;font-size:12.5px;color:#9DB3CC;margin:14px 0 0}
-.uml-footer .version{text-align:center;font-size:12px;color:#7F97B3;margin:6px 0 0;font-variant-numeric:tabular-nums}
+.uml-footer .version{text-align:center;font-size:12px;color:#A9BDD3;margin:6px 0 0;font-variant-numeric:tabular-nums}
 .uml-footer .vsep::before{content:"\00b7";margin:0 10px}
 .uml-footer #visits{display:inline-flex;vertical-align:-5px}
 .uml-footer #visits img{height:20px;display:block}
@@ -2968,8 +2970,9 @@ ALUMNI_PHD = [
     ("2014", "Thilo Schöndienst", "European Patent Office"),
 ]
 ALUMNI_POSTDOC = [("Arash Deylamsalehi", "Google"), ("Jeremy M. Plante", "Hitachi Vantara"), ("Juzi Zhao", "San José State University"), ("Arush Gadkar", "Kilpatrick Townsend & Stockton LLP"), ("Joan Triay", "DOCOMO Euro-Labs"), ("Balagangadhar Bathula", "AT&T")]
+FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "0.77"   # bump by 0.01 with every update to the site
+SITE_VERSION = "0.82"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -2981,10 +2984,10 @@ SOCIAL = {
 def social_links(cls="follow"):
     items = []
     if SOCIAL.get("linkedin"):
-        items.append(f'<a href="{esc(SOCIAL["linkedin"])}" title="SCyPS on LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i><span>LinkedIn</span></a>')
+        items.append(f'<a href="{esc(SOCIAL["linkedin"])}" title="SCyPS on LinkedIn"><svg class="ico" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg><span>LinkedIn</span></a>')
     if SOCIAL.get("x"):
-        items.append(f'<a href="{esc(SOCIAL["x"])}" title="SCyPS on X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i><span>X</span></a>')
-    items.append(f'<a href="{SITE_URL}feed.xml" title="News feed for readers and posting tools"><i class="fa-solid fa-rss" aria-hidden="true"></i><span>RSS</span></a>')
+        items.append(f'<a href="{esc(SOCIAL["x"])}" title="SCyPS on X"><svg class="ico" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg><span>X</span></a>')
+    items.append(f'<a href="{SITE_URL}feed.xml" title="News feed for readers and posting tools"><svg class="ico" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 64C0 46.3 14.3 32 32 32c229.8 0 416 186.2 416 416c0 17.7-14.3 32-32 32s-32-14.3-32-32C384 253.6 226.4 96 32 96C14.3 96 0 81.7 0 64zM0 416a64 64 0 1 1 128 0A64 64 0 1 1 0 416zM32 160c159.1 0 288 128.9 288 288c0 17.7-14.3 32-32 32s-32-14.3-32-32c0-123.7-100.3-224-224-224c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/></svg><span>RSS</span></a>')
     return f'<div class="{cls}"><span class="lbl">Follow SCyPS</span>{"".join(items)}</div>'
 
 def initials(name):
@@ -3408,8 +3411,10 @@ SCHOLAR = {
     "Chunxiao (Tricia) Chigan": "qoo1Tc0AAAAJ",
     # Sent Sept. 2026 in this order: Arias, Chakrabarti, Evans, Ranasingha. Swap the IDs here if any
     # profile opens on the wrong person.
-    "Orlando Arias": "LyL2zHwAAAAJ", "Supriya Chakrabarti": "N_0jmg8AAAAJ",
-    "Nicholas G. Evans": "-wPKnUAAAAAJ", "Oshadha Ranasingha": "_GtNYPMAAAAJ",
+    "Orlando Arias": "LyL2zHwAAAAJ",
+    # Corrected Sept. 2026 against each profile's own name: the IDs were shifted by one position.
+    # Supriya Chakrabarti has no Scholar profile found; the site links a Scholar search for him instead.
+    "Nicholas G. Evans": "N_0jmg8AAAAJ", "Oshadha Ranasingha": "-wPKnUAAAAAJ", "Anurag Srivastava": "_GtNYPMAAAAJ",
 }
 ORCID = {
     "Vinod M. Vokkarane": "0000-0001-9205-2120", "Orlando Arias": "0009-0002-3948-5773", "Lewis Tseng": "0000-0002-4717-4038", "Seung Woo Son": "0000-0001-8922-418X",
@@ -3705,7 +3710,7 @@ ART["nuclear"] = """<svg viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg
 </svg>"""
 ORG = """<svg viewBox="0 0 1200 660" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="orgTitle orgDesc" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round">
 <title id="orgTitle">How the center is organized</title>
-<desc id="orgDesc">A director and an executive committee, advised by an external advisory board and an industry partners council; seven research thrusts each with a named lead; and the laboratories and instruments the work runs on.</desc>
+<desc id="orgDesc">A director and an executive committee, advised by an external advisory board and an industry partners council; eight research thrusts each with a named lead; and the laboratories and instruments the work runs on.</desc>
 <rect width="1200" height="660" fill="#FFFFFF"/>
 
 <!-- director -->
@@ -4590,12 +4595,12 @@ def build():
       </div>
       <div class="col social">
         <ul>
-          <li><a href="https://www.tiktok.com/@umass_lowell" title="Find us on TikTok"><i class="fa-brands fa-tiktok" aria-hidden="true"></i><span class="label">Find us on TikTok</span></a></li>
-          <li><a href="https://www.facebook.com/umlowell" title="Find us on Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i><span class="label">Find us on Facebook</span></a></li>
-          <li><a href="https://twitter.com/umasslowell" title="Follow us on X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i><span class="label">Follow us on X</span></a></li>
-          <li><a href="https://www.youtube.com/user/umasslowell" title="Watch us on YouTube"><i class="fa-brands fa-youtube" aria-hidden="true"></i><span class="label">Watch us on YouTube</span></a></li>
-          <li><a href="https://instagram.com/umasslowell" title="Find us on Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i><span class="label">Find us on Instagram</span></a></li>
-          <li><a href="https://www.linkedin.com/school/university-of-massachusetts-lowell/" title="Find us on LinkedIn"><i class="fa-brands fa-linkedin" aria-hidden="true"></i><span class="label">Find us on LinkedIn</span></a></li>
+          <li><a href="https://www.tiktok.com/@umass_lowell" title="Find us on TikTok"><svg class="ico" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg><span class="label">Find us on TikTok</span></a></li>
+          <li><a href="https://www.facebook.com/umlowell" title="Find us on Facebook"><svg class="ico" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"/></svg><span class="label">Find us on Facebook</span></a></li>
+          <li><a href="https://twitter.com/umasslowell" title="Follow us on X"><svg class="ico" viewBox="0 0 512 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg><span class="label">Follow us on X</span></a></li>
+          <li><a href="https://www.youtube.com/user/umasslowell" title="Watch us on YouTube"><svg class="ico" viewBox="0 0 576 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg><span class="label">Watch us on YouTube</span></a></li>
+          <li><a href="https://instagram.com/umasslowell" title="Find us on Instagram"><svg class="ico" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg><span class="label">Find us on Instagram</span></a></li>
+          <li><a href="https://www.linkedin.com/school/university-of-massachusetts-lowell/" title="Find us on LinkedIn"><svg class="ico" viewBox="0 0 448 512" aria-hidden="true" focusable="false"><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg><span class="label">Find us on LinkedIn</span></a></li>
         </ul>
       </div>
     </div>
@@ -4611,7 +4616,7 @@ def build():
         <li><a href="https://www.uml.edu/service/Apps/Forms/Form?configId=ccde10d9-949a-4891-a810-ca2cfa641f6f&amp;tfa_26=https://www.uml.edu/research/scyps/" title="Website Feedback">Feedback</a></li>
       </ul>
       <p class="fine">Updated {datetime.date.today().strftime("%B %Y")}. Grant figures are total awards as reported by sponsors; the UMass Lowell share is noted where a project is a multi-institution consortium. Photographs courtesy of UMass Lowell.</p>
-      <p class="version">v {SITE_VERSION}<span class="vsep"></span><span id="visits" title="Visits counted since the counter went live"></span></p>
+      <p class="version">v {SITE_VERSION}</p>
     </div>
   </div>
 </footer>"""
@@ -4622,18 +4627,6 @@ def build():
   function paintToggle(){{ var d=effective()==='dark'; tb.setAttribute('aria-label', d?'Switch to light mode':'Switch to dark mode'); tb.querySelector('.lbl').textContent=d?'Light':'Dark'; }}
   tb.addEventListener('click',function(){{ var next=effective()==='dark'?'light':'dark'; root.setAttribute('data-theme',next); try{{localStorage.setItem('scyps-theme',next);}}catch(e){{}} paintToggle(); }});
   paintToggle();
-  // visitor counter: one count for the whole site, keyed on its own address. hits.sh needs a real
-  // host+path, so the badge is built at run time; on file:// there is nothing to count, so it hides.
-  (function(){{
-    var el=document.getElementById('visits'); if(!el) return;
-    if(!/^https?:$/.test(location.protocol)){{ el.style.display='none'; return; }}
-    var base=(location.host+location.pathname).replace(/[^/]*$/,'');   // one counter per site, not per page
-    var img=new Image();
-    img.alt='visitors'; img.height=20;
-    img.onerror=function(){{ el.style.display='none'; }};
-    img.src='https://hits.sh/'+base+'.svg?view=total&style=flat-square&label=visits&color=0A777F&labelColor=0E2036';
-    el.textContent=''; el.appendChild(img);
-  }})();
   // project filters: lead, thrust, and year, combined
   (function(){{
     var wrap=document.querySelector('.pfilters'); if(!wrap) return;
@@ -4681,12 +4674,11 @@ def build():
     document.querySelectorAll('svg').forEach(function(sv){{ if(sv.querySelector('.flow,.pulse,.spin,.grow,.trace,.fed-flow')) io.observe(sv); }});
   }}
   var tg=document.querySelector('.navtoggle'),menu=document.getElementById('menu');
-  window.addEventListener('load',function(){{ var ic=document.querySelector('.uml-footer .fa-brands'); if(ic){{ var ff=getComputedStyle(ic).fontFamily||''; if(ff.indexOf('Font Awesome')<0) document.querySelector('.uml-footer').classList.add('no-fa'); }} }});
   tg.addEventListener('click',function(){{var o=menu.classList.toggle('open');tg.setAttribute('aria-expanded',o);}});
   menu.addEventListener('click',function(e){{if(e.target.tagName==='A'){{menu.classList.remove('open');tg.setAttribute('aria-expanded','false');}}}});
 
   var links=[].slice.call(document.querySelectorAll('.links a'));
-  var secs=links.map(function(a){{return document.querySelector(a.getAttribute('href'));}}).filter(Boolean);
+  var secs=links.filter(function(a){{return /^#/.test(a.getAttribute('href'));}}).map(function(a){{return document.querySelector(a.getAttribute('href'));}}).filter(Boolean);
   if('IntersectionObserver' in window){{
     var io=new IntersectionObserver(function(es){{
       es.forEach(function(en){{ if(en.isIntersecting){{ links.forEach(function(a){{a.setAttribute('aria-current',a.getAttribute('href')==='#'+en.target.id);}}); }} }});
@@ -4739,10 +4731,20 @@ def build():
 <link rel="alternate" type="application/rss+xml" title="SCyPS news" href="{SITE_URL}feed.xml">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="{img_src("favicon")}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="preload" href="{FONT_ROOT}fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{FONT_ROOT}fonts/fraunces-latin-full-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{{font-family:"Fraunces";font-style:normal;font-weight:100 900;font-display:swap;src:url("{FONT_ROOT}fonts/fraunces-latin-full-normal.woff2") format("woff2")}}
+@font-face{{font-family:"Fraunces";font-style:italic;font-weight:100 900;font-display:swap;src:url("{FONT_ROOT}fonts/fraunces-latin-full-italic.woff2") format("woff2")}}
+@font-face{{font-family:"IBM Plex Sans";font-style:normal;font-weight:400;font-display:swap;src:url("{FONT_ROOT}fonts/ibm-plex-sans-latin-400-normal.woff2") format("woff2")}}
+@font-face{{font-family:"IBM Plex Sans";font-style:italic;font-weight:400;font-display:swap;src:url("{FONT_ROOT}fonts/ibm-plex-sans-latin-400-italic.woff2") format("woff2")}}
+@font-face{{font-family:"IBM Plex Sans";font-style:normal;font-weight:500;font-display:swap;src:url("{FONT_ROOT}fonts/ibm-plex-sans-latin-500-normal.woff2") format("woff2")}}
+@font-face{{font-family:"IBM Plex Sans";font-style:normal;font-weight:600;font-display:swap;src:url("{FONT_ROOT}fonts/ibm-plex-sans-latin-600-normal.woff2") format("woff2")}}
+@font-face{{font-family:"Barlow";font-style:normal;font-weight:400;font-display:swap;src:url("{FONT_ROOT}fonts/barlow-latin-400-normal.woff2") format("woff2")}}
+@font-face{{font-family:"Barlow";font-style:normal;font-weight:600;font-display:swap;src:url("{FONT_ROOT}fonts/barlow-latin-600-normal.woff2") format("woff2")}}
+@font-face{{font-family:"Barlow";font-style:normal;font-weight:700;font-display:swap;src:url("{FONT_ROOT}fonts/barlow-latin-700-normal.woff2") format("woff2")}}
+</style>
+
 <style>{CSS}</style>
 <script>(function(){{try{{var t=localStorage.getItem('scyps-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}}catch(e){{}}}})();</script>
 </head>
@@ -4766,7 +4768,7 @@ def build():
       <li><a href="#contact">Contact</a></li>
     </ul>
     <a class="gift" href="{GIFT_URL}">Make a Gift</a>
-    <button class="theme" id="theme" type="button" aria-label="Switch to dark mode"><svg class="moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg><span class="lbl">Dark</span></button>
+    <button class="theme" id="theme" type="button" aria-label="Switch to dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg><span class="lbl">Dark</span></button>
     <button class="navtoggle" aria-expanded="false" aria-controls="menu">Menu</button>
     </div>
   </div>
@@ -4808,7 +4810,7 @@ def build():
     </div>
     <h2 class="grouph orgh">How the center is organized</h2>
     <figure class="orgfig">{ORG}</figure>
-    <p class="orgnote">A director and an executive committee, advised by an external board and an industry council. Seven research thrusts, each with a named lead who is the point of contact for collaborators and sponsors in that area. Write to the director at <a href="mailto:Vinod_Vokkarane@uml.edu">Vinod_Vokkarane@uml.edu</a> or to the thrust lead directly.</p>
+    <p class="orgnote">A director and an executive committee, advised by an external board and an industry council. Eight research thrusts, each with a named lead who is the point of contact for collaborators and sponsors in that area. Write to the director at <a href="mailto:Vinod_Vokkarane@uml.edu">Vinod_Vokkarane@uml.edu</a> or to the thrust lead directly.</p>
 
     <div class="about-grid">
       <div>
@@ -4973,6 +4975,10 @@ def build():
     build_labs(footer_html, script_html)
     build_meta_files()
     build_feed()
+    build_assets()
+    _nl = next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--newsletter=")), None)
+    if _nl: build_newsletter(_nl, footer_html, script_html)
+    else: build_newsletter_index(footer_html, script_html)
     print(f"wrote {OUT} (v{SITE_VERSION}): {len(page)/1024:.0f} KB; {n_pubs} pubs ({n_journal} journal); {n_faculty} faculty; {len(IMG)} images embedded")
 
 
@@ -5134,10 +5140,20 @@ def page_shell(title, desc, body, footer_html, script_html, extra_css="", active
 <meta name="twitter:card" content="summary_large_image">
 {f'<link rel="canonical" href="{SITE_URL}{esc(canonical)}">' if canonical else ""}
 <link rel="alternate" type="application/rss+xml" title="SCyPS news" href="{SITE_URL}feed.xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="preload" href="{FONT_ROOT}fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{FONT_ROOT}fonts/fraunces-latin-full-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{{font-family:"Fraunces";font-style:normal;font-weight:100 900;font-display:swap;src:url("{FONT_ROOT}fonts/fraunces-latin-full-normal.woff2") format("woff2")}}
+@font-face{{font-family:"Fraunces";font-style:italic;font-weight:100 900;font-display:swap;src:url("{FONT_ROOT}fonts/fraunces-latin-full-italic.woff2") format("woff2")}}
+@font-face{{font-family:"IBM Plex Sans";font-style:normal;font-weight:400;font-display:swap;src:url("{FONT_ROOT}fonts/ibm-plex-sans-latin-400-normal.woff2") format("woff2")}}
+@font-face{{font-family:"IBM Plex Sans";font-style:italic;font-weight:400;font-display:swap;src:url("{FONT_ROOT}fonts/ibm-plex-sans-latin-400-italic.woff2") format("woff2")}}
+@font-face{{font-family:"IBM Plex Sans";font-style:normal;font-weight:500;font-display:swap;src:url("{FONT_ROOT}fonts/ibm-plex-sans-latin-500-normal.woff2") format("woff2")}}
+@font-face{{font-family:"IBM Plex Sans";font-style:normal;font-weight:600;font-display:swap;src:url("{FONT_ROOT}fonts/ibm-plex-sans-latin-600-normal.woff2") format("woff2")}}
+@font-face{{font-family:"Barlow";font-style:normal;font-weight:400;font-display:swap;src:url("{FONT_ROOT}fonts/barlow-latin-400-normal.woff2") format("woff2")}}
+@font-face{{font-family:"Barlow";font-style:normal;font-weight:600;font-display:swap;src:url("{FONT_ROOT}fonts/barlow-latin-600-normal.woff2") format("woff2")}}
+@font-face{{font-family:"Barlow";font-style:normal;font-weight:700;font-display:swap;src:url("{FONT_ROOT}fonts/barlow-latin-700-normal.woff2") format("woff2")}}
+</style>
+
 <link rel="icon" type="image/png" href="{img_src("favicon")}">
 <style>{CSS}
 .links a.on{{color:var(--ink);font-weight:600}}
@@ -5152,7 +5168,7 @@ def page_shell(title, desc, body, footer_html, script_html, extra_css="", active
     <div class="navright">
     <ul class="links" id="menu">{nav}</ul>
     <a class="gift" href="{GIFT_URL}">Make a Gift</a>
-    <button class="theme" id="theme" type="button" aria-label="Switch to dark mode"><svg class="moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg><span class="lbl">Dark</span></button>
+    <button class="theme" id="theme" type="button" aria-label="Switch to dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg><span class="lbl">Dark</span></button>
     <button class="navtoggle" aria-expanded="false" aria-controls="menu">Menu</button>
     </div>
   </div>
@@ -5210,7 +5226,7 @@ def build_newspage(footer_html, script_html):
         <h2 class="grouph">Latest papers</h2>
         <p class="sub">The {min(24, n_pubs)} most recent, updated with every build.</p>
         <ol>{stream_html()}</ol>
-        <p class="foot"><a href="publications.html">All {n_pubs} publications</a></p>
+        <p class="foot"><a href="publications.html">All {n_pubs} publications</a> &middot; <a href="newsletters/index.html">Monthly newsletter</a></p>
       </aside>
     </div>
   </div>
@@ -5384,10 +5400,224 @@ def build_labs(footer_html, script_html):
     print(f"wrote {out}: {len(page)/1024:.0f} KB; {len(LABS)} labs")
 
 
+
+# ---------------------------------------------------------------- monthly newsletter
+# One issue per calendar month, built from the publication, award, and news records. Three outputs:
+#   newsletters/YYYY-MM.html        the web issue, in the site's design, listed in newsletters/index.html
+#   newsletters/YYYY-MM-email.html  the same issue as an email (tables, inline styles, hosted images)
+#   newsletters/YYYY-MM.txt         plain text, for a mailing list that wants it
+# The workflow builds the previous month on the first of each month; --newsletter YYYY-MM builds any month.
+MONTH_FULL = ["", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+def _month_items(y, m):
+    """Everything dated in one calendar month: papers, awards that started, hand-written news."""
+    papers = [p for p in P if p["year"] == y and (month_of(p) or 0) == m]
+    papers.sort(key=lambda p: (p["type"] != "journal", p["title"].lower()))
+    awards = [pr for pr in PROJECTS if _period_start(pr.get("period", "")) == (y, m)]
+    notes = []
+    for when, text in NEWS:
+        mm = re.match(r"([A-Za-z]{3})[a-z]*\s+(\d{4})", when)
+        if not mm: continue
+        mon = {"Jan":1,"Feb":2,"Mar":3,"Apr":4,"May":5,"Jun":6,"Jul":7,"Aug":8,"Sep":9,"Oct":10,"Nov":11,"Dec":12}.get(mm.group(1))
+        if (int(mm.group(2)), mon) == (y, m): notes.append(text)
+    # drop a note that only restates an award listed above
+    awards_words = [set(re.findall(r"[A-Za-z]{4,}", pr["title"].lower())[:6]) for pr in awards]
+    notes = [t for t in notes if not any(len(set(re.findall(r"[A-Za-z]{4,}", t.lower())[:8]) & w) >= 3 for w in awards_words)]
+    upcoming = [pr for pr in PROJECTS if _period_start(pr.get("period", "")) == ((y + (m == 12)), (m % 12) + 1)]
+    return papers, awards, notes, upcoming
+
+def _author_html(authors, bold=True):
+    names = authors if isinstance(authors, list) else [a.strip() for a in authors.split(",")]
+    out = []
+    for a in names:
+        sur = a.split()[-1] if a.split() else a
+        out.append(f"<b>{esc(a)}</b>" if bold and sur in CENTER_AUTHORS else esc(a))
+    return ", ".join(out)
+
+def build_newsletter(ym, footer_html, script_html):
+    y, m = int(ym[:4]), int(ym[5:7])
+    label = f"{MONTH_FULL[m]} {y}"
+    root = os.path.dirname(os.path.abspath(OUT)) or "."
+    ndir = os.path.join(root, "newsletters"); os.makedirs(ndir, exist_ok=True)
+    papers, awards, notes, upcoming = _month_items(y, m)
+    journal = [p for p in papers if p["type"] == "journal"]
+    logo = f"{SITE_URL}logo-mark.png"
+
+    # ---- the opening line writes itself from the counts
+    bits = []
+    if awards: bits.append(f"{len(awards)} new award{'s' if len(awards) != 1 else ''}")
+    if papers: bits.append(f"{len(papers)} new paper{'s' if len(papers) != 1 else ''}" + (f", {len(journal)} in journals" if journal else ""))
+    if notes: bits.append(f"{len(notes)} milestone{'s' if len(notes) != 1 else ''}")
+    lead = (f"{label} at the center: " + ", ".join(bits) + ".") if bits else f"A quiet month at the center: no new papers or awards were recorded for {label}."
+
+    # ---- shared section content, rendered twice (web and email)
+    def paper_block(p, email=False):
+        doi = f'https://doi.org/{p["doi"]}' if p.get("doi") else ""
+        title = f'<a href="{esc(doi)}" style="color:#044978;text-decoration:none">{esc(p["title"])}</a>' if doi else esc(p["title"])
+        chip = "" if email else journal_chip(p["venue"]) if p["type"] == "journal" else ""
+        return (f'<p style="margin:0 0 14px;font-size:15px;line-height:1.45;color:#0E2036">{_author_html(p["authors"])}<br>'
+                f'{title}<br><span style="color:#5B6B82;font-size:13.5px"><i>{esc(p["venue"])}</i>, {esc(p["details"])}</span>{chip}</p>')
+    def award_block(pr):
+        amt = f' <span style="color:#5B6B82">({esc(pr["amount"])})</span>' if pr.get("amount") else ""
+        return (f'<p style="margin:0 0 14px;font-size:15px;line-height:1.45;color:#0E2036"><b>{esc(pr["title"])}</b>{amt}<br>'
+                f'<span style="color:#5B6B82;font-size:13.5px">{esc(pr["sponsor"])}. {esc(pr["team"])}</span><br>{esc(pr["desc"])}</p>')
+    def note_block(t):
+        return f'<p style="margin:0 0 14px;font-size:15px;line-height:1.45;color:#0E2036">{esc(t)}</p>'
+
+    def sections(email):
+        h = []
+        def head(t): h.append(f'<h2 style="font-family:Georgia,serif;font-size:20px;margin:26px 0 12px;color:#044978;border-bottom:1px solid #D5DCE5;padding-bottom:6px">{t}</h2>')
+        h.append(f'<p style="font-size:17px;line-height:1.5;color:#0E2036;margin:0 0 8px">{esc(lead)}</p>')
+        if awards:
+            head("New awards"); h += [award_block(pr) for pr in awards]
+        if papers:
+            head("New papers")
+            if journal:
+                h.append('<p style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#5B6B82;margin:0 0 8px">Journal articles</p>')
+                h += [paper_block(p, email) for p in journal]
+            conf = [p for p in papers if p["type"] != "journal"]
+            if conf:
+                h.append('<p style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#5B6B82;margin:10px 0 8px">Conference papers and chapters</p>')
+                h += [paper_block(p, email) for p in conf]
+        if notes:
+            head("Milestones"); h += [note_block(t) for t in notes]
+        if upcoming:
+            head("Coming up")
+            h += [f'<p style="margin:0 0 10px;font-size:15px;color:#0E2036"><b>{esc(pr["title"])}</b> starts {esc(pr["period"].split(" to ")[0].split(",")[0])}.</p>' for pr in upcoming]
+        head("Work with us")
+        h.append('<p style="margin:0 0 10px;font-size:15px;line-height:1.45;color:#0E2036">Doctoral applicants: write to the faculty member whose work matches yours and copy the director. '
+                 f'Companies and agencies: the <a href="{SITE_URL}labs.html" style="color:#044978">laboratories page</a> lists what each facility can offer, and the '
+                 f'<a href="{SITE_URL}summit.html" style="color:#044978">SUMMIT testbed</a> opens to collaborators in 2026 to 2027.</p>')
+        return "".join(h)
+
+    # ---- web issue
+    body = f"""<section>
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">Newsletters</a></p>
+    <div class="shead"><h1>{esc(label)}</h1><p>The center's monthly note: what its faculty and students published, what was funded, and what is next. Generated from the center's own records.</p></div>
+    <div class="nlbody">{sections(False)}</div>
+    <p class="nlfoot">This issue was generated on {esc(datetime.date.today().strftime("%B %d, %Y"))} from the same records that produce the <a href="../news.html">news page</a>. Subscribe to the <a href="../feed.xml">feed</a> to receive items as they appear.</p>
+  </div>
+</section>"""
+    css = ".nlbody{max-width:44em}.nlbody h2{font-size:20px}.crumb{font-size:14px;margin-bottom:12px}.nlfoot{font-size:13.5px;color:var(--ink-3);margin-top:34px;max-width:44em}"
+    global FONT_ROOT
+    FONT_ROOT = "../"
+    page = page_shell(f"{label} newsletter | SCyPS, UMass Lowell",
+                      f"The Center for Smart Cyber-Physical Systems monthly newsletter for {label}: new papers, awards, and milestones.",
+                      body, footer_html, script_html, extra_css=css, active="news", canonical=f"newsletters/{ym}.html")
+    page = page.replace('href="index.html', 'href="../index.html').replace('href="people.html', 'href="../people.html') \
+               .replace('href="students.html', 'href="../students.html').replace('href="alumni.html', 'href="../alumni.html') \
+               .replace('href="publications.html', 'href="../publications.html').replace('href="news.html', 'href="../news.html') \
+               .replace('href="labs.html', 'href="../labs.html').replace('href="summit.html', 'href="../summit.html') \
+               .replace('href="../index.html">Newsletters', 'href="index.html">Newsletters')
+    page = re.sub(r'href="research-(\w+)\.html', r'href="../research-\1.html', page)
+    page = new_tab_links(page)
+    open(os.path.join(ndir, f"{ym}.html"), "w", encoding="utf-8").write(page)
+    FONT_ROOT = ""
+
+    # ---- email issue: tables, inline styles, hosted logo, no scripts
+    email = f"""<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>SCyPS newsletter, {esc(label)}</title></head>
+<body style="margin:0;padding:0;background:#F3F7FA;font-family:Arial,Helvetica,sans-serif">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F3F7FA"><tr><td align="center" style="padding:24px 12px">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;background:#FFFFFF;border:1px solid #D5DCE5;border-radius:12px">
+  <tr><td style="background:#044978;border-radius:12px 12px 0 0;padding:22px 28px">
+    <table role="presentation" cellpadding="0" cellspacing="0"><tr>
+      <td style="padding-right:14px"><img src="{logo}" width="64" height="30" alt="" style="display:block"></td>
+      <td><div style="color:#FFFFFF;font-size:18px;font-weight:bold">Center for Smart Cyber-Physical Systems</div>
+          <div style="color:#C9DCEA;font-size:13px">University of Massachusetts Lowell &middot; {esc(label)}</div></td></tr></table>
+  </td></tr>
+  <tr><td style="padding:26px 28px 8px">{sections(True)}</td></tr>
+  <tr><td style="padding:18px 28px 26px;border-top:1px solid #D5DCE5;color:#5B6B82;font-size:12.5px;line-height:1.5">
+    You are receiving this because you asked to hear from the center. <a href="{SITE_URL}newsletters/{ym}.html" style="color:#044978">Read this issue on the web</a> &middot;
+    <a href="{SITE_URL}" style="color:#044978">smartcyberphysical.org</a> &middot; <a href="mailto:Vinod_Vokkarane@uml.edu?subject=Unsubscribe" style="color:#044978">Unsubscribe</a><br>
+    Center for Smart Cyber-Physical Systems, University of Massachusetts Lowell, 1 University Ave., Lowell, MA 01854.
+  </td></tr>
+</table></td></tr></table></body></html>"""
+    open(os.path.join(ndir, f"{ym}-email.html"), "w", encoding="utf-8").write(email)
+
+    # ---- plain text
+    txt = [f"CENTER FOR SMART CYBER-PHYSICAL SYSTEMS, UMASS LOWELL", f"Newsletter, {label}", "", lead, ""]
+    if awards:
+        txt.append("NEW AWARDS"); txt += [f"- {pr['title']} ({pr.get('amount','')}). {pr['sponsor']}. {pr['team']}" for pr in awards]; txt.append("")
+    if papers:
+        txt.append("NEW PAPERS")
+        for p in papers:
+            au = p["authors"] if isinstance(p["authors"], str) else ", ".join(p["authors"])
+            txt.append(f"- {au}. {p['title']}. {p['venue']}, {p['details']}." + (f" https://doi.org/{p['doi']}" if p.get("doi") else ""))
+        txt.append("")
+    if notes: txt.append("MILESTONES"); txt += [f"- {t}" for t in notes]; txt.append("")
+    if upcoming: txt.append("COMING UP"); txt += [f"- {pr['title']} starts {pr['period'].split(' to ')[0]}." for pr in upcoming]; txt.append("")
+    txt += [f"Read on the web: {SITE_URL}newsletters/{ym}.html", f"Site: {SITE_URL}", "Unsubscribe: reply with the subject Unsubscribe."]
+    open(os.path.join(ndir, f"{ym}.txt"), "w", encoding="utf-8").write("\n".join(txt) + "\n")
+
+    build_newsletter_index(footer_html, script_html)
+    print(f"wrote newsletters/{ym}.html, -email.html, .txt: {len(awards)} awards, {len(papers)} papers, {len(notes)} milestones")
+
+def build_newsletter_index(footer_html, script_html):
+    root = os.path.dirname(os.path.abspath(OUT)) or "."
+    ndir = os.path.join(root, "newsletters"); os.makedirs(ndir, exist_ok=True)
+    issues = sorted([f[:7] for f in os.listdir(ndir) if re.fullmatch(r"\d{4}-\d{2}\.html", f)], reverse=True)
+    rows = "".join(f'<li><a href="{ym}.html">{MONTH_FULL[int(ym[5:7])]} {ym[:4]}</a></li>' for ym in issues)
+    body = f"""<section>
+  <div class="wrap">
+    <div class="shead"><h1>Newsletters</h1><p>The center's monthly note, one issue per month, generated from its own records of papers, awards, and milestones. Each issue is also available as an email and as plain text.</p></div>
+    <ul class="nllist">{rows or "<li>No issues yet.</li>"}</ul>
+    <p class="nlfoot">Prefer items as they happen? Subscribe to the <a href="../feed.xml">news feed</a>.</p>
+  </div>
+</section>"""
+    css = ".nllist{list-style:none;margin:0;padding:0;max-width:30em}.nllist li{padding:12px 0;border-bottom:1px solid var(--line);font-size:17px}.nlfoot{font-size:13.5px;color:var(--ink-3);margin-top:30px}"
+    global FONT_ROOT
+    FONT_ROOT = "../"
+    page = page_shell("Newsletters | SCyPS, UMass Lowell", "Monthly newsletters from the Center for Smart Cyber-Physical Systems at UMass Lowell.",
+                      body, footer_html, script_html, extra_css=css, active="news", canonical="newsletters/index.html")
+    for nm in ("index", "people", "students", "alumni", "publications", "news", "labs", "summit"):
+        page = page.replace(f'href="{nm}.html', f'href="../{nm}.html')
+    page = re.sub(r'href="research-(\w+)\.html', r'href="../research-\1.html', page)
+    page = page.replace('href="../index.html#', 'href="../index.html#')
+    open(os.path.join(ndir, "index.html"), "w", encoding="utf-8").write(new_tab_links(page))
+    FONT_ROOT = ""
+
+def build_assets():
+    """Files other services fetch by URL: the logo for the email header and the social card. Also the
+    self-hosted fonts, copied from fonts/ beside build_site.py."""
+    root = os.path.dirname(os.path.abspath(OUT)) or "."
+    import shutil
+    src = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fonts")
+    if os.path.isdir(src):
+        os.makedirs(os.path.join(root, "fonts"), exist_ok=True)
+        for f in os.listdir(src):
+            if f.endswith(".woff2"): shutil.copy(os.path.join(src, f), os.path.join(root, "fonts", f))
+    import base64
+    open(os.path.join(root, "logo-mark.png"), "wb").write(base64.b64decode(IMG["logo_mark"]))
+    try:
+        from PIL import Image, ImageDraw, ImageFont
+        import io
+        card = Image.new("RGB", (1200, 630), (4, 73, 120))
+        mark = Image.open(io.BytesIO(base64.b64decode(IMG["logo_full"]))).convert("RGBA")
+        mark.thumbnail((520, 330))
+        panel = Image.new("RGB", (mark.width + 60, mark.height + 60), (255, 255, 255))
+        card.paste(panel, (80, 315 - panel.height // 2)); card.paste(mark, (110, 315 - mark.height // 2), mark)
+        d = ImageDraw.Draw(card)
+        try:
+            fb = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 44)
+            fr = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 26)
+        except Exception:
+            fb = fr = None
+        x = 80 + panel.width + 50
+        d.text((x, 235), "Center for Smart", font=fb, fill=(255, 255, 255))
+        d.text((x, 290), "Cyber-Physical Systems", font=fb, fill=(255, 255, 255))
+        d.text((x, 360), "University of Massachusetts Lowell", font=fr, fill=(201, 220, 234))
+        d.text((x, 400), "smartcyberphysical.org", font=fr, fill=(159, 220, 214))
+        card.save(os.path.join(root, "og-card.png"), optimize=True)
+    except Exception as e:
+        print("og-card.png not written:", e)
+    print("wrote logo-mark.png and og-card.png")
+
 def build_meta_files():
     """robots.txt and sitemap.xml, so the new pages are discoverable and the old single page is not the only entry."""
     root = os.path.dirname(os.path.abspath(OUT)) or "."
-    pages = ["", "people.html", "students.html", "alumni.html", "publications.html", "news.html", "summit.html", "labs.html"] + \
+    pages = ["", "people.html", "students.html", "alumni.html", "publications.html", "news.html", "summit.html", "labs.html", "newsletters/index.html"] + \
             [f"research-{k}.html" for k, _, _, _ in THRUSTS]
     today = datetime.date.today().isoformat()
     urls = "".join(f"  <url><loc>{SITE_URL}{p}</loc><lastmod>{today}</lastmod></url>\n" for p in pages)
@@ -5561,10 +5791,27 @@ def build_summit(footer_html, script_html):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SUMMIT: Secure and Resilient Multi-site Smart Grid Testbed | SCyPS, UMass Lowell</title>
 <meta name="description" content="SUMMIT is an NSF Major Research Instrumentation Track 2 award building a three-site federated smart grid cybersecurity testbed across UMass Lowell, NYU Tandon, and West Virginia University, delivered as hardware-in-the-loop Simulation-as-a-Service.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Barlow:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<meta property="og:title" content="SUMMIT: Secure and Resilient Multi-site Smart Grid Testbed">
+<meta property="og:description" content="A three-site federated smart grid cybersecurity testbed across UMass Lowell, NYU Tandon, and West Virginia University, funded by the NSF Major Research Instrumentation program.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="{SITE_URL}og-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="{SITE_URL}summit.html">
+<link rel="alternate" type="application/rss+xml" title="SCyPS news" href="{SITE_URL}feed.xml">
+<link rel="preload" href="{FONT_ROOT}fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{FONT_ROOT}fonts/fraunces-latin-full-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{{font-family:"Fraunces";font-style:normal;font-weight:100 900;font-display:swap;src:url("{FONT_ROOT}fonts/fraunces-latin-full-normal.woff2") format("woff2")}}
+@font-face{{font-family:"Fraunces";font-style:italic;font-weight:100 900;font-display:swap;src:url("{FONT_ROOT}fonts/fraunces-latin-full-italic.woff2") format("woff2")}}
+@font-face{{font-family:"IBM Plex Sans";font-style:normal;font-weight:400;font-display:swap;src:url("{FONT_ROOT}fonts/ibm-plex-sans-latin-400-normal.woff2") format("woff2")}}
+@font-face{{font-family:"IBM Plex Sans";font-style:italic;font-weight:400;font-display:swap;src:url("{FONT_ROOT}fonts/ibm-plex-sans-latin-400-italic.woff2") format("woff2")}}
+@font-face{{font-family:"IBM Plex Sans";font-style:normal;font-weight:500;font-display:swap;src:url("{FONT_ROOT}fonts/ibm-plex-sans-latin-500-normal.woff2") format("woff2")}}
+@font-face{{font-family:"IBM Plex Sans";font-style:normal;font-weight:600;font-display:swap;src:url("{FONT_ROOT}fonts/ibm-plex-sans-latin-600-normal.woff2") format("woff2")}}
+@font-face{{font-family:"Barlow";font-style:normal;font-weight:400;font-display:swap;src:url("{FONT_ROOT}fonts/barlow-latin-400-normal.woff2") format("woff2")}}
+@font-face{{font-family:"Barlow";font-style:normal;font-weight:600;font-display:swap;src:url("{FONT_ROOT}fonts/barlow-latin-600-normal.woff2") format("woff2")}}
+@font-face{{font-family:"Barlow";font-style:normal;font-weight:700;font-display:swap;src:url("{FONT_ROOT}fonts/barlow-latin-700-normal.woff2") format("woff2")}}
+</style>
+
 <link rel="icon" type="image/png" href="{img_src("favicon")}">
 <style>{CSS}
 .shero{{background:var(--navy);color:#fff;padding:clamp(48px,7vw,88px) 0 clamp(40px,6vw,64px)}}
@@ -5606,7 +5853,7 @@ def build_summit(footer_html, script_html):
     <div class="navright">
     <ul class="links" id="menu">{nav}</ul>
     <a class="gift" href="{GIFT_URL}">Make a Gift</a>
-    <button class="theme" id="theme" type="button" aria-label="Switch to dark mode"><svg class="moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg><span class="lbl">Dark</span></button>
+    <button class="theme" id="theme" type="button" aria-label="Switch to dark mode"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1"/></svg><span class="lbl">Dark</span></button>
     <button class="navtoggle" aria-expanded="false" aria-controls="menu">Menu</button>
     </div>
   </div>

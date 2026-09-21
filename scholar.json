@@ -1,51 +1,116 @@
 {
  "Alkim Akyurtlu": {
-  "citations": 1399,
-  "date": "2026-03-01"
+  "citations": 1499,
+  "h": 22,
+  "i10": 37,
+  "date": "2026-09-21"
  },
  "Christopher Niezrecki": {
-  "citations": 8481,
-  "date": "2026-03-01"
+  "citations": 8972,
+  "h": 45,
+  "i10": 125,
+  "date": "2026-09-21"
  },
  "Hengyong Yu": {
-  "citations": 13799,
-  "date": "2026-03-01"
+  "citations": 14248,
+  "h": 54,
+  "i10": 182,
+  "date": "2026-09-21"
  },
  "Lewis Tseng": {
-  "citations": 1832,
-  "date": "2026-03-01"
+  "citations": 1885,
+  "h": 18,
+  "i10": 32,
+  "date": "2026-09-21"
  },
  "Murat Inalpolat": {
-  "citations": 2335,
-  "date": "2026-03-01"
+  "citations": 2378,
+  "h": 19,
+  "i10": 27,
+  "date": "2026-09-21"
  },
  "Paul Robinette": {
-  "citations": 2299,
-  "date": "2026-03-01"
+  "citations": 2430,
+  "h": 22,
+  "i10": 39,
+  "date": "2026-09-21"
  },
  "Seung Woo Son": {
-  "citations": 1827,
-  "date": "2026-03-01"
+  "citations": 1817,
+  "h": 23,
+  "i10": 45,
+  "date": "2026-09-21"
  },
  "Vinod M. Vokkarane": {
-  "citations": 5863,
-  "date": "2026-03-01",
-  "h": 36
+  "citations": 5961,
+  "h": 35,
+  "i10": 88,
+  "date": "2026-09-21"
  },
  "Yan Luo": {
-  "citations": 4772,
-  "date": "2026-03-01"
+  "citations": 4798,
+  "h": 34,
+  "i10": 68,
+  "date": "2026-09-21"
  },
  "Yu Cao": {
-  "citations": 10284,
-  "date": "2026-03-01"
+  "citations": 10489,
+  "h": 46,
+  "i10": 98,
+  "date": "2026-09-21"
  },
  "Yuanchang Xie": {
-  "citations": 6358,
-  "date": "2026-03-01"
+  "citations": 7361,
+  "h": 38,
+  "i10": 74,
+  "date": "2026-09-21"
  },
  "Yuzhang Lin": {
-  "citations": 2178,
-  "date": "2026-03-01"
+  "citations": 2417,
+  "h": 26,
+  "i10": 49,
+  "date": "2026-09-21"
+ },
+ "Martin Margala": {
+  "citations": 5020,
+  "h": 34,
+  "i10": 100,
+  "date": "2026-09-21"
+ },
+ "Sukesh Aghara": {
+  "citations": 594,
+  "h": 12,
+  "i10": 15,
+  "date": "2026-09-21"
+ },
+ "Chunxiao (Tricia) Chigan": {
+  "citations": 1251,
+  "h": 22,
+  "i10": 35,
+  "date": "2026-09-21"
+ },
+ "Orlando Arias": {
+  "citations": 1992,
+  "h": 13,
+  "i10": 16,
+  "date": "2026-09-21"
+ },
+ "Nicholas G. Evans": {
+  "citations": 1842,
+  "h": 22,
+  "i10": 45,
+  "date": "2026-09-21"
+ },
+ "Oshadha Ranasingha": {
+  "citations": 428,
+  "h": 8,
+  "i10": 8,
+  "date": "2026-09-21"
+ },
+ "Anurag Srivastava": {
+  "citations": 14875,
+  "h": 59,
+  "i10": 251,
+  "date": "2026-09-21"
  }
 }

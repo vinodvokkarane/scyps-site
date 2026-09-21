@@ -1,0 +1,42 @@
+name: Send newsletter
+on:
+  schedule:
+    - cron: "0 14 4 * *"
+  workflow_dispatch:
+    inputs:
+      month:
+        description: "Month to send, YYYY-MM (blank for the previous month)"
+        required: false
+      to:
+        description: "director (preview only) or list"
+        required: true
+        default: "director"
+permissions:
+  contents: write
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    if: ${{ vars.NEWSLETTER_HOLD != 'true' || github.event_name == 'workflow_dispatch' }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Pick the month and the audience
+        id: m
+        run: |
+          if [ -n "${{ github.event.inputs.month }}" ]; then echo "ym=${{ github.event.inputs.month }}" >> "$GITHUB_OUTPUT";
+          else echo "ym=$(date -u -d 'last month' +%Y-%m)" >> "$GITHUB_OUTPUT"; fi
+          echo "to=${{ github.event.inputs.to || 'list' }}" >> "$GITHUB_OUTPUT"
+      - name: Send
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+        run: python3 send_newsletter.py ${{ steps.m.outputs.ym }} --to ${{ steps.m.outputs.to }}
+      - name: Record the send
+        if: ${{ steps.m.outputs.to == 'list' }}
+        run: |
+          git config user.name "scyps-bot"
+          git config user.email "Vinod_Vokkarane@uml.edu"
+          git add newsletters/sent.log
+          git commit -m "Newsletter ${{ steps.m.outputs.ym }} sent" || echo "nothing to commit"
+          git push

@@ -1,0 +1,27 @@
+name: Traffic snapshot
+on:
+  schedule:
+    - cron: "0 12 1,15 * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Record the traffic figures
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python3 traffic_snapshot.py
+      - name: Commit
+        run: |
+          git config user.name "scyps-bot"
+          git config user.email "Vinod_Vokkarane@uml.edu"
+          git add traffic.json
+          git commit -m "Traffic snapshot" || echo "nothing to commit"
+          git push

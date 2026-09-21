@@ -50,7 +50,10 @@ def send(to_addrs, subject, html, text, key, bcc=True):
     if bcc:
         body["bcc"] = to_addrs
     req = urllib.request.Request("https://api.resend.com/emails", data=json.dumps(body).encode("utf-8"),
-                                 headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"})
+                                 headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json",
+                                          "Accept": "application/json",
+                                          # Resend's API sits behind Cloudflare, which rejects Python's default identity (error 1010)
+                                          "User-Agent": "scyps-newsletter/1.0 (+https://smartcyberphysical.org)"})
     try:
         with urllib.request.urlopen(req, timeout=60) as r:
             return json.loads(r.read().decode("utf-8"))

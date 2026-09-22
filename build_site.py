@@ -152,7 +152,7 @@ PROJECTS = [
               "including networked microgrid formation and communication-aware state recovery."),
      "domain": "Energy"},
     {"tag": "Active", "sponsor": "U.S. Department of Energy",
-     "role": "PI (UMass Lowell)", "title": "CyberCARE: Northeast University Cybersecurity Center for Advanced and Resilient Energy Delivery",
+     "role": "PI (UMass Lowell)", "title": "CyberCARED: Northeast University Cybersecurity Center for Advanced and Resilient Energy Delivery",
      "amount": "$3.5M", "share": "consortium total; UMass Lowell share $150K", "period": "Oct 2024 to Sep 2027",
      "team": "UMass Lowell PI Vinod Vokkarane; multi-university consortium",
      "desc": "A regional university center on cybersecurity for energy delivery systems, combining research with workforce training.",
@@ -2842,7 +2842,7 @@ THRUST_DETAIL = {
             ("Joint power and communication restoration", "After a storm or an attack, the power layer and the communication layer have to come back together: a crew cannot reconfigure what it cannot observe. The group formulates restoration as one problem across both layers, including networked microgrid formation."),
             ("Experiments on real hardware", "Claims about resilience are only as good as the testbed behind them. SUMMIT couples RTDS real-time simulation with actual controllers, relays, and network equipment across three universities."),
         ],
-        "projects": ["SUMMIT", "Unified Post-Disaster Restoration", "CyberCARE", "Resilient Smart Grids", "Software-Defined Cyber-Physical Microgrids"],
+        "projects": ["SUMMIT", "Unified Post-Disaster Restoration", "CyberCARED", "Resilient Smart Grids", "Software-Defined Cyber-Physical Microgrids"],
     },
     "ai": {
         "question": "When an AI system can move something physical, what keeps it inside the envelope?",
@@ -2853,7 +2853,7 @@ THRUST_DETAIL = {
             ("Physics-grounded models", "A model that ignores power flow or optical impairment will confidently propose something impossible. The group grounds learned models in the physical constraints of the system."),
             ("Safety enforcement for agentic systems", "As AI agents take actions rather than make predictions, the question becomes what the agent is permitted to do. The group works on enforcement layers that check actions against safety properties before they reach infrastructure."),
         ],
-        "projects": ["ARPO-Sensor Fusion", "ARPO", "CyberCARE"],
+        "projects": ["ARPO-Sensor Fusion", "ARPO", "CyberCARED"],
     },
     "fiber": {
         "question": "How do we get an order of magnitude more capacity out of deployed fiber without giving up service quality?",
@@ -2982,7 +2982,7 @@ ALUMNI_PHD = [
 ALUMNI_POSTDOC = [("Arash Deylamsalehi", "Google"), ("Jeremy M. Plante", "Hitachi Vantara"), ("Juzi Zhao", "San José State University"), ("Arush Gadkar", "Kilpatrick Townsend & Stockton LLP"), ("Joan Triay", "DOCOMO Euro-Labs"), ("Balagangadhar Bathula", "AT&T")]
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "0.90"   # bump by 0.01 with every update to the site
+SITE_VERSION = "0.91"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3034,7 +3034,7 @@ def alum_feature(a):
 SPONSORS = {
     "Federal sponsors": [
         {"key": "nsf", "name": "U.S. National Science Foundation", "url": "https://www.nsf.gov", "note": "SUMMIT (MRI Track 2, Award #2511635) and CAREER awards"},
-        {"key": "doe", "name": "U.S. Department of Energy", "url": "https://www.energy.gov", "note": "CyberCARE cybersecurity center for energy delivery"},
+        {"key": "doe", "name": "U.S. Department of Energy", "url": "https://www.energy.gov", "note": "CyberCARED cybersecurity center for energy delivery"},
         {"key": "onr", "name": "Office of Naval Research", "url": "https://www.onr.navy.mil", "note": "Department of the Navy. Post-disaster restoration of cyber-physical distribution grids"},
         {"key": "army", "name": "U.S. Army", "url": "https://www.army.mil", "note": "ARPO autonomous robotic planning and optimization"},
         {"key": "airforce", "name": "U.S. Air Force", "url": "https://www.af.mil", "note": "Command and control display equipment requirements"},

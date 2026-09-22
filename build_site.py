@@ -2574,6 +2574,19 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .capcta{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin-top:16px!important}
 .capmail{font-size:15px;font-weight:600}
 .capfine{font-size:13px;color:var(--ink-3);margin-top:8px!important}
+/* alumni profiles */
+.alnote{font-size:14px;color:var(--ink-3);margin:-6px 0 18px;max-width:60em}
+.alumgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:18px;margin-bottom:38px}
+.alum{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px}
+.alumhead{display:flex;gap:16px;align-items:flex-start;margin-bottom:10px}
+.alumpic{width:80px;height:80px;border-radius:50%;object-fit:cover;flex:none;background:var(--bg-2)}
+.alumpic.mono{display:flex;align-items:center;justify-content:center;font-family:"Fraunces",Georgia,serif;font-weight:600;font-size:22px;color:var(--brand-blue)}
+.alum h3{font-size:18px;margin:2px 0 4px}
+.aldeg{font-size:13.5px;color:var(--ink-3);margin:0 0 4px}.alinst{color:var(--ink-2)}
+.alrole{font-size:14.5px;margin:0}.alrole b{color:var(--ink)}
+.alpath{font-size:13.5px;color:var(--ink-3);margin:0 0 6px}
+.alfocus{font-size:14px;line-height:1.5;margin:0 0 10px}
+.alum .pmeta{margin:0 0 6px}.alum .gsline{font-size:13px;color:var(--ink-3);margin:0}
 /* students and alumni */
 .stugrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .stugrid.two{grid-template-columns:repeat(2,1fr);margin-bottom:40px}
@@ -2962,11 +2975,111 @@ STUDENTS = [
     {"name": "Ayush Pandey", "photo": "ayush", "status": "Ph.D. Student, joined 2024", "figsvg": "ayush", "figcap": "AI-based intrusion detection protecting a transmission grid's control loop", "focus": "Smart grid cybersecurity and AI for cyber-physical systems.", "linkedin": ""},
     {"name": "Suvhasis Mukhopadhyay", "photo": "suvhasis", "figsvg": "suvhasis", "figcap": "Impairment-aware allocation of spectrum, modulation, and power on a flex-grid link", "status": "Ph.D. Student, joined 2024", "focus": "Impact of individual physical layer impairments on elastic optical network performance; impairment-aware routing, spectrum, modulation, and power allocation; dynamic optical networking.", "linkedin": ""},
 ]
+
+# ---------------------------------------------------------------- alumni profiles
+# Verified Sept. 2026 against the sources named in each entry. "inst" is the degree institution when
+# it is not UMass Lowell; "era" marks postdocs held at UMass Dartmouth before the 2013 move.
+# Portraits: drop a file named portraits/<slug>.jpg beside build_site.py and it is embedded on the
+# next build; the slug is the lowercase surname (islam.jpg, edib.jpg, cui.jpg ...). No portrait,
+# no photo: nothing is scraped from LinkedIn or Scholar.
+ALUMNI_PROFILES = {
+    "Md Zahidul Islam": {"slug": "islam", "degree": "Ph.D. 2025", "inst": "New York University",
+        "path": "Began doctoral research at UMass Lowell with Yuzhang Lin and Vokkarane; completed the degree at NYU after his advisor moved",
+        "role": "Assistant Professor, School of Electrical, Computer, and Biomedical Engineering", "org": "Southern Illinois University Carbondale",
+        "focus": "Smart grid monitoring, cyber-physical resilience, and AI for power systems; NEC Labs America and NREL collaborations",
+        "linkedin": "https://www.linkedin.com/in/zahidul-nyu25/", "scholar": "i_ebAeUAAAAJ", "web": "https://zahidul-ece.github.io/",
+        "src": "SIU faculty page, personal site, LinkedIn, Scholar"},
+    "Shamsun Nahar Edib": {"slug": "edib", "degree": "Ph.D. 2024", "inst": "",
+        "path": "Primary advisor Yuzhang Lin; Best Ph.D. Student Award",
+        "role": "Assistant Professor, Electrical and Computer Engineering", "org": "Montana State University",
+        "focus": "Cyber-physical resilience, smart grid monitoring, and power system restoration",
+        "linkedin": "https://www.linkedin.com/in/shamsun-nahar-edib/", "scholar": "xgysIYIAAAAJ", "web": "https://shamsun-edib.github.io/",
+        "src": "Montana State catalog, personal site, LinkedIn, Scholar"},
+    "Travis Kessler": {"slug": "kessler", "degree": "Ph.D. 2023", "inst": "",
+        "path": "Primary advisor Hunter Mack; Best Ph.D. Student Award",
+        "role": "Research Engineer", "org": "AIMdyn, Inc.",
+        "focus": "Applied machine learning for fuel property prediction, MLOps, and goal-directed agents in simulation",
+        "linkedin": "https://www.linkedin.com/in/traviskessler/", "scholar": "", "web": "https://www.traviskessler.com/",
+        "src": "AIMdyn LinkedIn post, personal site, ResearchGate"},
+    "Yue Wang": {"slug": "wang", "degree": "Ph.D. 2022", "inst": "",
+        "path": "Dissertation on dynamic traffic scheduling with spectral and spatial flexibility in SDM elastic optical networks; advisor Vokkarane",
+        "role": "Software Engineer", "org": "KLA",
+        "focus": "Elastic optical networks and space-division multiplexing",
+        "linkedin": "", "scholar": "fu07D-gAAAAJ", "web": "",
+        "src": "UMass Lowell defense notice, Scholar; LinkedIn profile not confirmed (two candidates)"},
+    "Pegah Afsharlar": {"slug": "afsharlar", "degree": "Ph.D. 2020", "inst": "",
+        "path": "Advisor Vokkarane; Best Paper Award, IEEE ANTS 2016; Top Paper Award, ONDM 2016",
+        "role": "Data Scientist", "org": "",
+        "focus": "Delayed spectrum allocation and anycast advance reservation in elastic optical networks",
+        "linkedin": "", "scholar": "", "web": "",
+        "src": "Francis College of Engineering Solutions magazine, director's site; current employer not confirmed"},
+    "Yan Cui": {"slug": "cui", "degree": "Ph.D. 2019", "inst": "",
+        "path": "Advisor Vokkarane; taught at San José State University 2019 to 2022",
+        "role": "Lecturer, Computer Science and Engineering", "org": "Santa Clara University",
+        "focus": "Architectures and algorithms for ultra-high-speed networks; machine learning in networking",
+        "linkedin": "https://www.linkedin.com/in/yan-cui-04862278/", "scholar": "nAVlj58AAAAJ", "web": "https://www.scu.edu/engineering/faculty/cui-yan/",
+        "src": "Santa Clara University faculty page and bulletin, LinkedIn, Scholar"},
+    "Dylan A. P. Davis": {"slug": "davis", "degree": "Ph.D. 2018", "inst": "",
+        "path": "Advisor Vokkarane; Best Paper Award, ONDM 2015",
+        "role": "Senior Software Engineer", "org": "Hitachi Vantara",
+        "focus": "Survivable multicast and manycast routing; path computation and resource reservation for research networks",
+        "linkedin": "https://www.linkedin.com/in/dylanapdavis/", "scholar": "HL3j-7sAAAAJ", "web": "",
+        "src": "LinkedIn, ZoomInfo, Scholar, director's CV"},
+    "Arash Deylamsalehi": {"slug": "deylamsalehi", "degree": "Ph.D. 2017", "inst": "",
+        "path": "Advisor Vokkarane; postdoctoral researcher in the group afterward",
+        "role": "Quantitative Network Analyst", "org": "Google",
+        "focus": "Energy cost and emissions-aware routing in optical networks; machine learning for network operation",
+        "linkedin": "https://www.linkedin.com/in/arashdeylam/", "scholar": "VobjklIAAAAJ", "web": "",
+        "src": "LinkedIn, Scholar, director's CV"},
+    "Jeremy M. Plante": {"slug": "plante", "degree": "Ph.D. 2017", "inst": "",
+        "path": "Advisor Vokkarane; Best ECE Graduate Student Award 2015 to 2016; postdoctoral researcher in the group afterward",
+        "role": "Software engineer", "org": "Hitachi Vantara",
+        "focus": "Sliding scheduled lightpaths and parallel circuit provisioning in ESnet's OSCARS",
+        "linkedin": "", "scholar": "oYnitXIAAAAJ", "web": "",
+        "src": "Director's CV and site, Scholar; LinkedIn not located"},
+    "Amir Ehsani Zonouz": {"slug": "zonouz", "degree": "Ph.D. 2015", "inst": "University of Massachusetts Dartmouth",
+        "path": "Advisors Liudong Xing and Vokkarane, before the director moved to Lowell",
+        "role": "AI and IoT", "org": "Accenture; founder and former CEO, airXsys",
+        "focus": "Reliability of wireless sensor networks; deep learning and optimization",
+        "linkedin": "https://www.linkedin.com/in/amir-ehsani-zonouz-a9724332/", "scholar": "WUi_j6AAAAAJ", "web": "",
+        "src": "LinkedIn, Scholar, Mathematics Genealogy Project"},
+    "Thilo Schöndienst": {"slug": "schoendienst", "degree": "Ph.D. 2014", "inst": "",
+        "path": "Advisor Vokkarane, 2011 to 2014",
+        "role": "Patent examiner", "org": "European Patent Office",
+        "focus": "Renewable-energy-aware grooming and power-source-aware routing in optical networks",
+        "linkedin": "", "scholar": "7X5H3_YAAAAJ", "web": "",
+        "src": "Director's CV, Scholar (verified email at epo.org); title inferred from employer"},
+    "Juzi Zhao": {"slug": "zhao", "degree": "Postdoctoral researcher 2015 to 2017", "inst": "",
+        "path": "Ph.D. George Washington University 2015; Chalmers University before Lowell",
+        "role": "Assistant Professor, Electrical Engineering", "org": "San José State University",
+        "focus": "Optical networks, data center networks, and software-defined networking; NSF NeTS award as PI",
+        "linkedin": "https://www.linkedin.com/in/juzi-zhao-ba733776/", "scholar": "9RfENp0AAAAJ", "web": "https://www.sjsu.edu/people/juzi.zhao/",
+        "src": "SJSU faculty page and CV, LinkedIn, Scholar"},
+    "Arush Gadkar": {"slug": "gadkar", "degree": "Postdoctoral researcher", "inst": "", "era": "at UMass Dartmouth",
+        "path": "Ph.D. George Washington University",
+        "role": "Registered Patent Agent", "org": "Kilpatrick Townsend & Stockton LLP",
+        "focus": "Anycast advance reservation and multicast overlays in optical networks; now patent prosecution in software, hardware, and quantum computing",
+        "linkedin": "https://www.linkedin.com/in/arush-gadkar-3565636/", "scholar": "KOQPJJAAAAAJ", "web": "https://ktslaw.com/en/People/G/GadkarArush",
+        "src": "Kilpatrick Townsend profile, LinkedIn, Scholar"},
+    "Joan Triay": {"slug": "triay", "degree": "Postdoctoral researcher 2010 to 2011", "inst": "", "era": "at UMass Dartmouth",
+        "path": "Fulbright Scholar from Spain; advance reservation in WDM networks",
+        "role": "Specialist", "org": "DOCOMO Euro-Labs",
+        "focus": "Multi-access edge computing and network standardization",
+        "linkedin": "", "scholar": "", "web": "",
+        "src": "Director's CV; DOCOMO Euro-Labs role last seen in a 2018 conference listing"},
+    "Balagangadhar Bathula": {"slug": "bathula", "degree": "Postdoctoral researcher 2007 to 2010", "inst": "", "era": "at UMass Dartmouth",
+        "path": "Impairment-aware optical networks",
+        "role": "Network Cloud and Infrastructure", "org": "AT&T",
+        "focus": "Optical networking and network infrastructure",
+        "linkedin": "", "scholar": "1c-DqjsAAAAJ", "web": "",
+        "src": "Scholar (verified email at att.com), director's CV"},
+}
+
 ALUMNI_FEATURED = [
-    {"name": "Md Zahidul Islam", "photo": "zahidul", "degree": "Ph.D. 2025", "role": "Assistant Professor", "org": "Southern Illinois University Carbondale", "focus": "Resilient PMU networking and cyber-physical restoration of power distribution systems. Primary advisor Yuzhang Lin.", "linkedin": ""},
+    {"name": "Md Zahidul Islam", "photo": "zahidul", "degree": "Ph.D. 2025, NYU (began at UMass Lowell)", "role": "Assistant Professor", "org": "Southern Illinois University Carbondale", "focus": "Resilient PMU networking and cyber-physical restoration of power distribution systems. Primary advisor Yuzhang Lin.", "linkedin": ""},
     {"name": "Shamsun Nahar Edib", "photo": "shamsun", "degree": "Ph.D. 2024", "role": "Assistant Professor", "org": "Montana State University", "focus": "Cross-domain resilient sensing and communication architectures for power grid monitoring. Primary advisor Yuzhang Lin. Best Ph.D. Student Award.", "linkedin": ""},
 ]
-ALUMNI_PHD = [
+ALUMNI_PHD_OLD = [
     ("2025", "Md Zahidul Islam", "Assistant Professor, Southern Illinois University Carbondale; primary advisor Yuzhang Lin"),
     ("2024", "Shamsun Nahar Edib", "Assistant Professor, Montana State University; primary advisor Yuzhang Lin; Best Ph.D. Student Award"),
     ("2023", "Travis Kessler", "AIMdyn, Inc.; primary advisor Hunter Mack; Best Ph.D. Student Award"),
@@ -2980,9 +3093,11 @@ ALUMNI_PHD = [
     ("2014", "Thilo Schöndienst", "European Patent Office"),
 ]
 ALUMNI_POSTDOC = [("Arash Deylamsalehi", "Google"), ("Jeremy M. Plante", "Hitachi Vantara"), ("Juzi Zhao", "San José State University"), ("Arush Gadkar", "Kilpatrick Townsend & Stockton LLP"), ("Joan Triay", "DOCOMO Euro-Labs"), ("Balagangadhar Bathula", "AT&T")]
+ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items() if p["degree"].startswith("Ph.D.")]
+ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "0.91"   # bump by 0.01 with every update to the site
+SITE_VERSION = "0.92"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3435,7 +3550,8 @@ SCHOLAR = {
     "Orlando Arias": "LyL2zHwAAAAJ",
     # Corrected Sept. 2026 against each profile's own name: the IDs were shifted by one position.
     # Supriya Chakrabarti has no Scholar profile found; the site links a Scholar search for him instead.
-    "Sheree A. Pagsuyoin": "CmHDkoIAAAAJ", "Nicholas G. Evans": "N_0jmg8AAAAJ", "Oshadha Ranasingha": "-wPKnUAAAAAJ", "Anurag Srivastava": "_GtNYPMAAAAJ",
+    "Sheree A. Pagsuyoin": "CmHDkoIAAAAJ",
+    "Md Zahidul Islam": "i_ebAeUAAAAJ", "Shamsun Nahar Edib": "xgysIYIAAAAJ", "Yue Wang": "fu07D-gAAAAJ", "Yan Cui": "nAVlj58AAAAJ", "Dylan A. P. Davis": "HL3j-7sAAAAJ", "Arash Deylamsalehi": "VobjklIAAAAJ", "Jeremy M. Plante": "oYnitXIAAAAJ", "Amir Ehsani Zonouz": "WUi_j6AAAAAJ", "Thilo Schöndienst": "7X5H3_YAAAAJ", "Juzi Zhao": "9RfENp0AAAAJ", "Arush Gadkar": "KOQPJJAAAAAJ", "Balagangadhar Bathula": "1c-DqjsAAAAJ", "Nicholas G. Evans": "N_0jmg8AAAAJ", "Oshadha Ranasingha": "-wPKnUAAAAAJ", "Anurag Srivastava": "_GtNYPMAAAAJ",
 }
 ORCID = {
     "Vinod M. Vokkarane": "0000-0001-9205-2120", "Orlando Arias": "0009-0002-3948-5773", "Lewis Tseng": "0000-0002-4717-4038", "Seung Woo Son": "0000-0001-8922-418X",
@@ -4567,7 +4683,8 @@ def build():
         if cur is not None: out += "</ul>"
         return out
     n_students = len(STUDENTS)
-    n_alumni = len(ALUMNI_PHD) + len(ALUMNI_POSTDOC)
+    n_alumni = len(ALUMNI_PROFILES)
+    alumni_phd_cards, alumni_pd_cards = alumni_profiles_html()
     pubs_html = render_pubs(P)
     _recent = sorted(P, key=lambda p: (-p["year"], -(month_of(p) or 0), p["title"]))[:6]
     pub_teaser = render_pubs(_recent, grouped=False) if "grouped" in render_pubs.__code__.co_varnames else "".join(
@@ -5013,8 +5130,8 @@ def build():
         "people": (PEOPLE_SECTION.replace("{director_html}", director_html).replace("{core_html}", core_html)
                    .replace("{aff_html}", aff_html).replace("{ext_html}", ext_html)),
         "students": (STUDENTS_SECTION.replace("{students_html}", students_html).replace("{lablife_html}", lablife_html)),
-        "alumni": (ALUMNI_SECTION.replace("{alumni_feat_html}", alumni_feat_html).replace("{alumni_phd_html}", alumni_phd_html)
-                   .replace("{alumni_pd_html}", alumni_pd_html)),
+        "alumni": (ALUMNI_SECTION.replace("{alumni_feat_html}", alumni_feat_html)
+                   .replace("{alumni_phd_cards}", alumni_phd_cards).replace("{alumni_pd_cards}", alumni_pd_cards)),
     }, footer_html, script_html)
     build_newspage(footer_html, script_html)
     build_thrust_pages(footer_html, script_html)
@@ -5050,7 +5167,7 @@ PEOPLE_SECTION = '<section id="people" class="tint">\n  <div class="wrap">\n    
 
 STUDENTS_SECTION = '<section id="students">\n  <div class="wrap">\n    <div class="shead"><h2>Students</h2><p>Doctoral students in the director\'s group, the Advanced Communication Networks Laboratory, working on center projects.</p></div>\n    <h2 class="grouph">Doctoral students</h2>\n    <div class="stugrid">{students_html}</div>\n    <div class="lablife">\n      <h3>Lab life</h3>\n      <p>The Advanced Communication Networks Laboratory through the years.</p>\n      <div class="labgrid">{lablife_html}</div>\n    </div>\n  </div>\n</section>\n\n'
 
-ALUMNI_SECTION = '<section id="alumni" class="tint">\n  <div class="wrap">\n    <div class="shead"><h2>Alumni</h2><p>Where the group\'s Ph.D. graduates and postdoctoral researchers have gone.</p></div>\n    <h2 class="grouph">Recent graduates</h2>\n    <div class="stugrid two">{alumni_feat_html}</div>\n    <div class="alumcols">\n      <div><h2 class="grouph">Ph.D. graduates</h2><ul class="alumlist">{alumni_phd_html}</ul></div>\n      <div><h2 class="grouph">Postdoctoral alumni</h2><ul class="alumlist nodate">{alumni_pd_html}</ul>\n      </div>\n    </div>\n  </div>\n</section>\n\n'
+ALUMNI_SECTION = '<section id="alumni" class="tint">\n  <div class="wrap">\n    <div class="shead"><h2>Alumni</h2><p>Where the group\'s Ph.D. graduates and postdoctoral researchers have gone.</p></div>\n    <h2 class="grouph">Recent graduates</h2>\n    <div class="stugrid two">{alumni_feat_html}</div>\n    <h2 class="grouph">Ph.D. graduates</h2>\n    <p class="alnote">Where each graduate is now, verified in September 2026 against employer pages, LinkedIn, and Google Scholar. Citation figures refresh monthly with the rest of the site.</p>\n    <div class="alumgrid">{alumni_phd_cards}</div>\n    <h2 class="grouph">Postdoctoral alumni</h2>\n    <div class="alumgrid">{alumni_pd_cards}</div>\n  </div>\n</section>\n\n'
 
 # ---------------------------------------------------------------- news generation
 def _pub_ym(p):
@@ -5451,6 +5568,35 @@ def build_labs(footer_html, script_html):
 
 
 
+
+def alumni_profile_card(name, p):
+    photo = IMG.get("alum_" + p["slug"]) or IMG.get("head_" + {"islam": "zahidul", "edib": "shamsun"}.get(p["slug"], "-"))
+    if photo:
+        fig = f'<img class="alumpic" src="data:image/jpeg;base64,{photo}" alt="{esc(name)}" width="160" height="160">'
+    else:
+        ini = "".join(w[0] for w in name.replace("-", " ").split()[:2]).upper()
+        fig = f'<div class="alumpic mono" aria-hidden="true">{esc(ini)}</div>'
+    inst = f' <span class="alinst">{esc(p["inst"])}</span>' if p.get("inst") else ""
+    era = f' <span class="alinst">{esc(p["era"])}</span>' if p.get("era") else ""
+    links = []
+    if p.get("web"): links.append(f'<a href="{esc(p["web"])}">Profile</a>')
+    if p.get("scholar"): links.append(f'<a href="https://scholar.google.com/citations?user={esc(p["scholar"])}&amp;hl=en">Google Scholar</a>')
+    if p.get("linkedin"): links.append(f'<a href="{esc(p["linkedin"])}">LinkedIn</a>')
+    gs = scholar_line(name)
+    org = (", " + esc(p["org"])) if p.get("org") else ""
+    return (f'<article class="alum"><div class="alumhead">{fig}<div><h3>{esc(name)}</h3>'
+            f'<p class="aldeg">{esc(p["degree"])}{inst}{era}</p><p class="alrole"><b>{esc(p["role"])}</b>{org}</p></div></div>'
+            f'<p class="alpath">{esc(p["path"])}</p><p class="alfocus">{esc(p["focus"])}</p>'
+            + (f'<p class="pmeta">' + " ".join(f'<span class="mi">{l}</span>' for l in links) + '</p>' if links else "")
+            + (f'<p class="gsline">{gs}</p>' if gs else "") + '</article>')
+
+def alumni_profiles_html():
+    phd = [n for n, p in ALUMNI_PROFILES.items() if p["degree"].startswith("Ph.D.")]
+    pd = [n for n, p in ALUMNI_PROFILES.items() if not p["degree"].startswith("Ph.D.")]
+    phd.sort(key=lambda n: -int(ALUMNI_PROFILES[n]["degree"].split()[1][:4]))
+    return ("".join(alumni_profile_card(n, ALUMNI_PROFILES[n]) for n in phd),
+            "".join(alumni_profile_card(n, ALUMNI_PROFILES[n]) for n in pd))
+
 # ---------------------------------------------------------------- structured data (schema.org JSON-LD)
 # Machine-readable descriptions search engines use for knowledge panels and rich results. The center
 # is an Organization; every roster member a Person with ORCID and Scholar identifiers; every paper a
@@ -5774,6 +5920,16 @@ def build_newsletter_index(footer_html, script_html):
     page = page.replace('href="../index.html#', 'href="../index.html#')
     open(os.path.join(ndir, "index.html"), "w", encoding="utf-8").write(new_tab_links(page))
     FONT_ROOT = ""
+
+def load_portraits():
+    """Alumni portraits dropped into portraits/ beside the build script, keyed alum_<slug>."""
+    import base64
+    d = os.path.join(os.path.dirname(os.path.abspath(__file__)), "portraits")
+    if not os.path.isdir(d): return
+    for f in os.listdir(d):
+        if f.lower().endswith((".jpg", ".jpeg")):
+            IMG["alum_" + os.path.splitext(f)[0].lower()] = base64.b64encode(open(os.path.join(d, f), "rb").read()).decode()
+load_portraits()
 
 def build_assets():
     """Files other services fetch by URL: the logo for the email header and the social card. Also the

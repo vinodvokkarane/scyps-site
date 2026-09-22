@@ -2567,6 +2567,13 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .jm{display:inline-block;margin-left:10px;font-size:11.5px;font-weight:600;letter-spacing:.01em;padding:1px 8px;border-radius:999px;background:var(--journal-bg);color:var(--journal-fg);vertical-align:1px;white-space:nowrap}
 
 .ico{width:1em;height:1em;vertical-align:-.15em;display:inline-block}
+/* capstone sponsorship */
+.capbox{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--signal);border-radius:var(--radius);padding:22px 24px}
+.capbox h3{margin:0 0 10px;font-size:20px}
+.capbox p{font-size:15px;line-height:1.55;margin:0 0 12px}
+.capcta{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin-top:16px!important}
+.capmail{font-size:15px;font-weight:600}
+.capfine{font-size:13px;color:var(--ink-3);margin-top:8px!important}
 /* students and alumni */
 .stugrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .stugrid.two{grid-template-columns:repeat(2,1fr);margin-bottom:40px}
@@ -2975,7 +2982,7 @@ ALUMNI_PHD = [
 ALUMNI_POSTDOC = [("Arash Deylamsalehi", "Google"), ("Jeremy M. Plante", "Hitachi Vantara"), ("Juzi Zhao", "San José State University"), ("Arush Gadkar", "Kilpatrick Townsend & Stockton LLP"), ("Joan Triay", "DOCOMO Euro-Labs"), ("Balagangadhar Bathula", "AT&T")]
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "0.87"   # bump by 0.01 with every update to the site
+SITE_VERSION = "0.90"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -4600,7 +4607,7 @@ def build():
       </div>
       <div class="col menu">
         <nav aria-label="Footer menu"><h2>Menu</h2>
-          <ul><li><a href="#about">About</a></li><li><a href="#research">Research</a></li><li><a href="#projects">Projects</a></li><li><a href="labs.html">Labs</a></li><li><a href="#sponsors">Sponsors</a></li><li><a href="people.html">People</a></li><li><a href="students.html">Students</a></li><li><a href="alumni.html">Alumni</a></li><li><a href="publications.html">Publications</a></li><li><a href="news.html">News</a></li><li><a href="{GIFT_URL}">Make a Gift</a></li></ul>
+          <ul><li><a href="#about">About</a></li><li><a href="#research">Research</a></li><li><a href="#projects">Projects</a></li><li><a href="labs.html">Labs</a></li><li><a href="#sponsors">Sponsors</a></li><li><a href="people.html">People</a></li><li><a href="students.html">Students</a></li><li><a href="positions.html">Join</a></li><li><a href="alumni.html">Alumni</a></li><li><a href="publications.html">Publications</a></li><li><a href="news.html">News</a></li><li><a href="{GIFT_URL}">Make a Gift</a></li></ul>
         </nav>
       </div>
       <div class="col dir">
@@ -4758,6 +4765,9 @@ def build():
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="{SITE_URL}">
 <link rel="alternate" type="application/rss+xml" title="SCyPS news" href="{SITE_URL}feed.xml">
+{_ld(ld_organization())}
+{_ld(ld_people())}
+{_ld(ld_jobs())}
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="{img_src("favicon")}">
 <link rel="preload" href="{FONT_ROOT}fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -4887,7 +4897,7 @@ def build():
           <div><b>$2.0M</b><span>NSF MRI Track 2, Award #2511635</span></div>
           <div><b>Oct 2026 to Sep 2029</b><span>award period</span></div>
           <div><b>Vinod Vokkarane, PI</b><span>Co-PIs Orlando Arias, Lewis Tseng, Yuzhang Lin, Anurag Srivastava; senior personnel Yan Luo, Seung Woo Son, Christopher Niezrecki</span></div>
-          <div><b>Postdoc search open</b><span><a href="{POSTDOC_URL}">Apply for the postdoctoral research associate position</a></span></div>
+          <div><b>Positions open</b><span><a href="{POSTDOC_URL}">Postdoctoral research associate</a> on SUMMIT, and fully funded <a href="positions.html">M.S. research assistantships</a> on BOND-AI and ARPO (U.S. citizens only)</span></div>
         </div>
       </div>
       <div class="paradigms">
@@ -4969,6 +4979,13 @@ def build():
             <li>Join proposals to NSF, DOE, DoD, and state programs as a partner site or end user.</li>
           </ul>
         </div>
+        <div class="block capbox">
+          <h3>Sponsor a senior capstone team for $25K</h3>
+          <p>For $25,000 a company or agency gets a team of four to six UMass Lowell seniors in computer, electrical, mechanical, or plastics engineering for their full senior year, working a problem you define under a faculty coach and your own project liaison. Each student puts in 10 to 12 hours a week for two semesters, and you receive a problem clarification report, a solution proposal, a project update, and a final report and presentation, with weekly progress memos in between.</p>
+          <p>Through the center, the project comes with a cyber-physical focus: smart grid security, connected transportation, optical and 6G networks, edge computing, or hardware security, with access to the center's testbeds and faculty. Past sponsors of the college's capstone program include Raytheon, Analog Devices, BAE Systems, New Balance, and Entegris. The fee supports the students and the program; it is not a contract for deliverables, and arrangements for sensitive data or delayed publication are made before the project starts.</p>
+          <p class="capcta"><a class="btn-gift" href="{GIFT_URL}">Sponsor a team</a> <a class="capmail" href="mailto:Vinod_Vokkarane@uml.edu?subject=Sponsoring%20a%20senior%20capstone%20team">Write to the director to scope a project</a></p>
+          <p class="capfine">Sponsorship is arranged with the Francis College of Engineering; the director will introduce you to the capstone program office. Teams form in the spring for the following academic year, so a project proposed by April is staffed in September.</p>
+        </div>
         <div class="block giftbox">
           <h3>Support the Center for Smart Cyber-Physical Systems</h3>
           <p>Contribute to research and workforce development that keeps power, transportation, and health infrastructure secure and resilient. Your gift to the center supports the SUMMIT testbed, student travel and summer research positions, and the students whose careers will run the systems a smart society depends on.</p>
@@ -5002,6 +5019,7 @@ def build():
     build_newspage(footer_html, script_html)
     build_thrust_pages(footer_html, script_html)
     build_labs(footer_html, script_html)
+    build_positions(footer_html, script_html)
     build_meta_files()
     build_feed()
     build_assets()
@@ -5144,14 +5162,14 @@ def stream_html(n=24):
     return "".join(out)
 
 # ---------------------------------------------------------------- shared page shell
-def page_shell(title, desc, body, footer_html, script_html, extra_css="", active="", h1=None, canonical=""):
+def page_shell(title, desc, body, footer_html, script_html, extra_css="", active="", h1=None, canonical="", ld=""):
     nav = " ".join(
         f'<li><a href="{href}"{" class=\"on\"" if key == active else ""}>{label}</a></li>'
         for key, label, href in [
             ("about", "About", "index.html#about"), ("research", "Research", "index.html#research"),
             ("projects", "Projects", "index.html#projects"), ("labs", "Labs", "labs.html"),
             ("sponsors", "Sponsors", "index.html#sponsors"),
-            ("people", "People", "people.html"), ("students", "Students", "students.html"),
+            ("people", "People", "people.html"), ("students", "Students", "students.html"), ("positions", "Join", "positions.html"),
             ("alumni", "Alumni", "alumni.html"), ("publications", "Publications", "publications.html"),
             ("news", "News", "news.html"), ("contact", "Contact", "index.html#contact")])
     foot = footer_html.replace('href="#', 'href="index.html#')
@@ -5169,6 +5187,7 @@ def page_shell(title, desc, body, footer_html, script_html, extra_css="", active
 <meta name="twitter:card" content="summary_large_image">
 {f'<link rel="canonical" href="{SITE_URL}{esc(canonical)}">' if canonical else ""}
 <link rel="alternate" type="application/rss+xml" title="SCyPS news" href="{SITE_URL}feed.xml">
+{ld}
 <link rel="preload" href="{FONT_ROOT}fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{FONT_ROOT}fonts/fraunces-latin-full-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
@@ -5217,7 +5236,7 @@ def build_publications(pubs_section, footer_html, script_html):
     body = body.replace("<h2>", "<h1>", 1).replace("</h2>", "</h1>", 1)
     page = page_shell("Publications | SCyPS, UMass Lowell",
                       f"All {n_pubs} peer-reviewed papers from Center for Smart Cyber-Physical Systems faculty since 2019, searchable and filterable by faculty member, year, and type.",
-                      body, footer_html, script_html, active="publications", canonical="publications.html")
+                      body, footer_html, script_html, active="publications", canonical="publications.html", ld=_ld(ld_articles(P)))
     page = new_tab_links(page)
     open(out, "w", encoding="utf-8").write(page)
     print(f"wrote {out}: {len(page)/1024:.0f} KB")
@@ -5286,7 +5305,8 @@ def build_people_pages(filled, footer_html, script_html):
                 '<p>Gifts to the center fund student travel to conferences, testbed equipment, and summer research positions.</p>'
                 f'<a class="btn-gift" href="{GIFT_URL}">Donate to the Center</a></div></div></section>', 1)
         body = body.replace("<h2>", "<h1>", 1).replace("</h2>", "</h1>", 1)
-        page = page_shell(title, desc, body, footer_html, script_html, active=active, canonical=name + ".html")
+        page = page_shell(title, desc, body, footer_html, script_html, active=active, canonical=name + ".html",
+                          ld=_ld(ld_people()) if name == "people" else "")
         page = new_tab_links(page)
         open(out, "w", encoding="utf-8").write(page)
         print(f"wrote {out}: {len(page)/1024:.0f} KB")
@@ -5429,6 +5449,154 @@ def build_labs(footer_html, script_html):
     print(f"wrote {out}: {len(page)/1024:.0f} KB; {len(LABS)} labs")
 
 
+
+
+# ---------------------------------------------------------------- structured data (schema.org JSON-LD)
+# Machine-readable descriptions search engines use for knowledge panels and rich results. The center
+# is an Organization; every roster member a Person with ORCID and Scholar identifiers; every paper a
+# ScholarlyArticle; SUMMIT a ResearchProject; the postdoc a JobPosting. All from the same records as
+# the visible pages, so they cannot disagree with what a reader sees.
+def _ld(obj):
+    return '<script type="application/ld+json">' + json.dumps(obj, ensure_ascii=False, separators=(",", ":")) + "</script>"
+
+def ld_organization():
+    members = []
+    for grp in ("director", "core", "affiliated"):
+        for p in ([FACULTY[grp]] if grp == "director" else FACULTY[grp]):
+            members.append({"@type": "Person", "name": re.sub(r"\s*\(.*?\)", "", p["name"]).strip(), "url": f"{SITE_URL}people.html"})
+    return {"@context": "https://schema.org", "@type": "ResearchOrganization", "@id": f"{SITE_URL}#org",
+            "name": "Center for Smart Cyber-Physical Systems", "alternateName": "SCyPS", "url": SITE_URL,
+            "logo": f"{SITE_URL}logo-mark.png", "image": f"{SITE_URL}og-card.png", "foundingDate": "2019-10-01",
+            "description": "A university research center at UMass Lowell on the security and resilience of the sensing, "
+                           "networking, AI, and control loop that runs power grids, transportation networks, and health infrastructure.",
+            "parentOrganization": {"@type": "CollegeOrUniversity", "name": "University of Massachusetts Lowell",
+                                   "url": "https://www.uml.edu/", "sameAs": "https://www.wikidata.org/wiki/Q7894205"},
+            "address": {"@type": "PostalAddress", "streetAddress": "1 University Ave.", "addressLocality": "Lowell",
+                        "addressRegion": "MA", "postalCode": "01854", "addressCountry": "US"},
+            "email": "Vinod_Vokkarane@uml.edu", "telephone": "+1-978-934-3345",
+            "founder": [{"@type": "Person", "name": n} for n in ["Vinod M. Vokkarane", "Martin Margala", "Yan Luo", "Sukesh Aghara", "Yuanchang Xie"]],
+            "employee": {"@type": "Person", "name": "Vinod M. Vokkarane", "jobTitle": "Director",
+                         "sameAs": [f"https://orcid.org/{ORCID['Vinod M. Vokkarane']}", f"https://scholar.google.com/citations?user={SCHOLAR['Vinod M. Vokkarane']}"]},
+            "member": members,
+            "knowsAbout": [t for _, t, _, _ in THRUSTS]}
+
+def ld_people():
+    out = []
+    for grp in ("director", "core", "affiliated", "external"):
+        for p in ([FACULTY[grp]] if grp == "director" else FACULTY[grp]):
+            name = re.sub(r"\s*\(.*?\)", "", p["name"]).strip()
+            same = []
+            if ORCID.get(p["name"]): same.append(f"https://orcid.org/{ORCID[p['name']]}")
+            if SCHOLAR.get(p["name"]): same.append(f"https://scholar.google.com/citations?user={SCHOLAR[p['name']]}")
+            if LINKEDIN.get(p["name"]): same.append(LINKEDIN[p["name"]])
+            if p.get("url"): same.append(p["url"])
+            org = p.get("inst") if p.get("inst") not in (None, "Lowell") else "University of Massachusetts Lowell"
+            person = {"@type": "Person", "name": name, "jobTitle": p.get("title", ""),
+                      "affiliation": {"@type": "Organization", "name": org or "University of Massachusetts Lowell"},
+                      "memberOf": {"@id": f"{SITE_URL}#org"}, "sameAs": same}
+            if p.get("email"): person["email"] = p["email"]
+            if p.get("areas"): person["knowsAbout"] = [a.strip() for a in re.split(r"[;,]", p["areas"]) if a.strip()][:8]
+            out.append(person)
+    return {"@context": "https://schema.org", "@graph": out}
+
+def ld_articles(papers):
+    out = []
+    for p in papers:
+        authors = p["authors"] if isinstance(p["authors"], list) else [a.strip() for a in p["authors"].split(",")]
+        a = {"@type": "ScholarlyArticle", "headline": p["title"], "author": [{"@type": "Person", "name": n} for n in authors],
+             "datePublished": str(p["year"]), "isPartOf": {"@type": "Periodical" if p["type"] == "journal" else "Event", "name": p["venue"]}}
+        if p.get("doi"): a["sameAs"] = f"https://doi.org/{p['doi']}"; a["identifier"] = {"@type": "PropertyValue", "propertyID": "DOI", "value": p["doi"]}
+        out.append(a)
+    return {"@context": "https://schema.org", "@graph": out}
+
+def ld_summit():
+    return {"@context": "https://schema.org", "@type": "ResearchProject", "name": "SUMMIT: A Secure and Resilient Multi-site Smart Grid Testbed for Multidisciplinary Research and Training",
+            "alternateName": "SUMMIT", "url": f"{SITE_URL}summit.html", "startDate": "2026-10-01", "endDate": "2029-09-30",
+            "funding": {"@type": "Grant", "identifier": "2511635", "name": "NSF Major Research Instrumentation Track 2",
+                        "funder": {"@type": "Organization", "name": "National Science Foundation", "url": "https://www.nsf.gov/"}},
+            "parentOrganization": {"@id": f"{SITE_URL}#org"},
+            "member": [{"@type": "Organization", "name": n} for n in ["University of Massachusetts Lowell", "NYU Tandon School of Engineering", "West Virginia University"]],
+            "description": "A federated cyber-physical testbed linking RTDS real-time simulation of the Northeast transmission grid with control, networking, and cybersecurity hardware in the loop across three universities, delivered as hardware-in-the-loop Simulation-as-a-Service."}
+
+def ld_jobs():
+    return {"@context": "https://schema.org", "@graph": [
+        {"@type": "JobPosting", "title": "Fully funded M.S. Research Assistantship (BOND-AI, ARPO, ARPO-Sensor Fusion), U.S. citizens only",
+         "description": "Tuition and stipend for a master's degree in electrical or computer engineering at UMass Lowell while working on BOND-AI (NextFlex), ARPO (U.S. Army), or ARPO-Sensor Fusion (Massachusetts Technology Collaborative). U.S. citizenship required by the sponsors.",
+         "datePosted": "2026-09-21", "employmentType": ["FULL_TIME", "INTERN"], "url": f"{SITE_URL}positions.html", "directApply": False,
+         "eligibilityToWorkRequirement": "U.S. citizenship required",
+         "hiringOrganization": {"@type": "Organization", "name": "University of Massachusetts Lowell", "sameAs": "https://www.uml.edu/"},
+         "jobLocation": {"@type": "Place", "address": {"@type": "PostalAddress", "streetAddress": "1 University Ave.", "addressLocality": "Lowell", "addressRegion": "MA", "postalCode": "01854", "addressCountry": "US"}},
+         "industry": "Research", "occupationalCategory": "Graduate Research Assistant"},
+        {"@type": "JobPosting", "title": "Postdoctoral Research Associate, SUMMIT federated smart grid testbed",
+         "description": "Lead federation development for SUMMIT, a three-university federated smart grid cybersecurity testbed funded by the NSF Major Research Instrumentation program.",
+         "datePosted": "2026-09-01", "employmentType": "FULL_TIME", "url": POSTDOC_URL, "directApply": True,
+         "hiringOrganization": {"@type": "Organization", "name": "University of Massachusetts Lowell", "sameAs": "https://www.uml.edu/"},
+         "jobLocation": {"@type": "Place", "address": {"@type": "PostalAddress", "streetAddress": "1 University Ave.", "addressLocality": "Lowell", "addressRegion": "MA", "postalCode": "01854", "addressCountry": "US"}},
+         "industry": "Research", "occupationalCategory": "Postdoctoral Researcher"}]}
+
+
+# ---------------------------------------------------------------- open positions
+# Everything a candidate needs, one page, at a stable URL. Edit POSITIONS to add or close a role.
+POSITIONS = [
+    {"kind": "Postdoctoral researcher", "title": "Postdoctoral Research Associate, SUMMIT federated smart grid testbed",
+     "group": "Advanced Communication Networks Laboratory (Vokkarane)", "status": "Open",
+     "what": "Lead federation development for SUMMIT across UMass Lowell, NYU Tandon, and West Virginia University: real-time simulation with hardware in the loop, a wide-area software-defined network, and the access model that opens the instrument to outside groups.",
+     "want": "A Ph.D. in electrical or computer engineering or computer science; experience with power system simulation (RTDS or OPAL-RT), SDN, or cyber-physical security; the appetite to run an instrument, not only a study.",
+     "apply": POSTDOC_URL, "apply_label": "Apply through UMass Lowell careers"},
+    {"kind": "M.S. research assistantships", "title": "Fully funded M.S. research assistantships on BOND-AI, ARPO, and ARPO-Sensor Fusion (U.S. citizens only)",
+     "group": "Advanced Communication Networks Laboratory (Vokkarane), with the BOND-AI team (Akyurtlu, Ranasingha, Stapleton)", "status": "Open",
+     "what": "Tuition and a stipend for a master's degree in electrical or computer engineering while working on one of three funded projects: BOND-AI, a NextFlex program on physics-informed AI for qualifying printed interfaces and bond joints that must survive 500 \u00b0C; ARPO, a U.S. Army project on autonomous robotic planning and optimization over contested networks; or ARPO-Sensor Fusion, a Massachusetts Technology Collaborative project on AI models that fuse multi-sensor intelligence feeds for autonomous missions, performed at UMLARC.",
+     "want": "U.S. citizenship, which the sponsors require. A B.S. in ECE, CS, mechanical engineering, or materials science; strength in at least one of machine learning, embedded systems, robotics, or materials characterization; the ability to start in spring or fall 2027. Say which project you want and why.",
+     "apply": "mailto:Vinod_Vokkarane@uml.edu?subject=M.S.%20research%20assistantship%20(BOND-AI%20%2F%20ARPO)", "apply_label": "Write to the director with a CV"},
+    {"kind": "Doctoral students", "title": "Ph.D. positions across the center's thrusts",
+     "group": "Any center faculty member", "status": "Rolling",
+     "what": "Funded doctoral positions open as awards start. Current areas with funding: smart grid cybersecurity and restoration, multi-band optical networking and FUSION, fault-tolerant edge computing, hardware security, high performance computing and data integrity, connected transportation, and AI for cyber-physical control.",
+     "want": "A strong M.S. or B.S. in ECE, CS, or a related field. Research experience matters more than the school's name. Write to the faculty member whose work matches yours and copy the director; say which paper of theirs made you write.",
+     "apply": "https://www.uml.edu/grad/", "apply_label": "UMass Lowell graduate admissions"},
+    {"kind": "Undergraduate researchers", "title": "Research positions for UMass Lowell undergraduates",
+     "group": "Any center laboratory", "status": "Rolling",
+     "what": "Paid and for-credit research in the center's laboratories, including NSF REU supplements when available, and senior capstone projects sponsored through the center.",
+     "want": "Juniors and seniors in engineering or computing with the relevant coursework; write to the laboratory's faculty lead.",
+     "apply": "mailto:Vinod_Vokkarane@uml.edu?subject=Undergraduate%20research%20with%20the%20center", "apply_label": "Write to the director"},
+    {"kind": "Visiting scholars and industry residents", "title": "Visiting positions on the SUMMIT testbed",
+     "group": "SUMMIT (Vokkarane)", "status": "From 2027",
+     "what": "As SUMMIT opens to collaborators, visiting researchers and engineers from utilities, vendors, and agencies can hold instrument time and a desk at UMass Lowell for a semester.",
+     "want": "A defined experiment and a home institution or company that supports the visit. Write to the director to scope it.",
+     "apply": "mailto:Vinod_Vokkarane@uml.edu?subject=Visiting%20position%20on%20SUMMIT", "apply_label": "Write to the director"},
+]
+
+def build_positions(footer_html, script_html):
+    root = os.path.dirname(os.path.abspath(OUT)) or "."
+    cards = "".join(
+        f'<article class="pos"><div class="poshead"><span class="poskind">{esc(p["kind"])}</span>'
+        f'<span class="posstatus {"open" if p["status"] == "Open" else ""}">{esc(p["status"])}</span></div>'
+        f'<h2>{esc(p["title"])}</h2><p class="posgroup">{esc(p["group"])}</p>'
+        f'<h3>The work</h3><p>{esc(p["what"])}</p><h3>Who we are looking for</h3><p>{esc(p["want"])}</p>'
+        f'<p class="posapply"><a class="btn" href="{esc(p["apply"])}">{esc(p["apply_label"])}</a></p></article>'
+        for p in POSITIONS)
+    body = f"""<section>
+  <div class="wrap">
+    <div class="shead"><h1>Open positions</h1><p>Postdoctoral, doctoral, undergraduate, and visiting positions with the center's faculty and laboratories. Students who join work on real instruments and real data, publish, and leave with an employer already in the room.</p></div>
+    <div class="poslist">{cards}</div>
+    <p class="posnote">Every position at UMass Lowell is filled through the university's own processes; the center connects candidates with faculty. UMass Lowell is an equal opportunity employer.</p>
+  </div>
+</section>"""
+    css = """.poslist{display:grid;gap:22px;max-width:52em}
+.pos{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px}
+.poshead{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:8px}
+.poskind{font-size:12.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3)}
+.posstatus{font-size:12.5px;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--bg-2);color:var(--ink-2)}
+.posstatus.open{background:var(--green);color:#062B24}
+.pos h2{font-size:21px;margin:0 0 4px}.posgroup{color:var(--ink-3);font-size:14px;margin:0 0 14px}
+.pos h3{font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);margin:14px 0 4px}
+.pos p{margin:0;font-size:15.5px;line-height:1.55}
+.posapply{margin-top:16px!important}.pos .btn{display:inline-block;background:var(--ink);color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;font-size:14.5px}
+.posnote{font-size:13.5px;color:var(--ink-3);margin-top:28px;max-width:52em}"""
+    page = page_shell("Open positions | SCyPS, UMass Lowell",
+                      "Postdoctoral, doctoral, undergraduate, and visiting positions at the Center for Smart Cyber-Physical Systems, UMass Lowell.",
+                      body, footer_html, script_html, extra_css=css, active="positions", canonical="positions.html", ld=_ld(ld_jobs()))
+    open(os.path.join(root, "positions.html"), "w", encoding="utf-8").write(new_tab_links(page))
+    print("wrote positions.html:", len(POSITIONS), "positions")
 
 # ---------------------------------------------------------------- monthly newsletter
 # One issue per calendar month, built from the publication, award, and news records. Three outputs:
@@ -5649,7 +5817,7 @@ def build_assets():
 def build_meta_files():
     """robots.txt and sitemap.xml, so the new pages are discoverable and the old single page is not the only entry."""
     root = os.path.dirname(os.path.abspath(OUT)) or "."
-    pages = ["", "people.html", "students.html", "alumni.html", "publications.html", "news.html", "summit.html", "labs.html", "newsletters/index.html"] + \
+    pages = ["", "people.html", "students.html", "alumni.html", "publications.html", "news.html", "summit.html", "labs.html", "newsletters/index.html", "positions.html"] + \
             [f"research-{k}.html" for k, _, _, _ in THRUSTS]
     today = datetime.date.today().isoformat()
     urls = "".join(f"  <url><loc>{SITE_URL}{p}</loc><lastmod>{today}</lastmod></url>\n" for p in pages)
@@ -5830,6 +5998,7 @@ def build_summit(footer_html, script_html):
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="{SITE_URL}summit.html">
 <link rel="alternate" type="application/rss+xml" title="SCyPS news" href="{SITE_URL}feed.xml">
+{_ld(ld_summit())}
 <link rel="preload" href="{FONT_ROOT}fonts/ibm-plex-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{FONT_ROOT}fonts/fraunces-latin-full-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>

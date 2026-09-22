@@ -101,6 +101,23 @@ Animations
       only runs the ones in view.
     - prefers-reduced-motion switches every animation off and draws the dashed paths solid.
 
+Structured data, positions page, Wikidata
+  Every page carries schema.org JSON-LD generated from the same records as the visible content: the
+  center as a ResearchOrganization (home), every member as a Person with ORCID and Scholar identifiers
+  (home, people), every paper as a ScholarlyArticle (publications), SUMMIT as a ResearchProject, and
+  the postdoc as a JobPosting (home, positions). Nothing to maintain; it regenerates on every build.
+  To check it, paste a page URL into https://validator.schema.org/ or Google's Rich Results Test.
+
+  positions.html lists open roles from the POSITIONS list in build_site.py; edit that list to add or
+  close one. It is linked as "Join" in the navigation.
+
+  wikidata-draft.md (in the outputs) has everything needed to create the center's Wikidata item. Once
+  it exists, add the Q-number as "sameAs" on the organization in ld_organization().
+
+  After uploading: submit https://smartcyberphysical.org/sitemap.xml to Google Search Console
+  (search.google.com/search-console, verify the domain by the DNS TXT record it gives you, added in
+  Cloudflare) and to Bing Webmaster Tools. That is what gets the structured data read.
+
 No third-party requests
   The site loads nothing from anyone else. Fonts (Fraunces, IBM Plex Sans, Barlow; SIL OFL) are served
   from fonts/, copied there on every build from the fonts/ folder beside build_site.py. The seven social
@@ -212,7 +229,24 @@ Monthly newsletter
     YYYY-MM.html        the web issue, in the site's design, listed at newsletters/index.html
     YYYY-MM-email.html  the same issue laid out for email (tables, inline styles, hosted logo)
     YYYY-MM.txt         plain text
-  The "No third-party requests
+  The "Structured data, positions page, Wikidata
+  Every page carries schema.org JSON-LD generated from the same records as the visible content: the
+  center as a ResearchOrganization (home), every member as a Person with ORCID and Scholar identifiers
+  (home, people), every paper as a ScholarlyArticle (publications), SUMMIT as a ResearchProject, and
+  the postdoc as a JobPosting (home, positions). Nothing to maintain; it regenerates on every build.
+  To check it, paste a page URL into https://validator.schema.org/ or Google's Rich Results Test.
+
+  positions.html lists open roles from the POSITIONS list in build_site.py; edit that list to add or
+  close one. It is linked as "Join" in the navigation.
+
+  wikidata-draft.md (in the outputs) has everything needed to create the center's Wikidata item. Once
+  it exists, add the Q-number as "sameAs" on the organization in ld_organization().
+
+  After uploading: submit https://smartcyberphysical.org/sitemap.xml to Google Search Console
+  (search.google.com/search-console, verify the domain by the DNS TXT record it gives you, added in
+  Cloudflare) and to Bing Webmaster Tools. That is what gets the structured data read.
+
+No third-party requests
   The site loads nothing from anyone else. Fonts (Fraunces, IBM Plex Sans, Barlow; SIL OFL) are served
   from fonts/, copied there on every build from the fonts/ folder beside build_site.py. The seven social
   icons are inline SVG (Font Awesome Free, CC BY 4.0; the attribution is in each page's first line).
@@ -224,7 +258,24 @@ Monthly newsletter
 
 Monthly newsletter" workflow runs on the first of each month for the previous month, commits
   the issue, and attaches the email and text versions to the run so you can download them. It can be
-  run by hand for any month: Actions > No third-party requests
+  run by hand for any month: Actions > Structured data, positions page, Wikidata
+  Every page carries schema.org JSON-LD generated from the same records as the visible content: the
+  center as a ResearchOrganization (home), every member as a Person with ORCID and Scholar identifiers
+  (home, people), every paper as a ScholarlyArticle (publications), SUMMIT as a ResearchProject, and
+  the postdoc as a JobPosting (home, positions). Nothing to maintain; it regenerates on every build.
+  To check it, paste a page URL into https://validator.schema.org/ or Google's Rich Results Test.
+
+  positions.html lists open roles from the POSITIONS list in build_site.py; edit that list to add or
+  close one. It is linked as "Join" in the navigation.
+
+  wikidata-draft.md (in the outputs) has everything needed to create the center's Wikidata item. Once
+  it exists, add the Q-number as "sameAs" on the organization in ld_organization().
+
+  After uploading: submit https://smartcyberphysical.org/sitemap.xml to Google Search Console
+  (search.google.com/search-console, verify the domain by the DNS TXT record it gives you, added in
+  Cloudflare) and to Bing Webmaster Tools. That is what gets the structured data read.
+
+No third-party requests
   The site loads nothing from anyone else. Fonts (Fraunces, IBM Plex Sans, Barlow; SIL OFL) are served
   from fonts/, copied there on every build from the fonts/ folder beside build_site.py. The seven social
   icons are inline SVG (Font Awesome Free, CC BY 4.0; the attribution is in each page's first line).
@@ -258,7 +309,24 @@ Google Scholar figures
   opens someone else's profile, the refresh log says so and the figure is rejected. Three IDs were once
   shifted by one position and a card showed another person's citations; the check prevents a repeat.
 
-  The manual route still works: Actions > Update No third-party requests
+  The manual route still works: Actions > Update Structured data, positions page, Wikidata
+  Every page carries schema.org JSON-LD generated from the same records as the visible content: the
+  center as a ResearchOrganization (home), every member as a Person with ORCID and Scholar identifiers
+  (home, people), every paper as a ScholarlyArticle (publications), SUMMIT as a ResearchProject, and
+  the postdoc as a JobPosting (home, positions). Nothing to maintain; it regenerates on every build.
+  To check it, paste a page URL into https://validator.schema.org/ or Google's Rich Results Test.
+
+  positions.html lists open roles from the POSITIONS list in build_site.py; edit that list to add or
+  close one. It is linked as "Join" in the navigation.
+
+  wikidata-draft.md (in the outputs) has everything needed to create the center's Wikidata item. Once
+  it exists, add the Q-number as "sameAs" on the organization in ld_organization().
+
+  After uploading: submit https://smartcyberphysical.org/sitemap.xml to Google Search Console
+  (search.google.com/search-console, verify the domain by the DNS TXT record it gives you, added in
+  Cloudflare) and to Bing Webmaster Tools. That is what gets the structured data read.
+
+No third-party requests
   The site loads nothing from anyone else. Fonts (Fraunces, IBM Plex Sans, Barlow; SIL OFL) are served
   from fonts/, copied there on every build from the fonts/ folder beside build_site.py. The seven social
   icons are inline SVG (Font Awesome Free, CC BY 4.0; the attribution is in each page's first line).
@@ -315,7 +383,24 @@ Monthly newsletter
     YYYY-MM.html        the web issue, in the site's design, listed at newsletters/index.html
     YYYY-MM-email.html  the same issue laid out for email (tables, inline styles, hosted logo)
     YYYY-MM.txt         plain text
-  The "No third-party requests
+  The "Structured data, positions page, Wikidata
+  Every page carries schema.org JSON-LD generated from the same records as the visible content: the
+  center as a ResearchOrganization (home), every member as a Person with ORCID and Scholar identifiers
+  (home, people), every paper as a ScholarlyArticle (publications), SUMMIT as a ResearchProject, and
+  the postdoc as a JobPosting (home, positions). Nothing to maintain; it regenerates on every build.
+  To check it, paste a page URL into https://validator.schema.org/ or Google's Rich Results Test.
+
+  positions.html lists open roles from the POSITIONS list in build_site.py; edit that list to add or
+  close one. It is linked as "Join" in the navigation.
+
+  wikidata-draft.md (in the outputs) has everything needed to create the center's Wikidata item. Once
+  it exists, add the Q-number as "sameAs" on the organization in ld_organization().
+
+  After uploading: submit https://smartcyberphysical.org/sitemap.xml to Google Search Console
+  (search.google.com/search-console, verify the domain by the DNS TXT record it gives you, added in
+  Cloudflare) and to Bing Webmaster Tools. That is what gets the structured data read.
+
+No third-party requests
   The site loads nothing from anyone else. Fonts (Fraunces, IBM Plex Sans, Barlow; SIL OFL) are served
   from fonts/, copied there on every build from the fonts/ folder beside build_site.py. The seven social
   icons are inline SVG (Font Awesome Free, CC BY 4.0; the attribution is in each page's first line).
@@ -327,7 +412,24 @@ Monthly newsletter
 
 Monthly newsletter" workflow runs on the first of each month for the previous month, commits
   the issue, and attaches the email and text versions to the run so you can download them. It can be
-  run by hand for any month: Actions > No third-party requests
+  run by hand for any month: Actions > Structured data, positions page, Wikidata
+  Every page carries schema.org JSON-LD generated from the same records as the visible content: the
+  center as a ResearchOrganization (home), every member as a Person with ORCID and Scholar identifiers
+  (home, people), every paper as a ScholarlyArticle (publications), SUMMIT as a ResearchProject, and
+  the postdoc as a JobPosting (home, positions). Nothing to maintain; it regenerates on every build.
+  To check it, paste a page URL into https://validator.schema.org/ or Google's Rich Results Test.
+
+  positions.html lists open roles from the POSITIONS list in build_site.py; edit that list to add or
+  close one. It is linked as "Join" in the navigation.
+
+  wikidata-draft.md (in the outputs) has everything needed to create the center's Wikidata item. Once
+  it exists, add the Q-number as "sameAs" on the organization in ld_organization().
+
+  After uploading: submit https://smartcyberphysical.org/sitemap.xml to Google Search Console
+  (search.google.com/search-console, verify the domain by the DNS TXT record it gives you, added in
+  Cloudflare) and to Bing Webmaster Tools. That is what gets the structured data read.
+
+No third-party requests
   The site loads nothing from anyone else. Fonts (Fraunces, IBM Plex Sans, Barlow; SIL OFL) are served
   from fonts/, copied there on every build from the fonts/ folder beside build_site.py. The seven social
   icons are inline SVG (Font Awesome Free, CC BY 4.0; the attribution is in each page's first line).
@@ -400,7 +502,24 @@ Automatic updates
                    route is to enter them yourself, either way below. Each figure is stored with the date it
                    was entered and the site prints that date.
 
-                   From the browser (no setup): repository > Actions > "Update No third-party requests
+                   From the browser (no setup): repository > Actions > "Update Structured data, positions page, Wikidata
+  Every page carries schema.org JSON-LD generated from the same records as the visible content: the
+  center as a ResearchOrganization (home), every member as a Person with ORCID and Scholar identifiers
+  (home, people), every paper as a ScholarlyArticle (publications), SUMMIT as a ResearchProject, and
+  the postdoc as a JobPosting (home, positions). Nothing to maintain; it regenerates on every build.
+  To check it, paste a page URL into https://validator.schema.org/ or Google's Rich Results Test.
+
+  positions.html lists open roles from the POSITIONS list in build_site.py; edit that list to add or
+  close one. It is linked as "Join" in the navigation.
+
+  wikidata-draft.md (in the outputs) has everything needed to create the center's Wikidata item. Once
+  it exists, add the Q-number as "sameAs" on the organization in ld_organization().
+
+  After uploading: submit https://smartcyberphysical.org/sitemap.xml to Google Search Console
+  (search.google.com/search-console, verify the domain by the DNS TXT record it gives you, added in
+  Cloudflare) and to Bing Webmaster Tools. That is what gets the structured data read.
+
+No third-party requests
   The site loads nothing from anyone else. Fonts (Fraunces, IBM Plex Sans, Barlow; SIL OFL) are served
   from fonts/, copied there on every build from the fonts/ folder beside build_site.py. The seven social
   icons are inline SVG (Font Awesome Free, CC BY 4.0; the attribution is in each page's first line).
@@ -457,7 +576,24 @@ Monthly newsletter
     YYYY-MM.html        the web issue, in the site's design, listed at newsletters/index.html
     YYYY-MM-email.html  the same issue laid out for email (tables, inline styles, hosted logo)
     YYYY-MM.txt         plain text
-  The "No third-party requests
+  The "Structured data, positions page, Wikidata
+  Every page carries schema.org JSON-LD generated from the same records as the visible content: the
+  center as a ResearchOrganization (home), every member as a Person with ORCID and Scholar identifiers
+  (home, people), every paper as a ScholarlyArticle (publications), SUMMIT as a ResearchProject, and
+  the postdoc as a JobPosting (home, positions). Nothing to maintain; it regenerates on every build.
+  To check it, paste a page URL into https://validator.schema.org/ or Google's Rich Results Test.
+
+  positions.html lists open roles from the POSITIONS list in build_site.py; edit that list to add or
+  close one. It is linked as "Join" in the navigation.
+
+  wikidata-draft.md (in the outputs) has everything needed to create the center's Wikidata item. Once
+  it exists, add the Q-number as "sameAs" on the organization in ld_organization().
+
+  After uploading: submit https://smartcyberphysical.org/sitemap.xml to Google Search Console
+  (search.google.com/search-console, verify the domain by the DNS TXT record it gives you, added in
+  Cloudflare) and to Bing Webmaster Tools. That is what gets the structured data read.
+
+No third-party requests
   The site loads nothing from anyone else. Fonts (Fraunces, IBM Plex Sans, Barlow; SIL OFL) are served
   from fonts/, copied there on every build from the fonts/ folder beside build_site.py. The seven social
   icons are inline SVG (Font Awesome Free, CC BY 4.0; the attribution is in each page's first line).
@@ -469,7 +605,24 @@ Monthly newsletter
 
 Monthly newsletter" workflow runs on the first of each month for the previous month, commits
   the issue, and attaches the email and text versions to the run so you can download them. It can be
-  run by hand for any month: Actions > No third-party requests
+  run by hand for any month: Actions > Structured data, positions page, Wikidata
+  Every page carries schema.org JSON-LD generated from the same records as the visible content: the
+  center as a ResearchOrganization (home), every member as a Person with ORCID and Scholar identifiers
+  (home, people), every paper as a ScholarlyArticle (publications), SUMMIT as a ResearchProject, and
+  the postdoc as a JobPosting (home, positions). Nothing to maintain; it regenerates on every build.
+  To check it, paste a page URL into https://validator.schema.org/ or Google's Rich Results Test.
+
+  positions.html lists open roles from the POSITIONS list in build_site.py; edit that list to add or
+  close one. It is linked as "Join" in the navigation.
+
+  wikidata-draft.md (in the outputs) has everything needed to create the center's Wikidata item. Once
+  it exists, add the Q-number as "sameAs" on the organization in ld_organization().
+
+  After uploading: submit https://smartcyberphysical.org/sitemap.xml to Google Search Console
+  (search.google.com/search-console, verify the domain by the DNS TXT record it gives you, added in
+  Cloudflare) and to Bing Webmaster Tools. That is what gets the structured data read.
+
+No third-party requests
   The site loads nothing from anyone else. Fonts (Fraunces, IBM Plex Sans, Barlow; SIL OFL) are served
   from fonts/, copied there on every build from the fonts/ folder beside build_site.py. The seven social
   icons are inline SVG (Font Awesome Free, CC BY 4.0; the attribution is in each page's first line).

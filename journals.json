@@ -1,4 +1,8 @@
 {
+ "ACM Transactions on Human-Robot Interaction": {
+  "quartile": null,
+  "sjr": null
+ },
  "Accident Analysis & Prevention": {
   "if": 5.7,
   "if_year": 2023,
@@ -181,6 +185,10 @@
   "sjr": null,
   "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
  },
+ "IEEE Transactions on Network Science and Engineering": {
+  "quartile": null,
+  "sjr": null
+ },
  "IEEE Transactions on Network and Service Management": {
   "if": 4.7,
   "if_year": 2023,
@@ -215,6 +223,10 @@
   "quartile": null,
   "sjr": null,
   "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "IEEE Transactions on Technology and Society": {
+  "quartile": null,
+  "sjr": null
  },
  "IEEE/Optica Journal of Optical Communications and Networking": {
   "if": 4.0,
@@ -258,12 +270,28 @@
   "sjr": null,
   "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
  },
+ "Journal of Software": {
+  "quartile": null,
+  "sjr": null
+ },
+ "Journal of Transportation Safety & Security": {
+  "quartile": null,
+  "sjr": null
+ },
+ "Journal of the Association of Korean Geographers": {
+  "quartile": null,
+  "sjr": null
+ },
  "Micromachines": {
   "if": 3.0,
   "if_year": 2023,
   "quartile": null,
   "sjr": null,
   "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "Neural Computing and Applications": {
+  "quartile": null,
+  "sjr": null
  },
  "Nuclear Engineering and Design": {
   "if": 1.9,
@@ -307,6 +335,10 @@
   "sjr": null,
   "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
  },
+ "The International Journal of Robotics Research": {
+  "quartile": null,
+  "sjr": null
+ },
  "The Journal of the Acoustical Society of America": {
   "if": 2.1,
   "if_year": 2023,
@@ -334,6 +366,10 @@
   "quartile": null,
   "sjr": null,
   "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "Transportation Research Record: Journal of the Transportation Research Board": {
+  "quartile": null,
+  "sjr": null
  },
  "Wind Energy": {
   "if": 4.1,

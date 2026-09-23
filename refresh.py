@@ -327,8 +327,11 @@ def refresh_scholar(scholar_ids):
     usually answered with an "unusual traffic" page. Two routes, tried in order:
 
       1. SerpApi, if a SERPAPI_KEY secret is set. It fetches Scholar on our behalf and returns the
-         figures as JSON; it works from GitHub reliably. The free plan covers this site if Scholar is
-         refreshed monthly (19 profiles a month), which is the default below.
+         figures as JSON; it works from GitHub reliably. Every profile, students included, is read
+         weekly: about 34 lookups a run and 140 to 170 a month, inside the free plan (250 a month,
+         50 an hour). Profiles are read stalest first and a run stops at SCHOLAR_MAX_PER_RUN, so a
+         growing roster cannot push a run past either limit; whatever a run leaves out goes first
+         the following week.
       2. A direct fetch of the public profile page, which works from ordinary networks and is kept as
          the fallback.
 
@@ -339,14 +342,21 @@ def refresh_scholar(scholar_ids):
     auto = load("scholar_auto.json", {})
     changed, problems = [], []
     key = os.environ.get("SERPAPI_KEY", "").strip()
-    # Scholar moves slowly; a monthly refresh is plenty and keeps well inside a free SerpApi plan.
-    MIN_DAYS = int(os.environ.get("SCHOLAR_MIN_DAYS", "25"))
+    # Weekly. The job runs every Monday; 6 rather than 7 so a run that starts late still finds last
+    # week's figures due, and a manual run mid-week skips everything read in the last six days.
+    MIN_DAYS = int(os.environ.get("SCHOLAR_MIN_DAYS", "6"))
+    # At most 45 lookups a run: under SerpApi's free-plan limit of 50 an hour, and five Mondays of 45
+    # stay under 250 a month.
+    MAX_RUN = int(os.environ.get("SCHOLAR_MAX_PER_RUN", "45"))
+    looked, deferred = 0, []
 
     def surname(n):
         n = re.sub(r"\s*\(.*?\)", "", n).strip()
         return (n.split() or [""])[-1].lower()
 
-    for name, sid in scholar_ids.items():
+    # stalest first, so if a run is cut short the profiles it missed are first in line next week
+    order = sorted(scholar_ids.items(), key=lambda kv: auto.get(kv[0], {}).get("date", "1900-01-01"))
+    for name, sid in order:
         prev = auto.get(name, {})
         try:
             last = datetime.date.fromisoformat(prev.get("date", "1900-01-01"))
@@ -354,6 +364,10 @@ def refresh_scholar(scholar_ids):
                 continue
         except ValueError:
             pass
+        if looked >= MAX_RUN:
+            deferred.append(name)
+            continue
+        looked += 1
 
         owner, cites, h, i10 = "", None, None, None
         if key:
@@ -403,7 +417,9 @@ def refresh_scholar(scholar_ids):
     save("scholar_auto.json", auto)
     for p in problems:
         print("scholar:", p)
-    return changed + [f"PROBLEM {p}" for p in problems]
+    notes = [f"NOTE {len(deferred)} profile(s) left for next week by the per-run cap of {MAX_RUN}: {', '.join(deferred)}"] if deferred else []
+    print(f"scholar: {looked} lookup(s) this run" + (f", {len(deferred)} deferred" if deferred else ""))
+    return changed + [f"PROBLEM {p}" for p in problems] + notes
 
 # ------------------------------------------------------------------ journal metrics (SCImago, open data)
 def refresh_journals(venues):
@@ -417,7 +433,7 @@ def refresh_journals(venues):
     except Exception as e:
         print(f"journals: SCImago fetch failed ({e})"); return []
     rows = list(csv.DictReader(io.StringIO(raw), delimiter=";"))
-    def key(n): return re.sub(r"[^a-z0-9]+", " ", n.lower()).strip()
+    def key(n): return re.sub(r"^the ", "", re.sub(r"[^a-z0-9]+", " ", n.lower()).strip())
     index = {key(row.get("Title", "")): row for row in rows}
     changed = []
     for v in venues:
@@ -454,6 +470,14 @@ def main():
         try: log["orcid"] = orcid_review(site)
         except Exception as e: print(f"orcid: skipped ({e})")
     if what in ("all", "scholar"): log["scholar"] = refresh_scholar(scholar_ids)
+    if what in ("all", "graph"):
+        # reference lists and citation counts behind insights.html (graph_fetch.py, Crossref)
+        try:
+            import graph_fetch
+            fetched, failed = graph_fetch.refresh([p["doi"] for p in graph_fetch.site_papers()])
+            log["graph"] = ([f"{fetched} paper(s) refreshed"] if fetched else []) + ([f"PROBLEM {failed} fetch(es) failed"] if failed else [])
+        except Exception as e:
+            print(f"graph: skipped ({e})"); log["graph"] = [f"PROBLEM skipped ({e})"]
     if what in ("all", "journals"):
         try:
             venues = sorted(json.load(open(os.path.join(HERE, "journals.json"))).keys())

@@ -7,6 +7,14 @@
   <language>en-us</language>
   <atom:link href="https://smartcyberphysical.org/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>The Cobra Effect in Trust Repair: Unintended Consequences of Rebuilding Trust in Human-Robot Collaboration</title>
+    <link>https://doi.org/10.1007/978-981-95-2382-5_57</link>
+    <guid isPermaLink="false">scyps-2026-12-037cbd7906</guid>
+    <category>Chapter</category>
+    <pubDate>01 Dec 2026 00:00:00 +0000</pubDate>
+    <description>Paul Robinette: &quot;The Cobra Effect in Trust Repair: Unintended Consequences of Rebuilding Trust in Human-Robot Collaboration&quot; in Lecture Notes in Computer Science.</description>
+  </item>
+  <item>
     <title>2 papers in Engineering Applications of Artificial Intelligence</title>
     <link>https://doi.org/10.1016/j.engappai.2026.115851</link>
     <guid isPermaLink="false">scyps-2026-10-04475abf21</guid>
@@ -261,6 +269,14 @@
     <category>Conference</category>
     <pubDate>01 Nov 2025 00:00:00 +0000</pubDate>
     <description>Lewis Tseng: &quot;WIP: What Employers Want: A Data-Driven Analysis of Soft Skill Trends in Computer Science Job Postings (2012-2024)&quot; in IEEE Frontiers in Education Conference (FIE).</description>
+  </item>
+  <item>
+    <title>A Robot Should Compensate for Its Mistakes: An Exploration of the Dynamics of Trust Violation and Repair Strategies in Human-Robot Collaboration</title>
+    <link>https://doi.org/10.1145/3767729</link>
+    <guid isPermaLink="false">scyps-2025-10-71c6000bca</guid>
+    <category>Journal</category>
+    <pubDate>01 Oct 2025 00:00:00 +0000</pubDate>
+    <description>Paul Robinette: &quot;A Robot Should Compensate for Its Mistakes: An Exploration of the Dynamics of Trust Violation and Repair Strategies in Human-Robot Collaboration&quot; in ACM Transactions on Human-Robot Interaction.</description>
   </item>
   <item>
     <title>Massachusetts Advanced Nuclear and Fusion Energy Roadmaps</title>

@@ -515,6 +515,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .stu>.ptitle{text-align:center}
 .stu .focus{font-size:14.5px;color:var(--ink-2);margin:8px 0 8px}
 .stu .pmeta{margin-bottom:0}
+.stu .gsline{margin:6px 0 14px}
 .stu .stufig{margin-top:auto}
 .stupubs{font-size:13.5px;color:var(--ink-3);margin:2px 0 10px}
 .stupubs b{color:var(--ink)}
@@ -802,7 +803,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
       </div>
       <div class="col menu">
         <nav aria-label="Footer menu"><h2>Menu</h2>
-          <ul><li><a href="index.html#about">About</a></li><li><a href="index.html#research">Research</a></li><li><a href="index.html#projects">Projects</a></li><li><a href="labs.html">Labs</a></li><li><a href="index.html#sponsors">Sponsors</a></li><li><a href="people.html">People</a></li><li><a href="students.html">Students</a></li><li><a href="positions.html">Join</a></li><li><a href="alumni.html">Alumni</a></li><li><a href="publications.html">Publications</a></li><li><a href="news.html">News</a></li><li><a href="https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172" target="_blank" rel="noopener noreferrer">Make a Gift</a></li></ul>
+          <ul><li><a href="index.html#about">About</a></li><li><a href="index.html#research">Research</a></li><li><a href="index.html#projects">Projects</a></li><li><a href="labs.html">Labs</a></li><li><a href="index.html#sponsors">Sponsors</a></li><li><a href="people.html">People</a></li><li><a href="students.html">Students</a></li><li><a href="positions.html">Join</a></li><li><a href="alumni.html">Alumni</a></li><li><a href="publications.html">Publications</a></li><li><a href="insights.html">Insights</a></li><li><a href="news.html">News</a></li><li><a href="https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172" target="_blank" rel="noopener noreferrer">Make a Gift</a></li></ul>
         </nav>
       </div>
       <div class="col dir">
@@ -832,7 +833,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
         <li><a href="https://www.uml.edu/service/Apps/Forms/Form?configId=ccde10d9-949a-4891-a810-ca2cfa641f6f&amp;tfa_26=https://www.uml.edu/research/scyps/" title="Website Feedback" target="_blank" rel="noopener noreferrer">Feedback</a></li>
       </ul>
       <p class="fine">Updated September 2026. Grant figures are total awards as reported by sponsors; the UMass Lowell share is noted where a project is a multi-institution consortium. Photographs courtesy of UMass Lowell.</p>
-      <p class="version">v 0.92<span class="vsep"></span><span id="visits" title="Visits counted since the counter went live"></span></p>
+      <p class="version">v 0.96<span class="vsep"></span><span id="visits" title="Visits counted since the counter went live"></span></p>
     </div>
   </div>
 </footer>
@@ -866,7 +867,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
     function apply(){
       var n=0;
       rows.forEach(function(r){
-        var ok=(state.pi==='all'||r.getAttribute('data-pi')===state.pi)
+        var ok=(state.pi==='all'||(r.getAttribute('data-pi')||'').split('|').indexOf(state.pi)>-1)
              &&(state.thrust==='all'||r.getAttribute('data-thrust')===state.thrust)
              &&(state.year==='all'||(r.getAttribute('data-years')||'').split(' ').indexOf(state.year)>-1);
         r.hidden=!ok; if(ok) n++;

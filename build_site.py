@@ -11,7 +11,7 @@ import sys, datetime, os, hashlib
 OUT = next((a for a in sys.argv[1:] if not a.startswith("-")), "index.html")   # run: python3 build_site.py [output path]
 
 # ---------------------------------------------------------------- people
-CORE = {"Vokkarane", "Aghara", "Arias", "Lin", "Luo", "Son", "Tseng", "Xie"}   # director + center faculty
+CORE = {"Vokkarane", "Aghara", "Arias", "Lin", "Luo", "Robinette", "Son", "Tseng", "Xie"}   # director + center faculty
 CORE_INITIAL = {"Son": "S", "Lin": "Y", "Luo": "Y", "Cao": "Y", "Yu": "H", "Xie": "Y"}   # common surnames: bold only with this first initial
 
 FACULTY = {
@@ -45,6 +45,11 @@ FACULTY = {
          "areas": "Computer architecture, network systems",
          "role": "Co-founder of the center in 2019 and founding co-director for healthcare. Leads the AI for cyber-physical control thrust; senior personnel on SUMMIT; PI of the NSF-funded campus science network the center builds on.",
          "email": "yan_luo@uml.edu", "phone": "978-934-2592", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/luo-yan.aspx"},
+        {"name": "Paul Robinette", "photo": "robinette", "title": "Associate Professor, Electrical and Computer Engineering; Associate Chair for M.S. Programs",
+         "areas": "Robotics, human-robot interaction, trust in autonomous systems, multi-robot coordination, field and marine autonomy",
+         "email": "Paul_Robinette@uml.edu", "phone": "978-934-3347",
+         "url": "https://www.uml.edu/engineering/electrical-computer/faculty/robinette-paul.aspx",
+         "role": "Brings robotics and human-robot interaction to the center: trust and transparency between people and the machines they work with, multi-agent coordination, and autonomy for environments people should not enter. Works on the connected transportation, health, and infrastructure thrust, and connects the center to the Printed Electronics Research Collaborative and the Raytheon UMass Lowell Research Institute."},
         {"name": "Seung Woo Son", "photo": "son", "title": "Associate Professor, Electrical and Computer Engineering",
          "areas": "High performance computing, parallel I/O and data-intensive computing, compiler optimizations, embedded systems",
          "email": "SeungWoo_Son@uml.edu", "phone": "978-934-6846", "office": "Ball Hall 419",
@@ -85,8 +90,6 @@ FACULTY = {
         {"name": "Oshadha Ranasingha", "photo": "ranasingha", "title": "Assistant Professor, Electrical and Computer Engineering; PERC and RURI",
          "areas": "Functional inks for printed electronics and additive manufacturing, fully printed micro-supercapacitors, energy harvesting, hardware authentication",
          "note": "Co-PI on BOND-AI, the NextFlex award on high-temperature printed interfaces and bond joints.", "email": "oshadha_ranasingha@uml.edu", "phone": "978-934-2336", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/ranasingha-oshadha.aspx"},
-        {"name": "Paul Robinette", "photo": "robinette", "title": "Associate Professor, Electrical and Computer Engineering; Associate Chair for M.S. Programs",
-         "areas": "Robotics, human-robot interaction; Printed Electronics Research Collaborative; Raytheon UMass Lowell Research Institute", "email": "Paul_Robinette@uml.edu", "phone": "978-934-3347", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/robinette-paul.aspx"},
         {"name": "Hengyong Yu", "photo": "yu", "title": "Professor, Electrical and Computer Engineering",
          "areas": "Biomedical imaging, medical image reconstruction, image processing and analysis", "email": "Hengyong_Yu@uml.edu", "phone": "978-934-6756", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/yu-hengyong.aspx"},
     ],
@@ -2598,6 +2601,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .stu>.ptitle{text-align:center}
 .stu .focus{font-size:14.5px;color:var(--ink-2);margin:8px 0 8px}
 .stu .pmeta{margin-bottom:0}
+.stu .gsline{margin:6px 0 14px}
 .stu .stufig{margin-top:auto}
 .stupubs{font-size:13.5px;color:var(--ink-3);margin:2px 0 10px}
 .stupubs b{color:var(--ink)}
@@ -2931,6 +2935,7 @@ THRUST_DETAIL = {
             ("Intelligent traffic and vehicular computing", "Connected and automated vehicles, trajectory prediction, crosswalk and roadway condition assessment from aerial imagery, and the networks that carry it."),
             ("Medical imaging and digital health", "Image reconstruction from limited data, multimodal deep learning, and platforms that move clinical data safely."),
             ("Structural health monitoring", "Sensing and diagnostics for wind turbine blades, bridges, and buildings, including acoustic and vibration methods and drone-based inspection."),
+            ("Human-robot interaction", "How people decide whether to trust a robot and what a robot owes them in return: trust calibration and repair, transparency in shared control, multi-robot coordination, and autonomy in marine and field settings."),
             ("Nuclear security and robotics", "Safeguards modeling, security of nuclear facilities, and robotic platforms for environments people should not enter."),
         ],
         "projects": ["Massachusetts Advanced Nuclear and Fusion Energy Roadmaps", "Intercontinental Nuclear Institute", "ARPO"],
@@ -2957,7 +2962,7 @@ THRUSTS = [
      "Detecting silent data corruption from hardware counters, reliable and efficient encoding for extreme-scale simulation, and the parallel I/O that data-intensive science runs on.",
      "Son, Luo"),
     ("health", "Connected transportation, health, and infrastructure",
-     "Intelligent traffic and vehicular computing, medical imaging and digital health platforms, and structural health monitoring for blades, bridges, and buildings.",
+     "Intelligent traffic and vehicular computing, medical imaging and digital health platforms, structural health monitoring for blades, bridges, and buildings, and robots that work alongside people.",
      "Xie, Luo, Cao, Yu, Inalpolat, Robinette, Niezrecki"),
     ("nuclear", "Nuclear energy and security",
      "Safeguards measurement and detector modeling, security of nuclear facilities, robotic platforms for environments people should not enter, and the training that supports them.",
@@ -3097,7 +3102,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "0.92"   # bump by 0.01 with every update to the site
+SITE_VERSION = "0.96"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3133,6 +3138,7 @@ def student_card(st):
             f'<h3>{esc(st["name"])}</h3><p class="ptitle">{esc(st["status"])}</p><p class="focus">{esc(st["focus"])}</p>'
             + student_highlight(st["name"])
             + '<p class="pmeta">' + " ".join(f'<span class="mi">{m}</span>' for m in links) + '</p>'
+            + (f'<p class="gsline">{scholar_line(st["name"])}</p>' if scholar_line(st["name"]) else '')
             + metrics_slot({"name": st["name"]}) + fig + '</article>')
 def alum_feature(a):
     links = ([f'<a href="{esc(a["linkedin"])}">LinkedIn</a>'] if a.get("linkedin") and not LINKEDIN.get(a["name"]) else []) + id_links(a["name"])
@@ -3392,6 +3398,29 @@ def project_pi(pr):
     if pr.get("lead_person"): return canonical_person(pr["lead_person"])
     return canonical_person(_project_pi_raw(pr))
 
+_ROLE_SEG = [(r"^Lead PI\s+(.*)$", "Lead PI"), (r"^(?:UMass Lowell )?PI\s+(.*)$", "PI"), (r"^Lead:\s+(.*)$", "Lead"),
+             (r"^Co-director:\s+(.*)$", "Co-director"), (r"^Co-PIs?\s+(.*)$", "Co-PI")]
+def project_people(pr):
+    """Every investigator named on the team line, as (roster name, role) in the order written: PI, UMass
+    Lowell PI, Lead PI, Lead, Co-director, and Co-PIs. Senior personnel, 'with ...' collaborators, and
+    performing sites are not investigators and are left out. Names are mapped to the roster's spelling."""
+    out, seen = [], set()
+    for seg in re.split(r";\s*", pr.get("team", "")):
+        seg = seg.strip()
+        for pat, role in _ROLE_SEG:
+            m = re.match(pat, seg)
+            if not m: continue
+            names = re.split(r",\s*with\s+|\s+with\s+", m.group(1), 1)[0]      # "Lead: X, with the Rist Institute"
+            names = re.sub(r"\s*\([^)]*\)", "", names)                             # "(NYU)", "(Director, RURI and PERC)"
+            for n in re.split(r",\s*|\s+and\s+", names):
+                n = n.strip(" .")
+                if not re.fullmatch(_NAME, n): continue
+                name = canonical_person(n)
+                if name not in seen:
+                    seen.add(name); out.append((name, role))
+            break
+    return out
+
 def project_years(pr):
     """Every calendar year the award touches, so a filter on 2026 finds awards running through it."""
     yrs = [int(y) for y in re.findall(r"(20\d\d)", pr.get("period", ""))]
@@ -3552,6 +3581,10 @@ SCHOLAR = {
     # Supriya Chakrabarti has no Scholar profile found; the site links a Scholar search for him instead.
     "Sheree A. Pagsuyoin": "CmHDkoIAAAAJ",
     "Md Zahidul Islam": "i_ebAeUAAAAJ", "Shamsun Nahar Edib": "xgysIYIAAAAJ", "Yue Wang": "fu07D-gAAAAJ", "Yan Cui": "nAVlj58AAAAJ", "Dylan A. P. Davis": "HL3j-7sAAAAJ", "Arash Deylamsalehi": "VobjklIAAAAJ", "Jeremy M. Plante": "oYnitXIAAAAJ", "Amir Ehsani Zonouz": "WUi_j6AAAAAJ", "Thilo Schöndienst": "7X5H3_YAAAAJ", "Juzi Zhao": "9RfENp0AAAAJ", "Arush Gadkar": "KOQPJJAAAAAJ", "Balagangadhar Bathula": "1c-DqjsAAAAJ", "Nicholas G. Evans": "N_0jmg8AAAAJ", "Oshadha Ranasingha": "-wPKnUAAAAAJ", "Anurag Srivastava": "_GtNYPMAAAAJ",
+    # Current doctoral students, refreshed weekly with everyone above. To add one, use the name exactly as
+    # written in STUDENTS and the user= part of the profile URL. Both checked Sept. 22, 2026: UMass Lowell
+    # affiliation on the profile, and listed among the director's Scholar co-authors.
+    "Arash Rezaee": "3OLFUJgAAAAJ", "Ryan McCann": "HPAbt0sAAAAJ",
 }
 ORCID = {
     "Vinod M. Vokkarane": "0000-0001-9205-2120", "Orlando Arias": "0009-0002-3948-5773", "Lewis Tseng": "0000-0002-4717-4038", "Seung Woo Son": "0000-0001-8922-418X",
@@ -4610,14 +4643,14 @@ def build():
         f'<div class="thrust"><a class="art" href="research-{esc(i)}.html">{ART[i]}</a><div class="body"><h3><a href="research-{esc(i)}.html">{esc(t)}</a></h3><p>{esc(d)}</p><div class="who"><b>{esc(w.split(",")[0])}</b> leads{esc("; with " + w.split(", ", 1)[1] if ", " in w else "")}</div><p class="more2"><a href="research-{esc(i)}.html">More on this thrust</a></p></div></div>'
         for i, t, d, w in THRUSTS)
 
-    _pis = sorted({project_pi(pr) for pr in PROJECTS if project_pi(pr) and project_pi(pr) in set(_roster().values())},
-                  key=lambda n: n.split()[-1])
-    _pi_counts = {p: sum(1 for pr in PROJECTS if project_pi(pr) == p) for p in _pis}
+    _center = [FACULTY["director"]["name"]] + [p["name"] for p in FACULTY["core"]]
+    _pi_counts = {p: sum(1 for pr in PROJECTS if p in {n for n, _ in project_people(pr)}) for p in _center}
+    _pis = sorted((p for p in _center if _pi_counts[p]), key=lambda n: n.split()[-1])
     _yrs = sorted({y for pr in PROJECTS for y in project_years(pr)}, reverse=True)
     _thrusts = [(k, t) for k, t, _, _ in THRUSTS if any(project_thrust(pr) == k for pr in PROJECTS)]
     projfilters = (
         '<div class="pfilters" role="group" aria-label="Filter projects">'
-        '<div class="prow"><span class="plab">Lead</span>'
+        '<div class="prow"><span class="plab">Investigator</span>'
         '<button class="chip" data-f="pi" data-v="all" aria-pressed="true" type="button">All</button>'
         + "".join(f'<button class="chip" data-f="pi" data-v="{esc(p)}" aria-pressed="false" type="button">{esc(p.split()[-1])} ({_pi_counts[p]})</button>' for p in _pis)
         + '</div><div class="prow"><span class="plab">Thrust</span>'
@@ -4632,7 +4665,7 @@ def build():
         tagcls = "tag new" if pr["tag"].startswith("New") else "tag"
         share = f'<small>{esc(pr["share"])}</small>' if pr.get("share") else ''
         amt = f'<div class="amt">{esc(pr["amount"])}{share}<small>{esc(pr["period"])}</small></div>' if pr["amount"] else f'<div class="amt"><small>{esc(pr["period"])}</small></div>'
-        _pi = project_pi(pr); _yrs = " ".join(str(y) for y in project_years(pr))
+        _pi = "|".join(n for n, _ in project_people(pr)); _yrs = " ".join(str(y) for y in project_years(pr))
         projects_html += (f'<div class="proj" data-pi="{esc(_pi)}" data-thrust="{esc(project_thrust(pr))}" data-years="{esc(_yrs)}" data-status="{esc(pr["tag"])}"><div class="when"><span class="{tagcls}">{esc(pr["tag"])}</span><br>{esc(pr["domain"])}</div>'
                           f'<div><h3>{esc(pr["title"])}</h3><div class="sponsor">{("<span class=" + chr(34) + "role" + chr(34) + ">" + esc(pr["role"]) + "</span>") if pr.get("role") else ""}{esc(pr["sponsor"])}</div>'
                           f'<p class="desc">{esc(pr["desc"])}</p><p class="team">{esc(pr["team"])}</p>'
@@ -4724,7 +4757,7 @@ def build():
       </div>
       <div class="col menu">
         <nav aria-label="Footer menu"><h2>Menu</h2>
-          <ul><li><a href="#about">About</a></li><li><a href="#research">Research</a></li><li><a href="#projects">Projects</a></li><li><a href="labs.html">Labs</a></li><li><a href="#sponsors">Sponsors</a></li><li><a href="people.html">People</a></li><li><a href="students.html">Students</a></li><li><a href="positions.html">Join</a></li><li><a href="alumni.html">Alumni</a></li><li><a href="publications.html">Publications</a></li><li><a href="news.html">News</a></li><li><a href="{GIFT_URL}">Make a Gift</a></li></ul>
+          <ul><li><a href="#about">About</a></li><li><a href="#research">Research</a></li><li><a href="#projects">Projects</a></li><li><a href="labs.html">Labs</a></li><li><a href="#sponsors">Sponsors</a></li><li><a href="people.html">People</a></li><li><a href="students.html">Students</a></li><li><a href="positions.html">Join</a></li><li><a href="alumni.html">Alumni</a></li><li><a href="publications.html">Publications</a></li><li><a href="insights.html">Insights</a></li><li><a href="news.html">News</a></li><li><a href="{GIFT_URL}">Make a Gift</a></li></ul>
         </nav>
       </div>
       <div class="col dir">
@@ -4788,7 +4821,7 @@ def build():
     function apply(){{
       var n=0;
       rows.forEach(function(r){{
-        var ok=(state.pi==='all'||r.getAttribute('data-pi')===state.pi)
+        var ok=(state.pi==='all'||(r.getAttribute('data-pi')||'').split('|').indexOf(state.pi)>-1)
              &&(state.thrust==='all'||r.getAttribute('data-thrust')===state.thrust)
              &&(state.year==='all'||(r.getAttribute('data-years')||'').split(' ').indexOf(state.year)>-1);
         r.hidden=!ok; if(ok) n++;
@@ -4920,6 +4953,7 @@ def build():
       <li><a href="students.html">Students</a></li>
       <li><a href="alumni.html">Alumni</a></li>
       <li><a href="publications.html">Publications</a></li>
+      <li><a href="insights.html">Insights</a></li>
       <li><a href="news.html">News</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -5063,7 +5097,7 @@ def build():
 
 <section id="publications" class="tint">
   <div class="wrap">
-    <div class="shead"><h2>Publications</h2><p>{n_pubs} peer-reviewed papers from the director and center faculty since 2019, {n_journal} of them in journals. The newest are below; the full list is searchable and filterable on its own page.</p></div>
+    <div class="shead"><h2>Publications</h2><p>{n_pubs} peer-reviewed papers from the director and center faculty since 2019, {n_journal} of them in journals. The newest are below; the full list is searchable and filterable on its own page, and the <a href="insights.html">insights page</a> reads the whole record together: research clusters, who works with whom, what the work builds on, and reach.</p></div>
     <ol class="publist teaser">{pub_teaser}</ol>
     <p class="more"><a class="btn-gift summit-btn" href="publications.html">All {n_pubs} publications</a></p>
   </div>
@@ -5135,6 +5169,7 @@ def build():
     }, footer_html, script_html)
     build_newspage(footer_html, script_html)
     build_thrust_pages(footer_html, script_html)
+    build_insights(footer_html, script_html)
     build_labs(footer_html, script_html)
     build_positions(footer_html, script_html)
     build_meta_files()
@@ -5288,7 +5323,7 @@ def page_shell(title, desc, body, footer_html, script_html, extra_css="", active
             ("sponsors", "Sponsors", "index.html#sponsors"),
             ("people", "People", "people.html"), ("students", "Students", "students.html"), ("positions", "Join", "positions.html"),
             ("alumni", "Alumni", "alumni.html"), ("publications", "Publications", "publications.html"),
-            ("news", "News", "news.html"), ("contact", "Contact", "index.html#contact")])
+            ("insights", "Insights", "insights.html"), ("news", "News", "news.html"), ("contact", "Contact", "index.html#contact")])
     foot = footer_html.replace('href="#', 'href="index.html#')
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -5851,6 +5886,7 @@ def build_newsletter(ym, footer_html, script_html):
     page = page.replace('href="index.html', 'href="../index.html').replace('href="people.html', 'href="../people.html') \
                .replace('href="students.html', 'href="../students.html').replace('href="alumni.html', 'href="../alumni.html') \
                .replace('href="publications.html', 'href="../publications.html').replace('href="news.html', 'href="../news.html') \
+               .replace('href="insights.html', 'href="../insights.html').replace('href="positions.html', 'href="../positions.html') \
                .replace('href="labs.html', 'href="../labs.html').replace('href="summit.html', 'href="../summit.html') \
                .replace('href="../index.html">Newsletters', 'href="index.html">Newsletters')
     page = re.sub(r'href="research-(\w+)\.html', r'href="../research-\1.html', page)
@@ -5914,7 +5950,7 @@ def build_newsletter_index(footer_html, script_html):
     FONT_ROOT = "../"
     page = page_shell("Newsletters | SCyPS, UMass Lowell", "Monthly newsletters from the Center for Smart Cyber-Physical Systems at UMass Lowell.",
                       body, footer_html, script_html, extra_css=css, active="news", canonical="newsletters/index.html")
-    for nm in ("index", "people", "students", "alumni", "publications", "news", "labs", "summit"):
+    for nm in ("index", "people", "students", "alumni", "publications", "insights", "news", "labs", "summit", "positions"):
         page = page.replace(f'href="{nm}.html', f'href="../{nm}.html')
     page = re.sub(r'href="research-(\w+)\.html', r'href="../research-\1.html', page)
     page = page.replace('href="../index.html#', 'href="../index.html#')
@@ -5973,7 +6009,7 @@ def build_assets():
 def build_meta_files():
     """robots.txt and sitemap.xml, so the new pages are discoverable and the old single page is not the only entry."""
     root = os.path.dirname(os.path.abspath(OUT)) or "."
-    pages = ["", "people.html", "students.html", "alumni.html", "publications.html", "news.html", "summit.html", "labs.html", "newsletters/index.html", "positions.html"] + \
+    pages = ["", "people.html", "students.html", "alumni.html", "publications.html", "insights.html", "news.html", "summit.html", "labs.html", "newsletters/index.html", "positions.html"] + \
             [f"research-{k}.html" for k, _, _, _ in THRUSTS]
     today = datetime.date.today().isoformat()
     urls = "".join(f"  <url><loc>{SITE_URL}{p}</loc><lastmod>{today}</lastmod></url>\n" for p in pages)
@@ -5982,6 +6018,22 @@ def build_meta_files():
     open(os.path.join(root, "robots.txt"), "w", encoding="utf-8").write(
         f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}sitemap.xml\n")
     print(f"wrote sitemap.xml ({len(pages)} urls) and robots.txt")
+
+def build_insights(footer_html, script_html):
+    """insights.html: the records read together (clusters, collaboration, citations, students, alumni,
+    projects). The computation lives in insights.py beside this file; graph_auto.json holds the Crossref
+    reference lists and citation counts that graph_fetch.py refreshes weekly."""
+    try:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        try:
+            import networkx
+        except ImportError:          # the GitHub runner starts bare; install the one dependency
+            import subprocess
+            subprocess.run([sys.executable, "-m", "pip", "install", "--quiet", "networkx"], check=False)
+        import insights
+        insights.render(globals(), footer_html, script_html)
+    except Exception as e:
+        print(f"insights.html skipped: {e}")
 
 def build_thrust_pages(footer_html, script_html):
     """One page per research thrust, sharing the site shell."""

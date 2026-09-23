@@ -1,0 +1,55 @@
+{
+ "_about": "Cluster names and summaries for insights.html, keyed by the DOI of each cluster's anchor paper (the paper most tied to the rest of its cluster). Written Sept. 23, 2026 from the paper titles in each cluster. Run 'python3 insights.py --explain' to see current clusters and anchors; a cluster whose anchor is not listed here is labelled from its own terms.",
+ "10.1109/mt-its49943.2021.9529289": {
+  "name": "Traffic flow, work zones, and crash modeling",
+  "narrative": "Yuanchang Xie's transportation group: cooperative and connected automated vehicle control for merging and stop-and-go traffic, work zone safety read from drone and thermal video, car-following behavior models, and machine learning for crash frequency and severity. The 2026 papers turn vision-language and large language models on crash reports and travel-time prediction."
+ },
+ "10.1364/jocn.596435": {
+  "name": "Multi-band and space-division optical networks",
+  "narrative": "The director's optical networking line: quality-of-transmission-aware routing, spectrum, and grooming in elastic and multi-band over space-division multiplexed networks, physical-layer models for nonlinear noise and crosstalk, reinforcement learning for routing, and FUSION, the group's open benchmarking framework. Most recent papers are by doctoral students Arash Rezaee and Ryan McCann with collaborators at Universidad Carlos III de Madrid and the University of Virginia."
+ },
+ "10.1109/dsn-s65789.2025.00071": {
+  "name": "Consensus, replication, and blockchain systems",
+  "narrative": "Lewis Tseng's distributed systems work since he joined in 2024: state machine replication and leaderless consensus (Racos, Pineapple, Paxos against Raft), Byzantine consensus in dynamic and anonymous networks, DHTs for blockchain, and applications from satellite-edge drone search to digital twins as a service and control of a quantum cloud. Nearly all of it is from 2024 onward, so citations are still arriving."
+ },
+ "10.1109/bigdata55660.2022.10020345": {
+  "name": "Lossy compression and anomaly detection for scientific data",
+  "narrative": "Seung Woo Son's data integrity line: error-bounded DCT-based lossy compression for HPC datasets, sparse-representation anomaly detection from IoT data to edge nodes, silent data corruption detection from hardware counters, and on-device stream analytics, most recently for earthquake detection and false-alarm suppression."
+ },
+ "10.1109/icc45041.2023.10279789": {
+  "name": "Resilient power grid observability and restoration",
+  "narrative": "The smart grid thread the director shares with Yuzhang Lin: PMU and communication placement for resilient observability, cyber restoration of power systems after attacks and disasters, cyber-physical reconfiguration and networked microgrids, false-data-injection detection in smart meters, and security-constrained dispatch. The ONR restoration project and the SUMMIT testbed are aimed here."
+ },
+ "10.1145/3651992": {
+  "name": "Trust between people and robots",
+  "narrative": "Paul Robinette's human-robot interaction studies: how trust forms, breaks, and is repaired after a robot's mistakes, what apologies and explanations do, moral expectations of robots against people, and drone failures in simulation against reality, with a line of ethics papers on socially supportive assistants and autonomous cars."
+ },
+ "10.1109/iv64158.2025.11097600": {
+  "name": "Surrogate safety and connected vehicle analytics",
+  "narrative": "Yuanchang Xie's safety line: surrogate safety measures for connected and automated vehicles, run-off-road and curve speeding risk from connected vehicle data, forward collision warning effectiveness, and causal estimates of what signal control choices do to safety."
+ },
+ "10.1093/oxfordhb/9780192847935.013.29": {
+  "name": "Nuclear security, safeguards, and clean heat",
+  "narrative": "Sukesh Aghara's nuclear line: safeguards measurement and detector modeling, nuclear security for next-generation reactors and facilities, cyber security for nuclear facilities, reactor kinetics, thermal energy storage on decommissioned sites, and clean heating for the campus."
+ },
+ "10.23919/date54114.2022.9774694": {
+  "name": "Hardware trojans and information flow tracking",
+  "narrative": "Orlando Arias's hardware security work: trojan insertion and detection at RTL and in SoC platforms, fine-grained dynamic information flow tracking, memory-mapping attacks on Cortex-M debug units, and hardware fuzzing."
+ },
+ "10.1109/tnsm.2022.3211254": {
+  "name": "Malware and traffic classification with transformers",
+  "narrative": "Yan Luo's machine learning line: malware detection for Windows executables with transformers and, in 2026, large language models, encrypted traffic classification with graph and attention networks, and earlier vision work on pose estimation, skin lesion diagnosis, and rehabilitation data."
+ },
+ "10.1177/02783649231153020": {
+  "name": "Marine autonomy and infrared perception",
+  "narrative": "Robinette's field robotics: the RoboWhaler autonomous surface vessel, the MassMIND maritime infrared dataset, long-wave and short-wave infrared detection, and sim-to-real sonar tracking."
+ },
+ "10.1109/jsen.2023.3244413": {
+  "name": "Sensor networks for structural monitoring",
+  "narrative": "Distributed acoustic sensor networks for wind turbine blades, camera calibration for large-scale structural monitoring, and a systematization of attacks and defenses on acoustic sensors."
+ },
+ "10.1109/ur61395.2024.10597441": {
+  "name": "Multi-agent learning with relational networks",
+  "narrative": "Relational network structure in multi-agent reinforcement learning: team performance in multi-armed bandits, recovery from robot malfunctions, and value factorization."
+ }
+}

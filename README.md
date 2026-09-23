@@ -293,23 +293,58 @@ Monthly newsletter > Run workflow > month YYYY-MM.
   the site's records would reach subscribers on the 4th unless you set NEWSLETTER_HOLD.
 
 Google Scholar figures
-  Scholar has no API and blocks automated requests from data-centre addresses, which includes GitHub
-  Actions. That is why the weekly job kept the March figures: it reached Scholar, was refused, and
-  correctly kept the last good number rather than blanking it.
+  Every profile with an ID in SCHOLAR (build_site.py) is refreshed each Monday by the weekly job:
+  faculty, alumni, and current students. Students show the figures on their card on the Students
+  page. To add a student, put the name exactly as written in STUDENTS and the user= part of their
+  Scholar URL into SCHOLAR; the figures appear after the next Monday run, or at once through the
+  manual route below.
 
-  To make the weekly job work from GitHub, add a SerpApi key:
+  Scholar has no API and blocks automated requests from data-centre addresses, which includes GitHub
+  Actions, so the weekly job reads Scholar through SerpApi:
     1. Create a free account at serpapi.com and copy the API key from the dashboard.
     2. In the repository: Settings > Secrets and variables > Actions > New repository secret.
        Name: SERPAPI_KEY   Value: the key.
-    3. Done. The refresh workflow passes it to refresh.py, which fetches through SerpApi.
-  Scholar is refreshed monthly (SCHOLAR_MIN_DAYS=25), about 20 lookups a month, inside the free plan.
+    3. The refresh step in .github/workflows/refresh.yml must hand the key to refresh.py:
+         - name: Pull new publications, NSF awards, and Scholar counts
+           run: python3 refresh.py
+           env:
+             SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+  Budget: about 34 lookups a run, 140 to 170 a month, inside SerpApi's free plan (250 a month and
+  50 an hour when this was written). refresh.py reads the stalest profiles first and stops at 45
+  lookups a run (SCHOLAR_MAX_PER_RUN), so a growing roster cannot push a run past either limit; what a
+  run leaves out goes first the following week. SCHOLAR_MIN_DAYS (default 6) skips profiles read in
+  the last six days, so a manual run mid-week costs almost nothing.
   Without the key the job still tries a direct fetch, which usually fails from GitHub.
 
   Every figure is checked against the profile's own name before it is stored. If an ID in SCHOLAR
   opens someone else's profile, the refresh log says so and the figure is rejected. Three IDs were once
   shifted by one position and a card showed another person's citations; the check prevents a repeat.
 
-  The manual route still works: Actions > Update Structured data, positions page, Wikidata
+  The manual route still works: Actions > Update Google Scholar figures, paste "Name citations h i10".
+
+Insights page (insights.html)
+  The center's records read together: a map of all papers grouped into research clusters, the
+  collaboration matrix among the director and center faculty, the outside literature the papers cite
+  most, citation reach, the doctoral students and alumni as they appear in the record, and which awards
+  match which clusters. Everything is computed at build time; nothing runs in the visitor's browser
+  beyond tap-to-focus on the map.
+    insights.py          the computation and the page (called by build_site.py after the other pages)
+    insights_names.json  hand-written cluster names and summaries, keyed by each cluster's anchor DOI
+    graph_fetch.py       Crossref reference lists and citation counts for every DOI (weekly, via refresh.py)
+    graph_auto.json      what graph_fetch.py wrote; commit it with the rest
+  Clusters are found with the Louvain method over three ties between papers: shared references (half the
+  weight), title and venue terms (a third), shared authors (the rest). They can change shape as papers
+  and references arrive. To see the current clusters with their anchor DOIs and top terms:
+    python3 insights.py --explain
+  A cluster whose anchor DOI is in insights_names.json shows its written name and summary; any other is
+  labelled from its own terms until a name is added. Names are keyed to anchors rather than positions so
+  a rebuild never attaches a summary to the wrong cluster.
+  The one dependency is networkx; build_site.py installs it on the GitHub runner if it is missing.
+  Reference lists are open for nearly all of the group's publishers; abstracts are not (Crossref has them
+  for almost none of these DOIs), which is why the graph rests on structure rather than text. Adding
+  full-text extraction (methods, testbeds, results) is the planned next step.
+
+Structured data, positions page, Wikidata
   Every page carries schema.org JSON-LD generated from the same records as the visible content: the
   center as a ResearchOrganization (home), every member as a Person with ORCID and Scholar identifiers
   (home, people), every paper as a ScholarlyArticle (publications), SUMMIT as a ResearchProject, and
@@ -445,8 +480,6 @@ Monthly newsletter > Run workflow > month YYYY-MM.
   Sending is automated through Resend; see "Sending the newsletter" above. Read the preview that
   arrives on the 1st; the opening line and the paper list are automatic, so a mis-attributed paper in
   the site's records would reach subscribers on the 4th unless you set NEWSLETTER_HOLD.
-
-Google Scholar figures, paste "Name citations h i10".
 
 NIH awards and the ORCID funding review
   NIH: the weekly refresh also searches NIH RePORTER for each person in uml_roster.py, with the same

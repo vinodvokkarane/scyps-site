@@ -1,0 +1,6383 @@
+[
+ {
+  "id": 0,
+  "year": 2002,
+  "kind": "conference",
+  "title": "Burst Segmentation: an Approach for Reducing Packet Loss in Optical Burst- Switched Networks",
+  "doi": "",
+  "authors": [
+   "V.M. Vokkarane",
+   "J.P. Jue",
+   "S. Sitaraman"
+  ],
+  "students": [],
+  "author_keys": [
+   "vokkarane_v",
+   "jue_j",
+   "sitaraman_s"
+  ],
+  "in_cv": true,
+  "thread": "OBS contention and QoS",
+  "problem": "Whole bursts are dropped when two bursts contend at an OBS core node, wasting most of the data.",
+  "approach": "Burst segmentation: split the burst and drop only the overlapping segments, combined with deflection routing.",
+  "finding": "Dropping segments instead of whole bursts cuts packet loss compared with conventional burst dropping.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "blocking probability",
+    "burst/packet loss",
+    "fragmentation"
+   ],
+   "method": [
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 1,
+  "year": 2002,
+  "kind": "conference",
+  "title": "Generalized Burst Assembly and Scheduling Techniques for QoS Support in Optical Burst-Switched Networks",
+  "doi": "",
+  "authors": [
+   "V.M. Vokkarane",
+   "Q. Zhang",
+   "J.P. Jue",
+   "B. Chen"
+  ],
+  "students": [],
+  "author_keys": [
+   "vokkarane_v",
+   "zhang_q",
+   "jue_j",
+   "chen_b"
+  ],
+  "in_cv": true,
+  "thread": "OBS contention and QoS",
+  "problem": "OBS needs service differentiation without optical buffers.",
+  "approach": "Generalized burst assembly and scheduling that places packets of different priority within a burst so low-priority segments are dropped first.",
+  "finding": "Enables loss differentiation between traffic classes at the edge and core.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [
+    "burst/packet loss"
+   ],
+   "method": [
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 2,
+  "year": 2002,
+  "kind": "conference",
+  "title": "Prioritized Routing and Burst Segmentation for QoS in Optical Burst-Switched Networks",
+  "doi": "",
+  "authors": [
+   "V.M. Vokkarane",
+   "J.P. Jue"
+  ],
+  "students": [],
+  "author_keys": [
+   "vokkarane_v",
+   "jue_j"
+  ],
+  "in_cv": true,
+  "thread": "OBS contention and QoS",
+  "problem": "Supporting QoS classes in OBS core nodes.",
+  "approach": "Prioritized routing combined with burst segmentation, analyzed with a model checked against simulation.",
+  "finding": "Analysis and simulation agree; blocking grows with the number of switch inputs.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [
+    "blocking probability"
+   ],
+   "method": [
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 3,
+  "year": 2003,
+  "kind": "conference",
+  "title": "Channel Scheduling Algorithms using Burst Segmentation and FDLs for Optical Burst-Switched Networks",
+  "doi": "",
+  "authors": [
+   "V.M. Vokkarane",
+   "G.P.V. Thodime",
+   "V. Challagulla",
+   "J.P. Jue"
+  ],
+  "students": [],
+  "author_keys": [
+   "vokkarane_v",
+   "thodime_g",
+   "challagulla_v",
+   "jue_j"
+  ],
+  "in_cv": true,
+  "thread": "OBS contention and QoS",
+  "problem": "Channel scheduling at OBS nodes must handle contention efficiently.",
+  "approach": "Scheduling algorithms that combine burst segmentation with fiber delay lines.",
+  "finding": "Segmentation-aware scheduling lowers loss relative to scheduling without segmentation.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "burst/packet loss"
+   ],
+   "method": [
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 4,
+  "year": 2003,
+  "kind": "conference",
+  "title": "Dynamic Congestion-Based Load Balanced Routing in Optical Burst-Switched Networks",
+  "doi": "",
+  "authors": [
+   "G.P.V. Thodime",
+   "V.M. Vokkarane",
+   "J.P. Jue"
+  ],
+  "students": [],
+  "author_keys": [
+   "thodime_g",
+   "vokkarane_v",
+   "jue_j"
+  ],
+  "in_cv": true,
+  "thread": "OBS contention and QoS",
+  "problem": "Local contention resolution reacts to loss but ignores congestion on paths.",
+  "approach": "Dynamic congestion-based load-balanced routing across alternate paths.",
+  "finding": "Load balancing reduces burst loss by steering traffic away from congested links.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "USNET"
+   ],
+   "metric": [
+    "burst/packet loss",
+    "accuracy/F1"
+   ],
+   "method": [
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 5,
+  "year": 2003,
+  "kind": "conference",
+  "title": "Early Drop Scheme for Providing Absolute QoS Differentiation in Optical Burst-Switched Networks",
+  "doi": "",
+  "authors": [
+   "Q. Zhang",
+   "V.M. Vokkarane",
+   "B. Chen",
+   "J.P. Jue"
+  ],
+  "students": [],
+  "author_keys": [
+   "zhang_q",
+   "vokkarane_v",
+   "chen_b",
+   "jue_j"
+  ],
+  "in_cv": true,
+  "thread": "OBS contention and QoS",
+  "problem": "OBS schemes give relative, not absolute, QoS guarantees.",
+  "approach": "Early drop of low-priority bursts to hold high-priority loss below a bound.",
+  "finding": "Early drop provides per-hop absolute loss differentiation.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [
+    "blocking probability",
+    "burst/packet loss"
+   ],
+   "method": [
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 6,
+  "year": 2003,
+  "kind": "conference",
+  "title": "Early Drop and Wavelength Grouping Schemes for Providing Absolute QoS Differentiation in Optical Burst-Switched Networks",
+  "doi": "",
+  "authors": [
+   "Q. Zhang",
+   "V.M. Vokkarane",
+   "B. Chen",
+   "J.P. Jue"
+  ],
+  "students": [],
+  "author_keys": [
+   "zhang_q",
+   "vokkarane_v",
+   "chen_b",
+   "jue_j"
+  ],
+  "in_cv": true,
+  "thread": "OBS contention and QoS",
+  "problem": "Absolute QoS differentiation in OBS.",
+  "approach": "Early drop combined with wavelength grouping that reserves channels per class.",
+  "finding": "Both schemes bound high-priority loss independent of other classes' load.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [
+    "burst/packet loss",
+    "throughput"
+   ],
+   "method": [
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 7,
+  "year": 2003,
+  "kind": "conference",
+  "title": "Intermediate Node Initiated (INI) Signaling: A Hybrid Channel Reservation Technique for Optical Burst-Switched Networks",
+  "doi": "",
+  "authors": [
+   "R. Karanam",
+   "V.M. Vokkarane",
+   "J.P. Jue"
+  ],
+  "students": [],
+  "author_keys": [
+   "karanam_r",
+   "vokkarane_v",
+   "jue_j"
+  ],
+  "in_cv": true,
+  "thread": "OBS contention and QoS",
+  "problem": "One-way and two-way reservation both have drawbacks in OBS.",
+  "approach": "Intermediate Node Initiated signaling, a hybrid where reservation starts at an intermediate node.",
+  "finding": "Trades setup delay against loss between the two classic signaling schemes.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "blocking probability",
+    "burst/packet loss"
+   ],
+   "method": [
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 8,
+  "year": 2003,
+  "kind": "journal",
+  "title": "Prioritized Burst Segmentation and Composite Burst Assembly Techniques for QoS Support in Optical Burst-Switched Networks",
+  "doi": "",
+  "authors": [
+   "V.M. Vokkarane",
+   "J.P. Jue"
+  ],
+  "students": [],
+  "author_keys": [
+   "vokkarane_v",
+   "jue_j"
+  ],
+  "in_cv": true,
+  "thread": "OBS contention and QoS",
+  "problem": "QoS support in OBS without fiber delay lines.",
+  "approach": "Prioritized contention resolution in the core plus composite burst assembly at the edge.",
+  "finding": "Journal version of the prioritized segmentation work; differentiates loss by class.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "burst/packet loss"
+   ],
+   "method": [
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 9,
+  "year": 2004,
+  "kind": "journal",
+  "title": "Absolute QoS Differentiation in Optical Burst-Switched Networks",
+  "doi": "",
+  "authors": [
+   "Q. Zhang",
+   "V.M. Vokkarane",
+   "J.P. Jue",
+   "B. Chen"
+  ],
+  "students": [],
+  "author_keys": [
+   "zhang_q",
+   "vokkarane_v",
+   "jue_j",
+   "chen_b"
+  ],
+  "in_cv": true,
+  "thread": "OBS contention and QoS",
+  "problem": "Relative QoS models give no hard guarantee in OBS.",
+  "approach": "Absolute QoS differentiation framework.",
+  "finding": "Journal treatment of early drop and wavelength grouping for absolute loss bounds.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "USNET"
+   ],
+   "metric": [
+    "burst/packet loss"
+   ],
+   "method": [
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 10,
+  "year": 2004,
+  "kind": "conference",
+  "title": "Dual-Homing Protection in WDM Mesh Networks",
+  "doi": "",
+  "authors": [
+   "J. Wang",
+   "V.M. Vokkarane",
+   "X. Qi",
+   "J.P. Jue"
+  ],
+  "students": [],
+  "author_keys": [
+   "wang_j",
+   "vokkarane_v",
+   "qi_x",
+   "jue_j"
+  ],
+  "in_cv": true,
+  "thread": "Survivability and protection",
+  "problem": "Survivability of IP-over-WDM networks with dual-homed access.",
+  "approach": "ILP formulation of dual-homing protection solved with CPLEX.",
+  "finding": "Joint protection across layers uses fewer resources than protecting each layer separately.",
+  "tags": {
+   "tool": [
+    "CPLEX"
+   ],
+   "topology": [
+    "Torus/ring/mesh (synthetic)"
+   ],
+   "metric": [
+    "restoration"
+   ],
+   "method": [
+    "ILP/MILP",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 11,
+  "year": 2004,
+  "kind": "conference",
+  "title": "Dynamic Dual-Homing Protection in WDM Mesh Networks",
+  "doi": "",
+  "authors": [
+   "V.M. Vokkarane",
+   "J. Wang",
+   "R. Jothi",
+   "X. Qi",
+   "B. Raghavachari",
+   "J.P. Jue"
+  ],
+  "students": [],
+  "author_keys": [
+   "vokkarane_v",
+   "wang_j",
+   "jothi_r",
+   "qi_x",
+   "raghavachari_b",
+   "jue_j"
+  ],
+  "in_cv": true,
+  "thread": "Survivability and protection",
+  "problem": "Dual homing alone cannot protect against WDM core failures.",
+  "approach": "Dynamic dual-homing protection algorithms for WDM mesh networks.",
+  "finding": "Coordinating dual homing with core protection improves blocking and resource use.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "Torus/ring/mesh (synthetic)"
+   ],
+   "metric": [
+    "restoration"
+   ],
+   "method": [
+    "heuristic",
+    "metaheuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 12,
+  "year": 2004,
+  "kind": "conference",
+  "title": "Path Clustering: An Approach to Implement Absolute QoS Differentiation in Optical Burst-Switched Networks",
+  "doi": "",
+  "authors": [
+   "Q. Zhang",
+   "V.M. Vokkarane",
+   "J.P. Jue"
+  ],
+  "students": [],
+  "author_keys": [
+   "zhang_q",
+   "vokkarane_v",
+   "jue_j"
+  ],
+  "in_cv": true,
+  "thread": "OBS contention and QoS",
+  "problem": "Early drop and wavelength grouping guarantee loss only per hop.",
+  "approach": "Path clustering to provide end-to-end absolute QoS.",
+  "finding": "Extends absolute differentiation from per-hop to per-path.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "USNET"
+   ],
+   "metric": [
+    "burst/packet loss"
+   ],
+   "method": [
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 13,
+  "year": 2005,
+  "kind": "conference",
+  "title": "A Layered Architecture for Supporting Optical Burst Switching",
+  "doi": "",
+  "authors": [
+   "F. Farahmand",
+   "J.P. Jue",
+   "V.M. Vokkarane",
+   "J. J. P. C. Rodrigues",
+   "M. M. Freire"
+  ],
+  "students": [],
+  "author_keys": [
+   "farahmand_f",
+   "jue_j",
+   "vokkarane_v",
+   "rodrigues_j",
+   "freire_m"
+  ],
+  "in_cv": true,
+  "thread": "OBS architecture",
+  "problem": "OBS lacks a defined layered architecture spanning control and data planes.",
+  "approach": "A layered protocol architecture for OBS in the optical core.",
+  "finding": "Defines layers and functions for implementing OBS.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [
+    "burst/packet loss",
+    "accuracy/F1"
+   ],
+   "method": []
+  }
+ },
+ {
+  "id": 14,
+  "year": 2005,
+  "kind": "conference",
+  "title": "Analysis of TCP over Optical Burst-Switched Networks with Burst Retransmission",
+  "doi": "",
+  "authors": [
+   "Q. Zhang",
+   "V.M. Vokkarane",
+   "Y. Wang",
+   "J.P. Jue"
+  ],
+  "students": [],
+  "author_keys": [
+   "zhang_q",
+   "vokkarane_v",
+   "wang_y",
+   "jue_j"
+  ],
+  "in_cv": true,
+  "thread": "TCP over OBS",
+  "problem": "Random burst losses in OBS are misread by TCP as congestion.",
+  "approach": "Analytical model of TCP over OBS with burst retransmission.",
+  "finding": "Burst retransmission reduces false congestion signals and improves TCP throughput.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "blocking probability",
+    "burst/packet loss",
+    "throughput"
+   ],
+   "method": [
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 15,
+  "year": 2005,
+  "kind": "conference",
+  "title": "Burst Cloning: A Proactive Scheme to Reduce Data Loss in Optical Burst-Switched Networks",
+  "doi": "",
+  "authors": [
+   "X. Huang",
+   "V.M. Vokkarane",
+   "J.P. Jue"
+  ],
+  "students": [],
+  "author_keys": [
+   "huang_x",
+   "vokkarane_v",
+   "jue_j"
+  ],
+  "in_cv": true,
+  "thread": "OBS contention and QoS",
+  "problem": "Burst contention losses in OBS.",
+  "approach": "Burst cloning: send duplicate copies and choose where to clone so copies do not contend with originals.",
+  "finding": "Proactive cloning reduces data loss.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "blocking probability",
+    "burst/packet loss"
+   ],
+   "method": [
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 16,
+  "year": 2005,
+  "kind": "conference",
+  "title": "Coordinated Survivability in IP-over-Optical Networks with IP-Layer Dual-Homing and Optical-Layer Protection",
+  "doi": "",
+  "authors": [
+   "V.M. Vokkarane",
+   "J. Wang",
+   "J.P. Jue"
+  ],
+  "students": [],
+  "author_keys": [
+   "vokkarane_v",
+   "wang_j",
+   "jue_j"
+  ],
+  "in_cv": true,
+  "thread": "Survivability and protection",
+  "problem": "IP-layer dual homing and optical-layer protection are designed independently.",
+  "approach": "Coordinated survivability across the IP and optical layers.",
+  "finding": "Coordination saves resources while keeping hosts connected after failures.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "Torus/ring/mesh (synthetic)"
+   ],
+   "metric": [
+    "restoration"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "metaheuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 17,
+  "year": 2005,
+  "kind": "journal",
+  "title": "Dual-Homing Protection in IP-over-WDM Networks",
+  "doi": "",
+  "authors": [
+   "J. Wang",
+   "V.M. Vokkarane",
+   "R. Jothi",
+   "X. Qi",
+   "B. Raghavachari",
+   "J. P. Jue"
+  ],
+  "students": [],
+  "author_keys": [
+   "wang_j",
+   "vokkarane_v",
+   "jothi_r",
+   "qi_x",
+   "raghavachari_b",
+   "jue_j"
+  ],
+  "in_cv": true,
+  "thread": "Survivability and protection",
+  "problem": "Protection for dual-homed hosts in IP-over-WDM networks.",
+  "approach": "Primary and backup lightpath design for dual-homed architectures (journal).",
+  "finding": "Journal version of the dual-homing protection results.",
+  "tags": {
+   "tool": [
+    "CPLEX"
+   ],
+   "topology": [
+    "Torus/ring/mesh (synthetic)"
+   ],
+   "metric": [
+    "restoration"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "metaheuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 18,
+  "year": 2005,
+  "kind": "conference",
+  "title": "Evaluation of Burst Retransmission in Optical Burst-Switched Networks",
+  "doi": "",
+  "authors": [
+   "Q. Zhang",
+   "V.M. Vokkarane",
+   "Y. Wang",
+   "J.P. Jue"
+  ],
+  "students": [],
+  "author_keys": [
+   "zhang_q",
+   "vokkarane_v",
+   "wang_y",
+   "jue_j"
+  ],
+  "in_cv": true,
+  "thread": "OBS contention and QoS",
+  "problem": "Burst loss from contention in OBS.",
+  "approach": "OBS-layer burst retransmission with an analytical loss model.",
+  "finding": "Retransmission lowers burst loss probability at a cost in delay.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "blocking probability",
+    "burst/packet loss"
+   ],
+   "method": [
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 19,
+  "year": 2005,
+  "kind": "conference",
+  "title": "Reliable Optical Burst Switching for Next-Generation Grid Networks",
+  "doi": "",
+  "authors": [
+   "V.M. Vokkarane",
+   "Q. Zhang"
+  ],
+  "students": [],
+  "author_keys": [
+   "vokkarane_v",
+   "zhang_q"
+  ],
+  "in_cv": true,
+  "thread": "Grid and e-science networking",
+  "problem": "Grid applications need reliable data transport over OBS.",
+  "approach": "Reliable OBS mechanisms for grid networks.",
+  "finding": "Positions OBS as a transport for data grids with loss recovery.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "blocking probability",
+    "burst/packet loss",
+    "throughput",
+    "restoration"
+   ],
+   "method": [
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 20,
+  "year": 2005,
+  "kind": "journal",
+  "title": "Segmentation-Based Non-Preemptive Channel Scheduling Algorithms for Optical Burst-Switched Networks",
+  "doi": "",
+  "authors": [
+   "V.M. Vokkarane",
+   "J.P. Jue"
+  ],
+  "students": [],
+  "author_keys": [
+   "vokkarane_v",
+   "jue_j"
+  ],
+  "in_cv": true,
+  "thread": "OBS contention and QoS",
+  "problem": "Traditional OBS scheduling relies on conversion and buffering.",
+  "approach": "Segmentation-based non-preemptive channel scheduling algorithms (journal).",
+  "finding": "Segmentation-based schedulers reduce loss versus traditional schedulers.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "burst/packet loss",
+    "throughput"
+   ],
+   "method": [
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 21,
+  "year": 2006,
+  "kind": "conference",
+  "title": "Fault-tolerant Wireless Access Network Design for Dual-Homed Users",
+  "doi": "",
+  "authors": [
+   "X. Huang",
+   "J. Wang",
+   "V.M. Vokkarane",
+   "J. P. Jue"
+  ],
+  "students": [],
+  "author_keys": [
+   "huang_x",
+   "wang_j",
+   "vokkarane_v",
+   "jue_j"
+  ],
+  "in_cv": true,
+  "thread": "Wireless sensor and access networks",
+  "problem": "Dual homing in wireless access does not cover controller or switching-center failures.",
+  "approach": "Fault-tolerant routing design from base stations to controllers for dual-homed users.",
+  "finding": "Improves resilience to higher-layer failures in hierarchical wireless access.",
+  "tags": {
+   "tool": [
+    "CPLEX"
+   ],
+   "topology": [
+    "Torus/ring/mesh (synthetic)"
+   ],
+   "metric": [],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "metaheuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 22,
+  "year": 2006,
+  "kind": "conference",
+  "title": "Forward Redundancy: A Loss Recovery Mechanism for Optical Burst-Switched Networks",
+  "doi": "",
+  "authors": [
+   "V.M. Vokkarane",
+   "Q. Zhang"
+  ],
+  "students": [],
+  "author_keys": [
+   "vokkarane_v",
+   "zhang_q"
+  ],
+  "in_cv": true,
+  "thread": "OBS contention and QoS",
+  "problem": "Loss recovery in OBS without retransmission delay.",
+  "approach": "Forward redundancy, sending redundant data ahead to recover losses, evaluated by simulation.",
+  "finding": "Forward redundancy recovers lost data proactively.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "blocking probability",
+    "burst/packet loss"
+   ],
+   "method": [
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 23,
+  "year": 2006,
+  "kind": "conference",
+  "title": "Optimal Remote Homing for Providing Service Differentiation in Information-aware Multi- Layered Wireless Sensor Networks",
+  "doi": "",
+  "authors": [
+   "J. Wang",
+   "V.M. Vokkarane"
+  ],
+  "students": [],
+  "author_keys": [
+   "wang_j",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Wireless sensor and access networks",
+  "problem": "Critical sensor data needs reliable, low-latency delivery.",
+  "approach": "Remote-homing for service differentiation in multi-layered sensor networks.",
+  "finding": "Differentiates delivery of critical versus routine data.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [
+    "throughput",
+    "energy/power",
+    "accuracy/F1"
+   ],
+   "method": [
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 24,
+  "year": 2006,
+  "kind": "conference",
+  "title": "Wireless Sensor Network Based Model for Secure Railway Operations",
+  "doi": "",
+  "authors": [
+   "E. Aboelela",
+   "W. Edberg",
+   "C. Papakonstantinou",
+   "V.M. Vokkarane"
+  ],
+  "students": [],
+  "author_keys": [
+   "aboelela_e",
+   "edberg_w",
+   "papakonstantinou_c",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Wireless sensor and access networks",
+  "problem": "Railway track problems are detected by manual inspection.",
+  "approach": "Wireless sensor network model for monitoring railway operations.",
+  "finding": "Proposes a sensing architecture for secure rail operations.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [
+    "energy/power",
+    "accuracy/F1"
+   ],
+   "method": [
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 25,
+  "year": 2007,
+  "kind": "conference",
+  "title": "CAR: Coordinated Activation and Reporting for Energy-Efficient Target Intrusion Detection, Tracking, and Reporting in Wireless Sensor Networks",
+  "doi": "",
+  "authors": [
+   "D. Jain",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "jain_d"
+  ],
+  "author_keys": [
+   "jain_d",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Wireless sensor and access networks",
+  "problem": "Target monitoring drains sensor batteries.",
+  "approach": "Coordinated activation and reporting for detection, tracking, and reporting.",
+  "finding": "Coordination extends network lifetime while keeping monitoring accuracy.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [
+    "blocking probability",
+    "energy/power",
+    "accuracy/F1"
+   ],
+   "method": [
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 26,
+  "year": 2007,
+  "kind": "conference",
+  "title": "Manycasting over Optical Burst-Switched Networks",
+  "doi": "",
+  "authors": [
+   "X. Huang",
+   "Q. She",
+   "V.M. Vokkarane",
+   "J.P. Jue"
+  ],
+  "students": [],
+  "author_keys": [
+   "huang_x",
+   "she_q",
+   "vokkarane_v",
+   "jue_j"
+  ],
+  "in_cv": true,
+  "thread": "Manycast and anycast",
+  "problem": "Manycast over OBS suffers data loss from burst contention.",
+  "approach": "Static over-provisioning and dynamic membership schemes.",
+  "finding": "Both schemes reduce manycast data loss.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "blocking probability",
+    "burst/packet loss"
+   ],
+   "method": [
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 27,
+  "year": 2007,
+  "kind": "conference",
+  "title": "Node-Replacement Policies to Maintain Threshold-Coverage in Wireless Sensor Networks",
+  "doi": "",
+  "authors": [
+   "S. Parikh",
+   "V.M. Vokkarane",
+   "L. Xing",
+   "D. Kasilingam"
+  ],
+  "students": [
+   "parikh_s"
+  ],
+  "author_keys": [
+   "parikh_s",
+   "vokkarane_v",
+   "xing_l",
+   "kasilingam_d"
+  ],
+  "in_cv": true,
+  "thread": "Wireless sensor and access networks",
+  "problem": "Maintaining minimum coverage for target tracking as nodes fail.",
+  "approach": "Node-replacement policies that keep threshold coverage while maximizing lifetime.",
+  "finding": "Replacement policies sustain coverage longer.",
+  "tags": {
+   "tool": [
+    "MATLAB"
+   ],
+   "topology": [
+    "USNET"
+   ],
+   "metric": [
+    "accuracy/F1"
+   ],
+   "method": [
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 28,
+  "year": 2007,
+  "kind": "conference",
+  "title": "Source-Ordering for Improved TCP Performance over Load-Balanced Optical Burst- Switched (OBS) Networks",
+  "doi": "",
+  "authors": [
+   "B. Komatireddy",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "komatireddy_b"
+  ],
+  "author_keys": [
+   "komatireddy_b",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "TCP over OBS",
+  "problem": "Load balancing in OBS reorders packets and hurts TCP.",
+  "approach": "Source-ordering at the ingress to restore order.",
+  "finding": "Source ordering improves TCP performance over load-balanced OBS.",
+  "tags": {
+   "tool": [
+    "ns-2"
+   ],
+   "topology": [],
+   "metric": [
+    "burst/packet loss",
+    "throughput"
+   ],
+   "method": [
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 29,
+  "year": 2007,
+  "kind": "conference",
+  "title": "TCP-Aware Load-Balanced Routing in Optical Burst-Switched (OBS) Networks",
+  "doi": "",
+  "authors": [
+   "B. Komatireddy",
+   "D. Chandran",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "komatireddy_b",
+   "chandran_d"
+  ],
+  "author_keys": [
+   "komatireddy_b",
+   "chandran_d",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "TCP over OBS",
+  "problem": "Load balancing causes false timeouts and false triple duplicates for TCP.",
+  "approach": "Source-ordering with TCP-aware load-balanced routing.",
+  "finding": "Improves TCP throughput by three to four times.",
+  "tags": {
+   "tool": [
+    "ns-2"
+   ],
+   "topology": [],
+   "metric": [
+    "burst/packet loss",
+    "throughput"
+   ],
+   "method": [
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 30,
+  "year": 2008,
+  "kind": "conference",
+  "title": "Energy-Efficient Target Monitoring Using Base-Station Relocation in Wireless Sensor Networks",
+  "doi": "",
+  "authors": [
+   "D. Jain",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "jain_d"
+  ],
+  "author_keys": [
+   "jain_d",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Wireless sensor and access networks",
+  "problem": "Energy-efficient target monitoring in sensor networks.",
+  "approach": "Base-station relocation to cut transmission energy.",
+  "finding": "Relocating the base station extends network lifetime.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "Torus/ring/mesh (synthetic)"
+   ],
+   "metric": [
+    "burst/packet loss",
+    "throughput",
+    "energy/power",
+    "accuracy/F1"
+   ],
+   "method": [
+    "ILP/MILP",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 31,
+  "year": 2008,
+  "kind": "conference",
+  "title": "Impairment-Aware Manycasting Algorithms Over Optical Burst-Switched Networks",
+  "doi": "",
+  "authors": [
+   "B.G. Bathula",
+   "R.R.C. Bikram",
+   "V.M. Vokkarane",
+   "S. Talabattula"
+  ],
+  "students": [
+   "bathula_b",
+   "bikram_r"
+  ],
+  "author_keys": [
+   "bathula_b",
+   "bikram_r",
+   "vokkarane_v",
+   "talabattula_s"
+  ],
+  "in_cv": true,
+  "thread": "Manycast and anycast",
+  "problem": "Physical impairments degrade manycast in OBS.",
+  "approach": "Impairment-aware manycasting algorithms using signal quality estimates.",
+  "finding": "Accounting for impairments lowers loss from bit errors.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "blocking probability",
+    "burst/packet loss",
+    "OSNR/GSNR/QoT",
+    "carbon/emissions",
+    "BER"
+   ],
+   "method": [
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 32,
+  "year": 2008,
+  "kind": "conference",
+  "title": "Impairment-Aware Manycasting Over Optical Burst-Switched Networks",
+  "doi": "",
+  "authors": [
+   "B.G. Balagangadhar",
+   "V.M. Vokkarane",
+   "R.R.C. Bikram"
+  ],
+  "students": [
+   "balagangadhar_b",
+   "bikram_r"
+  ],
+  "author_keys": [
+   "balagangadhar_b",
+   "vokkarane_v",
+   "bikram_r"
+  ],
+  "in_cv": true,
+  "thread": "Manycast and anycast",
+  "problem": "Signal degradation from attenuation, splitting, and amplifier noise in manycast OBS.",
+  "approach": "Impairment-aware manycasting based on q-factor and BER.",
+  "finding": "Impairment awareness reduces burst loss from poor signal quality.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "burst/packet loss",
+    "OSNR/GSNR/QoT",
+    "carbon/emissions",
+    "BER"
+   ],
+   "method": [
+    "metaheuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 33,
+  "year": 2008,
+  "kind": "conference",
+  "title": "Performance Analysis of Dual-Homed Fault-Tolerant Routing in Wireless Sensor Networks",
+  "doi": "",
+  "authors": [
+   "N. Jain",
+   "V.M. Vokkarane",
+   "J.P. Wang"
+  ],
+  "students": [
+   "jain_n"
+  ],
+  "author_keys": [
+   "jain_n",
+   "vokkarane_v",
+   "wang_j"
+  ],
+  "in_cv": true,
+  "thread": "Wireless sensor and access networks",
+  "problem": "Fault tolerance for sensor networks.",
+  "approach": "Performance analysis of dual-homed fault-tolerant routing with clustering.",
+  "finding": "Dual-homed routing improves delivery under failures.",
+  "tags": {
+   "tool": [
+    "ns-2"
+   ],
+   "topology": [
+    "USNET"
+   ],
+   "metric": [
+    "burst/packet loss",
+    "throughput",
+    "energy/power"
+   ],
+   "method": [
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 34,
+  "year": 2008,
+  "kind": "conference",
+  "title": "Proactive Loss Recovery using Forward Segment Redundancy in Optical Burst-Switched (OBS) Networks",
+  "doi": "",
+  "authors": [
+   "D. Chandran",
+   "N. Charbonneau",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "chandran_d",
+   "charbonneau_n"
+  ],
+  "author_keys": [
+   "chandran_d",
+   "charbonneau_n",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "TCP over OBS",
+  "problem": "A single burst loss can hit many TCP segments.",
+  "approach": "Forward segment redundancy for proactive loss recovery.",
+  "finding": "Redundancy reduces TCP-visible losses.",
+  "tags": {
+   "tool": [
+    "ns-2"
+   ],
+   "topology": [],
+   "metric": [
+    "burst/packet loss",
+    "throughput"
+   ],
+   "method": [
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 35,
+  "year": 2008,
+  "kind": "conference",
+  "title": "TCP Over Optical Burst Switching (OBS): To Split or Not to Split?",
+  "doi": "",
+  "authors": [
+   "D. Padmanabhan",
+   "R.R.C. Bikram",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "padmanabhan_d",
+   "bikram_r"
+  ],
+  "author_keys": [
+   "padmanabhan_d",
+   "bikram_r",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "TCP over OBS",
+  "problem": "TCP over hybrid IP-access and OBS-core networks performs poorly.",
+  "approach": "Split-TCP at the OBS edge.",
+  "finding": "Splitting the connection improves TCP throughput over OBS.",
+  "tags": {
+   "tool": [
+    "ns-2"
+   ],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "burst/packet loss",
+    "throughput"
+   ],
+   "method": [
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 36,
+  "year": 2009,
+  "kind": "conference",
+  "title": "Dynamic Load-Balanced Manycasting over Optical Burst-Switched (OBS) Networks",
+  "doi": "",
+  "authors": [
+   "R.R.C. Bikram",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "bikram_r"
+  ],
+  "author_keys": [
+   "bikram_r",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Manycast and anycast",
+  "problem": "Contention loss for manycast in OBS.",
+  "approach": "Congestion-based load-balanced manycast routing.",
+  "finding": "Improves blocking probability and end-to-end delay.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "blocking probability",
+    "burst/packet loss"
+   ],
+   "method": [
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 37,
+  "year": 2009,
+  "kind": "conference",
+  "title": "MASCOT: Manycast Architecture for Service-Oriented Tactical Applications",
+  "doi": "",
+  "authors": [
+   "N. Charbonneau",
+   "V.M. Vokkarane",
+   "R. Balasubramanian"
+  ],
+  "students": [
+   "charbonneau_n"
+  ],
+  "author_keys": [
+   "charbonneau_n",
+   "vokkarane_v",
+   "balasubramanian_r"
+  ],
+  "in_cv": true,
+  "thread": "Manycast and anycast",
+  "problem": "Tactical operations need to reach any subset of command centers.",
+  "approach": "MASCOT manycast architecture for the U.S. Marine Corps.",
+  "finding": "Service-oriented manycast for tactical networks.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": [
+    "heuristic",
+    "metaheuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 38,
+  "year": 2009,
+  "kind": "conference",
+  "title": "Static Manycast Routing and Wavelength Assignment over Wavelength-Routed Optical WDM Networks",
+  "doi": "",
+  "authors": [
+   "N. Charbonneau",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "charbonneau_n"
+  ],
+  "author_keys": [
+   "charbonneau_n",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Manycast and anycast",
+  "problem": "Static manycast demands over wavelength-routed WDM.",
+  "approach": "Manycast routing and wavelength assignment minimizing wavelengths.",
+  "finding": "Heuristics reduce wavelengths needed.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET",
+    "USNET"
+   ],
+   "metric": [],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 39,
+  "year": 2009,
+  "kind": "journal",
+  "title": "TCP over Optical Burst-Switched (OBS): To Split or Not To Split?",
+  "doi": "",
+  "authors": [
+   "R.R.C. Bikram",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "bikram_r"
+  ],
+  "author_keys": [
+   "bikram_r",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "TCP over OBS",
+  "problem": "TCP over hybrid IP/OBS networks.",
+  "approach": "Split-TCP evaluation (journal).",
+  "finding": "Journal version of split versus end-to-end TCP over OBS.",
+  "tags": {
+   "tool": [
+    "ns-2"
+   ],
+   "topology": [
+    "NSFNET",
+    "Torus/ring/mesh (synthetic)"
+   ],
+   "metric": [
+    "burst/packet loss",
+    "throughput"
+   ],
+   "method": [
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 40,
+  "year": 2009,
+  "kind": "conference",
+  "title": "Unfairness in TCP Performance over Lossy Optical Burst-Switched (OBS) Networks",
+  "doi": "",
+  "authors": [
+   "J. Sullivan",
+   "P. Ramos",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "sullivan_j",
+   "ramos_p"
+  ],
+  "author_keys": [
+   "sullivan_j",
+   "ramos_p",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "TCP over OBS",
+  "problem": "Whether competing TCP flows share lossy OBS networks fairly.",
+  "approach": "Fairness study of TCP flavors over OBS using Jain's index.",
+  "finding": "Random burst loss makes TCP flows unfair under some conditions.",
+  "tags": {
+   "tool": [
+    "ns-2"
+   ],
+   "topology": [],
+   "metric": [
+    "burst/packet loss"
+   ],
+   "method": [
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 41,
+  "year": 2010,
+  "kind": "conference",
+  "title": "Coordinated Multi-Layer Loss Recovery in TCP over Optical Burst- Switched (OBS) Networks",
+  "doi": "",
+  "authors": [
+   "R.R.C. Bikram",
+   "N. Charbonneau",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "bikram_r",
+   "charbonneau_n"
+  ],
+  "author_keys": [
+   "bikram_r",
+   "charbonneau_n",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "TCP over OBS",
+  "problem": "Random burst losses trigger TCP slow start without real congestion.",
+  "approach": "Coordinated loss recovery across the TCP and OBS layers.",
+  "finding": "Coordination avoids needless window cuts and raises throughput.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [
+    "burst/packet loss",
+    "throughput"
+   ],
+   "method": [
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 42,
+  "year": 2010,
+  "kind": "conference",
+  "title": "Crosstalk-Aware Anycast Routing and Wavelength Assignment in Optical WDM Networks",
+  "doi": "",
+  "authors": [
+   "B.G. Bathula",
+   "J. Plante",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "bathula_b",
+   "plante_j"
+  ],
+  "author_keys": [
+   "bathula_b",
+   "plante_j",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Manycast and anycast",
+  "problem": "Anycast in transparent optical networks must meet signal quality.",
+  "approach": "Crosstalk-aware anycast routing and wavelength assignment.",
+  "finding": "Impairment awareness lowers blocking for anycast requests.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "blocking probability",
+    "OSNR/GSNR/QoT",
+    "carbon/emissions",
+    "BER"
+   ],
+   "method": [
+    "heuristic",
+    "metaheuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 43,
+  "year": 2010,
+  "kind": "conference",
+  "title": "Dynamic Circuits with Lightpath Switching over Wavelength Routed Networks",
+  "doi": "",
+  "authors": [
+   "N. Charbonneau",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "charbonneau_n"
+  ],
+  "author_keys": [
+   "charbonneau_n",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Advance reservation and scheduling",
+  "problem": "Holding-time-aware circuits keep one lightpath for the whole transfer.",
+  "approach": "Lightpath switching: a transfer may move across lightpaths over time.",
+  "finding": "Lightpath switching improves resource use and lowers blocking.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "blocking probability"
+   ],
+   "method": [
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 44,
+  "year": 2010,
+  "kind": "conference",
+  "title": "Multicast Advance Reservation RWA Heuristics in Wavelength-Routed Networks",
+  "doi": "",
+  "authors": [
+   "N. Charbonneau",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "charbonneau_n"
+  ],
+  "author_keys": [
+   "charbonneau_n",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Advance reservation and scheduling",
+  "problem": "Static multicast advance reservation in wavelength-routed WDM.",
+  "approach": "RWA heuristics for multicast advance reservation.",
+  "finding": "Heuristics reduce wavelength use for scheduled multicast.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET",
+    "USNET"
+   ],
+   "metric": [],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "metaheuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 45,
+  "year": 2010,
+  "kind": "conference",
+  "title": "Performance Evaluation of TCP over Optical Burst Switched (OBS) Networks using Coordinated Burst Cloning and Forward-Segment Redundancy",
+  "doi": "",
+  "authors": [
+   "J. Sullivan",
+   "N. Charbonneau",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "sullivan_j",
+   "charbonneau_n"
+  ],
+  "author_keys": [
+   "sullivan_j",
+   "charbonneau_n",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "TCP over OBS",
+  "problem": "Contention losses at low load hurt TCP over OBS.",
+  "approach": "Coordinated burst retransmission evaluated for TCP.",
+  "finding": "Burst-level retransmission improves TCP throughput and latency.",
+  "tags": {
+   "tool": [
+    "ns-2"
+   ],
+   "topology": [],
+   "metric": [
+    "burst/packet loss",
+    "throughput"
+   ],
+   "method": [
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 46,
+  "year": 2010,
+  "kind": "conference",
+  "title": "QoS-Aware Cross-Layer Multicasting for Optical Packet-Switched Networks: Simulation Exploration and Test-Bed Demonstration",
+  "doi": "",
+  "authors": [
+   "C.P. Lai",
+   "B.G. Bathula",
+   "V.M. Vokkarane",
+   "K. Bergman"
+  ],
+  "students": [],
+  "author_keys": [
+   "lai_c",
+   "bathula_b",
+   "vokkarane_v",
+   "bergman_k"
+  ],
+  "in_cv": true,
+  "thread": "Optical packet switching",
+  "problem": "QoS multicasting in optical packet-switched fabrics.",
+  "approach": "Cross-layer multicast routing studied by simulation and on a 10x10 Gb/s wavelength-striped testbed.",
+  "finding": "Experimental demonstration of cross-layer multicast on a switching testbed.",
+  "tags": {
+   "tool": [
+    "GENI"
+   ],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "burst/packet loss",
+    "OSNR/GSNR/QoT",
+    "restoration",
+    "BER"
+   ],
+   "method": [
+    "simulation",
+    "testbed/experiment"
+   ]
+  }
+ },
+ {
+  "id": 47,
+  "year": 2010,
+  "kind": "journal",
+  "title": "QoS-Based Manycasting Over Optical Burst-Switched (OBS) Networks",
+  "doi": "",
+  "authors": [
+   "B.G. Bathula",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "bathula_b"
+  ],
+  "author_keys": [
+   "bathula_b",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Manycast and anycast",
+  "problem": "Multicast fails if any member cannot be served; manycast needs QoS.",
+  "approach": "QoS-based manycasting algorithms over OBS (journal).",
+  "finding": "Manycasting meets QoS with lower loss than multicast.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "blocking probability",
+    "burst/packet loss",
+    "OSNR/GSNR/QoT",
+    "carbon/emissions",
+    "BER"
+   ],
+   "method": [
+    "heuristic",
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 48,
+  "year": 2010,
+  "kind": "journal",
+  "title": "Quality of Transmission Aware Manycasting Over Optical Burst-Switched (OBS) Networks",
+  "doi": "",
+  "authors": [
+   "B.G. Bathula",
+   "R.R.C. Bikram",
+   "V.M. Vokkarane",
+   "S. Talabattula"
+  ],
+  "students": [
+   "bathula_b",
+   "bikram_r"
+  ],
+  "author_keys": [
+   "bathula_b",
+   "bikram_r",
+   "vokkarane_v",
+   "talabattula_s"
+  ],
+  "in_cv": true,
+  "thread": "Manycast and anycast",
+  "problem": "Physical-layer quality limits manycast over OBS.",
+  "approach": "Quality-of-transmission-aware manycasting (journal).",
+  "finding": "QoT awareness lowers loss from impairments.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "blocking probability",
+    "burst/packet loss",
+    "OSNR/GSNR/QoT",
+    "carbon/emissions",
+    "BER"
+   ],
+   "method": [
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 49,
+  "year": 2010,
+  "kind": "journal",
+  "title": "Routing and Wavelength Assignment of Static Manycast Demands over All-Optical Wavelength-Routed WDM Networks",
+  "doi": "",
+  "authors": [
+   "N. Charbonneau",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "charbonneau_n"
+  ],
+  "author_keys": [
+   "charbonneau_n",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Manycast and anycast",
+  "problem": "Routing static manycast demands in all-optical WDM networks.",
+  "approach": "ILP plus heuristics for manycast routing and wavelength assignment (journal).",
+  "finding": "Heuristics approach ILP results with far less computation.",
+  "tags": {
+   "tool": [
+    "CPLEX"
+   ],
+   "topology": [
+    "NSFNET",
+    "USNET"
+   ],
+   "metric": [
+    "OSNR/GSNR/QoT",
+    "carbon/emissions"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "metaheuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 50,
+  "year": 2010,
+  "kind": "conference",
+  "title": "Tabu Search Meta-Heuristic for Static Manycast Routing and Wavelength Assignment over Wavelength-Routed Optical WDM Networks",
+  "doi": "",
+  "authors": [
+   "N. Charbonneau",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "charbonneau_n"
+  ],
+  "author_keys": [
+   "charbonneau_n",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Manycast and anycast",
+  "problem": "Minimizing wavelengths for static manycast RWA.",
+  "approach": "Tabu search metaheuristic.",
+  "finding": "Tabu search outperforms simple multicast heuristics.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET",
+    "USNET"
+   ],
+   "metric": [],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "metaheuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 51,
+  "year": 2011,
+  "kind": "conference",
+  "title": "A Framework for Real-Time Monitoring of Acoustic Events Using a Wireless Sensor Network",
+  "doi": "",
+  "authors": [
+   "A. Dhawan",
+   "R. Balasubramanian",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "dhawan_a"
+  ],
+  "author_keys": [
+   "dhawan_a",
+   "balasubramanian_r",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Wireless sensor and access networks",
+  "problem": "Real-time acoustic event monitoring.",
+  "approach": "Wireless sensor network framework for acoustic monitoring.",
+  "finding": "Architecture for low-cost acoustic surveillance.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [
+    "energy/power",
+    "accuracy/F1"
+   ],
+   "method": [
+    "testbed/experiment"
+   ]
+  }
+ },
+ {
+  "id": 52,
+  "year": 2011,
+  "kind": "journal",
+  "title": "Advance Reservation Frameworks in Hybrid IP-WDM Networks",
+  "doi": "",
+  "authors": [
+   "N. Charbonneau",
+   "V.M. Vokkarane",
+   "C. Gouk",
+   "I. Monga"
+  ],
+  "students": [
+   "charbonneau_n"
+  ],
+  "author_keys": [
+   "charbonneau_n",
+   "vokkarane_v",
+   "gouk_c",
+   "monga_i"
+  ],
+  "in_cv": true,
+  "thread": "Advance reservation and scheduling",
+  "problem": "E-science needs guaranteed, scheduled bandwidth on optical networks.",
+  "approach": "Advance reservation frameworks for hybrid IP-WDM networks (magazine).",
+  "finding": "Overview of reservation frameworks for research networks.",
+  "tags": {
+   "tool": [
+    "OSCARS",
+    "ESnet"
+   ],
+   "topology": [
+    "USNET",
+    "ESnet backbone"
+   ],
+   "metric": [
+    "restoration"
+   ],
+   "method": [
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 53,
+  "year": 2011,
+  "kind": "conference",
+  "title": "Analytical Model for Hybrid Immediate and Advance Reservation in Optical WDM Networks",
+  "doi": "",
+  "authors": [
+   "J. Triay",
+   "C. Cervello-Pastor",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "triay_j"
+  ],
+  "author_keys": [
+   "triay_j",
+   "cervello-pastor_c",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Advance reservation and scheduling",
+  "problem": "Immediate and advance reservations share one network.",
+  "approach": "Analytical model for hybrid immediate and advance reservation.",
+  "finding": "Model predicts blocking for mixed reservation traffic.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [
+    "blocking probability",
+    "accuracy/F1"
+   ],
+   "method": [
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 54,
+  "year": 2011,
+  "kind": "conference",
+  "title": "Dynamic Advance Reservation with Delayed Allocation over Wavelength- Routed Networks",
+  "doi": "",
+  "authors": [
+   "A. Somani",
+   "V.M. Vokkarane",
+   "B.H. Ramaprasad"
+  ],
+  "students": [
+   "ramaprasad_b"
+  ],
+  "author_keys": [
+   "somani_a",
+   "vokkarane_v",
+   "ramaprasad_b"
+  ],
+  "in_cv": true,
+  "thread": "Advance reservation and scheduling",
+  "problem": "Advance reservation fragments wavelength time slots.",
+  "approach": "Routing, slot, and wavelength assignment with delayed allocation.",
+  "finding": "Delaying allocation avoids fragmentation and lowers blocking (later patented).",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "fragmentation"
+   ],
+   "method": [
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 55,
+  "year": 2011,
+  "kind": "conference",
+  "title": "Dynamic Anycast Routing and Wavelength Assignment in WDM Networks Using Ant Colony Optimization (ACO)",
+  "doi": "",
+  "authors": [
+   "K. Bhaskaran",
+   "J. Triay",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "bhaskaran_k",
+   "triay_j"
+  ],
+  "author_keys": [
+   "bhaskaran_k",
+   "triay_j",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Manycast and anycast",
+  "problem": "Dynamic anycast RWA in WDM networks.",
+  "approach": "Ant colony optimization.",
+  "finding": "ACO lowers blocking at the cost of longer setup and overhead.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "blocking probability"
+   ],
+   "method": [
+    "metaheuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 56,
+  "year": 2011,
+  "kind": "conference",
+  "title": "Dynamic Anycasting over Wavelength Routed Networks with Lightpath Switching",
+  "doi": "",
+  "authors": [
+   "B. H. Ramaprasad",
+   "A.G. Gadkar",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "ramaprasad_b",
+   "gadkar_a"
+  ],
+  "author_keys": [
+   "ramaprasad_b",
+   "gadkar_a",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Manycast and anycast",
+  "problem": "Dynamic anycast with holding-time-aware lightpaths.",
+  "approach": "Anycast combined with lightpath switching.",
+  "finding": "Lightpath switching lowers anycast blocking.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": [
+    "heuristic"
+   ]
+  }
+ },
+ {
+  "id": 57,
+  "year": 2011,
+  "kind": "conference",
+  "title": "Dynamic Service-Aware Reservation Framework for Multi- Layer High-Speed Networks",
+  "doi": "",
+  "authors": [
+   "J. Triay",
+   "D. Rousseau",
+   "C. Cervello-Pastor",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "triay_j",
+   "rousseau_d"
+  ],
+  "author_keys": [
+   "triay_j",
+   "rousseau_d",
+   "cervello-pastor_c",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Advance reservation and scheduling",
+  "problem": "Delay-sensitive and delay-tolerant services share multi-layer networks.",
+  "approach": "Service-aware reservation framework mixing immediate and advance reservations.",
+  "finding": "Differentiates connection-level service across request types.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [
+    "blocking probability",
+    "burst/packet loss"
+   ],
+   "method": [
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 58,
+  "year": 2011,
+  "kind": "conference",
+  "title": "Load-Aware Anycast Routing in IP-over-WDM Networks",
+  "doi": "",
+  "authors": [
+   "B.G. Bathula",
+   "V.M. Vokkarane",
+   "C.P. Lai",
+   "K. Bergman"
+  ],
+  "students": [
+   "bathula_b"
+  ],
+  "author_keys": [
+   "bathula_b",
+   "vokkarane_v",
+   "lai_c",
+   "bergman_k"
+  ],
+  "in_cv": true,
+  "thread": "Manycast and anycast",
+  "problem": "IP traffic variation in reconfigurable WDM networks.",
+  "approach": "Load-aware and impairment-aware anycast routing in IP-over-WDM.",
+  "finding": "Load awareness significantly improves anycast performance in simulation.",
+  "tags": {
+   "tool": [
+    "GENI"
+   ],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "blocking probability",
+    "OSNR/GSNR/QoT",
+    "carbon/emissions",
+    "BER"
+   ],
+   "method": [
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 59,
+  "year": 2011,
+  "kind": "conference",
+  "title": "Manycasting: Energy-Efficient Multicasting in WDM Optical Unicast Networks",
+  "doi": "",
+  "authors": [
+   "A.G. Gadkar",
+   "J. Plante",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "gadkar_a",
+   "plante_j"
+  ],
+  "author_keys": [
+   "gadkar_a",
+   "plante_j",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Energy and carbon-aware networking",
+  "problem": "Multicast in unicast-only WDM networks wastes energy.",
+  "approach": "Manycasting as an energy-efficient variant of multicasting.",
+  "finding": "Manycast overlays cut energy use.",
+  "tags": {
+   "tool": [
+    "ESnet"
+   ],
+   "topology": [
+    "NSFNET",
+    "USNET",
+    "ESnet backbone"
+   ],
+   "metric": [
+    "energy/power"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 60,
+  "year": 2012,
+  "kind": "journal",
+  "title": "A Survey of Advance Reservation Routing and Wavelength Assignment in Wavelength- Routed WDM Networks",
+  "doi": "",
+  "authors": [
+   "N. Charbonneau",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "charbonneau_n"
+  ],
+  "author_keys": [
+   "charbonneau_n",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Advance reservation and scheduling",
+  "problem": "Advance reservation RWA literature is scattered.",
+  "approach": "Survey of advance reservation routing and wavelength assignment.",
+  "finding": "Taxonomy of advance reservation methods for WDM.",
+  "tags": {
+   "tool": [
+    "OSCARS",
+    "ESnet"
+   ],
+   "topology": [
+    "USNET",
+    "ESnet backbone"
+   ],
+   "metric": [
+    "blocking probability",
+    "fragmentation",
+    "restoration"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "metaheuristic",
+    "analytical model",
+    "simulation",
+    "testbed/experiment"
+   ]
+  }
+ },
+ {
+  "id": 61,
+  "year": 2012,
+  "kind": "conference",
+  "title": "Dual Power Source Aware Algorithms for Green Optical Network Survivability",
+  "doi": "",
+  "authors": [
+   "M. Boddie",
+   "T. Schöndienst",
+   "V. M. Vokkarane"
+  ],
+  "students": [
+   "boddie_m",
+   "schöndienst_t"
+  ],
+  "author_keys": [
+   "boddie_m",
+   "schöndienst_t",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Energy and carbon-aware networking",
+  "problem": "Survivability and emissions are usually optimized separately.",
+  "approach": "Dual power-source-aware algorithms for green survivability.",
+  "finding": "Reduces emissions while keeping competitive availability.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "USNET"
+   ],
+   "metric": [
+    "blocking probability",
+    "energy/power",
+    "carbon/emissions",
+    "restoration"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 62,
+  "year": 2012,
+  "kind": "conference",
+  "title": "Dynamic Advance Reservation Multicast Overlay for Slotted Optical WDM Networks",
+  "doi": "",
+  "authors": [
+   "T. Entel",
+   "A.G. Gadkar",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "entel_t",
+   "gadkar_a"
+  ],
+  "author_keys": [
+   "entel_t",
+   "gadkar_a",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Advance reservation and scheduling",
+  "problem": "Scheduled multicast in multicast-incapable, time-slotted networks.",
+  "approach": "Dynamic advance reservation multicast overlay.",
+  "finding": "Overlay supports scheduled multicast without optical splitting.",
+  "tags": {
+   "tool": [
+    "ESnet"
+   ],
+   "topology": [
+    "NSFNET",
+    "ESnet backbone"
+   ],
+   "metric": [
+    "blocking probability"
+   ],
+   "method": [
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 63,
+  "year": 2012,
+  "kind": "conference",
+  "title": "Dynamic Manycasting in Optical Split-Incapable WDM Networks for Supporting High-Bandwidth Applications",
+  "doi": "",
+  "authors": [
+   "J. Plante",
+   "A.G. Gadkar",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "plante_j",
+   "gadkar_a"
+  ],
+  "author_keys": [
+   "plante_j",
+   "gadkar_a",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Manycast and anycast",
+  "problem": "Manycast in split-incapable WDM networks.",
+  "approach": "Dynamic manycast overlay algorithms.",
+  "finding": "Supports high-bandwidth manycast without splitters.",
+  "tags": {
+   "tool": [
+    "ESnet"
+   ],
+   "topology": [
+    "NSFNET",
+    "ESnet backbone"
+   ],
+   "metric": [],
+   "method": [
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 64,
+  "year": 2012,
+  "kind": "conference",
+  "title": "Dynamic Non-Continuous Single Slot Advance Reservation over Wavelength Routed Networks",
+  "doi": "",
+  "authors": [
+   "B. H. Ramaprasad",
+   "A. Somani",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "ramaprasad_b"
+  ],
+  "author_keys": [
+   "ramaprasad_b",
+   "somani_a",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Advance reservation and scheduling",
+  "problem": "Single-slot advance reservation fragments resources.",
+  "approach": "Two-phase non-continuous single-slot routing, slot, and wavelength assignment.",
+  "finding": "Allowing non-continuous slots lowers blocking.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "blocking probability",
+    "fragmentation"
+   ],
+   "method": [
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 65,
+  "year": 2012,
+  "kind": "conference",
+  "title": "Linear Cryptanalysis of A Survivable Data Transmission Mechanism for Sensor Networks",
+  "doi": "",
+  "authors": [
+   "R. Ma",
+   "L. Xing",
+   "H. E. Michel",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "ma_r"
+  ],
+  "author_keys": [
+   "ma_r",
+   "xing_l",
+   "michel_h",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Wireless sensor and access networks",
+  "problem": "Security of a survivable data transmission scheme for sensors.",
+  "approach": "Linear cryptanalysis of the mechanism.",
+  "finding": "Assesses resistance to linear cryptanalysis.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [
+    "burst/packet loss",
+    "energy/power",
+    "restoration",
+    "BER"
+   ],
+   "method": []
+  }
+ },
+ {
+  "id": 66,
+  "year": 2012,
+  "kind": "journal",
+  "title": "Multicast Overlay for High-Bandwidth Application Over Optical WDM Networks",
+  "doi": "",
+  "authors": [
+   "A.G. Gadkar",
+   "J. Plante",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "gadkar_a",
+   "plante_j"
+  ],
+  "author_keys": [
+   "gadkar_a",
+   "plante_j",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Advance reservation and scheduling",
+  "problem": "Multicast assumes multicast-capable crossconnects.",
+  "approach": "Multicast overlay over unicast-only WDM (journal).",
+  "finding": "Overlay supports high-bandwidth multicast efficiently.",
+  "tags": {
+   "tool": [
+    "CPLEX",
+    "ESnet"
+   ],
+   "topology": [
+    "NSFNET",
+    "USNET",
+    "ESnet backbone"
+   ],
+   "metric": [
+    "blocking probability",
+    "observability"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 67,
+  "year": 2012,
+  "kind": "conference",
+  "title": "On Extending ESnet's OSCARS with a Multi-Domain Anycast Service",
+  "doi": "10.1109/ONDM.2012.6210279",
+  "authors": [
+   "M. Boddie",
+   "T. Entel",
+   "C. Guok",
+   "A. Lake",
+   "J.M. Plante",
+   "E. Pouyoul",
+   "B.H. Ramaprasad",
+   "B. Tierney",
+   "J. Triay",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "boddie_m",
+   "entel_t",
+   "plante_j",
+   "ramaprasad_b",
+   "triay_j"
+  ],
+  "author_keys": [
+   "boddie_m",
+   "entel_t",
+   "guok_c",
+   "lake_a",
+   "plante_j",
+   "pouyoul_e",
+   "ramaprasad_b",
+   "tierney_b",
+   "triay_j",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Manycast and anycast",
+  "problem": "ESnet's OSCARS provisioned only unicast circuits.",
+  "approach": "Anycast path computation for OSCARS.",
+  "finding": "Extends a production research-network scheduler to anycast.",
+  "tags": {
+   "tool": [
+    "OSCARS",
+    "ESnet"
+   ],
+   "topology": [
+    "USNET",
+    "ESnet backbone"
+   ],
+   "metric": [
+    "blocking probability",
+    "energy/power",
+    "observability"
+   ],
+   "method": [
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 68,
+  "year": 2012,
+  "kind": "conference",
+  "title": "Reliability Study of Wireless Sensor Networks with Different Network Topology Characteristics",
+  "doi": "",
+  "authors": [
+   "C. Wang",
+   "L. Xing",
+   "V. M. Vokkarane",
+   "Y. Sun"
+  ],
+  "students": [
+   "wang_c"
+  ],
+  "author_keys": [
+   "wang_c",
+   "xing_l",
+   "vokkarane_v",
+   "sun_y"
+  ],
+  "in_cv": true,
+  "thread": "Wireless sensor and access networks",
+  "problem": "How topology shapes sensor network reliability.",
+  "approach": "BDD-based infrastructure communication reliability versus topology metrics.",
+  "finding": "Relates reliability to connectivity, path length, degree, and clustering.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 69,
+  "year": 2012,
+  "kind": "conference",
+  "title": "Scheduled Multicast Overlay for Bandwidth-Intensive Applications",
+  "doi": "10.1109/ONDM.2012.6210278",
+  "authors": [
+   "T. Entel",
+   "A. Gadkar",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "entel_t",
+   "gadkar_a"
+  ],
+  "author_keys": [
+   "entel_t",
+   "gadkar_a",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Advance reservation and scheduling",
+  "problem": "Scheduled multicast in unicast WDM networks.",
+  "approach": "Scheduled multicast overlay.",
+  "finding": "Supports advance-reservation multicast without splitting.",
+  "tags": {
+   "tool": [
+    "CPLEX",
+    "ESnet"
+   ],
+   "topology": [
+    "NSFNET",
+    "ESnet backbone"
+   ],
+   "metric": [],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 70,
+  "year": 2012,
+  "kind": "journal",
+  "title": "Static Routing and Wavelength Assignment for Multicast Advance Reservation in All- Optical Wavelength-Routed WDM Networks",
+  "doi": "",
+  "authors": [
+   "N. Charbonneau",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "charbonneau_n"
+  ],
+  "author_keys": [
+   "charbonneau_n",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Advance reservation and scheduling",
+  "problem": "Static multicast advance reservation RWA.",
+  "approach": "RWA methods for multicast advance reservation (journal).",
+  "finding": "Journal treatment of static multicast advance reservation.",
+  "tags": {
+   "tool": [
+    "CPLEX"
+   ],
+   "topology": [
+    "NSFNET",
+    "USNET"
+   ],
+   "metric": [],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "metaheuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 71,
+  "year": 2013,
+  "kind": "journal",
+  "title": "Analytical Blocking Probability Model for Hybrid Immediate and Advance Reservations in Optical WDM Networks",
+  "doi": "",
+  "authors": [
+   "J. Triay",
+   "C. Cervello-Pastor",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "triay_j"
+  ],
+  "author_keys": [
+   "triay_j",
+   "cervello-pastor_c",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Advance reservation and scheduling",
+  "problem": "Blocking with mixed immediate and advance reservations.",
+  "approach": "Analytical blocking probability model (journal).",
+  "finding": "Model tracks simulation for hybrid reservation traffic.",
+  "tags": {
+   "tool": [
+    "OSCARS",
+    "ESnet"
+   ],
+   "topology": [
+    "ESnet backbone"
+   ],
+   "metric": [
+    "blocking probability",
+    "accuracy/F1"
+   ],
+   "method": [
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 72,
+  "year": 2013,
+  "kind": "conference",
+  "title": "Application Communication Reliability of Wireless Sensor Networks Supporting K-coverage",
+  "doi": "",
+  "authors": [
+   "A. E. Zonouz",
+   "L. Xing",
+   "V. M. Vokkarane",
+   "Y. Sun"
+  ],
+  "students": [
+   "zonouz_a"
+  ],
+  "author_keys": [
+   "zonouz_a",
+   "xing_l",
+   "vokkarane_v",
+   "sun_y"
+  ],
+  "in_cv": true,
+  "thread": "Wireless sensor and access networks",
+  "problem": "Reliability of sensor data delivery under k-coverage.",
+  "approach": "Application communication reliability model.",
+  "finding": "Quantifies reliability for k-coverage applications.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [
+    "energy/power"
+   ],
+   "method": [
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 73,
+  "year": 2013,
+  "kind": "conference",
+  "title": "Deadline-Aware Co-Scheduling Using Anycast Advance Reservations in Wavelength Routed Lambda Grids",
+  "doi": "",
+  "authors": [
+   "H. Kulkarni",
+   "A.G. Gadkar",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "kulkarni_h",
+   "gadkar_a"
+  ],
+  "author_keys": [
+   "kulkarni_h",
+   "gadkar_a",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Advance reservation and scheduling",
+  "problem": "Co-scheduling compute and network with deadlines in lambda grids.",
+  "approach": "Deadline-aware anycast advance reservation.",
+  "finding": "Anycast flexibility helps meet deadlines.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET",
+    "USNET"
+   ],
+   "metric": [
+    "blocking probability"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "metaheuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 74,
+  "year": 2013,
+  "kind": "conference",
+  "title": "Energy Source-Aware Manycast Overlay in WDM Networks",
+  "doi": "",
+  "authors": [
+   "Thilo Schöndienst",
+   "Jeremy M. Plante",
+   "Dylan A.P. Davis",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "schöndienst_t",
+   "plante_j",
+   "davis_d"
+  ],
+  "author_keys": [
+   "schöndienst_t",
+   "plante_j",
+   "davis_d",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Energy and carbon-aware networking",
+  "problem": "Manycast overlays ignore where power comes from.",
+  "approach": "Energy source-aware manycast overlay.",
+  "finding": "Steering to renewably powered nodes cuts emissions.",
+  "tags": {
+   "tool": [
+    "ESnet"
+   ],
+   "topology": [
+    "USNET",
+    "ESnet backbone"
+   ],
+   "metric": [
+    "blocking probability",
+    "energy/power",
+    "carbon/emissions"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 75,
+  "year": 2013,
+  "kind": "conference",
+  "title": "Improving Service Differentiation of Immediate and Advance Reservation in Resource-Partitioned Optical WDM Networks",
+  "doi": "",
+  "authors": [
+   "D. Rousseau",
+   "J. Triay",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "rousseau_d",
+   "triay_j"
+  ],
+  "author_keys": [
+   "rousseau_d",
+   "triay_j",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Advance reservation and scheduling",
+  "problem": "Immediate and advance reservations compete for resources.",
+  "approach": "Resource partitioning for service differentiation.",
+  "finding": "Partitioning improves differentiation between reservation types.",
+  "tags": {
+   "tool": [
+    "ESnet"
+   ],
+   "topology": [
+    "NSFNET",
+    "ESnet backbone"
+   ],
+   "metric": [
+    "blocking probability"
+   ],
+   "method": [
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 76,
+  "year": 2013,
+  "kind": "conference",
+  "title": "Reducing the Environmental Impact of Optical Networks",
+  "doi": "",
+  "authors": [
+   "T. Schöndienst",
+   "V. M. Vokkarane"
+  ],
+  "students": [
+   "schöndienst_t"
+  ],
+  "author_keys": [
+   "schöndienst_t",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Energy and carbon-aware networking",
+  "problem": "Lowering energy use does not guarantee lower environmental impact.",
+  "approach": "Configuring optical networks to favor renewable-powered nodes.",
+  "finding": "Smart configuration reduces environmental impact.",
+  "tags": {
+   "tool": [
+    "OSCARS",
+    "ESnet"
+   ],
+   "topology": [
+    "USNET",
+    "German",
+    "ESnet backbone",
+    "Torus/ring/mesh (synthetic)"
+   ],
+   "metric": [
+    "energy/power",
+    "carbon/emissions",
+    "restoration"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 77,
+  "year": 2013,
+  "kind": "conference",
+  "title": "Reliability Modeling of Wireless Sensors",
+  "doi": "",
+  "authors": [
+   "C. Wang",
+   "L. Xing",
+   "V.M. Vokkarane",
+   "Y. Sun"
+  ],
+  "students": [
+   "wang_c"
+  ],
+  "author_keys": [
+   "wang_c",
+   "xing_l",
+   "vokkarane_v",
+   "sun_y"
+  ],
+  "in_cv": true,
+  "thread": "Wireless sensor and access networks",
+  "problem": "Realistic reliability of individual wireless sensors.",
+  "approach": "Sensor node reliability modeling.",
+  "finding": "Better failure parameter estimation for sensor reliability.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [
+    "energy/power",
+    "accuracy/F1"
+   ],
+   "method": [
+    "analytical model"
+   ]
+  }
+ },
+ {
+  "id": 78,
+  "year": 2013,
+  "kind": "conference",
+  "title": "Static Manycast Advance Reservation in Split-Incapable Optical Networks",
+  "doi": "",
+  "authors": [
+   "T. Entel",
+   "A.G. Gadkar",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "entel_t"
+  ],
+  "author_keys": [
+   "entel_t",
+   "gadkar_a",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Advance reservation and scheduling",
+  "problem": "Scheduled manycast in split-incapable networks.",
+  "approach": "Static manycast advance reservation algorithms.",
+  "finding": "Supports scheduled transfers to multiple sites.",
+  "tags": {
+   "tool": [
+    "ESnet"
+   ],
+   "topology": [
+    "NSFNET",
+    "USNET",
+    "ESnet backbone"
+   ],
+   "metric": [],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 79,
+  "year": 2014,
+  "kind": "conference",
+  "title": "A Phased-Mission Framework for Communication Reliability in WSN",
+  "doi": "",
+  "authors": [
+   "C. Wang",
+   "L. Xing",
+   "V. M. Vokkarane",
+   "Y. Sun"
+  ],
+  "students": [
+   "wang_c"
+  ],
+  "author_keys": [
+   "wang_c",
+   "xing_l",
+   "vokkarane_v",
+   "sun_y"
+  ],
+  "in_cv": true,
+  "thread": "Wireless sensor and access networks",
+  "problem": "Communication reliability across mission phases.",
+  "approach": "Phased-mission reliability framework for WSNs.",
+  "finding": "Captures phase-dependent reliability.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 80,
+  "year": 2014,
+  "kind": "conference",
+  "title": "A Time-Dependent Link Failure Model for Wireless Sensor Networks",
+  "doi": "",
+  "authors": [
+   "A.E. Zonouz",
+   "L. Xing",
+   "V. M. Vokkarane",
+   "Y. Sun"
+  ],
+  "students": [
+   "zonouz_a"
+  ],
+  "author_keys": [
+   "zonouz_a",
+   "xing_l",
+   "vokkarane_v",
+   "sun_y"
+  ],
+  "in_cv": true,
+  "thread": "Wireless sensor and access networks",
+  "problem": "Link failures in sensor networks vary over time.",
+  "approach": "Time-dependent link failure model.",
+  "finding": "Links reliability to energy consumption over time.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "Torus/ring/mesh (synthetic)"
+   ],
+   "metric": [
+    "energy/power",
+    "observability"
+   ],
+   "method": [
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 81,
+  "year": 2014,
+  "kind": "conference",
+  "title": "Dynamic continuous and Non-Continuous advance reservation in SLICE networks",
+  "doi": "",
+  "authors": [
+   "B. H. Ramaprasad",
+   "T. Schöndienst",
+   "V. M. Vokkarane"
+  ],
+  "students": [
+   "ramaprasad_b",
+   "schöndienst_t"
+  ],
+  "author_keys": [
+   "ramaprasad_b",
+   "schöndienst_t",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Elastic and SDM optical networks",
+  "problem": "Advance reservation in spectrum-sliced elastic optical networks.",
+  "approach": "Continuous and non-continuous advance reservation in SLICE networks.",
+  "finding": "Non-continuous allocation lowers blocking.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "blocking probability",
+    "throughput",
+    "spectrum utilization",
+    "fragmentation",
+    "energy/power"
+   ],
+   "method": [
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 82,
+  "year": 2014,
+  "kind": "journal",
+  "title": "Manycast Overlay in Split-Incapable Networks for Supporting Bandwidth-Intensive Applications",
+  "doi": "10.1109/TNET.2014.2360503",
+  "authors": [
+   "J. Plante",
+   "A. Gadkar",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "plante_j"
+  ],
+  "author_keys": [
+   "plante_j",
+   "gadkar_a",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Manycast and anycast",
+  "problem": "Distributing large scientific datasets to many sites without optical splitting.",
+  "approach": "Manycast overlay algorithms for split-incapable networks (journal).",
+  "finding": "Overlays support bandwidth-intensive manycast in unicast-only networks.",
+  "tags": {
+   "tool": [
+    "CPLEX",
+    "ESnet"
+   ],
+   "topology": [
+    "NSFNET",
+    "USNET",
+    "ESnet backbone"
+   ],
+   "metric": [
+    "blocking probability",
+    "carbon/emissions"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 83,
+  "year": 2014,
+  "kind": "conference",
+  "title": "Multi-Domain Grooming in Power Source Aware Networks",
+  "doi": "",
+  "authors": [
+   "Thilo Schöndienst",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "schöndienst_t"
+  ],
+  "author_keys": [
+   "schöndienst_t",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Energy and carbon-aware networking",
+  "problem": "Where energy-intensive O-E-O grooming happens affects energy source mix.",
+  "approach": "Power-source-aware multi-domain grooming.",
+  "finding": "Placing grooming at renewably powered nodes lowers emissions.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "USNET",
+    "German"
+   ],
+   "metric": [
+    "energy/power",
+    "carbon/emissions"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 84,
+  "year": 2014,
+  "kind": "conference",
+  "title": "Parallel Circuit Provisioning in ESnet's OSCARS",
+  "doi": "",
+  "authors": [
+   "Jeremy M. Plante",
+   "Dylan A.P. Davis",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "plante_j"
+  ],
+  "author_keys": [
+   "plante_j",
+   "davis_d",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Advance reservation and scheduling",
+  "problem": "OSCARS serializes transfers that could run in parallel.",
+  "approach": "Parallel circuit provisioning in ESnet's OSCARS.",
+  "finding": "Parallel circuits shorten large transfers on a production research network.",
+  "tags": {
+   "tool": [
+    "OSCARS",
+    "ESnet"
+   ],
+   "topology": [
+    "ESnet backbone"
+   ],
+   "metric": [
+    "blocking probability",
+    "energy/power"
+   ],
+   "method": [
+    "heuristic",
+    "testbed/experiment"
+   ]
+  }
+ },
+ {
+  "id": 85,
+  "year": 2014,
+  "kind": "conference",
+  "title": "Real-time Energy Price Aware Network Routing",
+  "doi": "",
+  "authors": [
+   "Arash Deylamsalehi",
+   "Thilo Schöndienst",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "deylamsalehi_a",
+   "schöndienst_t"
+  ],
+  "author_keys": [
+   "deylamsalehi_a",
+   "schöndienst_t",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Energy and carbon-aware networking",
+  "problem": "Routing ignores location-dependent real-time electricity prices.",
+  "approach": "Real-time energy-price-aware routing.",
+  "finding": "Reduces operators' electricity cost.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET",
+    "USNET"
+   ],
+   "metric": [
+    "blocking probability",
+    "energy/power",
+    "carbon/emissions"
+   ],
+   "method": [
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 86,
+  "year": 2014,
+  "kind": "journal",
+  "title": "Reliability-Oriented Single-Path Routing Protocols in Wireless Sensor Networks",
+  "doi": "",
+  "authors": [
+   "A. E. Zonouz",
+   "L. Xing",
+   "V. M. Vokkarane",
+   "Y. Sun"
+  ],
+  "students": [
+   "zonouz_a"
+  ],
+  "author_keys": [
+   "zonouz_a",
+   "xing_l",
+   "vokkarane_v",
+   "sun_y"
+  ],
+  "in_cv": true,
+  "thread": "Wireless sensor and access networks",
+  "problem": "Reliability of single-path routing in sensor networks.",
+  "approach": "Reliability-oriented single-path routing protocols (journal).",
+  "finding": "Protocols chosen for reliability outperform conventional ones in harsh settings.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [
+    "throughput",
+    "energy/power"
+   ],
+   "method": [
+    "heuristic",
+    "simulation",
+    "deep learning"
+   ]
+  }
+ },
+ {
+  "id": 87,
+  "year": 2014,
+  "kind": "journal",
+  "title": "Renewable Energy-Aware Manycast Overlays",
+  "doi": "",
+  "authors": [
+   "T. Schöndienst",
+   "D.A.P. Davis",
+   "J.M. Plante",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "schöndienst_t",
+   "davis_d",
+   "plante_j"
+  ],
+  "author_keys": [
+   "schöndienst_t",
+   "davis_d",
+   "plante_j",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Energy and carbon-aware networking",
+  "problem": "Manycast overlays consume energy and emit greenhouse gases.",
+  "approach": "Renewable-energy-aware manycast overlay (journal).",
+  "finding": "Cuts energy use and emissions relative to the baseline overlay.",
+  "tags": {
+   "tool": [
+    "ESnet"
+   ],
+   "topology": [
+    "USNET",
+    "ESnet backbone"
+   ],
+   "metric": [
+    "blocking probability",
+    "energy/power",
+    "carbon/emissions"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 88,
+  "year": 2014,
+  "kind": "conference",
+  "title": "Renewable energy-aware grooming in IP-over-WDM networks",
+  "doi": "",
+  "authors": [
+   "T. Schöndienst",
+   "V. M. Vokkarane"
+  ],
+  "students": [
+   "schöndienst_t"
+  ],
+  "author_keys": [
+   "schöndienst_t",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Energy and carbon-aware networking",
+  "problem": "Electronic grooming is energy intensive.",
+  "approach": "Heuristics that move O-E-O grooming to renewably powered nodes.",
+  "finding": "Reduces non-renewable energy use in IP-over-WDM.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "blocking probability",
+    "energy/power",
+    "carbon/emissions"
+   ],
+   "method": [
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 89,
+  "year": 2014,
+  "kind": "journal",
+  "title": "Slotted Advance Reservation for Multicast-Incapable Optical WDM Networks",
+  "doi": "",
+  "authors": [
+   "A. Gadkar",
+   "T. Entel",
+   "J.M. Plante",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "gadkar_a",
+   "entel_t",
+   "plante_j"
+  ],
+  "author_keys": [
+   "gadkar_a",
+   "entel_t",
+   "plante_j",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Advance reservation and scheduling",
+  "problem": "Scheduled multicast in multicast-incapable networks.",
+  "approach": "Slotted advance reservation algorithms (journal).",
+  "finding": "Journal treatment of slotted scheduled multicast overlays.",
+  "tags": {
+   "tool": [
+    "CPLEX",
+    "ESnet"
+   ],
+   "topology": [
+    "NSFNET",
+    "USNET",
+    "Pan-European",
+    "ESnet backbone"
+   ],
+   "metric": [
+    "carbon/emissions"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 90,
+  "year": 2014,
+  "kind": "conference",
+  "title": "Trust-Aware Privacy Evaluation in Online Social Networks",
+  "doi": "",
+  "authors": [
+   "Yongbo Zeng",
+   "Yan Sun",
+   "L. Xing",
+   "V. M. Vokkarane"
+  ],
+  "students": [],
+  "author_keys": [
+   "zeng_y",
+   "sun_y",
+   "xing_l",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Online social network privacy",
+  "problem": "Users lack a way to quantify privacy risk.",
+  "approach": "Trust-aware privacy evaluation framework.",
+  "finding": "Quantifies user privacy risk in social networks.",
+  "tags": {
+   "tool": [
+    "MATLAB"
+   ],
+   "topology": [],
+   "metric": [
+    "accuracy/F1"
+   ],
+   "method": [
+    "simulation",
+    "testbed/experiment"
+   ]
+  }
+ },
+ {
+  "id": 91,
+  "year": 2015,
+  "kind": "conference",
+  "title": "Analytical Blocking Probability Model for Anycast RWA in Optical WDM Networks",
+  "doi": "",
+  "authors": [
+   "Yan Cui",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "cui_y"
+  ],
+  "author_keys": [
+   "cui_y",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Manycast and anycast",
+  "problem": "Blocking of anycast RWA had no analytical model.",
+  "approach": "Analytical blocking model for anycast RWA.",
+  "finding": "Model predicts anycast blocking and matches simulation.",
+  "tags": {
+   "tool": [
+    "ESnet"
+   ],
+   "topology": [
+    "NSFNET",
+    "ESnet backbone"
+   ],
+   "metric": [
+    "blocking probability",
+    "accuracy/F1"
+   ],
+   "method": [
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 92,
+  "year": 2015,
+  "kind": "conference",
+  "title": "Critical Resource Multicast Protection in Data Center Networks",
+  "doi": "",
+  "authors": [
+   "Dylan A.P. Davis",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "davis_d"
+  ],
+  "author_keys": [
+   "davis_d",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Survivability and protection",
+  "problem": "Failures of critical data center resources, not just links.",
+  "approach": "Critical-resource multicast protection.",
+  "finding": "Protects multicast against resource failures in data center networks.",
+  "tags": {
+   "tool": [
+    "ESnet"
+   ],
+   "topology": [
+    "ESnet backbone"
+   ],
+   "metric": [
+    "restoration"
+   ],
+   "method": [
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 93,
+  "year": 2015,
+  "kind": "journal",
+  "title": "A Study of Online Social Network Privacy Via the TAPE Framework",
+  "doi": "10.1109/JSTSP.2015.2427774",
+  "authors": [
+   "Yongbo Zeng",
+   "Yan Sun",
+   "L. Xing",
+   "V. M. Vokkarane"
+  ],
+  "students": [
+   "zeng_y"
+  ],
+  "author_keys": [
+   "zeng_y",
+   "sun_y",
+   "xing_l",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Online social network privacy",
+  "problem": "Quantifying privacy risk in online social networks.",
+  "approach": "TAPE trust-aware privacy evaluation (journal).",
+  "finding": "Journal version of the TAPE framework.",
+  "tags": {
+   "tool": [
+    "MATLAB"
+   ],
+   "topology": [],
+   "metric": [
+    "accuracy/F1"
+   ],
+   "method": [
+    "heuristic",
+    "simulation",
+    "testbed/experiment"
+   ]
+  }
+ },
+ {
+  "id": 94,
+  "year": 2015,
+  "kind": "journal",
+  "title": "Reducing Greenhouse Gas Emissions with Power Source Aware Multi-Domain Multi-Layer Networks",
+  "doi": "10.1109/JSYST.2015.2448599",
+  "authors": [
+   "Thilo Schöndienst",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "schöndienst_t"
+  ],
+  "author_keys": [
+   "schöndienst_t",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Energy and carbon-aware networking",
+  "problem": "Grooming location and power source drive emissions in multi-domain networks.",
+  "approach": "Power-source-aware multi-domain, multi-layer design (journal).",
+  "finding": "Lowers greenhouse gas emissions.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "German",
+    "Torus/ring/mesh (synthetic)"
+   ],
+   "metric": [
+    "blocking probability",
+    "energy/power",
+    "carbon/emissions"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 95,
+  "year": 2015,
+  "kind": "conference",
+  "title": "Reliability Based Optimization in Hybrid Wireless Sensor Networks",
+  "doi": "",
+  "authors": [
+   "A.E. Zonouz",
+   "L. Xing",
+   "V. M. Vokkarane",
+   "Y. Sun"
+  ],
+  "students": [
+   "zonouz_a"
+  ],
+  "author_keys": [
+   "zonouz_a",
+   "xing_l",
+   "vokkarane_v",
+   "sun_y"
+  ],
+  "in_cv": true,
+  "thread": "Wireless sensor and access networks",
+  "problem": "Hybrid sensor networks trade reliability against cost.",
+  "approach": "Reliability-based optimization.",
+  "finding": "Optimizes hybrid WSN design for reliability.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [
+    "energy/power"
+   ],
+   "method": [
+    "metaheuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 96,
+  "year": 2015,
+  "kind": "conference",
+  "title": "Sliding Scheduled Lightpath Establishment for Time-Continuous Demands with Slotted Wavelength-Switching",
+  "doi": "",
+  "authors": [
+   "Jeremy Plante",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "plante_j"
+  ],
+  "author_keys": [
+   "plante_j",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Advance reservation and scheduling",
+  "problem": "Periodic transfers have flexible windows, not fixed start times.",
+  "approach": "Sliding scheduled lightpath establishment with slotted wavelength switching.",
+  "finding": "Flexible windows lower blocking for time-continuous demands.",
+  "tags": {
+   "tool": [
+    "Gurobi"
+   ],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 97,
+  "year": 2015,
+  "kind": "conference",
+  "title": "Static Protection Against Single Multicast Resource Failure",
+  "doi": "",
+  "authors": [
+   "Dylan A.P. Davis",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "davis_d"
+  ],
+  "author_keys": [
+   "davis_d",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Survivability and protection",
+  "problem": "Multicast trees lose data when a destination resource fails.",
+  "approach": "Static protection against single multicast resource failure.",
+  "finding": "Protects multicast destinations with modest extra resources.",
+  "tags": {
+   "tool": [
+    "Gurobi"
+   ],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "restoration"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 98,
+  "year": 2016,
+  "kind": "journal",
+  "title": "Analytical Blocking Model for Anycast RWA in Optical WDM Networks",
+  "doi": "",
+  "authors": [
+   "Y. Cui",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "cui_y"
+  ],
+  "author_keys": [
+   "cui_y",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Manycast and anycast",
+  "problem": "Analytical blocking for anycast RWA.",
+  "approach": "Analytical model (journal).",
+  "finding": "Journal version validated against simulation.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": [
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 99,
+  "year": 2016,
+  "kind": "conference",
+  "title": "Delayed Spectrum Allocation for Advance Reservation in Elastic Optical Networks",
+  "doi": "",
+  "authors": [
+   "Pegah Afsharlar",
+   "Jeremy Plante",
+   "Arash Deylamsalehi",
+   "Juzi Zhao",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "afsharlar_p",
+   "plante_j",
+   "deylamsalehi_a",
+   "zhao_j"
+  ],
+  "author_keys": [
+   "afsharlar_p",
+   "plante_j",
+   "deylamsalehi_a",
+   "zhao_j",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Elastic and SDM optical networks",
+  "problem": "Advance reservation RSA in elastic optical networks.",
+  "approach": "Delayed spectrum allocation.",
+  "finding": "Delaying allocation lowers blocking in EONs.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "blocking probability",
+    "spectrum utilization",
+    "fragmentation"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 100,
+  "year": 2016,
+  "kind": "conference",
+  "title": "Delayed Spectrum Allocation for Anycast Advance Reservation with Flexible Window in Elastic Optical Networks",
+  "doi": "",
+  "authors": [
+   "Pegah Afsharlar",
+   "Arash Deylamsalehi",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "afsharlar_p",
+   "deylamsalehi_a"
+  ],
+  "author_keys": [
+   "afsharlar_p",
+   "deylamsalehi_a",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Elastic and SDM optical networks",
+  "problem": "Anycast advance reservation with flexible windows in EONs.",
+  "approach": "Delayed spectrum allocation for anycast.",
+  "finding": "Flexible windows plus delayed allocation reduce blocking.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "blocking probability",
+    "spectrum utilization",
+    "fragmentation",
+    "restoration"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 101,
+  "year": 2016,
+  "kind": "conference",
+  "title": "Dynamic Erasure-coded Data Retrieval in Elastic Optical Data Center Networks",
+  "doi": "",
+  "authors": [
+   "Juzi Zhao",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "zhao_j"
+  ],
+  "author_keys": [
+   "zhao_j",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Data center and cloud networking",
+  "problem": "Erasure-coded data retrieval over elastic optical networks.",
+  "approach": "Dynamic retrieval algorithms aware of modulation reach.",
+  "finding": "Efficient retrieval of coded data across data centers.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "throughput"
+   ],
+   "method": [
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 102,
+  "year": 2016,
+  "kind": "conference",
+  "title": "Modeling Energy Costs and Emissions for Anycast RWA in Optical Data Center Networks",
+  "doi": "",
+  "authors": [
+   "Arash Deylamsalehi",
+   "Pegah Afsharlar",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "deylamsalehi_a",
+   "afsharlar_p"
+  ],
+  "author_keys": [
+   "deylamsalehi_a",
+   "afsharlar_p",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Energy and carbon-aware networking",
+  "problem": "Operating cost and pollution of data center networks.",
+  "approach": "Energy-cost and emissions-aware anycast RWA.",
+  "finding": "Reduces operating expenditure and emissions.",
+  "tags": {
+   "tool": [
+    "OSCARS",
+    "ESnet"
+   ],
+   "topology": [
+    "NSFNET",
+    "USNET",
+    "ESnet backbone"
+   ],
+   "metric": [
+    "energy/power",
+    "carbon/emissions"
+   ],
+   "method": [
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 103,
+  "year": 2016,
+  "kind": "conference",
+  "title": "Real-Time Energy Price-Aware Anycast RWA in Optical Data Center Networks",
+  "doi": "",
+  "authors": [
+   "Arash Deylamsalehi",
+   "Pegah Afsharlar",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "deylamsalehi_a",
+   "afsharlar_p"
+  ],
+  "author_keys": [
+   "deylamsalehi_a",
+   "afsharlar_p",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Energy and carbon-aware networking",
+  "problem": "Real-time electricity pricing across data center locations.",
+  "approach": "Price-aware anycast RWA to replicas.",
+  "finding": "Lowers electricity cost of serving replicated data.",
+  "tags": {
+   "tool": [
+    "OSCARS",
+    "ESnet"
+   ],
+   "topology": [
+    "NSFNET",
+    "ESnet backbone"
+   ],
+   "metric": [
+    "energy/power"
+   ],
+   "method": [
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 104,
+  "year": 2016,
+  "kind": "conference",
+  "title": "Resource Survivability for Multicast in Elastic Optical Networks",
+  "doi": "",
+  "authors": [
+   "Dylan A.P. Davis",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "davis_d"
+  ],
+  "author_keys": [
+   "davis_d",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Survivability and protection",
+  "problem": "Loss of a multicast destination in elastic optical networks.",
+  "approach": "ILP for resource survivability in multicast RSA.",
+  "finding": "Survivable multicast with efficient spectrum.",
+  "tags": {
+   "tool": [
+    "Gurobi",
+    "OSCARS",
+    "ESnet"
+   ],
+   "topology": [
+    "ESnet backbone"
+   ],
+   "metric": [
+    "burst/packet loss"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "metaheuristic"
+   ]
+  }
+ },
+ {
+  "id": 105,
+  "year": 2017,
+  "kind": "journal",
+  "title": "Dynamic Checkpointing Policy in Heterogeneous Real-Time Standby Systems",
+  "doi": "",
+  "authors": [
+   "G. Levitin",
+   "L. Xing",
+   "Y. Dai",
+   "V. M. Vokkarane"
+  ],
+  "students": [],
+  "author_keys": [
+   "levitin_g",
+   "xing_l",
+   "dai_y",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Reliability modeling",
+  "problem": "Checkpointing in heterogeneous real-time standby systems.",
+  "approach": "Dynamic checkpointing policy.",
+  "finding": "Improves mission reliability within time limits.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [
+    "restoration"
+   ],
+   "method": [
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 106,
+  "year": 2017,
+  "kind": "conference",
+  "title": "Electricity Cost and Emissions Reduction in Optical Networks",
+  "doi": "",
+  "authors": [
+   "Arash Deylamsalehi",
+   "Pegah Afsharlar",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "deylamsalehi_a",
+   "afsharlar_p"
+  ],
+  "author_keys": [
+   "deylamsalehi_a",
+   "afsharlar_p",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Energy and carbon-aware networking",
+  "problem": "Reducing electricity alone does not cut environmental impact.",
+  "approach": "RWA that shifts consumption across power markets.",
+  "finding": "Reduces both cost and emissions.",
+  "tags": {
+   "tool": [
+    "Gurobi"
+   ],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "energy/power",
+    "carbon/emissions"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic"
+   ]
+  }
+ },
+ {
+  "id": 107,
+  "year": 2017,
+  "kind": "conference",
+  "title": "Enhancing ESnet's OSCARS Path Computation Engine",
+  "doi": "",
+  "authors": [
+   "D.A.P. Davis",
+   "J.M. Plante",
+   "E Chaniotakis",
+   "C Guok",
+   "V Sundarrajan ",
+   "B Tierney",
+   "I Monga",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "davis_d",
+   "plante_j",
+   "sundarrajan_v"
+  ],
+  "author_keys": [
+   "davis_d",
+   "plante_j",
+   "chaniotakis_e",
+   "guok_c",
+   "sundarrajan_v",
+   "tierney_b",
+   "monga_i",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Advance reservation and scheduling",
+  "problem": "OSCARS path computation limits.",
+  "approach": "Enhanced path computation engine for OSCARS.",
+  "finding": "Extends a scheduler used by the science community for over a decade.",
+  "tags": {
+   "tool": [
+    "OSCARS",
+    "ESnet"
+   ],
+   "topology": [
+    "ESnet backbone"
+   ],
+   "metric": [
+    "blocking probability"
+   ],
+   "method": []
+  }
+ },
+ {
+  "id": 108,
+  "year": 2017,
+  "kind": "journal",
+  "title": "Minimizing Electricity Cost and Emissions in Optical Data Center Networks",
+  "doi": "10.1364/JOCN.9.000257",
+  "authors": [
+   "Arash Deylamsalehi",
+   "Yan Cui",
+   "Pegah Afsharlar",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "deylamsalehi_a",
+   "cui_y",
+   "afsharlar_p"
+  ],
+  "author_keys": [
+   "deylamsalehi_a",
+   "cui_y",
+   "afsharlar_p",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Energy and carbon-aware networking",
+  "problem": "Routing ignores location-dependent prices and emissions in data center networks.",
+  "approach": "Cost- and emissions-aware routing (journal).",
+  "finding": "Considerable cost and emission reductions for operators.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET",
+    "USNET"
+   ],
+   "metric": [
+    "blocking probability",
+    "energy/power",
+    "carbon/emissions",
+    "accuracy/F1"
+   ],
+   "method": [
+    "ILP/MILP",
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 109,
+  "year": 2017,
+  "kind": "conference",
+  "title": "Multi-Source Data Retrieval in Groomed Elastic Optical Networks",
+  "doi": "",
+  "authors": [
+   "Juzi Zhao",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "zhao_j"
+  ],
+  "author_keys": [
+   "zhao_j",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Elastic and SDM optical networks",
+  "problem": "Retrieving data stored at multiple sites in groomed EONs.",
+  "approach": "Multi-source data retrieval with grooming.",
+  "finding": "Improves retrieval efficiency.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "throughput",
+    "energy/power"
+   ],
+   "method": [
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 110,
+  "year": 2017,
+  "kind": "journal",
+  "title": "Reliability Modeling of Mesh Storage Area Networks for Internet of Things",
+  "doi": "",
+  "authors": [
+   "L Xing",
+   "M Tannous",
+   "V.M. Vokkarane",
+   "H Wang",
+   "J Guo"
+  ],
+  "students": [
+   "tannous_m"
+  ],
+  "author_keys": [
+   "xing_l",
+   "tannous_m",
+   "vokkarane_v",
+   "wang_h",
+   "guo_j"
+  ],
+  "in_cv": true,
+  "thread": "Reliability modeling",
+  "problem": "Reliable storage for Internet of Things data.",
+  "approach": "Reliability model of mesh storage area networks.",
+  "finding": "Quantifies storage availability for IoT.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [
+    "throughput",
+    "restoration"
+   ],
+   "method": [
+    "analytical model"
+   ]
+  }
+ },
+ {
+  "id": 111,
+  "year": 2017,
+  "kind": "conference",
+  "title": "Reverse Manycast Data Retrieval in Elastic Optical Networks",
+  "doi": "",
+  "authors": [
+   "Juzi Zhao",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "zhao_j"
+  ],
+  "author_keys": [
+   "zhao_j",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Elastic and SDM optical networks",
+  "problem": "Retrieving petascale data from distributed sites.",
+  "approach": "Reverse manycast data retrieval in EONs.",
+  "finding": "Flexible many-to-one retrieval service.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "throughput"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 112,
+  "year": 2017,
+  "kind": "journal",
+  "title": "Routing and Spectrum Assignment with Delayed Allocation in Elastic Optical Networks",
+  "doi": "",
+  "authors": [
+   "Pegah Afsharlar",
+   "Arash Deylamsalehi",
+   "J. Plante",
+   "Juzi Zhao",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "afsharlar_p",
+   "deylamsalehi_a",
+   "plante_j"
+  ],
+  "author_keys": [
+   "afsharlar_p",
+   "deylamsalehi_a",
+   "plante_j",
+   "zhao_j",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Elastic and SDM optical networks",
+  "problem": "Provisioning and allocation in elastic optical networks.",
+  "approach": "RSA with delayed allocation (journal).",
+  "finding": "Delayed allocation lowers blocking.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "blocking probability",
+    "spectrum utilization",
+    "fragmentation",
+    "BER"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 113,
+  "year": 2017,
+  "kind": "conference",
+  "title": "Sequential and Parallel Scheduling of Dynamic Bandwidth-Intensive Scientific Workflows in Elastic Optical Networks",
+  "doi": "",
+  "authors": [
+   "Juzi Zhao",
+   "Anisha Joseph",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "zhao_j",
+   "joseph_a"
+  ],
+  "author_keys": [
+   "zhao_j",
+   "joseph_a",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Advance reservation and scheduling",
+  "problem": "Workflows of dependent tasks need network and compute co-scheduling.",
+  "approach": "Sequential and parallel scheduling in EONs.",
+  "finding": "Parallel scheduling shortens workflow completion.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "energy/power"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 114,
+  "year": 2017,
+  "kind": "journal",
+  "title": "Sliding Scheduled Lightpath Establishment with Time-Slotted Wavelength Switching",
+  "doi": "",
+  "authors": [
+   "J.M. Plante",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "plante_j"
+  ],
+  "author_keys": [
+   "plante_j",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Advance reservation and scheduling",
+  "problem": "Massive science transfers with flexible windows.",
+  "approach": "Sliding scheduled lightpaths with time-slotted wavelength switching (journal).",
+  "finding": "Journal version; flexible scheduling lowers blocking.",
+  "tags": {
+   "tool": [
+    "Gurobi",
+    "OSCARS",
+    "ESnet"
+   ],
+   "topology": [
+    "NSFNET",
+    "USNET",
+    "ESnet backbone"
+   ],
+   "metric": [
+    "throughput",
+    "fragmentation",
+    "carbon/emissions"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "metaheuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 115,
+  "year": 2017,
+  "kind": "conference",
+  "title": "Spatially and Spectrally Flexible Lightpath Scheduling",
+  "doi": "",
+  "authors": [
+   "Jeremy Plante",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "plante_j"
+  ],
+  "author_keys": [
+   "plante_j",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Advance reservation and scheduling",
+  "problem": "Multi-wavelength resources alone will not carry growing workflows.",
+  "approach": "Spatially and spectrally flexible lightpath scheduling.",
+  "finding": "Flexible allocation carries larger transfers.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 116,
+  "year": 2017,
+  "kind": "journal",
+  "title": "Spatially and Spectrally Flexible Scheduling With Time-Slotted Lightpath-Switching",
+  "doi": "10.1364/jocn.9.000945",
+  "authors": [
+   "J. M. Plante",
+   "V. M. Vokkarane"
+  ],
+  "students": [
+   "plante_j"
+  ],
+  "author_keys": [
+   "plante_j",
+   "vokkarane_v"
+  ],
+  "in_cv": false,
+  "thread": "Advance reservation and scheduling",
+  "problem": "Scheduling massive transfers across wavelengths and time.",
+  "approach": "Spatially and spectrally flexible scheduling with lightpath switching (journal).",
+  "finding": "Journal version of flexible scheduling.",
+  "tags": {
+   "tool": [
+    "Gurobi"
+   ],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "fragmentation"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic"
+   ]
+  }
+ },
+ {
+  "id": 117,
+  "year": 2018,
+  "kind": "journal",
+  "title": "A New Deep Learning-based Food Recognition System for Dietary Assessment on an Edge Computing Service Infrastructure",
+  "doi": "",
+  "authors": [
+   "C. Liu",
+   "Y. Cao",
+   "Y. Luo",
+   "G. Chen",
+   "V.M. Vokkarane",
+   "Y. Ma",
+   "S. Chen",
+   "P. Hou"
+  ],
+  "students": [],
+  "author_keys": [
+   "liu_c",
+   "cao_y",
+   "luo_y",
+   "chen_g",
+   "vokkarane_v",
+   "ma_y",
+   "chen_s",
+   "hou_p"
+  ],
+  "in_cv": true,
+  "thread": "Edge computing and IoT",
+  "problem": "Dietary assessment relies on memory.",
+  "approach": "Deep-learning food recognition on an edge computing service.",
+  "finding": "Accurate recognition with edge offloading.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [
+    "energy/power",
+    "restoration",
+    "accuracy/F1"
+   ],
+   "method": [
+    "deep learning",
+    "testbed/experiment"
+   ]
+  }
+ },
+ {
+  "id": 118,
+  "year": 2018,
+  "kind": "conference",
+  "title": "Analytical Blocking Model for Generalized Light-tree in Optical WDM Networks",
+  "doi": "",
+  "authors": [
+   "Yan Cui",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "cui_y"
+  ],
+  "author_keys": [
+   "cui_y",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Manycast and anycast",
+  "problem": "Blocking of generalized light-trees had no model.",
+  "approach": "Analytical blocking model for generalized manycast.",
+  "finding": "Model predicts manycast blocking.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "blocking probability",
+    "energy/power",
+    "accuracy/F1"
+   ],
+   "method": [
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 119,
+  "year": 2018,
+  "kind": "conference",
+  "title": "Co-Scheduling Scientific Workflows in Elastic Optical Networks",
+  "doi": "",
+  "authors": [
+   "Anisha Joseph",
+   "Jeremy Plante",
+   "Juzi Zhao",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "joseph_a",
+   "plante_j",
+   "zhao_j"
+  ],
+  "author_keys": [
+   "joseph_a",
+   "plante_j",
+   "zhao_j",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Advance reservation and scheduling",
+  "problem": "Workflows need compute, storage, and network together.",
+  "approach": "Co-scheduling scientific workflows in EONs.",
+  "finding": "Joint scheduling improves completion.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "spectrum utilization",
+    "fragmentation"
+   ],
+   "method": [
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 120,
+  "year": 2018,
+  "kind": "conference",
+  "title": "Delayed Wavelength Switching and Allocation in Optical Networks",
+  "doi": "",
+  "authors": [
+   "Pegah Afsharlar",
+   "Jeremy Plante",
+   "Arash Deylamsalehi",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "afsharlar_p",
+   "plante_j",
+   "deylamsalehi_a"
+  ],
+  "author_keys": [
+   "afsharlar_p",
+   "plante_j",
+   "deylamsalehi_a",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Advance reservation and scheduling",
+  "problem": "Flexible lightpath scheduling in deployed WDM networks.",
+  "approach": "Delayed wavelength switching and allocation.",
+  "finding": "Lowers blocking for advance reservation.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "blocking probability",
+    "fragmentation"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic"
+   ]
+  }
+ },
+ {
+  "id": 121,
+  "year": 2018,
+  "kind": "conference",
+  "title": "Generalized Survivability Models for Many-to-Many Communication",
+  "doi": "",
+  "authors": [
+   "D.A.P. Davis",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "davis_d"
+  ],
+  "author_keys": [
+   "davis_d",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Survivability and protection",
+  "problem": "Survivability models are inflexible and resource hungry.",
+  "approach": "Generalized survivability models for many-to-many communication.",
+  "finding": "Protection applicable across routing types with fewer resources.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "burst/packet loss",
+    "restoration"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic"
+   ]
+  }
+ },
+ {
+  "id": 122,
+  "year": 2018,
+  "kind": "conference",
+  "title": "Scheduled Lightpath Switching with Spatio-Spectral Resource Affinity",
+  "doi": "",
+  "authors": [
+   "J.M. Plante",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "plante_j"
+  ],
+  "author_keys": [
+   "plante_j",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Advance reservation and scheduling",
+  "problem": "Extreme-scale reservations leave fragmented time and spectrum unused.",
+  "approach": "Scheduled lightpath switching with spatio-spectral resource affinity.",
+  "finding": "Better use of fragmented resources raises utilization.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET",
+    "USNET"
+   ],
+   "metric": [
+    "burst/packet loss",
+    "throughput",
+    "fragmentation"
+   ],
+   "method": [
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 123,
+  "year": 2018,
+  "kind": "journal",
+  "title": "Using Machine Learning to Balance Energy Cost and Emissions in Optical Networks",
+  "doi": "",
+  "authors": [
+   "Arash Deylamsalehi",
+   "Dylan AP Davis",
+   "Pegah Afsharlar",
+   "Mehdi Bahrami",
+   "Wei-Peng Chen",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "deylamsalehi_a",
+   "davis_d",
+   "afsharlar_p"
+  ],
+  "author_keys": [
+   "deylamsalehi_a",
+   "davis_d",
+   "afsharlar_p",
+   "bahrami_m",
+   "chen_w",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Energy and carbon-aware networking",
+  "problem": "Minimizing electricity alone does not reduce environmental impact.",
+  "approach": "Machine learning to balance energy cost and emissions in RWA (journal).",
+  "finding": "Balances operating cost against emissions.",
+  "tags": {
+   "tool": [
+    "Gurobi"
+   ],
+   "topology": [
+    "NSFNET",
+    "USNET"
+   ],
+   "metric": [
+    "energy/power",
+    "carbon/emissions",
+    "accuracy/F1"
+   ],
+   "method": [
+    "ILP/MILP",
+    "simulation",
+    "game theory"
+   ]
+  }
+ },
+ {
+  "id": 124,
+  "year": 2019,
+  "kind": "journal",
+  "title": "Failure-Aware Protection for Many-to-Many Routing in Content Centric Networks",
+  "doi": "10.1109/TNSE.2019.2892976",
+  "authors": [
+   "Dylan AP Davis",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "davis_d"
+  ],
+  "author_keys": [
+   "davis_d",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Survivability and protection",
+  "problem": "Disasters take out many links and nodes at once.",
+  "approach": "Failure-aware protection for many-to-many routing using content-centric caching (journal).",
+  "finding": "On-path caching plus precomputed backups improves reliability.",
+  "tags": {
+   "tool": [
+    "Gurobi"
+   ],
+   "topology": [],
+   "metric": [],
+   "method": [
+    "heuristic",
+    "metaheuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 125,
+  "year": 2020,
+  "kind": "conference",
+  "title": "Light-segment: Crosstalk and Modulation-Aware Spectrum Allocation with Segmentation in SDM-EON",
+  "doi": "",
+  "authors": [
+   "Yue Wang",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "wang_y"
+  ],
+  "author_keys": [
+   "wang_y",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Elastic and SDM optical networks",
+  "problem": "Resource exhaustion in SDM elastic optical networks.",
+  "approach": "Crosstalk- and modulation-aware spectrum allocation with request segmentation.",
+  "finding": "Segmentation lowers blocking while respecting crosstalk limits.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "blocking probability",
+    "fragmentation"
+   ],
+   "method": [
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 126,
+  "year": 2020,
+  "kind": "journal",
+  "title": "Optimal PMU Restoration for Power System Observability Recovery After Massive Attacks",
+  "doi": "10.1109/TSG.2020.3028761",
+  "authors": [
+   "S.N. Edib",
+   "Y. Lin",
+   "V.M. Vokkarane",
+   "F. Qiu",
+   "R. Yao",
+   "D. Zhao"
+  ],
+  "students": [],
+  "author_keys": [
+   "edib_s",
+   "lin_y",
+   "vokkarane_v",
+   "qiu_f",
+   "yao_r",
+   "zhao_d"
+  ],
+  "in_cv": true,
+  "thread": "Smart grid resilience and security",
+  "problem": "Regaining grid situational awareness after massive cyber attacks.",
+  "approach": "Optimal sequential restoration of PMUs (journal).",
+  "finding": "Restoration order recovers observability quickly.",
+  "tags": {
+   "tool": [
+    "MATLAB"
+   ],
+   "topology": [
+    "IEEE bus system"
+   ],
+   "metric": [
+    "observability",
+    "restoration"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "metaheuristic",
+    "simulation",
+    "deep learning"
+   ]
+  }
+ },
+ {
+  "id": 127,
+  "year": 2020,
+  "kind": "conference",
+  "title": "PMU and Communication Infrastructure Restoration for Post-Attack Observability Recovery of Power Grids",
+  "doi": "10.1109/smartgridcomm47815.2020.9303014",
+  "authors": [
+   "S. N. Edib",
+   "Y. Lin",
+   "V. M. Vokkarane",
+   "F. Qiu",
+   "R. Yao"
+  ],
+  "students": [
+   "edib_s"
+  ],
+  "author_keys": [
+   "edib_s",
+   "lin_y",
+   "vokkarane_v",
+   "qiu_f",
+   "yao_r"
+  ],
+  "in_cv": false,
+  "thread": "Smart grid resilience and security",
+  "problem": "Observability after attacks needs both PMUs and their communications back.",
+  "approach": "Joint PMU and communication infrastructure restoration.",
+  "finding": "Joint restoration recovers observability faster than restoring either alone.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "IEEE bus system"
+   ],
+   "metric": [
+    "observability",
+    "restoration"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "metaheuristic",
+    "simulation",
+    "deep learning"
+   ]
+  }
+ },
+ {
+  "id": 128,
+  "year": 2022,
+  "kind": "journal",
+  "title": "A Cross-Domain Optimization Framework of PMU and Communication Placement for Multi-Domain Resiliency and Cost Reduction",
+  "doi": "10.1109/JIOT.2022.3184946",
+  "authors": [
+   "S. N. Edib",
+   "Y. Lin",
+   "V. M. Vokkarane",
+   "X. Fan"
+  ],
+  "students": [],
+  "author_keys": [
+   "edib_s",
+   "lin_y",
+   "vokkarane_v",
+   "fan_x"
+  ],
+  "in_cv": true,
+  "thread": "Smart grid resilience and security",
+  "problem": "PMU placement and communication design are done separately.",
+  "approach": "Cross-domain optimization of PMU and communication placement (journal).",
+  "finding": "Improves multi-domain resiliency at lower cost.",
+  "tags": {
+   "tool": [
+    "Gurobi",
+    "MATLAB"
+   ],
+   "topology": [
+    "IEEE bus system"
+   ],
+   "metric": [
+    "observability",
+    "restoration"
+   ],
+   "method": [
+    "ILP/MILP",
+    "metaheuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 129,
+  "year": 2022,
+  "kind": "conference",
+  "title": "Performance Comparison of Machine Learning Methods in DDoS Attack Detection in Smart Grids",
+  "doi": "10.1109/URTC56832.2022.10002244",
+  "authors": [
+   "E. Meriaux",
+   "D. Koehler",
+   "M. Z. Islam",
+   "V. Vokkarane",
+   "Y. Lin"
+  ],
+  "students": [],
+  "author_keys": [
+   "meriaux_e",
+   "koehler_d",
+   "islam_m",
+   "vokkarane_v",
+   "lin_y"
+  ],
+  "in_cv": true,
+  "thread": "Smart grid resilience and security",
+  "problem": "Detecting DDoS attacks in smart grids.",
+  "approach": "Comparison of machine learning detectors.",
+  "finding": "Identifies which methods detect DDoS best.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [
+    "accuracy/F1"
+   ],
+   "method": [
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 130,
+  "year": 2022,
+  "kind": "journal",
+  "title": "Static multi-sourced data retrieval in elastic optical networks",
+  "doi": "",
+  "authors": [
+   "J. Zhao",
+   "V. Vokkarane"
+  ],
+  "students": [],
+  "author_keys": [
+   "zhao_j",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Elastic and SDM optical networks",
+  "problem": "Retrieving data held at several sources in EONs.",
+  "approach": "Static multi-sourced data retrieval formulation and heuristics (journal).",
+  "finding": "Efficient many-to-one retrieval plans.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "throughput",
+    "spectrum utilization",
+    "energy/power"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "metaheuristic",
+    "simulation",
+    "testbed/experiment"
+   ]
+  }
+ },
+ {
+  "id": 131,
+  "year": 2023,
+  "kind": "journal",
+  "title": "A Scalable PDC Placement Technique for Fast and Resilient Monitoring of Large Power Grids",
+  "doi": "10.1109/TCNS.2023.3240200",
+  "authors": [
+   "M. Z. Islam",
+   "S. N. Edib",
+   "V. M. Vokkarane",
+   "Y. Lin",
+   "X. Fan"
+  ],
+  "students": [],
+  "author_keys": [
+   "islam_m",
+   "edib_s",
+   "vokkarane_v",
+   "lin_y",
+   "fan_x"
+  ],
+  "in_cv": true,
+  "thread": "Smart grid resilience and security",
+  "problem": "Placing PDCs for fast, resilient monitoring of large grids.",
+  "approach": "Scalable PDC placement technique (journal).",
+  "finding": "Scales to large grids while keeping data transfer fast and resilient.",
+  "tags": {
+   "tool": [
+    "MATLAB"
+   ],
+   "topology": [
+    "IEEE bus system"
+   ],
+   "metric": [
+    "observability",
+    "accuracy/F1"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "metaheuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 132,
+  "year": 2023,
+  "kind": "journal",
+  "title": "Cyber Restoration of Power Systems: Concept and Methodology for Resilient Observability",
+  "doi": "10.1109/TSMC.2023.3258412",
+  "authors": [
+   "S. N. Edib",
+   "Y. Lin",
+   "V. M. Vokkarane",
+   "F. Qiu",
+   "R. Yao",
+   "B. Chen"
+  ],
+  "students": [],
+  "author_keys": [
+   "edib_s",
+   "lin_y",
+   "vokkarane_v",
+   "qiu_f",
+   "yao_r",
+   "chen_b"
+  ],
+  "in_cv": true,
+  "thread": "Smart grid resilience and security",
+  "problem": "Cyber attacks on wide-area monitoring blind operators.",
+  "approach": "Cyber restoration concept and methodology for resilient observability (journal).",
+  "finding": "Defines cyber restoration as a planning problem.",
+  "tags": {
+   "tool": [
+    "Gurobi",
+    "MATLAB"
+   ],
+   "topology": [
+    "IEEE bus system"
+   ],
+   "metric": [
+    "observability",
+    "restoration"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "simulation",
+    "deep learning"
+   ]
+  }
+ },
+ {
+  "id": 133,
+  "year": 2023,
+  "kind": "conference",
+  "title": "Disaster-Resilient PMU Network Design",
+  "doi": "",
+  "authors": [
+   "S. N. Edib",
+   "Y. Lin",
+   "V. M. Vokkarane"
+  ],
+  "students": [],
+  "author_keys": [
+   "edib_s",
+   "lin_y",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Smart grid resilience and security",
+  "problem": "PMU networks must survive disasters.",
+  "approach": "Disaster-resilient PMU network design.",
+  "finding": "Designs that keep the grid observable after disasters.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "IEEE bus system"
+   ],
+   "metric": [
+    "observability"
+   ],
+   "method": [
+    "ILP/MILP",
+    "metaheuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 134,
+  "year": 2023,
+  "kind": "conference",
+  "title": "PLI-Aware Dynamic Routing in Software Defined Elastic Optical Networks (SD- EONs)",
+  "doi": "",
+  "authors": [
+   "A Rezaee",
+   "R McCann",
+   "VM Vokkarane"
+  ],
+  "students": [],
+  "author_keys": [
+   "rezaee_a",
+   "mccann_r",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Elastic and SDM optical networks",
+  "problem": "SDN controllers route without full physical-layer awareness.",
+  "approach": "Load- and impairment-aware dynamic routing in SD-EONs.",
+  "finding": "Considering all metrics together lowers blocking.",
+  "tags": {
+   "tool": [
+    "OMNeT++"
+   ],
+   "topology": [
+    "USNET",
+    "Pan-European"
+   ],
+   "metric": [
+    "blocking probability",
+    "fragmentation",
+    "OSNR/GSNR/QoT",
+    "carbon/emissions",
+    "restoration",
+    "BER"
+   ],
+   "method": [
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 135,
+  "year": 2023,
+  "kind": "journal",
+  "title": "Situation-Aware Load Restoration Considering Uncertainty and Correlation",
+  "doi": "10.1109/TPWRS.2023.3278266",
+  "authors": [
+   "S. N. Edib",
+   "Y. Lin",
+   "V. M. Vokkarane",
+   "F. Qiu",
+   "Y. Zhang",
+   "P. Du"
+  ],
+  "students": [],
+  "author_keys": [
+   "edib_s",
+   "lin_y",
+   "vokkarane_v",
+   "qiu_f",
+   "zhang_y",
+   "du_p"
+  ],
+  "in_cv": true,
+  "thread": "Smart grid resilience and security",
+  "problem": "Restoration after blackouts faces uncertain renewable and load patterns.",
+  "approach": "Situation-aware load restoration with uncertainty and correlation (journal).",
+  "finding": "More reliable restoration plans under uncertainty.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "IEEE bus system"
+   ],
+   "metric": [
+    "restoration"
+   ],
+   "method": [
+    "ILP/MILP",
+    "deep learning"
+   ]
+  }
+ },
+ {
+  "id": 136,
+  "year": 2023,
+  "kind": "conference",
+  "title": "and Y Lin, Cyber-Physical Reconfiguration for Disaster Resilience of Power Distribution Systems",
+  "doi": "",
+  "authors": [
+   "MZ Islam",
+   "VM Vokkarane"
+  ],
+  "students": [],
+  "author_keys": [
+   "islam_m",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Smart grid resilience and security",
+  "problem": "Cyber and power interdependence makes distribution systems fragile.",
+  "approach": "Cyber-physical reconfiguration for disaster resilience.",
+  "finding": "Joint reconfiguration speeds recovery.",
+  "tags": {
+   "tool": [
+    "MATLAB"
+   ],
+   "topology": [
+    "IEEE bus system"
+   ],
+   "metric": [
+    "throughput",
+    "restoration"
+   ],
+   "method": [
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 137,
+  "year": 2023,
+  "kind": "conference",
+  "title": "and Y Lin, PMU Network Routing for Resilient Observability of Power Grids",
+  "doi": "",
+  "authors": [
+   "MZ Islam",
+   "VM Vokkarane"
+  ],
+  "students": [],
+  "author_keys": [
+   "islam_m",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Smart grid resilience and security",
+  "problem": "Routing PMU data resiliently.",
+  "approach": "PMU network routing for resilient observability.",
+  "finding": "Routing that keeps the grid observable under failures.",
+  "tags": {
+   "tool": [
+    "MATLAB"
+   ],
+   "topology": [
+    "IEEE bus system"
+   ],
+   "metric": [
+    "observability"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 138,
+  "year": 2024,
+  "kind": "conference",
+  "title": "Dynamic Crosstalk-Aware Routing, Modulation, Core, and Spectrum Allocation for Sliceable Demands in SDM-EONs",
+  "doi": "10.1109/LANMAN61958.2024.10621885",
+  "authors": [
+   "A. Rezaee",
+   "R. McCann",
+   "V. M. Vokkarane"
+  ],
+  "students": [],
+  "author_keys": [
+   "rezaee_a",
+   "mccann_r",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Elastic and SDM optical networks",
+  "problem": "Crosstalk limits SDM-EON capacity for sliceable demands.",
+  "approach": "Dynamic crosstalk-aware routing, modulation, core, and spectrum allocation.",
+  "finding": "Lower blocking within crosstalk thresholds.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET",
+    "USNET",
+    "Pan-European"
+   ],
+   "metric": [
+    "blocking probability",
+    "spectrum utilization",
+    "fragmentation",
+    "OSNR/GSNR/QoT",
+    "carbon/emissions",
+    "BER"
+   ],
+   "method": [
+    "simulation",
+    "reinforcement learning"
+   ]
+  }
+ },
+ {
+  "id": 139,
+  "year": 2024,
+  "kind": "conference",
+  "title": "Enhancing Routing in SD-EONs through Reinforcement Learning: A Comparative Analysis",
+  "doi": "10.1109/LATINCOM62985.2024.10770647",
+  "authors": [
+   "R. McCann",
+   "A. Rezaee",
+   "V. M. Vokkarane"
+  ],
+  "students": [],
+  "author_keys": [
+   "mccann_r",
+   "rezaee_a",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Machine learning for networks",
+  "problem": "Static routing in SD-EONs cannot adapt to real-time conditions.",
+  "approach": "Comparison of epsilon-greedy bandit, UCB bandit, and Q-learning routing.",
+  "finding": "Reinforcement learning routing is compared against traditional methods in FUSION.",
+  "tags": {
+   "tool": [],
+   "topology": [
+    "NSFNET"
+   ],
+   "metric": [
+    "blocking probability",
+    "fragmentation"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "simulation",
+    "reinforcement learning",
+    "deep learning",
+    "testbed/experiment"
+   ]
+  }
+ },
+ {
+  "id": 140,
+  "year": 2024,
+  "kind": "conference",
+  "title": "FUSION: A Flexible Unified Simulator for Intelligent Optical Networking",
+  "doi": "",
+  "authors": [
+   "Ryan McCann",
+   "Arash Rezaee",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [],
+  "author_keys": [
+   "mccann_r",
+   "rezaee_a",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Tools and reproducibility",
+  "problem": "Optical network simulators are mostly closed source.",
+  "approach": "FUSION, an open-source simulator for software-defined elastic optical networks.",
+  "finding": "Open, extensible platform adopted for the group's later studies.",
+  "tags": {
+   "tool": [
+    "OMNeT++",
+    "Stable-Baselines",
+    "OpenAI Gym",
+    "FUSION"
+   ],
+   "topology": [
+    "USNET",
+    "Pan-European"
+   ],
+   "metric": [],
+   "method": [
+    "simulation",
+    "reinforcement learning"
+   ]
+  }
+ },
+ {
+  "id": 141,
+  "year": 2024,
+  "kind": "journal",
+  "title": "Observability-Aware Resilient PMU Networking",
+  "doi": "10.1109/TPWRS.2024.3387338",
+  "authors": [
+   "M. Z. Islam",
+   "Y. Lin",
+   "V. M. Vokkarane",
+   "J. Ogle"
+  ],
+  "students": [],
+  "author_keys": [
+   "islam_m",
+   "lin_y",
+   "vokkarane_v",
+   "ogle_j"
+  ],
+  "in_cv": true,
+  "thread": "Smart grid resilience and security",
+  "problem": "PMU networks must keep the grid observable under failures.",
+  "approach": "Observability-aware resilient PMU networking framework (journal).",
+  "finding": "Fast, resilient PMU data transfer.",
+  "tags": {
+   "tool": [
+    "MATLAB"
+   ],
+   "topology": [
+    "IEEE bus system"
+   ],
+   "metric": [
+    "observability",
+    "restoration"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "simulation",
+    "deep learning"
+   ]
+  }
+ },
+ {
+  "id": 142,
+  "year": 2024,
+  "kind": "conference",
+  "title": "Reinforcement Learning-Based Observability-Aware Cyber Restoration of Power Grid",
+  "doi": "10.1109/globecom52923.2024.10901146",
+  "authors": [
+   "S. N. Edib",
+   "V. M. Vokkarane",
+   "Y. Lin"
+  ],
+  "students": [
+   "edib_s"
+  ],
+  "author_keys": [
+   "edib_s",
+   "vokkarane_v",
+   "lin_y"
+  ],
+  "in_cv": false,
+  "thread": "Smart grid resilience and security",
+  "problem": "Cyber restoration is stochastic after disasters and attacks.",
+  "approach": "Reinforcement learning for observability-aware cyber restoration.",
+  "finding": "RL policies restore observability under uncertainty.",
+  "tags": {
+   "tool": [
+    "Gurobi"
+   ],
+   "topology": [
+    "IEEE bus system"
+   ],
+   "metric": [
+    "observability",
+    "restoration"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "analytical model",
+    "simulation",
+    "reinforcement learning",
+    "deep learning"
+   ]
+  }
+ },
+ {
+  "id": 143,
+  "year": 2025,
+  "kind": "conference",
+  "title": "Best Planning Practices for Ultra-High-Capacity Networks Based on Multi- Band over Space Division Multiplexing",
+  "doi": "",
+  "authors": [
+   "F. Arpanaei",
+   "A. Rezaee",
+   "M. Ranjbar Zefreh",
+   "R. McCann",
+   "L. Nadal",
+   "J. M. Rivas-Moscoso",
+   "Ó. González de Dios",
+   "A. Sánchez-Macián",
+   "D. Larrabeiti",
+   "V. M. Vokkarane",
+   "J. A. Hernández"
+  ],
+  "students": [],
+  "author_keys": [
+   "arpanaei_f",
+   "rezaee_a",
+   "zefreh_m",
+   "mccann_r",
+   "nadal_l",
+   "rivas-moscoso_j",
+   "dios_ó",
+   "sánchez-macián_a",
+   "larrabeiti_d",
+   "vokkarane_v",
+   "hernández_j"
+  ],
+  "in_cv": true,
+  "thread": "Elastic and SDM optical networks",
+  "problem": "Planning ultra-high-capacity networks across bands and SDM.",
+  "approach": "Comparison of C, C+L, C+S, and C+L+S band plans over SDM.",
+  "finding": "C+L gives the best spectral efficiency; C+L+S gives the most capacity and lowest blocking.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [
+    "blocking probability",
+    "throughput",
+    "OSNR/GSNR/QoT",
+    "energy/power",
+    "carbon/emissions"
+   ],
+   "method": [
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 144,
+  "year": 2025,
+  "kind": "conference",
+  "title": "Channel-Based ICXT- and NLI-Aware Service Provisioning for Multi-Band Over SDM Systems",
+  "doi": "10.23919/ONDM65745.2025.11029337",
+  "authors": [
+   "Arash Rezaee",
+   "Farhad Arpanaei",
+   "Ryan McCann",
+   "Hami Rabbani",
+   "José Alberto Hernandez",
+   "Maite Brandt-Pearce",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [],
+  "author_keys": [
+   "rezaee_a",
+   "arpanaei_f",
+   "mccann_r",
+   "rabbani_h",
+   "hernandez_j",
+   "brandt-pearce_m",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Elastic and SDM optical networks",
+  "problem": "Inter-core crosstalk and nonlinear noise in multi-band SDM.",
+  "approach": "Channel-based ICXT- and NLI-aware provisioning.",
+  "finding": "Accurate QoT-aware allocation for multi-band SDM.",
+  "tags": {
+   "tool": [
+    "FUSION"
+   ],
+   "topology": [
+    "USNET"
+   ],
+   "metric": [
+    "blocking probability",
+    "spectrum utilization",
+    "fragmentation",
+    "OSNR/GSNR/QoT",
+    "carbon/emissions",
+    "BER"
+   ],
+   "method": [
+    "heuristic",
+    "analytical model",
+    "simulation",
+    "reinforcement learning"
+   ]
+  }
+ },
+ {
+  "id": 145,
+  "year": 2025,
+  "kind": "conference",
+  "title": "Cyber Security Constrained Economic Dispatch for Resilient Power System Operation",
+  "doi": "10.1109/SmartGridComm65349.2025.11204587",
+  "authors": [
+   "M. Z. Islam",
+   "Y. Lin",
+   "V. M. Vokkarane"
+  ],
+  "students": [],
+  "author_keys": [
+   "islam_m",
+   "lin_y",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Smart grid resilience and security",
+  "problem": "Economic dispatch ignores cyber network contingencies.",
+  "approach": "Cyber-security-constrained economic dispatch.",
+  "finding": "Dispatch that stays secure under cyber contingencies.",
+  "tags": {
+   "tool": [
+    "MATLAB",
+    "MATPOWER"
+   ],
+   "topology": [
+    "IEEE bus system"
+   ],
+   "metric": [],
+   "method": [
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 146,
+  "year": 2025,
+  "kind": "journal",
+  "title": "Disaster-Resilient Cyber-Physical Distribution System Reconfiguration and Dynamic Networked Microgrid Formation under Intermittent Generation",
+  "doi": "10.1109/TIA.2025.3625866",
+  "authors": [
+   "M. Z. Islam",
+   "Y. Lin",
+   "V. M. Vokkarane"
+  ],
+  "students": [],
+  "author_keys": [
+   "islam_m",
+   "lin_y",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Smart grid resilience and security",
+  "problem": "Distribution systems face high-impact, low-probability events.",
+  "approach": "Reconfiguration with dynamic networked microgrid formation (journal).",
+  "finding": "Faster recovery with intermittent generation.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [
+    "throughput",
+    "restoration"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "simulation",
+    "reinforcement learning"
+   ]
+  }
+ },
+ {
+  "id": 147,
+  "year": 2025,
+  "kind": "conference",
+  "title": "Exploring a Smart FDI Attack and Enhancing Anomaly Detection in Smart Meters",
+  "doi": "10.1109/SmartGridComm65349.2025.11204616",
+  "authors": [
+   "M. Sasaninia",
+   "V. M. Vokkarane",
+   "Y. Lin",
+   "O. Arias"
+  ],
+  "students": [],
+  "author_keys": [
+   "sasaninia_m",
+   "vokkarane_v",
+   "lin_y",
+   "arias_o"
+  ],
+  "in_cv": true,
+  "thread": "Smart grid resilience and security",
+  "problem": "Smart meter FDI detection assumes only power data.",
+  "approach": "A smarter FDI attack and improved anomaly detection.",
+  "finding": "Detection that catches attacks existing methods miss.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [
+    "energy/power",
+    "accuracy/F1"
+   ],
+   "method": [
+    "simulation",
+    "deep learning"
+   ]
+  }
+ },
+ {
+  "id": 148,
+  "year": 2025,
+  "kind": "conference",
+  "title": "ISRS-Enhanced PLI-Aware Routing for Multi-Band Elastic Optical Networks",
+  "doi": "10.1109/HPSR64165.2025.11038893",
+  "authors": [
+   "A. Rezaee",
+   "R. McCann",
+   "H. Rabbani",
+   "M. Brandt-Pearce",
+   "V. M. Vokkarane"
+  ],
+  "students": [],
+  "author_keys": [
+   "rezaee_a",
+   "mccann_r",
+   "rabbani_h",
+   "brandt-pearce_m",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Elastic and SDM optical networks",
+  "problem": "Multi-band EONs suffer band-dependent impairments.",
+  "approach": "ISRS-aware, impairment-aware routing.",
+  "finding": "Better QoT-aware allocation across bands.",
+  "tags": {
+   "tool": [
+    "OMNeT++"
+   ],
+   "topology": [
+    "Pan-European"
+   ],
+   "metric": [
+    "blocking probability",
+    "spectrum utilization",
+    "fragmentation",
+    "OSNR/GSNR/QoT",
+    "carbon/emissions"
+   ],
+   "method": [
+    "heuristic",
+    "analytical model",
+    "simulation",
+    "reinforcement learning"
+   ]
+  }
+ },
+ {
+  "id": 149,
+  "year": 2025,
+  "kind": "conference",
+  "title": "Learning to Slice: ML-Assisted Segmentation for Dynamic Resource Allocation in SDM-EONs",
+  "doi": "10.1109/HPSR64165.2025.11038887",
+  "authors": [
+   "A. Rezaee",
+   "R. McCann",
+   "V. M. Vokkarane"
+  ],
+  "students": [],
+  "author_keys": [
+   "rezaee_a",
+   "mccann_r",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Machine learning for networks",
+  "problem": "Choosing slice sizes for crosstalk-aware allocation in SDM-EONs.",
+  "approach": "ML-assisted segmentation inside the SDN controller.",
+  "finding": "Learned slicing lowers blocking.",
+  "tags": {
+   "tool": [
+    "FUSION"
+   ],
+   "topology": [
+    "Pan-European"
+   ],
+   "metric": [
+    "blocking probability",
+    "fragmentation",
+    "OSNR/GSNR/QoT",
+    "carbon/emissions",
+    "accuracy/F1",
+    "BER"
+   ],
+   "method": [
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 150,
+  "year": 2025,
+  "kind": "conference",
+  "title": "Modeling Nonlinear Noise for Arbitrary Pulse Shapes in Optical Fiber Communication Systems",
+  "doi": "10.1109/ICTON67126.2025.11125454",
+  "authors": [
+   "H. Rabbani",
+   "A. Rezaee",
+   "F. Arpanaei",
+   "V. M. Vokkarane",
+   "M. Brandt-Pearce"
+  ],
+  "students": [],
+  "author_keys": [
+   "rabbani_h",
+   "rezaee_a",
+   "arpanaei_f",
+   "vokkarane_v",
+   "brandt-pearce_m"
+  ],
+  "in_cv": true,
+  "thread": "Physical layer modeling",
+  "problem": "Nonlinear noise models assume rectangular pulses.",
+  "approach": "Modulation-format-dependent model for arbitrary pulse shapes.",
+  "finding": "Extra nonlinear terms matter for non-rectangular pulses.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [
+    "OSNR/GSNR/QoT",
+    "carbon/emissions",
+    "accuracy/F1"
+   ],
+   "method": []
+  }
+ },
+ {
+  "id": 151,
+  "year": 2025,
+  "kind": "conference",
+  "title": "QoS-Based Recovery in 6G Optical Transport Networks: A Fast Service Prioritization Approach",
+  "doi": "10.1109/ICTON67126.2025.11125465",
+  "authors": [
+   "S. Soltani",
+   "A. Rezaee",
+   "O. Arias",
+   "V. M. Vokkarane"
+  ],
+  "students": [],
+  "author_keys": [
+   "soltani_s",
+   "rezaee_a",
+   "arias_o",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Survivability and protection",
+  "problem": "6G transport must restore mission-critical services fast.",
+  "approach": "QoS-based service prioritization for recovery.",
+  "finding": "Faster recovery for high-priority services.",
+  "tags": {
+   "tool": [
+    "OpenAI Gym"
+   ],
+   "topology": [
+    "Torus/ring/mesh (synthetic)"
+   ],
+   "metric": [
+    "blocking probability",
+    "throughput",
+    "spectrum utilization",
+    "restoration"
+   ],
+   "method": [
+    "ILP/MILP",
+    "heuristic",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 152,
+  "year": 2025,
+  "kind": "conference",
+  "title": "Rethinking Flexibility: When Fixed-Grid with Grooming Outperforms Flex-Grid in EONs",
+  "doi": "10.1109/ICTON67126.2025.11125074",
+  "authors": [
+   "A. Rezaee",
+   "F. Arpanaei",
+   "R. McCann",
+   "J. A. Hernández",
+   "V. M. Vokkarane"
+  ],
+  "students": [],
+  "author_keys": [
+   "rezaee_a",
+   "arpanaei_f",
+   "mccann_r",
+   "hernández_j",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Elastic and SDM optical networks",
+  "problem": "Is flex-grid always better than fixed-grid?",
+  "approach": "Techno-economic comparison in super C-band SD-EONs, extending FUSION with grooming.",
+  "finding": "Fixed-grid with grooming can outperform flex-grid.",
+  "tags": {
+   "tool": [
+    "FUSION"
+   ],
+   "topology": [],
+   "metric": [
+    "blocking probability",
+    "spectrum utilization",
+    "fragmentation",
+    "OSNR/GSNR/QoT",
+    "carbon/emissions",
+    "BER"
+   ],
+   "method": [
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 153,
+  "year": 2026,
+  "kind": "conference",
+  "title": "Experimental Determination of Filter Bandwidth Requirements for Coherent Pluggable Transceivers in Optical Data Center Networks",
+  "doi": "10.1109/hpsr68369.2026.11615178",
+  "authors": [
+   "H. Rabbani",
+   "A. Rezaee",
+   "M. Brandt-Pearce",
+   "V. M. Vokkarane"
+  ],
+  "students": [
+   "rabbani_h",
+   "rezaee_a"
+  ],
+  "author_keys": [
+   "rabbani_h",
+   "rezaee_a",
+   "brandt-pearce_m",
+   "vokkarane_v"
+  ],
+  "in_cv": false,
+  "thread": "Data center and cloud networking",
+  "problem": "Filter narrowing penalizes coherent pluggables in data center links.",
+  "approach": "Experimental measurement of filter bandwidth requirements.",
+  "finding": "Quantifies passband needs for flexible-grid ROADMs.",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [
+    "throughput",
+    "OSNR/GSNR/QoT",
+    "energy/power",
+    "carbon/emissions",
+    "BER"
+   ],
+   "method": [
+    "analytical model",
+    "simulation",
+    "testbed/experiment"
+   ]
+  }
+ },
+ {
+  "id": 154,
+  "year": 2026,
+  "kind": "journal",
+  "title": "FUSION: A Unified Benchmarking Framework for Reproducible Optical Network Research",
+  "doi": "10.1364/JOCN.593123",
+  "authors": [
+   "A. Rezaee",
+   "R. McCann",
+   "V. M. Vokkarane"
+  ],
+  "students": [],
+  "author_keys": [
+   "rezaee_a",
+   "mccann_r",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Tools and reproducibility",
+  "problem": "Optical network results are hard to reproduce.",
+  "approach": "FUSION as a unified benchmarking framework (journal).",
+  "finding": "Reproducible benchmarks for optical networking research.",
+  "tags": {
+   "tool": [
+    "OMNeT++",
+    "OpenAI Gym",
+    "FUSION"
+   ],
+   "topology": [
+    "JPN12/48"
+   ],
+   "metric": [
+    "blocking probability",
+    "OSNR/GSNR/QoT",
+    "carbon/emissions",
+    "observability",
+    "restoration",
+    "BER"
+   ],
+   "method": [
+    "heuristic",
+    "analytical model",
+    "simulation",
+    "reinforcement learning"
+   ]
+  }
+ },
+ {
+  "id": 155,
+  "year": 2026,
+  "kind": "journal",
+  "title": "QoT-Aware Dynamic Resource Allocation and Grooming in Multi-Band Space-Division Multiplexing Networks",
+  "doi": "10.1364/JOCN.596435",
+  "authors": [
+   "A. Rezaee",
+   "F. Arpanaei",
+   "R. McCann",
+   "H. Rabbani",
+   "J. Hernández",
+   "M. Brandt-Pearce",
+   "V. M. Vokkarane"
+  ],
+  "students": [],
+  "author_keys": [
+   "rezaee_a",
+   "arpanaei_f",
+   "mccann_r",
+   "rabbani_h",
+   "hernández_j",
+   "brandt-pearce_m",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Elastic and SDM optical networks",
+  "problem": "Dynamic allocation in multi-band SDM needs QoT awareness and grooming.",
+  "approach": "QoT-aware allocation and grooming (journal).",
+  "finding": "Grooming with QoT awareness improves capacity use.",
+  "tags": {
+   "tool": [
+    "FUSION"
+   ],
+   "topology": [],
+   "metric": [
+    "blocking probability",
+    "throughput",
+    "spectrum utilization",
+    "fragmentation",
+    "OSNR/GSNR/QoT",
+    "carbon/emissions",
+    "accuracy/F1",
+    "BER"
+   ],
+   "method": [
+    "heuristic",
+    "analytical model",
+    "simulation"
+   ]
+  }
+ },
+ {
+  "id": 156,
+  "year": 2026,
+  "kind": "journal",
+  "title": "QoT-Aware Spectral and Spatial Scaling Trade-offs in Multi-Band Space Division Multiplexing over EONs [Invited]",
+  "doi": "10.1364/JOCN.596854",
+  "authors": [
+   "A. Rezaee",
+   "F. Arpanaei",
+   "R. McCann",
+   "L. Nadal",
+   "J. A. Hernández",
+   "V. M. Vokkarane"
+  ],
+  "students": [],
+  "author_keys": [
+   "rezaee_a",
+   "arpanaei_f",
+   "mccann_r",
+   "nadal_l",
+   "hernández_j",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "thread": "Elastic and SDM optical networks",
+  "problem": "Scaling capacity spectrally or spatially.",
+  "approach": "QoT-aware trade-off study of multi-band versus SDM scaling (invited journal).",
+  "finding": "Quantifies when spectral versus spatial scaling pays off.",
+  "tags": {
+   "tool": [
+    "FUSION"
+   ],
+   "topology": [
+    "Torus/ring/mesh (synthetic)"
+   ],
+   "metric": [
+    "blocking probability",
+    "throughput",
+    "spectrum utilization",
+    "fragmentation",
+    "OSNR/GSNR/QoT",
+    "carbon/emissions",
+    "accuracy/F1",
+    "BER"
+   ],
+   "method": [
+    "metaheuristic",
+    "analytical model",
+    "simulation",
+    "testbed/experiment"
+   ]
+  }
+ }
+]

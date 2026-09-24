@@ -66,7 +66,7 @@ def render(ns, footer_html, script_html):
     def akey(n):
         p = re.sub(r"\*", "", n).replace(".", " ").split()
         return (p[-1].lower() + "_" + p[0][0].lower()) if p else ""
-    roster = [s["name"] for s in ns.get("STUDENTS", [])] + list(ns.get("ALUMNI_PROFILES", {}).keys()) + [n for n, _ in ns.get("ALUMNI_POSTDOC", [])]
+    roster = [s["name"] for s in ns.get("STUDENTS", []) if s.get("advisor", "Vinod M. Vokkarane") == "Vinod M. Vokkarane"] + list(ns.get("ALUMNI_PROFILES", {}).keys()) + [n for n, _ in ns.get("ALUMNI_POSTDOC", [])]
     for n in roster: name_of[akey(n)] = n
     student_keys = {akey(n) for n in roster} | {k for r in R for k in r["students"]}
     students = collections.Counter(k for r in R for k in set(r["author_keys"]) if k in student_keys)

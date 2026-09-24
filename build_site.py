@@ -2595,6 +2595,10 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 /* students and alumni */
 .stugrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .stugrid.two{grid-template-columns:repeat(2,1fr);margin-bottom:40px}
+.advgroup{margin:0 0 34px}.advh{font-size:20px;margin:0 0 14px;display:flex;align-items:baseline;gap:10px}.advh .advn{font-size:13px;font-weight:600;color:var(--ink-3);border:1px solid var(--line);border-radius:999px;padding:1px 9px}
+.stulist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+.stulist li{border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:12px 16px;display:flex;flex-direction:column;gap:2px;font-size:14.5px;color:var(--ink-2)}
+.stulist li b{font-size:16px;color:var(--ink)}.stulist .prog{color:var(--ink-3);font-size:13.5px}
 .stu{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px 22px 20px}
 .stu .avatar{display:block;margin:0 auto 16px;width:180px;height:180px;font-size:40px}
 .avatar.round{border-radius:50%;background:transparent}
@@ -2975,12 +2979,23 @@ THRUSTS = [
 
 # ---------------------------------------------------------------- students and alumni (from the director's CV, Sept. 2026)
 STUDENTS = [
-    {"name": "Arash Rezaee", "photo": "arash", "fig": "fig_arash", "figcap": "AI services over a software-defined, multi-layer network", "status": "Ph.D. Candidate, joined 2022", "focus": "AI-driven resource allocation in optical networks; impairment-aware provisioning in multi-band, space-division multiplexed networks; spectral versus spatial capacity scaling; reproducible optical network benchmarking with FUSION.", "linkedin": ""},
-    {"name": "Ryan McCann", "photo": "ryan", "fig": "fig_ryan", "figcap": "FUSION: reinforcement learning over a software-defined optical mesh", "status": "Ph.D. Candidate, joined 2024", "focus": "Co-founder and lead developer of FUSION (github.com/SDNNetSim/FUSION), supported by MIT I-Corps and AT&T; reinforcement learning for software-defined elastic optical networks; failure-aware routing and realistic simulation of elastic optical and mesh networks.", "linkedin": ""},
-    {"name": "Ken Patrick Watts", "photo": "ken", "fig": "fig_ken", "figcap": "NATIG co-simulation of a distribution grid and its wireless network", "status": "Ph.D. Student, joined 2022", "focus": "Scalable, real-time detection of cyber attacks on smart power grids with machine learning; adaptive transfer learning for day-zero network intrusion detection; the NATIG cyber-physical co-simulation testbed (HELICS, GridLAB-D, ns-3).", "linkedin": ""},
-    {"name": "Mehran Sasaninia", "photo": "mehran", "fig": "fig_mehran", "figcap": "Federated learning across grid sites with a global model aggregator", "status": "Ph.D. Student, joined 2023", "focus": "Federated learning to detect cyber attacks in the smart grid; smart false data injection attacks and anomaly detection in smart meters (IEEE SmartGridComm 2025); centralized versus federated learning for grid anomaly detection.", "linkedin": ""},
-    {"name": "Ayush Pandey", "photo": "ayush", "status": "Ph.D. Student, joined 2024", "figsvg": "ayush", "figcap": "AI-based intrusion detection protecting a transmission grid's control loop", "focus": "Smart grid cybersecurity and AI for cyber-physical systems.", "linkedin": ""},
-    {"name": "Suvhasis Mukhopadhyay", "photo": "suvhasis", "figsvg": "suvhasis", "figcap": "Impairment-aware allocation of spectrum, modulation, and power on a flex-grid link", "status": "Ph.D. Student, joined 2024", "focus": "Impact of individual physical layer impairments on elastic optical network performance; impairment-aware routing, spectrum, modulation, and power allocation; dynamic optical networking.", "linkedin": ""},
+    {"name": "Arash Rezaee", "advisor": "Vinod M. Vokkarane", "photo": "arash", "fig": "fig_arash", "figcap": "AI services over a software-defined, multi-layer network", "status": "Ph.D. Candidate, joined 2022", "focus": "AI-driven resource allocation in optical networks; impairment-aware provisioning in multi-band, space-division multiplexed networks; spectral versus spatial capacity scaling; reproducible optical network benchmarking with FUSION.", "linkedin": ""},
+    {"name": "Ryan McCann", "advisor": "Vinod M. Vokkarane", "photo": "ryan", "fig": "fig_ryan", "figcap": "FUSION: reinforcement learning over a software-defined optical mesh", "status": "Ph.D. Candidate, joined 2024", "focus": "Co-founder and lead developer of FUSION (github.com/SDNNetSim/FUSION), supported by MIT I-Corps and AT&T; reinforcement learning for software-defined elastic optical networks; failure-aware routing and realistic simulation of elastic optical and mesh networks.", "linkedin": ""},
+    {"name": "Ken Patrick Watts", "advisor": "Vinod M. Vokkarane", "photo": "ken", "fig": "fig_ken", "figcap": "NATIG co-simulation of a distribution grid and its wireless network", "status": "Ph.D. Student, joined 2022", "focus": "Scalable, real-time detection of cyber attacks on smart power grids with machine learning; adaptive transfer learning for day-zero network intrusion detection; the NATIG cyber-physical co-simulation testbed (HELICS, GridLAB-D, ns-3).", "linkedin": ""},
+    {"name": "Mehran Sasaninia", "advisor": "Vinod M. Vokkarane", "photo": "mehran", "fig": "fig_mehran", "figcap": "Federated learning across grid sites with a global model aggregator", "status": "Ph.D. Student, joined 2023", "focus": "Federated learning to detect cyber attacks in the smart grid; smart false data injection attacks and anomaly detection in smart meters (IEEE SmartGridComm 2025); centralized versus federated learning for grid anomaly detection.", "linkedin": ""},
+    {"name": "Ayush Pandey", "advisor": "Vinod M. Vokkarane", "photo": "ayush", "status": "Ph.D. Student, joined 2024", "figsvg": "ayush", "figcap": "AI-based intrusion detection protecting a transmission grid's control loop", "focus": "Smart grid cybersecurity and AI for cyber-physical systems.", "linkedin": ""},
+    {"name": "Suvhasis Mukhopadhyay", "advisor": "Vinod M. Vokkarane", "photo": "suvhasis", "figsvg": "suvhasis", "figcap": "Impairment-aware allocation of spectrum, modulation, and power on a flex-grid link", "status": "Ph.D. Student, joined 2024", "focus": "Impact of individual physical layer impairments on elastic optical network performance; impairment-aware routing, spectrum, modulation, and power allocation; dynamic optical networking.", "linkedin": ""},
+    # Other center faculty's doctoral students, from their CVs (Sept. 2026). Program and dates as listed there;
+    # Luo's CV gives expected graduation dates but not programs.
+    {"name": "Timothy Miskell", "advisor": "Yan Luo", "status": "Ph.D. student, expected Nov. 2026", "program": "", "focus": ""},
+    {"name": "Calvin Ng", "advisor": "Yan Luo", "status": "Ph.D. student, expected Aug. 2027", "program": "", "focus": ""},
+    {"name": "Ali Alkhatatbih", "advisor": "Yan Luo", "status": "Ph.D. student, expected Aug. 2027", "program": "", "focus": ""},
+    {"name": "Sage Lyon", "advisor": "Yan Luo", "status": "Ph.D. student, expected Dec. 2027", "program": "", "focus": ""},
+    {"name": "Mohammad Shakhawat Hossain Fahim", "advisor": "Yan Luo", "status": "Ph.D. student, expected Dec. 2028", "program": "", "focus": ""},
+    {"name": "Negin Yazdani Motlagh", "advisor": "Lewis Tseng", "status": "Ph.D. student, joined 2024", "program": "School of Education", "focus": ""},
+    {"name": "Kritee Neupane", "advisor": "Lewis Tseng", "status": "Ph.D. student, joined 2025", "program": "Electrical and Computer Engineering", "focus": ""},
+    {"name": "Layann Shaban", "advisor": "Lewis Tseng", "status": "Ph.D. student, joined 2026", "program": "Electrical and Computer Engineering", "focus": ""},
+    {"name": "Youlim Lee", "advisor": "Lewis Tseng", "status": "Ph.D. student, joined 2026", "program": "School of Education", "focus": ""},
 ]
 
 # ---------------------------------------------------------------- alumni profiles
@@ -3104,7 +3119,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.04"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.05"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -4736,7 +4751,21 @@ def build():
     core_html = '<div class="core">' + "".join(person_card(p, "lg") for p in FACULTY["core"]) + '</div>'
     aff_html = '<ul class="plist">' + "".join(person_row(p) for p in FACULTY["affiliated"]) + '</ul>'
     ext_html = '<ul class="plist">' + "".join(person_row(p) for p in FACULTY["external"]) + '</ul>'
-    students_html = "".join(student_card(st) for st in STUDENTS)
+    # Students grouped by primary advisor: the director's group first with full cards, then the other
+    # center faculty in surname order, listed compactly until they send photos and research summaries.
+    _adv_order = ["Vinod M. Vokkarane"] + sorted({s["advisor"] for s in STUDENTS} - {"Vinod M. Vokkarane"}, key=lambda n: n.split()[-1])
+    _groups = []
+    for adv in _adv_order:
+        grp = [s for s in STUDENTS if s["advisor"] == adv]
+        lab = " (Advanced Communication Networks Laboratory)" if adv == "Vinod M. Vokkarane" else ""
+        head = f'<h3 class="advh">Advised by {esc(adv)}{lab} <span class="advn">{len(grp)}</span></h3>'
+        if adv == "Vinod M. Vokkarane":
+            body = '<div class="stugrid">' + "".join(student_card(st) for st in grp) + '</div>'
+        else:
+            body = '<ul class="stulist">' + "".join(
+                f'<li><b>{esc(s["name"])}</b><span>{esc(s["status"])}</span><span class="prog">{esc(s.get("program", ""))}</span></li>' for s in grp) + '</ul>'
+        _groups.append(f'<div class="advgroup">{head}{body}</div>')
+    students_html = "".join(_groups)
     lablife_html = "".join(f'<img src="data:image/jpeg;base64,{IMG[f"lab{i}"]}" alt="Members of the Advanced Communication Networks Laboratory" width="760" height="406">' for i in range(1, 7) if IMG.get(f"lab{i}"))
     alumni_feat_html = "".join(alum_feature(a) for a in ALUMNI_FEATURED)
     alumni_phd_html = "".join(f'<li><span class="yr">{esc(y)}</span><span><b>{esc(n)}</b>{(" <span class=\"where\">" + esc(w) + "</span>") if w else ""}</span></li>' for y, n, w in ALUMNI_PHD)
@@ -5250,7 +5279,7 @@ for _g in ("director", "core", "affiliated", "external"):
 
 PEOPLE_SECTION = '<section id="people" class="tint">\n  <div class="wrap">\n    <div class="shead"><h2>People</h2><p>Faculty from the Francis College of Engineering, the Kennedy College of Sciences, and the College of Fine Arts, Humanities and Social Sciences, plus long-running collaborators at partner universities and companies. Each profile links to the person\'s Google Scholar and ORCID records; citation totals are quoted from Google Scholar where the profile is public.</p></div>\n    <p class="founding">The center was founded on October 1, 2019 by Vinod Vokkarane, Martin Margala, Yan Luo, Sukesh Aghara, and Yuanchang Xie. Vokkarane served on the founding Board of Directors from October 2019 to July 2021 and has been director since August 2021. Margala, then Professor and Chair of Electrical and Computer Engineering, was founding co-director until July 2021 and remains an external collaborator.</p>\n    <h2 class="grouph">Center faculty</h2>\n    {director_html}\n    {core_html}\n    <div class="group"><h2 class="grouph">Affiliated researchers</h2><p>UMass Lowell faculty who collaborate on center projects and proposals.</p>{aff_html}</div>\n    <div class="group"><h2 class="grouph">External collaborators</h2><p>Partners at other universities and companies who work with the center on current projects.</p>{ext_html}</div>\n  </div>\n</section>\n\n'
 
-STUDENTS_SECTION = '<section id="students">\n  <div class="wrap">\n    <div class="shead"><h2>Students</h2><p>Doctoral students in the director\'s group, the Advanced Communication Networks Laboratory, working on center projects.</p></div>\n    <h2 class="grouph">Doctoral students</h2>\n    <div class="stugrid">{students_html}</div>\n    <div class="lablife">\n      <h3>Lab life</h3>\n      <p>The Advanced Communication Networks Laboratory through the years.</p>\n      <div class="labgrid">{lablife_html}</div>\n    </div>\n  </div>\n</section>\n\n'
+STUDENTS_SECTION = '<section id="students">\n  <div class="wrap">\n    <div class="shead"><h2>Students</h2><p>Doctoral students of the center faculty, grouped by primary advisor. The director\'s group is the Advanced Communication Networks Laboratory.</p></div>\n    <h2 class="grouph">Doctoral students</h2>\n    {students_html}\n    <div class="lablife">\n      <h3>Lab life</h3>\n      <p>The Advanced Communication Networks Laboratory through the years.</p>\n      <div class="labgrid">{lablife_html}</div>\n    </div>\n  </div>\n</section>\n\n'
 
 ALUMNI_SECTION = '<section id="alumni" class="tint">\n  <div class="wrap">\n    <div class="shead"><h2>Alumni</h2><p>Where the group\'s Ph.D. graduates and postdoctoral researchers have gone.</p></div>\n    <h2 class="grouph">Recent graduates</h2>\n    <div class="stugrid two">{alumni_feat_html}</div>\n    <h2 class="grouph">Ph.D. graduates</h2>\n    <p class="alnote">Where each graduate is now, verified in September 2026 against employer pages, LinkedIn, and Google Scholar. Citation figures refresh monthly with the rest of the site.</p>\n    <div class="alumgrid">{alumni_phd_cards}</div>\n    <h2 class="grouph">Postdoctoral alumni</h2>\n    <div class="alumgrid">{alumni_pd_cards}</div>\n  </div>\n</section>\n\n'
 

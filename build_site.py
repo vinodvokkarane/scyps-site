@@ -2987,6 +2987,7 @@ STUDENTS = [
     {"name": "Suvhasis Mukhopadhyay", "advisor": "Vinod M. Vokkarane", "photo": "suvhasis", "figsvg": "suvhasis", "figcap": "Impairment-aware allocation of spectrum, modulation, and power on a flex-grid link", "status": "Ph.D. Student, joined 2024", "focus": "Impact of individual physical layer impairments on elastic optical network performance; impairment-aware routing, spectrum, modulation, and power allocation; dynamic optical networking.", "linkedin": ""},
     # Other center faculty's doctoral students, from their CVs (Sept. 2026). Program and dates as listed there;
     # Luo's CV gives expected graduation dates but not programs.
+    {"name": "Zahra Sharifi Soltani", "advisor": "Orlando Arias", "status": "Ph.D. student", "program": "", "focus": ""},   # confirmed by the director, Sept. 2026
     {"name": "Timothy Miskell", "advisor": "Yan Luo", "status": "Ph.D. student, expected Nov. 2026", "program": "", "focus": ""},
     {"name": "Calvin Ng", "advisor": "Yan Luo", "status": "Ph.D. student, expected Aug. 2027", "program": "", "focus": ""},
     {"name": "Ali Alkhatatbih", "advisor": "Yan Luo", "status": "Ph.D. student, expected Aug. 2027", "program": "", "focus": ""},
@@ -3119,7 +3120,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.05"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.06"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the

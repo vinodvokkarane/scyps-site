@@ -51,5 +51,9 @@
  "10.1109/ur61395.2024.10597441": {
   "name": "Multi-agent learning with relational networks",
   "narrative": "Relational network structure in multi-agent reinforcement learning: team performance in multi-armed bandits, recovery from robot malfunctions, and value factorization."
+ },
+ "10.1109/tsg.2020.3009571": {
+  "name": "Power system state estimation and grid analytics",
+  "narrative": "Yuzhang Lin's work from his UMass Lowell years: robust and dynamic state estimation for transmission, distribution, and integrated energy systems, bad data and false data injection detection, parameter errors and electricity market security, and forecasting that feeds grid monitoring."
  }
 }

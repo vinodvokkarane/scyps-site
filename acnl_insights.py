@@ -43,7 +43,7 @@ SUMMARY = {
     "Smart grid resilience and security": "The lab's newest thread: keeping the grid observable and recoverable. PMU placement, networking, and routing, cyber restoration after attacks and disasters, distribution system reconfiguration with networked microgrids, cyber-constrained dispatch, and attack detection in smart meters.",
     "Other collaborations": "Work outside the main lines: online social network privacy, reliability of standby systems and storage networks, and food recognition on edge computing.",
 }
-TOOL_ORDER = ["ns-2", "OMNeT++", "CPLEX", "Gurobi", "MATLAB", "OSCARS", "GENI", "MATPOWER", "OpenAI Gym", "Stable-Baselines", "FUSION"]
+TOOL_ORDER = ["ns-2", "OMNeT++", "CPLEX", "Gurobi", "MATLAB", "OSCARS", "GENI", "MATPOWER", "Gym environments", "Stable-Baselines", "FUSION"]
 
 def load():
     return json.load(open(os.path.join(HERE, "acnl_records.json"), encoding="utf-8"))
@@ -60,10 +60,18 @@ def render(ns, footer_html, script_html):
         for a, k in zip(r["authors"], r["author_keys"]): name_of.setdefault(k, a)
     me = "vokkarane_v"
     coauth = collections.Counter(k for r in R for k in set(r["author_keys"]) if k and k != me)
-    students = collections.Counter(k for r in R for k in set(r["students"]))
+    # Students: the site's own rosters (current students, Ph.D. alumni, postdocs) plus anyone the CV marks with an
+    # asterisk. The CV stopped marking students in recent entries, so the roster is what catches the current group.
+    def akey(n):
+        p = re.sub(r"\*", "", n).replace(".", " ").split()
+        return (p[-1].lower() + "_" + p[0][0].lower()) if p else ""
+    roster = [s["name"] for s in ns.get("STUDENTS", [])] + list(ns.get("ALUMNI_PROFILES", {}).keys()) + [n for n, _ in ns.get("ALUMNI_POSTDOC", [])]
+    for n in roster: name_of[akey(n)] = n
+    student_keys = {akey(n) for n in roster} | {k for r in R for k in r["students"]}
+    students = collections.Counter(k for r in R for k in set(r["author_keys"]) if k in student_keys)
     first_auth = collections.Counter(r["author_keys"][0] for r in R if r["author_keys"] and r["author_keys"][0] in students)
-    stud_years = {k: (min(r["year"] for r in R if k in r["students"]), max(r["year"] for r in R if k in r["students"])) for k in students}
-    stud_groups = {k: collections.Counter(r["group"] for r in R if k in r["students"]).most_common(1)[0][0] for k in students}
+    stud_years = {k: (min(r["year"] for r in R if k in r["author_keys"]), max(r["year"] for r in R if k in r["author_keys"])) for k in students}
+    stud_groups = {k: collections.Counter(r["group"] for r in R if k in r["author_keys"]).most_common(1)[0][0] for k in students}
     ext = [(k, n) for k, n in coauth.most_common() if k not in students][:14]
 
     # ---- stacked bars: papers per year by thread
@@ -110,7 +118,7 @@ def render(ns, footer_html, script_html):
         tools = collections.Counter(t for r in rs for t in r["tags"]["tool"] if t not in ("ESnet",))
         topo = collections.Counter(t for r in rs for t in r["tags"]["topology"])
         meth = collections.Counter(t for r in rs for t in r["tags"]["method"] if t != "simulation")
-        stu = collections.Counter(k for r in rs for k in r["students"])
+        stu = collections.Counter(k for r in rs for k in set(r["author_keys"]) if k in student_keys)
         def chips(c, n=5): return ", ".join(f"{esc(k)} ({v})" for k, v in c.most_common(n)) or "none named"
         key = [r for r in rs if r["kind"] == "journal"][:3] or rs[:3]
         keyl = "".join(f'<li>{link(esc, r)} <span class="v">{r["year"]}</span></li>' for r in key)
@@ -167,7 +175,7 @@ def render(ns, footer_html, script_html):
     <p class="crumb"><a href="labs.html">Labs</a></p>
     <h1>The Advanced Communication Networks Laboratory, 2002 to 2026</h1>
     <p class="q">Every paper from the lab, read and recorded: what problem it took on, how, and what it found. {len(R)} papers from UT Dallas, UMass Dartmouth, and UMass Lowell, grouped into the research threads they form and traced through the tools, networks, and people behind them.</p>
-    <div class="istats"><div><b>{len(R)}</b>papers read</div><div><b>{n_j}</b>journal papers</div><div><b>{len(students)}</b>student authors</div><div><b>{len(groups)}</b>research threads</div></div>
+    <div class="istats"><div><b>{len(R)}</b>papers read</div><div><b>{n_j}</b>journal papers</div><div><b>{len(students)}</b>students and postdocs</div><div><b>{len(groups)}</b>research threads</div></div>
   </div>
 </div>
 <section class="imapsec">
@@ -193,8 +201,8 @@ def render(ns, footer_html, script_html):
 </section>
 <section>
   <div class="wrap">
-    <div class="shead"><h2>People</h2><p>Students as marked in the director's CV, with their papers in this record, how many they led, their years, and the thread most of their work falls in. Collaborators are the co-authors outside the student list who appear most often.</p></div>
-    <div class="tscroll"><table class="stbl"><thead><tr><th scope="col">Student</th><th scope="col">Papers</th><th scope="col">First author</th><th scope="col">Years</th><th scope="col">Main thread</th></tr></thead><tbody>{st_rows}</tbody></table></div>
+    <div class="shead"><h2>People</h2><p>The lab's students and postdocs, from the group's rosters and the director's CV, with their papers in this record, how many they led as first author, their years, and the thread most of their work falls in. Collaborators are the co-authors outside the group who appear most often.</p></div>
+    <div class="tscroll"><table class="stbl"><thead><tr><th scope="col">Student or postdoc</th><th scope="col">Papers</th><th scope="col">First author</th><th scope="col">Years</th><th scope="col">Main thread</th></tr></thead><tbody>{st_rows}</tbody></table></div>
     <h3>Most frequent collaborators</h3><ul class="ilist two">{ext_html}</ul>
   </div>
 </section>

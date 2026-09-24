@@ -808,9 +808,7 @@
   "approach": "Fault-tolerant routing design from base stations to controllers for dual-homed users.",
   "finding": "Improves resilience to higher-layer failures in hierarchical wireless access.",
   "tags": {
-   "tool": [
-    "CPLEX"
-   ],
+   "tool": [],
    "topology": [
     "Torus/ring/mesh (synthetic)"
    ],
@@ -1772,9 +1770,7 @@
   "approach": "Cross-layer multicast routing studied by simulation and on a 10x10 Gb/s wavelength-striped testbed.",
   "finding": "Experimental demonstration of cross-layer multicast on a switching testbed.",
   "tags": {
-   "tool": [
-    "GENI"
-   ],
+   "tool": [],
    "topology": [
     "NSFNET"
    ],
@@ -2806,7 +2802,6 @@
   "finding": "Model tracks simulation for hybrid reservation traffic.",
   "tags": {
    "tool": [
-    "OSCARS",
     "ESnet"
    ],
    "topology": [
@@ -3556,8 +3551,8 @@
   "finding": "Journal treatment of slotted scheduled multicast overlays.",
   "tags": {
    "tool": [
-    "CPLEX",
-    "ESnet"
+    "ESnet",
+    "CPLEX"
    ],
    "topology": [
     "NSFNET",
@@ -4072,7 +4067,6 @@
   "finding": "Reduces operating expenditure and emissions.",
   "tags": {
    "tool": [
-    "OSCARS",
     "ESnet"
    ],
    "topology": [
@@ -4117,7 +4111,6 @@
   "finding": "Lowers electricity cost of serving replicated data.",
   "tags": {
    "tool": [
-    "OSCARS",
     "ESnet"
    ],
    "topology": [
@@ -4156,9 +4149,8 @@
   "finding": "Survivable multicast with efficient spectrum.",
   "tags": {
    "tool": [
-    "Gurobi",
-    "OSCARS",
-    "ESnet"
+    "ESnet",
+    "Gurobi"
    ],
    "topology": [
     "ESnet backbone"
@@ -4575,7 +4567,6 @@
   "tags": {
    "tool": [
     "Gurobi",
-    "OSCARS",
     "ESnet"
    ],
    "topology": [
@@ -5453,7 +5444,10 @@
   "approach": "Situation-aware load restoration with uncertainty and correlation (journal).",
   "finding": "More reliable restoration plans under uncertainty.",
   "tags": {
-   "tool": [],
+   "tool": [
+    "Gurobi",
+    "MATLAB"
+   ],
    "topology": [
     "IEEE bus system"
    ],
@@ -5648,9 +5642,8 @@
   "finding": "Open, extensible platform adopted for the group's later studies.",
   "tags": {
    "tool": [
-    "OMNeT++",
     "Stable-Baselines",
-    "OpenAI Gym",
+    "Gym environments",
     "FUSION"
    ],
    "topology": [
@@ -5883,8 +5876,8 @@
   "finding": "Dispatch that stays secure under cyber contingencies.",
   "tags": {
    "tool": [
-    "MATLAB",
-    "MATPOWER"
+    "MATPOWER",
+    "MATLAB"
    ],
    "topology": [
     "IEEE bus system"
@@ -5918,7 +5911,9 @@
   "approach": "Reconfiguration with dynamic networked microgrid formation (journal).",
   "finding": "Faster recovery with intermittent generation.",
   "tags": {
-   "tool": [],
+   "tool": [
+    "MATLAB"
+   ],
    "topology": [],
    "metric": [
     "throughput",
@@ -6122,7 +6117,7 @@
   "finding": "Faster recovery for high-priority services.",
   "tags": {
    "tool": [
-    "OpenAI Gym"
+    "Gym environments"
    ],
    "topology": [
     "Torus/ring/mesh (synthetic)"
@@ -6193,8 +6188,9 @@
   "authors": [
    "H. Rabbani",
    "A. Rezaee",
-   "M. Brandt-Pearce",
-   "V. M. Vokkarane"
+   "H. Rabbani",
+   "V. M. Vokkarane",
+   "M. Brandt-Pearce"
   ],
   "students": [
    "rabbani_h",
@@ -6203,8 +6199,9 @@
   "author_keys": [
    "rabbani_h",
    "rezaee_a",
-   "brandt-pearce_m",
-   "vokkarane_v"
+   "rabbani_h",
+   "vokkarane_v",
+   "brandt-pearce_m"
   ],
   "in_cv": false,
   "thread": "Data center and cloud networking",
@@ -6252,8 +6249,7 @@
   "finding": "Reproducible benchmarks for optical networking research.",
   "tags": {
    "tool": [
-    "OMNeT++",
-    "OpenAI Gym",
+    "Gym environments",
     "FUSION"
    ],
    "topology": [

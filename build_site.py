@@ -36,11 +36,11 @@ FACULTY = {
          "email": "Orlando_Arias@uml.edu", "phone": "978-934-3476", "office": "Ball Hall 407A",
          "url": "https://www.uml.edu/engineering/electrical-computer/faculty/arias-orlando.aspx",
          "role": "Co-PI on the SUMMIT testbed and the ONR post-disaster restoration project; leads hardware attestation and embedded security for grid devices."},
-        {"name": "Yuzhang Lin", "photo": "lin", "inst": "New York University", "title": "Assistant Professor, Electrical and Computer Engineering, NYU Tandon School of Engineering",
-         "areas": "Smart grid and renewable energy: modeling, situational awareness, cyber-physical resilience, machine learning applications",
+        {"name": "Yuzhang Lin", "photo": "lin", "inst": "New York University", "title": "Associate Professor, Electrical and Computer Engineering, NYU Tandon School of Engineering",
+         "areas": "Power system state estimation and situational awareness, inverter-based resources, cyber-physical resilience, and AI for grid operations",
          "email": "yuzhang.lin@nyu.edu", "phone": "", "office": "",
          "url": "https://engineering.nyu.edu/faculty/yuzhang-lin",
-         "role": "External center member; UMass Lowell ECE faculty 2018 to 2023. NSF CAREER awardee; Co-PI on SUMMIT and the ONR post-disaster restoration project, and a co-author on the center's smart grid papers."},
+         "role": "External center member; UMass Lowell ECE faculty 2018 to 2023. NSF CAREER awardee, IEEE Senior Member, and Associate Editor of IEEE Transactions on Power Systems; Co-PI on SUMMIT and the ONR post-disaster restoration project, and a co-author on the center's smart grid papers."},
         {"name": "Yan Luo", "photo": "luo", "title": "Professor, Electrical and Computer Engineering; Robotics",
          "areas": "Computer architecture, network systems",
          "role": "Co-founder of the center in 2019 and founding co-director for healthcare. Leads the AI for cyber-physical control thrust; senior personnel on SUMMIT; PI of the NSF-funded campus science network the center builds on.",
@@ -1139,10 +1139,6 @@ pub(2023, ["X. Wang", "Z. Zhang", "J. Guo", "P. Zhang", "Q. Chen", "Y. Cao", "X.
     "A Greedy Algorithm-Based Self-Training Pipeline for Expansion of Dental Caries Dataset",
     "IEEE International Conference on E-health Networking, Application &amp; Services (Healthcom)", "pp. 26-32, Dec. 2023",
     "10.1109/healthcom56612.2023.10472373", "conference", ["Cao"], "Digital health")
-pub(2023, ["G. Cheng", "Y. Lin", "J. Zhao", "J. Yan"],
-    "A Highly Discriminative Detector against False Data Injection Attacks in AC State Estimation",
-    "IEEE Power & Energy Society General Meeting (PESGM)", "pp. 1-1, July 2023",
-    "10.1109/pesgm52003.2023.10252930", "conference", ["Lin"], "Smart grid")
 pub(2023, ["M. Z. Islam", "S. N. Edib", "V. M. Vokkarane", "Y. Lin", "X. Fan"],
     "A Scalable PDC Placement Technique for Fast and Resilient Monitoring of Large Power Grids",
     "IEEE Transactions on Control of Network Systems", "vol. 10, no. 4, pp. 1770-1782, Dec. 2023",
@@ -1905,7 +1901,7 @@ pub(2021, ["A. Ding", "Y. Li", "Q. Chen", "Y. Cao", "B. Liu", "S. Chen", "X. Liu
     "10.1109/bibe52308.2021.9635273", "conference", ["Cao"], "Digital health")
 pub(2021, ["Z. Li", "J. Liu", "Y. Lin", "F. Wang"],
     "Grid-Constrained Data Cleansing Method for Enhanced Bus Load Forecasting",
-    "IEEE Transactions on Instrumentation and Measurement", "vol. 70, pp. 1-10, 2021",
+    "IEEE Transactions on Instrumentation and Measurement", "vol. 70, art. no. 9002810, 2021",
     "10.1109/tim.2021.3075538", "journal", ["Lin"], "Smart grid")
 pub(2021, ["C. J. Lin", "Y. Luo", "L. M. Wang"],
     "Heterogeneous Flow Scheduling using Deep Reinforcement Learning in Partially Observable NFV Environment",
@@ -2004,14 +2000,22 @@ for e in _load_overlay("pubs_2019_2020.json", {"entries": []}).get("entries", []
     P.append(dict(year=e["year"], authors=e["authors"], title=e["title"], venue=e["venue"], details=e["details"], doi=e["doi"],
                   type=e["type"], faculty=e["faculty"], area=e.get("area", ""), url=None))
 
+# --- papers found in members' own CVs that the curated list lacked (Crossref-verified)
+for e in _load_overlay("pubs_cv_additions.json", {"entries": []}).get("entries", []):
+    if e["doi"].lower() in {p["doi"].lower() for p in P if p.get("doi")}: continue
+    P.append(dict(year=e["year"], authors=e["authors"], title=e["title"], venue=e["venue"], details=e["details"], doi=e["doi"],
+                  type=e["type"], faculty=e["faculty"], area=e.get("area", ""), url=None))
+
 # --- attribution: a paper counts for a member only from the year they joined UMass Lowell
-JOIN_YEAR = {"Tseng": 2024, "Arias": 2021}
-# Yuzhang Lin is an external center member at NYU. His work counts as the center's only when it is
-# joint with the director; his independent NYU output belongs to his own program.
-REQUIRES_COAUTHOR = {"Lin": "Vokkarane"}
+JOIN_YEAR = {"Tseng": 2024, "Arias": 2021, "Lin": 2018}
+# Yuzhang Lin was UMass Lowell ECE faculty from Sept. 2018 to Aug. 2023 (his CV) and is now at NYU. His papers
+# through 2023 count as the center's like any member's; after he left, only work joint with the director counts,
+# since his independent NYU output belongs to his own program.
+LEFT_YEAR = {"Lin": 2023}
+REQUIRES_COAUTHOR = {"Lin": "Vokkarane"}   # applies after LEFT_YEAR
 def _attributed(p):
     fac = [f for f in p["faculty"] if p["year"] >= JOIN_YEAR.get(f, 0)]
-    return [f for f in fac if REQUIRES_COAUTHOR.get(f) in (None, *fac)]
+    return [f for f in fac if p["year"] <= LEFT_YEAR.get(f, 9999) or REQUIRES_COAUTHOR.get(f) in (None, *fac)]
 P = [dict(p, faculty=_attributed(p)) for p in P if _attributed(p)]
 
 # --- overlay: papers found by refresh.py since the curated list was written
@@ -2974,7 +2978,7 @@ THRUSTS = [
 # ---------------------------------------------------------------- students and alumni (from the director's CV, Sept. 2026)
 STUDENTS = [
     {"name": "Arash Rezaee", "photo": "arash", "fig": "fig_arash", "figcap": "AI services over a software-defined, multi-layer network", "status": "Ph.D. Candidate, joined 2022", "focus": "AI-driven resource allocation in optical networks; impairment-aware provisioning in multi-band, space-division multiplexed networks; spectral versus spatial capacity scaling; reproducible optical network benchmarking with FUSION.", "linkedin": ""},
-    {"name": "Ryan McCann", "photo": "ryan", "fig": "fig_ryan", "figcap": "FUSION: reinforcement learning over a software-defined optical mesh", "status": "Ph.D. Student, joined 2024", "focus": "Co-founder and lead developer of FUSION (github.com/SDNNetSim/FUSION), supported by MIT I-Corps and AT&T; reinforcement learning for software-defined elastic optical networks; failure-aware routing and realistic simulation of elastic optical and mesh networks.", "linkedin": ""},
+    {"name": "Ryan McCann", "photo": "ryan", "fig": "fig_ryan", "figcap": "FUSION: reinforcement learning over a software-defined optical mesh", "status": "Ph.D. Candidate, joined 2024", "focus": "Co-founder and lead developer of FUSION (github.com/SDNNetSim/FUSION), supported by MIT I-Corps and AT&T; reinforcement learning for software-defined elastic optical networks; failure-aware routing and realistic simulation of elastic optical and mesh networks.", "linkedin": ""},
     {"name": "Ken Patrick Watts", "photo": "ken", "fig": "fig_ken", "figcap": "NATIG co-simulation of a distribution grid and its wireless network", "status": "Ph.D. Student, joined 2022", "focus": "Scalable, real-time detection of cyber attacks on smart power grids with machine learning; adaptive transfer learning for day-zero network intrusion detection; the NATIG cyber-physical co-simulation testbed (HELICS, GridLAB-D, ns-3).", "linkedin": ""},
     {"name": "Mehran Sasaninia", "photo": "mehran", "fig": "fig_mehran", "figcap": "Federated learning across grid sites with a global model aggregator", "status": "Ph.D. Student, joined 2023", "focus": "Federated learning to detect cyber attacks in the smart grid; smart false data injection attacks and anomaly detection in smart meters (IEEE SmartGridComm 2025); centralized versus federated learning for grid anomaly detection.", "linkedin": ""},
     {"name": "Ayush Pandey", "photo": "ayush", "status": "Ph.D. Student, joined 2024", "figsvg": "ayush", "figcap": "AI-based intrusion detection protecting a transmission grid's control loop", "focus": "Smart grid cybersecurity and AI for cyber-physical systems.", "linkedin": ""},
@@ -3102,8 +3106,8 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "0.97"   # bump by 0.01 with every update to the site
-GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172"
+SITE_VERSION = "1.01"   # bump by 0.01 with every update to the site
+GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
 # footer and the contact block only for entries that are filled in.
@@ -3616,10 +3620,8 @@ SCHOLAR_INST = {"Yuzhang Lin": "NYU", "Anurag Srivastava": "West Virginia Univer
 def id_links(name, inst="UMass Lowell"):
     out = []
     sid = SCHOLAR.get(name)
+    # Only link a real profile. A profile search for someone without one lands on an empty results page.
     if sid: out.append(f'<a href="https://scholar.google.com/citations?user={esc(sid)}&amp;hl=en">Google Scholar</a>')
-    else:
-        q = name + " " + SCHOLAR_INST.get(name, inst)
-        out.append(f'<a href="https://scholar.google.com/citations?view_op=search_authors&amp;mauthors={esc(q.replace(" ", "+"))}&amp;hl=en" title="Search Google Scholar profiles">Google Scholar</a>')
     if ORCID.get(name): out.append(f'<a href="https://orcid.org/{esc(ORCID[name])}">ORCID</a>')
     if LINKEDIN.get(name): out.append(f'<a href="{esc(LINKEDIN[name])}">LinkedIn</a>')
     return out
@@ -5191,7 +5193,7 @@ def new_tab_links(page):
     return re.sub(r'<a\s[^>]*href="https?://[^"]*"[^>]*>', fix, page)
 
 
-PUBS_SECTION = '<section id="publications">\n  <div class="wrap">\n    <div class="shead"><h2>Publications</h2><p>Peer-reviewed journal papers, conference papers, and book chapters from the director and center faculty since the center was founded in 2019, with links to the publisher\'s record. Center authors are shown in bold. Affiliated researchers and external collaborators publish widely in their own fields; their records are linked from their profiles.</p></div>\n    <div class="filters" role="group" aria-label="Filter publications">\n      <div class="fgroup"><span class="lab">Faculty</span>\n        <button class="chip" data-f="fac" data-v="all" aria-pressed="true">All</button>\n        <button class="chip" data-f="fac" data-v="Vokkarane" aria-pressed="false">Vokkarane</button>\n        <button class="chip" data-f="fac" data-v="Arias" aria-pressed="false">Arias</button>\n        <button class="chip" data-f="fac" data-v="Tseng" aria-pressed="false">Tseng</button>\n        <button class="chip" data-f="fac" data-v="Son" aria-pressed="false">Son</button>\n        <button class="chip" data-f="fac" data-v="Aghara" aria-pressed="false">Aghara</button>\n        <button class="chip" data-f="fac" data-v="Lin" aria-pressed="false">Lin</button>\n        <button class="chip" data-f="fac" data-v="Luo" aria-pressed="false">Luo</button>\n        <button class="chip" data-f="fac" data-v="Xie" aria-pressed="false">Xie</button>\n\n\n\n\n\n\n\n      </div>\n      <div class="fgroup"><span class="lab">Year</span>\n        <button class="chip" data-f="year" data-v="all" aria-pressed="true">All</button>\n        <button class="chip" data-f="year" data-v="2026" aria-pressed="false">2026</button>\n        <button class="chip" data-f="year" data-v="2025" aria-pressed="false">2025</button>\n        <button class="chip" data-f="year" data-v="2024" aria-pressed="false">2024</button>\n        <button class="chip" data-f="year" data-v="2023" aria-pressed="false">2023</button>\n        <button class="chip" data-f="year" data-v="2022" aria-pressed="false">2022</button>\n        <button class="chip" data-f="year" data-v="2021" aria-pressed="false">2021</button>\n        <button class="chip" data-f="year" data-v="2020" aria-pressed="false">2020</button>\n        <button class="chip" data-f="year" data-v="2019" aria-pressed="false">2019</button>\n      </div>\n      <div class="fgroup"><span class="lab">Type</span>\n        <button class="chip" data-f="type" data-v="all" aria-pressed="true">All</button>\n        <button class="chip" data-f="type" data-v="journal" aria-pressed="false">Journal</button>\n        <button class="chip" data-f="type" data-v="conference" aria-pressed="false">Conference</button>\n        <button class="chip" data-f="type" data-v="chapter" aria-pressed="false">Chapter</button>\n      </div>\n      <div class="search"><label for="q" class="lab">Search</label><input id="q" type="search" placeholder="title, author, or venue" autocomplete="off"></div>\n    </div>\n    <div class="count" id="count" aria-live="polite">Showing {n_pubs} of {n_pubs} papers</div>\n    <div id="publist">{pubs_html}</div>\n    <p class="pubnote">Records verified against Crossref (the NSDI paper is listed from the USENIX program). Journal chips show the Journal Impact Factor from Clarivate\'s Journal Citation Reports for the year given, and the SCImago quartile where available. Venues that do not register DOIs, such as ANS Transactions and INMM proceedings, are not captured, and for faculty with common names only papers with a confirmed UMass Lowell affiliation are included. A paper counts for a member only from the year they joined UMass Lowell. Send corrections or additions to Vinod_Vokkarane@uml.edu.</p>\n  </div>\n</section>'
+PUBS_SECTION = '<section id="publications">\n  <div class="wrap">\n    <div class="shead"><h2>Publications</h2><p>Peer-reviewed journal papers, conference papers, and book chapters from the director and center faculty since the center was founded in 2019, with links to the publisher\'s record. Center authors are shown in bold. Affiliated researchers and external collaborators publish widely in their own fields; their records are linked from their profiles.</p></div>\n    <div class="filters" role="group" aria-label="Filter publications">\n      <div class="fgroup"><span class="lab">Faculty</span>\n        <button class="chip" data-f="fac" data-v="all" aria-pressed="true">All</button>\n        <button class="chip" data-f="fac" data-v="Vokkarane" aria-pressed="false">Vokkarane</button>\n        <button class="chip" data-f="fac" data-v="Arias" aria-pressed="false">Arias</button>\n        <button class="chip" data-f="fac" data-v="Tseng" aria-pressed="false">Tseng</button>\n        <button class="chip" data-f="fac" data-v="Son" aria-pressed="false">Son</button>\n        <button class="chip" data-f="fac" data-v="Aghara" aria-pressed="false">Aghara</button>\n        <button class="chip" data-f="fac" data-v="Lin" aria-pressed="false">Lin</button>\n        <button class="chip" data-f="fac" data-v="Luo" aria-pressed="false">Luo</button>\n        <button class="chip" data-f="fac" data-v="Xie" aria-pressed="false">Xie</button>\n\n\n\n\n\n\n\n      </div>\n      <div class="fgroup"><span class="lab">Year</span>\n        <button class="chip" data-f="year" data-v="all" aria-pressed="true">All</button>\n        <button class="chip" data-f="year" data-v="2026" aria-pressed="false">2026</button>\n        <button class="chip" data-f="year" data-v="2025" aria-pressed="false">2025</button>\n        <button class="chip" data-f="year" data-v="2024" aria-pressed="false">2024</button>\n        <button class="chip" data-f="year" data-v="2023" aria-pressed="false">2023</button>\n        <button class="chip" data-f="year" data-v="2022" aria-pressed="false">2022</button>\n        <button class="chip" data-f="year" data-v="2021" aria-pressed="false">2021</button>\n        <button class="chip" data-f="year" data-v="2020" aria-pressed="false">2020</button>\n        <button class="chip" data-f="year" data-v="2019" aria-pressed="false">2019</button>\n      </div>\n      <div class="fgroup"><span class="lab">Type</span>\n        <button class="chip" data-f="type" data-v="all" aria-pressed="true">All</button>\n        <button class="chip" data-f="type" data-v="journal" aria-pressed="false">Journal</button>\n        <button class="chip" data-f="type" data-v="conference" aria-pressed="false">Conference</button>\n        <button class="chip" data-f="type" data-v="chapter" aria-pressed="false">Chapter</button>\n      </div>\n      <div class="search"><label for="q" class="lab">Search</label><input id="q" type="search" placeholder="title, author, or venue" autocomplete="off"></div>\n    </div>\n    <div class="count" id="count" aria-live="polite">Showing {n_pubs} of {n_pubs} papers</div>\n    <div id="publist">{pubs_html}</div>\n    <p class="pubnote">Records verified against Crossref (the NSDI paper is listed from the USENIX program). Journal chips show the Journal Impact Factor from Clarivate\'s Journal Citation Reports for the year given, and the SCImago quartile where available. Venues that do not register DOIs, such as ANS Transactions and INMM proceedings, are not captured, and for faculty with common names only papers with a confirmed UMass Lowell affiliation are included. A paper counts for a member only from the year they joined UMass Lowell; Yuzhang Lin\'s papers count through 2023, his last year at UMass Lowell, and after that only when joint with the director. Send corrections or additions to Vinod_Vokkarane@uml.edu.</p>\n  </div>\n</section>'
 
 FULL_NAME = {}
 for _g in ("director", "core", "affiliated", "external"):

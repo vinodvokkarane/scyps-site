@@ -18,6 +18,8 @@ jobs:
           python-version: "3.12"
       - name: Pull new publications, NSF awards, and Scholar counts
         run: python3 refresh.py
+        env:
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
       - name: Bump the version if anything changed
         run: |
           if ! git diff --quiet -- pubs_auto.json grants_auto.json scholar_auto.json; then

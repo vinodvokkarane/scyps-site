@@ -1,0 +1,205 @@
+{
+ "note": "Papers from Yuzhang Lin's CV (Sept. 2026) that the curated list lacked, verified against Crossref; CSEE JPES details from the CV where Crossref's record is incomplete.",
+ "entries": [
+  {
+   "year": 2024,
+   "authors": [
+    "Y. Lin",
+    "V. M. Vokkarane",
+    "M. Z. Islam",
+    "S. N. Edib"
+   ],
+   "title": "Resilient Sensing and Communication Architecture for Microgrid Management",
+   "venue": "Microgrids: Theory and Practice (Wiley-IEEE Press)",
+   "details": "pp. 401-423, Jan. 2024",
+   "doi": "10.1002/9781119890881.ch19",
+   "type": "chapter",
+   "faculty": [
+    "Lin",
+    "Vokkarane"
+   ],
+   "area": "Smart grid"
+  },
+  {
+   "year": 2023,
+   "authors": [
+    "Y. Liu",
+    "Y. Lin",
+    "K. Yue"
+   ],
+   "title": "Modern power system state estimation methods",
+   "venue": "Encyclopedia of Electrical and Electronic Power Engineering (Elsevier)",
+   "details": "pp. 259-277, 2023",
+   "doi": "10.1016/b978-0-12-821204-2.00144-6",
+   "type": "chapter",
+   "faculty": [
+    "Lin"
+   ],
+   "area": "Smart grid"
+  },
+  {
+   "year": 2021,
+   "authors": [
+    "Y. Liu",
+    "Y. Lin",
+    "J. Zhao"
+   ],
+   "title": "Advanced grid operational tools based on state estimation",
+   "venue": "New Technologies for Power System Operation and Analysis (Academic Press)",
+   "details": "pp. 163-208, 2021",
+   "doi": "10.1016/b978-0-12-820168-8.00006-7",
+   "type": "chapter",
+   "faculty": [
+    "Lin"
+   ],
+   "area": "Smart grid"
+  },
+  {
+   "year": 2023,
+   "authors": [
+    "W. Zhang",
+    "S. Song",
+    "Y. Lin",
+    "C. Wang",
+    "Y. Chen"
+   ],
+   "title": "Multi-source-data state estimation for integrated electricity–heat-building networks",
+   "venue": "Sustainable Energy, Grids and Networks",
+   "details": "vol. 36, art. no. 101131, Dec. 2023",
+   "doi": "10.1016/j.segan.2023.101131",
+   "type": "journal",
+   "faculty": [
+    "Lin"
+   ],
+   "area": "Smart grid"
+  },
+  {
+   "year": 2023,
+   "authors": [
+    "S. Song",
+    "W. Zhang",
+    "Y. Lin",
+    "C. Wang"
+   ],
+   "title": "Thermo-Electrical state and demand response potential estimation for power systems with building thermostats",
+   "venue": "International Journal of Electrical Power &amp; Energy Systems",
+   "details": "vol. 145, art. no. 108588, Feb. 2023",
+   "doi": "10.1016/j.ijepes.2022.108588",
+   "type": "journal",
+   "faculty": [
+    "Lin"
+   ],
+   "area": "Smart grid"
+  },
+  {
+   "year": 2022,
+   "authors": [
+    "M. Huang",
+    "Z. Wei",
+    "Y. Lin"
+   ],
+   "title": "Forecasting-aided state estimation based on deep learning for hybrid AC/DC distribution systems",
+   "venue": "Applied Energy",
+   "details": "vol. 306, art. no. 118119, Jan. 2022",
+   "doi": "10.1016/j.apenergy.2021.118119",
+   "type": "journal",
+   "faculty": [
+    "Lin"
+   ],
+   "area": "Smart grid"
+  },
+  {
+   "year": 2021,
+   "authors": [
+    "S. Song",
+    "P. Wu",
+    "Y. Lin",
+    "Y. Chen"
+   ],
+   "title": "A General Dynamic State Estimation Framework for Monitoring and Control of Permanent Magnetic Synchronous Generators-Based Wind Turbines",
+   "venue": "IEEE Access",
+   "details": "vol. 9, pp. 72228-72238, 2021",
+   "doi": "10.1109/access.2021.3079298",
+   "type": "journal",
+   "faculty": [
+    "Lin"
+   ],
+   "area": "Smart grid"
+  },
+  {
+   "year": 2020,
+   "authors": [
+    "C. Wang",
+    "C. Liu",
+    "Y. Lin",
+    "T. Bi"
+   ],
+   "title": "Day-ahead dispatch of integrated electric-heat systems considering weather-parameter-driven residential thermal demands",
+   "venue": "Energy",
+   "details": "vol. 203, art. no. 117847, July 2020",
+   "doi": "10.1016/j.energy.2020.117847",
+   "type": "journal",
+   "faculty": [
+    "Lin"
+   ],
+   "area": "Smart grid"
+  },
+  {
+   "year": 2020,
+   "authors": [
+    "L. Ding",
+    "Y. Men",
+    "Y. Du",
+    "X. Lu",
+    "B. Chen",
+    "J. Tan",
+    "Y. Lin"
+   ],
+   "title": "Region-based Stability Analysis of Resilient Distribution Systems with Hybrid Grid-forming and Grid-following Inverters",
+   "venue": "2020 IEEE Energy Conversion Congress and Exposition (ECCE)",
+   "details": "pp. 3733-3740, Oct. 2020",
+   "doi": "10.1109/ecce44975.2020.9236196",
+   "type": "conference",
+   "faculty": [
+    "Lin"
+   ],
+   "area": "Smart grid"
+  },
+  {
+   "year": 2022,
+   "authors": [
+    "Y. Chen",
+    "Y. Yao",
+    "Y. Lin"
+   ],
+   "title": "Dynamic State Estimation for Integrated Electricity-Gas Systems Based on Kalman Filter",
+   "venue": "CSEE Journal of Power and Energy Systems",
+   "details": "vol. 8, no. 1, pp. 293-303, Jan. 2022",
+   "doi": "10.17775/CSEEJPES.2020.02050",
+   "type": "journal",
+   "faculty": [
+    "Lin"
+   ],
+   "area": "Smart grid"
+  },
+  {
+   "year": 2020,
+   "authors": [
+    "S. Song",
+    "Z. Wei",
+    "Y. Lin",
+    "B. Liu",
+    "H. Liu"
+   ],
+   "title": "Impedance Modeling and Stability Analysis of PV Grid-Connected Inverter System Considering Frequency Coupling",
+   "venue": "CSEE Journal of Power and Energy Systems",
+   "details": "vol. 6, no. 2, pp. 279-290, June 2020",
+   "doi": "10.17775/CSEEJPES.2019.02430",
+   "type": "journal",
+   "faculty": [
+    "Lin"
+   ],
+   "area": "Smart grid"
+  }
+ ]
+}

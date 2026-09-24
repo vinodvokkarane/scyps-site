@@ -1,7 +1,10 @@
 {
  "ACM Transactions on Human-Robot Interaction": {
+  "if": 7.0,
+  "if_year": 2025,
   "quartile": null,
-  "sjr": null
+  "sjr": null,
+  "source": "JCR 2025, released June 2026 (Clarivate), via journalmetrics.org"
  },
  "Accident Analysis & Prevention": {
   "if": 5.7,
@@ -17,12 +20,16 @@
   "sjr": null,
   "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
  },
+ "Analytical Chemistry": {
+  "quartile": null,
+  "sjr": null
+ },
  "Applied Energy": {
-  "if": 10.1,
-  "if_year": 2023,
+  "if": 12.2,
+  "if_year": 2025,
   "quartile": null,
   "sjr": null,
-  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+  "source": "JCR 2025, released June 2026 (Clarivate), as listed in the director's CV"
  },
  "Cluster Computing": {
   "if": 3.6,
@@ -51,6 +58,10 @@
   "quartile": null,
   "sjr": null,
   "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "ESARDA Bulletin: The International Journal of Nuclear Safeguards and Non-Proliferation": {
+  "quartile": null,
+  "sjr": null
  },
  "Electric Power Systems Research": {
   "if": 3.3,
@@ -95,18 +106,22 @@
   "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
  },
  "Frontiers in Energy Research": {
-  "if": 2.6,
-  "if_year": 2023,
+  "if": 2.4,
+  "if_year": 2025,
   "quartile": null,
   "sjr": null,
-  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+  "source": "JCR 2025, released June 2026 (Clarivate), as listed in the director's CV"
+ },
+ "IEEE Access": {
+  "quartile": null,
+  "sjr": null
  },
  "IEEE Internet of Things Journal": {
-  "if": 8.2,
-  "if_year": 2023,
+  "if": 8.7,
+  "if_year": 2025,
   "quartile": null,
   "sjr": null,
-  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+  "source": "JCR 2025, released June 2026 (Clarivate), as listed in the director's CV"
  },
  "IEEE Journal on Flexible Electronics": {
   "if": null,
@@ -123,11 +138,11 @@
   "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
  },
  "IEEE Sensors Journal": {
-  "if": 4.3,
-  "if_year": 2023,
+  "if": 4.5,
+  "if_year": 2025,
   "quartile": null,
   "sjr": null,
-  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+  "source": "JCR 2025, released June 2026 (Clarivate), as listed in the director's CV"
  },
  "IEEE Systems Journal": {
   "if": 4.0,
@@ -144,11 +159,11 @@
   "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
  },
  "IEEE Transactions on Control of Network Systems": {
-  "if": 4.0,
-  "if_year": 2023,
+  "if": 5.3,
+  "if_year": 2025,
   "quartile": null,
   "sjr": null,
-  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+  "source": "JCR 2025, released June 2026 (Clarivate), as listed in the director's CV"
  },
  "IEEE Transactions on Industrial Informatics": {
   "if": 11.7,
@@ -158,11 +173,11 @@
   "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
  },
  "IEEE Transactions on Industry Applications": {
-  "if": 4.2,
-  "if_year": 2023,
+  "if": 5.2,
+  "if_year": 2025,
   "quartile": null,
   "sjr": null,
-  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+  "source": "JCR 2025, released June 2026 (Clarivate), as listed in the director's CV"
  },
  "IEEE Transactions on Information Forensics and Security": {
   "if": 6.3,
@@ -186,8 +201,11 @@
   "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
  },
  "IEEE Transactions on Network Science and Engineering": {
+  "if": 7.9,
+  "if_year": 2025,
   "quartile": null,
-  "sjr": null
+  "sjr": null,
+  "source": "JCR 2025, released June 2026 (Clarivate), as listed in the director's CV"
  },
  "IEEE Transactions on Network and Service Management": {
   "if": 4.7,
@@ -197,18 +215,18 @@
   "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
  },
  "IEEE Transactions on Power Systems": {
-  "if": 6.5,
-  "if_year": 2023,
+  "if": 7.2,
+  "if_year": 2025,
   "quartile": null,
   "sjr": null,
-  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+  "source": "JCR 2025, released June 2026 (Clarivate), as listed in the director's CV"
  },
  "IEEE Transactions on Smart Grid": {
-  "if": 8.6,
-  "if_year": 2023,
+  "if": 10.1,
+  "if_year": 2025,
   "quartile": null,
   "sjr": null,
-  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+  "source": "JCR 2025, released June 2026 (Clarivate), as listed in the director's CV"
  },
  "IEEE Transactions on Sustainable Energy": {
   "if": 8.6,
@@ -218,22 +236,22 @@
   "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
  },
  "IEEE Transactions on Systems, Man, and Cybernetics: Systems": {
-  "if": 8.6,
-  "if_year": 2023,
+  "if": 8.4,
+  "if_year": 2025,
   "quartile": null,
   "sjr": null,
-  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+  "source": "JCR 2025, released June 2026 (Clarivate), as listed in the director's CV"
  },
  "IEEE Transactions on Technology and Society": {
   "quartile": null,
   "sjr": null
  },
  "IEEE/Optica Journal of Optical Communications and Networking": {
-  "if": 4.0,
-  "if_year": 2023,
+  "if": 5.1,
+  "if_year": 2025,
   "quartile": null,
   "sjr": null,
-  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+  "source": "JCR 2025, released June 2026 (Clarivate), as listed in the director's CV"
  },
  "IFAC-PapersOnLine": {
   "if": null,
@@ -241,6 +259,10 @@
   "quartile": null,
   "sjr": null,
   "source": ""
+ },
+ "Journal of Hazardous Materials": {
+  "quartile": null,
+  "sjr": null
  },
  "Journal of Intelligent Transportation Systems": {
   "if": 2.8,
@@ -257,11 +279,11 @@
   "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
  },
  "Journal of Optical Communications and Networking": {
-  "if": 4.0,
-  "if_year": 2023,
+  "if": 5.1,
+  "if_year": 2025,
   "quartile": null,
   "sjr": null,
-  "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+  "source": "JCR 2025, released June 2026 (Clarivate), as listed in the director's CV"
  },
  "Journal of Safety Research": {
   "if": 3.9,
@@ -307,6 +329,11 @@
   "sjr": null,
   "source": ""
  },
+ "Optical Fiber Technology (Elsevier)": {
+  "if": 2.7,
+  "if_year": 2025,
+  "source": "JCR 2025, released June 2026 (Clarivate), as listed in the director's CV"
+ },
  "PLOS ONE": {
   "if": 2.9,
   "if_year": 2023,
@@ -327,6 +354,14 @@
   "quartile": null,
   "sjr": null,
   "source": "JCR 2023 (entered Sept 2026; refresh against the current JCR)"
+ },
+ "Risk Analysis": {
+  "quartile": null,
+  "sjr": null
+ },
+ "Sensors and Actuators A: Physical": {
+  "quartile": null,
+  "sjr": null
  },
  "Sustainable Energy, Grids and Networks": {
   "if": 4.8,

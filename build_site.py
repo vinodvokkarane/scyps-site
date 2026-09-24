@@ -3120,7 +3120,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.06"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.07"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3204,7 +3204,7 @@ def _fmt_period(a, b):
         try: return datetime.datetime.strptime(d, "%m/%d/%Y").strftime("%b %Y")
         except Exception: return ""
     return " to ".join(x for x in (f(a), f(b)) if x)
-_CORE_SURNAMES = {"vokkarane", "aghara", "arias", "lin", "luo", "son", "tseng", "xie"}
+_CORE_SURNAMES = {"vokkarane", "aghara", "arias", "lin", "luo", "robinette", "son", "tseng", "xie"}
 def _surname(name):
     name = re.sub(r"\(.*?\)", "", name or "").strip()
     if "," in name: name = name.split(",")[0]          # "Luo, Yan"

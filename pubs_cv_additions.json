@@ -1,5 +1,5 @@
 {
- "note": "Papers from center faculty CVs (Sept. 2026) that the curated list lacked, verified against Crossref: Luo from Sept. 2019, and Lin only where co-authored with another center faculty member. Three of the director's papers without DOIs yet (ONDM 2025 short paper, PESGM 2026, and an accepted Optical Fiber Technology paper) come from his CV. Two of Sukesh Aghara's papers come from his CV (Sept. 2026): Nuclear Engineering and Design 2020, verified against Crossref, and an ESARDA Bulletin paper whose DOI is registered outside Crossref.",
+ "note": "Papers from center faculty CVs (Sept. 2026) that the curated list lacked, verified against Crossref: Luo from Sept. 2019, and Lin only where co-authored with another center faculty member. Three of the director's papers without DOIs yet (ONDM 2025 short paper, PESGM 2026, and an accepted Optical Fiber Technology paper) come from his CV. Two of Sukesh Aghara's papers come from his CV (Sept. 2026): Nuclear Engineering and Design 2020, verified against Crossref, and an ESARDA Bulletin paper whose DOI is registered outside Crossref. One of Paul Robinette's center-era papers (ICSR 2020) missing from the curated list, verified against Crossref.",
  "entries": [
   {
    "year": 2024,
@@ -501,6 +501,23 @@
     "Aghara"
    ],
    "area": "Nuclear energy and security"
+  },
+  {
+   "year": 2020,
+   "authors": [
+    "Z. R. Khavas",
+    "S. R. Ahmadzadeh",
+    "P. Robinette"
+   ],
+   "title": "Modeling Trust in Human-Robot Interaction: A Survey",
+   "venue": "Social Robotics (ICSR 2020), Lecture Notes in Computer Science",
+   "details": "pp. 529-541, 2020",
+   "doi": "10.1007/978-3-030-62056-1_44",
+   "type": "conference",
+   "faculty": [
+    "Robinette"
+   ],
+   "area": "Robotics and human-robot interaction"
   }
  ]
 }

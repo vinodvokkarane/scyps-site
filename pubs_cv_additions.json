@@ -1,5 +1,5 @@
 {
- "note": "Papers from Yuzhang Lin's CV (Sept. 2026) that the curated list lacked, verified against Crossref; CSEE JPES details from the CV where Crossref's record is incomplete.",
+ "note": "Papers from center faculty CVs (Sept. 2026) that the curated list lacked, verified against Crossref: Luo from Sept. 2019, and Lin only where co-authored with another center faculty member.",
  "entries": [
   {
    "year": 2024,
@@ -21,185 +21,393 @@
    "area": "Smart grid"
   },
   {
-   "year": 2023,
+   "year": 2026,
    "authors": [
-    "Y. Liu",
-    "Y. Lin",
-    "K. Yue"
+    "C. A. Ng",
+    "S. Pagsuyoin",
+    "Y. Luo"
    ],
-   "title": "Modern power system state estimation methods",
-   "venue": "Encyclopedia of Electrical and Electronic Power Engineering (Elsevier)",
-   "details": "pp. 259-277, 2023",
-   "doi": "10.1016/b978-0-12-821204-2.00144-6",
-   "type": "chapter",
+   "title": "Novel microfluidic lab-on-circuit for QCM-P oscillators",
+   "venue": "Sensors and Actuators A: Physical",
+   "details": "vol. 410, art. no. 118210, Nov. 2026",
+   "doi": "10.1016/j.sna.2026.118210",
+   "type": "journal",
    "faculty": [
-    "Lin"
+    "Luo"
    ],
-   "area": "Smart grid"
+   "area": "Sensing and networks"
   },
   {
-   "year": 2021,
+   "year": 2026,
    "authors": [
-    "Y. Liu",
-    "Y. Lin",
+    "T. Miskell",
+    "T. L. Huoh",
+    "Y. Luo",
+    "P. Li"
+   ],
+   "title": "A Self-Supervised Contrastive Learning-Based Method for Portable Executable Malware Classification",
+   "venue": "IEEE Access",
+   "details": "vol. 14, pp. 41917-41931, 2026",
+   "doi": "10.1109/access.2026.3672128",
+   "type": "journal",
+   "faculty": [
+    "Luo"
+   ],
+   "area": "Sensing and networks"
+  },
+  {
+   "year": 2026,
+   "authors": [
+    "S. A. Pagsuyoin",
+    "N. Molejon",
+    "C. A. Ng",
+    "F. J. Chain",
+    "Y. Luo",
+    "M. Yan"
+   ],
+   "title": "Recent advances in biomimetic sensors for the detection of aquatic pathogens and toxins",
+   "venue": "Journal of Hazardous Materials",
+   "details": "vol. 502, art. no. 141041, Jan. 2026",
+   "doi": "10.1016/j.jhazmat.2026.141041",
+   "type": "journal",
+   "faculty": [
+    "Luo"
+   ],
+   "area": "Sensing and networks"
+  },
+  {
+   "year": 2025,
+   "authors": [
+    "S. Pagsuyoin",
+    "C. Ng",
+    "N. Molejon",
+    "Y. Luo"
+   ],
+   "title": "Coupling wastewater‐based epidemiology with data‐driven machine learning for managing public health risks",
+   "venue": "Risk Analysis",
+   "details": "vol. 45, no. 10, pp. 2974-2982, Oct. 2025",
+   "doi": "10.1111/risa.70075",
+   "type": "journal",
+   "faculty": [
+    "Luo"
+   ],
+   "area": "Sensing and networks"
+  },
+  {
+   "year": 2025,
+   "authors": [
+    "C. Song",
+    "L. Zhou",
+    "Y. Wang",
+    "C. Wang",
+    "Y. Lei",
+    "Y. Luo",
     "J. Zhao"
    ],
-   "title": "Advanced grid operational tools based on state estimation",
-   "venue": "New Technologies for Power System Operation and Analysis (Academic Press)",
-   "details": "pp. 163-208, 2021",
-   "doi": "10.1016/b978-0-12-820168-8.00006-7",
-   "type": "chapter",
+   "title": "Deep Learning-Assisted Ultrasensitive Detection of Gold Nanoparticles Using Light Microscopy Images Captured by a Cellphone Camera",
+   "venue": "Analytical Chemistry",
+   "details": "vol. 97, no. 9, pp. 5164-5170, Mar. 2025",
+   "doi": "10.1021/acs.analchem.4c06395",
+   "type": "journal",
    "faculty": [
-    "Lin"
+    "Luo"
    ],
-   "area": "Smart grid"
+   "area": "Sensing and networks"
+  },
+  {
+   "year": 2020,
+   "authors": [
+    "O. Barut",
+    "L. Zhou",
+    "Y. Luo"
+   ],
+   "title": "Multitask LSTM Model for Human Activity Recognition and Intensity Estimation Using Wearable Sensor Data",
+   "venue": "IEEE Internet of Things Journal",
+   "details": "vol. 7, no. 9, pp. 8760-8768, Sept. 2020",
+   "doi": "10.1109/jiot.2020.2996578",
+   "type": "journal",
+   "faculty": [
+    "Luo"
+   ],
+   "area": "Sensing and networks"
+  },
+  {
+   "year": 2020,
+   "authors": [
+    "P. Li",
+    "C. Xu",
+    "H. Jin",
+    "C. Hu",
+    "Y. Luo",
+    "Y. Cao",
+    "J. Mathew",
+    "Y. Ma"
+   ],
+   "title": "ChainSDI: A Software-Defined Infrastructure for Regulation-Compliant Home-Based Healthcare Services Secured by Blockchains",
+   "venue": "IEEE Systems Journal",
+   "details": "vol. 14, no. 2, pp. 2042-2053, June 2020",
+   "doi": "10.1109/jsyst.2019.2937930",
+   "type": "journal",
+   "faculty": [
+    "Luo"
+   ],
+   "area": "Sensing and networks"
+  },
+  {
+   "year": 2025,
+   "authors": [
+    "C. A. Ng",
+    "S. Lyon",
+    "S. Pagsuyoin",
+    "P. J. Schofield",
+    "A. K. Dhar",
+    "Y. Luo"
+   ],
+   "title": "Poster: Networked Multimodal Sensor Framework for Shrimp Health and Behavior Analysis",
+   "venue": "Proceedings of the 31st Annual International Conference on Mobile Computing and Networking",
+   "details": "pp. 1344-1346, Nov. 2025",
+   "doi": "10.1145/3680207.3765681",
+   "type": "conference",
+   "faculty": [
+    "Luo"
+   ],
+   "area": "Sensing and networks"
+  },
+  {
+   "year": 2024,
+   "authors": [
+    "C. A. Ng",
+    "C. Pozzi",
+    "S. Lyon",
+    "M. Inalpolat",
+    "C. Niezrecki",
+    "Y. Luo"
+   ],
+   "title": "IoT acoustic sensor design and antenna selection for a wind turbine structural health monitoring system",
+   "venue": "NDE 4.0, Predictive Maintenance, Communication, and Energy Systems: The Digital Transformation of NDE II",
+   "details": "art. no. 10, May 2024",
+   "doi": "10.1117/12.3010478",
+   "type": "conference",
+   "faculty": [
+    "Luo"
+   ],
+   "area": "Renewable energy and structural monitoring"
   },
   {
    "year": 2023,
    "authors": [
-    "W. Zhang",
-    "S. Song",
-    "Y. Lin",
-    "C. Wang",
-    "Y. Chen"
+    "F. Bottalico",
+    "N. A. Valente",
+    "C. Niezrecki",
+    "K. Jerath",
+    "Y. Luo",
+    "A. Sabato"
    ],
-   "title": "Multi-source-data state estimation for integrated electricity–heat-building networks",
-   "venue": "Sustainable Energy, Grids and Networks",
-   "details": "vol. 36, art. no. 101131, Dec. 2023",
-   "doi": "10.1016/j.segan.2023.101131",
-   "type": "journal",
+   "title": "Sensor-aided camera calibration for three dimensional digital image correlation measurements",
+   "venue": "Health Monitoring of Structural and Biological Systems XVII",
+   "details": "art. no. 77, Apr. 2023",
+   "doi": "10.1117/12.2657163",
+   "type": "conference",
    "faculty": [
-    "Lin"
+    "Luo"
    ],
-   "area": "Smart grid"
-  },
-  {
-   "year": 2023,
-   "authors": [
-    "S. Song",
-    "W. Zhang",
-    "Y. Lin",
-    "C. Wang"
-   ],
-   "title": "Thermo-Electrical state and demand response potential estimation for power systems with building thermostats",
-   "venue": "International Journal of Electrical Power &amp; Energy Systems",
-   "details": "vol. 145, art. no. 108588, Feb. 2023",
-   "doi": "10.1016/j.ijepes.2022.108588",
-   "type": "journal",
-   "faculty": [
-    "Lin"
-   ],
-   "area": "Smart grid"
+   "area": "Structural dynamics and health monitoring"
   },
   {
    "year": 2022,
    "authors": [
-    "M. Huang",
-    "Z. Wei",
-    "Y. Lin"
+    "F. Bottalico",
+    "N. A. Valente",
+    "S. Dabetwar",
+    "K. Jerath",
+    "Y. Luo",
+    "C. Niezrecki",
+    "A. Sabato"
    ],
-   "title": "Forecasting-aided state estimation based on deep learning for hybrid AC/DC distribution systems",
-   "venue": "Applied Energy",
-   "details": "vol. 306, art. no. 118119, Jan. 2022",
-   "doi": "10.1016/j.apenergy.2021.118119",
-   "type": "journal",
+   "title": "A sensor-based calibration system for three-dimensional digital image correlation",
+   "venue": "Health Monitoring of Structural and Biological Systems XVI",
+   "details": "art. no. 54, Apr. 2022",
+   "doi": "10.1117/12.2612106",
+   "type": "conference",
    "faculty": [
-    "Lin"
+    "Luo"
    ],
-   "area": "Smart grid"
+   "area": "Structural dynamics and health monitoring"
   },
   {
    "year": 2021,
    "authors": [
-    "S. Song",
-    "P. Wu",
-    "Y. Lin",
-    "Y. Chen"
+    "O. Barut",
+    "Y. Luo",
+    "T. Zhang",
+    "W. Li",
+    "P. Li"
    ],
-   "title": "A General Dynamic State Estimation Framework for Monitoring and Control of Permanent Magnetic Synchronous Generators-Based Wind Turbines",
-   "venue": "IEEE Access",
-   "details": "vol. 9, pp. 72228-72238, 2021",
-   "doi": "10.1109/access.2021.3079298",
-   "type": "journal",
-   "faculty": [
-    "Lin"
-   ],
-   "area": "Smart grid"
-  },
-  {
-   "year": 2020,
-   "authors": [
-    "C. Wang",
-    "C. Liu",
-    "Y. Lin",
-    "T. Bi"
-   ],
-   "title": "Day-ahead dispatch of integrated electric-heat systems considering weather-parameter-driven residential thermal demands",
-   "venue": "Energy",
-   "details": "vol. 203, art. no. 117847, July 2020",
-   "doi": "10.1016/j.energy.2020.117847",
-   "type": "journal",
-   "faculty": [
-    "Lin"
-   ],
-   "area": "Smart grid"
-  },
-  {
-   "year": 2020,
-   "authors": [
-    "L. Ding",
-    "Y. Men",
-    "Y. Du",
-    "X. Lu",
-    "B. Chen",
-    "J. Tan",
-    "Y. Lin"
-   ],
-   "title": "Region-based Stability Analysis of Resilient Distribution Systems with Hybrid Grid-forming and Grid-following Inverters",
-   "venue": "2020 IEEE Energy Conversion Congress and Exposition (ECCE)",
-   "details": "pp. 3733-3740, Oct. 2020",
-   "doi": "10.1109/ecce44975.2020.9236196",
+   "title": "Multi-Task Hierarchical Learning Based Network Traffic Analytics",
+   "venue": "ICC 2021 - IEEE International Conference on Communications",
+   "details": "pp. 1-6, June 2021",
+   "doi": "10.1109/icc42927.2021.9500546",
    "type": "conference",
    "faculty": [
-    "Lin"
+    "Luo"
    ],
-   "area": "Smart grid"
-  },
-  {
-   "year": 2022,
-   "authors": [
-    "Y. Chen",
-    "Y. Yao",
-    "Y. Lin"
-   ],
-   "title": "Dynamic State Estimation for Integrated Electricity-Gas Systems Based on Kalman Filter",
-   "venue": "CSEE Journal of Power and Energy Systems",
-   "details": "vol. 8, no. 1, pp. 293-303, Jan. 2022",
-   "doi": "10.17775/CSEEJPES.2020.02050",
-   "type": "journal",
-   "faculty": [
-    "Lin"
-   ],
-   "area": "Smart grid"
+   "area": "Sensing and networks"
   },
   {
    "year": 2020,
    "authors": [
-    "S. Song",
-    "Z. Wei",
-    "Y. Lin",
-    "B. Liu",
-    "H. Liu"
+    "O. Barut",
+    "M. Grohotolski",
+    "C. DiLeo",
+    "Y. Luo",
+    "P. Li",
+    "T. Zhang"
    ],
-   "title": "Impedance Modeling and Stability Analysis of PV Grid-Connected Inverter System Considering Frequency Coupling",
-   "venue": "CSEE Journal of Power and Energy Systems",
-   "details": "vol. 6, no. 2, pp. 279-290, June 2020",
-   "doi": "10.17775/CSEEJPES.2019.02430",
-   "type": "journal",
+   "title": "Machine Learning Based Malware Detection on Encrypted Traffic: A Comprehensive Performance Study",
+   "venue": "7th International Conference on Networking, Systems and Security",
+   "details": "pp. 45-55, Dec. 2020",
+   "doi": "10.1145/3428363.3428365",
+   "type": "conference",
    "faculty": [
-    "Lin"
+    "Luo"
    ],
-   "area": "Smart grid"
+   "area": "Sensing and networks"
+  },
+  {
+   "year": 2020,
+   "authors": [
+    "O. Barut",
+    "R. Zhu",
+    "Y. Luo",
+    "T. Zhang"
+   ],
+   "title": "TLS Encrypted Application Classification Using Machine Learning with Flow Feature Engineering",
+   "venue": "2020 the 10th International Conference on Communication and Network Security",
+   "details": "pp. 32-41, Nov. 2020",
+   "doi": "10.1145/3442520.3442529",
+   "type": "conference",
+   "faculty": [
+    "Luo"
+   ],
+   "area": "Sensing and networks"
+  },
+  {
+   "year": 2020,
+   "authors": [
+    "Y. Li",
+    "C. Wang",
+    "Y. Cao",
+    "B. Liu",
+    "Y. Luo",
+    "H. Zhang"
+   ],
+   "title": "A-HRNet: Attention Based High Resolution Network for Human pose estimation",
+   "venue": "2020 Second International Conference on Transdisciplinary AI (TransAI)",
+   "details": "pp. 75-79, Sept. 2020",
+   "doi": "10.1109/transai49837.2020.00016",
+   "type": "conference",
+   "faculty": [
+    "Luo"
+   ],
+   "area": "Sensing and networks"
+  },
+  {
+   "year": 2020,
+   "authors": [
+    "Y. Li",
+    "C. Wang",
+    "Y. Cao",
+    "B. Liu",
+    "J. Tan",
+    "Y. Luo"
+   ],
+   "title": "Human pose estimation based in-home lower body rehabilitation system",
+   "venue": "2020 International Joint Conference on Neural Networks (IJCNN)",
+   "details": "pp. 1-8, July 2020",
+   "doi": "10.1109/ijcnn48605.2020.9207296",
+   "type": "conference",
+   "faculty": [
+    "Luo"
+   ],
+   "area": "Sensing and networks"
+  },
+  {
+   "year": 2020,
+   "authors": [
+    "D. Manning",
+    "P. Li",
+    "X. Wu",
+    "Y. Luo",
+    "T. Zhang",
+    "W. Li"
+   ],
+   "title": "ACETA: Accelerating Encrypted Traffic Analytics on Network Edge",
+   "venue": "ICC 2020 - 2020 IEEE International Conference on Communications (ICC)",
+   "details": "pp. 1-6, June 2020",
+   "doi": "10.1109/icc40277.2020.9148798",
+   "type": "conference",
+   "faculty": [
+    "Luo"
+   ],
+   "area": "Sensing and networks"
+  },
+  {
+   "year": 2019,
+   "authors": [
+    "H. Jin",
+    "C. Xu",
+    "Y. Luo",
+    "P. Li",
+    "Y. Cao",
+    "J. Mathew"
+   ],
+   "title": "Toward Secure, Privacy-Preserving, and Interoperable Medical Data Sharing via Blockchain",
+   "venue": "2019 IEEE 25th International Conference on Parallel and Distributed Systems (ICPADS)",
+   "details": "pp. 852-861, Dec. 2019",
+   "doi": "10.1109/icpads47876.2019.00126",
+   "type": "conference",
+   "faculty": [
+    "Luo"
+   ],
+   "area": "Sensing and networks"
+  },
+  {
+   "year": 2019,
+   "authors": [
+    "U. J. Okechukwu",
+    "Y. Luo",
+    "H. Jin",
+    "Y. Cao"
+   ],
+   "title": "A Less Convoluted Approach to 3D Pose Estimation",
+   "venue": "2019 IEEE International Conference on Signal, Information and Data Processing (ICSIDP)",
+   "details": "pp. 1-6, Dec. 2019",
+   "doi": "10.1109/icsidp47821.2019.9173400",
+   "type": "conference",
+   "faculty": [
+    "Luo"
+   ],
+   "area": "Sensing and networks"
+  },
+  {
+   "year": 2019,
+   "authors": [
+    "X. Wu",
+    "P. Li",
+    "T. Miskell",
+    "L. M. Wang",
+    "Y. Luo",
+    "X. Jiang"
+   ],
+   "title": "Ripple: An Efficient Runtime Reconfigurable P4 Data Plane for Multicore Systems",
+   "venue": "2019 International Conference on Networking and Network Applications (NaNA)",
+   "details": "pp. 142-148, Oct. 2019",
+   "doi": "10.1109/nana.2019.00034",
+   "type": "conference",
+   "faculty": [
+    "Luo"
+   ],
+   "area": "Sensing and networks"
   }
  ]
 }

@@ -52,8 +52,20 @@
   "name": "Multi-agent learning with relational networks",
   "narrative": "Relational network structure in multi-agent reinforcement learning: team performance in multi-armed bandits, recovery from robot malfunctions, and value factorization."
  },
- "10.1109/tsg.2020.3009571": {
-  "name": "Power system state estimation and grid analytics",
-  "narrative": "Yuzhang Lin's work from his UMass Lowell years: robust and dynamic state estimation for transmission, distribution, and integrated energy systems, bad data and false data injection detection, parameter errors and electricity market security, and forecasting that feeds grid monitoring."
+ "10.1016/j.trc.2022.103744": {
+  "name": "Traffic flow, work zones, and crash modeling",
+  "narrative": "Yuanchang Xie's transportation group: cooperative and connected automated vehicle control for merging and stop-and-go traffic, work zone safety read from drone and thermal video, car-following behavior models, and machine learning for crash frequency and severity. The 2026 papers turn vision-language and large language models on crash reports and travel-time prediction."
+ },
+ "10.1145/3428363.3428365": {
+  "name": "Malware and encrypted traffic classification",
+  "narrative": "Yan Luo's network security line: machine learning for malware and encrypted traffic, from flow feature engineering and hierarchical multi-task models in 2020 and 2021 to graph and attention networks, transformer-based detection for Windows executables, self-supervised contrastive learning, and, in 2026, large language models."
+ },
+ "10.1117/12.2612106": {
+  "name": "Sensor networks for structural and environmental health monitoring",
+  "narrative": "Sensing work led by Yan Luo with civil, mechanical, and biological collaborators: acoustic sensor networks and camera calibration for wind turbine and structural monitoring, biosensors and microfluidic sensing for aquatic pathogens, wastewater-based epidemiology with machine learning, and multimodal sensing of shrimp health in aquaculture."
+ },
+ "10.1109/ijcnn48605.2020.9207296": {
+  "name": "Human pose estimation and medical image analysis",
+  "narrative": "Deep learning for people and medical images from Yan Luo's group: human pose estimation for in-home lower body rehabilitation, activity recognition from wearable sensors, dance generation from music, skin lesion diagnosis, and detection of nanoparticles in light microscopy images."
  }
 }

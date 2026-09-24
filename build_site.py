@@ -37,13 +37,13 @@ FACULTY = {
          "url": "https://www.uml.edu/engineering/electrical-computer/faculty/arias-orlando.aspx",
          "role": "Co-PI on the SUMMIT testbed and the ONR post-disaster restoration project; leads hardware attestation and embedded security for grid devices."},
         {"name": "Yuzhang Lin", "photo": "lin", "inst": "New York University", "title": "Associate Professor, Electrical and Computer Engineering, NYU Tandon School of Engineering",
-         "areas": "Power system state estimation and situational awareness, inverter-based resources, cyber-physical resilience, and AI for grid operations",
+         "areas": "Smart grid and renewable energy: modeling, situational awareness, cyber-physical resilience, machine learning applications",
          "email": "yuzhang.lin@nyu.edu", "phone": "", "office": "",
          "url": "https://engineering.nyu.edu/faculty/yuzhang-lin",
-         "role": "External center member; UMass Lowell ECE faculty 2018 to 2023. NSF CAREER awardee, IEEE Senior Member, and Associate Editor of IEEE Transactions on Power Systems; Co-PI on SUMMIT and the ONR post-disaster restoration project, and a co-author on the center's smart grid papers."},
+         "role": "External center member; UMass Lowell ECE faculty 2018 to 2023. NSF CAREER awardee; Co-PI on SUMMIT and the ONR post-disaster restoration project, and a co-author on the center's smart grid papers."},
         {"name": "Yan Luo", "photo": "luo", "title": "Professor, Electrical and Computer Engineering; Robotics",
-         "areas": "Computer architecture, network systems",
-         "role": "Co-founder of the center in 2019 and founding co-director for healthcare. Leads the AI for cyber-physical control thrust; senior personnel on SUMMIT; PI of the NSF-funded campus science network the center builds on.",
+         "areas": "Cyber-physical systems, machine learning, computer networks, computer architecture",
+         "role": "Co-founder of the center in 2019 and founding co-director for healthcare. Leads the AI for cyber-physical control thrust; senior personnel on SUMMIT; PI of the NSF-funded campus science network the center builds on and of the NSF PFI-RP BioSPACE project on pathogen biosensing in aquaculture. Best Paper Award at IFIP/IEEE IM 2021 and Best Experiences Paper Award at IM 2019.",
          "email": "yan_luo@uml.edu", "phone": "978-934-2592", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/luo-yan.aspx"},
         {"name": "Paul Robinette", "photo": "robinette", "title": "Associate Professor, Electrical and Computer Engineering; Associate Chair for M.S. Programs",
          "areas": "Robotics, human-robot interaction, trust in autonomous systems, multi-robot coordination, field and marine autonomy",
@@ -56,10 +56,10 @@ FACULTY = {
          "url": "https://www.uml.edu/engineering/electrical-computer/faculty/son-seung-woo.aspx",
          "role": "Leads the high performance computing and data integrity thrust. NSF CAREER awardee (2018); brings HPC, silent-data-corruption detection, and on-device stream analytics to the center's data-intensive CPS work."},
         {"name": "Lewis Tseng", "photo": "tseng", "title": "Associate Professor, Electrical and Computer Engineering",
-         "areas": "High-performance fault-tolerant distributed systems, blockchain-based systems, intelligent traffic and vehicular computing",
+         "areas": "Fault-tolerant distributed systems and consensus, state machine replication, blockchain systems, and edge computing for cyber-physical systems",
          "email": "Lewis_Tseng@uml.edu", "phone": "", "office": "Ball Hall, 3rd floor",
          "url": "https://www.uml.edu/engineering/electrical-computer/faculty/tseng-lewis.aspx",
-         "role": "NSF CAREER awardee on fault-tolerant edge computing for cyber-physical systems under cyber attack (award #2449640 at UMass Lowell, $342K from Sept 2024); Co-PI on SUMMIT. Joined UMass Lowell in 2024 after Clark University, Boston College, and Toyota InfoTechnology Center."},
+         "role": "NSF CAREER awardee on fault-tolerant edge computing for cyber-physical systems under cyber attack (award #2449640 at UMass Lowell, $342K from Sept 2024); PI of an NSF planning award for federated AI-ready cyberinfrastructure for advanced microscopy (2026); Co-PI on SUMMIT. 2026 ECE Department Teaching Excellence Award. Joined UMass Lowell in 2024 after Clark University, Boston College, and Toyota InfoTechnology Center."},
         {"name": "Yuanchang Xie", "photo": "xie", "title": "Professor, Civil and Environmental Engineering",
          "areas": "Transportation engineering, smart and connected transportation",
          "role": "Co-founder of the center in 2019 and founding co-director for transportation. Leads the connected transportation thrust; PI or Co-PI of the USDOT, MassDOT, and NETC transportation portfolio.", "email": "Yuanchang_Xie@uml.edu", "phone": "978-934-3681", "url": "https://www.uml.edu/engineering/civil-environmental/faculty-staff-students/faculty/xie-yuanchang.aspx"},
@@ -2007,15 +2007,13 @@ for e in _load_overlay("pubs_cv_additions.json", {"entries": []}).get("entries",
                   type=e["type"], faculty=e["faculty"], area=e.get("area", ""), url=None))
 
 # --- attribution: a paper counts for a member only from the year they joined UMass Lowell
-JOIN_YEAR = {"Tseng": 2024, "Arias": 2021, "Lin": 2018}
-# Yuzhang Lin was UMass Lowell ECE faculty from Sept. 2018 to Aug. 2023 (his CV) and is now at NYU. His papers
-# through 2023 count as the center's like any member's; after he left, only work joint with the director counts,
-# since his independent NYU output belongs to his own program.
-LEFT_YEAR = {"Lin": 2023}
-REQUIRES_COAUTHOR = {"Lin": "Vokkarane"}   # applies after LEFT_YEAR
+JOIN_YEAR = {"Tseng": 2024, "Arias": 2021}
+# Yuzhang Lin is an external center member at NYU. Only his papers with another center faculty member
+# count as the center's; his independent work belongs to his own program.
+NEEDS_CENTER_COAUTHOR = {"Lin"}
 def _attributed(p):
     fac = [f for f in p["faculty"] if p["year"] >= JOIN_YEAR.get(f, 0)]
-    return [f for f in fac if p["year"] <= LEFT_YEAR.get(f, 9999) or REQUIRES_COAUTHOR.get(f) in (None, *fac)]
+    return [f for f in fac if f not in NEEDS_CENTER_COAUTHOR or len(fac) > 1]
 P = [dict(p, faculty=_attributed(p)) for p in P if _attributed(p)]
 
 # --- overlay: papers found by refresh.py since the curated list was written
@@ -3106,7 +3104,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.01"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.02"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3221,12 +3219,61 @@ for a in _auto_grants.get("awards", []):
                      "domain": "NIH" if a.get("source") == "NIH" else "NSF"})
 
 
+# --- Yan Luo's awards active since the center's founding (Sept. 2019), from his CV (Sept. 2026).
+# Amounts are award face value as listed there.
+PROJECTS += [
+    {"tag": "Active", "sponsor": "National Science Foundation, PFI-RP (Award #2329826)", "role": "PI",
+     "title": "BioSPACE: Biosensing Surveillance of Pathogens in Aquaculture and Coastal Environments",
+     "amount": "$1.0M", "period": "Sept 2023 to Aug 2027", "team": "PI Yan Luo; Co-PIs Sheree Pagsuyoin, Frederic Chain, J. Jayapalan",
+     "desc": "Partnership for Innovation project on sensing and surveillance of pathogens in aquaculture and coastal waters.", "domain": "Sensing"},
+    {"tag": "Active", "sponsor": "National Institutes of Health", "role": "Co-PI",
+     "title": "Unsupervised Deep PCCT Reconstruction for Human Extremity Imaging",
+     "amount": "$2.30M", "period": "July 2023 to Apr 2027", "team": "PI Hengyong Yu; Co-PIs Yan Luo, Yu Cao",
+     "desc": "Deep learning reconstruction for photon-counting CT imaging of human extremities.", "domain": "Health"},
+    {"tag": "Active", "sponsor": "National Institutes of Health", "role": "Co-PI",
+     "title": "AI-based Cardiac CT",
+     "amount": "$2.4M", "period": "May 2023 to Feb 2027", "team": "PI Hengyong Yu; Co-PIs Yan Luo, Yu Cao",
+     "desc": "Artificial intelligence methods for cardiac computed tomography.", "domain": "Health"},
+    {"tag": "Completed", "sponsor": "National Offshore Wind R&D Consortium", "role": "Co-PI",
+     "title": "A Novel Structural Health Monitoring System for Offshore Wind Turbines",
+     "amount": "$800K", "period": "Feb 2023 to Dec 2025", "team": "PI Murat Inalpolat; Co-PIs Christopher Niezrecki, Yan Luo",
+     "desc": "Structural health monitoring for offshore wind turbines.", "domain": "Energy"},
+    {"tag": "Completed", "sponsor": "Trinity Foundation", "role": "Co-PI",
+     "title": "Disease Surveillance with Multi-modal Sensor Network and Data Analytics",
+     "amount": "$660K", "period": "Oct 2021 to Mar 2026", "team": "PI Sheree Pagsuyoin; Co-PIs Yan Luo, Frederic Chain",
+     "desc": "Disease surveillance built on a multi-modal sensor network and data analytics.", "domain": "Health"},
+    {"tag": "Completed", "sponsor": "National Science Foundation, MRI (Award #2018992)", "role": "Co-PI",
+     "title": "MRI: Development of a Calibration System for Stereophotogrammetry to Enable Large-Scale Measurement and Monitoring",
+     "amount": "$455K", "period": "Sept 2020 to Aug 2023", "team": "PI Alessandro Sabato; Co-PIs Christopher Niezrecki, Yan Luo, Kshitij Jerath",
+     "desc": "Instrument development for calibrating stereophotogrammetry in large-scale structural measurement.", "domain": "Sensing"},
+    {"tag": "Completed", "sponsor": "U.S. Department of Energy", "role": "Co-PI",
+     "title": "Development of an Acoustics-based Automated Offshore Wind Turbine Blade Structural Health Monitoring System",
+     "amount": "$1.4M", "period": "Sept 2020 to Aug 2023", "team": "PI Murat Inalpolat; Co-PIs Christopher Niezrecki, Yan Luo",
+     "desc": "Acoustic sensing to monitor offshore wind turbine blades automatically.", "domain": "Energy"},
+    {"tag": "Completed", "sponsor": "National Science Foundation (Award #1916374)", "role": "Co-PI",
+     "title": "Collaborative Research: A Low-Cost, Digital Biosensing Platform with Single Protein Biomarker Sensitivity",
+     "amount": "$225K", "period": "Sept 2019 to Aug 2023", "team": "PI Hongwei Sun; Co-PI Yan Luo",
+     "desc": "A low-cost biosensing platform sensitive to single protein biomarkers.", "domain": "Health"},
+    {"tag": "Completed", "sponsor": "National Science Foundation, CICI (Award #1738965)", "role": "PI",
+     "title": "CICI: RSARC: SECTOR: Building a Secure and Compliant Cyberinfrastructure for Translational Research",
+     "amount": "$1.0M", "period": "Sept 2017 to Aug 2022", "team": "PI Yan Luo; Co-PIs Yu Cao, Peilong Li, Silvia Corvera, Jomol Mathew",
+     "desc": "Secure, regulation-compliant cyberinfrastructure for translational health research.", "domain": "Health"},
+    {"tag": "Completed", "sponsor": "National Science Foundation, CICI (Award #1547428)", "role": "PI",
+     "title": "CICI: Secure Data Architecture: STREAMS: Secure Transport and Research Architecture for Monitoring Stroke Recovery",
+     "amount": "$500K", "period": "Jan 2016 to Dec 2020", "team": "PI Yan Luo; Co-PIs Yu Cao, Xinwen Fu, Martin Margala",
+     "desc": "Secure data transport and architecture for monitoring stroke recovery.", "domain": "Health"},
+    {"tag": "Completed", "sponsor": "National Science Foundation, IRNC (Award #1450996)", "role": "Lead PI",
+     "title": "IRNC: AMI: Collaborative Research: Software-Defined and Privacy-Preserving Network Measurement Instrument and Services for Understanding Data-Driven Science Discovery",
+     "amount": "$1.25M", "share": "$2.35M across four institutions", "period": "Apr 2015 to Mar 2020", "team": "Lead PI Yan Luo",
+     "desc": "Network measurement instrument and services for international research networks, with the University of Kentucky, UMass Boston, and UTEP.", "domain": "Networks"},
+]
+
 # --- The director's earlier external awards, from the CV (Sept. 2026). Amounts are award face value;
 # where UMass Lowell held a share of a consortium award, the share is noted.
 PROJECTS += [
     {"tag": "Completed", "sponsor": "NSF CC*DNI", "role": "PI",
      "title": "Network Cyberinfrastructure for Biomedical Informatics Innovation",
-     "amount": "$1.02M", "period": "2015 to 2019", "team": "PI Vinod Vokkarane",
+     "amount": "$1.02M", "period": "2015 to 2019", "team": "PI Vinod Vokkarane; Co-PIs Yan Luo and Yu Cao",
      "desc": "Campus cyberinfrastructure to move and analyze large biomedical data sets at UMass Lowell.", "domain": "Networks"},
     {"tag": "Completed", "sponsor": "National Institute of Justice", "role": "Co-PI",
      "title": "Information Sharing and Its Effect on Tracking Sex Offenders and Community Awareness (SORNA)",
@@ -5193,7 +5240,7 @@ def new_tab_links(page):
     return re.sub(r'<a\s[^>]*href="https?://[^"]*"[^>]*>', fix, page)
 
 
-PUBS_SECTION = '<section id="publications">\n  <div class="wrap">\n    <div class="shead"><h2>Publications</h2><p>Peer-reviewed journal papers, conference papers, and book chapters from the director and center faculty since the center was founded in 2019, with links to the publisher\'s record. Center authors are shown in bold. Affiliated researchers and external collaborators publish widely in their own fields; their records are linked from their profiles.</p></div>\n    <div class="filters" role="group" aria-label="Filter publications">\n      <div class="fgroup"><span class="lab">Faculty</span>\n        <button class="chip" data-f="fac" data-v="all" aria-pressed="true">All</button>\n        <button class="chip" data-f="fac" data-v="Vokkarane" aria-pressed="false">Vokkarane</button>\n        <button class="chip" data-f="fac" data-v="Arias" aria-pressed="false">Arias</button>\n        <button class="chip" data-f="fac" data-v="Tseng" aria-pressed="false">Tseng</button>\n        <button class="chip" data-f="fac" data-v="Son" aria-pressed="false">Son</button>\n        <button class="chip" data-f="fac" data-v="Aghara" aria-pressed="false">Aghara</button>\n        <button class="chip" data-f="fac" data-v="Lin" aria-pressed="false">Lin</button>\n        <button class="chip" data-f="fac" data-v="Luo" aria-pressed="false">Luo</button>\n        <button class="chip" data-f="fac" data-v="Xie" aria-pressed="false">Xie</button>\n\n\n\n\n\n\n\n      </div>\n      <div class="fgroup"><span class="lab">Year</span>\n        <button class="chip" data-f="year" data-v="all" aria-pressed="true">All</button>\n        <button class="chip" data-f="year" data-v="2026" aria-pressed="false">2026</button>\n        <button class="chip" data-f="year" data-v="2025" aria-pressed="false">2025</button>\n        <button class="chip" data-f="year" data-v="2024" aria-pressed="false">2024</button>\n        <button class="chip" data-f="year" data-v="2023" aria-pressed="false">2023</button>\n        <button class="chip" data-f="year" data-v="2022" aria-pressed="false">2022</button>\n        <button class="chip" data-f="year" data-v="2021" aria-pressed="false">2021</button>\n        <button class="chip" data-f="year" data-v="2020" aria-pressed="false">2020</button>\n        <button class="chip" data-f="year" data-v="2019" aria-pressed="false">2019</button>\n      </div>\n      <div class="fgroup"><span class="lab">Type</span>\n        <button class="chip" data-f="type" data-v="all" aria-pressed="true">All</button>\n        <button class="chip" data-f="type" data-v="journal" aria-pressed="false">Journal</button>\n        <button class="chip" data-f="type" data-v="conference" aria-pressed="false">Conference</button>\n        <button class="chip" data-f="type" data-v="chapter" aria-pressed="false">Chapter</button>\n      </div>\n      <div class="search"><label for="q" class="lab">Search</label><input id="q" type="search" placeholder="title, author, or venue" autocomplete="off"></div>\n    </div>\n    <div class="count" id="count" aria-live="polite">Showing {n_pubs} of {n_pubs} papers</div>\n    <div id="publist">{pubs_html}</div>\n    <p class="pubnote">Records verified against Crossref (the NSDI paper is listed from the USENIX program). Journal chips show the Journal Impact Factor from Clarivate\'s Journal Citation Reports for the year given, and the SCImago quartile where available. Venues that do not register DOIs, such as ANS Transactions and INMM proceedings, are not captured, and for faculty with common names only papers with a confirmed UMass Lowell affiliation are included. A paper counts for a member only from the year they joined UMass Lowell; Yuzhang Lin\'s papers count through 2023, his last year at UMass Lowell, and after that only when joint with the director. Send corrections or additions to Vinod_Vokkarane@uml.edu.</p>\n  </div>\n</section>'
+PUBS_SECTION = '<section id="publications">\n  <div class="wrap">\n    <div class="shead"><h2>Publications</h2><p>Peer-reviewed journal papers, conference papers, and book chapters from the director and center faculty since the center was founded in 2019, with links to the publisher\'s record. Center authors are shown in bold. Affiliated researchers and external collaborators publish widely in their own fields; their records are linked from their profiles.</p></div>\n    <div class="filters" role="group" aria-label="Filter publications">\n      <div class="fgroup"><span class="lab">Faculty</span>\n        <button class="chip" data-f="fac" data-v="all" aria-pressed="true">All</button>\n        <button class="chip" data-f="fac" data-v="Vokkarane" aria-pressed="false">Vokkarane</button>\n        <button class="chip" data-f="fac" data-v="Arias" aria-pressed="false">Arias</button>\n        <button class="chip" data-f="fac" data-v="Tseng" aria-pressed="false">Tseng</button>\n        <button class="chip" data-f="fac" data-v="Son" aria-pressed="false">Son</button>\n        <button class="chip" data-f="fac" data-v="Aghara" aria-pressed="false">Aghara</button>\n        <button class="chip" data-f="fac" data-v="Lin" aria-pressed="false">Lin</button>\n        <button class="chip" data-f="fac" data-v="Luo" aria-pressed="false">Luo</button>\n        <button class="chip" data-f="fac" data-v="Xie" aria-pressed="false">Xie</button>\n\n\n\n\n\n\n\n      </div>\n      <div class="fgroup"><span class="lab">Year</span>\n        <button class="chip" data-f="year" data-v="all" aria-pressed="true">All</button>\n        <button class="chip" data-f="year" data-v="2026" aria-pressed="false">2026</button>\n        <button class="chip" data-f="year" data-v="2025" aria-pressed="false">2025</button>\n        <button class="chip" data-f="year" data-v="2024" aria-pressed="false">2024</button>\n        <button class="chip" data-f="year" data-v="2023" aria-pressed="false">2023</button>\n        <button class="chip" data-f="year" data-v="2022" aria-pressed="false">2022</button>\n        <button class="chip" data-f="year" data-v="2021" aria-pressed="false">2021</button>\n        <button class="chip" data-f="year" data-v="2020" aria-pressed="false">2020</button>\n        <button class="chip" data-f="year" data-v="2019" aria-pressed="false">2019</button>\n      </div>\n      <div class="fgroup"><span class="lab">Type</span>\n        <button class="chip" data-f="type" data-v="all" aria-pressed="true">All</button>\n        <button class="chip" data-f="type" data-v="journal" aria-pressed="false">Journal</button>\n        <button class="chip" data-f="type" data-v="conference" aria-pressed="false">Conference</button>\n        <button class="chip" data-f="type" data-v="chapter" aria-pressed="false">Chapter</button>\n      </div>\n      <div class="search"><label for="q" class="lab">Search</label><input id="q" type="search" placeholder="title, author, or venue" autocomplete="off"></div>\n    </div>\n    <div class="count" id="count" aria-live="polite">Showing {n_pubs} of {n_pubs} papers</div>\n    <div id="publist">{pubs_html}</div>\n    <p class="pubnote">Records verified against Crossref (the NSDI paper is listed from the USENIX program). Journal chips show the Journal Impact Factor from Clarivate\'s Journal Citation Reports for the year given, and the SCImago quartile where available. Venues that do not register DOIs, such as ANS Transactions and INMM proceedings, are not captured, and for faculty with common names only papers with a confirmed UMass Lowell affiliation are included. A paper counts for a member only from the year they joined UMass Lowell; Yuzhang Lin\'s papers count when co-authored with another center faculty member. Send corrections or additions to Vinod_Vokkarane@uml.edu.</p>\n  </div>\n</section>'
 
 FULL_NAME = {}
 for _g in ("director", "core", "affiliated", "external"):

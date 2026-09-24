@@ -7,12 +7,28 @@
   <language>en-us</language>
   <atom:link href="https://smartcyberphysical.org/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>A Self-Supervised Contrastive Learning-Based Method for Portable Executable Malware Classification</title>
+    <link>https://doi.org/10.1109/access.2026.3672128</link>
+    <guid isPermaLink="false">scyps-2026-12-839268b25e</guid>
+    <category>Journal</category>
+    <pubDate>01 Dec 2026 00:00:00 +0000</pubDate>
+    <description>Yan Luo: &quot;A Self-Supervised Contrastive Learning-Based Method for Portable Executable Malware Classification&quot; in IEEE Access.</description>
+  </item>
+  <item>
     <title>The Cobra Effect in Trust Repair: Unintended Consequences of Rebuilding Trust in Human-Robot Collaboration</title>
     <link>https://doi.org/10.1007/978-981-95-2382-5_57</link>
     <guid isPermaLink="false">scyps-2026-12-037cbd7906</guid>
     <category>Chapter</category>
     <pubDate>01 Dec 2026 00:00:00 +0000</pubDate>
     <description>Paul Robinette: &quot;The Cobra Effect in Trust Repair: Unintended Consequences of Rebuilding Trust in Human-Robot Collaboration&quot; in Lecture Notes in Computer Science.</description>
+  </item>
+  <item>
+    <title>Novel microfluidic lab-on-circuit for QCM-P oscillators</title>
+    <link>https://doi.org/10.1016/j.sna.2026.118210</link>
+    <guid isPermaLink="false">scyps-2026-11-26c71111e1</guid>
+    <category>Journal</category>
+    <pubDate>01 Nov 2026 00:00:00 +0000</pubDate>
+    <description>Yan Luo: &quot;Novel microfluidic lab-on-circuit for QCM-P oscillators&quot; in Sensors and Actuators A: Physical.</description>
   </item>
   <item>
     <title>2 papers in Engineering Applications of Artificial Intelligence</title>
@@ -207,6 +223,14 @@
     <description>Yan Luo: &quot;Signal Strength and Network Performance Optimization of a Wireless Acoustic Sensor for Wind Turbine Blade Health Monitoring&quot; in IEEE Sensors Journal.</description>
   </item>
   <item>
+    <title>Recent advances in biomimetic sensors for the detection of aquatic pathogens and toxins</title>
+    <link>https://doi.org/10.1016/j.jhazmat.2026.141041</link>
+    <guid isPermaLink="false">scyps-2026-01-3c3275f383</guid>
+    <category>Journal</category>
+    <pubDate>01 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Yan Luo: &quot;Recent advances in biomimetic sensors for the detection of aquatic pathogens and toxins&quot; in Journal of Hazardous Materials.</description>
+  </item>
+  <item>
     <title>Timing is the New Attack: Blockchain Cannot Prevent Market Manipulation at the Boundary</title>
     <link>https://doi.org/10.1109/ICCE67443.2026.11449682</link>
     <guid isPermaLink="false">scyps-2026-01-8a07b1dc1c</guid>
@@ -247,6 +271,14 @@
     <description>Two GLOBECOM 2025 papers from the Tseng group: satellite-edge-enabled multi-drone search and content-aware gossip for mobile device clouds.</description>
   </item>
   <item>
+    <title>Poster: Networked Multimodal Sensor Framework for Shrimp Health and Behavior Analysis</title>
+    <link>https://doi.org/10.1145/3680207.3765681</link>
+    <guid isPermaLink="false">scyps-2025-11-684986f8eb</guid>
+    <category>Conference</category>
+    <pubDate>01 Nov 2025 00:00:00 +0000</pubDate>
+    <description>Yan Luo: &quot;Poster: Networked Multimodal Sensor Framework for Shrimp Health and Behavior Analysis&quot; in Proceedings of the 31st Annual International Conference on Mobile Computing and Networking.</description>
+  </item>
+  <item>
     <title>Revisiting State Machine Replication in Practice: Lessons from Building an etcd-inspired System</title>
     <link>https://doi.org/10.1145/3772052.3772246</link>
     <guid isPermaLink="false">scyps-2025-11-65ac593ae5</guid>
@@ -279,20 +311,20 @@
     <description>Paul Robinette: &quot;A Robot Should Compensate for Its Mistakes: An Exploration of the Dynamics of Trust Violation and Repair Strategies in Human-Robot Collaboration&quot; in ACM Transactions on Human-Robot Interaction.</description>
   </item>
   <item>
+    <title>Coupling wastewater‐based epidemiology with data‐driven machine learning for managing public health risks</title>
+    <link>https://doi.org/10.1111/risa.70075</link>
+    <guid isPermaLink="false">scyps-2025-10-af32b864a9</guid>
+    <category>Journal</category>
+    <pubDate>01 Oct 2025 00:00:00 +0000</pubDate>
+    <description>Yan Luo: &quot;Coupling wastewater‐based epidemiology with data‐driven machine learning for managing public health risks&quot; in Risk Analysis.</description>
+  </item>
+  <item>
     <title>Massachusetts Advanced Nuclear and Fusion Energy Roadmaps</title>
     <link>https://smartcyberphysical.org/news.html</link>
     <guid isPermaLink="false">scyps-2025-10-6613d842b9</guid>
     <category>Award</category>
     <pubDate>01 Oct 2025 00:00:00 +0000</pubDate>
     <description>New award: Massachusetts Advanced Nuclear and Fusion Energy Roadmaps. Commonwealth of Massachusetts, Healey-Driscoll Administration.</description>
-  </item>
-  <item>
-    <title>Gov</title>
-    <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2025-10-f6c990ef43</guid>
-    <category>Milestone</category>
-    <pubDate>01 Oct 2025 00:00:00 +0000</pubDate>
-    <description>Gov. Maura Healey names Sukesh Aghara to lead the Massachusetts Advanced Nuclear and Fusion Energy Roadmaps, a statewide effort run from UMass Lowell.</description>
   </item>
 </channel>
 </rss>

@@ -28,6 +28,7 @@ jobs:
           s = open("build_site.py", encoding="utf-8").read()
           m = re.search(r'SITE_VERSION = "(\d+)\.(\d+)"', s)
           major, minor = int(m.group(1)), int(m.group(2)) + 1
+          if minor > 99: major, minor = major + 1, 0
           s = s.replace(m.group(0), f'SITE_VERSION = "{major}.{minor:02d}"')
           open("build_site.py", "w", encoding="utf-8").write(s)
           PY

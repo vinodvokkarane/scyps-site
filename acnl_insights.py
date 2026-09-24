@@ -51,6 +51,7 @@ def load():
 def render(ns, footer_html, script_html):
     esc = ns["esc"]; R = load()
     for r in R: r["group"] = GROUP.get(r["thread"], r["thread"])
+    n_read = sum(1 for r in R if r.get("read", True)); n_listed = len(R) - n_read
     years = list(range(min(r["year"] for r in R), max(r["year"] for r in R) + 1))
     by_year = collections.Counter(r["year"] for r in R)
     n_j = sum(1 for r in R if r["kind"] == "journal"); n_c = sum(1 for r in R if r["kind"] == "conference")
@@ -120,7 +121,7 @@ def render(ns, footer_html, script_html):
         meth = collections.Counter(t for r in rs for t in r["tags"]["method"] if t != "simulation")
         stu = collections.Counter(k for r in rs for k in set(r["author_keys"]) if k in student_keys)
         def chips(c, n=5): return ", ".join(f"{esc(k)} ({v})" for k, v in c.most_common(n)) or "none named"
-        key = [r for r in rs if r["kind"] == "journal"][:3] or rs[:3]
+        key = [r for r in rs if r["kind"] == "journal" and r.get("read", True)][:3] or [r for r in rs if r.get("read", True)][:3] or rs[:3]
         keyl = "".join(f'<li>{link(esc, r)} <span class="v">{r["year"]}</span></li>' for r in key)
         cards.append(f'''<article class="icl" id="t-{slug(g)}" style="--c:{COLOR[g]}">
   <h3><span class="dot"></span>{esc(g)}</h3>
@@ -159,12 +160,14 @@ def render(ns, footer_html, script_html):
     items = []
     for r in sorted(R, key=lambda r: (-r["year"], r["title"])):
         tags = r["tags"]["method"][:3] + r["tags"]["topology"][:2] + [t for t in r["tags"]["tool"] if t != "ESnet"][:2]
+        detail = (f'<dl class="rd"><dt>Problem</dt><dd>{esc(r["problem"])}</dd><dt>Approach</dt><dd>{esc(r["approach"])}</dd><dt>Finding</dt><dd>{esc(r["finding"])}</dd></dl>'
+                  if r.get("read", True) else '<p class="unread">Listed from the CV. No PDF is on file yet, so this one has not been read.</p>')
         tagspans = "".join('<span class="tg">' + esc(t) + '</span>' for t in tags)
         blob = " ".join([r["title"], r["thread"], r["problem"], r["approach"], r["finding"], " ".join(r["authors"]), " ".join(tags)]).lower()
         items.append(f'''<li class="rec" data-g="{esc(slug(r["group"]))}" data-s="{esc(blob)}" style="--c:{COLOR[r["group"]]}">
   <div class="rt">{link(esc, r)}</div>
-  <div class="rv">{esc(", ".join(r["authors"]))}. {r["year"]}, {esc(r["kind"])}{"" if r["in_cv"] else ", not yet in the CV"}</div>
-  <dl class="rd"><dt>Problem</dt><dd>{esc(r["problem"])}</dd><dt>Approach</dt><dd>{esc(r["approach"])}</dd><dt>Finding</dt><dd>{esc(r["finding"])}</dd></dl>
+  <div class="rv">{esc(", ".join(r["authors"]))}. {r["year"]}, {esc(r["kind"])}</div>
+  {detail}
   <div class="rtags"><span class="gdot" style="--c:{COLOR[r["group"]]}"><i></i>{esc(r["thread"])}</span>{tagspans}</div>
 </li>''')
     filt = '<button class="ichip" type="button" data-g="all" aria-pressed="true">All threads</button>' + "".join(
@@ -174,8 +177,8 @@ def render(ns, footer_html, script_html):
   <div class="wrap">
     <p class="crumb"><a href="labs.html">Labs</a></p>
     <h1>The Advanced Communication Networks Laboratory, 2002 to 2026</h1>
-    <p class="q">Every paper from the lab, read and recorded: what problem it took on, how, and what it found. {len(R)} papers from UT Dallas, UMass Dartmouth, and UMass Lowell, grouped into the research threads they form and traced through the tools, networks, and people behind them.</p>
-    <div class="istats"><div><b>{len(R)}</b>papers read</div><div><b>{n_j}</b>journal papers</div><div><b>{len(students)}</b>students and postdocs</div><div><b>{len(groups)}</b>research threads</div></div>
+    <p class="q">Every publication from the lab, from UT Dallas, UMass Dartmouth, and UMass Lowell. {n_read} of the {len(R)} have been read and recorded: what problem each took on, how, and what it found. The other {n_listed} are listed from the CV until their PDFs are on file. All of them are grouped into the research threads they form and traced through the tools, networks, and people behind them.</p>
+    <div class="istats"><div><b>{len(R)}</b>publications</div><div><b>{n_read}</b>read in full</div><div><b>{n_j}</b>journal papers</div><div><b>{len(students)}</b>students and postdocs</div><div><b>{len(groups)}</b>research threads</div></div>
   </div>
 </div>
 <section class="imapsec">
@@ -208,11 +211,11 @@ def render(ns, footer_html, script_html):
 </section>
 <section class="tint">
   <div class="wrap">
-    <div class="shead"><h2>The record</h2><p>All {len(R)} papers with their problem, approach, and finding. Search any word, author, method, or network, or pick a thread.</p></div>
+    <div class="shead"><h2>The record</h2><p>All {len(R)} publications, with the problem, approach, and finding for the {n_read} that have been read. Search any word, author, method, or network, or pick a thread.</p></div>
     <div class="rfilter"><label for="rq" class="vh">Search the record</label><input id="rq" type="search" placeholder="Search: segmentation, NSFNET, Gurobi, Rezaee, observability">
     <div class="legend" id="rg">{filt}</div><p class="rcount" id="rc" aria-live="polite"></p></div>
     <ol class="recs" id="recs">{"".join(items)}</ol>
-    <p class="how"><b>How this page is made.</b> The lab's papers were read one at a time, and each was recorded in our own words as a problem, an approach, and a finding; no text from the papers is reproduced. Tools, topologies, metrics, and methods are counted from each paper's text. Authors and student status come from the director's CV. {sum(1 for r in R if not r["in_cv"])} papers in the record are not yet listed in the CV. Records reflect abstracts, introductions, and conclusions; reported numbers from results sections are the next layer.</p>
+    <p class="how"><b>How this page is made.</b> The lab\'s papers were read one at a time, and each was recorded in our own words as a problem, an approach, and a finding; no text from the papers is reproduced. Tools, topologies, metrics, and methods are counted from each paper's text. Authors and student status come from the director's CV. The full list comes from the director\'s CV; the {n_listed} publications without a PDF on file count toward the timeline, threads, and people, but not toward tools, methods, or metrics. Records reflect abstracts, introductions, and conclusions; reported numbers from results sections are the next layer.</p>
   </div>
 </section>
 '''
@@ -220,7 +223,7 @@ def render(ns, footer_html, script_html):
 .ihero{background:var(--navy);color:var(--on-navy);padding:clamp(40px,6vw,72px) 0 clamp(28px,4vw,44px)}
 .ihero .crumb{font-size:14px;margin:0 0 10px}.ihero .crumb a{color:var(--on-navy-3)}.ihero h1{color:#fff;max-width:16em;font-size:clamp(32px,4.4vw,54px)}
 .ihero .q{font-size:clamp(17px,1.4vw,20px);line-height:1.5;color:var(--on-navy-2);max-width:40em;margin:18px 0 26px}
-.istats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;max-width:820px}
+.istats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;max-width:820px}
 .istats div{border-top:1px solid rgba(255,255,255,.22);padding-top:10px;font-size:13.5px;color:var(--on-navy-2)}
 .istats b{display:block;font-family:"Fraunces",Georgia,serif;font-weight:500;font-size:clamp(26px,3vw,38px);line-height:1;color:#fff;margin-bottom:4px}
 @media (max-width:640px){.istats{grid-template-columns:1fr 1fr}}
@@ -258,6 +261,7 @@ def render(ns, footer_html, script_html):
 .rt{font-size:15.5px;font-weight:600;line-height:1.35}.rv{font-size:13px;color:var(--ink-3);margin:2px 0 8px}
 .rd{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-size:14px;margin:0 0 8px}.rd dt{color:var(--ink-3)}.rd dd{margin:0;color:var(--ink-2)}
 .rtags{display:flex;flex-wrap:wrap;gap:6px 8px;font-size:12.5px;color:var(--ink-2)}.tg{border:1px solid var(--line);border-radius:999px;padding:1px 8px;color:var(--ink-3)}
+.unread{font-size:14px;color:var(--ink-3);font-style:italic;margin:0 0 8px}
 .how{font-size:14px;color:var(--ink-3);max-width:66em;margin:22px 0 0;line-height:1.55}.how b{color:var(--ink-2)}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 '''
@@ -277,7 +281,7 @@ def render(ns, footer_html, script_html):
 })();
 </script>'''
     page = ns["page_shell"]("ACNL research record | SCyPS, UMass Lowell",
-                            f"The Advanced Communication Networks Laboratory's {len(R)} papers, 2002 to 2026, read and organized by research thread, method, network, and student.",
+                            f"The Advanced Communication Networks Laboratory's {len(R)} publications, 2002 to 2026, read and organized by research thread, method, network, and student.",
                             body, footer_html, script_html + js, extra_css=css, active="labs", canonical="acnl.html")
     page = ns["new_tab_links"](page)
     out = os.path.join(os.path.dirname(os.path.abspath(ns["OUT"])) or ".", "acnl.html")

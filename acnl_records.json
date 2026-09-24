@@ -34,7 +34,8 @@
    "method": [
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 1,
@@ -69,7 +70,8 @@
    "method": [
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 2,
@@ -100,7 +102,8 @@
    "method": [
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 3,
@@ -138,7 +141,8 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 4,
@@ -174,7 +178,8 @@
    "method": [
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 5,
@@ -210,7 +215,8 @@
    "method": [
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 6,
@@ -247,7 +253,8 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 7,
@@ -283,7 +290,8 @@
    "method": [
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 8,
@@ -317,7 +325,8 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 9,
@@ -355,7 +364,8 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 10,
@@ -395,7 +405,8 @@
     "ILP/MILP",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 11,
@@ -438,7 +449,8 @@
     "metaheuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 12,
@@ -474,7 +486,8 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 13,
@@ -510,7 +523,8 @@
     "accuracy/F1"
    ],
    "method": []
-  }
+  },
+  "read": true
  },
  {
   "id": 14,
@@ -549,7 +563,8 @@
    "method": [
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 15,
@@ -586,7 +601,8 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 16,
@@ -624,7 +640,8 @@
     "metaheuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 17,
@@ -670,7 +687,8 @@
     "metaheuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 18,
@@ -709,7 +727,8 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 19,
@@ -746,7 +765,8 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 20,
@@ -781,7 +801,8 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 21,
@@ -819,7 +840,8 @@
     "metaheuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 22,
@@ -854,7 +876,8 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 23,
@@ -887,7 +910,8 @@
    "method": [
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 24,
@@ -924,7 +948,8 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 25,
@@ -959,7 +984,8 @@
    "method": [
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 26,
@@ -997,7 +1023,8 @@
    "method": [
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 27,
@@ -1039,7 +1066,8 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 28,
@@ -1076,7 +1104,8 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 29,
@@ -1116,13 +1145,14 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 30,
   "year": 2008,
   "kind": "conference",
-  "title": "Energy-Efficient Target Monitoring Using Base-Station Relocation in Wireless Sensor Networks",
+  "title": "Energy-Efficient Target Monitoring in Wireless Sensor Networks",
   "doi": "",
   "authors": [
    "D. Jain",
@@ -1155,7 +1185,8 @@
     "ILP/MILP",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 31,
@@ -1200,7 +1231,8 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 32,
@@ -1242,7 +1274,8 @@
     "metaheuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 33,
@@ -1284,7 +1317,8 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 34,
@@ -1323,7 +1357,8 @@
    "method": [
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 35,
@@ -1365,7 +1400,8 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 36,
@@ -1401,7 +1437,8 @@
    "method": [
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 37,
@@ -1436,7 +1473,8 @@
     "metaheuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 38,
@@ -1472,7 +1510,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 39,
@@ -1512,7 +1551,8 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 40,
@@ -1550,7 +1590,8 @@
    "method": [
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 41,
@@ -1588,7 +1629,8 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 42,
@@ -1631,7 +1673,8 @@
     "metaheuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 43,
@@ -1667,7 +1710,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 44,
@@ -1704,7 +1748,8 @@
     "metaheuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 45,
@@ -1743,7 +1788,8 @@
    "method": [
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 46,
@@ -1784,7 +1830,8 @@
     "simulation",
     "testbed/experiment"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 47,
@@ -1825,7 +1872,8 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 48,
@@ -1869,7 +1917,8 @@
    "method": [
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 49,
@@ -1911,7 +1960,8 @@
     "metaheuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 50,
@@ -1948,7 +1998,8 @@
     "metaheuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 51,
@@ -1984,7 +2035,8 @@
    "method": [
     "testbed/experiment"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 52,
@@ -2028,7 +2080,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 53,
@@ -2065,7 +2118,8 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 54,
@@ -2103,7 +2157,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 55,
@@ -2142,7 +2197,8 @@
     "metaheuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 56,
@@ -2176,7 +2232,8 @@
    "method": [
     "heuristic"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 57,
@@ -2216,7 +2273,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 58,
@@ -2261,7 +2319,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 59,
@@ -2305,7 +2364,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 60,
@@ -2351,7 +2411,8 @@
     "simulation",
     "testbed/experiment"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 61,
@@ -2394,7 +2455,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 62,
@@ -2436,7 +2498,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 63,
@@ -2476,7 +2539,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 64,
@@ -2515,7 +2579,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 65,
@@ -2553,7 +2618,8 @@
     "BER"
    ],
    "method": []
-  }
+  },
+  "read": true
  },
  {
   "id": 66,
@@ -2599,7 +2665,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 67,
@@ -2660,13 +2727,14 @@
    "method": [
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 68,
   "year": 2012,
   "kind": "conference",
-  "title": "Reliability Study of Wireless Sensor Networks with Different Network Topology Characteristics",
+  "title": "Reliability Analysis of Wireless Sensor Networks Using Different Network Topology Characteristics",
   "doi": "",
   "authors": [
    "C. Wang",
@@ -2693,7 +2761,8 @@
    "topology": [],
    "metric": [],
    "method": []
-  }
+  },
+  "read": true
  },
  {
   "id": 69,
@@ -2735,7 +2804,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 70,
@@ -2774,7 +2844,8 @@
     "metaheuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 71,
@@ -2815,7 +2886,8 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 72,
@@ -2853,7 +2925,8 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 73,
@@ -2895,7 +2968,8 @@
     "metaheuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 74,
@@ -2943,7 +3017,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 75,
@@ -2984,7 +3059,8 @@
    "method": [
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 76,
@@ -3030,7 +3106,8 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 77,
@@ -3068,7 +3145,8 @@
    "method": [
     "analytical model"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 78,
@@ -3109,7 +3187,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 79,
@@ -3142,7 +3221,8 @@
    "topology": [],
    "metric": [],
    "method": []
-  }
+  },
+  "read": true
  },
  {
   "id": 80,
@@ -3182,7 +3262,8 @@
    "method": [
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 81,
@@ -3225,7 +3306,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 82,
@@ -3270,7 +3352,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 83,
@@ -3309,7 +3392,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 84,
@@ -3351,7 +3435,8 @@
     "heuristic",
     "testbed/experiment"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 85,
@@ -3393,7 +3478,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 86,
@@ -3433,7 +3519,8 @@
     "simulation",
     "deep learning"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 87,
@@ -3481,7 +3568,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 88,
@@ -3519,7 +3607,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 89,
@@ -3568,7 +3657,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 90,
@@ -3606,7 +3696,8 @@
     "simulation",
     "testbed/experiment"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 91,
@@ -3646,7 +3737,8 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 92,
@@ -3684,7 +3776,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 93,
@@ -3725,7 +3818,8 @@
     "simulation",
     "testbed/experiment"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 94,
@@ -3765,7 +3859,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 95,
@@ -3803,7 +3898,8 @@
     "metaheuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 96,
@@ -3840,7 +3936,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 97,
@@ -3879,7 +3976,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 98,
@@ -3911,7 +4009,8 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 99,
@@ -3959,7 +4058,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 100,
@@ -4002,7 +4102,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 101,
@@ -4038,7 +4139,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 102,
@@ -4082,7 +4184,8 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 103,
@@ -4123,7 +4226,8 @@
    "method": [
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 104,
@@ -4163,7 +4267,8 @@
     "heuristic",
     "metaheuristic"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 105,
@@ -4199,7 +4304,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 106,
@@ -4241,7 +4347,8 @@
     "ILP/MILP",
     "heuristic"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 107,
@@ -4291,7 +4398,8 @@
     "blocking probability"
    ],
    "method": []
-  }
+  },
+  "read": true
  },
  {
   "id": 108,
@@ -4338,7 +4446,8 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 109,
@@ -4375,7 +4484,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 110,
@@ -4415,7 +4525,8 @@
    "method": [
     "analytical model"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 111,
@@ -4452,7 +4563,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 112,
@@ -4500,7 +4612,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 113,
@@ -4540,7 +4653,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 114,
@@ -4585,7 +4699,8 @@
     "metaheuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 115,
@@ -4620,7 +4735,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 116,
@@ -4639,7 +4755,7 @@
    "plante_j",
    "vokkarane_v"
   ],
-  "in_cv": false,
+  "in_cv": true,
   "thread": "Advance reservation and scheduling",
   "problem": "Scheduling massive transfers across wavelengths and time.",
   "approach": "Spatially and spectrally flexible scheduling with lightpath switching (journal).",
@@ -4658,7 +4774,8 @@
     "ILP/MILP",
     "heuristic"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 117,
@@ -4704,7 +4821,8 @@
     "deep learning",
     "testbed/experiment"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 118,
@@ -4742,7 +4860,8 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 119,
@@ -4785,7 +4904,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 120,
@@ -4828,7 +4948,8 @@
     "ILP/MILP",
     "heuristic"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 121,
@@ -4865,7 +4986,8 @@
     "ILP/MILP",
     "heuristic"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 122,
@@ -4904,7 +5026,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 123,
@@ -4956,7 +5079,8 @@
     "simulation",
     "game theory"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 124,
@@ -4991,7 +5115,8 @@
     "metaheuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 125,
@@ -5027,7 +5152,8 @@
    "method": [
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 126,
@@ -5075,7 +5201,8 @@
     "simulation",
     "deep learning"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 127,
@@ -5100,7 +5227,7 @@
    "qiu_f",
    "yao_r"
   ],
-  "in_cv": false,
+  "in_cv": true,
   "thread": "Smart grid resilience and security",
   "problem": "Observability after attacks needs both PMUs and their communications back.",
   "approach": "Joint PMU and communication infrastructure restoration.",
@@ -5121,7 +5248,8 @@
     "simulation",
     "deep learning"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 128,
@@ -5164,7 +5292,8 @@
     "metaheuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 129,
@@ -5201,7 +5330,8 @@
    "method": [
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 130,
@@ -5240,7 +5370,8 @@
     "simulation",
     "testbed/experiment"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 131,
@@ -5285,7 +5416,8 @@
     "metaheuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 132,
@@ -5333,7 +5465,8 @@
     "simulation",
     "deep learning"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 133,
@@ -5370,7 +5503,8 @@
     "metaheuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 134,
@@ -5413,7 +5547,8 @@
    "method": [
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 135,
@@ -5458,13 +5593,14 @@
     "ILP/MILP",
     "deep learning"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 136,
   "year": 2023,
   "kind": "conference",
-  "title": "and Y Lin, Cyber-Physical Reconfiguration for Disaster Resilience of Power Distribution Systems",
+  "title": "Cyber-Physical Reconfiguration for Disaster Resilience of Power Distribution Systems",
   "doi": "",
   "authors": [
    "MZ Islam",
@@ -5495,13 +5631,14 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 137,
   "year": 2023,
   "kind": "conference",
-  "title": "and Y Lin, PMU Network Routing for Resilient Observability of Power Grids",
+  "title": "PMU Network Routing for Resilient Observability of Power Grids",
   "doi": "",
   "authors": [
    "MZ Islam",
@@ -5532,7 +5669,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 138,
@@ -5575,7 +5713,8 @@
     "simulation",
     "reinforcement learning"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 139,
@@ -5616,7 +5755,8 @@
     "deep learning",
     "testbed/experiment"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 140,
@@ -5655,7 +5795,8 @@
     "simulation",
     "reinforcement learning"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 141,
@@ -5698,7 +5839,8 @@
     "simulation",
     "deep learning"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 142,
@@ -5719,7 +5861,7 @@
    "vokkarane_v",
    "lin_y"
   ],
-  "in_cv": false,
+  "in_cv": true,
   "thread": "Smart grid resilience and security",
   "problem": "Cyber restoration is stochastic after disasters and attacks.",
   "approach": "Reinforcement learning for observability-aware cyber restoration.",
@@ -5743,7 +5885,8 @@
     "reinforcement learning",
     "deep learning"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 143,
@@ -5797,7 +5940,8 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 144,
@@ -5850,7 +5994,8 @@
     "simulation",
     "reinforcement learning"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 145,
@@ -5886,7 +6031,8 @@
    "method": [
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 146,
@@ -5925,7 +6071,8 @@
     "simulation",
     "reinforcement learning"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 147,
@@ -5962,7 +6109,8 @@
     "simulation",
     "deep learning"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 148,
@@ -6010,7 +6158,8 @@
     "simulation",
     "reinforcement learning"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 149,
@@ -6052,7 +6201,8 @@
    "method": [
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 150,
@@ -6089,7 +6239,8 @@
     "accuracy/F1"
    ],
    "method": []
-  }
+  },
+  "read": true
  },
  {
   "id": 151,
@@ -6133,7 +6284,8 @@
     "heuristic",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 152,
@@ -6177,7 +6329,8 @@
    "method": [
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 153,
@@ -6203,7 +6356,7 @@
    "vokkarane_v",
    "brandt-pearce_m"
   ],
-  "in_cv": false,
+  "in_cv": true,
   "thread": "Data center and cloud networking",
   "problem": "Filter narrowing penalizes coherent pluggables in data center links.",
   "approach": "Experimental measurement of filter bandwidth requirements.",
@@ -6223,7 +6376,8 @@
     "simulation",
     "testbed/experiment"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 154,
@@ -6269,7 +6423,8 @@
     "simulation",
     "reinforcement learning"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 155,
@@ -6321,7 +6476,8 @@
     "analytical model",
     "simulation"
    ]
-  }
+  },
+  "read": true
  },
  {
   "id": 156,
@@ -6374,6 +6530,1507 @@
     "simulation",
     "testbed/experiment"
    ]
+  },
+  "read": true
+ },
+ {
+  "id": 157,
+  "year": 2026,
+  "kind": "journal",
+  "title": "On the Impact of Pulse Shaping for Optical Fiber Networks",
+  "doi": "",
+  "authors": [
+   "H. Rabbani",
+   "A. Rezaee",
+   "F. Arpanaei",
+   "V. M. Vokkarane",
+   "M. Brandt-Pearce"
+  ],
+  "students": [],
+  "author_keys": [
+   "rabbani_h",
+   "rezaee_a",
+   "arpanaei_f",
+   "vokkarane_v",
+   "brandt-pearce_m"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Physical layer modeling",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 158,
+  "year": 2023,
+  "kind": "journal",
+  "title": "Robust learning-based real-time load estimation using sparsely deployed smart meters with high reporting rates",
+  "doi": "10.1016/j.apenergy.2023.121964",
+  "authors": [
+   "Md. Zahidul Islam",
+   "Yuzhang Lin",
+   "Vinod M. Vokkarane",
+   "Nanpeng Yu"
+  ],
+  "students": [],
+  "author_keys": [
+   "islam_m",
+   "lin_y",
+   "vokkarane_v",
+   "yu_n"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Smart grid resilience and security",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 159,
+  "year": 2023,
+  "kind": "journal",
+  "title": "Cyber-physical cascading failure and resilience of power grid: A comprehensive review",
+  "doi": "10.3389/fenrg.2023.1095303",
+  "authors": [
+   "M. Z. Islam",
+   "Y. Lin",
+   "V. M. Vokkarane",
+   "V. Venkataramanan"
+  ],
+  "students": [],
+  "author_keys": [
+   "islam_m",
+   "lin_y",
+   "vokkarane_v",
+   "venkataramanan_v"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Smart grid resilience and security",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 160,
+  "year": 2021,
+  "kind": "journal",
+  "title": "Delayed spectrum allocation in elastic optical networks with anycast traffic",
+  "doi": "",
+  "authors": [
+   "P Afsharlar",
+   "A Deylamsalehi",
+   "VM Vokkarane"
+  ],
+  "students": [],
+  "author_keys": [
+   "afsharlar_p",
+   "deylamsalehi_a",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Elastic and SDM optical networks",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 161,
+  "year": 2017,
+  "kind": "journal",
+  "title": "Communication Reliability Analysis of Wireless Sensor Networks Using Phased-Mission Model",
+  "doi": "",
+  "authors": [
+   "C. Wang",
+   "L. Xing",
+   "A.E. Zonouz",
+   "V. M. Vokkarane",
+   "Y. Sun"
+  ],
+  "students": [
+   "wang_c",
+   "zonouz_a"
+  ],
+  "author_keys": [
+   "wang_c",
+   "xing_l",
+   "zonouz_a",
+   "vokkarane_v",
+   "sun_y"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Wireless sensor and access networks",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 162,
+  "year": 2016,
+  "kind": "journal",
+  "title": "Hybrid wireless sensor networks: a reliability, cost and energy-aware approach",
+  "doi": "10.1049/iet-wss.2014.0131",
+  "authors": [
+   "A.E. Zonouz",
+   "L. Xing",
+   "V.M. Vokkarane",
+   "Y.L. Sun"
+  ],
+  "students": [
+   "zonouz_a"
+  ],
+  "author_keys": [
+   "zonouz_a",
+   "xing_l",
+   "vokkarane_v",
+   "sun_y"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Wireless sensor and access networks",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 163,
+  "year": 2016,
+  "kind": "journal",
+  "title": "Static Protection Against Single Multicast Resource Failure",
+  "doi": "10.1007/s11107-015-0590-3",
+  "authors": [
+   "D.A.P. Davis",
+   "V. M. Vokkarane"
+  ],
+  "students": [
+   "davis_d"
+  ],
+  "author_keys": [
+   "davis_d",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Survivability and protection",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 164,
+  "year": 2016,
+  "kind": "journal",
+  "title": "Infrastructure Communication Sensitivity Analysis of Wireless Sensor Networks",
+  "doi": "",
+  "authors": [
+   "C. Wang",
+   "L. Xing",
+   "V. M. Vokkarane",
+   "Y. Sun"
+  ],
+  "students": [
+   "wang_c"
+  ],
+  "author_keys": [
+   "wang_c",
+   "xing_l",
+   "vokkarane_v",
+   "sun_y"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Wireless sensor and access networks",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 165,
+  "year": 2015,
+  "kind": "journal",
+  "title": "Parallel Circuit Provisioning in ESnet's OSCARS",
+  "doi": "10.1007/s11107-015-0535-x",
+  "authors": [
+   "J.M. Plante",
+   "D.A.P. Davis",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "plante_j"
+  ],
+  "author_keys": [
+   "plante_j",
+   "davis_d",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Advance reservation and scheduling",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 166,
+  "year": 2015,
+  "kind": "journal",
+  "title": "Application Communication Reliability of Wireless Sensor Networks",
+  "doi": "",
+  "authors": [
+   "A. E. Zonouz",
+   "L. Xing",
+   "V. M. Vokkarane",
+   "Y. Sun"
+  ],
+  "students": [
+   "zonouz_a"
+  ],
+  "author_keys": [
+   "zonouz_a",
+   "xing_l",
+   "vokkarane_v",
+   "sun_y"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Wireless sensor and access networks",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 167,
+  "year": 2014,
+  "kind": "journal",
+  "title": "Renewable Energy-aware Grooming in Optical Networks",
+  "doi": "",
+  "authors": [
+   "T. Schöndienst",
+   "V. M. Vokkarane"
+  ],
+  "students": [
+   "schöndienst_t"
+  ],
+  "author_keys": [
+   "schöndienst_t",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Energy and carbon-aware networking",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 168,
+  "year": 2014,
+  "kind": "journal",
+  "title": "Reliability and Lifetime Modeling of Wireless Sensor Nodes",
+  "doi": "",
+  "authors": [
+   "C. Wang",
+   "L. Xing",
+   "V. M. Vokkarane",
+   "Y. Sun"
+  ],
+  "students": [
+   "wang_c"
+  ],
+  "author_keys": [
+   "wang_c",
+   "xing_l",
+   "vokkarane_v",
+   "sun_y"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Wireless sensor and access networks",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 169,
+  "year": 2012,
+  "kind": "journal",
+  "title": "Dynamic Circuit Provisioning in All-Optical WDM Networks Using Lightpath Switching",
+  "doi": "10.1016/j.osn.2011.11.004",
+  "authors": [
+   "N. Charbonneau",
+   "A. G. Gadkar",
+   "B.H. Ramaprasad",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "charbonneau_n",
+   "gadkar_a",
+   "ramaprasad_b"
+  ],
+  "author_keys": [
+   "charbonneau_n",
+   "gadkar_a",
+   "ramaprasad_b",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Advance reservation and scheduling",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 170,
+  "year": 2012,
+  "kind": "journal",
+  "title": "Reliability Analysis and Optimization of WSN with Tree Topology",
+  "doi": "",
+  "authors": [
+   "C. Wang",
+   "L. Xing",
+   "V. M. Vokkarane",
+   "Y. Sun"
+  ],
+  "students": [
+   "wang_c"
+  ],
+  "author_keys": [
+   "wang_c",
+   "xing_l",
+   "vokkarane_v",
+   "sun_y"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Wireless sensor and access networks",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 171,
+  "year": 2012,
+  "kind": "journal",
+  "title": "Infrastructure Communication Reliability of Wireless Sensor Networks Considering Common-Cause Failures",
+  "doi": "",
+  "authors": [
+   "A. Shrestha",
+   "L. Xing",
+   "Y. Sun",
+   "V. M. Vokkarane"
+  ],
+  "students": [
+   "shrestha_a"
+  ],
+  "author_keys": [
+   "shrestha_a",
+   "xing_l",
+   "sun_y",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Wireless sensor and access networks",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 172,
+  "year": 2012,
+  "kind": "journal",
+  "title": "Improving TCP Performance over Optical Burst-Switched Networks Using Forward Segment Redundancy",
+  "doi": "",
+  "authors": [
+   "N. Charbonneau",
+   "D. Chandran",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "charbonneau_n"
+  ],
+  "author_keys": [
+   "charbonneau_n",
+   "chandran_d",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "TCP over OBS",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 173,
+  "year": 2011,
+  "kind": "journal",
+  "title": "TCP over Optical Burst-Switched Networks with Controlled Burst Retransmission",
+  "doi": "",
+  "authors": [
+   "Q. Zhang",
+   "N. Charbonneau",
+   "V.M. Vokkarane",
+   "J.P. Jue"
+  ],
+  "students": [
+   "charbonneau_n"
+  ],
+  "author_keys": [
+   "zhang_q",
+   "charbonneau_n",
+   "vokkarane_v",
+   "jue_j"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "TCP over OBS",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 174,
+  "year": 2011,
+  "kind": "journal",
+  "title": "Multi-Layer Loss Recovery in TCP over Optical Burst-Switched (OBS) Networks",
+  "doi": "",
+  "authors": [
+   "R.R.C. Bikram",
+   "N. Charbonneau",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "bikram_r",
+   "charbonneau_n"
+  ],
+  "author_keys": [
+   "bikram_r",
+   "charbonneau_n",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "TCP over OBS",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 175,
+  "year": 2011,
+  "kind": "journal",
+  "title": "Performance Modeling of HS-RR-TCP Over Load-Balanced Optical Burst-Switched (OBS) Networks",
+  "doi": "",
+  "authors": [
+   "N. Charbonneau",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "charbonneau_n"
+  ],
+  "author_keys": [
+   "charbonneau_n",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "TCP over OBS",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 176,
+  "year": 2010,
+  "kind": "journal",
+  "title": "Source-Ordering for Improved TCP Performance over Load-Balanced Optical Burst-Switched (OBS) Networks",
+  "doi": "",
+  "authors": [
+   "B. Komatireddy",
+   "N. Charbonneau",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "komatireddy_b",
+   "charbonneau_n"
+  ],
+  "author_keys": [
+   "komatireddy_b",
+   "charbonneau_n",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "TCP over OBS",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 177,
+  "year": 2009,
+  "kind": "journal",
+  "title": "Optimizing Sensor Count in Layered Wireless Sensor Networks",
+  "doi": "",
+  "authors": [
+   "A. Parikh",
+   "H. Joshi",
+   "L. Xing",
+   "V. M. Vokkarane",
+   "H. Liu"
+  ],
+  "students": [
+   "parikh_a",
+   "joshi_h"
+  ],
+  "author_keys": [
+   "parikh_a",
+   "joshi_h",
+   "xing_l",
+   "vokkarane_v",
+   "liu_h"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Wireless sensor and access networks",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 178,
+  "year": 2007,
+  "kind": "journal",
+  "title": "Optical Burst Switching Network: A Multi-layered Approach",
+  "doi": "",
+  "authors": [
+   "F. Farahmand",
+   "V.M. Vokkarane",
+   "J.P. Jue",
+   "J.J.P.C. Rodrigues",
+   "M.M. Freire"
+  ],
+  "students": [],
+  "author_keys": [
+   "farahmand_f",
+   "vokkarane_v",
+   "jue_j",
+   "rodrigues_j",
+   "freire_m"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "OBS architecture",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 179,
+  "year": 2007,
+  "kind": "journal",
+  "title": "Intermediate-Node-Initiation (INI): A Generalized Signaling Framework for Optical Burst-Switched Networks",
+  "doi": "",
+  "authors": [
+   "V.M. Vokkarane"
+  ],
+  "students": [],
+  "author_keys": [
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "OBS contention and QoS",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 180,
+  "year": 2003,
+  "kind": "journal",
+  "title": "Burst Segmentation: an Approach for Reducing Packet Loss in Optical Burst-Switched Networks",
+  "doi": "",
+  "authors": [
+   "V.M. Vokkarane",
+   "J.P. Jue"
+  ],
+  "students": [],
+  "author_keys": [
+   "vokkarane_v",
+   "jue_j"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "OBS contention and QoS",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 181,
+  "year": 2026,
+  "kind": "conference",
+  "title": "Communication Network-Aware Missing Data Recovery for Enhanced Distribution Grid Visibility",
+  "doi": "",
+  "authors": [
+   "B. R. J. Arka",
+   "M. Z. Islam",
+   "Y. Lin",
+   "V. M. Vokkarane",
+   "J. Zhao"
+  ],
+  "students": [],
+  "author_keys": [
+   "arka_b",
+   "islam_m",
+   "lin_y",
+   "vokkarane_v",
+   "zhao_j"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Smart grid resilience and security",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 182,
+  "year": 2025,
+  "kind": "conference",
+  "title": "QoS-Aware Service Restoration in 5G Optical Transport Networks",
+  "doi": "",
+  "authors": [
+   "Z. Sharifi Soltani",
+   "A. Rezaee",
+   "O. Arias",
+   "V. M. Vokkarane"
+  ],
+  "students": [],
+  "author_keys": [
+   "soltani_z",
+   "rezaee_a",
+   "arias_o",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Survivability and protection",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 183,
+  "year": 2020,
+  "kind": "conference",
+  "title": "Time-Slice: Evaluation of SDM lightpath Switching RMCSA Algorithms",
+  "doi": "",
+  "authors": [
+   "Yue Wang",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "wang_y"
+  ],
+  "author_keys": [
+   "wang_y",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Elastic and SDM optical networks",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 184,
+  "year": 2019,
+  "kind": "conference",
+  "title": "Light-Slice: Evaluation of Slice-ability-based RMCSA algorithms in SDM-EON",
+  "doi": "",
+  "authors": [
+   "Yue Wang",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "wang_y"
+  ],
+  "author_keys": [
+   "wang_y",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Elastic and SDM optical networks",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 185,
+  "year": 2019,
+  "kind": "conference",
+  "title": "Analytical Modeling of Survivable Anycast Communication in Optical Networks",
+  "doi": "",
+  "authors": [
+   "Yan Cui",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "cui_y"
+  ],
+  "author_keys": [
+   "cui_y",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Survivability and protection",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 186,
+  "year": 2016,
+  "kind": "conference",
+  "title": "DeepFood: Deep Learning-based Food Image Recognition for Computer-aided Dietary Assessment",
+  "doi": "",
+  "authors": [
+   "Chang Liu",
+   "Yu Cao",
+   "Yan Luo",
+   "Guanling Chen",
+   "Vinod Vokkarane",
+   "Yunsheng Ma"
+  ],
+  "students": [],
+  "author_keys": [
+   "liu_c",
+   "cao_y",
+   "luo_y",
+   "chen_g",
+   "vokkarane_v",
+   "ma_y"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Edge computing and IoT",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 187,
+  "year": 2013,
+  "kind": "conference",
+  "title": "Energy source aware WDM core networks",
+  "doi": "",
+  "authors": [
+   "Thilo Schöndienst",
+   "Jeremy M. Plante",
+   "Dylan A. Davis",
+   "Mark Boddie",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "schöndienst_t",
+   "plante_j",
+   "davis_d",
+   "boddie_m"
+  ],
+  "author_keys": [
+   "schöndienst_t",
+   "plante_j",
+   "davis_d",
+   "boddie_m",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Energy and carbon-aware networking",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 188,
+  "year": 2013,
+  "kind": "conference",
+  "title": "Enhancing ESnet’s Unicast-Only OSCARS with a Manycast Overlay Service",
+  "doi": "",
+  "authors": [
+   "Jeremy M. Plante",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "plante_j"
+  ],
+  "author_keys": [
+   "plante_j",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Manycast and anycast",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 189,
+  "year": 2012,
+  "kind": "conference",
+  "title": "Manycast and Anycast-Based Infrastructure Communication Reliability for Wireless Sensor Networks",
+  "doi": "",
+  "authors": [
+   "C. Wang",
+   "L. Xing",
+   "V. M. Vokkarane",
+   "Y. Sun"
+  ],
+  "students": [
+   "wang_c"
+  ],
+  "author_keys": [
+   "wang_c",
+   "xing_l",
+   "vokkarane_v",
+   "sun_y"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Wireless sensor and access networks",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 190,
+  "year": 2012,
+  "kind": "conference",
+  "title": "K-coverage Reliability Evaluation for Wireless Sensor Networks",
+  "doi": "",
+  "authors": [
+   "A. E. Zonouz",
+   "L. Xing",
+   "V. M. Vokkarane",
+   "Y. Sun"
+  ],
+  "students": [
+   "zonouz_a"
+  ],
+  "author_keys": [
+   "zonouz_a",
+   "xing_l",
+   "vokkarane_v",
+   "sun_y"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Wireless sensor and access networks",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 191,
+  "year": 2011,
+  "kind": "conference",
+  "title": "Static Multicast Overlay in WDM Unicast Networks for Large-Scale Scientific Applications",
+  "doi": "",
+  "authors": [
+   "A.G. Gadkar",
+   "J. Plante",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "gadkar_a",
+   "plante_j"
+  ],
+  "author_keys": [
+   "gadkar_a",
+   "plante_j",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Advance reservation and scheduling",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 192,
+  "year": 2011,
+  "kind": "conference",
+  "title": "Dynamic Non-Continuous Advance Reservation over Wavelength-Routed Networks",
+  "doi": "",
+  "authors": [
+   "N. Charbonneau",
+   "V.M. Vokkarane"
+  ],
+  "students": [
+   "charbonneau_n"
+  ],
+  "author_keys": [
+   "charbonneau_n",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Advance reservation and scheduling",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 193,
+  "year": 2008,
+  "kind": "conference",
+  "title": "Manycast Service in Optical Burst/Packet Switched (OBS/OPS) Networks",
+  "doi": "",
+  "authors": [
+   "V.M. Vokkarane",
+   "B.G. Bathula"
+  ],
+  "students": [
+   "bathula_b"
+  ],
+  "author_keys": [
+   "vokkarane_v",
+   "bathula_b"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Manycast and anycast",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 194,
+  "year": 2004,
+  "kind": "conference",
+  "title": "Threshold-Based Differentiated Intermediate-Node Initiated (TDINI) Signaling for Optical Burst-Switched Networks",
+  "doi": "",
+  "authors": [
+   "R. Jothi",
+   "V.M. Vokkarane"
+  ],
+  "students": [],
+  "author_keys": [
+   "jothi_r",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "OBS contention and QoS",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 195,
+  "year": 2003,
+  "kind": "conference",
+  "title": "Segmentation-Based Non-Preemptive Scheduling Algorithms for Optical Burst-Switched Networks",
+  "doi": "",
+  "authors": [
+   "V.M. Vokkarane",
+   "J.P. Jue"
+  ],
+  "students": [],
+  "author_keys": [
+   "vokkarane_v",
+   "jue_j"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "OBS contention and QoS",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 196,
+  "year": 2003,
+  "kind": "conference",
+  "title": "Practical Priority Contention Resolution for Slotted Optical Burst Switching Networks",
+  "doi": "",
+  "authors": [
+   "F. Farahmand",
+   "V.M. Vokkarane",
+   "J.P. Jue"
+  ],
+  "students": [],
+  "author_keys": [
+   "farahmand_f",
+   "vokkarane_v",
+   "jue_j"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "OBS contention and QoS",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 197,
+  "year": 2003,
+  "kind": "conference",
+  "title": "QoS in Optical Burst Switching",
+  "doi": "",
+  "authors": [
+   "V.M. Vokkarane"
+  ],
+  "students": [],
+  "author_keys": [
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "OBS contention and QoS",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 198,
+  "year": 2002,
+  "kind": "conference",
+  "title": "Threshold-Based Burst Assembly Policies for QoS Support in Optical Burst-Switched Networks",
+  "doi": "",
+  "authors": [
+   "V.M. Vokkarane",
+   "K. Haridoss",
+   "J.P. Jue"
+  ],
+  "students": [],
+  "author_keys": [
+   "vokkarane_v",
+   "haridoss_k",
+   "jue_j"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "OBS contention and QoS",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 199,
+  "year": 2024,
+  "kind": "chapter",
+  "title": "Resilient Sensing and Communication Architecture for Microgrid Management",
+  "doi": "10.1002/9781119890881.ch19",
+  "authors": [
+   "Yuzhang Lin",
+   "Vinod M. Vokkarane",
+   "Md. Zahidul Islam",
+   "Shamsun Nahar Edib"
+  ],
+  "students": [],
+  "author_keys": [
+   "lin_y",
+   "vokkarane_v",
+   "islam_m",
+   "edib_s"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Smart grid resilience and security",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 200,
+  "year": 2020,
+  "kind": "chapter",
+  "title": "Analytical Modeling of Survivable Anycast Communication in Optical Networks",
+  "doi": "",
+  "authors": [
+   "Yan Cui",
+   "Vinod M. Vokkarane"
+  ],
+  "students": [
+   "cui_y"
+  ],
+  "author_keys": [
+   "cui_y",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Survivability and protection",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 201,
+  "year": 2018,
+  "kind": "chapter",
+  "title": "Reliability Analysis of Multi-State Cloud-RAID with Imperfect Element-Level Coverage",
+  "doi": "",
+  "authors": [
+   "L Mandava",
+   "L Xing",
+   "VM Vokkarane",
+   "O Tannous"
+  ],
+  "students": [],
+  "author_keys": [
+   "mandava_l",
+   "xing_l",
+   "vokkarane_v",
+   "tannous_o"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Reliability modeling",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 202,
+  "year": 2008,
+  "kind": "chapter",
+  "title": "Manycast Service in Optical Burst/Packet Switched (OBS/OPS) Networks",
+  "doi": "",
+  "authors": [
+   "V. M. Vokkarane",
+   "B.G. Bathula"
+  ],
+  "students": [
+   "bathula_b"
+  ],
+  "author_keys": [
+   "vokkarane_v",
+   "bathula_b"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "Manycast and anycast",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
+  }
+ },
+ {
+  "id": 203,
+  "year": 2005,
+  "kind": "book",
+  "title": "Optical Burst Switched Networks (Springer, Optical Networks Series)",
+  "doi": "",
+  "authors": [
+   "J.P. Jue",
+   "V.M. Vokkarane"
+  ],
+  "students": [],
+  "author_keys": [
+   "jue_j",
+   "vokkarane_v"
+  ],
+  "in_cv": true,
+  "read": false,
+  "thread": "OBS contention and QoS",
+  "problem": "",
+  "approach": "",
+  "finding": "",
+  "tags": {
+   "tool": [],
+   "topology": [],
+   "metric": [],
+   "method": []
   }
  }
 ]

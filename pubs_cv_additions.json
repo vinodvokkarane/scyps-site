@@ -1,5 +1,5 @@
 {
- "note": "Papers from center faculty CVs (Sept. 2026) that the curated list lacked, verified against Crossref: Luo from Sept. 2019, and Lin only where co-authored with another center faculty member. Three of the director's papers without DOIs yet (ONDM 2025 short paper, PESGM 2026, and an accepted Optical Fiber Technology paper) come from his CV.",
+ "note": "Papers from center faculty CVs (Sept. 2026) that the curated list lacked, verified against Crossref: Luo from Sept. 2019, and Lin only where co-authored with another center faculty member. Three of the director's papers without DOIs yet (ONDM 2025 short paper, PESGM 2026, and an accepted Optical Fiber Technology paper) come from his CV. Two of Sukesh Aghara's papers come from his CV (Sept. 2026): Nuclear Engineering and Design 2020, verified against Crossref, and an ESARDA Bulletin paper whose DOI is registered outside Crossref.",
  "entries": [
   {
    "year": 2024,
@@ -466,6 +466,41 @@
     "Vokkarane"
    ],
    "area": "Optical networks"
+  },
+  {
+   "year": 2020,
+   "authors": [
+    "J. Boffie",
+    "S. K. Aghara",
+    "J. M. Pounders"
+   ],
+   "title": "Application of an Adaptive Time Step Scheme for Solving the Time-Dependent Discrete Ordinates Transport Equation",
+   "venue": "Nuclear Engineering and Design",
+   "details": "vol. 363, art. no. 110620, July 2020",
+   "doi": "10.1016/j.nucengdes.2020.110620",
+   "type": "journal",
+   "faculty": [
+    "Aghara"
+   ],
+   "area": "Nuclear energy and security"
+  },
+  {
+   "year": 2022,
+   "authors": [
+    "L. Annadevula",
+    "S. K. Aghara",
+    "K. Jarman",
+    "L. Joyce"
+   ],
+   "title": "Stochastic Approach to Inspection Evaluation: Methodology and Validation",
+   "venue": "ESARDA Bulletin: The International Journal of Nuclear Safeguards and Non-Proliferation",
+   "details": "no. 64, issue 1, June 2022",
+   "doi": "10.3011/ESARDA.IJNSNP.2022.3",
+   "type": "journal",
+   "faculty": [
+    "Aghara"
+   ],
+   "area": "Nuclear energy and security"
   }
  ]
 }

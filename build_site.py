@@ -29,8 +29,8 @@ FACULTY = {
                 "SUMMIT testbed award and a technical advisor to the UMass Lowell Applied Research Corporation (UMLARC)."),
     },
     "core": [
-        {"name": "Sukesh Aghara", "photo": "aghara", "title": "Professor, Chemical (Nuclear) Engineering; Director, Nuclear Engineering Program",
-         "areas": "Nuclear nonproliferation, nuclear security and safeguards, nuclear energy for decarbonization", "email": "Sukesh_Aghara@uml.edu", "phone": "978-934-3115", "role": "Co-founder of the center in 2019 and founding co-director for energy. Leads the nuclear energy and security thrust, the Massachusetts Advanced Nuclear and Fusion Energy Roadmaps, and directs the Integrated Nuclear Security and Safeguards Laboratory (INSSL) and co-directs the IAEA-funded Intercontinental Nuclear Institute.", "url": "https://www.uml.edu/engineering/chemical/faculty/aghara-sukesh.aspx"},
+        {"name": "Sukesh Aghara", "photo": "aghara", "title": "Professor, Chemical and Nuclear Engineering; Senior Advisor to the Chancellor on Nuclear Energy Strategies",
+         "areas": "Nuclear security and safeguards, cybersecurity of nuclear facilities, advanced reactor modeling, nuclear energy for decarbonization", "email": "Sukesh_Aghara@uml.edu", "phone": "978-934-3115", "role": "Co-founder of the center in 2019 and founding co-director for energy. Leads the nuclear energy and security thrust and the Massachusetts Advanced Nuclear and Fusion Energy Roadmaps; directs the Integrated Nuclear Security and Safeguards Laboratory (INSSL) and co-directs the IAEA-funded Intercontinental Nuclear Institute. Editor of The Oxford Handbook of Nuclear Security (Oxford University Press). Associate Dean for Research of the Francis College of Engineering from 2021 to 2026 and Director of the Nuclear Engineering Program from 2017 to 2025. Chair of the Nuclear Engineering Department Heads Organization for 2024 to 2025, and elected in 2024 to the board of the ASEE Engineering Research Council.", "url": "https://www.uml.edu/engineering/chemical/faculty/aghara-sukesh.aspx"},
         {"name": "Orlando Arias", "photo": "arias", "title": "Assistant Professor, Electrical and Computer Engineering",
          "areas": "Hardware security, hardware-software co-design, embedded and microarchitectural security, cyber security",
          "email": "Orlando_Arias@uml.edu", "phone": "978-934-3476", "office": "Ball Hall 407A",
@@ -3104,7 +3104,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.03"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.04"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3508,7 +3508,7 @@ LABS = [
      "art": "summit"},
     {"name": "Integrated Nuclear Security and Safeguards Laboratory (INSSL)", "lead": "Sukesh Aghara",
      "dept": "Chemical (Nuclear) Engineering",
-     "what": "Research, education, and training tools for global nuclear security and safeguards, alongside the UMass Lowell research reactor.",
+     "what": "Research, education, and training tools for global nuclear security and safeguards, alongside the UMass Lowell research reactor. The lab has radiation detectors and cyber-physical testbeds, and its work on nuclear facility cybersecurity, safeguards verification, and advanced reactor modeling is supported by federal agencies including NNSA.",
      "offers": ["Safeguards measurement and detector response modeling",
                 "Security of nuclear facilities and robotic platforms for hazardous environments",
                 "Training through the IAEA-funded Intercontinental Nuclear Institute"],

@@ -79,7 +79,7 @@ FACULTY = {
          "url": "https://www.uml.edu/research/locsst/about/faculty-staff/chakrabarti-supriya.aspx"},
         {"name": "Chunxiao (Tricia) Chigan", "photo": "chigan", "title": "Professor, Electrical and Computer Engineering",
          "areas": "Communication networks and network security", "email": "Tricia_Chigan@uml.edu", "phone": "978-934-3364", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/chigan-tricia.aspx"},
-        {"name": "Hsien-Yuan (Mark) Hsu", "photo": "", "title": "Associate Professor, School of Education, College of Fine Arts, Humanities and Social Sciences",
+        {"name": "Hsien-Yuan (Mark) Hsu", "photo": "hsu", "title": "Associate Professor, School of Education, College of Fine Arts, Humanities and Social Sciences",
          "areas": "Multilevel modeling, psychometrics, and engineering education; education research and evaluation for the center's training programs",
          "note": "Education and workforce lead; Co-PI with Tseng on the NSF cyberinfrastructure planning award (#2609490).",
          "email": "HsienYuan_Hsu@uml.edu", "phone": "978-934-4608", "url": "https://www.uml.edu/education/faculty-staff/faculty/hsu-hsien-yuan.aspx"},
@@ -3189,7 +3189,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.15"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.16"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -6413,81 +6413,112 @@ def _college_of(p):
     if any(k in t for k in ("philosophy", "school of education", "fine arts")): return "College of Fine Arts, Humanities and Social Sciences"
     return "UMass Lowell"
 
+def _thumb(key, px=96):
+    """A small JPEG of a portrait for the graph, so the page does not carry the full-size photo twice."""
+    import base64, io
+    from PIL import Image
+    im = Image.open(io.BytesIO(base64.b64decode(IMG[key]))).convert("RGB").resize((px, px), Image.LANCZOS)
+    buf = io.BytesIO(); im.save(buf, "JPEG", quality=78, optimize=True)
+    return "data:image/jpeg;base64," + base64.b64encode(buf.getvalue()).decode()
+
 def collab_graph_html():
-    """A connected graph of who works with whom: faculty, external collaborators, and students, linked by co-authored
-    papers in the center record and by shared awards. Laid out with a spring layout and drawn as inline SVG."""
+    """Who works with whom among the faculty and external collaborators: a link for every co-authored paper in the
+    center record and every shared award. Each person is drawn with their photo, ringed in the color of their
+    college or institution. Laid out per connected component; people with no joint work yet are listed below."""
     try: import networkx as nx
     except ImportError: return ""
     people = [FACULTY["director"]] + FACULTY["core"] + FACULTY["affiliated"] + FACULTY["external"]
-    nodes = {}
-    for p in people:
-        nodes[_person_key(p["name"])] = {"name": p["name"], "where": _college_of(p), "kind": "faculty"}
-    adv_col = {p["name"]: _college_of(p) for p in people}
-    for s in STUDENTS:
-        col = "College of Fine Arts, Humanities and Social Sciences" if "Education" in s.get("program", "") else adv_col.get(s.get("advisor", ""), "UMass Lowell")
-        nodes.setdefault(_person_key(s["name"]), {"name": s["name"], "where": col, "kind": "student"})
+    nodes = {_person_key(p["name"]): {"name": re.sub(r"\s*\(.*?\)", "", p["name"]), "where": _college_of(p), "photo": p.get("photo") or ""} for p in people}
     G = nx.Graph(); G.add_nodes_from(nodes)
     def link(a, b, kind):
         if a == b or a not in nodes or b not in nodes: return
         if G.has_edge(a, b): G[a][b]["w"] += 1; G[a][b][kind] += 1
         else: G.add_edge(a, b, w=1, paper=0, award=0); G[a][b][kind] += 1
     for p in P:
-        ks = [k for k in {_person_key(a) for a in p["authors"]} if k in nodes]
+        ks = sorted({k for k in {_person_key(a) for a in p["authors"]} if k in nodes})
         for i in range(len(ks)):
             for j in range(i + 1, len(ks)): link(ks[i], ks[j], "paper")
-    names = {n: nodes[n]["name"] for n in nodes}
     for pr in PROJECTS:
-        team = pr.get("team", "")
-        words = set(re.findall(r"[A-Za-z][A-Za-z-]+", team))
-        ks = [k for k, nm in names.items() if re.sub(r"\s*\(.*?\)", "", nm) in team or nm.split()[-1] in words]
+        team = pr.get("team", ""); words = set(re.findall(r"[A-Za-z][A-Za-z-]+", team))
+        ks = sorted(k for k, d in nodes.items() if d["name"] in team or d["name"].split()[-1] in words)
         for i in range(len(ks)):
             for j in range(i + 1, len(ks)): link(ks[i], ks[j], "award")
-    alone = sorted(nodes[n]["name"] for n in G if G.degree(n) == 0 and nodes[n]["kind"] == "faculty")
+    alone = sorted(nodes[n]["name"] for n in G if G.degree(n) == 0)
     G.remove_nodes_from([n for n in list(G) if G.degree(n) == 0])
-    W, H, M = 960, 640, 64
-    # Lay out each connected component on its own (Kamada-Kawai spreads a dense cluster evenly), the largest across
-    # the canvas and the smaller ones tucked into the top-left corner, so no component squeezes the others.
+    if not len(G): return ""
+    W, H, M = 1100, 760, 70
     comps = sorted(nx.connected_components(G), key=len, reverse=True)
     pos = {}
     def fit(sub, x0, y0, w, h):
-        p = nx.kamada_kawai_layout(sub) if len(sub) > 2 else nx.circular_layout(sub)
+        p = nx.kamada_kawai_layout(sub, weight=None) if len(sub) > 2 else nx.circular_layout(sub)
         xs = [v[0] for v in p.values()]; ys = [v[1] for v in p.values()]
         for n, (x, y) in p.items():
             pos[n] = (x0 + (x - min(xs)) / (max(xs) - min(xs) or 1) * w, y0 + (y - min(ys)) / (max(ys) - min(ys) or 1) * h)
-    fit(G.subgraph(comps[0]), M + 150, M, W - 2 * M - 150, H - 2 * M)
+    side = 170 if len(comps) > 1 else 0
+    fit(G.subgraph(comps[0]), M + side, M, W - 2 * M - side, H - 2 * M - 10)
     cy = M
     for c in comps[1:]:
-        fit(G.subgraph(c), M, cy, 90, 60); cy += 110
-    sx = lambda x: x; sy = lambda y: y
-    where_order = ["Francis College of Engineering", "Kennedy College of Sciences", "College of Fine Arts, Humanities and Social Sciences", "UMass Lowell"]
-    where_order += sorted({nodes[n]["where"] for n in G} - set(where_order))
+        fit(G.subgraph(c), M, cy, 110, 70); cy += 150
+    # Nudge apart any two people whose photo-and-name boxes would overlap (each box is about 150 x 84 px),
+    # moving along whichever axis needs the smaller push, and keep everyone on the canvas.
+    BW, BH = 150, 84
+    for _ in range(400):
+        moved = False; ks = list(pos)
+        for i in range(len(ks)):
+            for j in range(i + 1, len(ks)):
+                (x1, y1), (x2, y2) = pos[ks[i]], pos[ks[j]]
+                ox, oy = BW - abs(x1 - x2), BH - abs(y1 - y2)
+                if ox > 0 and oy > 0:
+                    moved = True
+                    if ox < oy:
+                        s = (ox / 2 + 1) * (1 if x1 >= x2 else -1); pos[ks[i]] = (x1 + s, y1); pos[ks[j]] = (x2 - s, y2)
+                    else:
+                        s = (oy / 2 + 1) * (1 if y1 >= y2 else -1); pos[ks[i]] = (x1, y1 + s); pos[ks[j]] = (x2, y2 - s)
+        for n, (x, y) in pos.items(): pos[n] = (min(W - M, max(M, x)), min(H - M - 12, max(M - 10, y)))
+        if not moved: break
+    order = ["Francis College of Engineering", "Kennedy College of Sciences", "College of Fine Arts, Humanities and Social Sciences", "UMass Lowell"]
+    order += sorted({nodes[n]["where"] for n in G} - set(order))
     palette = ["#044978", "#2CA58D", "#C2185B", "#8A8F98", "#D4A017", "#8E5BB2", "#E4572E", "#3F8FD2", "#5B8C5A"]
-    color = {w: palette[i % len(palette)] for i, w in enumerate(where_order)}
+    color = {w: palette[i % len(palette)] for i, w in enumerate(order)}
+    maxw = max(d["w"] for _, _, d in G.edges(data=True))
     edges = []
-    for a, b, d in G.edges(data=True):
-        t = f"{nodes[a]['name']} and {nodes[b]['name']}: {d['paper']} paper{'s' if d['paper'] != 1 else ''}" + (f", {d['award']} shared award{'s' if d['award'] != 1 else ''}" if d["award"] else "")
-        edges.append(f'<line x1="{sx(pos[a][0]):.0f}" y1="{sy(pos[a][1]):.0f}" x2="{sx(pos[b][0]):.0f}" y2="{sy(pos[b][1]):.0f}" stroke-width="{min(6, 0.8 + d["w"] * 0.6):.1f}"><title>{esc(t)}</title></line>')
-    dots = []
-    for n in sorted(G, key=lambda n: -G.degree(n, weight="w")):
-        d = nodes[n]; deg = G.degree(n, weight="w"); r = 5 + min(16, deg ** 0.5 * 2.2)
-        short = re.sub(r"\(.*?\)\s*", "", d["name"]).split()[-1]
-        dots.append(f'<g class="cn {d["kind"]}"><circle cx="{sx(pos[n][0]):.0f}" cy="{sy(pos[n][1]):.0f}" r="{r:.1f}" fill="{color[d["where"]]}"' + (' fill-opacity=".55"' if d["kind"] == "student" else "") +
-                    f'><title>{esc(d["name"])}, {esc(d["where"])}: {G.degree(n)} collaborator{"s" if G.degree(n) != 1 else ""}, {deg} joint papers and awards</title></circle>'
-                    f'<text x="{sx(pos[n][0]):.0f}" y="{sy(pos[n][1]) + r + 11:.0f}" text-anchor="middle">{esc(short)}</text></g>')
-    legend = "".join(f'<span class="lg"><i style="background:{color[w]}"></i>{esc(w)}</span>' for w in where_order if any(nodes[n]["where"] == w for n in G))
-    n_fac = sum(1 for n in G if nodes[n]["kind"] == "faculty"); n_stu = len(G) - n_fac
-    alone_html = (f'<p class="collabnote">Not yet linked in the record by a joint paper or award: {esc(", ".join(alone))}. Their collaborators are outside the roster, or their work with the center is still under way.</p>' if alone else "")
+    for a, b, d in sorted(G.edges(data=True), key=lambda e: e[2]["w"]):
+        t = f"{nodes[a]['name']} and {nodes[b]['name']}: {d['paper']} joint paper{'s' if d['paper'] != 1 else ''}" + (f", {d['award']} shared award{'s' if d['award'] != 1 else ''}" if d["award"] else "")
+        op = 0.25 + 0.55 * (d["w"] / maxw) ** 0.5
+        edges.append(f'<line x1="{pos[a][0]:.0f}" y1="{pos[a][1]:.0f}" x2="{pos[b][0]:.0f}" y2="{pos[b][1]:.0f}" stroke-width="{1.2 + 7 * (d["w"] / maxw) ** 0.6:.1f}" stroke-opacity="{op:.2f}"><title>{esc(t)}</title></line>')
+    defs, dots = [], []
+    for n in G:
+        d = nodes[n]; deg = G.degree(n, weight="w"); r = 20 + min(14, deg ** 0.5 * 1.6); x, y = pos[n]
+        tip = f'{d["name"]}, {d["where"]}: {G.degree(n)} collaborator{"s" if G.degree(n) != 1 else ""} in the center, {deg} joint papers and awards'
+        if d["photo"] and IMG.get("head_" + d["photo"]):
+            cid = "cc_" + n.replace("_", "")
+            defs.append(f'<clipPath id="{cid}"><circle cx="{x:.0f}" cy="{y:.0f}" r="{r - 3:.1f}"/></clipPath>')
+            face = f'<image href="{_thumb("head_" + d["photo"])}" x="{x - r + 3:.0f}" y="{y - r + 3:.0f}" width="{2 * r - 6:.0f}" height="{2 * r - 6:.0f}" clip-path="url(#{cid})" preserveAspectRatio="xMidYMid slice"/>'
+        else:
+            ini = "".join(w[0] for w in d["name"].split() if w[0].isupper())[:2]
+            face = f'<text x="{x:.0f}" y="{y + 5:.0f}" text-anchor="middle" class="ini">{esc(ini)}</text>'
+        dots.append(f'<g class="cn"><title>{esc(tip)}</title><circle cx="{x:.0f}" cy="{y:.0f}" r="{r:.1f}" fill="#fff" stroke="{color[d["where"]]}" stroke-width="4"/>{face}'
+                    f'<text x="{x:.0f}" y="{y + r + 16:.0f}" text-anchor="middle" class="nm">{esc(d["name"])}</text></g>')
+    legend = "".join(f'<span class="lg"><i style="border-color:{color[w]}"></i>{esc(w)}</span>' for w in order if any(nodes[n]["where"] == w for n in G))
+    alone_html = (f'<p class="collabnote">No joint paper or award with another member in the record yet: {esc(", ".join(alone))}.</p>' if alone else "")
     return f'''<section id="collab">
   <div class="wrap">
-    <div class="shead"><h2>Who works with whom</h2><p>Every co-authored paper in the center record and every shared award, drawn as a graph: {n_fac} faculty and collaborators and {n_stu} students, colored by college or institution. Thicker lines mean more joint work; hover a dot or a line for the details.</p></div>
-    <div class="legend">{legend}<span class="lg"><i style="background:#0E2036;opacity:.35"></i>students (lighter dots)</span></div>
-    <svg class="collab" viewBox="0 0 {W} {H}" role="img" aria-label="Collaboration graph of center faculty, collaborators, and students">
-      <g class="ce">{"".join(edges)}</g>{"".join(dots)}
-    </svg>{alone_html}
+    <div class="shead"><h2>Who works with whom</h2><p>The center's faculty and collaborators, linked by every co-authored paper in the center record and every shared award. Each ring shows the person's college or institution; thicker lines mean more joint work. Hover a person or a line for the details.</p></div>
+    <div class="legend">{legend}</div>
+    <div class="collabwrap"><svg class="collab" viewBox="0 0 {W} {H}" role="img" aria-label="Collaboration graph of center faculty and collaborators">
+      <defs>{"".join(defs)}</defs><g class="ce">{"".join(edges)}</g>{"".join(dots)}
+    </svg></div>{alone_html}
   </div>
 </section>'''
 
-COLLAB_CSS = ".collab{width:100%;height:auto;display:block;background:var(--surface);border:1px solid var(--line);border-radius:12px}.collab .ce line{stroke:var(--ink-3);stroke-opacity:.35}.collab text{font-size:11.5px;fill:var(--ink-2);font-family:'IBM Plex Sans',sans-serif;paint-order:stroke;stroke:var(--surface);stroke-width:3px;stroke-linejoin:round}.collab .cn:hover circle{stroke:var(--ink);stroke-width:2}.legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin:0 0 10px;font-size:13.5px;color:var(--ink-2)}.lg{display:inline-flex;align-items:center;gap:6px}.lg i{width:11px;height:11px;border-radius:50%;display:inline-block}.collabnote{font-size:14px;color:var(--ink-3);margin:10px 0 0;max-width:60em}"
+COLLAB_CSS = (".collabwrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}"
+              ".collab{width:100%;min-width:760px;height:auto;display:block}.collab .ce line{stroke:var(--ink-3)}"
+              ".collab .nm{font-size:14px;font-weight:600;fill:var(--ink);font-family:'IBM Plex Sans',sans-serif;paint-order:stroke;stroke:var(--surface);stroke-width:4px;stroke-linejoin:round}"
+              ".collab .ini{font-size:15px;font-weight:600;fill:var(--ink-2);font-family:'IBM Plex Sans',sans-serif}"
+              ".collab .cn:hover circle{stroke-width:6}.collab .ce line:hover{stroke:var(--ink);stroke-opacity:.9}"
+              ".legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 12px;font-size:14px;color:var(--ink-2)}.lg{display:inline-flex;align-items:center;gap:7px}"
+              ".lg i{width:13px;height:13px;border-radius:50%;display:inline-block;border:3px solid;background:#fff}"
+              ".collabnote{font-size:14px;color:var(--ink-3);margin:10px 0 0;max-width:60em}")
 
 
 def build_acnl(footer_html, script_html):

@@ -120,7 +120,7 @@ ul.plain{{margin:0;padding-left:14pt;font-size:9.6pt}}ul.awards{{columns:2;colum
 <p class="foot">Full records at <a href="https://smartcyberphysical.org">smartcyberphysical.org</a>, where every paper and award links to its source.</p></section>
 
 <section class="pb story"><p class="kicker">Project spotlight</p><h2>{esc(proj["title"])}</h2><p class="deck">{esc(proj["deck"])}</p>
-<figure style="width:50%;margin:0 auto 4pt"><img src="{img("summit_arch")}" alt=""><figcaption>{esc(proj["figure_caption"])}</figcaption></figure>
+<figure style="width:100%;margin:0 0 8pt"><img src="{img("summit_arch")}" alt=""><figcaption>{esc(proj["figure_caption"])}</figcaption></figure>
 <div class="cols">{"".join((f'<h3>{esc(s["h"])}</h3>' if s.get("h") else "") + paras(s["p"]) for i, s in enumerate(proj["sections"]))}</div></section>
 
 <section class="pb story"><p class="kicker">Faculty spotlight</p><h2>{esc(fac["title"])}</h2><p class="deck">{esc(fac["deck"])}</p>

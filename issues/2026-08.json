@@ -20,32 +20,32 @@
   "signature": "Vinod M. Vokkarane, Director"
  },
  "project_spotlight": {
-  "title": "SUMMIT: a testbed for attacking, defending, and recovering the grid",
-  "deck": "A $2.0 million NSF Major Research Instrumentation award builds a three-university instrument where real control, network, and security hardware closes the loop with a real-time simulation of the Northeast transmission grid.",
-  "figure_caption": "SUMMIT's architecture: the UMass Lowell main site with its real-time digital simulators and control, network, and instrumentation equipment; a wide-area software-defined network over the Internet; and the federation sites at NYU Tandon and West Virginia University.",
+  "title": "SUMMIT: attack, defend, and recover the grid",
+  "deck": "A $2.0 million NSF Major Research Instrumentation award builds a three-university instrument where real control, network, and security hardware closes the loop with a real-time simulation of the Northeast grid.",
+  "figure_caption": "SUMMIT's architecture: the UMass Lowell main site, a wide-area software-defined network, and the NYU and WVU federation sites.",
   "sections": [
    {
     "h": null,
     "p": [
-     "Grid cybersecurity research has a practical problem: you cannot attack a real grid to see what happens, and a pure software simulation leaves out the relays, controllers, and network devices where attacks actually land. SUMMIT is built to close that gap. Funded by NSF's Major Research Instrumentation program (award #2511635) at $2.0 million, with a UMass Lowell share of $1.56 million and subawards to NYU and West Virginia University, it runs from October 2026 through September 2029."
+     "Grid cybersecurity research has a practical problem: you cannot attack a real grid to see what happens, and a software simulation leaves out the relays, controllers, and network devices where attacks land. SUMMIT closes that gap. NSF's Major Research Instrumentation program funds it at $2.0 million (award #2511635; UMass Lowell share $1.56 million, with subawards to NYU and West Virginia University) from October 2026 through September 2029."
     ]
    },
    {
     "h": "What it is",
     "p": [
-     "At the core are RTDS NovaCor real-time digital simulators, which run grid models at time steps small enough to drive real relays, controllers, and network devices in closed loop. Every power component, from generation and storage to inverters, lives inside the simulation. Around the simulators at the UMass Lowell main site sit a signal generator for disturbance injection, a network emulator for latency, loss, and attack scenarios, optical, RF, and FPGA equipment for the transport and edge layers, and GPS-synchronized control and protection equipment. Wide-area software-defined network links connect the three sites over the public Internet."
+     "At the core, RTDS NovaCor real-time digital simulators run grid models fast enough to drive real relays, controllers, and network devices in closed loop, and every power component lives inside the simulation. Around them at UMass Lowell sit disturbance-injection equipment, a network emulator for latency, loss, and attack scenarios, optical, RF, and FPGA equipment, and GPS-synchronized control and protection gear. Software-defined network links connect the three sites over the public Internet."
     ]
    },
    {
     "h": "Four paradigms",
     "p": [
-     "SUMMIT supports four ways of working: distributed hardware-in-the-loop simulation, where real control, network, and security hardware closes the loop with grid models running in real time; Internet-in-the-loop simulation, where the three sites exchange live signals so the network itself is part of every experiment; distributed digital twins, scoped in Phase 1 to the RTDS simulators and the center's OPAL-RT simulator; and the central objective, a federated platform that delivers hardware-in-the-loop Simulation-as-a-Service to collaborators who never touch the hardware."
+     "SUMMIT supports four ways of working: distributed hardware-in-the-loop simulation; Internet-in-the-loop simulation, where the network between the sites is part of every experiment; distributed digital twins across the RTDS and OPAL-RT simulators; and the central objective, a federated platform that delivers hardware-in-the-loop Simulation-as-a-Service to collaborators who never touch the hardware."
     ]
    },
    {
     "h": "Phase 1, and who it is for",
     "p": [
-     "Phase 1 models the Northeast's backbone transmission grid at proof-of-concept scale, with every capability needed to scale to regional and national models in Phase 2. The team is PI Vinod Vokkarane; Co-PIs Orlando Arias and Lewis Tseng (UMass Lowell), Yuzhang Lin (NYU), and Anurag Srivastava (WVU); and senior personnel Yan Luo, Seung Woo Son, and Christopher Niezrecki. A postdoctoral researcher will lead federation development; the position is open. Collaborators can propose experiments as the instrument opens in 2026 to 2027."
+     "Phase 1 models the Northeast's backbone transmission grid at proof-of-concept scale, ready to grow to regional and national models in Phase 2. PI Vinod Vokkarane leads with Co-PIs Orlando Arias and Lewis Tseng (UMass Lowell), Yuzhang Lin (NYU), and Anurag Srivastava (WVU), and senior personnel Yan Luo, Seung Woo Son, and Christopher Niezrecki. A postdoctoral position is open, and collaborators can propose experiments as the instrument opens in 2026 to 2027."
     ]
    }
   ],

@@ -3191,7 +3191,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.19"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.20"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -6478,6 +6478,17 @@ def collab_graph_html():
         ks = sorted(k for k, d in nodes.items() if d["name"] in team or d["name"].split()[-1] in words)
         for i in range(len(ks)):
             for j in range(i + 1, len(ks)): link(ks[i], ks[j], "award")
+    by_sur = {d["name"].split()[-1]: k for k, d in nodes.items()}
+    groups = {}
+    for key, title, _, who in THRUSTS:
+        listed = {by_sur[s.strip()] for s in who.split(",") if s.strip() in by_sur}
+        g = set(listed)
+        for pr in PROJECTS:     # only awards in this thrust that one of its listed faculty is on
+            if project_thrust(pr) != key: continue
+            team = pr.get("team", ""); words = set(re.findall(r"[A-Za-z][A-Za-z-]+", team))
+            named = {k for k, d in nodes.items() if d["name"] in team or d["name"].split()[-1] in words}
+            if named & listed: g |= named
+        groups[key] = g
     alone = sorted(nodes[n]["name"] for n in G if G.degree(n) == 0)
     G.remove_nodes_from([n for n in list(G) if G.degree(n) == 0])
     if not len(G): return ""
@@ -6526,7 +6537,8 @@ def collab_graph_html():
     for a, b, d in sorted(G.edges(data=True), key=lambda e: e[2]["w"]):
         t = f"{nodes[a]['name']} and {nodes[b]['name']}: {d['paper']} joint paper{'s' if d['paper'] != 1 else ''}" + (f", {d['award']} shared award{'s' if d['award'] != 1 else ''}" if d["award"] else "")
         op = 0.25 + 0.55 * (d["w"] / maxw) ** 0.5
-        edges.append(f'<line x1="{pos[a][0]:.0f}" y1="{pos[a][1]:.0f}" x2="{pos[b][0]:.0f}" y2="{pos[b][1]:.0f}" stroke-width="{1.2 + 7 * (d["w"] / maxw) ** 0.6:.1f}" stroke-opacity="{op:.2f}"><title>{esc(t)}</title></line>')
+        et = " ".join(k for k, g in groups.items() if a in g and b in g)
+        edges.append(f'<line data-t="{et}" x1="{pos[a][0]:.0f}" y1="{pos[a][1]:.0f}" x2="{pos[b][0]:.0f}" y2="{pos[b][1]:.0f}" stroke-width="{1.2 + 7 * (d["w"] / maxw) ** 0.6:.1f}" stroke-opacity="{op:.2f}"><title>{esc(t)}</title></line>')
     defs, dots = [], []
     for n in G:
         d = nodes[n]; deg = G.degree(n, weight="w"); r = 20 + min(14, deg ** 0.5 * 1.6); x, y = pos[n]
@@ -6538,7 +6550,8 @@ def collab_graph_html():
         else:
             ini = "".join(w[0] for w in d["name"].split() if w[0].isupper())[:2]
             face = f'<text x="{x:.0f}" y="{y + 5:.0f}" text-anchor="middle" class="ini">{esc(ini)}</text>'
-        dots.append(f'<g class="cn"><title>{esc(tip)}</title><circle cx="{x:.0f}" cy="{y:.0f}" r="{r:.1f}" fill="#fff" stroke="{color[d["where"]]}" stroke-width="4"/>{face}'
+        nt = " ".join(k for k, g in groups.items() if n in g)
+        dots.append(f'<g class="cn" data-t="{nt}"><title>{esc(tip)}</title><circle cx="{x:.0f}" cy="{y:.0f}" r="{r:.1f}" fill="#fff" stroke="{color[d["where"]]}" stroke-width="4"/>{face}'
                     f'<text x="{x:.0f}" y="{y + r + 16:.0f}" text-anchor="middle" class="nm">{esc(d["name"])}</text></g>')
     legend = "".join(f'<span class="lg"><i style="border-color:{color[w]}"></i>{esc(w)}</span>' for w in order if any(nodes[n]["where"] == w for n in G))
     alone_html = (f'<p class="collabnote">No joint paper or award with another member in the record yet: {esc(", ".join(alone))}.</p>' if alone else "")
@@ -6546,11 +6559,34 @@ def collab_graph_html():
   <div class="wrap">
     <div class="shead"><h2>Who works with whom</h2><p>The center's faculty and collaborators, linked by every co-authored paper in the center record and every shared award. Each ring shows the person's college or institution; thicker lines mean more joint work. Hover a person or a line for the details.</p></div>
     <div class="legend">{legend}</div>
+    <div class="cfilters" role="group" aria-label="Show a thrust"><span class="flab">Thrust</span><button class="chip" data-ct="all" aria-pressed="true" type="button">Everyone</button>{"".join(f'<button class="chip" data-ct="{esc(k)}" aria-pressed="false" type="button">{esc(t.split(" and ")[0].split(",")[0])} ({len([n for n in groups[k] if n in G])})</button>' for k, t, _, _ in THRUSTS if len([n for n in groups[k] if n in G]) > 1)}</div>
+    <p class="cnote" id="cnote" aria-live="polite"></p>
     <div class="collabwrap"><svg class="collab" viewBox="0 0 {W} {H}" role="img" aria-label="Collaboration graph of center faculty and collaborators">
       <defs>{"".join(defs)}</defs><g class="ce">{"".join(edges)}</g>{"".join(dots)}
     </svg></div>{alone_html}
   </div>
-</section>'''
+</section>
+<script>
+(function(){{
+  var svg=document.querySelector('svg.collab'); if(!svg) return;
+  var names={{{",".join(f'"{k}":"{esc(t)}"' for k, t, _, _ in THRUSTS)}}};
+  var note=document.getElementById('cnote');
+  document.querySelectorAll('.cfilters .chip').forEach(function(b){{
+    b.addEventListener('click',function(){{
+      document.querySelectorAll('.cfilters .chip').forEach(function(x){{x.setAttribute('aria-pressed','false');}});
+      b.setAttribute('aria-pressed','true');
+      var k=b.getAttribute('data-ct');
+      svg.classList.toggle('focus',k!=='all');
+      var n=0;
+      svg.querySelectorAll('[data-t]').forEach(function(el){{
+        var on=k!=='all' && (' '+el.getAttribute('data-t')+' ').indexOf(' '+k+' ')>=0;
+        el.classList.toggle('on',on); if(on && el.tagName==='g') n++;
+      }});
+      note.textContent = k==='all' ? '' : names[k]+': '+n+' people, their joint papers and shared awards highlighted.';
+    }});
+  }});
+}})();
+</script>'''
 
 COLLAB_CSS = (".collabwrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}"
               ".collab{width:100%;min-width:760px;height:auto;display:block}.collab .ce line{stroke:var(--ink-3)}"
@@ -6559,7 +6595,12 @@ COLLAB_CSS = (".collabwrap{overflow-x:auto;border:1px solid var(--line);border-r
               ".collab .cn:hover circle{stroke-width:6}.collab .ce line:hover{stroke:var(--ink);stroke-opacity:.9}"
               ".legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 12px;font-size:14px;color:var(--ink-2)}.lg{display:inline-flex;align-items:center;gap:7px}"
               ".lg i{width:13px;height:13px;border-radius:50%;display:inline-block;border:3px solid;background:#fff}"
-              ".collabnote{font-size:14px;color:var(--ink-3);margin:10px 0 0;max-width:60em}")
+              ".collabnote{font-size:14px;color:var(--ink-3);margin:10px 0 0;max-width:60em}"
+              ".cfilters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 8px}.cfilters .flab{font-size:13px;color:var(--ink-3);margin-right:4px}"
+              ".cfilters .chip{font:inherit;font-size:13.5px;padding:5px 12px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;cursor:pointer}"
+              ".cfilters .chip[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}.cnote{font-size:14px;color:var(--ink-2);min-height:1.4em;margin:0 0 8px}"
+              ".collab .cn,.collab .ce line{transition:opacity .2s,stroke-opacity .2s}.collab.focus .cn:not(.on){opacity:.15}"
+              ".collab.focus .ce line{stroke-opacity:.05!important}.collab.focus .ce line.on{stroke-opacity:.85!important;stroke:var(--signal)}")
 
 
 def build_acnl(footer_html, script_html):

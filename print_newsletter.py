@@ -54,7 +54,7 @@ sp = next(s for s in bs.SPOTLIGHTS if s["ym"] == issue["student_spotlight"])
 fac = issue["faculty_spotlight"]; proj = issue["project_spotlight"]; letter = issue["letter"]
 thrusts = "".join(f'<li><b>{esc(t[1])}</b><span>{esc(t[3])}</span></li>' for t in bs.THRUSTS)
 coming = "".join(f'<li><b>{esc(c["when"])}</b> {esc(c["what"])}</li>' for c in issue.get("coming_up", []))
-active = "".join(f'<li>{esc(p["title"])}<span>{esc(p["sponsor"].split(" (")[0])}{", " + esc(p["amount"]) if p.get("amount") else ""}</span></li>' for p in awards_all[:10])
+active = "".join(f'<li>{esc(p["title"].split(": ")[0] if len(p["title"]) > 70 and ": " in p["title"] else p["title"])}<span>{esc(p["sponsor"].split(" (")[0])}{", " + esc(p["amount"]) if p.get("amount") else ""}</span></li>' for p in awards_all)
 
 page = f'''<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>SCyPS Newsletter, {esc(label)}</title>
 <style>
@@ -72,20 +72,20 @@ h1,h2,h3,.mast .name{{font-family:Fraunces,Georgia,serif;font-weight:500;letter-
 h2{{font-size:24pt;line-height:1.1;margin:0 0 6pt}}h3{{font-size:13pt;margin:14pt 0 4pt;color:var(--blue)}}
 p{{margin:0 0 7pt}}a{{color:var(--blue);text-decoration:none}}
 .pb{{page-break-before:always}}.avoid{{page-break-inside:avoid}}
-.mast{{background:var(--navy);color:#fff;margin:-0.55in -0.6in 0;padding:.45in .6in .4in;position:relative}}
-.mast .top{{display:flex;justify-content:space-between;align-items:center;font-size:8pt;letter-spacing:.08em;text-transform:uppercase;color:#C9DCEA}}
+.mast{{background:var(--navy);color:#fff;margin:0;padding:.28in .32in .26in;border-radius:6pt 6pt 0 0;position:relative}}
+.mast .top{{display:flex;justify-content:space-between;align-items:baseline;gap:12pt;font-size:8pt;letter-spacing:.08em;text-transform:uppercase;color:#C9DCEA}}
 .mast .name{{font-size:34pt;line-height:1;margin:10pt 0 3pt;color:#fff}}.mast .sub{{font-size:11.5pt;color:#C9DCEA;margin:0}}
 .mast img.logo{{height:34px}}
-.hero{{margin:0 -0.6in;height:2.35in;background:url({img("hero")}) center/cover;position:relative}}
-.hero .cap{{position:absolute;left:.6in;bottom:.18in;background:rgba(14,32,54,.85);color:#fff;padding:6pt 10pt;font-size:9pt;max-width:4.6in}}
+.hero{{margin:0;border-radius:0 0 6pt 6pt;height:1.9in;background:url({img("hero")}) center/cover;position:relative}}
+.hero .cap{{position:absolute;left:.32in;bottom:.18in;background:rgba(14,32,54,.85);color:#fff;padding:6pt 10pt;font-size:9pt;max-width:4.6in}}
 .lead{{display:grid;grid-template-columns:1.55fr 1fr;gap:.35in;margin-top:.28in}}
-.letter p{{font-size:10.2pt}}.letter .sig{{margin-top:10pt;font-family:Fraunces,serif;font-style:italic;font-size:12pt}}
+.letter p{{font-size:9.9pt;margin-bottom:6pt}}.letter .sig{{margin-top:10pt;font-family:Fraunces,serif;font-style:italic;font-size:12pt}}
 .kicker{{font-size:8.5pt;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin:0 0 4pt}}
 .box{{background:var(--bg);border-top:3px solid var(--teal);padding:12pt 14pt;font-size:9.6pt}}.box h4{{margin:0 0 6pt;font-family:Fraunces,serif;font-size:13pt;color:var(--navy)}}
 .box ol{{margin:0;padding-left:16pt}}.box li{{margin:0 0 3pt}}
 .nums{{display:grid;grid-template-columns:repeat(4,1fr);gap:10pt;margin:10pt 0 14pt}}
 .nums div{{border-top:2px solid var(--line);padding-top:5pt;font-size:9pt;color:var(--ink3)}}.nums b{{display:block;font-family:Fraunces,serif;font-size:24pt;color:var(--navy);line-height:1.05}}
-.thrusts{{list-style:none;margin:0;padding:0;columns:2;column-gap:.3in;font-size:9.4pt}}.thrusts li{{break-inside:avoid;margin:0 0 6pt;padding-left:9pt;border-left:2px solid var(--teal)}}
+.thrusts{{list-style:none;margin:0;padding:0;columns:2;column-gap:.3in;font-size:9pt}}.thrusts li{{break-inside:avoid;margin:0 0 6pt;padding-left:9pt;border-left:2px solid var(--teal)}}
 .thrusts b{{display:block;font-weight:600;color:var(--navy)}}.thrusts span{{color:var(--ink3)}}
 .story .deck{{font-family:Fraunces,serif;font-size:13.5pt;line-height:1.35;color:var(--ink2);margin:0 0 10pt}}
 .cols{{columns:2;column-gap:.3in}}.cols h3{{break-after:avoid}}.cols p{{text-align:left}}.cols figure{{break-inside:avoid;margin:6pt auto 10pt;width:64%}}
@@ -94,10 +94,10 @@ figure{{margin:0 0 10pt}}figure img{{width:100%;display:block;border:1px solid v
 .adv{{font-size:9pt;color:var(--ink3);margin:0 0 10pt}}
 .papers{{margin:0;padding-left:14pt;font-size:9.4pt}}.papers li{{margin:0 0 5pt}}.papers span{{display:block;color:var(--ink3);font-size:8.6pt}}
 .fund{{font-size:8.6pt;color:var(--ink3);margin-top:8pt}}
-.side{{display:grid;grid-template-columns:1fr 2.1in;gap:.3in}}.side figure img{{border:0}}
+.side{{display:grid;grid-template-columns:1fr 2.1in;gap:.3in}}.side p{{font-size:9.7pt;margin-bottom:6pt}}.side h3{{margin-top:10pt}}.side figure img{{border:0}}
 .item{{font-size:9.6pt;margin:0 0 6pt}}.item .meta{{color:var(--ink3);font-size:8.8pt}}.amt{{color:var(--teal);font-weight:600}}
 .two{{display:grid;grid-template-columns:1fr 1fr;gap:.35in}}
-ul.plain{{margin:0;padding-left:14pt;font-size:9.6pt}}ul.plain li{{margin:0 0 4pt}}ul.plain span{{display:block;color:var(--ink3);font-size:8.6pt}}
+ul.plain{{margin:0;padding-left:14pt;font-size:9.6pt}}ul.awards{{columns:2;column-gap:.3in;font-size:8.5pt}}ul.awards li{{margin-bottom:2.5pt}}ul.awards li{{break-inside:avoid}}ul.plain li{{margin:0 0 4pt}}ul.plain span{{display:block;color:var(--ink3);font-size:8.6pt}}
 .foot{{margin-top:14pt;border-top:1px solid var(--line);padding-top:8pt;font-size:8.8pt;color:var(--ink3)}}
 .pull{{font-family:Fraunces,serif;font-style:italic;font-size:12.5pt;line-height:1.3;color:var(--blue);border-left:3px solid var(--gold);padding-left:10pt;margin:8pt 0 12pt;break-inside:avoid}}
 </style></head><body>
@@ -116,11 +116,11 @@ ul.plain{{margin:0;padding-left:14pt;font-size:9.6pt}}ul.plain li{{margin:0 0 4p
 <section style="margin-top:14pt"><p class="kicker">The center</p><h2>Eight thrusts, one loop</h2>
 <p>Cyber-physical systems sense the physical world, communicate what they sense, decide, and act. The center's research covers every link in that loop, and the eight thrusts below are how its {n_faculty} faculty organize the work. Each thrust has a lead, a page on the center site, and a record of papers and awards that the site keeps current every week.</p>
 <ul class="thrusts">{thrusts}</ul>
-<h3>Active and new awards</h3><ul class="plain">{active}</ul>
+<h3>Active and new awards ({len(awards_all)})</h3><ul class="plain awards">{active}</ul>
 <p class="foot">Full records: smartcyberphysical.org. Publications, awards, and Scholar figures on the site are refreshed automatically from Crossref, NSF, and Google Scholar.</p></section>
 
 <section class="pb story"><p class="kicker">Project spotlight</p><h2>{esc(proj["title"])}</h2><p class="deck">{esc(proj["deck"])}</p>
-<figure style="width:62%;margin:0 auto 6pt"><img src="{img("summit_arch")}" alt=""><figcaption>{esc(proj["figure_caption"])}</figcaption></figure>
+<figure style="width:50%;margin:0 auto 4pt"><img src="{img("summit_arch")}" alt=""><figcaption>{esc(proj["figure_caption"])}</figcaption></figure>
 <div class="cols">{"".join((f'<h3>{esc(s["h"])}</h3>' if s.get("h") else "") + paras(s["p"]) for i, s in enumerate(proj["sections"]))}</div></section>
 
 <section class="pb story"><p class="kicker">Faculty spotlight</p><h2>{esc(fac["title"])}</h2><p class="deck">{esc(fac["deck"])}</p>
@@ -135,7 +135,7 @@ ul.plain{{margin:0;padding-left:14pt;font-size:9.6pt}}ul.plain li{{margin:0 0 4p
 <div><h3>Coming up</h3><ul class="plain">{coming}</ul>
 <h3>Work with us</h3><p class="item">Doctoral applicants: write to the faculty member whose work matches yours and copy the director. Companies and agencies: the laboratories page lists what each facility can offer, and the SUMMIT testbed opens to collaborators in 2026 to 2027.</p>
 <h3>Support the center</h3><p class="item">Gifts fund student travel, seed projects, and the capstone program. Give at smartcyberphysical.org, or write to the director.</p>
-<h3>Contact</h3><p class="item">Vinod M. Vokkarane, Director<br>Vinod_Vokkarane@uml.edu, 978-934-3345<br>Center for Smart Cyber-Physical Systems<br>University of Massachusetts Lowell, 1 University Ave., Lowell, MA 01854<br>smartcyberphysical.org</p></div></div>
+<h3>Contact</h3><p class="item">Vinod M. Vokkarane, Director<br>Vinod_Vokkarane@uml.edu, 978-934-3345<br>Center for Smart Cyber-Physical Systems<br>University of Massachusetts Lowell, 1 University Ave., Lowell, MA 01854<br><a href="https://smartcyberphysical.org">smartcyberphysical.org</a></p></div></div>
 <p class="foot">Volume 1, Number 1, {esc(label)}. Published by the Center for Smart Cyber-Physical Systems. Generated from the center's records on {esc(datetime.date.today().strftime("%B %d, %Y"))}.</p></section>
 </body></html>'''
 

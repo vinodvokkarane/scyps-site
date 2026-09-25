@@ -243,8 +243,8 @@ def render(ns, footer_html, script_html):
 .facts{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;font-size:13.5px;margin:0 0 10px}.facts dt{color:var(--ink-3)}.facts dd{margin:0;color:var(--ink-2)}
 .icl h4{font-size:12.5px;color:var(--ink-3);margin:10px 0 4px;font-weight:600}
 .ipubs{list-style:none;margin:0;padding:0}.ipubs li{margin:0 0 6px;font-size:14px;line-height:1.35}.ipubs .v{color:var(--ink-3);font-size:13px}
-.igrid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 40px}@media (max-width:980px){.igrid2{grid-template-columns:1fr}}
-.tscroll{overflow-x:auto;margin:0 0 22px}
+.igrid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 40px}.igrid2>div{min-width:0}@media (max-width:980px){.igrid2{grid-template-columns:1fr}}
+.tscroll{overflow-x:auto;max-width:100%;margin:0 0 22px}.wrap [class*="grid"]>div,.wrap [class*="grid"]>section{min-width:0}
 .heat{border-collapse:separate;border-spacing:2px;font-size:12.5px;width:100%}.heat caption{text-align:left;font-weight:600;color:var(--ink-2);font-size:14px;padding-bottom:6px}
 .heat thead th{font-weight:400;color:var(--ink-3);height:22px}.heat thead th span{font-size:11px}
 .heat th[scope=row]{text-align:left;white-space:nowrap;color:var(--ink-2);font-weight:500;padding-right:8px}.heat th small{color:var(--ink-3);font-weight:400}

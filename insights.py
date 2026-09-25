@@ -553,7 +553,7 @@ ol.ipubs{padding-left:22px;list-style:decimal}
 .cbars .lab{color:var(--ink-2);line-height:1.25}.cbars .bar{display:block;height:14px;border-radius:3px;background:var(--c);min-width:2px}
 .cbars .num{color:var(--ink);font-weight:600;white-space:nowrap}.cbars .num small{display:block;font-weight:400;color:var(--ink-3)}
 .ich{width:100%;height:auto;display:block;margin:8px 0 0}.ich .ax{font-size:13px;fill:var(--ink-3);font-family:"IBM Plex Sans",sans-serif}
-.tscroll{overflow-x:auto;margin:0 0 28px}.stbl{border-collapse:collapse;width:100%;font-size:14px;min-width:760px}
+.tscroll{overflow-x:auto;max-width:100%;margin:0 0 22px}.wrap [class*="grid"]>div,.wrap [class*="grid"]>section{min-width:0}.stbl{border-collapse:collapse;width:100%;font-size:14px;min-width:760px}
 .stbl th{text-align:left;font-weight:600;color:var(--ink-2);padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
 .stbl tbody th{font-weight:600;color:var(--ink)}.stbl tbody th small{display:block;font-weight:400;color:var(--ink-3);font-size:12.5px}
 .stbl td{padding:8px 10px;border-bottom:1px solid var(--line-2);vertical-align:top}

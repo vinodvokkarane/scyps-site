@@ -2569,13 +2569,13 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 
 /* project filters */
 .pfilters{display:grid;gap:10px;margin:0 0 6px}
-.prow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.prow .plab{font-size:13px;color:var(--ink-3);width:52px;flex:none}
+.frow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.frow .flab{font-size:13px;color:var(--ink-3);flex:none;min-width:84px}
 .pfilters .chip{font:inherit;font-size:13.5px;padding:5px 12px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;cursor:pointer}
 .pfilters .chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
 .pcount{font-size:13.5px;color:var(--ink-3);margin:14px 0 2px}
 .proj[hidden]{display:none}
-@media (max-width:640px){.prow .plab{width:100%}}
+@media (max-width:640px){.frow .flab{width:100%;min-width:0}}
 
 /* teasers, news page, article stream */
 .peoplecards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -3189,7 +3189,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.14"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.15"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -4784,13 +4784,13 @@ def build():
     _thrusts = [(k, t) for k, t, _, _ in THRUSTS if any(project_thrust(pr) == k for pr in PROJECTS)]
     projfilters = (
         '<div class="pfilters" role="group" aria-label="Filter projects">'
-        '<div class="prow"><span class="plab">Investigator</span>'
+        '<div class="frow"><span class="flab">Investigator</span>'
         '<button class="chip" data-f="pi" data-v="all" aria-pressed="true" type="button">All</button>'
         + "".join(f'<button class="chip" data-f="pi" data-v="{esc(p)}" aria-pressed="false" type="button">{esc(p.split()[-1])} ({_pi_counts[p]})</button>' for p in _pis)
-        + '</div><div class="prow"><span class="plab">Thrust</span>'
+        + '</div><div class="frow"><span class="flab">Thrust</span>'
         '<button class="chip" data-f="thrust" data-v="all" aria-pressed="true" type="button">All</button>'
         + "".join(f'<button class="chip" data-f="thrust" data-v="{esc(k)}" aria-pressed="false" type="button">{esc(t.split(" and ")[0].split(",")[0])}</button>' for k, t in _thrusts)
-        + '</div><div class="prow"><span class="plab">Year</span>'
+        + '</div><div class="frow"><span class="flab">Year</span>'
         '<button class="chip" data-f="year" data-v="all" aria-pressed="true" type="button">All</button>'
         + "".join(f'<button class="chip" data-f="year" data-v="{y}" aria-pressed="false" type="button">{y}</button>' for y in _yrs if 2019 <= y <= datetime.date.today().year)
         + '</div></div><p class="pcount" id="pcount" aria-live="polite"></p>')

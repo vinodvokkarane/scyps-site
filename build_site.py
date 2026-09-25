@@ -2816,9 +2816,9 @@ FEDERATION = """<svg viewBox="0 0 900 120" xmlns="http://www.w3.org/2000/svg" ro
 </svg>"""
 
 # cyber-physical loop schematic (About section)
-SCHEMATIC = """<svg viewBox="0 0 760 482" role="img" aria-labelledby="schemTitle schemDesc" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Sans, Arial, sans-serif">
+SCHEMATIC = """<svg viewBox="0 0 760 490" role="img" aria-labelledby="schemTitle schemDesc" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Sans, Arial, sans-serif">
 <title id="schemTitle">How a smart cyber-physical system closes the loop</title>
-<desc id="schemDesc">Physical systems in energy, transportation, and healthcare are sensed at the edge, connected over a secure network, analysed by AI and high-performance computing, and controlled in real time.</desc>
+<desc id="schemDesc">Physical systems in energy, transportation, health care, and manufacturing are measured by sensors, connected over a secure network, understood by AI, and acted on safely, with people in the loop.</desc>
 <defs>
   <marker id="arrI" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#0E2036"/></marker>
   <marker id="arrS" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#0A777F"/></marker>
@@ -2827,7 +2827,7 @@ SCHEMATIC = """<svg viewBox="0 0 760 482" role="img" aria-labelledby="schemTitle
 
 <!-- column headers -->
 <g font-size="13" font-weight="600" fill="#5B6B82" letter-spacing=".02em">
-  <text x="105" y="34" text-anchor="middle">PHYSICAL WORLD</text><text x="392" y="34" text-anchor="middle">SECURE NETWORK</text><text x="622" y="34" text-anchor="middle">COMPUTE AND CONTROL</text>
+  <text x="105" y="34" text-anchor="middle">THE PHYSICAL WORLD</text><text x="392" y="34" text-anchor="middle">A SECURE NETWORK</text><text x="622" y="34" text-anchor="middle">SMART DECISIONS</text>
 </g>
 <g stroke="#D5DCE5" stroke-width="1"><path d="M30 44h150M317 44h150M512 44h220"/></g>
 
@@ -2857,18 +2857,18 @@ SCHEMATIC = """<svg viewBox="0 0 760 482" role="img" aria-labelledby="schemTitle
 </g>
 <g class="card">
   <rect x="30" y="362" width="150" height="84" rx="12" fill="#fff" stroke="#D5DCE5"/>
-  <g fill="none" stroke="#044978" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M62 372h42v8H62zM78 380h10l-3 8h-4z"/><path d="M58 418h50M62 411h42M66 404h34"/>
+  <g transform="translate(86,368) scale(.78)" fill="none" stroke="#044978" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 4h40v8H0zM15 12h10l-3 8h-4z"/><path d="M-4 46h48M0 39h40M4 32h32"/>
+    <path d="M20 22v6" stroke="#3BA995" stroke-width="2.8"/><circle cx="20" cy="30" r="2.4" fill="#3BA995" stroke="none"/>
   </g>
-  <path d="M83 390v8" stroke="#3BA995" stroke-width="2.4" stroke-linecap="round"/><circle cx="83" cy="401" r="2.2" fill="#3BA995"/>
-  <text x="105" y="436" text-anchor="middle" font-size="13" font-weight="600" fill="#0E2036">Additive manufacturing</text>
+  <text x="105" y="437" text-anchor="middle" font-size="13" font-weight="600" fill="#0E2036">Additive manufacturing</text>
 </g>
 
 <!-- edge nodes -->
 <g class="card">
   <rect x="212" y="83" width="62" height="30" rx="15" fill="#fff" stroke="#0A777F" stroke-width="1.6"/><rect x="212" y="185" width="62" height="30" rx="15" fill="#fff" stroke="#0A777F" stroke-width="1.6"/><rect x="212" y="287" width="62" height="30" rx="15" fill="#fff" stroke="#0A777F" stroke-width="1.6"/><rect x="212" y="389" width="62" height="30" rx="15" fill="#fff" stroke="#0A777F" stroke-width="1.6"/>
 </g>
-<g font-size="12.5" font-weight="600" fill="#0A777F" text-anchor="middle"><text x="243" y="102">edge</text><text x="243" y="204">edge</text><text x="243" y="306">edge</text><text x="243" y="408">edge</text></g>
+<g font-size="12.5" font-weight="600" fill="#0A777F" text-anchor="middle"><text x="243" y="102">sensors</text><text x="243" y="204">sensors</text><text x="243" y="306">sensors</text><text x="243" y="408">sensors</text></g>
 
 <!-- sense links: card -> edge -->
 <g fill="none" stroke="#D5DCE5" stroke-width="2"><path d="M180 98h32M180 200h32M180 302h32M180 404h32"/></g>
@@ -2882,8 +2882,8 @@ SCHEMATIC = """<svg viewBox="0 0 760 482" role="img" aria-labelledby="schemTitle
   <g fill="#044978"><circle cx="378" cy="167" r="5.5"/><circle cx="442" cy="204" r="5.5"/><circle cx="442" cy="278" r="5.5"/><circle cx="378" cy="315" r="5.5"/><circle cx="314" cy="278" r="5.5"/><circle cx="314" cy="204" r="5.5"/></g>
   <circle cx="378" cy="241" r="14" fill="#0A777F"/><circle cx="378" cy="241" r="5" fill="#fff"/>
 </g>
-<text x="378" y="148" text-anchor="middle" font-size="12.5" fill="#5B6B82">optical and 5G/6G transport</text>
-<text x="378" y="338" text-anchor="middle" font-size="12.5" fill="#5B6B82">zero trust, attestation, intrusion detection</text>
+<text x="378" y="148" text-anchor="middle" font-size="12.5" fill="#5B6B82">fast, reliable links: fiber, 5G, 6G</text>
+<text x="378" y="338" text-anchor="middle" font-size="12.5" fill="#5B6B82">every device verified, intrusions caught</text>
 
 <!-- edge -> core links -->
 <g fill="none" stroke="#D5DCE5" stroke-width="2"><path d="M274 98C296 98 302 170 316 200"/><path d="M274 200C290 200 298 221 306 226"/><path d="M274 302C290 302 298 261 306 256"/><path d="M274 404C296 404 302 312 316 282"/></g>
@@ -2893,25 +2893,25 @@ SCHEMATIC = """<svg viewBox="0 0 760 482" role="img" aria-labelledby="schemTitle
 <g class="card">
   <rect x="512" y="132" width="220" height="218" rx="14" fill="#fff" stroke="#D5DCE5"/>
   <rect x="512" y="132" width="220" height="44" rx="14" fill="#044978"/><rect x="512" y="160" width="220" height="16" fill="#044978"/>
-  <text x="622" y="160" text-anchor="middle" font-size="14" font-weight="600" fill="#fff">AI, digital twins, HPC</text>
+  <text x="622" y="160" text-anchor="middle" font-size="14" font-weight="600" fill="#fff">AI that understands the system</text>
   <g fill="#F3F7FA" stroke="#D5DCE5"><rect x="528" y="190" width="188" height="34" rx="8"/><rect x="528" y="234" width="188" height="34" rx="8"/><rect x="528" y="278" width="188" height="34" rx="8"/></g>
   <g fill="none" stroke="#0A777F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
     <path d="M540 212l6-8 5 5 6-10 5 6"/><path d="M539 256h8l4-8 4 12 4-6h8"/><path d="M540 302l7-7 5 5 9-9M563 291h-6v6"/>
   </g>
-  <g font-size="12.5" fill="#0E2036"><text x="576" y="211">Anomaly detection</text><text x="576" y="255">State estimation</text><text x="576" y="299">Plan and optimize</text></g>
+  <g font-size="12.5" fill="#0E2036"><text x="576" y="211">Spot trouble early</text><text x="576" y="255">Know the true state</text><text x="576" y="299">Decide and act safely</text></g>
   <g fill="#3BA995"><circle cx="702" cy="207" r="4" class="pulse"/><circle cx="702" cy="251" r="4" class="pulse" style="animation-delay:1s"/><circle cx="702" cy="295" r="4" class="pulse" style="animation-delay:2s"/></g>
-  <text x="622" y="336" text-anchor="middle" font-size="12" fill="#5B6B82">edge to cloud</text>
+  <text x="622" y="336" text-anchor="middle" font-size="12" fill="#5B6B82">from the device to the cloud</text>
 </g>
 
 <!-- core <-> compute -->
 <g fill="none" stroke="#0A777F" stroke-width="2.2"><path d="M454 226h50" marker-end="url(#arrS)"/></g>
 <g fill="none" stroke="#3BA995" stroke-width="2.2"><path d="M506 256h-50" marker-end="url(#arrG)"/></g>
-<text x="481" y="215" text-anchor="middle" font-size="11.5" fill="#5B6B82">telemetry</text>
-<text x="481" y="275" text-anchor="middle" font-size="11.5" fill="#5B6B82">control</text>
+<text x="481" y="215" text-anchor="middle" font-size="11.5" fill="#5B6B82">data</text>
+<text x="481" y="275" text-anchor="middle" font-size="11.5" fill="#5B6B82">decisions</text>
 
 <!-- return loop -->
-<path d="M622 350v70H105v-2" fill="none" stroke="#3BA995" stroke-width="2" stroke-dasharray="5 6" marker-end="url(#arrG)"/>
-<text x="392" y="470" text-anchor="middle" font-size="12.5" fill="#5B6B82">closed loop: sense, communicate, decide, act</text>
+<path d="M622 350v106H105v-6" fill="none" stroke="#3BA995" stroke-width="2" stroke-dasharray="5 6" marker-end="url(#arrG)"/>
+<text x="392" y="480" text-anchor="middle" font-size="12.5" fill="#5B6B82">Sense. Communicate. Decide. Act. People stay in the loop.</text>
 </svg>"""
 
 ICONS = {
@@ -3191,7 +3191,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.21"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.22"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the

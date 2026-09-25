@@ -250,10 +250,10 @@ PROJECTS = [
      "amount": "$182K", "period": "Mar 2019 to Feb 2023",
      "team": "Co-PI Yuanchang Xie",
      "desc": "Empirical study of how automated vehicles change traffic flow in mixed traffic.", "domain": "Transportation"},
-    {"tag": "Completed", "sponsor": "National Science Foundation", "role": "Co-PI",
+    {"tag": "Completed", "sponsor": "National Science Foundation", "role": "PI",
      "title": "Ethical Algorithms in Autonomous Vehicles",
      "amount": "$557K", "period": "July 2017 to June 2022",
-     "team": "Co-PI Yuanchang Xie; with Nicholas Evans",
+     "team": "PI Nicholas Evans; Co-PI Yuanchang Xie; with Heidi Furey",
      "desc": "The ethics of decision algorithms in autonomous vehicles, joining the center's transportation and ethics work.", "domain": "Transportation"},
     {"tag": "Active", "sponsor": "National Science Foundation, OAC Category III (Award #2609490)",
      "role": "PI", "title": "Planning Federated AI-Ready Cyberinfrastructure for Advanced Microscopy and Imaging: A Teach-Explore-Design Framework for Community-Driven Infrastructure",
@@ -2574,6 +2574,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .fchips{display:flex;flex-wrap:wrap;gap:8px}
 .pfilters .chip{font:inherit;font-size:13.5px;padding:5px 12px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;cursor:pointer}
 .pfilters .chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pfilters .chip:disabled{opacity:.45;cursor:default}
 .pcount{font-size:13.5px;color:var(--ink-3);margin:14px 0 2px}
 .proj[hidden]{display:none}
 @media (max-width:640px){.frow{grid-template-columns:auto minmax(0,1fr)}.frow .flab{grid-column:1/-1;padding-top:0}}
@@ -3190,7 +3191,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.17"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.18"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3503,7 +3504,7 @@ _DOMAIN_THRUST = {
     "HPC": "hpc", "Printed electronics": "chip", "Transportation": "health", "Education": "health",
     "Nuclear": "nuclear", "Data systems": "ai", "Defense": "fiber", "Sensing": "chip", "NIH": "health",
 }
-_NAME = r"([A-Z][a-zA-Z]+(?:\s+(?:[A-Z]\.|[A-Z][a-zA-Z]+)){1,2})"
+_NAME = r"([A-Z][a-zA-Z'-]+(?:\s+(?:[A-Z]\.|[A-Z][a-zA-Z'-]+)){1,2})"
 def _roster():
     out = {}
     for grp in ("director", "core", "affiliated", "external"):
@@ -4778,16 +4779,16 @@ def build():
         f'<div class="thrust"><a class="art" href="research-{esc(i)}.html">{ART[i]}</a><div class="body"><h3><a href="research-{esc(i)}.html">{esc(t)}</a></h3><p>{esc(d)}</p><div class="who"><b>{esc(w.split(",")[0])}</b> leads{esc("; with " + w.split(", ", 1)[1] if ", " in w else "")}</div><p class="more2"><a href="research-{esc(i)}.html">More on this thrust</a></p></div></div>'
         for i, t, d, w in THRUSTS)
 
-    _center = [FACULTY["director"]["name"]] + [p["name"] for p in FACULTY["core"]]
+    _center = [canonical_person(p["name"]) for p in [FACULTY["director"]] + FACULTY["core"] + FACULTY["affiliated"]]
     _pi_counts = {p: sum(1 for pr in PROJECTS if p in {n for n, _ in project_people(pr)}) for p in _center}
-    _pis = sorted((p for p in _center if _pi_counts[p]), key=lambda n: n.split()[-1])
+    _pis = sorted(_center, key=lambda n: n.split()[-1])
     _yrs = sorted({y for pr in PROJECTS for y in project_years(pr)}, reverse=True)
     _thrusts = [(k, t) for k, t, _, _ in THRUSTS if any(project_thrust(pr) == k for pr in PROJECTS)]
     projfilters = (
         '<div class="pfilters" role="group" aria-label="Filter projects">'
         '<div class="frow"><span class="flab">Investigator</span>'
         '<button class="chip" data-f="pi" data-v="all" aria-pressed="true" type="button">All</button>'
-        + '<div class="fchips">' + "".join(f'<button class="chip" data-f="pi" data-v="{esc(p)}" aria-pressed="false" type="button">{esc(p.split()[-1])} ({_pi_counts[p]})</button>' for p in _pis)
+        + '<div class="fchips">' + "".join(f'<button class="chip" data-f="pi" data-v="{esc(p)}" aria-pressed="false" type="button"{"" if _pi_counts[p] else " disabled title=" + chr(34) + "No award listed yet" + chr(34)}>{esc(p.split()[-1])} ({_pi_counts[p]})</button>' for p in _pis)
         + '</div></div><div class="frow"><span class="flab">Thrust</span>'
         '<button class="chip" data-f="thrust" data-v="all" aria-pressed="true" type="button">All</button>'
         + '<div class="fchips">' + "".join(f'<button class="chip" data-f="thrust" data-v="{esc(k)}" aria-pressed="false" type="button">{esc(t.split(" and ")[0].split(",")[0])}</button>' for k, t in _thrusts)

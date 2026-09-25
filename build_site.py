@@ -2647,6 +2647,9 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .stulist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
 .stulist li{border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:12px 16px;display:flex;flex-direction:column;gap:2px;font-size:14.5px;color:var(--ink-2)}
 .stulist li b{font-size:16px;color:var(--ink)}.stulist .prog{color:var(--ink-3);font-size:13.5px}
+.spteaser{border:1px solid var(--line);border-left:4px solid var(--signal);border-radius:10px;background:var(--surface);padding:16px 20px;margin:0 0 28px;max-width:46em}
+.spteaser h3{margin:0 0 6px;font-size:20px}.spteaser p{margin:0 0 10px;color:var(--ink-2)}.spkicker{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin:0 0 6px}
+.spwhos{display:flex;flex-wrap:wrap;gap:12px 28px}.spwho{display:flex;align-items:center;gap:12px}.spwho .avatar{width:56px;height:56px;border-radius:50%;object-fit:cover}.spwho b{display:block;font-size:15px}.spwho span{font-size:13px;color:var(--ink-3)}
 .stu{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px 22px 20px}
 .stu .avatar{display:block;margin:0 auto 16px;width:180px;height:180px;font-size:40px}
 .avatar.round{border-radius:50%;background:transparent}
@@ -3168,7 +3171,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.10"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.11"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -5295,7 +5298,8 @@ def build():
     build_people_pages({
         "people": (PEOPLE_SECTION.replace("{director_html}", director_html).replace("{core_html}", core_html)
                    .replace("{aff_html}", aff_html).replace("{ext_html}", ext_html)),
-        "students": (STUDENTS_SECTION.replace("{students_html}", students_html).replace("{lablife_html}", lablife_html)),
+        "students": (STUDENTS_SECTION.replace("{students_html}", students_html).replace("{lablife_html}", lablife_html)
+                     .replace("{spotlight_teaser}", spotlight_article(max(SPOTLIGHTS, key=lambda s: s["ym"]), full=False) if SPOTLIGHTS else "")),
         "alumni": (ALUMNI_SECTION.replace("{alumni_feat_html}", alumni_feat_html)
                    .replace("{alumni_phd_cards}", alumni_phd_cards).replace("{alumni_pd_cards}", alumni_pd_cards)),
     }, footer_html, script_html)
@@ -5304,6 +5308,7 @@ def build():
     build_insights(footer_html, script_html)
     build_acnl(footer_html, script_html)
     build_labs(footer_html, script_html)
+    build_spotlight(footer_html, script_html)
     build_positions(footer_html, script_html)
     build_meta_files()
     build_feed()
@@ -5333,7 +5338,7 @@ for _g in ("director", "core", "affiliated", "external"):
 
 PEOPLE_SECTION = '<section id="people" class="tint">\n  <div class="wrap">\n    <div class="shead"><h2>People</h2><p>Faculty from the Francis College of Engineering, the Kennedy College of Sciences, and the College of Fine Arts, Humanities and Social Sciences, plus long-running collaborators at partner universities and companies. Each profile links to the person\'s Google Scholar and ORCID records; citation totals are quoted from Google Scholar where the profile is public.</p></div>\n    <p class="founding">The center was founded on October 1, 2019 by Vinod Vokkarane, Martin Margala, Yan Luo, Sukesh Aghara, and Yuanchang Xie. Vokkarane served on the founding Board of Directors from October 2019 to July 2021 and has been director since August 2021. Margala, then Professor and Chair of Electrical and Computer Engineering, was founding co-director until July 2021 and remains an external collaborator.</p>\n    <h2 class="grouph">Center faculty</h2>\n    {director_html}\n    {core_html}\n    <div class="group"><h2 class="grouph">Affiliated researchers</h2><p>UMass Lowell faculty who collaborate on center projects and proposals.</p>{aff_html}</div>\n    <div class="group"><h2 class="grouph">External collaborators</h2><p>Partners at other universities and companies who work with the center on current projects.</p>{ext_html}</div>\n  </div>\n</section>\n\n'
 
-STUDENTS_SECTION = '<section id="students">\n  <div class="wrap">\n    <div class="shead"><h2>Students</h2><p>Doctoral students of the center faculty, grouped by primary advisor. The director\'s group is the Advanced Communication Networks Laboratory.</p></div>\n    <h2 class="grouph">Doctoral students</h2>\n    {students_html}\n    <div class="lablife">\n      <h3>Lab life</h3>\n      <p>The Advanced Communication Networks Laboratory through the years.</p>\n      <div class="labgrid">{lablife_html}</div>\n    </div>\n  </div>\n</section>\n\n'
+STUDENTS_SECTION = '<section id="students">\n  <div class="wrap">\n    <div class="shead"><h2>Students</h2><p>Doctoral students of the center faculty, grouped by primary advisor. The director\'s group is the Advanced Communication Networks Laboratory.</p></div>\n    {spotlight_teaser}\n    <h2 class="grouph">Doctoral students</h2>\n    {students_html}\n    <div class="lablife">\n      <h3>Lab life</h3>\n      <p>The Advanced Communication Networks Laboratory through the years.</p>\n      <div class="labgrid">{lablife_html}</div>\n    </div>\n  </div>\n</section>\n\n'
 
 ALUMNI_SECTION = '<section id="alumni" class="tint">\n  <div class="wrap">\n    <div class="shead"><h2>Alumni</h2><p>Where the group\'s Ph.D. graduates and postdoctoral researchers have gone.</p></div>\n    <h2 class="grouph">Recent graduates</h2>\n    <div class="stugrid two">{alumni_feat_html}</div>\n    <h2 class="grouph">Ph.D. graduates</h2>\n    <p class="alnote">Where each graduate is now, verified in September 2026 against employer pages, LinkedIn, and Google Scholar. Citation figures refresh monthly with the rest of the site.</p>\n    <div class="alumgrid">{alumni_phd_cards}</div>\n    <h2 class="grouph">Postdoctoral alumni</h2>\n    <div class="alumgrid">{alumni_pd_cards}</div>\n  </div>\n</section>\n\n'
 
@@ -5652,6 +5657,60 @@ def build_feed():
              "Awards, milestones, and talks from the Center for Smart Cyber-Physical Systems at UMass Lowell."))
     print(f"wrote feed.xml: {len(items)} items; feed-highlights.xml: {len(hi)} items")
 
+
+
+SPOTLIGHTS = _load_overlay("spotlights.json", {"entries": []}).get("entries", [])
+
+def _spotlight_students(sp):
+    """STUDENTS entries for the people named in a spotlight, so we can show their photos and status."""
+    by = {s["name"]: s for s in STUDENTS}
+    return [by.get(n, {"name": n, "status": "", "advisor": sp.get("advisor", "")}) for n in sp["students"]]
+
+def spotlight_label(sp):
+    y, m = int(sp["ym"][:4]), int(sp["ym"][5:7]); return f"{MONTH_FULL[m]} {y}"
+
+def spotlight_article(sp, full=True):
+    """One spotlight as HTML: the students, the story, the papers. full=False gives the teaser used on Students."""
+    who = _spotlight_students(sp)
+    heads = "".join(f'<div class="spwho">{stu_avatar(s)}<div><b>{esc(s["name"])}</b><span>{esc(s.get("status", ""))}</span></div></div>' for s in who)
+    if not full:
+        return (f'<article class="spteaser"><p class="spkicker">Student spotlight, {esc(spotlight_label(sp))}</p><h3><a href="spotlight.html#{esc(sp["ym"])}">{esc(sp["title"])}</a></h3>'
+                f'<p>{esc(sp["deck"])}</p><div class="spwhos">{heads}</div></article>')
+    body = "".join((f'<h3>{esc(s["h"])}</h3>' if s.get("h") else "") + "".join(f"<p>{esc(t)}</p>" for t in s["p"]) for s in sp["sections"])
+    papers = "".join(f'<li><a href="https://doi.org/{esc(p["doi"])}">{esc(p["title"])}</a><span class="v">{esc(p.get("note", ""))}</span></li>' for p in sp.get("papers", []))
+    links = "".join(f'<li><a href="{esc(l["url"])}">{esc(l["label"])}</a></li>' for l in sp.get("links", []))
+    adv = f'<p class="spadv">Advised by {esc(sp["advisor"])}' + (f', {esc(sp["lab"])}' if sp.get("lab") else "") + "</p>"
+    fund = f'<p class="spfund">{esc(sp["funding"])}</p>' if sp.get("funding") else ""
+    return (f'<article class="spot" id="{esc(sp["ym"])}"><p class="spkicker">Student spotlight, {esc(spotlight_label(sp))}</p><h2>{esc(sp["title"])}</h2>'
+            f'<p class="spdeck">{esc(sp["deck"])}</p><div class="spwhos">{heads}</div>{adv}<div class="spbody">{body}</div>'
+            + (f'<h3>The papers</h3><ul class="ipubs">{papers}</ul>' if papers else "") + (f'<ul class="splinks">{links}</ul>' if links else "") + fund + "</article>")
+
+def build_spotlight(footer_html, script_html):
+    """spotlight.html: the monthly student spotlight, newest first, from spotlights.json."""
+    root = os.path.dirname(os.path.abspath(OUT)) or "."
+    sps = sorted(SPOTLIGHTS, key=lambda s: s["ym"], reverse=True)
+    arts = "".join(spotlight_article(sp) for sp in sps)
+    body = f'''<section>
+  <div class="wrap">
+    <div class="shead"><h1>Student spotlight</h1><p>Each month the center tells one story about its doctoral students: what they built, why it matters, and where to read the work. Faculty nominate students by writing to the director.</p></div>
+    <div class="spots">{arts if arts else "<p>The first spotlight is on its way.</p>"}</div>
+  </div>
+</section>'''
+    css = '''
+.spots{max-width:46em}.spot{padding:0 0 36px;margin:0 0 36px;border-bottom:1px solid var(--line)}.spot:last-child{border-bottom:0}
+.spkicker{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin:0 0 6px}
+.spot h2{margin:0 0 8px}.spdeck{font-size:19px;line-height:1.45;color:var(--ink-2);margin:0 0 18px}
+.spwhos{display:flex;flex-wrap:wrap;gap:12px 28px;margin:0 0 8px}.spwho{display:flex;align-items:center;gap:12px}
+.spwho .avatar{width:64px;height:64px;border-radius:50%;object-fit:cover}.spwho b{display:block;font-size:16px}.spwho span{font-size:13.5px;color:var(--ink-3)}
+.spadv{font-size:14px;color:var(--ink-3);margin:0 0 18px}.spbody h3{font-size:19px;margin:22px 0 8px}.spbody p{font-size:16.5px;line-height:1.6;margin:0 0 12px}
+.spot .ipubs{list-style:none;margin:0 0 12px;padding:0}.spot .ipubs li{margin:0 0 8px;font-size:15px;line-height:1.4}.spot .ipubs .v{display:block;color:var(--ink-3);font-size:13.5px}
+.splinks{list-style:none;margin:0 0 12px;padding:0;font-size:15px}.spfund{font-size:13.5px;color:var(--ink-3);margin:14px 0 0}
+'''
+    page = page_shell("Student spotlight | SCyPS, UMass Lowell", "The center's monthly student spotlight: one story a month about what its doctoral students built and why it matters.",
+                      body, footer_html, script_html, extra_css=css, active="students", canonical="spotlight.html")
+    page = new_tab_links(page)
+    open(os.path.join(root, "spotlight.html"), "w", encoding="utf-8").write(page)
+    print(f"wrote spotlight.html: {len(sps)} spotlight(s)")
 
 
 def build_labs(footer_html, script_html):
@@ -5990,6 +6049,12 @@ def build_newsletter(ym, footer_html, script_html):
             if conf:
                 h.append('<p style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#5B6B82;margin:10px 0 8px">Conference papers and chapters</p>')
                 h += [paper_block(p, email) for p in conf]
+        sp = next((s for s in SPOTLIGHTS if s["ym"] == ym), None)
+        if sp:
+            head("Student spotlight")
+            names = " and ".join(sp["students"])
+            h.append(f'<p style="margin:0 0 14px;font-size:15px;line-height:1.45;color:#0E2036"><b>{esc(sp["title"])}</b>: {esc(names)}.<br>{esc(sp["deck"])}<br>'
+                     f'<a href="{SITE_URL}spotlight.html#{esc(sp["ym"])}" style="color:#044978">Read the spotlight</a></p>')
         if notes:
             head("Milestones"); h += [note_block(t) for t in notes]
         if upcoming:
@@ -6021,6 +6086,7 @@ def build_newsletter(ym, footer_html, script_html):
                .replace('href="publications.html', 'href="../publications.html').replace('href="news.html', 'href="../news.html') \
                .replace('href="insights.html', 'href="../insights.html').replace('href="positions.html', 'href="../positions.html') \
                .replace('href="labs.html', 'href="../labs.html').replace('href="summit.html', 'href="../summit.html') \
+               .replace('href="spotlight.html', 'href="../spotlight.html') \
                .replace('href="../index.html">Newsletters', 'href="index.html">Newsletters')
     page = re.sub(r'href="research-(\w+)\.html', r'href="../research-\1.html', page)
     page = new_tab_links(page)
@@ -6058,6 +6124,8 @@ def build_newsletter(ym, footer_html, script_html):
             au = p["authors"] if isinstance(p["authors"], str) else ", ".join(p["authors"])
             txt.append(f"- {au}. {p['title']}. {p['venue']}, {p['details']}." + (f" https://doi.org/{p['doi']}" if p.get("doi") else ""))
         txt.append("")
+    _sp = next((s for s in SPOTLIGHTS if s["ym"] == ym), None)
+    if _sp: txt += ["STUDENT SPOTLIGHT", f"{_sp['title']}: {' and '.join(_sp['students'])}. {_sp['deck']} {SITE_URL}spotlight.html#{_sp['ym']}", ""]
     if notes: txt.append("MILESTONES"); txt += [f"- {t}" for t in notes]; txt.append("")
     if upcoming: txt.append("COMING UP"); txt += [f"- {pr['title']} starts {pr['period'].split(' to ')[0]}." for pr in upcoming]; txt.append("")
     txt += [f"Read on the web: {SITE_URL}newsletters/{ym}.html", f"Site: {SITE_URL}", "Unsubscribe: reply with the subject Unsubscribe."]
@@ -6142,7 +6210,7 @@ def build_assets():
 def build_meta_files():
     """robots.txt and sitemap.xml, so the new pages are discoverable and the old single page is not the only entry."""
     root = os.path.dirname(os.path.abspath(OUT)) or "."
-    pages = ["", "people.html", "students.html", "alumni.html", "publications.html", "insights.html", "acnl.html", "news.html", "summit.html", "labs.html", "newsletters/index.html", "positions.html"] + \
+    pages = ["", "people.html", "students.html", "alumni.html", "publications.html", "insights.html", "acnl.html", "spotlight.html", "news.html", "summit.html", "labs.html", "newsletters/index.html", "positions.html"] + \
             [f"research-{k}.html" for k, _, _, _ in THRUSTS]
     today = datetime.date.today().isoformat()
     urls = "".join(f"  <url><loc>{SITE_URL}{p}</loc><lastmod>{today}</lastmod></url>\n" for p in pages)

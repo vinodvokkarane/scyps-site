@@ -8,6 +8,9 @@ NEW PAPERS
 - A. Rezaee, R. McCann, V. M. Vokkarane. FUSION: A Unified Benchmarking Framework for Reproducible Optical Network Research. IEEE/Optica Journal of Optical Communications and Networking, vol. 18, no. 9, pp. D90-D105, Sept. 2026 (Special Issue on Benchmarking in Optical Networks). https://doi.org/10.1364/JOCN.593123
 - X. Yan, Y. Xie, Z. Bhuyan, B. Xiang, G. Wu, M. Shirazi. Merging behavior under varying work zone sign scenarios: A heterogeneity-based analysis. Accident Analysis & Prevention, vol. 235, art. 108614, Sept. 2026. https://doi.org/10.1016/j.aap.2026.108614
 
+STUDENT SPOTLIGHT
+Building the networks behind AI: Arash Rezaee and Ryan McCann. Three journal articles in six months on how fiber-optic networks can keep up with AI, and an open-source platform the field can build on. https://smartcyberphysical.org/spotlight.html#2026-09
+
 MILESTONES
 - The FUSION benchmarking framework paper appears in JOCN's special issue on benchmarking in optical networks, followed in October by a QoT-aware grooming paper for multi-band SDM networks.
 

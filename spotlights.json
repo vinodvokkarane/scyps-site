@@ -1,0 +1,42 @@
+{
+ "_about": "Monthly student spotlight. One entry per month: the students, what they did, why it matters, and the papers. The site builds spotlight.html from this list and the newsletter for that month carries the entry. Add new entries at the top.",
+ "entries": [
+  {
+   "ym": "2026-09",
+   "title": "Building the networks behind AI",
+   "students": ["Arash Rezaee", "Ryan McCann"],
+   "advisor": "Vinod M. Vokkarane",
+   "lab": "Advanced Communication Networks Laboratory",
+   "deck": "Three journal articles in six months on how fiber-optic networks can keep up with AI, and an open-source platform the field can build on.",
+   "sections": [
+    {"h": null, "p": [
+     "Every AI application, cloud service, and connected device depends on something most people never see: the communication networks carrying enormous amounts of data behind the scenes. Two doctoral researchers in the center's Advanced Communication Networks Laboratory, Arash Rezaee and Ryan McCann, have spent the past year working on how those networks keep up.",
+     "Their work has produced three articles accepted in the last six months by the Journal of Optical Communications and Networking, published jointly by IEEE and Optica. Arash is first author on all three. Ryan co-led the work on FUSION, the group's open-source optical networking platform, and contributed to the other two studies. Collaborators at the University of Virginia and in Spain joined the work. Both students are advised by Vinod Vokkarane, the center's director."
+    ]},
+    {"h": "The question", "p": [
+     "Future AI systems will need more than powerful processors and large data centers. They will need networks that move huge volumes of information quickly and reliably between users, edge devices, cloud platforms, and computing facilities. There are two main ways to add capacity to a fiber network: use a wider range of the optical spectrum by transmitting across several wavelength bands, or add spatial capacity by sending data through multiple cores inside one fiber or through parallel fiber pairs.",
+     "Both work. Combining them is hard. Signals interfere with one another, performance varies across the spectrum, and some of the added capacity turns out to be unusable. The three papers take on that problem from three directions: long-term planning, real-time operation, and reproducible research."
+    ]},
+    {"h": "Planning: capacity on paper is not capacity in practice", "p": [
+     "The first article develops a planning framework that evaluates optical bands and spatial channels together rather than as separate upgrades. It accounts for signal noise, nonlinear effects, power changes, equipment limits, and interference between neighboring fiber cores, and parts of it were validated on a commercial multicore fiber. Its central finding is that adding bands or cores does not always add usable capacity; the best choice depends on the spectrum in use, the structure of the fiber, and the physical conditions in the network. The article is an invited extension of the team's paper at ECOC 2025."
+    ]},
+    {"h": "Operation: smarter decisions while the network runs", "p": [
+     "The second article turns to the decisions a network makes as traffic arrives. A quality-of-transmission-aware controller chooses the route, band, spatial lane, frequency channel, and modulation format for each connection, grooms new traffic into unused capacity on existing connections, and slices large requests across channels when no single channel can carry them. Comparing multi-core fibers with parallel fiber pairs, the paper shows the conditions under which each performs best rather than declaring a winner. It extends the team's paper at ONDM 2025."
+    ]},
+    {"h": "Research: a shared platform, FUSION", "p": [
+     "The third article introduces FUSION, the Flexible Unified Simulator for Intelligent Optical Networking, which Ryan co-founded and leads as its principal developer. Optical networking studies are hard to compare because groups use different software, assumptions, and network configurations. FUSION gives researchers one modular environment covering conventional, multi-band, and space-division multiplexed networks, with physical-layer models, control algorithms, grooming, survivability, and AI-based decision making, plus automated testing and deterministic replay so experiments can be checked and repeated. It was the platform behind the other two papers, and it is released as open source for others to extend. The article appears in JOCN's feature issue on benchmarking in optical networks."
+    ]},
+    {"h": "Why it matters to the center", "p": [
+     "Smart grids, autonomous platforms, connected health care, and intelligent transportation all depend on networks that move data reliably and respond when conditions change. Arash and Ryan's work connects fiber physics to network control and to software the field can share. It is the communications foundation that the center's cyber-physical systems stand on."
+    ]}
+   ],
+   "papers": [
+    {"title": "QoT-Aware Spectral and Spatial Scaling Trade-offs in Multi-Band Space Division Multiplexing over EONs", "doi": "10.1364/JOCN.596854", "note": "JOCN, Aug. 2026; invited extension of ECOC 2025"},
+    {"title": "QoT-Aware Dynamic Resource Allocation and Grooming in Multi-Band Space-Division Multiplexing Networks", "doi": "10.1364/JOCN.596435", "note": "JOCN, Oct. 2026; invited extension of ONDM 2025"},
+    {"title": "FUSION: A Unified Benchmarking Framework for Reproducible Optical Network Research", "doi": "10.1364/JOCN.593123", "note": "JOCN, Sept. 2026, feature issue on benchmarking in optical networks"}
+   ],
+   "links": [{"label": "FUSION on GitHub", "url": "https://github.com/SDNNetSim/FUSION"}],
+   "funding": "UMass Lowell's contributions were supported in part by the National Science Foundation under Award No. 2008530."
+  }
+ ]
+}

@@ -695,3 +695,11 @@ Google Scholar figures" >
     refresh_log.json lists every change from the last run. To reject an automatic entry, delete it from
     the overlay file and add its DOI (papers) or award id (grants) to that file's "ignore" list; it will
     not be re-added. To promote an entry, copy it into build_site.py.
+
+## Student spotlight (monthly)
+
+One story a month about the center's doctoral students. Add an entry at the top of `spotlights.json`
+(month as `ym`, students by the names used in the site's roster, advisor, deck, sections, papers with DOIs,
+links, funding line). The build writes `spotlight.html`, puts the latest entry at the top of the Students
+page, and the newsletter for that month carries it automatically. Draft in plain prose, about 500 to 700
+words, and name the students in the site's roster so their photos and status appear.

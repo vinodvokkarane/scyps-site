@@ -3191,7 +3191,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.18"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.19"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -6423,6 +6423,39 @@ def _thumb(key, px=96):
     buf = io.BytesIO(); im.save(buf, "JPEG", quality=78, optimize=True)
     return "data:image/jpeg;base64," + base64.b64encode(buf.getvalue()).decode()
 
+def center_on(sub, hub, pos, x0, y0, w, h):
+    """Radial layout with the hub person in the middle of the box: direct collaborators on the first ring,
+    their collaborators on the next, and so on. The order around each ring follows a Kamada-Kawai layout so
+    groups that work together stay together; outer people sit near the people who connect them inward."""
+    import networkx as nx, math
+    dist = nx.single_source_shortest_path_length(sub, hub)
+    K = max(dist.values()) or 1
+    kk = nx.kamada_kawai_layout(sub, weight=None); hx, hy = kk[hub]
+    ang = {n: math.atan2(kk[n][1] - hy, kk[n][0] - hx) for n in sub if n != hub}
+    cx, cy = x0 + w / 2, y0 + h / 2
+    placed = {hub: 0.0}
+    for ring in range(1, K + 1):
+        members = [n for n, d in dist.items() if d == ring]
+        if ring > 1:   # pull each outer person toward the mean angle of their inner-ring neighbors
+            for n in members:
+                inner = [placed[m] for m in sub[n] if m in placed and dist[m] == ring - 1]
+                if inner: ang[n] = math.atan2(sum(math.sin(a) for a in inner), sum(math.cos(a) for a in inner))
+        members.sort(key=lambda n: ang[n])
+        m = len(members); gap = 2 * math.pi / max(m, 1)
+        if ring == 1:   # spread the first ring evenly, keeping its order
+            start = ang[members[0]] if members else 0
+            for k, n in enumerate(members): placed[n] = start + k * gap
+        else:           # keep outer people near their anchors but at least a minimum angle apart
+            mind = min(gap, math.radians(28))
+            for k, n in enumerate(members):
+                a = ang[n]
+                if k and a - placed[members[k - 1]] < mind: a = placed[members[k - 1]] + mind
+                placed[n] = a
+        f = 0.9 if K == 1 else 0.52 + 0.48 * (ring - 1) / (K - 1)     # first ring at about half the radius
+        rx, ry = (w / 2) * f, (h / 2) * f
+        for n in members: pos[n] = (cx + rx * math.cos(placed[n]), cy + ry * math.sin(placed[n]))
+    pos[hub] = (cx, cy)
+
 def collab_graph_html():
     """Who works with whom among the faculty and external collaborators: a link for every co-authored paper in the
     center record and every shared award. Each person is drawn with their photo, ringed in the color of their
@@ -6457,7 +6490,11 @@ def collab_graph_html():
         for n, (x, y) in p.items():
             pos[n] = (x0 + (x - min(xs)) / (max(xs) - min(xs) or 1) * w, y0 + (y - min(ys)) / (max(ys) - min(ys) or 1) * h)
     side = 170 if len(comps) > 1 else 0
-    fit(G.subgraph(comps[0]), M + side, M, W - 2 * M - side, H - 2 * M - 10)
+    hub = _person_key(FACULTY["director"]["name"])
+    if hub in comps[0]:
+        center_on(G.subgraph(comps[0]), hub, pos, M + side, M, W - 2 * M - side, H - 2 * M - 10)
+    else:
+        fit(G.subgraph(comps[0]), M + side, M, W - 2 * M - side, H - 2 * M - 10)
     cy = M
     for c in comps[1:]:
         fit(G.subgraph(c), M, cy, 110, 70); cy += 150
@@ -6472,10 +6509,12 @@ def collab_graph_html():
                 ox, oy = BW - abs(x1 - x2), BH - abs(y1 - y2)
                 if ox > 0 and oy > 0:
                     moved = True
+                    fi, fj = (0 if ks[i] == hub else 1), (0 if ks[j] == hub else 1)   # the director stays put
+                    k2 = 2 / (fi + fj)
                     if ox < oy:
-                        s = (ox / 2 + 1) * (1 if x1 >= x2 else -1); pos[ks[i]] = (x1 + s, y1); pos[ks[j]] = (x2 - s, y2)
+                        s = (ox / 2 + 1) * (1 if x1 >= x2 else -1) * k2; pos[ks[i]] = (x1 + s * fi, y1); pos[ks[j]] = (x2 - s * fj, y2)
                     else:
-                        s = (oy / 2 + 1) * (1 if y1 >= y2 else -1); pos[ks[i]] = (x1, y1 + s); pos[ks[j]] = (x2, y2 - s)
+                        s = (oy / 2 + 1) * (1 if y1 >= y2 else -1) * k2; pos[ks[i]] = (x1, y1 + s * fi); pos[ks[j]] = (x2, y2 - s * fj)
         for n, (x, y) in pos.items(): pos[n] = (min(W - M, max(M, x)), min(H - M - 12, max(M - 10, y)))
         if not moved: break
     order = ["Francis College of Engineering", "Kennedy College of Sciences", "College of Fine Arts, Humanities and Social Sciences", "UMass Lowell"]

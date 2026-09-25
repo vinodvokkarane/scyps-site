@@ -117,7 +117,7 @@ ul.plain{{margin:0;padding-left:14pt;font-size:9.6pt}}ul.awards{{columns:2;colum
 <p>Cyber-physical systems sense the physical world, communicate what they sense, decide, and act. The center's research covers every link in that loop, and the eight thrusts below are how its {n_faculty} faculty organize the work. Each thrust has a lead, a page on the center site, and a record of papers and awards that the site keeps current every week.</p>
 <ul class="thrusts">{thrusts}</ul>
 <h3>Active and new awards ({len(awards_all)})</h3><ul class="plain awards">{active}</ul>
-<p class="foot">Full records: smartcyberphysical.org. Publications, awards, and Scholar figures on the site are refreshed automatically from Crossref, NSF, and Google Scholar.</p></section>
+<p class="foot">Full records at <a href="https://smartcyberphysical.org">smartcyberphysical.org</a>, where every paper and award links to its source.</p></section>
 
 <section class="pb story"><p class="kicker">Project spotlight</p><h2>{esc(proj["title"])}</h2><p class="deck">{esc(proj["deck"])}</p>
 <figure style="width:50%;margin:0 auto 4pt"><img src="{img("summit_arch")}" alt=""><figcaption>{esc(proj["figure_caption"])}</figcaption></figure>

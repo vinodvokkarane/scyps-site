@@ -3171,7 +3171,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.12"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.13"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -5314,6 +5314,7 @@ def build():
     build_feed()
     build_assets()
     _nl = next((a.split("=", 1)[1] for a in sys.argv if a.startswith("--newsletter=")), None)
+    build_print_viewers(footer_html, script_html)
     if _nl: build_newsletter(_nl, footer_html, script_html)
     else: build_newsletter_index(footer_html, script_html)
     print(f"wrote {OUT} (v{SITE_VERSION}): {len(page)/1024:.0f} KB; {n_pubs} pubs ({n_journal} journal); {n_faculty} faculty; {len(IMG)} images embedded")
@@ -6134,6 +6135,103 @@ def build_newsletter(ym, footer_html, script_html):
     build_newsletter_index(footer_html, script_html)
     print(f"wrote newsletters/{ym}.html, -email.html, .txt: {len(awards)} awards, {len(papers)} papers, {len(notes)} milestones")
 
+def build_print_viewers(footer_html, script_html):
+    """newsletters/print-<ym>.html: a page-by-page viewer for each print edition, rendered in the browser with PDF.js
+    (self-hosted in vendor/pdfjs), with a two-page spread on wide screens, keyboard arrows, and a download link."""
+    global FONT_ROOT
+    root = os.path.dirname(os.path.abspath(OUT)) or "."
+    pdir = os.path.join(root, "newsletters", "print")
+    if not os.path.isdir(pdir): return
+    for f in sorted(os.listdir(pdir)):
+        m = re.fullmatch(r"SCyPS-Newsletter-(\d{4}-\d{2})-Vol(\d+)-No(\d+)\.pdf", f)
+        if not m: continue
+        ym, vol, no = m.groups(); label = f"{MONTH_FULL[int(ym[5:7])]} {ym[:4]}"
+        body = f'''<section>
+  <div class="wrap">
+    <p class="crumb"><a href="index.html">Newsletters</a></p>
+    <div class="shead"><h1>{esc(label)}</h1><p>Volume {vol}, Number {no}, print edition. Read it here page by page, or download the PDF.</p></div>
+    <div class="pv" id="pv" data-pdf="print/{f}">
+      <div class="pvbar" role="toolbar" aria-label="Page controls">
+        <button type="button" id="pvprev" aria-label="Previous page">&larr; Previous</button>
+        <span class="pvpage" aria-live="polite"><span id="pvnum">1</span> of <span id="pvtot">&hellip;</span></span>
+        <button type="button" id="pvnext" aria-label="Next page">Next &rarr;</button>
+        <span class="pvsp"></span>
+        <button type="button" id="pvspread" aria-pressed="false">Two pages</button>
+        <a class="pvdl" href="print/{f}" download>Download PDF</a>
+      </div>
+      <div class="pvstage" id="pvstage" tabindex="0" aria-label="Newsletter pages"><p class="pvload">Loading the issue&hellip;</p></div>
+      <noscript><p><a href="print/{f}">Open the PDF</a></p></noscript>
+    </div>
+  </div>
+</section>'''
+        css = '''.crumb{font-size:14px;margin-bottom:12px}
+.pv{max-width:1180px}.pvbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:0 0 14px}
+.pvbar button,.pvdl{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:6px 14px;cursor:pointer;text-decoration:none}
+.pvbar button[aria-pressed="true"]{border-color:var(--ink);font-weight:600}.pvbar button:disabled{opacity:.4;cursor:default}
+.pvpage{font-size:14px;color:var(--ink-2);min-width:70px;text-align:center}.pvsp{flex:1}
+.pvstage{display:flex;justify-content:center;gap:14px;background:var(--bg-2);border:1px solid var(--line);border-radius:12px;padding:18px;outline:none;min-height:420px}
+.pvstage canvas{background:#fff;box-shadow:0 2px 10px rgba(14,32,54,.18);max-width:100%;height:auto}
+.pvload{color:var(--ink-3);align-self:center}
+@media (max-width:760px){.pvstage{padding:8px}.pvbar .pvsp{display:none}#pvspread{display:none}}'''
+        js = '''
+<script src="../vendor/pdfjs/pdf.min.js"></script>
+<script>
+(function(){
+  var box=document.getElementById('pv'), stage=document.getElementById('pvstage');
+  if(!box||!window.pdfjsLib){return;}
+  pdfjsLib.GlobalWorkerOptions.workerSrc='../vendor/pdfjs/pdf.worker.min.js';
+  var doc=null, page=1, spread=false, busy=false;
+  var num=document.getElementById('pvnum'), tot=document.getElementById('pvtot');
+  var prev=document.getElementById('pvprev'), next=document.getElementById('pvnext'), sp=document.getElementById('pvspread');
+  function wide(){return window.innerWidth>=900;}
+  function step(){return (spread&&wide())?2:1;}
+  function first(){ // in spread mode the cover stands alone, then pages pair up 2-3, 4-5, ...
+    if(step()===1) return page; return page===1?1:(page%2===0?page:page-1);}
+  function render(){
+    if(!doc||busy) return; busy=true;
+    var p0=first(), pages=[p0]; if(step()===2&&p0>1&&p0+1<=doc.numPages) pages.push(p0+1);
+    var avail=stage.clientWidth-36-(pages.length-1)*14, per=avail/pages.length;
+    Promise.all(pages.map(function(n){return doc.getPage(n);})).then(function(ps){
+      stage.innerHTML='';
+      var ratio=window.devicePixelRatio||1;
+      return Promise.all(ps.map(function(pg){
+        var v1=pg.getViewport({scale:1}), maxH=window.innerHeight*0.86;
+        var s=Math.min(per/v1.width, maxH/v1.height), v=pg.getViewport({scale:s*ratio});
+        var c=document.createElement('canvas'); c.width=v.width; c.height=v.height;
+        c.style.width=(v.width/ratio)+'px'; c.style.height=(v.height/ratio)+'px';
+        c.setAttribute('role','img'); c.setAttribute('aria-label','Page '+pg.pageNumber+' of '+doc.numPages);
+        stage.appendChild(c);
+        return pg.render({canvasContext:c.getContext('2d'),viewport:v}).promise;
+      }));
+    }).then(function(){
+      num.textContent=pages.length>1?(pages[0]+'-'+pages[1]):pages[0];
+      prev.disabled=pages[0]<=1; next.disabled=pages[pages.length-1]>=doc.numPages; busy=false;
+    }).catch(function(){busy=false; stage.innerHTML='<p class="pvload">This issue could not be displayed here. <a href="'+box.dataset.pdf+'">Open the PDF</a>.</p>';});
+  }
+  function go(d){ if(!doc) return; var p0=first();
+    if(step()===2){ page = d>0 ? (p0===1?2:p0+2) : (p0<=3?1:p0-2); } else { page=Math.min(doc.numPages,Math.max(1,page+d)); }
+    page=Math.min(doc.numPages,Math.max(1,page)); render(); }
+  prev.addEventListener('click',function(){go(-1);}); next.addEventListener('click',function(){go(1);});
+  sp.addEventListener('click',function(){spread=!spread; sp.setAttribute('aria-pressed',String(spread)); render();});
+  stage.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){go(1);e.preventDefault();} if(e.key==='ArrowLeft'){go(-1);e.preventDefault();}});
+  document.addEventListener('keydown',function(e){if(e.target.tagName==='INPUT')return; if(e.key==='ArrowRight')go(1); if(e.key==='ArrowLeft')go(-1);});
+  var t; window.addEventListener('resize',function(){clearTimeout(t); t=setTimeout(render,200);});
+  pdfjsLib.getDocument(box.dataset.pdf).promise.then(function(d){doc=d; tot.textContent=d.numPages; if(wide()){spread=true; sp.setAttribute('aria-pressed','true');} render();})
+    .catch(function(){stage.innerHTML='<p class="pvload">This issue could not be loaded here. <a href="'+box.dataset.pdf+'">Open the PDF</a>.</p>';});
+})();
+</script>'''
+        FONT_ROOT = "../"
+        page = page_shell(f"{label} print edition | SCyPS, UMass Lowell",
+                          f"The Center for Smart Cyber-Physical Systems newsletter, {label}, Volume {vol}, Number {no}: read the print edition page by page.",
+                          body, footer_html, script_html + js, extra_css=css, active="news", canonical=f"newsletters/print-{ym}.html")
+        for nm in ("index", "people", "students", "alumni", "publications", "insights", "acnl", "spotlight", "news", "labs", "summit", "positions"):
+            page = page.replace(f'href="{nm}.html', f'href="../{nm}.html')
+        page = re.sub(r'href="research-(\w+)\.html', r'href="../research-\1.html', page)
+        page = page.replace('href="../index.html">Newsletters', 'href="index.html">Newsletters')
+        open(os.path.join(root, "newsletters", f"print-{ym}.html"), "w", encoding="utf-8").write(new_tab_links(page))
+        FONT_ROOT = ""
+        print(f"wrote newsletters/print-{ym}.html (viewer for {f})")
+
 def build_newsletter_index(footer_html, script_html):
     root = os.path.dirname(os.path.abspath(OUT)) or "."
     ndir = os.path.join(root, "newsletters"); os.makedirs(ndir, exist_ok=True)
@@ -6146,7 +6244,7 @@ def build_newsletter_index(footer_html, script_html):
         if not m: continue
         pym, vol, no = m.groups(); cover = f"print/{pym}-cover.jpg"
         cov = f'<img src="{cover}" alt="" width="240" height="311">' if os.path.exists(os.path.join(pdir, f"{pym}-cover.jpg")) else ""
-        prints.append(f'<li><a href="print/{f}">{cov}<span><b>Volume {vol}, Number {no}</b>{MONTH_FULL[int(pym[5:7])]} {pym[:4]} print edition (PDF)</span></a></li>')
+        prints.append(f'<li><a href="print-{pym}.html">{cov}<span><b>Volume {vol}, Number {no}</b>{MONTH_FULL[int(pym[5:7])]} {pym[:4]} print edition<em>Read online</em></span></a><a class="prdl" href="print/{f}" download>Download PDF</a></li>')
     print_html = (f'<h2 class="grouph">Print editions</h2><ul class="prlist">{"".join(prints)}</ul>') if prints else ""
     body = f"""<section>
   <div class="wrap">
@@ -6157,7 +6255,7 @@ def build_newsletter_index(footer_html, script_html):
     <p class="nlfoot">Prefer items as they happen? Subscribe to the <a href="../feed.xml">news feed</a>.</p>
   </div>
 </section>"""
-    css = ".prlist{list-style:none;margin:0 0 30px;padding:0;display:flex;flex-wrap:wrap;gap:20px}.prlist a{display:flex;gap:16px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--surface);color:var(--ink);text-decoration:none;max-width:420px}.prlist img{width:120px;height:auto;border:1px solid var(--line);border-radius:4px}.prlist span{font-size:15px;line-height:1.4}.prlist b{display:block;font-size:17px;margin-bottom:4px}" + ".nllist{list-style:none;margin:0;padding:0;max-width:30em}.nllist li{padding:12px 0;border-bottom:1px solid var(--line);font-size:17px}.nlfoot{font-size:13.5px;color:var(--ink-3);margin-top:30px}"
+    css = ".prlist{list-style:none;margin:0 0 30px;padding:0;display:flex;flex-wrap:wrap;gap:20px}.prlist a{display:flex;gap:16px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--surface);color:var(--ink);text-decoration:none;max-width:420px}.prlist img{width:120px;height:auto;border:1px solid var(--line);border-radius:4px}.prlist span{font-size:15px;line-height:1.4}.prlist b{display:block;font-size:17px;margin-bottom:4px}.prlist em{display:block;font-style:normal;color:var(--accent,#044978);margin-top:8px;font-weight:600}.prlist li{display:flex;flex-direction:column;gap:6px}.prdl{font-size:14px;padding-left:4px}" + ".nllist{list-style:none;margin:0;padding:0;max-width:30em}.nllist li{padding:12px 0;border-bottom:1px solid var(--line);font-size:17px}.nlfoot{font-size:13.5px;color:var(--ink-3);margin-top:30px}"
     global FONT_ROOT
     FONT_ROOT = "../"
     page = page_shell("Newsletters | SCyPS, UMass Lowell", "Monthly newsletters from the Center for Smart Cyber-Physical Systems at UMass Lowell.",

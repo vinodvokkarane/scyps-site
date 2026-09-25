@@ -3052,8 +3052,8 @@ THRUSTS = [
 STUDENTS = [
     {"name": "Arash Rezaee", "advisor": "Vinod M. Vokkarane", "photo": "arash", "fig": "fig_arash", "figcap": "AI services over a software-defined, multi-layer network", "status": "Ph.D. Candidate, joined 2022", "focus": "AI-driven resource allocation in optical networks; impairment-aware provisioning in multi-band, space-division multiplexed networks; spectral versus spatial capacity scaling; reproducible optical network benchmarking with FUSION.", "linkedin": ""},
     {"name": "Ryan McCann", "advisor": "Vinod M. Vokkarane", "photo": "ryan", "fig": "fig_ryan", "figcap": "FUSION: reinforcement learning over a software-defined optical mesh", "status": "Ph.D. Candidate, joined 2024", "focus": "Co-founder and lead developer of FUSION (github.com/SDNNetSim/FUSION), supported by MIT I-Corps and AT&T; reinforcement learning for software-defined elastic optical networks; failure-aware routing and realistic simulation of elastic optical and mesh networks.", "linkedin": ""},
-    {"name": "Ken Patrick Watts", "advisor": "Vinod M. Vokkarane", "photo": "ken", "fig": "fig_ken", "figcap": "NATIG co-simulation of a distribution grid and its wireless network", "status": "Ph.D. Student, joined 2022", "focus": "Scalable, real-time detection of cyber attacks on smart power grids with machine learning; adaptive transfer learning for day-zero network intrusion detection; the NATIG cyber-physical co-simulation testbed (HELICS, GridLAB-D, ns-3).", "linkedin": ""},
-    {"name": "Mehran Sasaninia", "advisor": "Vinod M. Vokkarane", "photo": "mehran", "fig": "fig_mehran", "figcap": "Federated learning across grid sites with a global model aggregator", "status": "Ph.D. Student, joined 2023", "focus": "Federated learning to detect cyber attacks in the smart grid; smart false data injection attacks and anomaly detection in smart meters (IEEE SmartGridComm 2025); centralized versus federated learning for grid anomaly detection.", "linkedin": ""},
+    {"name": "Kenneth Patrick Watts", "advisor": "Vinod M. Vokkarane", "photo": "ken", "fig": "fig_ken", "figcap": "NATIG co-simulation of a distribution grid and its wireless network", "status": "Ph.D. Candidate, joined 2022", "focus": "Scalable, real-time detection of cyber attacks on smart power grids with machine learning; adaptive transfer learning for day-zero network intrusion detection; the NATIG cyber-physical co-simulation testbed (HELICS, GridLAB-D, ns-3).", "linkedin": ""},
+    {"name": "Mehran Sasaninia", "advisor": "Vinod M. Vokkarane", "photo": "mehran", "fig": "fig_mehran", "figcap": "Federated learning across grid sites with a global model aggregator", "status": "Ph.D. Candidate, joined 2023", "focus": "Federated learning to detect cyber attacks in the smart grid; smart false data injection attacks and anomaly detection in smart meters (IEEE SmartGridComm 2025); centralized versus federated learning for grid anomaly detection.", "linkedin": ""},
     {"name": "Ayush Pandey", "advisor": "Vinod M. Vokkarane", "photo": "ayush", "status": "Ph.D. Student, joined 2024", "figsvg": "ayush", "figcap": "AI-based intrusion detection protecting a transmission grid's control loop", "focus": "Smart grid cybersecurity and AI for cyber-physical systems.", "linkedin": ""},
     {"name": "Suvhasis Mukhopadhyay", "advisor": "Vinod M. Vokkarane", "photo": "suvhasis", "figsvg": "suvhasis", "figcap": "Impairment-aware allocation of spectrum, modulation, and power on a flex-grid link", "status": "Ph.D. Student, joined 2024", "focus": "Impact of individual physical layer impairments on elastic optical network performance; impairment-aware routing, spectrum, modulation, and power allocation; dynamic optical networking.", "linkedin": ""},
     # Other center faculty's doctoral students, from their CVs (Sept. 2026). Program and dates as listed there;
@@ -3191,7 +3191,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.22"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.23"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3668,7 +3668,7 @@ def journal_chip(venue):
 # here is computed from P; nothing is entered by hand.
 STUDENT_ADVISOR = {
     "Arash Rezaee": ("Rezaee", "A", {"Vokkarane"}), "Ryan McCann": ("McCann", "R", {"Vokkarane"}),
-    "Ken Patrick Watts": ("Watts", "K", {"Vokkarane"}), "Suvhasis Mukhopadhyay": ("Mukhopadhyay", "S", {"Vokkarane"}),
+    "Kenneth Patrick Watts": ("Watts", "K", {"Vokkarane"}), "Suvhasis Mukhopadhyay": ("Mukhopadhyay", "S", {"Vokkarane"}),
     "Mehran Sasaninia": ("Sasaninia", "M", {"Vokkarane"}), "Ayush Pandey": ("Pandey", "A", {"Vokkarane"}),
     "Md Zahidul Islam": ("Islam", "M", {"Lin", "Vokkarane"}), "Shamsun Nahar Edib": ("Edib", "S", {"Lin", "Vokkarane"}),
 }
@@ -3723,6 +3723,7 @@ SCHOLAR = {
     # written in STUDENTS and the user= part of the profile URL. Both checked Sept. 22, 2026: UMass Lowell
     # affiliation on the profile, and listed among the director's Scholar co-authors.
     "Arash Rezaee": "3OLFUJgAAAAJ", "Ryan McCann": "HPAbt0sAAAAJ",
+    "Kenneth Patrick Watts": "3DaGyJoAAAAJ",   # sent by Ken, Sept. 25, 2026
 }
 ORCID = {
     "Vinod M. Vokkarane": "0000-0001-9205-2120", "Orlando Arias": "0009-0002-3948-5773", "Lewis Tseng": "0000-0002-4717-4038", "Seung Woo Son": "0000-0001-8922-418X",

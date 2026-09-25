@@ -3171,7 +3171,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.11"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.12"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -6139,14 +6139,25 @@ def build_newsletter_index(footer_html, script_html):
     ndir = os.path.join(root, "newsletters"); os.makedirs(ndir, exist_ok=True)
     issues = sorted([f[:7] for f in os.listdir(ndir) if re.fullmatch(r"\d{4}-\d{2}\.html", f)], reverse=True)
     rows = "".join(f'<li><a href="{ym}.html">{MONTH_FULL[int(ym[5:7])]} {ym[:4]}</a></li>' for ym in issues)
+    # Print editions: designed PDF issues made with print_newsletter.py, listed newest first with their covers
+    pdir = os.path.join(ndir, "print"); prints = []
+    for f in sorted(os.listdir(pdir), reverse=True) if os.path.isdir(pdir) else []:
+        m = re.fullmatch(r"SCyPS-Newsletter-(\d{4}-\d{2})-Vol(\d+)-No(\d+)\.pdf", f)
+        if not m: continue
+        pym, vol, no = m.groups(); cover = f"print/{pym}-cover.jpg"
+        cov = f'<img src="{cover}" alt="" width="240" height="311">' if os.path.exists(os.path.join(pdir, f"{pym}-cover.jpg")) else ""
+        prints.append(f'<li><a href="print/{f}">{cov}<span><b>Volume {vol}, Number {no}</b>{MONTH_FULL[int(pym[5:7])]} {pym[:4]} print edition (PDF)</span></a></li>')
+    print_html = (f'<h2 class="grouph">Print editions</h2><ul class="prlist">{"".join(prints)}</ul>') if prints else ""
     body = f"""<section>
   <div class="wrap">
-    <div class="shead"><h1>Newsletters</h1><p>The center's monthly note, one issue per month, generated from its own records of papers, awards, and milestones. Each issue is also available as an email and as plain text.</p></div>
+    <div class="shead"><h1>Newsletters</h1><p>The center's monthly note, one issue per month, generated from its own records of papers, awards, and milestones. Each issue is also available as an email and as plain text. Print editions carry the month's spotlights on a student, a faculty member, and a project.</p></div>
+    {print_html}
+    <h2 class="grouph">Monthly issues</h2>
     <ul class="nllist">{rows or "<li>No issues yet.</li>"}</ul>
     <p class="nlfoot">Prefer items as they happen? Subscribe to the <a href="../feed.xml">news feed</a>.</p>
   </div>
 </section>"""
-    css = ".nllist{list-style:none;margin:0;padding:0;max-width:30em}.nllist li{padding:12px 0;border-bottom:1px solid var(--line);font-size:17px}.nlfoot{font-size:13.5px;color:var(--ink-3);margin-top:30px}"
+    css = ".prlist{list-style:none;margin:0 0 30px;padding:0;display:flex;flex-wrap:wrap;gap:20px}.prlist a{display:flex;gap:16px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--surface);color:var(--ink);text-decoration:none;max-width:420px}.prlist img{width:120px;height:auto;border:1px solid var(--line);border-radius:4px}.prlist span{font-size:15px;line-height:1.4}.prlist b{display:block;font-size:17px;margin-bottom:4px}" + ".nllist{list-style:none;margin:0;padding:0;max-width:30em}.nllist li{padding:12px 0;border-bottom:1px solid var(--line);font-size:17px}.nlfoot{font-size:13.5px;color:var(--ink-3);margin-top:30px}"
     global FONT_ROOT
     FONT_ROOT = "../"
     page = page_shell("Newsletters | SCyPS, UMass Lowell", "Monthly newsletters from the Center for Smart Cyber-Physical Systems at UMass Lowell.",

@@ -703,3 +703,11 @@ One story a month about the center's doctoral students. Add an entry at the top 
 links, funding line). The build writes `spotlight.html`, puts the latest entry at the top of the Students
 page, and the newsletter for that month carries it automatically. Draft in plain prose, about 500 to 700
 words, and name the students in the site's roster so their photos and status appear.
+
+## Print edition (monthly PDF)
+
+`python3 print_newsletter.py 2026-08` builds a designed PDF issue from `issues/2026-08.json` (director's letter,
+project and faculty spotlights, captions, coming-up list) plus the site's own records (that month's papers, awards,
+and milestones, the roster, the student spotlight from `spotlights.json`, and the images). It writes
+`newsletters/print/SCyPS-Newsletter-<ym>-Vol<v>-No<n>.pdf` and a cover thumbnail; the newsletters page lists every
+print edition automatically. Needs Playwright with Chromium, so run it locally, then commit the PDF and cover.

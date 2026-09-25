@@ -1,0 +1,118 @@
+{
+ "volume": 1,
+ "number": 1,
+ "hero_caption": "The center's work runs from the power grid and the fiber network to the road and the reactor, with people and AI sharing control.",
+ "contents": [
+  "From the director",
+  "The center: eight thrusts, one loop",
+  "Project spotlight: SUMMIT",
+  "Faculty spotlight: Sukesh Aghara",
+  "Student spotlight: Arash Rezaee and Ryan McCann",
+  "August at the center, and what comes next"
+ ],
+ "letter": {
+  "title": "Why a newsletter, and why now",
+  "paragraphs": [
+   "Welcome to the first issue. The Center for Smart Cyber-Physical Systems was founded in October 2019 by five faculty who believed that the systems people depend on, from the grid to the road to the hospital, would be run by software and AI sooner than the field expected, and that someone had to work on making those systems secure and resilient before they failed. Seven years on, the center has 19 faculty across four colleges, 215 peer-reviewed papers, and a record we publish on our website and refresh every week from the same sources our reviewers use.",
+   "This fall is a turning point. In October, the National Science Foundation's $2 million SUMMIT award begins, giving us a federated testbed that links UMass Lowell, NYU, and West Virginia University in one instrument for studying attacks on the grid and recovery from them. This fall we are applying to the university for full research center status, and we are broadening what we do to put people in the loop: operators, drivers, patients, and the trust between them and the automation they work with.",
+   "Each month this newsletter will carry one student story, one faculty story, and one project, along with what was published and funded. If you are a student looking for a group, a company looking for a testbed, or a colleague looking for a collaborator, the last page tells you how to reach us. Thank you for reading."
+  ],
+  "signature": "Vinod M. Vokkarane, Director"
+ },
+ "project_spotlight": {
+  "title": "SUMMIT: a testbed for attacking, defending, and recovering the grid",
+  "deck": "A $2.0 million NSF Major Research Instrumentation award builds a three-university instrument where real control, network, and security hardware closes the loop with a real-time simulation of the Northeast transmission grid.",
+  "figure_caption": "SUMMIT's architecture: the UMass Lowell main site with its real-time digital simulators and control, network, and instrumentation equipment; a wide-area software-defined network over the Internet; and the federation sites at NYU Tandon and West Virginia University.",
+  "sections": [
+   {
+    "h": null,
+    "p": [
+     "Grid cybersecurity research has a practical problem: you cannot attack a real grid to see what happens, and a pure software simulation leaves out the relays, controllers, and network devices where attacks actually land. SUMMIT, the Secure and Resilient Multi-site Smart Grid Testbed for Multidisciplinary Research and Training, is built to close that gap. Funded by NSF's Major Research Instrumentation program (award #2511635) at $2.0 million, with a UMass Lowell share of $1.56 million and subawards to NYU and West Virginia University, it starts in October 2026 and runs through September 2029."
+    ]
+   },
+   {
+    "h": "What it is",
+    "p": [
+     "At the core are RTDS NovaCor real-time digital simulators, which run grid models at time steps small enough to drive real relays, controllers, and network devices in closed loop. Every power component, from generation and storage to inverters, lives inside the simulation. Around the simulators at the UMass Lowell main site sit a signal generator for disturbance injection, a network emulator for latency, loss, and attack scenarios, optical, RF, and FPGA equipment for the transport and edge layers, and GPS-synchronized control and protection equipment. Wide-area software-defined network links connect the three sites over the public Internet."
+    ]
+   },
+   {
+    "h": "Four paradigms",
+    "p": [
+     "SUMMIT supports four ways of working. Distributed hardware-in-the-loop simulation, where control, networking, and cybersecurity hardware closes the loop with grid models running in real time. Internet-in-the-loop simulation, where the three sites exchange live signals over the wide-area network so the network itself is part of every experiment. Heterogeneous distributed digital twins, scoped in Phase 1 to the RTDS simulators and the center's existing OPAL-RT simulator. And the central objective: a federated platform that delivers hardware-in-the-loop Simulation-as-a-Service to collaborators who never touch the hardware."
+    ]
+   },
+   {
+    "h": "Phase 1, and who it is for",
+    "p": [
+     "Phase 1 focuses on the Northeast's backbone transmission grid, at small to medium scale for proof of concept, while keeping every capability needed to scale to the regional and national models planned for Phase 2. The team is PI Vinod Vokkarane with Co-PIs Orlando Arias and Lewis Tseng at UMass Lowell, Yuzhang Lin at NYU, and Anurag Srivastava at WVU, and senior personnel Yan Luo, Seung Woo Son, and Christopher Niezrecki. A postdoctoral researcher will lead federation development; the position is open. Collaborators from utilities, vendors, agencies, and other universities can propose experiments as the instrument opens in 2026 to 2027."
+    ]
+   }
+  ],
+  "pull": "Every power component lives inside the simulation. That is what lets the testbed stay safe, repeatable, and free of power hardware on site, and it is what lets three universities share one instrument."
+ },
+ "faculty_spotlight": {
+  "title": "Sukesh Aghara: the Commonwealth's nuclear roadmap and the center's energy thrust",
+  "deck": "A center co-founder who now advises the Chancellor on nuclear energy strategy, leads the Massachusetts Advanced Nuclear and Fusion Energy Roadmap, and directs the laboratory where nuclear security meets cyber-physical systems.",
+  "figure_caption": "Sukesh Aghara, Professor of Chemical and Nuclear Engineering and Senior Advisor to the Chancellor on Nuclear Energy Strategies.",
+  "sections": [
+   {
+    "h": null,
+    "p": [
+     "When the center was founded in 2019, Sukesh Aghara was one of its five co-founders and its founding co-director for energy. He still leads the nuclear energy and security thrust. What has changed is the scale of the questions he is asked to answer. In October 2025 the Governor's office asked him to lead the Massachusetts Advanced Nuclear and Fusion Energy Roadmap, the Commonwealth's plan for how advanced reactors and fusion fit its energy future. In 2026 UMass Lowell named him Senior Advisor to the Chancellor on Nuclear Energy Strategies, after five years as the Francis College of Engineering's Associate Dean for Research and eight as director of the Nuclear Engineering Program."
+    ]
+   },
+   {
+    "h": "The laboratory",
+    "p": [
+     "Aghara directs the Integrated Nuclear Security and Safeguards Laboratory, INSSL, which sits alongside the UMass Lowell research reactor. The lab has radiation detectors and cyber-physical testbeds, and its work on the cybersecurity of nuclear facilities, safeguards verification, and advanced reactor modeling is supported by federal agencies including the National Nuclear Security Administration. He also co-directs the Intercontinental Nuclear Institute, a partnership with the International Atomic Energy Agency that trains the next generation of nuclear security professionals. Both are where the center's cyber-physical work meets the nuclear world: a reactor's control and protection systems are cyber-physical systems whose failure has physical consequences."
+    ]
+   },
+   {
+    "h": "The scholarship",
+    "p": [
+     "He is the editor of The Oxford Handbook of Nuclear Security, published by Oxford University Press, with chapters of his own on cybersecurity for nuclear facilities and on security for next-generation reactors. His recent work ranges from stochastic methods for safeguards inspection to a June 2026 paper in Energy Reports, with Korinek, Annadevula, and Skoda, on phasing clean alternatives into a university campus's central heating. The center's record lists 14 of his papers. He chaired the Nuclear Engineering Department Heads Organization in 2024 to 2025 and was elected to the board of the ASEE Engineering Research Council in 2024."
+    ]
+   },
+   {
+    "h": "This fall",
+    "p": [
+     "On September 30, UMass Lowell hosts the New England Governors' Nuclear Energy Summit at the Rist Institute, where the roadmap and the region's nuclear plans meet. For the center, the summit is also where the SUMMIT testbed meets the nuclear community: a plant's connection to the grid can be tested in the instrument before the plant is built."
+    ]
+   }
+  ],
+  "box_title": "At a glance",
+  "box_items": [
+   "Professor, Chemical and Nuclear Engineering",
+   "Senior Advisor to the Chancellor on Nuclear Energy Strategies (2026)",
+   "Lead, Massachusetts Advanced Nuclear and Fusion Energy Roadmap",
+   "Director, Integrated Nuclear Security and Safeguards Laboratory",
+   "Co-Director, Intercontinental Nuclear Institute (with the IAEA)",
+   "Editor, The Oxford Handbook of Nuclear Security",
+   "Associate Dean for Research, 2021 to 2026"
+  ]
+ },
+ "student_spotlight": "2026-09",
+ "student_figures": [
+  "Arash Rezaee: AI services over a software-defined, multi-layer network.",
+  "Ryan McCann: FUSION, reinforcement learning over a software-defined optical mesh."
+ ],
+ "coming_up": [
+  {
+   "when": "September 30",
+   "what": "New England Governors' Nuclear Energy Summit, hosted by UMass Lowell at the Rist Institute."
+  },
+  {
+   "when": "October 1",
+   "what": "The NSF SUMMIT award begins; the postdoctoral research associate search is open."
+  },
+  {
+   "when": "December",
+   "what": "IEEE GLOBECOM 2026, where center faculty serve on the technical program committee."
+  },
+  {
+   "when": "2028",
+   "what": "IEEE HPSR 2028 at South Asian University, New Delhi, with the director as TPC Co-Chair."
+  }
+ ]
+}

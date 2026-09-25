@@ -3191,7 +3191,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.20"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.21"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -6538,7 +6538,7 @@ def collab_graph_html():
         t = f"{nodes[a]['name']} and {nodes[b]['name']}: {d['paper']} joint paper{'s' if d['paper'] != 1 else ''}" + (f", {d['award']} shared award{'s' if d['award'] != 1 else ''}" if d["award"] else "")
         op = 0.25 + 0.55 * (d["w"] / maxw) ** 0.5
         et = " ".join(k for k, g in groups.items() if a in g and b in g)
-        edges.append(f'<line data-t="{et}" x1="{pos[a][0]:.0f}" y1="{pos[a][1]:.0f}" x2="{pos[b][0]:.0f}" y2="{pos[b][1]:.0f}" stroke-width="{1.2 + 7 * (d["w"] / maxw) ** 0.6:.1f}" stroke-opacity="{op:.2f}"><title>{esc(t)}</title></line>')
+        edges.append(f'<line data-t="{et}" data-a="{a}" data-b="{b}" data-info="{esc(t)}" x1="{pos[a][0]:.0f}" y1="{pos[a][1]:.0f}" x2="{pos[b][0]:.0f}" y2="{pos[b][1]:.0f}" stroke-width="{1.2 + 7 * (d["w"] / maxw) ** 0.6:.1f}" stroke-opacity="{op:.2f}"/>')
     defs, dots = [], []
     for n in G:
         d = nodes[n]; deg = G.degree(n, weight="w"); r = 20 + min(14, deg ** 0.5 * 1.6); x, y = pos[n]
@@ -6551,17 +6551,20 @@ def collab_graph_html():
             ini = "".join(w[0] for w in d["name"].split() if w[0].isupper())[:2]
             face = f'<text x="{x:.0f}" y="{y + 5:.0f}" text-anchor="middle" class="ini">{esc(ini)}</text>'
         nt = " ".join(k for k, g in groups.items() if n in g)
-        dots.append(f'<g class="cn" data-t="{nt}"><title>{esc(tip)}</title><circle cx="{x:.0f}" cy="{y:.0f}" r="{r:.1f}" fill="#fff" stroke="{color[d["where"]]}" stroke-width="4"/>{face}'
+        nbrs = sorted(G[n], key=lambda m: -G[n][m]["w"])
+        def _cnt(x, word): return f"{x} {word}{'s' if x != 1 else ''}"
+        who = "|".join(f'{nodes[m]["name"]}: ' + ", ".join(v for v in (_cnt(G[n][m]["paper"], "paper") if G[n][m]["paper"] else "", _cnt(G[n][m]["award"], "award") if G[n][m]["award"] else "") if v) for m in nbrs)
+        dots.append(f'<g class="cn" data-t="{nt}" data-k="{n}" data-name="{esc(d["name"])}" data-where="{esc(d["where"])}" data-who="{esc(who)}" tabindex="0" role="button" aria-label="{esc(tip)}"><circle cx="{x:.0f}" cy="{y:.0f}" r="{r:.1f}" fill="#fff" stroke="{color[d["where"]]}" stroke-width="4"/>{face}'
                     f'<text x="{x:.0f}" y="{y + r + 16:.0f}" text-anchor="middle" class="nm">{esc(d["name"])}</text></g>')
     legend = "".join(f'<span class="lg"><i style="border-color:{color[w]}"></i>{esc(w)}</span>' for w in order if any(nodes[n]["where"] == w for n in G))
     alone_html = (f'<p class="collabnote">No joint paper or award with another member in the record yet: {esc(", ".join(alone))}.</p>' if alone else "")
     return f'''<section id="collab">
   <div class="wrap">
-    <div class="shead"><h2>Who works with whom</h2><p>The center's faculty and collaborators, linked by every co-authored paper in the center record and every shared award. Each ring shows the person's college or institution; thicker lines mean more joint work. Hover a person or a line for the details.</p></div>
+    <div class="shead"><h2>Who works with whom</h2><p>The center's faculty and collaborators, linked by every co-authored paper in the center record and every shared award. Each ring shows the person's college or institution; thicker lines mean more joint work. Hover over a person to see who they work with, or over a line to see what they did together.</p></div>
     <div class="legend">{legend}</div>
     <div class="cfilters" role="group" aria-label="Show a thrust"><span class="flab">Thrust</span><button class="chip" data-ct="all" aria-pressed="true" type="button">Everyone</button>{"".join(f'<button class="chip" data-ct="{esc(k)}" aria-pressed="false" type="button">{esc(t.split(" and ")[0].split(",")[0])} ({len([n for n in groups[k] if n in G])})</button>' for k, t, _, _ in THRUSTS if len([n for n in groups[k] if n in G]) > 1)}</div>
     <p class="cnote" id="cnote" aria-live="polite"></p>
-    <div class="collabwrap"><svg class="collab" viewBox="0 0 {W} {H}" role="img" aria-label="Collaboration graph of center faculty and collaborators">
+    <div class="collabwrap" id="collabwrap"><div class="ctip" id="ctip" role="status" hidden></div><svg class="collab" viewBox="0 0 {W} {H}" role="img" aria-label="Collaboration graph of center faculty and collaborators">
       <defs>{"".join(defs)}</defs><g class="ce">{"".join(edges)}</g>{"".join(dots)}
     </svg></div>{alone_html}
   </div>
@@ -6569,6 +6572,35 @@ def collab_graph_html():
 <script>
 (function(){{
   var svg=document.querySelector('svg.collab'); if(!svg) return;
+  var tip=document.getElementById('ctip'), wrap=document.getElementById('collabwrap');
+  function place(e){{var r=wrap.getBoundingClientRect(); var x=e.clientX-r.left+wrap.scrollLeft+14, y=e.clientY-r.top+14;
+    if(x+320>wrap.scrollLeft+r.width) x=x-340; tip.style.left=x+'px'; tip.style.top=y+'px';}}
+  function clear(){{svg.classList.remove('hover'); svg.querySelectorAll('.hl').forEach(function(el){{el.classList.remove('hl');}}); tip.hidden=true;}}
+  function person(g,e){{
+    clear(); var k=g.getAttribute('data-k'); svg.classList.add('hover'); g.classList.add('hl'); var n=0, p=0;
+    svg.querySelectorAll('.ce line').forEach(function(l){{
+      var a=l.getAttribute('data-a'), b=l.getAttribute('data-b');
+      if(a===k||b===k){{ l.classList.add('hl'); n++; var o=svg.querySelector('.cn[data-k="'+(a===k?b:a)+'"]'); if(o) o.classList.add('hl'); }}
+    }});
+    var who=g.getAttribute('data-who').split('|');
+    tip.innerHTML='<b>'+g.getAttribute('data-name')+'</b><span class="cw">'+g.getAttribute('data-where')+'</span><span class="cn2">'+n+' collaborator'+(n===1?'':'s')+' in the center</span><ul>'+who.slice(0,8).map(function(s){{return '<li>'+s+'</li>';}}).join('')+(who.length>8?'<li>and '+(who.length-8)+' more</li>':'')+'</ul>';
+    tip.hidden=false; if(e) place(e);
+  }}
+  function link(l,e){{
+    clear(); svg.classList.add('hover'); l.classList.add('hl');
+    [l.getAttribute('data-a'),l.getAttribute('data-b')].forEach(function(k){{var o=svg.querySelector('.cn[data-k="'+k+'"]'); if(o) o.classList.add('hl');}});
+    tip.innerHTML='<b>'+l.getAttribute('data-info').replace(': ','</b><span class="cn2">')+'</span>'; tip.hidden=false; place(e);
+  }}
+  svg.querySelectorAll('.cn').forEach(function(g){{
+    g.addEventListener('mouseenter',function(e){{person(g,e);}}); g.addEventListener('mousemove',place); g.addEventListener('mouseleave',clear);
+    g.addEventListener('focus',function(){{person(g,null); var r=g.getBoundingClientRect(), w=wrap.getBoundingClientRect(); tip.style.left=(r.right-w.left+wrap.scrollLeft+8)+'px'; tip.style.top=(r.top-w.top)+'px';}});
+    g.addEventListener('blur',clear);
+    g.addEventListener('click',function(e){{ e.stopPropagation(); person(g,e); }});   // taps on phones
+  }});
+  svg.querySelectorAll('.ce line').forEach(function(l){{
+    l.addEventListener('mouseenter',function(e){{link(l,e);}}); l.addEventListener('mousemove',place); l.addEventListener('mouseleave',clear);
+  }});
+  document.addEventListener('click',function(e){{ if(!e.target.closest('svg.collab .cn')) clear(); }});
   var names={{{",".join(f'"{k}":"{esc(t)}"' for k, t, _, _ in THRUSTS)}}};
   var note=document.getElementById('cnote');
   document.querySelectorAll('.cfilters .chip').forEach(function(b){{
@@ -6599,6 +6631,10 @@ COLLAB_CSS = (".collabwrap{overflow-x:auto;border:1px solid var(--line);border-r
               ".cfilters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 8px}.cfilters .flab{font-size:13px;color:var(--ink-3);margin-right:4px}"
               ".cfilters .chip{font:inherit;font-size:13.5px;padding:5px 12px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;cursor:pointer}"
               ".cfilters .chip[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}.cnote{font-size:14px;color:var(--ink-2);min-height:1.4em;margin:0 0 8px}"
+              ".collabwrap{position:relative}.ctip{position:absolute;z-index:3;max-width:320px;background:var(--surface);border:1px solid var(--line);border-radius:10px;box-shadow:0 8px 24px rgba(14,32,54,.16);padding:10px 12px;font-size:13.5px;line-height:1.4;color:var(--ink-2);pointer-events:none}"
+              ".ctip b{display:block;font-size:15px;color:var(--ink)}.ctip .cw{display:block;color:var(--ink-3);font-size:12.5px;margin:1px 0 4px}.ctip .cn2{display:block;font-weight:600;color:var(--ink);margin:2px 0}"
+              ".ctip ul{margin:4px 0 0;padding-left:16px}.ctip li{margin:0 0 1px}.collab .cn{cursor:pointer;outline:none}.collab .ce line{cursor:pointer}"
+              ".collab.hover .cn:not(.hl){opacity:.14}.collab.hover .ce line{stroke-opacity:.04!important}.collab.hover .ce line.hl{stroke-opacity:.9!important;stroke:var(--signal)}"
               ".collab .cn,.collab .ce line{transition:opacity .2s,stroke-opacity .2s}.collab.focus .cn:not(.on){opacity:.15}"
               ".collab.focus .ce line{stroke-opacity:.05!important}.collab.focus .ce line.on{stroke-opacity:.85!important;stroke:var(--signal)}")
 

@@ -11,7 +11,7 @@ import sys, datetime, os, hashlib
 OUT = next((a for a in sys.argv[1:] if not a.startswith("-")), "index.html")   # run: python3 build_site.py [output path]
 
 # ---------------------------------------------------------------- people
-CORE = {"Vokkarane", "Aghara", "Arias", "Lin", "Luo", "Robinette", "Son", "Tseng", "Xie"}   # director + center faculty
+CORE = {"Vokkarane", "Aghara", "Arias", "Evans", "Lin", "Luo", "Robinette", "Son", "Tseng", "Xie"}   # director + center faculty
 CORE_INITIAL = {"Son": "S", "Lin": "Y", "Luo": "Y", "Cao": "Y", "Yu": "H", "Xie": "Y"}   # common surnames: bold only with this first initial
 
 FACULTY = {
@@ -36,6 +36,10 @@ FACULTY = {
          "email": "Orlando_Arias@uml.edu", "phone": "978-934-3476", "office": "Ball Hall 407A",
          "url": "https://www.uml.edu/engineering/electrical-computer/faculty/arias-orlando.aspx",
          "role": "Co-PI on the SUMMIT testbed and the ONR post-disaster restoration project; leads hardware attestation and embedded security for grid devices."},
+        {"name": "Nicholas G. Evans", "photo": "evans", "title": "Associate Professor, Philosophy, College of Fine Arts, Humanities and Social Sciences",
+         "areas": "Ethics of emerging technologies and national security, dual-use research, bioethics and public health ethics, military ethics", "email": "Nicholas_Evans@uml.edu", "phone": "978-934-3996",
+         "url": "https://www.uml.edu/fahss/political-science/faculty/evans-nicholas.aspx",
+         "role": "Ethics lead for the center's people-in-the-loop theme: trust, ethics, and human performance in systems whose failure has physical consequences. Co-investigator with Xie on the NSF award on ethical algorithms for autonomous vehicles and co-author on its papers; lead investigator on two pending proposals with the director, to Schmidt Sciences and to NSF, that apply AI methods to the history and ethics of health information."},
         {"name": "Yuzhang Lin", "photo": "lin", "inst": "New York University", "title": "Associate Professor, Electrical and Computer Engineering, NYU Tandon School of Engineering",
          "areas": "Smart grid and renewable energy: modeling, situational awareness, cyber-physical resilience, machine learning applications",
          "email": "yuzhang.lin@nyu.edu", "phone": "", "office": "",
@@ -75,9 +79,10 @@ FACULTY = {
          "url": "https://www.uml.edu/research/locsst/about/faculty-staff/chakrabarti-supriya.aspx"},
         {"name": "Chunxiao (Tricia) Chigan", "photo": "chigan", "title": "Professor, Electrical and Computer Engineering",
          "areas": "Communication networks and network security", "email": "Tricia_Chigan@uml.edu", "phone": "978-934-3364", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/chigan-tricia.aspx"},
-        {"name": "Nicholas G. Evans", "photo": "evans", "title": "Associate Professor, Philosophy, College of Fine Arts, Humanities and Social Sciences",
-         "areas": "Ethics of emerging technologies and national security, dual-use research, bioethics and public health ethics, military ethics", "email": "Nicholas_Evans@uml.edu", "phone": "978-934-3996",
-         "url": "https://www.uml.edu/fahss/political-science/faculty/evans-nicholas.aspx"},
+        {"name": "Hsien-Yuan (Mark) Hsu", "photo": "", "title": "Associate Professor, School of Education, College of Fine Arts, Humanities and Social Sciences",
+         "areas": "Multilevel modeling, psychometrics, and engineering education; education research and evaluation for the center's training programs",
+         "note": "Education and workforce lead; Co-PI with Tseng on the NSF cyberinfrastructure planning award (#2609490).",
+         "email": "HsienYuan_Hsu@uml.edu", "phone": "978-934-4608", "url": "https://www.uml.edu/education/faculty-staff/faculty/hsu-hsien-yuan.aspx"},
         {"name": "Murat Inalpolat", "photo": "inalpolat", "title": "Professor, Mechanical and Industrial Engineering; Associate Chair for Doctoral Studies",
          "areas": "Structural health monitoring, diagnostics and prognostics, structural dynamics, vibrations, acoustics, signal processing", "email": "Murat_Inalpolat@uml.edu", "phone": "978-934-2556", "url": "https://www.uml.edu/engineering/mechanical-industrial/faculty/inalpolat-murat.aspx"},
         {"name": "Christopher Niezrecki", "photo": "niezrecki", "title": "Distinguished University Professor, Mechanical and Industrial Engineering; Director, Center for Energy Innovation; Co-director, Rist Institute for Sustainability and Energy",
@@ -2054,11 +2059,16 @@ for e in _load_overlay("pubs_cv_additions.json", {"entries": []}).get("entries",
     P.append(dict(year=e["year"], authors=e["authors"], title=e["title"], venue=e["venue"], details=e["details"], doi=e["doi"],
                   type=e["type"], faculty=e["faculty"], area=e.get("area", ""), url=None))
 
+# --- Evans: credit his co-authored papers already in the record (the curated entries carry only engineering tags)
+for _p in P:
+    if any(re.sub(r"[.\s]", "", a).lower() in ("ngevans", "nevans") for a in _p["authors"]) and "Evans" not in _p["faculty"]:
+        _p["faculty"] = list(_p["faculty"]) + ["Evans"]
+
 # --- attribution: a paper counts for a member only from the year they joined UMass Lowell
 JOIN_YEAR = {"Tseng": 2024, "Arias": 2021}
 # Yuzhang Lin is an external center member at NYU. Only his papers with another center faculty member
 # count as the center's; his independent work belongs to his own program.
-NEEDS_CENTER_COAUTHOR = {"Lin"}
+NEEDS_CENTER_COAUTHOR = {"Lin", "Evans"}   # Lin is external; Evans publishes widely in ethics outside the center
 def _attributed(p):
     fac = [f for f in p["faculty"] if p["year"] >= JOIN_YEAR.get(f, 0)]
     return [f for f in fac if f not in NEEDS_CENTER_COAUTHOR or len(fac) > 1]
@@ -2804,7 +2814,7 @@ FEDERATION = """<svg viewBox="0 0 900 120" xmlns="http://www.w3.org/2000/svg" ro
 </svg>"""
 
 # cyber-physical loop schematic (About section)
-SCHEMATIC = """<svg viewBox="0 0 760 470" role="img" aria-labelledby="schemTitle schemDesc" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Sans, Arial, sans-serif">
+SCHEMATIC = """<svg viewBox="0 0 760 482" role="img" aria-labelledby="schemTitle schemDesc" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Sans, Arial, sans-serif">
 <title id="schemTitle">How a smart cyber-physical system closes the loop</title>
 <desc id="schemDesc">Physical systems in energy, transportation, and healthcare are sensed at the edge, connected over a secure network, analysed by AI and high-performance computing, and controlled in real time.</desc>
 <defs>
@@ -2821,38 +2831,46 @@ SCHEMATIC = """<svg viewBox="0 0 760 470" role="img" aria-labelledby="schemTitle
 
 <!-- domain cards -->
 <g class="card">
-  <rect x="30" y="62" width="150" height="96" rx="12" fill="#fff" stroke="#D5DCE5"/>
-  <g transform="translate(48,74)" fill="none" stroke="#044978" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="30" y="56" width="150" height="84" rx="12" fill="#fff" stroke="#D5DCE5"/>
+  <g transform="translate(48,64) scale(.9)" fill="none" stroke="#044978" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
     <path d="M6 44V14l16-8 16 8v30M6 44h32M14 24h16M14 33h16"/>
   </g>
-  <path d="M112 78l-10 16h8l-6 16 16-20h-8l6-12z" fill="#3BA995"/>
-  <text x="105" y="146" text-anchor="middle" font-size="13.5" font-weight="600" fill="#0E2036">Energy and power</text>
+  <path d="M112 68l-10 16h8l-6 16 16-20h-8l6-12z" fill="#3BA995"/>
+  <text x="105" y="130" text-anchor="middle" font-size="13" font-weight="600" fill="#0E2036">Energy and power</text>
 </g>
 <g class="card">
-  <rect x="30" y="192" width="150" height="96" rx="12" fill="#fff" stroke="#D5DCE5"/>
-  <g transform="translate(60,206)">
+  <rect x="30" y="158" width="150" height="84" rx="12" fill="#fff" stroke="#D5DCE5"/>
+  <g transform="translate(66,168) scale(.85)">
     <path d="M6 30h60l-9-17H16z" fill="#044978"/><path d="M0 30h72v8H0z" fill="#044978" opacity=".85"/>
     <circle cx="16" cy="40" r="6" fill="#fff" stroke="#044978" stroke-width="2"/><circle cx="56" cy="40" r="6" fill="#fff" stroke="#044978" stroke-width="2"/>
     <g fill="none" stroke="#3BA995" stroke-width="2" stroke-linecap="round"><path d="M28 8a10 10 0 0 1 16 0M22 2a18 18 0 0 1 28 0"/></g>
   </g>
-  <text x="105" y="276" text-anchor="middle" font-size="13.5" font-weight="600" fill="#0E2036">Transportation</text>
+  <text x="105" y="232" text-anchor="middle" font-size="13" font-weight="600" fill="#0E2036">Transportation</text>
 </g>
 <g class="card">
-  <rect x="30" y="322" width="150" height="96" rx="12" fill="#fff" stroke="#D5DCE5"/>
-  <circle cx="86" cy="362" r="19" fill="#0A777F"/><path d="M86 352v20M76 362h20" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
-  <path d="M108 366h8l5-10 7 20 6-14 4 6h10" fill="none" stroke="#3BA995" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="105" y="406" text-anchor="middle" font-size="13.5" font-weight="600" fill="#0E2036">Healthcare</text>
+  <rect x="30" y="260" width="150" height="84" rx="12" fill="#fff" stroke="#D5DCE5"/>
+  <circle cx="86" cy="294" r="17" fill="#0A777F"/><path d="M86 285v18M77 294h18" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+  <path d="M106 298h8l5-10 7 20 6-14 4 6h10" fill="none" stroke="#3BA995" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="105" y="334" text-anchor="middle" font-size="13" font-weight="600" fill="#0E2036">Healthcare</text>
+</g>
+<g class="card">
+  <rect x="30" y="362" width="150" height="84" rx="12" fill="#fff" stroke="#D5DCE5"/>
+  <g fill="none" stroke="#044978" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M62 372h42v8H62zM78 380h10l-3 8h-4z"/><path d="M58 418h50M62 411h42M66 404h34"/>
+  </g>
+  <path d="M83 390v8" stroke="#3BA995" stroke-width="2.4" stroke-linecap="round"/><circle cx="83" cy="401" r="2.2" fill="#3BA995"/>
+  <text x="105" y="436" text-anchor="middle" font-size="13" font-weight="600" fill="#0E2036">Additive manufacturing</text>
 </g>
 
 <!-- edge nodes -->
 <g class="card">
-  <rect x="212" y="96" width="62" height="30" rx="15" fill="#fff" stroke="#0A777F" stroke-width="1.6"/><rect x="212" y="226" width="62" height="30" rx="15" fill="#fff" stroke="#0A777F" stroke-width="1.6"/><rect x="212" y="356" width="62" height="30" rx="15" fill="#fff" stroke="#0A777F" stroke-width="1.6"/>
+  <rect x="212" y="83" width="62" height="30" rx="15" fill="#fff" stroke="#0A777F" stroke-width="1.6"/><rect x="212" y="185" width="62" height="30" rx="15" fill="#fff" stroke="#0A777F" stroke-width="1.6"/><rect x="212" y="287" width="62" height="30" rx="15" fill="#fff" stroke="#0A777F" stroke-width="1.6"/><rect x="212" y="389" width="62" height="30" rx="15" fill="#fff" stroke="#0A777F" stroke-width="1.6"/>
 </g>
-<g font-size="12.5" font-weight="600" fill="#0A777F" text-anchor="middle"><text x="243" y="115">edge</text><text x="243" y="245">edge</text><text x="243" y="375">edge</text></g>
+<g font-size="12.5" font-weight="600" fill="#0A777F" text-anchor="middle"><text x="243" y="102">edge</text><text x="243" y="204">edge</text><text x="243" y="306">edge</text><text x="243" y="408">edge</text></g>
 
 <!-- sense links: card -> edge -->
-<g fill="none" stroke="#D5DCE5" stroke-width="2"><path d="M180 111h32M180 241h32M180 371h32"/></g>
-<g fill="none" stroke="#3BA995" stroke-width="2.6" stroke-linecap="round"><path class="flow" d="M180 111h32"/><path class="flow slow" d="M180 241h32"/><path class="flow" d="M180 371h32"/></g>
+<g fill="none" stroke="#D5DCE5" stroke-width="2"><path d="M180 98h32M180 200h32M180 302h32M180 404h32"/></g>
+<g fill="none" stroke="#3BA995" stroke-width="2.6" stroke-linecap="round"><path class="flow" d="M180 98h32"/><path class="flow slow" d="M180 200h32"/><path class="flow" d="M180 302h32"/><path class="flow slow" d="M180 404h32"/></g>
 
 <!-- network core -->
 <g class="card">
@@ -2866,8 +2884,8 @@ SCHEMATIC = """<svg viewBox="0 0 760 470" role="img" aria-labelledby="schemTitle
 <text x="378" y="338" text-anchor="middle" font-size="12.5" fill="#5B6B82">zero trust, attestation, intrusion detection</text>
 
 <!-- edge -> core links -->
-<g fill="none" stroke="#D5DCE5" stroke-width="2"><path d="M274 111C296 111 302 172 316 200"/><path d="M274 241h30"/><path d="M274 371C296 371 302 310 316 282"/></g>
-<g fill="none" stroke="#0A777F" stroke-width="2.6" stroke-linecap="round"><path class="flow" d="M274 111C296 111 302 172 316 200"/><path class="flow slow" d="M274 241h30"/><path class="flow" d="M274 371C296 371 302 310 316 282"/></g>
+<g fill="none" stroke="#D5DCE5" stroke-width="2"><path d="M274 98C296 98 302 170 316 200"/><path d="M274 200C290 200 298 221 306 226"/><path d="M274 302C290 302 298 261 306 256"/><path d="M274 404C296 404 302 312 316 282"/></g>
+<g fill="none" stroke="#0A777F" stroke-width="2.6" stroke-linecap="round"><path class="flow" d="M274 98C296 98 302 170 316 200"/><path class="flow slow" d="M274 200C290 200 298 221 306 226"/><path class="flow" d="M274 302C290 302 298 261 306 256"/><path class="flow slow" d="M274 404C296 404 302 312 316 282"/></g>
 
 <!-- compute card -->
 <g class="card">
@@ -2891,7 +2909,7 @@ SCHEMATIC = """<svg viewBox="0 0 760 470" role="img" aria-labelledby="schemTitle
 
 <!-- return loop -->
 <path d="M622 350v70H105v-2" fill="none" stroke="#3BA995" stroke-width="2" stroke-dasharray="5 6" marker-end="url(#arrG)"/>
-<text x="392" y="452" text-anchor="middle" font-size="12.5" fill="#5B6B82">closed loop: sense, communicate, decide, act</text>
+<text x="392" y="470" text-anchor="middle" font-size="12.5" fill="#5B6B82">closed loop: sense, communicate, decide, act</text>
 </svg>"""
 
 ICONS = {
@@ -3171,7 +3189,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.13"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.14"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3255,7 +3273,7 @@ def _fmt_period(a, b):
         try: return datetime.datetime.strptime(d, "%m/%d/%Y").strftime("%b %Y")
         except Exception: return ""
     return " to ".join(x for x in (f(a), f(b)) if x)
-_CORE_SURNAMES = {"vokkarane", "aghara", "arias", "lin", "luo", "robinette", "son", "tseng", "xie"}
+_CORE_SURNAMES = {"vokkarane", "aghara", "arias", "evans", "lin", "luo", "robinette", "son", "tseng", "xie"}
 def _surname(name):
     name = re.sub(r"\(.*?\)", "", name or "").strip()
     if "," in name: name = name.split(",")[0]          # "Luo, Yan"
@@ -5140,10 +5158,11 @@ def build():
     <div class="about-grid">
       <div>
         <h3>Mission</h3>
-        <p>The mission of the Center for Smart Cyber-Physical Systems (SCyPS) is to develop high-impact solutions to key challenges in heterogeneous distributed cyber-physical systems that support emerging smart society, data-centric applications. By taking an interdisciplinary approach with a team of science and engineering researchers, SCyPS commits to increasing cyber-physical system reliability and scalability, improving resource utilization, and guaranteeing system security and privacy. SCyPS will engage industry and community partners to meet their needs while training students and building the future workforce.</p>
+        <p>The Center for Smart Cyber-Physical Systems (SCyPS) develops secure, resilient, and trustworthy cyber-physical systems for the infrastructure people depend on: the energy grid, transportation, health care, and advanced manufacturing. Its faculty in engineering, computing, science, philosophy, and education take an interdisciplinary approach to the reliability, scalability, resource use, security, and privacy of these systems, and to the trust between people and the automation they work with.</p>
+        <p>The center carries UMass Lowell's mission into its field. The university exists to give students an excellent, affordable education, to meet the needs of the Commonwealth, and to advance sustainable technologies and communities through teaching, research, scholarship, and engagement. SCyPS does that by training the engineers and scientists who will build and defend critical infrastructure, by producing research the Commonwealth's utilities, agencies, and industries can use, and by working with industry, government, and community partners so that its results reach the people of Massachusetts and beyond.</p>
         <h3 style="margin-top:22px">Vision</h3>
         <p>The Center for Smart Cyber-Physical Systems (SCyPS) will establish itself as an internationally recognized center for research and education focused on innovation, evaluation, and optimization of hardware and software technologies for an advanced, smart society.</p>
-        <div class="domains"><span>Energy and power</span><span>Transportation</span><span>Healthcare</span></div>
+        <div class="domains"><span>Energy and power</span><span>Transportation</span><span>Healthcare</span><span>Additive manufacturing</span></div>
       </div>
       <div>
         <h3>Goals</h3>
@@ -5297,7 +5316,7 @@ def build():
     build_publications(PUBS_SECTION.replace("{fac_chips}", fac_chips).replace("{n_pubs}", str(n_pubs)).replace("{pubs_html}", pubs_html), footer_html, script_html)
     build_people_pages({
         "people": (PEOPLE_SECTION.replace("{director_html}", director_html).replace("{core_html}", core_html)
-                   .replace("{aff_html}", aff_html).replace("{ext_html}", ext_html)),
+                   .replace("{aff_html}", aff_html).replace("{ext_html}", ext_html) + collab_graph_html()),
         "students": (STUDENTS_SECTION.replace("{students_html}", students_html).replace("{lablife_html}", lablife_html)
                      .replace("{spotlight_teaser}", spotlight_article(max(SPOTLIGHTS, key=lambda s: s["ym"]), full=False) if SPOTLIGHTS else "")),
         "alumni": (ALUMNI_SECTION.replace("{alumni_feat_html}", alumni_feat_html)
@@ -5532,6 +5551,33 @@ def build_publications(pubs_section, footer_html, script_html):
     open(out, "w", encoding="utf-8").write(page)
     print(f"wrote {out}: {len(page)/1024:.0f} KB")
 
+NL_CSS = (".nlblock{margin:0 0 34px}.nlcard{display:grid;grid-template-columns:150px 1fr;gap:20px;align-items:start;border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:16px 18px;margin:0 0 14px;max-width:760px}"
+          ".nlcover img{width:100%;height:auto;border:1px solid var(--line);border-radius:4px}.nlkick{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin:0 0 4px}.nlcard h3{margin:0 0 6px;font-size:22px}.nlcard p{margin:0 0 8px;color:var(--ink-2)}.nlacts a{font-weight:600}"
+          ".nlmonthly{font-size:15px;color:var(--ink-2)}.nlissues{display:inline;list-style:none;margin:0;padding:0}.nlissues li{display:inline}.nlissues li+li::before{content:' · ';color:var(--ink-3)}"
+          "@media (max-width:640px){.nlcard{grid-template-columns:1fr}.nlcover img{max-width:180px}}")
+
+def newsletter_block():
+    """The newsletters, for the top of the News page: the latest print edition with its cover, then the monthly issues."""
+    root = os.path.dirname(os.path.abspath(OUT)) or "."
+    ndir = os.path.join(root, "newsletters"); pdir = os.path.join(ndir, "print")
+    prints = []
+    if os.path.isdir(pdir):
+        for f in sorted(os.listdir(pdir), reverse=True):
+            m = re.fullmatch(r"SCyPS-Newsletter-(\d{4}-\d{2})-Vol(\d+)-No(\d+)\.pdf", f)
+            if m: prints.append((m.group(1), m.group(2), m.group(3), f))
+    issues = sorted([f[:7] for f in os.listdir(ndir) if re.fullmatch(r"\d{4}-\d{2}\.html", f)], reverse=True) if os.path.isdir(ndir) else []
+    if not prints and not issues: return ""
+    cards = ""
+    for pym, vol, no, f in prints[:2]:
+        cov = f'<img src="newsletters/print/{pym}-cover.jpg" alt="" width="240" height="311">' if os.path.exists(os.path.join(pdir, f"{pym}-cover.jpg")) else ""
+        cards += (f'<div class="nlcard"><a class="nlcover" href="newsletters/print-{pym}.html">{cov}</a><div><p class="nlkick">Print edition</p>'
+                  f'<h3><a href="newsletters/print-{pym}.html">{MONTH_FULL[int(pym[5:7])]} {pym[:4]}</a></h3><p>Volume {vol}, Number {no}: the director&rsquo;s letter, a project, a faculty member, and a student, plus the month&rsquo;s papers and awards.</p>'
+                  f'<p class="nlacts"><a href="newsletters/print-{pym}.html">Read online</a> &middot; <a href="newsletters/print/{f}" download>Download PDF</a></p></div></div>')
+    monthly = "".join(f'<li><a href="newsletters/{ym}.html">{MONTH_FULL[int(ym[5:7])]} {ym[:4]}</a></li>' for ym in issues[:12])
+    return (f'<div class="nlblock" id="newsletters"><h2 class="grouph">Newsletters</h2>{cards}'
+            f'<p class="nlmonthly">Monthly issues, generated from the center&rsquo;s records and sent to members and partners: </p><ul class="nlissues">{monthly}</ul></div>')
+
+
 def build_newspage(footer_html, script_html):
     out = os.path.join(os.path.dirname(os.path.abspath(OUT)) or ".", "news.html")
     window = 3
@@ -5549,9 +5595,11 @@ def build_newspage(footer_html, script_html):
         dis = "" if n else " disabled"
         chips += f'<button class="chip" data-k="{key}" aria-pressed="false" type="button"{dis}>{label} ({n})</button>'
 
+    nl_html = newsletter_block()
     body = f"""<section id="news">
   <div class="wrap">
-    <div class="shead"><h1>News</h1><p>Generated from the center's own record: every paper, award, and milestone from {span}, newest first. The page rebuilds itself whenever the site is rebuilt, so nothing here goes stale by hand.</p></div>
+    <div class="shead"><h1>News</h1><p>The center's newsletter first, then every paper, award, and milestone from {span}, newest first, generated from the center's own record.</p></div>
+    {nl_html}
     <div class="newsgrid">
       <div>
         <div class="nfilters" role="group" aria-label="Filter news">
@@ -5565,14 +5613,14 @@ def build_newspage(footer_html, script_html):
         <h2 class="grouph">Latest papers</h2>
         <p class="sub">The {min(24, n_pubs)} most recent, updated with every build.</p>
         <ol>{stream_html()}</ol>
-        <p class="foot"><a href="publications.html">All {n_pubs} publications</a> &middot; <a href="newsletters/index.html">Monthly newsletter</a></p>
+        <p class="foot"><a href="publications.html">All {n_pubs} publications</a> &middot; <a href="#newsletters">Newsletters</a></p>
       </aside>
     </div>
   </div>
 </section>"""
     page = page_shell("News | SCyPS, UMass Lowell",
                       "Recent papers, awards, and milestones from the Center for Smart Cyber-Physical Systems at UMass Lowell, with a live list of the newest publications.",
-                      body, footer_html, script_html, extra_css=".timeline.plain{list-style:none;margin:0;padding:0}", active="news", canonical="news.html")
+                      body, footer_html, script_html, extra_css=".timeline.plain{list-style:none;margin:0;padding:0}" + NL_CSS, active="news", canonical="news.html")
     page = new_tab_links(page)
     open(out, "w", encoding="utf-8").write(page)
     print(f"wrote {out}: {len(page)/1024:.0f} KB; {len(items)} news items from {span}")
@@ -5597,7 +5645,7 @@ def build_people_pages(filled, footer_html, script_html):
                 f'<a class="btn-gift" href="{GIFT_URL}">Donate to the Center</a></div></div></section>', 1)
         body = body.replace("<h2>", "<h1>", 1).replace("</h2>", "</h1>", 1)
         page = page_shell(title, desc, body, footer_html, script_html, active=active, canonical=name + ".html",
-                          ld=_ld(ld_people()) if name == "people" else "")
+                          extra_css=COLLAB_CSS if name == "people" else "", ld=_ld(ld_people()) if name == "people" else "")
         page = new_tab_links(page)
         open(out, "w", encoding="utf-8").write(page)
         print(f"wrote {out}: {len(page)/1024:.0f} KB")
@@ -6070,7 +6118,7 @@ def build_newsletter(ym, footer_html, script_html):
     # ---- web issue
     body = f"""<section>
   <div class="wrap">
-    <p class="crumb"><a href="index.html">Newsletters</a></p>
+    <p class="crumb"><a href="../news.html#newsletters">Newsletters</a></p>
     <div class="shead"><h1>{esc(label)}</h1><p>The center's monthly note: what its faculty and students published, what was funded, and what is next. Generated from the center's own records.</p></div>
     <div class="nlbody">{sections(False)}</div>
     <p class="nlfoot">This issue was generated on {esc(datetime.date.today().strftime("%B %d, %Y"))} from the same records that produce the <a href="../news.html">news page</a>. Subscribe to the <a href="../feed.xml">feed</a> to receive items as they appear.</p>
@@ -6148,7 +6196,7 @@ def build_print_viewers(footer_html, script_html):
         ym, vol, no = m.groups(); label = f"{MONTH_FULL[int(ym[5:7])]} {ym[:4]}"
         body = f'''<section>
   <div class="wrap">
-    <p class="crumb"><a href="index.html">Newsletters</a></p>
+    <p class="crumb"><a href="../news.html#newsletters">Newsletters</a></p>
     <div class="shead"><h1>{esc(label)}</h1><p>Volume {vol}, Number {no}, print edition. Read it here page by page, or download the PDF.</p></div>
     <div class="pv" id="pv" data-pdf="print/{f}">
       <div class="pvbar" role="toolbar" aria-label="Page controls">
@@ -6264,7 +6312,10 @@ def build_newsletter_index(footer_html, script_html):
         page = page.replace(f'href="{nm}.html', f'href="../{nm}.html')
     page = re.sub(r'href="research-(\w+)\.html', r'href="../research-\1.html', page)
     page = page.replace('href="../index.html#', 'href="../index.html#')
-    open(os.path.join(ndir, "index.html"), "w", encoding="utf-8").write(new_tab_links(page))
+    open(os.path.join(ndir, "index.html"), "w", encoding="utf-8").write(
+        '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>Newsletters | SCyPS</title>'
+        '<meta http-equiv="refresh" content="0; url=../news.html#newsletters"><link rel="canonical" href="https://smartcyberphysical.org/news.html">'
+        '</head><body><p>The newsletters now live on the <a href="../news.html#newsletters">News page</a>.</p></body></html>')
     FONT_ROOT = ""
 
 def load_portraits():
@@ -6319,7 +6370,7 @@ def build_assets():
 def build_meta_files():
     """robots.txt and sitemap.xml, so the new pages are discoverable and the old single page is not the only entry."""
     root = os.path.dirname(os.path.abspath(OUT)) or "."
-    pages = ["", "people.html", "students.html", "alumni.html", "publications.html", "insights.html", "acnl.html", "spotlight.html", "news.html", "summit.html", "labs.html", "newsletters/index.html", "positions.html"] + \
+    pages = ["", "people.html", "students.html", "alumni.html", "publications.html", "insights.html", "acnl.html", "spotlight.html", "news.html", "summit.html", "labs.html", "positions.html"] + \
             [f"research-{k}.html" for k, _, _, _ in THRUSTS]
     today = datetime.date.today().isoformat()
     urls = "".join(f"  <url><loc>{SITE_URL}{p}</loc><lastmod>{today}</lastmod></url>\n" for p in pages)
@@ -6344,6 +6395,100 @@ def build_insights(footer_html, script_html):
         insights.render(globals(), footer_html, script_html)
     except Exception as e:
         print(f"insights.html skipped: {e}")
+
+def _person_key(n):
+    p = re.sub(r"\(.*?\)", "", n).replace(".", " ").split()
+    return (p[-1].lower() + "_" + p[0][0].lower()) if p else ""
+
+def _college_of(p):
+    """Where a person sits: a UMass Lowell college for internal people, the institution for external ones."""
+    t = (p.get("title", "") + " " + p.get("title2", "")).lower(); inst = p.get("inst", "") or ""
+    if inst or "nyu" in t or "external" in (p.get("tag") or "").lower():
+        known = {"West Virginia": "West Virginia University", "NYU": "NYU Tandon", "New York University": "NYU Tandon", "Louisiana": "University of Louisiana at Lafayette"}
+        if inst: return known.get(inst, inst)
+        if "nyu" in t: return "NYU Tandon"
+        return p.get("title", "").split(",")[-1].strip() or "External"      # "Research Director of the Northeast US, Red Hat"
+    if any(k in t for k in ("electrical", "civil", "chemical", "nuclear", "mechanical", "plastics", "engineering")): return "Francis College of Engineering"
+    if any(k in t for k in ("computer science", "physics", "miner school")): return "Kennedy College of Sciences"
+    if any(k in t for k in ("philosophy", "school of education", "fine arts")): return "College of Fine Arts, Humanities and Social Sciences"
+    return "UMass Lowell"
+
+def collab_graph_html():
+    """A connected graph of who works with whom: faculty, external collaborators, and students, linked by co-authored
+    papers in the center record and by shared awards. Laid out with a spring layout and drawn as inline SVG."""
+    try: import networkx as nx
+    except ImportError: return ""
+    people = [FACULTY["director"]] + FACULTY["core"] + FACULTY["affiliated"] + FACULTY["external"]
+    nodes = {}
+    for p in people:
+        nodes[_person_key(p["name"])] = {"name": p["name"], "where": _college_of(p), "kind": "faculty"}
+    adv_col = {p["name"]: _college_of(p) for p in people}
+    for s in STUDENTS:
+        col = "College of Fine Arts, Humanities and Social Sciences" if "Education" in s.get("program", "") else adv_col.get(s.get("advisor", ""), "UMass Lowell")
+        nodes.setdefault(_person_key(s["name"]), {"name": s["name"], "where": col, "kind": "student"})
+    G = nx.Graph(); G.add_nodes_from(nodes)
+    def link(a, b, kind):
+        if a == b or a not in nodes or b not in nodes: return
+        if G.has_edge(a, b): G[a][b]["w"] += 1; G[a][b][kind] += 1
+        else: G.add_edge(a, b, w=1, paper=0, award=0); G[a][b][kind] += 1
+    for p in P:
+        ks = [k for k in {_person_key(a) for a in p["authors"]} if k in nodes]
+        for i in range(len(ks)):
+            for j in range(i + 1, len(ks)): link(ks[i], ks[j], "paper")
+    names = {n: nodes[n]["name"] for n in nodes}
+    for pr in PROJECTS:
+        team = pr.get("team", "")
+        words = set(re.findall(r"[A-Za-z][A-Za-z-]+", team))
+        ks = [k for k, nm in names.items() if re.sub(r"\s*\(.*?\)", "", nm) in team or nm.split()[-1] in words]
+        for i in range(len(ks)):
+            for j in range(i + 1, len(ks)): link(ks[i], ks[j], "award")
+    alone = sorted(nodes[n]["name"] for n in G if G.degree(n) == 0 and nodes[n]["kind"] == "faculty")
+    G.remove_nodes_from([n for n in list(G) if G.degree(n) == 0])
+    W, H, M = 960, 640, 64
+    # Lay out each connected component on its own (Kamada-Kawai spreads a dense cluster evenly), the largest across
+    # the canvas and the smaller ones tucked into the top-left corner, so no component squeezes the others.
+    comps = sorted(nx.connected_components(G), key=len, reverse=True)
+    pos = {}
+    def fit(sub, x0, y0, w, h):
+        p = nx.kamada_kawai_layout(sub) if len(sub) > 2 else nx.circular_layout(sub)
+        xs = [v[0] for v in p.values()]; ys = [v[1] for v in p.values()]
+        for n, (x, y) in p.items():
+            pos[n] = (x0 + (x - min(xs)) / (max(xs) - min(xs) or 1) * w, y0 + (y - min(ys)) / (max(ys) - min(ys) or 1) * h)
+    fit(G.subgraph(comps[0]), M + 150, M, W - 2 * M - 150, H - 2 * M)
+    cy = M
+    for c in comps[1:]:
+        fit(G.subgraph(c), M, cy, 90, 60); cy += 110
+    sx = lambda x: x; sy = lambda y: y
+    where_order = ["Francis College of Engineering", "Kennedy College of Sciences", "College of Fine Arts, Humanities and Social Sciences", "UMass Lowell"]
+    where_order += sorted({nodes[n]["where"] for n in G} - set(where_order))
+    palette = ["#044978", "#2CA58D", "#C2185B", "#8A8F98", "#D4A017", "#8E5BB2", "#E4572E", "#3F8FD2", "#5B8C5A"]
+    color = {w: palette[i % len(palette)] for i, w in enumerate(where_order)}
+    edges = []
+    for a, b, d in G.edges(data=True):
+        t = f"{nodes[a]['name']} and {nodes[b]['name']}: {d['paper']} paper{'s' if d['paper'] != 1 else ''}" + (f", {d['award']} shared award{'s' if d['award'] != 1 else ''}" if d["award"] else "")
+        edges.append(f'<line x1="{sx(pos[a][0]):.0f}" y1="{sy(pos[a][1]):.0f}" x2="{sx(pos[b][0]):.0f}" y2="{sy(pos[b][1]):.0f}" stroke-width="{min(6, 0.8 + d["w"] * 0.6):.1f}"><title>{esc(t)}</title></line>')
+    dots = []
+    for n in sorted(G, key=lambda n: -G.degree(n, weight="w")):
+        d = nodes[n]; deg = G.degree(n, weight="w"); r = 5 + min(16, deg ** 0.5 * 2.2)
+        short = re.sub(r"\(.*?\)\s*", "", d["name"]).split()[-1]
+        dots.append(f'<g class="cn {d["kind"]}"><circle cx="{sx(pos[n][0]):.0f}" cy="{sy(pos[n][1]):.0f}" r="{r:.1f}" fill="{color[d["where"]]}"' + (' fill-opacity=".55"' if d["kind"] == "student" else "") +
+                    f'><title>{esc(d["name"])}, {esc(d["where"])}: {G.degree(n)} collaborator{"s" if G.degree(n) != 1 else ""}, {deg} joint papers and awards</title></circle>'
+                    f'<text x="{sx(pos[n][0]):.0f}" y="{sy(pos[n][1]) + r + 11:.0f}" text-anchor="middle">{esc(short)}</text></g>')
+    legend = "".join(f'<span class="lg"><i style="background:{color[w]}"></i>{esc(w)}</span>' for w in where_order if any(nodes[n]["where"] == w for n in G))
+    n_fac = sum(1 for n in G if nodes[n]["kind"] == "faculty"); n_stu = len(G) - n_fac
+    alone_html = (f'<p class="collabnote">Not yet linked in the record by a joint paper or award: {esc(", ".join(alone))}. Their collaborators are outside the roster, or their work with the center is still under way.</p>' if alone else "")
+    return f'''<section id="collab">
+  <div class="wrap">
+    <div class="shead"><h2>Who works with whom</h2><p>Every co-authored paper in the center record and every shared award, drawn as a graph: {n_fac} faculty and collaborators and {n_stu} students, colored by college or institution. Thicker lines mean more joint work; hover a dot or a line for the details.</p></div>
+    <div class="legend">{legend}<span class="lg"><i style="background:#0E2036;opacity:.35"></i>students (lighter dots)</span></div>
+    <svg class="collab" viewBox="0 0 {W} {H}" role="img" aria-label="Collaboration graph of center faculty, collaborators, and students">
+      <g class="ce">{"".join(edges)}</g>{"".join(dots)}
+    </svg>{alone_html}
+  </div>
+</section>'''
+
+COLLAB_CSS = ".collab{width:100%;height:auto;display:block;background:var(--surface);border:1px solid var(--line);border-radius:12px}.collab .ce line{stroke:var(--ink-3);stroke-opacity:.35}.collab text{font-size:11.5px;fill:var(--ink-2);font-family:'IBM Plex Sans',sans-serif;paint-order:stroke;stroke:var(--surface);stroke-width:3px;stroke-linejoin:round}.collab .cn:hover circle{stroke:var(--ink);stroke-width:2}.legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin:0 0 10px;font-size:13.5px;color:var(--ink-2)}.lg{display:inline-flex;align-items:center;gap:6px}.lg i{width:11px;height:11px;border-radius:50%;display:inline-block}.collabnote{font-size:14px;color:var(--ink-3);margin:10px 0 0;max-width:60em}"
+
 
 def build_acnl(footer_html, script_html):
     """acnl.html: the lab's full paper record, 2002 to 2026 (acnl_insights.py, acnl_records.json)."""

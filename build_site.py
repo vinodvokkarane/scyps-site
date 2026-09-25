@@ -39,7 +39,7 @@ FACULTY = {
         {"name": "Nicholas G. Evans", "photo": "evans", "title": "Associate Professor, Philosophy, College of Fine Arts, Humanities and Social Sciences",
          "areas": "Ethics of emerging technologies and national security, dual-use research, bioethics and public health ethics, military ethics", "email": "Nicholas_Evans@uml.edu", "phone": "978-934-3996",
          "url": "https://www.uml.edu/fahss/political-science/faculty/evans-nicholas.aspx",
-         "role": "Ethics lead for the center's people-in-the-loop theme: trust, ethics, and human performance in systems whose failure has physical consequences. Co-investigator with Xie on the NSF award on ethical algorithms for autonomous vehicles and co-author on its papers; lead investigator on two pending proposals with the director, to Schmidt Sciences and to NSF, that apply AI methods to the history and ethics of health information."},
+         "role": "Ethics lead for the center's people-in-the-loop theme: trust, ethics, and human performance in systems whose failure has physical consequences. PI of the NSF award on ethical algorithms for autonomous vehicles, with Xie as Co-PI, and co-author on its papers; lead investigator on two pending proposals with the director, to Schmidt Sciences and to NSF, that apply AI methods to the history and ethics of health information."},
         {"name": "Yuzhang Lin", "photo": "lin", "inst": "New York University", "title": "Associate Professor, Electrical and Computer Engineering, NYU Tandon School of Engineering",
          "areas": "Smart grid and renewable energy: modeling, situational awareness, cyber-physical resilience, machine learning applications",
          "email": "yuzhang.lin@nyu.edu", "phone": "", "office": "",

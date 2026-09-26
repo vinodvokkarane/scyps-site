@@ -106,7 +106,8 @@ def shell(name, title, desc, body, depth=0):
 def write(name, title, desc, body, sub=""):
     depth = 1 if sub else 0
     page = shell(name if not sub else sub, title, desc, body, depth=depth)
-    page = bs.new_tab_links(page) if hasattr(bs, "new_tab_links") else page
+    # every link on the lab site opens in a new tab, as the director asked; mail links and jumps within a page stay put
+    page = re.sub(r'<a (?![^>]*\btarget=)(?=[^>]*href="(?!mailto:|#))', '<a target="_blank" rel="noopener" ', page)
     folder = os.path.join(OUT, sub) if sub else OUT; os.makedirs(folder, exist_ok=True)
     open(os.path.join(folder, f"{name}.html"), "w", encoding="utf-8").write(page)
 
@@ -243,7 +244,10 @@ def page_students():
         sp = [x for x in bs.SPOTLIGHTS if s["name"] in x["students"]]
         spot_html = "".join(f'<p><a href="../../spotlight.html#{esc(x["ym"])}">Student spotlight, {esc(bs.spotlight_label(x))}: {esc(x["title"])}</a></p>' for x in sp)
         links = []
-        if s["name"] in bs.SCHOLAR: links.append(f'<a href="https://scholar.google.com/citations?user={esc(bs.SCHOLAR[s["name"]])}">Google Scholar</a>')
+        if s["name"] in bs.SCHOLAR:
+            gs = bs.SCHOLAR_DATA.get(s["name"]) or {}
+            figs = ", ".join(v for v in (f'{gs["citations"]:,} citations' if gs.get("citations") else "", f'h-index {gs["h"]}' if gs.get("h") else "", f'i10-index {gs["i10"]}' if gs.get("i10") else "") if v)
+            links.append(f'<a href="https://scholar.google.com/citations?user={esc(bs.SCHOLAR[s["name"]])}">Google Scholar</a>' + (f' ({figs})' if figs else ""))
         if s.get("linkedin"): links.append(f'<a href="{esc(s["linkedin"])}">LinkedIn</a>')
         threads_s = collections.Counter(r["thread"] for r in ps).most_common(3)
         body = f'''<section><div class="wrap"><p class="kick"><a href="../people.html">People</a> / doctoral student</p>

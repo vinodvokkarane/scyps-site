@@ -3191,7 +3191,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.27"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.28"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -5781,7 +5781,8 @@ def build_labs(footer_html, script_html):
     cards = ""
     for i, lab in enumerate(LABS):
         offers = "".join(f"<li>{esc(o)}</li>" for o in lab["offers"])
-        links = " ".join(f'<a href="{esc(u)}">{esc(t)}</a>' for t, u in lab["links"])
+        _acnl = lab["name"].startswith("Advanced Communication Networks Laboratory")   # the lab's links open in a new tab
+        links = " ".join(f'<a href="{esc(u)}"' + (' target="_blank" rel="noopener"' if _acnl else "") + f'>{esc(t)}</a>' for t, u in lab["links"])
         lead = people.get(lab["lead"].split(",")[0].strip())
         face = avatar(lead, "sm") if lead else ""
         cards += f"""<article class="lab">

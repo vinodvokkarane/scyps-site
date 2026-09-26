@@ -3200,7 +3200,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.32"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.33"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3593,15 +3593,15 @@ LABS = [
                 "The NATIG cyber-physical co-simulation testbed (HELICS, GridLAB-D, ns-3)"],
      "links": [("Lab website", "acnl/index.html"), ("Research record, 2002 to 2026", "acnl.html"), ("Students in the group", "students.html"), ("FUSION on GitHub", "https://github.com/SDNNetSim/FUSION")],
      "art": "acnl"},
-    {"name": "SUMMIT federated smart grid testbed", "lead": "Vinod M. Vokkarane, with Arias, Tseng, Lin, and Srivastava",
-     "dept": "NSF Major Research Instrumentation, Track 2",
-     "what": "A three-site instrument linking real-time power system simulation with control, networking, and cybersecurity hardware in the loop across UMass Lowell, NYU Tandon, and West Virginia University, delivered to collaborators as hardware-in-the-loop Simulation-as-a-Service.",
-     "offers": ["RTDS real-time digital simulation of the Northeast transmission grid",
-                "Network emulation for latency, loss, and attack scenarios",
-                "Optical, RF, and FPGA equipment for transport and edge layers",
-                "Wide-area software-defined networking between the three sites"],
-     "links": [("SUMMIT project page", "summit.html")],
-     "art": "summit"},
+    {"name": "Advanced Computing and Networking Systems Laboratory (ACANETS)", "lead": "Yan Luo",
+     "dept": "Electrical and Computer Engineering",
+     "what": "Yan Luo's group, working on big data analytics, software-defined networking, and intelligent sensing: GPU acceleration of deep learning, software-defined network measurement, network data analytics, secure network architecture, and embedded sensing, with a strong emphasis on experimental prototypes that test the theory. Supported by NSF, the Department of Transportation, Intel, Raytheon/BBN, and other industry partners.",
+     "offers": ["Secure, compliant cyberinfrastructure for sharing and computing on sensitive data (SECTOR, STREAMS)",
+                "Programmable network measurement for research and education networks (IRNC AMIS)",
+                "Encrypted-traffic classification and malware detection with graph and transformer models",
+                "Wireless acoustic and camera sensing for structural health monitoring"],
+     "links": [("Lab website", "https://www.uml.edu/research/acanets/"), ("Research at ACANETS", "https://www.uml.edu/research/acanets/research/"), ("Yan Luo's profile", "people.html")],
+     "art": "acanets"},
     {"name": "Integrated Nuclear Security and Safeguards Laboratory (INSSL)", "lead": "Sukesh Aghara",
      "dept": "Chemical (Nuclear) Engineering",
      "what": "Research, education, and training tools for global nuclear security and safeguards, alongside the UMass Lowell research reactor. The lab has radiation detectors and cyber-physical testbeds, and its work on nuclear facility cybersecurity, safeguards verification, and advanced reactor modeling is supported by federal agencies including NNSA.",
@@ -4175,6 +4175,34 @@ TOOL_ART = {
 TOOL_ART = {k: theme_svg(v) for k, v in TOOL_ART.items()}
 
 LAB_ART = {
+"acanets": """<svg viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<!-- GPU accelerated analytics -->
+<g class="card"><rect x="60" y="70" width="200" height="120" rx="14" fill="#044978"/></g>
+<g stroke="#3BA995" stroke-width="2.5"><path d="M84 160V120M110 160V100M136 160V132M162 160V96M188 160V116M214 160V140M240 160V108"/></g>
+<text x="160" y="212" text-anchor="middle" font-size="13" fill="#5B6B82">GPU accelerated deep learning</text>
+<!-- software-defined network measurement -->
+<g class="card"><rect x="300" y="40" width="200" height="56" rx="12" fill="#0A777F"/></g>
+<text x="400" y="74" text-anchor="middle" font-size="16" font-weight="600" fill="#FFFFFF">SDN measurement</text>
+<g stroke="#D5DCE5" stroke-width="2" stroke-dasharray="4 7"><path d="M340 96L300 150M400 96V150M460 96L500 150"/></g>
+<g fill="#FFFFFF" stroke="#044978" stroke-width="3"><circle cx="300" cy="170" r="20"/><circle cx="400" cy="170" r="20"/><circle cx="500" cy="170" r="20"/></g>
+<g stroke="#044978" stroke-width="2.5"><path d="M320 170h60M420 170h60"/></g>
+<g fill="#3BA995"><circle cx="360" cy="170" r="5" class="pulse"/><circle cx="440" cy="170" r="5" class="pulse"/></g>
+<text x="400" y="212" text-anchor="middle" font-size="13" fill="#5B6B82">programmable measurement (IRNC AMIS)</text>
+<!-- secure data sharing -->
+<g class="card"><rect x="60" y="270" width="180" height="150" rx="14" fill="#FFFFFF" stroke="#D5DCE5"/></g>
+<rect x="128" y="310" width="44" height="34" rx="6" fill="#044978"/><path d="M136 310v-10a14 14 0 0 1 28 0v10" stroke="#044978" stroke-width="4"/>
+<text x="150" y="380" text-anchor="middle" font-size="13" fill="#0E2036">sensitive data, shared safely</text>
+<text x="150" y="400" text-anchor="middle" font-size="12" fill="#5B6B82">SECTOR, STREAMS</text>
+<!-- embedded sensing -->
+<g class="card"><rect x="300" y="270" width="360" height="150" rx="14" fill="#FFFFFF" stroke="#D5DCE5"/></g>
+<path d="M330 360c30-20 60-20 90 0s60 20 90 0 60-20 90 0" stroke="#0A777F" stroke-width="3"/>
+<g fill="#3BA995"><circle cx="420" cy="350" r="6"/><circle cx="510" cy="350" r="6"/><circle cx="600" cy="350" r="6"/></g>
+<g stroke="#3BA995" stroke-width="2"><path d="M420 344v-30M510 344v-30M600 344v-30"/></g>
+<text x="480" y="400" text-anchor="middle" font-size="13" fill="#0E2036">embedded and acoustic sensing for structural health</text>
+<!-- flows to the analytics -->
+<g stroke="#D5DCE5" stroke-width="2"><path d="M260 130h40M240 340h60"/></g>
+<text x="360" y="455" text-anchor="middle" font-size="13" fill="#5B6B82">big data analytics, software-defined networking, intelligent sensing</text>
+</svg>""",
 "acnl": """<svg viewBox="0 0 720 480" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect width="720" height="480" fill="#FFFFFF"/>
 <g class="card"><rect x="250" y="40" width="220" height="60" rx="12" fill="#044978"/></g>
 <text x="360" y="77" text-anchor="middle" font-size="17" font-weight="600" fill="#FFFFFF">SDN controller</text>

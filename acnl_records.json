@@ -5924,8 +5924,8 @@
   "in_cv": true,
   "thread": "Elastic and SDM optical networks",
   "problem": "Planners of ultra-high-capacity backbones must choose which bands to light and how much spatial multiplexing to add, and the choices interact through physical-layer impairments.",
-  "approach": "A comparison of C, C+L, C+S, and C+L+S band plans over space-division multiplexed fiber under dynamic traffic, with quality of transmission modeled for each combination.",
-  "finding": "C+L gives the best spectral efficiency, while C+L+S gives the most capacity and the lowest blocking, so the right plan depends on whether spectrum or throughput is the constraint.",
+  "approach": "Evaluation of planning practices for multi-band over space-division multiplexed networks using four-core multi-core fibers over the C, C+L, C+S, and C+L+S bands.",
+  "finding": "C+L gives the best spectral efficiency, while C+L+S gives the most capacity and the lowest blocking, balancing performance against deployment complexity.",
   "tags": {
    "tool": [],
    "topology": [],
@@ -5941,7 +5941,8 @@
     "simulation"
    ]
   },
-  "read": true
+  "read": true,
+  "details": "ECOC 2025, pp. 1-4"
  },
  {
   "id": 144,
@@ -6016,9 +6017,9 @@
   ],
   "in_cv": true,
   "thread": "Smart grid resilience and security",
-  "problem": "Economic dispatch decides how to run generators at least cost, but it assumes the cyber network that carries measurements and controls is intact; a cyber contingency can make a cheap dispatch unsafe.",
-  "approach": "An economic dispatch formulation with cyber security constraints, so that the schedule stays feasible and secure when parts of the communication and control network are compromised or lost.",
-  "finding": "Dispatch that costs a little more in normal operation but remains secure under cyber contingencies that would violate the limits of a conventional dispatch.",
+  "problem": "Security-constrained economic dispatch protects against physical contingencies such as generator and line outages, but not against cyber-layer failures that can cut remote control of a generator and freeze its output at the last setpoint, which can make the dispatch infeasible.",
+  "approach": "Cyber contingencies are built into the dispatch problem itself, starting with a cyber-to-physical impact model that quantifies what a communication failure does to generator controllability, so that dispatch decisions stay feasible and economical when the cyber layer is disrupted.",
+  "finding": "Dispatch that stays secure and feasible under cyber-induced loss of generator control, at an economic cost the paper quantifies against conventional security-constrained dispatch.",
   "tags": {
    "tool": [
     "MATPOWER",
@@ -6032,11 +6033,12 @@
     "simulation"
    ]
   },
-  "read": true
+  "read": true,
+  "details": "SmartGridComm 2025, pp. 1-6"
  },
  {
   "id": 146,
-  "year": 2025,
+  "year": 2026,
   "kind": "journal",
   "title": "Disaster-Resilient Cyber-Physical Distribution System Reconfiguration and Dynamic Networked Microgrid Formation under Intermittent Generation",
   "doi": "10.1109/TIA.2025.3625866",
@@ -6053,9 +6055,9 @@
   ],
   "in_cv": true,
   "thread": "Smart grid resilience and security",
-  "problem": "After a hurricane or other high-impact event, a distribution system has damaged lines, intermittent generation, and a communication network that may be down as well; restoring load quickly requires treating the power and communication layers together.",
-  "approach": "A cyber-physical reconfiguration method that forms networked microgrids dynamically as conditions change, coordinating switching, distributed generation, and the communication paths the controls depend on.",
-  "finding": "Faster load recovery than reconfiguration that ignores the communication layer, and reconfiguration that remains valid when generation is intermittent.",
+  "problem": "Distribution networks and the cyber networks that control them now form one cyber-physical system, and high-impact, low-probability events such as natural disasters and cyberattacks disrupt both layers at once. Restoration strategies that reconfigure the distribution network without its cyber dependencies produce suboptimal outcomes.",
+  "approach": "A cyber-physical coordinated reconfiguration framework for restoring critical loads quickly after an extreme event, before extra resources arrive: a graph-theoretic model that represents both layers as one graph capturing their bidirectional dependencies while limiting computational complexity, a heuristic that finds cyber-physical shortest paths, and dynamic formation of networked microgrids under intermittent generation.",
+  "finding": "Coordinated reconfiguration restores critical load faster than reconfiguring the power network alone, and the resulting microgrids remain workable when generation is intermittent.",
   "tags": {
    "tool": [
     "MATLAB"
@@ -6072,7 +6074,8 @@
     "reinforcement learning"
    ]
   },
-  "read": true
+  "read": true,
+  "details": "IEEE Transactions on Industry Applications, vol. 62, no. 2, pp. 3459-3471, March-April 2026"
  },
  {
   "id": 147,
@@ -6095,9 +6098,9 @@
   ],
   "in_cv": true,
   "thread": "Smart grid resilience and security",
-  "problem": "Anomaly detection for smart meters usually watches power data alone, so a false-data-injection attack that stays consistent with the power data can pass unnoticed.",
-  "approach": "Design of a smarter false-data-injection attack that respects the constraints existing detectors check, then an improved anomaly detector that uses more than the power measurements to catch it.",
-  "finding": "The smarter attack evades existing detection, and the enhanced detector catches attacks the existing methods miss.",
+  "problem": "Detectors for false-data-injection attacks on smart meters usually assume the meter reports only active power, and tampering with active power alone is easy to catch, near 100 percent, because it breaks its relationship with the reactive power, voltage, current, and apparent power the meter also reports.",
+  "approach": "Using the meter's full dataset, the paper designs a smarter attack that tampers with active power, current, and apparent power together so the relationships stay consistent, then builds an anomaly detector that uses all of the meter's parameters to catch it.",
+  "finding": "The consistent attack evades detectors built on active power alone; the detector that uses the full parameter set catches attacks the existing methods miss.",
   "tags": {
    "tool": [],
    "topology": [],
@@ -6110,7 +6113,8 @@
     "deep learning"
    ]
   },
-  "read": true
+  "read": true,
+  "details": "SmartGridComm 2025, pp. 1-6"
  },
  {
   "id": 148,
@@ -6180,9 +6184,9 @@
   ],
   "in_cv": true,
   "thread": "Machine learning for networks",
-  "problem": "Crosstalk-aware allocation in space-division multiplexed elastic optical networks slices demands across cores and spectrum, and the choice of slice size drives blocking; fixed rules pick it poorly under changing traffic.",
-  "approach": "A machine-learning model inside the software-defined network controller that chooses the segmentation for each demand from the network state.",
-  "finding": "Learned slicing lowers blocking compared with fixed segmentation rules.",
+  "problem": "Crosstalk-aware routing, modulation, core, and spectrum allocation in space-division multiplexed elastic optical networks slices bandwidth across cores and spectrum; poor slicing raises blocking through spectrum fragmentation and reach limits, and conventional slicing is slow.",
+  "approach": "A machine-learning slicing method inside a software-defined elastic optical network controller. Three classifiers, logistic regression, k-nearest neighbors, and a decision tree, were trained and evaluated on a pan-European topology.",
+  "finding": "Logistic regression performed best, cutting blocking probability by 46 percent and 4.3 percent on average against the two baselines while also reducing time complexity after training.",
   "tags": {
    "tool": [
     "FUSION"
@@ -6202,7 +6206,8 @@
     "simulation"
    ]
   },
-  "read": true
+  "read": true,
+  "details": "HPSR 2025, pp. 1-3"
  },
  {
   "id": 150,
@@ -6227,9 +6232,9 @@
   ],
   "in_cv": true,
   "thread": "Physical layer modeling",
-  "problem": "Standard nonlinear noise models for fiber assume rectangular pulses, but real transmitters use shaped pulses, and the difference changes the noise a link accumulates.",
-  "approach": "A modulation-format-dependent model of nonlinear noise that handles arbitrary pulse shapes, adding the terms that vanish only in the rectangular case.",
-  "finding": "For non-rectangular pulses the additional nonlinear terms are significant, so quality-of-transmission estimates that assume rectangular pulses are optimistic.",
+  "problem": "Modulation-format-dependent models of fiber nonlinearity assume rectangular pulses, but transmitters use shaped pulses, and the difference grows with the roll-off factor.",
+  "approach": "A modulation-format-dependent nonlinear model that accounts for non-rectangular pulse shapes, which brings in additional nonlinear terms the rectangular case does not have.",
+  "finding": "Earlier models agree with the new one only for root-raised-cosine pulses with minimal roll-off and diverge as roll-off grows. The new model cuts nonlinear-interference estimation error by about 0.5 dB for raised-cosine pulses with large roll-off at high launch power, and differs from a recent GN-based model for root-raised-cosine pulses by up to 1 dB in SNR at a roll-off of 0.5.",
   "tags": {
    "tool": [],
    "topology": [],
@@ -6240,7 +6245,8 @@
    ],
    "method": []
   },
-  "read": true
+  "read": true,
+  "details": "ICTON 2025, pp. 1-4"
  },
  {
   "id": 151,
@@ -6358,9 +6364,9 @@
   ],
   "in_cv": true,
   "thread": "Data center and cloud networking",
-  "problem": "Coherent pluggable transceivers in data-center interconnects pass through cascaded ROADM filters, and each filter narrows the signal; too narrow a passband adds penalty, too wide wastes spectrum.",
-  "approach": "Laboratory measurements of the passband needed by coherent pluggables as filter bandwidth is narrowed, to determine the smallest flexible-grid slot that keeps the penalty acceptable.",
-  "finding": "Measured bandwidth requirements for coherent pluggables that flexible-grid ROADM planning can use directly, rather than rules of thumb.",
+  "problem": "AI data centers are pushing high-capacity coherent pluggable transceivers onto flexible-grid optical networks, where passband filtering can cost real performance, and experimentally validated design rules for practical systems are scarce.",
+  "approach": "Laboratory characterization of a commercial multi-rate coherent pluggable in a loopback setup with programmable filtering and controlled noise loading, across its 400G, 300G, and 200G 16QAM probabilistic-constellation-shaping modes, to find the 3-dB bandwidth at which each mode incurs no penalty.",
+  "finding": "Penalty-free 3-dB bandwidth thresholds for optical data-center interconnects, one per mode, that planners can use directly to size flexible-grid passbands.",
   "tags": {
    "tool": [],
    "topology": [],
@@ -6377,7 +6383,8 @@
     "testbed/experiment"
    ]
   },
-  "read": true
+  "read": true,
+  "details": "HPSR 2026, pp. 1-5"
  },
  {
   "id": 154,

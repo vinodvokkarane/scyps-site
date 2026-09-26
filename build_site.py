@@ -2818,7 +2818,7 @@ FEDERATION = """<svg viewBox="0 0 900 120" xmlns="http://www.w3.org/2000/svg" ro
 # cyber-physical loop schematic (About section)
 SCHEMATIC = """<svg viewBox="0 0 760 490" role="img" aria-labelledby="schemTitle schemDesc" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Sans, Arial, sans-serif">
 <title id="schemTitle">How a smart cyber-physical system closes the loop</title>
-<desc id="schemDesc">Physical systems in energy, transportation, health care, and manufacturing are measured by sensors, connected over a secure network, and understood by AI; the AI's decisions pass through people, who approve, override, or ask why, before anything acts on the world.</desc>
+<desc id="schemDesc">Physical systems in energy, transportation, health and human performance, and manufacturing are measured by sensors, connected over a secure network, and understood by AI; the AI's decisions pass through people, who approve, override, or ask why, before anything acts on the world.</desc>
 <defs>
   <marker id="arrI" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#0E2036"/></marker>
   <marker id="arrS" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#0A777F"/></marker>
@@ -2851,9 +2851,10 @@ SCHEMATIC = """<svg viewBox="0 0 760 490" role="img" aria-labelledby="schemTitle
 </g>
 <g class="card">
   <rect x="30" y="260" width="150" height="84" rx="12" fill="#fff" stroke="#D5DCE5"/>
-  <circle cx="86" cy="294" r="17" fill="#0A777F"/><path d="M86 285v18M77 294h18" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
-  <path d="M106 298h8l5-10 7 20 6-14 4 6h10" fill="none" stroke="#3BA995" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="105" y="334" text-anchor="middle" font-size="13" font-weight="600" fill="#0E2036">Healthcare</text>
+  <circle cx="86" cy="288" r="15" fill="#0A777F"/><path d="M86 280v16M78 288h16" stroke="#fff" stroke-width="3.6" stroke-linecap="round"/>
+  <path d="M106 291h8l5-10 7 20 6-14 4 6h10" fill="none" stroke="#3BA995" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="105" y="322" text-anchor="middle" font-size="12.5" font-weight="600" fill="#0E2036">Health and</text>
+  <text x="105" y="336" text-anchor="middle" font-size="12.5" font-weight="600" fill="#0E2036">human performance</text>
 </g>
 <g class="card">
   <rect x="30" y="362" width="150" height="84" rx="12" fill="#fff" stroke="#D5DCE5"/>
@@ -3199,7 +3200,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.31"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.32"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -5169,11 +5170,11 @@ def build():
     <div class="about-grid">
       <div>
         <h3>Mission</h3>
-        <p>The Center for Smart Cyber-Physical Systems (SCyPS) develops secure, resilient, and trustworthy cyber-physical systems for the infrastructure people depend on: the energy grid, transportation, health care, and advanced manufacturing. Its faculty in engineering, computing, science, philosophy, and education take an interdisciplinary approach to the reliability, scalability, resource use, security, and privacy of these systems, and to the trust between people and the automation they work with.</p>
+        <p>The Center for Smart Cyber-Physical Systems (SCyPS) develops secure, resilient, and trustworthy cyber-physical systems for the infrastructure people depend on: the energy grid, transportation, health and human performance, and advanced manufacturing. Its faculty in engineering, computing, science, philosophy, and education take an interdisciplinary approach to the reliability, scalability, resource use, security, and privacy of these systems, and to the trust between people and the automation they work with.</p>
         <p>The center carries UMass Lowell's mission into its field. The university exists to give students an excellent, affordable education, to meet the needs of the Commonwealth, and to advance sustainable technologies and communities through teaching, research, scholarship, and engagement. SCyPS does that by training the engineers and scientists who will build and defend critical infrastructure, by producing research the Commonwealth's utilities, agencies, and industries can use, and by working with industry, government, and community partners so that its results reach the people of Massachusetts and beyond.</p>
         <h3 style="margin-top:22px">Vision</h3>
         <p>The Center for Smart Cyber-Physical Systems (SCyPS) will establish itself as an internationally recognized center for research and education focused on innovation, evaluation, and optimization of hardware and software technologies for an advanced, smart society.</p>
-        <div class="domains"><span>Energy and power</span><span>Transportation</span><span>Healthcare</span><span>Additive manufacturing</span></div>
+        <div class="domains"><span>Energy and power</span><span>Transportation</span><span>Health and human performance</span><span>Additive manufacturing</span></div>
       </div>
       <div>
         <h3>Goals</h3>

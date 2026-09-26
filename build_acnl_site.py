@@ -35,8 +35,8 @@ spot = max(bs.SPOTLIGHTS, key=lambda s: s["ym"]) if bs.SPOTLIGHTS else None
 def img(key): return bs.img_src(key)
 def head(p): return bs.stu_avatar(p)
 
-NAV = [("index", "Home", "index.html"), ("research", "Research", "research.html"), ("people", "People", "people.html"),
-       ("publications", "Publications", "publications.html"), ("projects", "Projects", "projects.html"),
+NAV = [("index", "Home", "index.html"), ("research", "Research", "research.html"), ("insights", "Insights", "insights.html"),
+       ("people", "People", "people.html"), ("publications", "Publications", "publications.html"), ("projects", "Projects", "projects.html"),
        ("software", "Software", "software.html"), ("join", "Join", "join.html")]
 
 CSS = """
@@ -51,12 +51,12 @@ CSS = """
 a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}img{max-width:100%}
 h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:500;letter-spacing:-.01em;line-height:1.12}h1{font-size:clamp(34px,5vw,52px);margin:0 0 12px}h2{font-size:clamp(26px,3vw,34px);margin:0 0 14px}h3{font-size:21px;margin:22px 0 8px}
 .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.strip{background:var(--navy);color:#C9DCEA;font-size:13px}.strip .wrap{display:flex;justify-content:space-between;gap:16px;min-height:30px;align-items:center}.strip a{color:#fff}
 .top{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
-.top .wrap{display:flex;align-items:center;gap:18px;min-height:64px}
-.brand{display:flex;align-items:baseline;gap:10px;color:var(--ink);text-decoration:none}.brand b{font-family:Fraunces,serif;font-size:24px;letter-spacing:.02em}.brand span{font-size:13.5px;color:var(--ink-3)}
-.top nav{margin-left:auto}.top nav ul{display:flex;gap:2px;list-style:none;margin:0;padding:0;flex-wrap:wrap}.top nav a{display:block;padding:8px 12px;border-radius:8px;color:var(--ink-2);font-size:15.5px}.top nav a.on,.top nav a:hover{background:var(--acc-2);color:var(--ink);text-decoration:none}
-.center{font-size:13px;color:var(--ink-3);margin-left:auto;white-space:nowrap}.center a{color:var(--ink-2);font-weight:500}
-@media (max-width:820px){.top .wrap{flex-wrap:wrap;padding:8px 20px}.top nav{margin-left:0;width:100%}.center{margin-left:0}}
+.top .wrap{display:flex;align-items:center;gap:16px;min-height:62px}
+.brand{display:flex;align-items:baseline;gap:10px;color:var(--ink);text-decoration:none;flex:none}.brand b{font-family:Fraunces,serif;font-size:24px;letter-spacing:.02em}.brand span{font-size:13px;color:var(--ink-3);white-space:nowrap}
+.top nav{margin-left:auto;overflow-x:auto;scrollbar-width:none}.top nav::-webkit-scrollbar{display:none}.top nav ul{display:flex;gap:2px;list-style:none;margin:0;padding:0;flex-wrap:nowrap}.top nav a{display:block;padding:8px 11px;border-radius:8px;color:var(--ink-2);font-size:15px;white-space:nowrap}.top nav a.on,.top nav a:hover{background:var(--acc-2);color:var(--ink);text-decoration:none}
+@media (max-width:900px){.brand span{display:none}}@media (max-width:600px){.top nav a{padding:8px 9px;font-size:14px}}
 .hero{padding:56px 0 40px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--surface),var(--bg))}
 .hero .grid{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}@media (max-width:820px){.hero .grid{grid-template-columns:1fr}}
 .kick{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);font-weight:600;margin:0 0 10px}
@@ -66,7 +66,7 @@ h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:500;letter-spacing:-.01e
 section{padding:44px 0}section+section{border-top:1px solid var(--line)}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px}.card h3{margin:0 0 8px;font-size:20px}.card p{margin:0 0 8px;color:var(--ink-2)}.card .m{font-size:14px;color:var(--ink-3)}
-.pi{display:grid;grid-template-columns:220px 1fr;gap:28px;align-items:start}@media (max-width:640px){.pi{grid-template-columns:1fr}}.pi img{border-radius:var(--radius);width:100%}
+.pi{display:grid;grid-template-columns:220px 1fr;gap:28px;align-items:start}@media (max-width:640px){.pi{grid-template-columns:1fr}}.pi img{border-radius:var(--radius);width:100%;height:auto}.pi img.avatar{width:220px;height:220px;border-radius:50%;object-fit:cover}
 .stu{display:grid;grid-template-columns:110px 1fr;gap:18px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px}.stu img.avatar{width:110px;height:110px;border-radius:50%;object-fit:cover}.stu h3{margin:0 0 4px}.stu .st{color:var(--ink-3);font-size:14px;margin:0 0 8px}.stu p{margin:0 0 6px;font-size:15.5px}
 .stus{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}@media (max-width:480px){.stus{grid-template-columns:1fr}.stu{grid-template-columns:1fr}}
 .list{list-style:none;margin:0;padding:0}.list li{padding:10px 0;border-bottom:1px solid var(--line)}.list b{color:var(--ink)}.list .v{display:block;font-size:14px;color:var(--ink-3)}
@@ -78,25 +78,30 @@ section{padding:44px 0}section+section{border-top:1px solid var(--line)}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:32px}@media (max-width:820px){.two{grid-template-columns:1fr}}
 .note{font-size:14px;color:var(--ink-3)}.btn{display:inline-block;background:var(--acc);color:#fff;border-radius:999px;padding:10px 18px;font-weight:600}.btn:hover{text-decoration:none;filter:brightness(1.08)}
 .foot{border-top:1px solid var(--line);padding:30px 0 40px;font-size:14px;color:var(--ink-3)}.foot .wrap{display:flex;flex-wrap:wrap;gap:20px 40px;justify-content:space-between}
+.cloud{width:100%;height:auto;display:block;font-family:"IBM Plex Sans",sans-serif;font-weight:600}.cloud a text:hover{text-decoration:underline}.chart{width:100%;height:auto;display:block}.sfig{margin:24px 0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:12px;max-width:680px}.sfig img{border-radius:8px}.sfig figcaption{font-size:14px;color:var(--ink-3);margin-top:8px}
 .figs{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}.figs figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:12px}.figs img{border-radius:8px;display:block}.figs figcaption{font-size:13.5px;color:var(--ink-3);margin-top:8px}
 """
 
-def shell(name, title, desc, body):
-    nav = "".join(f'<li><a href="{href}"{" class=\"on\"" if key == name else ""}>{label}</a></li>' for key, label, href in NAV)
+def shell(name, title, desc, body, depth=0):
+    up = "../" * depth
+    nav = "".join(f'<li><a href="{up}{href}"{" class=\"on\"" if key == name else ""}>{label}</a></li>' for key, label, href in NAV)
     return f'''<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{esc(title)}</title><meta name="description" content="{esc(desc)}"><link rel="canonical" href="{SITE}acnl/{name}.html">
-<link rel="icon" href="{img("favicon")}"><style>{CSS}</style></head><body>
-<header class="top"><div class="wrap"><a class="brand" href="index.html"><b>ACNL</b><span>Advanced Communication Networks Laboratory</span></a>
-<nav aria-label="Lab pages"><ul>{nav}</ul></nav><p class="center">Part of the <a href="../index.html">Center for Smart Cyber-Physical Systems</a></p></div></header>
+<link rel="icon" href="{img("favicon")}"><style>{CSS.replace("url(../fonts/", "url(" + up + "../fonts/")}</style></head><body>
+<div class="strip"><div class="wrap"><span>A laboratory of the <a href="{up}../index.html">Center for Smart Cyber-Physical Systems</a>, UMass Lowell</span><span><a href="{up}../index.html">Back to the center</a></span></div></div>
+<header class="top"><div class="wrap"><a class="brand" href="{up}index.html"><b>ACNL</b><span>Advanced Communication Networks Laboratory</span></a>
+<nav aria-label="Lab pages"><ul>{nav}</ul></nav></div></header>
 <main>{body}</main>
-<footer class="foot"><div class="wrap"><div><b>Advanced Communication Networks Laboratory</b><br>Electrical and Computer Engineering, University of Massachusetts Lowell<br>Director: <a href="../people.html">{esc(D["name"])}</a>, <a href="mailto:{esc(D["email"])}">{esc(D["email"])}</a>, {esc(D["phone"])}</div>
-<div>A laboratory of the <a href="../index.html">Center for Smart Cyber-Physical Systems</a>.<br>Records shared with the center site; rebuilt with it.<br>&copy; {year} University of Massachusetts Lowell</div></div></footer>
+<footer class="foot"><div class="wrap"><div><b>Advanced Communication Networks Laboratory</b><br>Electrical and Computer Engineering, University of Massachusetts Lowell<br>Director: <a href="{up}people.html">{esc(D["name"])}</a>, <a href="mailto:{esc(D["email"])}">{esc(D["email"])}</a>, {esc(D["phone"])}</div>
+<div>A laboratory of the <a href="{up}../index.html">Center for Smart Cyber-Physical Systems</a>.<br>Records shared with the center site; rebuilt with it.<br>&copy; {year} University of Massachusetts Lowell</div></div></footer>
 </body></html>'''
 
-def write(name, title, desc, body):
-    page = shell(name, title, desc, body)
+def write(name, title, desc, body, sub=""):
+    depth = 1 if sub else 0
+    page = shell(name if not sub else sub, title, desc, body, depth=depth)
     page = bs.new_tab_links(page) if hasattr(bs, "new_tab_links") else page
-    open(os.path.join(OUT, f"{name}.html"), "w", encoding="utf-8").write(page)
+    folder = os.path.join(OUT, sub) if sub else OUT; os.makedirs(folder, exist_ok=True)
+    open(os.path.join(folder, f"{name}.html"), "w", encoding="utf-8").write(page)
 
 # ---------------------------------------------------------------- research threads (from the record)
 THREAD_TEXT = {
@@ -116,6 +121,135 @@ THREAD_TEXT = {
     "Other collaborations": "Papers with collaborators outside the lab's main threads.",
 }
 
+# ---------------------------------------------------------------- analysis helpers for the insights page and student pages
+THEMES = [   # (label, pattern over the title, search term for the publications page)
+    ("optical burst switching", r"burst[- ]switch|\bobs\b|burst", "burst"),
+    ("advance reservation", r"advance reservation|advanced reservation|sliding|scheduled", "reservation"),
+    ("wavelength routing", r"wavelength|\brwa\b|lightpath", "wavelength"),
+    ("elastic optical networks", r"elastic|flex[- ]?grid|spectrum", "elastic"),
+    ("multi-band and space-division", r"multi-?band|space[- ]division|\bsdm\b|multi-?core|multi-?fiber|spatial", "multi-band"),
+    ("quality of transmission", r"\bqot\b|quality of transmission|physical layer|impairment|nonlinear", "QoT"),
+    ("manycast and anycast", r"manycast|anycast", "anycast"),
+    ("multicast", r"multicast", "multicast"),
+    ("survivability and protection", r"surviv|protect|restor|failure|fault", "protection"),
+    ("smart grid", r"\bgrid\b|\bpmu\b|distribution system|microgrid|power system|substation", "grid"),
+    ("attacks and intrusion detection", r"attack|intrusion|cyber|anomaly|false data|malware|security", "attack"),
+    ("wireless sensor networks", r"wireless sensor|\bwsn", "sensor"),
+    ("reliability", r"reliab", "reliability"),
+    ("TCP over optical", r"\btcp\b", "TCP"),
+    ("quality of service", r"\bqos\b|quality of service|differentiat", "QoS"),
+    ("energy and carbon", r"energy|carbon|emission|renewable|green|electricity", "energy"),
+    ("machine learning and AI", r"learning|neural|\bai\b|reinforcement|federated|intelligen|agent", "learning"),
+    ("data centers and cloud", r"data center|datacenter|cloud", "data center"),
+    ("science networks", r"esnet|oscars|science network|circuit", "ESnet"),
+    ("scheduling", r"schedul", "scheduling"),
+    ("software-defined networks", r"software[- ]defined|\bsdn\b|openflow", "software-defined"),
+    ("simulation and benchmarking", r"simulat|benchmark|fusion", "simulat"),
+    ("6G and edge", r"\b6g\b|\b5g\b|edge", "edge"),
+    ("resilience", r"resilien", "resilien"),
+]
+def term_weights():
+    out = []
+    for label, pat, q in THEMES:
+        n = sum(1 for r in R if re.search(pat, r["title"], re.I))
+        if n >= 3: out.append((label, n, q))
+    return sorted(out, key=lambda t: -t[1])
+
+PALETTE = ["#B23A2C", "#0A777F", "#044978", "#8E5BB2", "#C77C00", "#2CA58D", "#3F8FD2", "#5B8C5A"]
+def word_cloud_svg(W=960, H=500):
+    """A cloud of the lab's research themes: size by how many of the 204 titles touch the theme, placed on a spiral
+    without overlap. Each theme links to the publications page, searched for a matching term."""
+    import math
+    tw = term_weights()
+    if not tw: return ""
+    mx, mn = tw[0][1], tw[-1][1]
+    placed, out = [], []
+    cx, cy = W / 2, H / 2
+    for k, (t, w, q) in enumerate(tw):
+        fs = 15 + 36 * ((w - mn) / (mx - mn or 1)) ** 0.7
+        bw, bh = 0.56 * fs * len(t) + 12, fs * 1.15
+        ang, r = k * 0.9, 0.0
+        for _ in range(9000):
+            x, y = cx + r * math.cos(ang), cy + r * 0.62 * math.sin(ang)
+            box = (x - bw / 2, y - bh / 2, x + bw / 2, y + bh / 2)
+            if box[0] > 8 and box[2] < W - 8 and box[1] > 8 and box[3] < H - 8 and \
+               not any(box[0] < p[2] and box[2] > p[0] and box[1] < p[3] and box[3] > p[1] for p in placed):
+                placed.append(box)
+                col = PALETTE[k % len(PALETTE)]
+                out.append(f'<a href="publications.html?q={esc(q)}"><text x="{x:.0f}" y="{y + fs * 0.35:.0f}" font-size="{fs:.0f}" text-anchor="middle" fill="{col}"><title>{esc(t)}: {w} of {n_rec} papers</title>{esc(t)}</text></a>')
+                break
+            ang += 0.25; r += 0.55
+    return f'<svg class="cloud" viewBox="0 0 {W} {H}" role="img" aria-label="Word cloud of the research themes in the paper titles">{"".join(out)}</svg>'
+
+def bar_chart(pairs, W=960, H=220, color="var(--acc)", label_every=1, fmt=str):
+    """A simple vertical bar chart as inline SVG: pairs of (label, value)."""
+    if not pairs: return ""
+    n = len(pairs); mx = max(v for _, v in pairs) or 1
+    ML, MB, MT = 34, 34, 12; bw = (W - ML - 10) / n
+    bars = []
+    for i, (lab, v) in enumerate(pairs):
+        h = (H - MB - MT) * v / mx; x = ML + i * bw
+        bars.append(f'<rect x="{x + 2:.1f}" y="{H - MB - h:.1f}" width="{bw - 4:.1f}" height="{h:.1f}" rx="3" fill="{color}"><title>{esc(str(lab))}: {fmt(v)}</title></rect>')
+        if i % label_every == 0: bars.append(f'<text x="{x + bw / 2:.1f}" y="{H - MB + 16}" text-anchor="middle" font-size="11.5" fill="var(--ink-3)">{esc(str(lab))}</text>')
+        if v and h > 16: bars.append(f'<text x="{x + bw / 2:.1f}" y="{H - MB - h + 13:.1f}" text-anchor="middle" font-size="11" fill="#fff">{fmt(v)}</text>')
+    return f'<svg class="chart" viewBox="0 0 {W} {H}" role="img" aria-label="Bar chart">{"".join(bars)}</svg>'
+
+def papers_of(name):
+    key = bs._person_key(name)
+    return sorted([r for r in R if key in r.get("author_keys", [])], key=lambda r: -r["year"])
+
+def pub_line(r):
+    kinds = {"journal": "Journal", "conference": "Conference", "chapter": "Chapter", "book": "Book"}
+    doi = r.get("doi") or ""; t = f'<a href="https://doi.org/{esc(doi)}">{esc(r["title"])}</a>' if doi else esc(r["title"])
+    return f'<div class="pub"><span class="a">{esc(", ".join(r["authors"]))}.</span> <span class="t">{t}</span><span class="v">{kinds.get(r["kind"], r["kind"])}, {r["year"]}, {esc(r["thread"])}</span></div>'
+
+def page_insights():
+    yrs = sorted(by_year); per_year = [(y, by_year.get(y, 0)) for y in range(min(yrs), max(yrs) + 1)]
+    th = threads.most_common()
+    tools = collections.Counter(t for r in R for t in r["tags"].get("tool", [])).most_common(10)
+    meth = collections.Counter(t for r in R for t in r["tags"].get("method", [])).most_common(10)
+    metr = collections.Counter(t for r in R for t in r["tags"].get("metric", [])).most_common(10)
+    topo = collections.Counter(t for r in R for t in r["tags"].get("topology", [])).most_common(8)
+    coau = collections.Counter(a for r in R for a in r["authors"] if bs._person_key(a) != bs._person_key(D["name"])).most_common(12)
+    stu_first = sum(1 for r in R if r.get("students") and r["author_keys"] and r["author_keys"][0] in r["students"])
+    sch = bs.SCHOLAR_DATA.get(D["name"]) or {}
+    def tbl(items, unit):
+        return '<ul class="list">' + "".join(f'<li><b>{esc(t)}</b><span class="v">{n} {unit}</span></li>' for t, n in items) + "</ul>"
+    body = f'''<section><div class="wrap"><p class="kick">Insights</p><h1>{n_rec} publications, read as one body of work</h1>
+<p class="lead">What the lab has worked on, with what, and with whom, from its own record since 2002. The themes below are sized by how many of the {n_rec} paper titles touch them; click one to see the papers.</p>
+<div class="card" style="padding:8px 10px 4px;margin:18px 0 0">{word_cloud_svg()}</div>
+<div class="two" style="margin-top:36px"><div><h2>Papers per year</h2>{bar_chart(per_year, label_every=2)}<p class="note">{n_rec} publications, {n_journal} in journals. The record is the director's CV; {n_read} of the papers are read and summarized on the center's <a href="../acnl.html">research record</a>.</p></div>
+<div><h2>Research threads</h2>{bar_chart([(t.split(" and ")[0].split(",")[0][:22], n) for t, n in th], H=220, color="var(--teal)")}<ul class="list" style="margin-top:8px">{"".join(f"<li><b>{esc(t)}</b><span class=v>{n} publications</span></li>" for t, n in th)}</ul></div></div>
+<h2 style="margin-top:40px">How the work is done</h2><p class="note">Counted from the {n_read} papers that have been read; a paper can use several.</p>
+<div class="cards"><div class="card"><h3>Methods</h3>{tbl(meth, "papers")}</div><div class="card"><h3>Tools and platforms</h3>{tbl(tools, "papers")}</div><div class="card"><h3>What is measured</h3>{tbl(metr, "papers")}</div><div class="card"><h3>Network topologies</h3>{tbl(topo, "papers")}</div></div>
+<h2 style="margin-top:40px">Who the lab writes with</h2><div class="two"><div><ul class="list">{"".join(f"<li><b>{esc(a)}</b><span class=v>{n} joint publications</span></li>" for a, n in coau)}</ul></div>
+<div><p>{stu_first} of the {n_rec} publications have a student of the lab as first author. The director's Google Scholar profile lists {sch.get("citations", 0):,} citations, an h-index of {sch.get("h", 0)}, and an i10-index of {sch.get("i10", 0)}{(", as of " + esc(sch["date"])) if sch.get("date") else ""}.</p><p>The center's <a href="../insights.html">Insights page</a> places the lab's recent work among the center's 14 research clusters, and the <a href="../people.html#collab">collaboration graph</a> shows who the director works with across the center.</p></div></div>
+</div></section>'''
+    write("insights", "Insights | ACNL", f"The lab's {n_rec} publications read as one body of work: research terms, papers per year, threads, methods, tools, and co-authors.", body)
+
+def slug(name): return re.sub(r"[^a-z]+", "-", re.sub(r"\(.*?\)", "", name).lower()).strip("-")
+
+def page_students():
+    for s in students:
+        ps = papers_of(s["name"]); first = [r for r in ps if r["author_keys"] and r["author_keys"][0] == bs._person_key(s["name"])]
+        fig = f'<figure class="sfig"><img src="{img(s["fig"])}" alt="" width="640" height="420"><figcaption>{esc(s.get("figcap", ""))}</figcaption></figure>' if s.get("fig") and bs.IMG.get(s["fig"]) else ""
+        sp = [x for x in bs.SPOTLIGHTS if s["name"] in x["students"]]
+        spot_html = "".join(f'<p><a href="../../spotlight.html#{esc(x["ym"])}">Student spotlight, {esc(bs.spotlight_label(x))}: {esc(x["title"])}</a></p>' for x in sp)
+        links = []
+        if s["name"] in bs.SCHOLAR: links.append(f'<a href="https://scholar.google.com/citations?user={esc(bs.SCHOLAR[s["name"]])}">Google Scholar</a>')
+        if s.get("linkedin"): links.append(f'<a href="{esc(s["linkedin"])}">LinkedIn</a>')
+        threads_s = collections.Counter(r["thread"] for r in ps).most_common(3)
+        body = f'''<section><div class="wrap"><p class="kick"><a href="../people.html">People</a> / doctoral student</p>
+<div class="pi"><div>{head(s)}</div><div><h1 style="font-size:clamp(30px,4vw,40px)">{esc(s["name"])}</h1><p class="st">{esc(s["status"])}. Advised by {esc(D["name"])}.</p>
+<p>{esc(s.get("focus", ""))}</p>{spot_html}<p class="note">{" · ".join(links)}</p>
+<div class="stats" style="grid-template-columns:repeat(3,1fr);max-width:480px"><div><b>{len(ps)}</b>publications in the lab record</div><div><b>{len(first)}</b>as first author</div><div><b>{sum(1 for r in ps if r["kind"] == "journal")}</b>journal articles</div></div>
+{("<p class=note style=margin-top:10px>Working mostly on " + esc(", ".join(t for t, _ in threads_s)) + ".</p>") if threads_s else ""}
+</div></div>
+{fig}
+<h2 style="margin-top:30px">Publications</h2>{"".join(pub_line(r) for r in ps) or "<p class=note>No publications in the lab record yet.</p>"}
+</div></section>'''
+        write(slug(s["name"]), f"{s['name']} | ACNL", f"{s['name']}, {s['status']} in the Advanced Communication Networks Laboratory at UMass Lowell.", body, sub="students")
+
 # ---------------------------------------------------------------- pages
 def page_index():
     highlights = [
@@ -132,9 +266,11 @@ def page_index():
   <p class="kick">Advanced Communication Networks Laboratory</p>
   <h1>Networks that keep working when it matters</h1>
   <p class="lead">We design and defend the communication networks behind critical infrastructure: the fiber backbone that carries AI and cloud traffic, and the control networks that keep the power grid observable and recoverable under attack. Directed by {esc(D["name"])} at UMass Lowell since 2013, and before that at UMass Dartmouth.</p>
-  <div class="stats"><div><b>{n_rec}</b>publications since 2002</div><div><b>{n_journal}</b>journal articles</div><div><b>{len(students)}</b>doctoral students</div><div><b>{len(alumni_phd)}</b>Ph.D. graduates</div></div>
+  <div class="stats"><div><b>{n_rec}</b>publications since 2002</div><div><b>{n_journal}</b>journal articles</div><div><b>{len(students)}</b>doctoral students</div><div><b>{len(alumni_phd)}</b>Ph.D. graduates advised or co-advised</div></div>
 </div><div><img src="{img("lab_bench")}" alt="The ACNL bench" width="520" height="390"></div></div></div></div>
 <section><div class="wrap"><h2>Right now</h2><div class="cards">{hl}{sp}</div></div></section>
+<section><div class="wrap"><h2>Latest</h2><div class="two"><div><h3 style="margin-top:0">Newest papers</h3>{"".join(pub_line(r) for r in sorted(R, key=lambda r: (-r["year"], r["kind"] != "journal"))[:4])}</div>
+<div><h3 style="margin-top:0">Newest awards</h3><ul class="list">{"".join(f"<li><b>{esc(p['title'].split(':')[0])}</b><span class=v>{esc(p['sponsor'].split(' (')[0])}{', ' + esc(p['amount']) if p.get('amount') else ''}{', ' + esc(p['period']) if p.get('period') else ''}</span></li>" for p in active[:4])}</ul><p class="note"><a href="projects.html">All projects</a> · <a href="insights.html">Insights across all {n_rec} papers</a></p></div></div></div></section>
 <section><div class="wrap"><div class="two"><div><h2>The people</h2><ul class="list">{stu}</ul><p><a href="people.html">The director, students, and alumni</a></p></div>
 <div><h2>Where the work goes</h2><p>The lab's {len(center_papers)} papers since 2019 are part of the <a href="../publications.html">center's record</a>, and its full record back to 2002, {n_rec} publications in {len(threads)} research threads, is read and summarized on the <a href="../acnl.html">research record</a> page. {len(active)} awards are active, headed by SUMMIT.</p><p><a class="btn" href="join.html">Join the lab</a></p></div></div></div></section>'''
     write("index", "Advanced Communication Networks Laboratory, UMass Lowell", f"The ACNL at UMass Lowell: optical networks and smart grid cyber resilience, directed by {D['name']}; {n_rec} publications since 2002.", body)
@@ -162,8 +298,8 @@ def page_research():
     write("research", "Research | ACNL", "The lab's research: multi-band SDM optical networks, grid cyber resilience, and AI in the network loop, with its full record since 2002 in research threads.", body)
 
 def page_people():
-    stu = "".join(f'''<div class="stu" id="{esc(s["name"].split()[-1].lower())}">{head(s)}<div><h3>{esc(s["name"])}</h3><p class="st">{esc(s["status"])}</p><p>{esc(s.get("focus", ""))}</p>
-      {"<p class=st>" + ("<a href=https://scholar.google.com/citations?user=" + esc(bs.SCHOLAR[s["name"]]) + ">Google Scholar</a>" ) + "</p>" if s["name"] in bs.SCHOLAR else ""}</div></div>''' for s in students)
+    stu = "".join(f'''<div class="stu" id="{esc(s["name"].split()[-1].lower())}">{head(s)}<div><h3><a href="students/{slug(s["name"])}.html">{esc(s["name"])}</a></h3><p class="st">{esc(s["status"])}</p><p>{esc(s.get("focus", ""))}</p>
+      <p class="st"><a href="students/{slug(s["name"])}.html">Profile and publications</a>{(" · <a href=https://scholar.google.com/citations?user=" + esc(bs.SCHOLAR[s["name"]]) + ">Google Scholar</a>") if s["name"] in bs.SCHOLAR else ""}</p></div></div>''' for s in students)
     phd = "".join(f'<li><b>{esc(n)}</b> <span class="v">Ph.D. {y}{", " + esc(w) if w else ""}</span></li>' for y, n, w in alumni_phd)
     pd = "".join(f'<li><b>{esc(n)}</b> <span class="v">postdoctoral researcher; now {esc(o)}</span></li>' for n, o in alumni_postdoc)
     honors = ["ECE Department Teaching Award, UMass Lowell, 2018 and 2025", "IET Premium Award 2018, best paper in IET Wireless Sensor Systems",
@@ -198,7 +334,7 @@ def page_publications():
 <p class="count" id="cnt"></p><div id="pubs">{"".join(items)}</div></div></section>
 <script>(function(){{var y=document.getElementById('fy'),k=document.getElementById('fk'),t=document.getElementById('ft'),s=document.getElementById('fs'),c=document.getElementById('cnt'),ps=document.querySelectorAll('#pubs .pub');
 function run(){{var n=0,q=s.value.trim().toLowerCase();for(var i=0;i<ps.length;i++){{var p=ps[i];var ok=(!y.value||p.dataset.y===y.value)&&(!k.value||p.dataset.k===k.value)&&(!t.value||p.dataset.t===t.value)&&(!q||p.dataset.s.indexOf(q)>=0);p.hidden=!ok;if(ok)n++;}}c.textContent='Showing '+n+' of '+ps.length+' publications';}}
-[y,k,t].forEach(function(e){{e.addEventListener('change',run);}});s.addEventListener('input',run);run();}})();</script>'''
+[y,k,t].forEach(function(e){{e.addEventListener('change',run);}});s.addEventListener('input',run);var q=new URLSearchParams(location.search).get('q');if(q){{s.value=q;}}run();}})();</script>'''
     write("publications", "Publications | ACNL", f"All {n_rec} publications of the Advanced Communication Networks Laboratory since 2002, with filters by year, type, and research thread.", body)
 
 def page_projects():
@@ -237,5 +373,5 @@ def page_join():
     write("join", "Join | ACNL", "How to join the Advanced Communication Networks Laboratory as a doctoral student, postdoc, undergraduate, visitor, or partner.", body)
 
 if __name__ == "__main__":
-    for f in (page_index, page_research, page_people, page_publications, page_projects, page_software, page_join): f()
-    print(f"wrote acnl/: 7 pages; {n_rec} publications, {len(students)} students, {len(projects)} awards ({len(active)} active)")
+    for f in (page_index, page_research, page_insights, page_people, page_students, page_publications, page_projects, page_software, page_join): f()
+    print(f"wrote acnl/: 8 pages plus {len(students)} student pages; {n_rec} publications, {len(students)} students, {len(projects)} awards ({len(active)} active)")

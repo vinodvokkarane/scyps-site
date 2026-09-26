@@ -3191,7 +3191,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.24"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.25"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3582,7 +3582,7 @@ LABS = [
                 "Grid intrusion detection and federated anomaly detection",
                 "Reproducible benchmarking through the open-source FUSION framework",
                 "The NATIG cyber-physical co-simulation testbed (HELICS, GridLAB-D, ns-3)"],
-     "links": [("Research record, 2002 to 2026", "acnl.html"), ("Students in the group", "students.html"), ("FUSION on GitHub", "https://github.com/SDNNetSim/FUSION")],
+     "links": [("Lab website", "acnl/index.html"), ("Research record, 2002 to 2026", "acnl.html"), ("Students in the group", "students.html"), ("FUSION on GitHub", "https://github.com/SDNNetSim/FUSION")],
      "art": "acnl"},
     {"name": "SUMMIT federated smart grid testbed", "lead": "Vinod M. Vokkarane, with Arias, Tseng, Lin, and Srivastava",
      "dept": "NSF Major Research Instrumentation, Track 2",
@@ -5332,6 +5332,12 @@ def build():
     build_labs(footer_html, script_html)
     build_spotlight(footer_html, script_html)
     build_positions(footer_html, script_html)
+    try:
+        import subprocess as _sp
+        _r = _sp.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "build_acnl_site.py")], capture_output=True, text=True, timeout=300)
+        print((_r.stdout or _r.stderr).strip().splitlines()[-1] if (_r.stdout or _r.stderr).strip() else "acnl/: built")
+    except Exception as _e:
+        print(f"acnl/ site skipped: {_e}")
     build_meta_files()
     build_feed()
     build_assets()
@@ -6373,7 +6379,8 @@ def build_assets():
 def build_meta_files():
     """robots.txt and sitemap.xml, so the new pages are discoverable and the old single page is not the only entry."""
     root = os.path.dirname(os.path.abspath(OUT)) or "."
-    pages = ["", "people.html", "students.html", "alumni.html", "publications.html", "insights.html", "acnl.html", "spotlight.html", "news.html", "summit.html", "labs.html", "positions.html"] + \
+    pages = ["", "people.html", "students.html", "alumni.html", "publications.html", "insights.html", "acnl.html", "spotlight.html",
+             "acnl/index.html", "acnl/research.html", "acnl/people.html", "acnl/publications.html", "acnl/projects.html", "acnl/software.html", "acnl/join.html", "news.html", "summit.html", "labs.html", "positions.html"] + \
             [f"research-{k}.html" for k, _, _, _ in THRUSTS]
     today = datetime.date.today().isoformat()
     urls = "".join(f"  <url><loc>{SITE_URL}{p}</loc><lastmod>{today}</lastmod></url>\n" for p in pages)

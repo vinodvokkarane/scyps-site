@@ -711,3 +711,10 @@ project and faculty spotlights, captions, coming-up list) plus the site's own re
 and milestones, the roster, the student spotlight from `spotlights.json`, and the images). It writes
 `newsletters/print/SCyPS-Newsletter-<ym>-Vol<v>-No<n>.pdf` and a cover thumbnail; the newsletters page lists every
 print edition automatically. Needs Playwright with Chromium, so run it locally, then commit the PDF and cover.
+
+## ACNL lab website (acnl/)
+
+`build_acnl_site.py` builds the Advanced Communication Networks Laboratory site at `acnl/` from the same
+records as the center site (director profile, `acnl_records.json`, awards, students, alumni, spotlights,
+photos). `build_site.py` runs it at the end of every build. Lab-only text (the research directions,
+thread summaries, software list, and the join page) lives in the builder itself.

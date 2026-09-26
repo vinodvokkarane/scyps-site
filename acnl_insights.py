@@ -177,7 +177,7 @@ def render(ns, footer_html, script_html):
   <div class="wrap">
     <p class="crumb"><a href="labs.html">Labs</a></p>
     <h1>The Advanced Communication Networks Laboratory, 2002 to 2026</h1>
-    <p class="q">Every publication from the lab, from UT Dallas, UMass Dartmouth, and UMass Lowell. {n_read} of the {len(R)} have been read and recorded: what problem each took on, how, and what it found. The other {n_listed} are listed from the CV until their PDFs are on file. All of them are grouped into the research threads they form and traced through the tools, networks, and people behind them.</p>
+    <p class="q"><a href="acnl/index.html">The lab\'s own website</a> has its people, projects, and software. This page is its full publication record, from UT Dallas, UMass Dartmouth, and UMass Lowell. {n_read} of the {len(R)} have been read and recorded: what problem each took on, how, and what it found. The other {n_listed} are listed from the CV until their PDFs are on file. All of them are grouped into the research threads they form and traced through the tools, networks, and people behind them.</p>
     <div class="istats"><div><b>{len(R)}</b>publications</div><div><b>{n_read}</b>read in full</div><div><b>{n_j}</b>journal papers</div><div><b>{len(students)}</b>students and postdocs</div><div><b>{len(groups)}</b>research threads</div></div>
   </div>
 </div>

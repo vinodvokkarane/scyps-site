@@ -330,29 +330,62 @@ def render(ns, footer_html, script_html):
                 f'{(" " + journal_chip(p["venue"])) if p["type"] == "journal" else ""}</span></li>')
 
     # --- the map
-    svg = ['<svg class="imap" viewBox="0 0 1000 640" role="img" aria-labelledby="mapTitle mapDesc">',
-           '<title id="mapTitle">Map of the center\'s publications</title>',
-           f'<desc id="mapDesc">{N} papers drawn as points, grouped into {len(C)} clusters by shared references, shared authors, and title terms. Point size follows citation count.</desc>']
+    # --- the map: one tile per cluster, big type, no overlaps. Citation links between clusters appear when a tile
+    # is hovered, focused, or chosen in the legend; clicking a tile jumps to that cluster's papers below.
+    order = sorted(range(len(C)), key=lambda k: -C[k]["n"])
+    cols = 4; TW, TH, GX, GY, MX, MY = 226, 148, 20, 18, 12, 12
+    rows = (len(C) + cols - 1) // cols
+    Wm, Hm = MX * 2 + cols * TW + (cols - 1) * GX, MY * 2 + rows * TH + (rows - 1) * GY
+    tile_at = {}
+    for k, cid in enumerate(order):
+        rr, cc = divmod(k, cols)
+        tile_at[cid] = (MX + cc * (TW + GX), MY + rr * (TH + GY))
+    # citations between clusters, from the center's own papers citing each other
+    between = {}
+    for a_i, b_i in R["internal_cites"]:
+        ca, cb = R["cluster_of"][a_i], R["cluster_of"][b_i]
+        if ca != cb: between[tuple(sorted((ca, cb)))] = between.get(tuple(sorted((ca, cb))), 0) + 1
+    def wrap(text, width_chars):
+        words, lines, cur = text.split(), [], ""
+        for w in words:
+            if cur and len(cur) + 1 + len(w) > width_chars: lines.append(cur); cur = w
+            else: cur = (cur + " " + w).strip()
+        if cur: lines.append(cur)
+        return lines
+    svg = [f'<svg class="imap" viewBox="0 0 {Wm} {Hm}" role="img" aria-labelledby="mapTitle mapDesc">',
+           '<title id="mapTitle">Map of the center\'s research clusters</title>',
+           f'<desc id="mapDesc">{N} papers grouped into {len(C)} research clusters by shared references, shared authors, and title terms, shown as tiles ordered by size. Links between tiles show how often the clusters cite each other.</desc>']
+    # related clusters (nearest by shared references, authors, and language) as dashed links; citations as solid ones
+    related = set()
     for cl in C:
-        x, y = cl["center"]
-        svg.append(f'<circle class="isle" cx="{x:.1f}" cy="{y:.1f}" r="{cl["r"] + 6:.1f}" fill="{cl["color"]}" data-c="{cl["id"]}"/>')
-    for i, j, w in R["edges_out"]:
-        (x1, y1), (x2, y2) = R["pos"][i], R["pos"][j]
-        svg.append(f'<line class="eo" x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" data-c="{R["cluster_of"][i]} {R["cluster_of"][j]}"/>')
-    for i, j, w in R["edges_in"]:
-        (x1, y1), (x2, y2) = R["pos"][i], R["pos"][j]
-        svg.append(f'<line class="ei" x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" data-c="{R["cluster_of"][i]}"/>')
-    for i, j in R["internal_cites"]:
-        (x1, y1), (x2, y2) = R["pos"][i], R["pos"][j]
-        svg.append(f'<line class="ec" x1="{x1:.1f}" y1="{y1:.1f}" x2="{x2:.1f}" y2="{y2:.1f}" data-c="{R["cluster_of"][i]} {R["cluster_of"][j]}"/>')
-    for i, p in enumerate(P):
-        x, y = R["pos"][i]; cl = C[R["cluster_of"][i]]
-        r = 3.2 + min(9, math.sqrt(R["cited"][i]) * 0.75)
-        label = f'{p["title"]} ({p["year"]}, {p["venue"]}; {R["cited"][i]} citations)'
-        svg.append(f'<circle class="pt" cx="{x:.1f}" cy="{y:.1f}" r="{r:.1f}" fill="{cl["color"]}" data-c="{cl["id"]}" data-i="{i}" tabindex="0" role="button" aria-label="{esc(label)}"><title>{esc(label)}</title></circle>')
-    for cl in C:
-        x, y = cl["center"]; ty = y + cl["r"] + 20
-        svg.append(f'<text class="cl" x="{x:.1f}" y="{ty:.1f}" text-anchor="middle" data-c="{cl["id"]}">{esc(cl["name"])}</text>')
+        for c2 in cl["nearest"][:2]:
+            pair = tuple(sorted((cl["id"], c2)))
+            if pair not in between: related.add(pair)
+    maxb = max(between.values()) if between else 1
+    def curve(ca, cb):
+        (x1, y1), (x2, y2) = tile_at[ca], tile_at[cb]
+        x1, y1, x2, y2 = x1 + TW / 2, y1 + TH / 2, x2 + TW / 2, y2 + TH / 2
+        dx, dy = x2 - x1, y2 - y1; L = (dx * dx + dy * dy) ** 0.5 or 1
+        mx, my = (x1 + x2) / 2 - dy / L * L * 0.12, (y1 + y2) / 2 + dx / L * L * 0.12
+        return f'M{x1:.0f} {y1:.0f}Q{mx:.0f} {my:.0f} {x2:.0f} {y2:.0f}'
+    for cid, (x, y) in tile_at.items():
+        cl = C[cid]; lines = wrap(cl["name"], 22)
+        fs = 17 if len(lines) <= 3 else 15
+        if len(lines) > 4: lines = wrap(cl["name"], 30)[:4]
+        title = "".join(f'<tspan x="{x + 18:.0f}" dy="{0 if k == 0 else fs * 1.22:.0f}">{esc(t)}</tspan>' for k, t in enumerate(lines))
+        who = ", ".join(ns["FULL_NAME"].get(f, f).split()[-1] for f, _ in cl["faculty"][:3])
+        yrs = list(cl["years"]); span = f'{yrs[0]} to {yrs[-1]}' if yrs[0] != yrs[-1] else str(yrs[0])
+        nb = sum(1 for (a, b) in between if cid in (a, b))
+        svg.append(f'<a class="tile" href="#cluster-{cid}" data-c="{cid}" aria-label="{esc(cl["name"])}: {cl["n"]} papers, {span}. Go to its papers.">'
+                   f'<rect x="{x}" y="{y}" width="{TW}" height="{TH}" rx="12" fill="var(--surface)" stroke="{cl["color"]}" stroke-width="2"/>'
+                   f'<rect x="{x}" y="{y}" width="8" height="{TH}" rx="4" fill="{cl["color"]}"/>'
+                   f'<text class="tt" x="{x + 18}" y="{y + 30}" font-size="{fs}">{title}</text>'
+                   f'<text class="tm" x="{x + 18}" y="{y + TH - 34}">{cl["n"]} papers, {span}</text>'
+                   f'<text class="tm" x="{x + 18}" y="{y + TH - 14}">{esc(who)}</text></a>')
+    for ca, cb in sorted(related):
+        svg.append(f'<path class="lk rel" d="{curve(ca, cb)}" stroke-width="2.5" data-c="{ca} {cb}"><title>{esc(C[ca]["name"])} and {esc(C[cb]["name"])}: related work (shared references, authors, or language)</title></path>')
+    for (ca, cb), n in sorted(between.items(), key=lambda t: t[1]):
+        svg.append(f'<path class="lk" d="{curve(ca, cb)}" stroke-width="{3 + 8 * n / maxb:.1f}" data-c="{ca} {cb}"><title>{esc(C[ca]["name"])} and {esc(C[cb]["name"])}: {n} citation{"s" if n != 1 else ""} between their papers</title></path>')
     svg.append('</svg>')
     legend = "".join(f'<button class="ichip" type="button" data-c="{cl["id"]}" aria-pressed="false"><i style="background:{cl["color"]}"></i>{esc(cl["name"])} <small>{cl["n"]}</small></button>' for cl in C)
 
@@ -445,7 +478,7 @@ def render(ns, footer_html, script_html):
 </div>
 <section class="imapsec">
   <div class="wrap">
-    <div class="maphead"><h2>The map</h2><p>Each point is a paper; size follows citations. Papers sit together when they cite the same literature, share authors, or use the same language. Faint lines are those ties; the darker lines are one center paper citing another. Tap a cluster to focus it.</p></div>
+    <div class="maphead"><h2>The map</h2><p>Each tile is a research cluster: papers that cite the same literature, share authors, or use the same language, with the largest clusters first. Hover over a tile to see its links: solid lines are citations between the clusters\' papers, dashed lines are related work. Click a tile to go to its papers. </p></div>
     <div class="legend" id="legend">{legend}<button class="ichip all" type="button" data-c="all" aria-pressed="true">Show all</button></div>
     <div class="mapwrap">{"".join(svg)}</div>
     <p class="mapnote">{len(R["internal_cites"])} citations run between the center's own papers. {R["with_refs"]} of {N} papers have open reference lists on Crossref, {R["n_refs"]:,} references with DOIs between them.</p>
@@ -520,13 +553,13 @@ def render(ns, footer_html, script_html):
 .ichip[aria-pressed="true"]{border-color:var(--ink);color:var(--ink);font-weight:600}
 .mapwrap{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);overflow:hidden}
 @media (max-width:640px){.mapwrap{overflow-x:auto}.imap{min-width:760px}}
-.imap{width:100%;height:auto;display:block}
-.imap .isle{opacity:.08;transition:opacity .2s}.imap .pt{stroke:var(--surface);stroke-width:1.2;cursor:pointer;transition:opacity .2s}
-.imap .pt:hover,.imap .pt:focus-visible{stroke:var(--ink);stroke-width:2;outline:none}
-.imap .ei{stroke:var(--ink);stroke-opacity:.10;stroke-width:1}.imap .eo{stroke:var(--ink);stroke-opacity:.07;stroke-width:1}
-.imap .ec{stroke:var(--signal);stroke-opacity:.55;stroke-width:1.2}
-.imap .cl{font-family:"IBM Plex Sans",sans-serif;font-size:12.5px;font-weight:600;fill:var(--ink);paint-order:stroke;stroke:var(--surface);stroke-width:4px;stroke-linejoin:round}
-.imap.focus [data-c]{opacity:.12}.imap.focus .isle{opacity:.02}.imap.focus [data-c~="F"]{opacity:1}.imap.focus .isle[data-c="F"]{opacity:.12}
+.imap{width:100%;height:auto;display:block;font-family:"IBM Plex Sans",sans-serif}
+.imap .tile{cursor:pointer;outline:none;text-decoration:none}.imap .tile text{text-decoration:none}.imap .tile rect:first-child{transition:stroke-width .15s}
+.imap .tile:hover rect:first-child,.imap .tile:focus-visible rect:first-child,.imap .tile.on rect:first-child{stroke-width:4}
+.imap .tt{font-weight:600;fill:var(--ink)}.imap .tm{font-size:13.5px;fill:var(--ink-2)}
+.imap .lk{fill:none;stroke:var(--signal);stroke-opacity:0;stroke-linecap:round;transition:stroke-opacity .15s;pointer-events:none}.imap .lk.on{filter:drop-shadow(0 0 2px var(--surface))}
+.imap.focus .lk{stroke-opacity:0}.imap.focus .lk.on{stroke-opacity:.75}.imap .lk.rel{stroke-dasharray:7 6;stroke:var(--ink-3)}.imap.focus .lk.rel.on{stroke-opacity:.6}
+.imap.focus .tile{opacity:.35}.imap.focus .tile.on{opacity:1}
 .mapnote{font-size:13.5px;color:var(--ink-3);margin:10px 0 0}
 .iclgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:18px}
 .icl{border:1px solid var(--line);border-left:4px solid var(--c);border-radius:var(--radius);background:var(--surface);padding:20px 22px}
@@ -564,20 +597,26 @@ ol.ipubs{padding-left:22px;list-style:decimal}
 <script>
 (function(){
   var map=document.querySelector('.imap'),legend=document.getElementById('legend');if(!map||!legend)return;
-  var style=document.createElement('style');document.head.appendChild(style);
-  function focus(c){
+  var pinned='all';
+  function show(c){
+    var on=String(c);
     var chips=legend.querySelectorAll('.ichip');
-    for(var i=0;i<chips.length;i++)chips[i].setAttribute('aria-pressed',chips[i].getAttribute('data-c')===String(c)?'true':'false');
-    var cards=document.querySelectorAll('.icl');for(var j=0;j<cards.length;j++)cards[j].classList.toggle('on',cards[j].id==='cluster-'+c);
-    if(c==='all'){map.classList.remove('focus');style.textContent='';return;}
+    for(var i=0;i<chips.length;i++)chips[i].setAttribute('aria-pressed',chips[i].getAttribute('data-c')===on?'true':'false');
+    var cards=document.querySelectorAll('.icl');for(var j=0;j<cards.length;j++)cards[j].classList.toggle('on',cards[j].id==='cluster-'+on);
+    var tiles=map.querySelectorAll('.tile'),links=map.querySelectorAll('.lk');
+    if(on==='all'){map.classList.remove('focus');for(var t=0;t<tiles.length;t++)tiles[t].classList.remove('on');for(var l=0;l<links.length;l++)links[l].classList.remove('on');return;}
     map.classList.add('focus');
-    style.textContent='.imap.focus [data-c~="'+c+'"]{opacity:1}.imap.focus .isle[data-c="'+c+'"]{opacity:.14}';
+    var near={};near[on]=true;
+    for(var l2=0;l2<links.length;l2++){var cs=links[l2].getAttribute('data-c').split(' ');var hit=cs.indexOf(on)>=0;links[l2].classList.toggle('on',hit);if(hit){near[cs[0]]=true;near[cs[1]]=true;}}
+    for(var t2=0;t2<tiles.length;t2++)tiles[t2].classList.toggle('on',!!near[tiles[t2].getAttribute('data-c')]);
   }
   legend.addEventListener('click',function(e){var b=e.target.closest('.ichip');if(!b)return;var c=b.getAttribute('data-c');
-    focus(b.getAttribute('aria-pressed')==='true'&&c!=='all'?'all':c);});
-  function pick(t){var c=t.getAttribute('data-c');focus(c);var card=document.getElementById('cluster-'+c);if(card)card.scrollIntoView({behavior:'smooth',block:'nearest'});}
-  map.addEventListener('click',function(e){var t=e.target.closest('.pt,.cl');if(t)pick(t);});
-  map.addEventListener('keydown',function(e){if((e.key==='Enter'||e.key===' ')&&e.target.classList.contains('pt')){e.preventDefault();pick(e.target);}});
+    pinned=(b.getAttribute('aria-pressed')==='true'&&c!=='all')?'all':c;show(pinned);});
+  map.addEventListener('mouseover',function(e){var t=e.target.closest('.tile');if(t)show(t.getAttribute('data-c'));});
+  map.addEventListener('mouseout',function(e){var t=e.target.closest('.tile');if(t)show(pinned);});
+  map.addEventListener('focusin',function(e){var t=e.target.closest('.tile');if(t)show(t.getAttribute('data-c'));});
+  map.addEventListener('focusout',function(){show(pinned);});
+  map.addEventListener('click',function(e){var t=e.target.closest('.tile');if(t){pinned=t.getAttribute('data-c');show(pinned);}});
 })();
 </script>'''
     page = ns["page_shell"]("Insights | SCyPS, UMass Lowell",

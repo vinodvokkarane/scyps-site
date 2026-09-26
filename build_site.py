@@ -2818,7 +2818,7 @@ FEDERATION = """<svg viewBox="0 0 900 120" xmlns="http://www.w3.org/2000/svg" ro
 # cyber-physical loop schematic (About section)
 SCHEMATIC = """<svg viewBox="0 0 760 490" role="img" aria-labelledby="schemTitle schemDesc" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Sans, Arial, sans-serif">
 <title id="schemTitle">How a smart cyber-physical system closes the loop</title>
-<desc id="schemDesc">Physical systems in energy, transportation, health care, and manufacturing are measured by sensors, connected over a secure network, understood by AI, and acted on safely, with people in the loop.</desc>
+<desc id="schemDesc">Physical systems in energy, transportation, health care, and manufacturing are measured by sensors, connected over a secure network, and understood by AI; the AI's decisions pass through people, who approve, override, or ask why, before anything acts on the world.</desc>
 <defs>
   <marker id="arrI" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#0E2036"/></marker>
   <marker id="arrS" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#0A777F"/></marker>
@@ -2905,13 +2905,21 @@ SCHEMATIC = """<svg viewBox="0 0 760 490" role="img" aria-labelledby="schemTitle
 
 <!-- core <-> compute -->
 <g fill="none" stroke="#0A777F" stroke-width="2.2"><path d="M454 226h50" marker-end="url(#arrS)"/></g>
-<g fill="none" stroke="#3BA995" stroke-width="2.2"><path d="M506 256h-50" marker-end="url(#arrG)"/></g>
+<g fill="none" stroke="#3BA995" stroke-width="2.2"><path d="M528 395H482V262H456" marker-end="url(#arrG)"/></g>
 <text x="481" y="215" text-anchor="middle" font-size="11.5" fill="#5B6B82">data</text>
-<text x="481" y="275" text-anchor="middle" font-size="11.5" fill="#5B6B82">decisions</text>
+<text x="474" y="374" text-anchor="end" font-size="11" fill="#5B6B82">approved</text><text x="474" y="387" text-anchor="end" font-size="11" fill="#5B6B82">commands</text>
 
-<!-- return loop -->
-<path d="M622 350v106H105v-6" fill="none" stroke="#3BA995" stroke-width="2" stroke-dasharray="5 6" marker-end="url(#arrG)"/>
-<text x="392" y="480" text-anchor="middle" font-size="12.5" fill="#5B6B82">Sense. Communicate. Decide. Act. People stay in the loop.</text>
+<!-- people in the loop: the AI's decisions pass through people before anything acts on the world -->
+<path d="M622 350v16" fill="none" stroke="#3BA995" stroke-width="2.2" marker-end="url(#arrG)"/>
+<g class="card">
+  <rect x="528" y="370" width="188" height="50" rx="12" fill="#fff" stroke="#B23A2C" stroke-width="1.8"/>
+  <circle cx="550" cy="389" r="6" fill="#B23A2C"/><path d="M540 405c0-6 4-9 10-9s10 3 10 9" fill="#B23A2C"/>
+  <text x="568" y="389" font-size="12.5" font-weight="600" fill="#0E2036">People stay in the loop</text>
+  <text x="568" y="405" font-size="10.5" fill="#5B6B82">approve, override, ask why</text>
+</g>
+<!-- the approved commands travel back over the network to the sensors and actuators -->
+
+<text x="392" y="472" text-anchor="middle" font-size="12.5" fill="#5B6B82">Sense. Communicate. Decide with people. Act.</text>
 </svg>"""
 
 ICONS = {
@@ -3191,7 +3199,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.30"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.31"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the

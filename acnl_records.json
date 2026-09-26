@@ -5923,9 +5923,9 @@
   ],
   "in_cv": true,
   "thread": "Elastic and SDM optical networks",
-  "problem": "Planning ultra-high-capacity networks across bands and SDM.",
-  "approach": "Comparison of C, C+L, C+S, and C+L+S band plans over SDM.",
-  "finding": "C+L gives the best spectral efficiency; C+L+S gives the most capacity and lowest blocking.",
+  "problem": "Planners of ultra-high-capacity backbones must choose which bands to light and how much spatial multiplexing to add, and the choices interact through physical-layer impairments.",
+  "approach": "A comparison of C, C+L, C+S, and C+L+S band plans over space-division multiplexed fiber under dynamic traffic, with quality of transmission modeled for each combination.",
+  "finding": "C+L gives the best spectral efficiency, while C+L+S gives the most capacity and the lowest blocking, so the right plan depends on whether spectrum or throughput is the constraint.",
   "tags": {
    "tool": [],
    "topology": [],
@@ -5970,9 +5970,9 @@
   ],
   "in_cv": true,
   "thread": "Elastic and SDM optical networks",
-  "problem": "Inter-core crosstalk and nonlinear noise in multi-band SDM.",
-  "approach": "Channel-based ICXT- and NLI-aware provisioning.",
-  "finding": "Accurate QoT-aware allocation for multi-band SDM.",
+  "problem": "In multi-band systems over multi-core fiber, inter-core crosstalk and nonlinear interference vary by channel and by band, so provisioning that uses link-level averages misjudges which paths and formats are feasible.",
+  "approach": "Service provisioning that evaluates crosstalk and nonlinear interference channel by channel, choosing route, core, band, spectrum, and modulation from per-channel quality of transmission.",
+  "finding": "Channel-level impairment awareness gives accurate feasibility decisions and better use of capacity than link-level approximations in multi-band SDM networks.",
   "tags": {
    "tool": [
     "FUSION"
@@ -6016,9 +6016,9 @@
   ],
   "in_cv": true,
   "thread": "Smart grid resilience and security",
-  "problem": "Economic dispatch ignores cyber network contingencies.",
-  "approach": "Cyber-security-constrained economic dispatch.",
-  "finding": "Dispatch that stays secure under cyber contingencies.",
+  "problem": "Economic dispatch decides how to run generators at least cost, but it assumes the cyber network that carries measurements and controls is intact; a cyber contingency can make a cheap dispatch unsafe.",
+  "approach": "An economic dispatch formulation with cyber security constraints, so that the schedule stays feasible and secure when parts of the communication and control network are compromised or lost.",
+  "finding": "Dispatch that costs a little more in normal operation but remains secure under cyber contingencies that would violate the limits of a conventional dispatch.",
   "tags": {
    "tool": [
     "MATPOWER",
@@ -6053,9 +6053,9 @@
   ],
   "in_cv": true,
   "thread": "Smart grid resilience and security",
-  "problem": "Distribution systems face high-impact, low-probability events.",
-  "approach": "Reconfiguration with dynamic networked microgrid formation (journal).",
-  "finding": "Faster recovery with intermittent generation.",
+  "problem": "After a hurricane or other high-impact event, a distribution system has damaged lines, intermittent generation, and a communication network that may be down as well; restoring load quickly requires treating the power and communication layers together.",
+  "approach": "A cyber-physical reconfiguration method that forms networked microgrids dynamically as conditions change, coordinating switching, distributed generation, and the communication paths the controls depend on.",
+  "finding": "Faster load recovery than reconfiguration that ignores the communication layer, and reconfiguration that remains valid when generation is intermittent.",
   "tags": {
    "tool": [
     "MATLAB"
@@ -6095,9 +6095,9 @@
   ],
   "in_cv": true,
   "thread": "Smart grid resilience and security",
-  "problem": "Smart meter FDI detection assumes only power data.",
-  "approach": "A smarter FDI attack and improved anomaly detection.",
-  "finding": "Detection that catches attacks existing methods miss.",
+  "problem": "Anomaly detection for smart meters usually watches power data alone, so a false-data-injection attack that stays consistent with the power data can pass unnoticed.",
+  "approach": "Design of a smarter false-data-injection attack that respects the constraints existing detectors check, then an improved anomaly detector that uses more than the power measurements to catch it.",
+  "finding": "The smarter attack evades existing detection, and the enhanced detector catches attacks the existing methods miss.",
   "tags": {
    "tool": [],
    "topology": [],
@@ -6135,9 +6135,9 @@
   ],
   "in_cv": true,
   "thread": "Elastic and SDM optical networks",
-  "problem": "Multi-band EONs suffer band-dependent impairments.",
-  "approach": "ISRS-aware, impairment-aware routing.",
-  "finding": "Better QoT-aware allocation across bands.",
+  "problem": "In multi-band elastic optical networks, inter-channel stimulated Raman scattering moves power from higher-frequency bands to lower ones, so impairments differ by band and routing that ignores the effect misjudges the quality of transmission.",
+  "approach": "Physical-layer-impairment-aware routing and allocation that includes the stimulated Raman scattering power transfer across bands when estimating each candidate path's quality of transmission.",
+  "finding": "Accounting for the Raman effect gives more accurate feasibility and better allocation across bands than models that treat each band alike.",
   "tags": {
    "tool": [
     "OMNeT++"
@@ -6180,9 +6180,9 @@
   ],
   "in_cv": true,
   "thread": "Machine learning for networks",
-  "problem": "Choosing slice sizes for crosstalk-aware allocation in SDM-EONs.",
-  "approach": "ML-assisted segmentation inside the SDN controller.",
-  "finding": "Learned slicing lowers blocking.",
+  "problem": "Crosstalk-aware allocation in space-division multiplexed elastic optical networks slices demands across cores and spectrum, and the choice of slice size drives blocking; fixed rules pick it poorly under changing traffic.",
+  "approach": "A machine-learning model inside the software-defined network controller that chooses the segmentation for each demand from the network state.",
+  "finding": "Learned slicing lowers blocking compared with fixed segmentation rules.",
   "tags": {
    "tool": [
     "FUSION"
@@ -6227,9 +6227,9 @@
   ],
   "in_cv": true,
   "thread": "Physical layer modeling",
-  "problem": "Nonlinear noise models assume rectangular pulses.",
-  "approach": "Modulation-format-dependent model for arbitrary pulse shapes.",
-  "finding": "Extra nonlinear terms matter for non-rectangular pulses.",
+  "problem": "Standard nonlinear noise models for fiber assume rectangular pulses, but real transmitters use shaped pulses, and the difference changes the noise a link accumulates.",
+  "approach": "A modulation-format-dependent model of nonlinear noise that handles arbitrary pulse shapes, adding the terms that vanish only in the rectangular case.",
+  "finding": "For non-rectangular pulses the additional nonlinear terms are significant, so quality-of-transmission estimates that assume rectangular pulses are optimistic.",
   "tags": {
    "tool": [],
    "topology": [],
@@ -6358,9 +6358,9 @@
   ],
   "in_cv": true,
   "thread": "Data center and cloud networking",
-  "problem": "Filter narrowing penalizes coherent pluggables in data center links.",
-  "approach": "Experimental measurement of filter bandwidth requirements.",
-  "finding": "Quantifies passband needs for flexible-grid ROADMs.",
+  "problem": "Coherent pluggable transceivers in data-center interconnects pass through cascaded ROADM filters, and each filter narrows the signal; too narrow a passband adds penalty, too wide wastes spectrum.",
+  "approach": "Laboratory measurements of the passband needed by coherent pluggables as filter bandwidth is narrowed, to determine the smallest flexible-grid slot that keeps the penalty acceptable.",
+  "finding": "Measured bandwidth requirements for coherent pluggables that flexible-grid ROADM planning can use directly, rather than rules of thumb.",
   "tags": {
    "tool": [],
    "topology": [],
@@ -6398,9 +6398,9 @@
   ],
   "in_cv": true,
   "thread": "Tools and reproducibility",
-  "problem": "Optical network results are hard to reproduce.",
-  "approach": "FUSION as a unified benchmarking framework (journal).",
-  "finding": "Reproducible benchmarks for optical networking research.",
+  "problem": "Results in optical networking are getting harder to compare and reproduce: architectures now range from single-band to multi-band and space-division systems, and published numbers depend on simulation assumptions that are rarely spelled out.",
+  "approach": "FUSION treats the benchmark itself as the deliverable. It is organized around five pillars: verified baselines, coverage of the main functional domains, recorded experiment provenance and observability, extension through fixed interface contracts, and sustained ecosystem support. Reference scenarios, automated validation and regression workflows, and diagnostic outputs capture each run's configuration and state so it can be replayed deterministically.",
+  "finding": "Case studies show the framework benchmarking heterogeneous architectures and policies on equal terms, and a mapping of published studies onto FUSION's capabilities shows how much of the field's recent work it can already reproduce.",
   "tags": {
    "tool": [
     "Gym environments",
@@ -6453,9 +6453,9 @@
   ],
   "in_cv": true,
   "thread": "Elastic and SDM optical networks",
-  "problem": "Dynamic allocation in multi-band SDM needs QoT awareness and grooming.",
-  "approach": "QoT-aware allocation and grooming (journal).",
-  "finding": "Grooming with QoT awareness improves capacity use.",
+  "problem": "Multi-band space-division multiplexing can scale backbone capacity, but allocating resources dynamically means accounting for inter-core crosstalk, inter-channel stimulated Raman scattering, amplifier noise, and nonlinear interference at the same time, and their effects differ by band and by core count.",
+  "approach": "A channel-based, quality-of-transmission-aware routing, modulation, core, band, and spectrum assignment framework that uses pre-computed generalized SNR and crosstalk feasibility maps over the C, L, and S bands, with end-to-end traffic grooming and bandwidth slicing built into the allocation. Two allocation orders, core-slot-band and band-slot-core, are compared on weakly coupled multi-core fibers and on bundles of standard single-mode fiber pairs.",
+  "finding": "Ignoring frequency-dependent crosstalk causes systematic, band-dependent errors in which modulation formats are feasible in dense-core fibers. With few cores, multi-core fiber blocks less traffic than fiber bundles; with many cores, crosstalk dominates and bundles win. For seven cores, grooming pushes the onset of blocking to a 77.7 percent higher load, and the band-slot-core policy with grooming blocks 44.6 percent less than the bundle baseline across loads of 1,837 to 3,675 Tbps.",
   "tags": {
    "tool": [
     "FUSION"
@@ -6504,9 +6504,9 @@
   ],
   "in_cv": true,
   "thread": "Elastic and SDM optical networks",
-  "problem": "Scaling capacity spectrally or spatially.",
-  "approach": "QoT-aware trade-off study of multi-band versus SDM scaling (invited journal).",
-  "finding": "Quantifies when spectral versus spatial scaling pays off.",
+  "problem": "Backbone capacity can grow two ways, by adding bands beyond the C-band or by adding fiber cores, and physical-layer impairments mean the two cannot be judged separately: the L-band suffers more crosstalk, and dense cores make crosstalk dominate.",
+  "approach": "A planning framework that jointly evaluates C, C+L, C+S, and C+L+S transmission over 4-, 7-, 13-, and 19-core fibers, using one generalized SNR model that covers amplifier noise, nonlinear interference, stimulated Raman scattering, inter-core crosstalk, transceiver limits, and filtering and aging penalties. Modulation formats are pre-computed with launch-power optimization and bandwidth slicing, and the crosstalk model is validated on a commercial 19-core fiber.",
+  "finding": "The best band plan depends on the core count. C+L wins for 4 and 7 cores; C+S wins for 13 cores because the L-band is hit harder by crosstalk; at 19 cores the system is crosstalk-dominated and only C+S holds up. Adding cores can shrink usable capacity: with C+L+S, maximum throughput falls from 107.94 Pbps at 13 cores to 44.76 Pbps at 19 on the U.S. backbone topology.",
   "tags": {
    "tool": [
     "FUSION"

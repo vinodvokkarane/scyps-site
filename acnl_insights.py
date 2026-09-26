@@ -76,7 +76,16 @@ def render(ns, footer_html, script_html):
     ext = [(k, n) for k, n in coauth.most_common() if k not in students][:14]
 
     # ---- stacked bars: papers per year by thread
-    groups = [g for g in ORDER if any(r["group"] == g for r in R)]
+    _last = max(r["year"] for r in R)
+    groups = sorted([g for g in ORDER if any(r["group"] == g for r in R)],
+                    key=lambda g: (-max(r["year"] for r in R if r["group"] == g),
+                                   -sum(1 for r in R if r["group"] == g and r["year"] > _last - 5), ORDER.index(g)))
+    # the newest work, for the section at the top of the page
+    _recent = sorted([r for r in R if r.get("read", True) and r.get("finding")], key=lambda r: (-r["year"], r["kind"] != "journal", r["title"]))[:6]
+    latest_html = "".join(
+        f'<article class="lt"><p class="lk" style="color:{COLOR.get(r["group"], "#5B6B82")}">{esc(r["group"])} &middot; {r["year"]}</p>'
+        f'<h3>{("<a href=https://doi.org/" + esc(r["doi"]) + ">" + esc(r["title"]) + "</a>") if r.get("doi") else esc(r["title"])}</h3>'
+        f'<p><b>Problem.</b> {esc(r["problem"])}</p><p><b>Finding.</b> {esc(r["finding"])}</p></article>' for r in _recent)
     ymax = max(by_year.values()); W = 1000; left = 36; bw = (W - left - 10) / len(years)
     bars = []
     for k, y in enumerate(years):
@@ -181,9 +190,15 @@ def render(ns, footer_html, script_html):
     <div class="istats"><div><b>{len(R)}</b>publications</div><div><b>{n_read}</b>read in full</div><div><b>{n_j}</b>journal papers</div><div><b>{len(students)}</b>students and postdocs</div><div><b>{len(groups)}</b>research threads</div></div>
   </div>
 </div>
+<section>
+  <div class="wrap">
+    <div class="shead"><h2>Latest research</h2><p>The newest papers in the record, with the problem each takes on and what it found. The threads below run the same way, newest first.</p></div>
+    <div class="ltgrid">{latest_html}</div>
+  </div>
+</section>
 <section class="imapsec">
   <div class="wrap">
-    <div class="maphead"><h2>The arc</h2><p>Each row is a research thread; each dot is a year it produced papers, sized by how many. Optical burst switching gives way to scheduling, manycast, and energy-aware networking, then to elastic and space-division optics and the smart grid.</p></div>
+    <div class="maphead"><h2>The arc</h2><p>Each row is a research thread, with the newest threads at the top; each dot is a year it produced papers, sized by how many. Read from the bottom up, optical burst switching gives way to scheduling, manycast, and energy, and then to elastic and space-division optical networks and the smart grid.</p></div>
     {arc_svg}
     <h3 class="sub">Papers per year</h3>
     <div class="legend">{legend}</div>
@@ -244,6 +259,7 @@ def render(ns, footer_html, script_html):
 .icl h4{font-size:12.5px;color:var(--ink-3);margin:10px 0 4px;font-weight:600}
 .ipubs{list-style:none;margin:0;padding:0}.ipubs li{margin:0 0 6px;font-size:14px;line-height:1.35}.ipubs .v{color:var(--ink-3);font-size:13px}
 .igrid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 40px}.igrid2>div{min-width:0}@media (max-width:980px){.igrid2{grid-template-columns:1fr}}
+.ltgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px}.lt{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px}.lt .lk{font-size:12.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin:0 0 6px}.lt h3{font-size:17.5px;line-height:1.3;margin:0 0 8px}.lt p{font-size:14.5px;color:var(--ink-2);margin:0 0 6px}
 .tscroll{overflow-x:auto;max-width:100%;margin:0 0 22px}.wrap [class*="grid"]>div,.wrap [class*="grid"]>section{min-width:0}
 .heat{border-collapse:separate;border-spacing:2px;font-size:12.5px;width:100%}.heat caption{text-align:left;font-weight:600;color:var(--ink-2);font-size:14px;padding-bottom:6px}
 .heat thead th{font-weight:400;color:var(--ink-3);height:22px}.heat thead th span{font-size:11px}

@@ -79,6 +79,13 @@ section{padding:44px 0}section+section{border-top:1px solid var(--line)}
 .note{font-size:14px;color:var(--ink-3)}.btn{display:inline-block;background:var(--acc);color:#fff;border-radius:999px;padding:10px 18px;font-weight:600}.btn:hover{text-decoration:none;filter:brightness(1.08)}
 .foot{border-top:1px solid var(--line);padding:30px 0 40px;font-size:14px;color:var(--ink-3)}.foot .wrap{display:flex;flex-wrap:wrap;gap:20px 40px;justify-content:space-between}
 .cloud{width:100%;height:auto;display:block;font-family:"IBM Plex Sans",sans-serif;font-weight:600}.cloud a text:hover{text-decoration:underline}.chart{width:100%;height:auto;display:block}.sfig{margin:24px 0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:12px;max-width:680px}.sfig img{border-radius:8px}.sfig figcaption{font-size:14px;color:var(--ink-3);margin-top:8px}
+.deck{position:relative;aspect-ratio:760/406;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:#0E2036}
+.deck img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s}.deck img.on{opacity:1}
+.deck .dots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:8px;align-items:center}
+.deck .dots button{width:11px;height:11px;border-radius:50%;border:2px solid #fff;background:transparent;padding:0;cursor:pointer}.deck .dots button[aria-pressed=true]{background:#fff}
+.deck .dots .pp{width:auto;height:auto;border-radius:999px;padding:2px 10px;font:600 12px "IBM Plex Sans",sans-serif;color:#fff;background:rgba(14,32,54,.55)}
+.deckcap{position:absolute;left:12px;top:10px;margin:0;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(14,32,54,.55);padding:3px 8px;border-radius:6px}
+.archs{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:18px;align-items:start}.archs img{width:100%;height:auto;display:block}
 .figs{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}.figs figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:12px}.figs img{border-radius:8px;display:block}.figs figcaption{font-size:13.5px;color:var(--ink-3);margin-top:8px}
 """
 
@@ -251,6 +258,92 @@ def page_students():
         write(slug(s["name"]), f"{s['name']} | ACNL", f"{s['name']}, {s['status']} in the Advanced Communication Networks Laboratory at UMass Lowell.", body, sub="students")
 
 # ---------------------------------------------------------------- pages
+# ---------------------------------------------------------------- project pages
+PX = json.load(open(os.path.join(HERE, "acnl_projects.json"), encoding="utf-8"))["projects"]
+FUND = json.load(open(os.path.join(HERE, "acnl_funders.json"), encoding="utf-8")) if os.path.exists(os.path.join(HERE, "acnl_funders.json")) else {}
+TITLES = {}
+for p_ in bs.P:
+    if p_.get("doi"): TITLES[p_["doi"].lower()] = {"title": p_["title"], "year": p_["year"], "authors": p_["authors"], "venue": p_["venue"], "details": p_.get("details", ""), "doi": p_["doi"]}
+for r_ in R:
+    if r_.get("doi") and r_["doi"].lower() not in TITLES:
+        TITLES[r_["doi"].lower()] = {"title": r_["title"], "year": r_["year"], "authors": r_["authors"], "venue": "", "details": "", "doi": r_["doi"]}
+REC_BY_DOI = {r["doi"].lower(): r for r in R if r.get("doi")}
+
+def pslug(p):
+    base = p["title"].split(":")[0] if ":" in p["title"][:40] else " ".join(p["title"].split()[:5])
+    return re.sub(r"[^a-z0-9]+", "-", base.lower()).strip("-")
+
+def pextra(p):
+    for k, v in PX.items():
+        if p["title"].startswith(k): return v
+    return {"award": [], "threads": [], "lessons": []}
+
+def years_of(p):
+    ys = [int(y) for y in re.findall(r"(20\d\d)", p.get("period", ""))]
+    return (min(ys), max(ys) if len(ys) > 1 else (min(ys) + 3 if "onward" in p.get("period", "") or len(ys) == 1 else min(ys))) if ys else (None, None)
+
+def acknowledged(p):
+    aw = [a.lower() for a in pextra(p).get("award", [])]
+    if not aw: return []
+    seen, out = set(), []
+    for d, fs in FUND.items():
+        if not fs: continue
+        if any(any(a in x.lower() for a in aw) for f in fs for x in f.get("award", [])):
+            t = TITLES.get(d.lower())
+            if t and t["title"] not in seen: seen.add(t["title"]); out.append(t)
+    return sorted(out, key=lambda t: -t["year"])
+
+def related(p, exclude):
+    th = set(pextra(p).get("threads", [])); y0, y1 = years_of(p)
+    if not th or not y0: return []
+    return sorted([r for r in R if r["thread"] in th and y0 <= r["year"] <= y1 + 1 and r["title"] not in exclude], key=lambda r: -r["year"])
+
+LAB_PEOPLE = {bs._person_key(s["name"]): s["name"] for s in students}
+for _y, _n, _w in alumni_phd: LAB_PEOPLE[bs._person_key(_n)] = _n
+def people_on(recs):
+    names = collections.Counter()
+    for r in recs:
+        for a in r.get("authors", []):
+            k = bs._person_key(a)
+            if k in LAB_PEOPLE: names[LAB_PEOPLE[k]] += 1
+    return names.most_common()
+
+def ack_text(p):
+    aw = [a for a in pextra(p).get("award", []) if not a.endswith("TDD")]
+    spons = p["sponsor"].split(" (")[0]
+    num = f" under Award No. {aw[0]}" if aw else ""
+    return f"This material is based upon work supported by the {spons}{num}. Any opinions, findings, and conclusions or recommendations expressed are those of the authors and do not necessarily reflect the views of the sponsor."
+
+def page_project(p):
+    x = pextra(p); ack = acknowledged(p); ack_titles = {t["title"] for t in ack}; rel = related(p, ack_titles)
+    recs_for_people = [REC_BY_DOI.get(t["doi"].lower(), {"authors": t["authors"]}) for t in ack] or rel
+    ppl = people_on(recs_for_people)
+    fig = ""
+    for fk, ck in (("figure", "figcap"), ("figure2", "figcap2")):
+        if x.get(fk) and bs.IMG.get(x[fk]):
+            fig += f'<figure class="sfig" style="max-width:none;margin:0"><img src="{img(x[fk])}" alt="" loading="lazy"><figcaption>{esc(x.get(ck, ""))}</figcaption></figure>'
+    ack_html = "".join(f'<div class="pub"><span class="a">{esc(", ".join(t["authors"]))}.</span> <span class="t"><a href="https://doi.org/{esc(t["doi"])}">{esc(t["title"])}</a></span><span class="v">{esc(t["venue"])}{", " + esc(t["details"]) if t["details"] else ""} ({t["year"]})</span></div>' for t in ack)
+    rel_html = "".join(pub_line(r) for r in rel[:8])
+    findings = [r for r in ([REC_BY_DOI.get(t["doi"].lower()) for t in ack] + rel) if r and r.get("read", True) and r.get("finding")][:4]
+    find_html = "".join(f'<li><b>{esc(r["title"])}</b> ({r["year"]}): {esc(r["finding"])}</li>' for r in findings)
+    lessons = "".join(f"<li>{esc(l)}</li>" for l in x.get("lessons", []))
+    ppl_html = ", ".join(f'<a href="../students/{slug(n)}.html">{esc(n)}</a>' if any(s["name"] == n for s in students) else esc(n) for n, _ in ppl)
+    inferred = ' <span class="note">(matched from paper acknowledgements by sponsor and year; to be confirmed)</span>' if x.get("award_note") == "inferred" else ""
+    body = f'''<section><div class="wrap"><p class="kick"><a href="../projects.html">Projects</a> / {esc(p.get("tag", ""))}</p>
+<h1 style="font-size:clamp(28px,3.6vw,42px)">{esc(p["title"])}</h1>
+<div class="stats" style="grid-template-columns:repeat(4,1fr)"><div><b style="font-size:24px">{esc(p.get("amount", "") or "")}</b>{esc(p["sponsor"])}</div><div><b style="font-size:24px">{esc(p.get("period", ""))}</b>period</div><div><b style="font-size:24px">{len(ack)}</b>papers acknowledging the award</div><div><b style="font-size:24px">{len(ppl)}</b>lab students and alumni on the work</div></div>
+<div class="two" style="margin-top:28px"><div><h2>The project</h2><p>{esc(p.get("desc", ""))}</p><p class="note">{esc(p.get("team", ""))}.</p>
+{("<p class=note>Award number: " + esc(", ".join(a for a in x.get("award", []) if not a.endswith("TDD"))) + inferred + "</p>") if x.get("award") else ""}</div>
+<div><h2>Students</h2>{("<p>" + ppl_html + "</p><p class=note>From the authors of " + ("the papers acknowledging this award." if ack else "the lab\\'s related work in the project period.") + "</p>") if ppl else "<p class=note>No lab students are identified on this project in the records yet.</p>"}</div></div>
+{("<h2 style=margin-top:30px>Architecture</h2><div class=archs>" + fig + "</div>") if fig else ""}
+{("<h2 style=margin-top:30px>What the work found</h2><ul class=list>" + find_html + "</ul><p class=note>From the lab\\'s research record, where each paper is summarized as a problem, an approach, and a finding.</p>") if find_html else ""}
+{("<h2 style=margin-top:30px>Lessons learned</h2><ul class=list>" + lessons + "</ul>") if lessons else ""}
+{("<h2 style=margin-top:30px>Papers acknowledging this award</h2><p class=note>From the funding information publishers register with Crossref.</p>" + ack_html) if ack_html else ""}
+{("<h2 style=margin-top:30px>Related work from the lab in this period</h2><p class=note>Papers in the project\\'s research threads from its years; they may or may not acknowledge this award.</p>" + rel_html) if rel_html else ""}
+<h2 style="margin-top:30px">Acknowledging this award</h2><div class="card"><p style="margin:0">{esc(ack_text(p))}</p></div>
+</div></section>'''
+    write(pslug(p), f"{p['title'].split(':')[0]} | ACNL", f"{p['title']}: {p['sponsor']}, {p.get('period', '')}.", body, sub="projects")
+
 def page_index():
     highlights = [
         ("SUMMIT", "A $2.0M NSF instrument, starting October 2026, that links UMass Lowell, NYU, and West Virginia University in one testbed where real control, network, and security hardware closes the loop with a real-time grid simulation.", "../summit.html"),
@@ -267,7 +360,17 @@ def page_index():
   <h1>Networks that keep working when it matters</h1>
   <p class="lead">We design and defend the communication networks behind critical infrastructure: the fiber backbone that carries AI and cloud traffic, and the control networks that keep the power grid observable and recoverable under attack. Directed by {esc(D["name"])} at UMass Lowell since 2013, and before that at UMass Dartmouth.</p>
   <div class="stats"><div><b>{n_rec}</b>publications since 2002</div><div><b>{n_journal}</b>journal articles</div><div><b>{len(students)}</b>doctoral students</div><div><b>{len(alumni_phd)}</b>Ph.D. graduates advised or co-advised</div></div>
-</div><div><img src="{img("lab_bench")}" alt="The ACNL bench" width="520" height="390"></div></div></div></div>
+</div><div class="deck" id="deck" aria-roledescription="carousel" aria-label="Lab life">{"".join(f'<img src="{img(k)}" alt="Members of the Advanced Communication Networks Laboratory" width="760" height="406"' + (' class="on"' if i == 0 else ' loading="lazy"') + '>' for i, k in enumerate(k for k in ["lab1", "lab2", "lab3", "lab4", "lab5", "lab6"] if bs.IMG.get(k)))}
+  <div class="dots" role="group" aria-label="Choose a photo">{"".join(f'<button type="button" aria-label="Photo {i + 1}"' + (' aria-pressed="true"' if i == 0 else ' aria-pressed="false"') + '></button>' for i, _ in enumerate(k for k in ["lab1", "lab2", "lab3", "lab4", "lab5", "lab6"] if bs.IMG.get(k)))}<button type="button" class="pp" aria-label="Pause the slideshow">Pause</button></div>
+  <p class="deckcap">Lab life</p></div></div></div></div>
+<script>(function(){{var d=document.getElementById('deck');if(!d)return;var im=d.querySelectorAll('img'),bt=d.querySelectorAll('.dots button:not(.pp)'),pp=d.querySelector('.pp'),i=0,t=null;
+var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function go(n){{im[i].classList.remove('on');bt[i].setAttribute('aria-pressed','false');i=(n+im.length)%im.length;im[i].classList.add('on');bt[i].setAttribute('aria-pressed','true');}}
+function play(){{stop();t=setInterval(function(){{go(i+1);}},4500);pp.textContent='Pause';pp.setAttribute('aria-label','Pause the slideshow');}}
+function stop(){{if(t)clearInterval(t);t=null;pp.textContent='Play';pp.setAttribute('aria-label','Play the slideshow');}}
+bt.forEach(function(b,n){{b.addEventListener('click',function(){{go(n);stop();}});}});pp.addEventListener('click',function(){{t?stop():play();}});
+d.addEventListener('mouseenter',function(){{if(t){{clearInterval(t);t=0;}}}});d.addEventListener('mouseleave',function(){{if(t===0)play();}});
+if(!reduce)play();else stop();}})();</script>
 <section><div class="wrap"><h2>Right now</h2><div class="cards">{hl}{sp}</div></div></section>
 <section><div class="wrap"><h2>Latest</h2><div class="two"><div><h3 style="margin-top:0">Newest papers</h3>{"".join(pub_line(r) for r in sorted(R, key=lambda r: (-r["year"], r["kind"] != "journal"))[:4])}</div>
 <div><h3 style="margin-top:0">Newest awards</h3><ul class="list">{"".join(f"<li><b>{esc(p['title'].split(':')[0])}</b><span class=v>{esc(p['sponsor'].split(' (')[0])}{', ' + esc(p['amount']) if p.get('amount') else ''}{', ' + esc(p['period']) if p.get('period') else ''}</span></li>" for p in active[:4])}</ul><p class="note"><a href="projects.html">All projects</a> · <a href="insights.html">Insights across all {n_rec} papers</a></p></div></div></div></section>
@@ -339,8 +442,8 @@ function run(){{var n=0,q=s.value.trim().toLowerCase();for(var i=0;i<ps.length;i
 
 def page_projects():
     def row(p):
-        return (f'<div class="card"><h3>{esc(p["title"])}</h3><p class="m">{esc(p["sponsor"])}{" · " + esc(p["amount"]) if p.get("amount") else ""}{" · " + esc(p["period"]) if p.get("period") else ""}</p>'
-                f'<p>{esc(p.get("desc", ""))}</p><p class="m">{esc(p.get("team", ""))}</p></div>')
+        return (f'<div class="card"><h3><a href="projects/{pslug(p)}.html">{esc(p["title"])}</a></h3><p class="m">{esc(p["sponsor"])}{" · " + esc(p["amount"]) if p.get("amount") else ""}{" · " + esc(p["period"]) if p.get("period") else ""}</p>'
+                f'<p>{esc(p.get("desc", ""))}</p><p class="m">{esc(p.get("team", ""))}</p><p><a href="projects/{pslug(p)}.html">Project page</a>{(" · " + str(len(acknowledged(p))) + " papers acknowledge it") if acknowledged(p) else ""}</p></div>')
     act = "".join(row(p) for p in active); done = "".join(row(p) for p in projects if p not in active)
     body = f'''<section><div class="wrap"><p class="kick">Projects</p><h1>Sponsored research</h1>
 <p class="lead">Awards on which the director is an investigator, from the center's records: {len(active)} active and {len(projects) - len(active)} completed since the center was founded in 2019. Sponsors include NSF, ONR, the U.S. Army, DOE, and industry.</p>
@@ -374,4 +477,5 @@ def page_join():
 
 if __name__ == "__main__":
     for f in (page_index, page_research, page_insights, page_people, page_students, page_publications, page_projects, page_software, page_join): f()
-    print(f"wrote acnl/: 8 pages plus {len(students)} student pages; {n_rec} publications, {len(students)} students, {len(projects)} awards ({len(active)} active)")
+    for p in projects: page_project(p)
+    print(f"wrote acnl/: 8 pages, {len(students)} student pages, {len(projects)} project pages; {n_rec} publications, {len(students)} students, {len(projects)} awards ({len(active)} active)")

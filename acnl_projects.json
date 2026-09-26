@@ -1,0 +1,24 @@
+{
+ "_about": "Lab-only details for the ACNL project pages, keyed by the start of each award's title as it appears in build_site.py. award: the grant numbers papers cite in their acknowledgements (matched from Crossref funding records; the ones marked inferred are matched by sponsor program and year and should be confirmed). threads: research threads of the lab record used for related work. figure: an image key from images.json. lessons: the team's own lessons learned, one sentence each; empty until the team writes them.",
+ "projects": {
+  "SUMMIT": {"award": ["2511635"], "threads": ["Smart grid resilience and security"], "figure": "summit_arch", "figcap": "SUMMIT's three-site architecture: the UMass Lowell main site with its real-time simulators and control, network, and instrumentation equipment; a wide-area software-defined network; and the federation sites at NYU Tandon and West Virginia University.", "lessons": []},
+  "Flexible Spectrum Allocation": {"award": ["2008530"], "threads": ["Elastic and SDM optical networks", "Physical layer modeling"], "figure": "fig_ryan", "figcap": "FUSION, built on this award: reinforcement learning over a software-defined optical mesh.", "figure2": "fig_arash", "figcap2": "AI services over a software-defined, multi-layer optical network.", "lessons": []},
+  "Resilient Sensing and Communication Architecture": {"award": ["N00014-20-1-2858"], "award_note": "inferred", "threads": ["Smart grid resilience and security"], "lessons": []},
+  "Software-Defined Cyber-Physical Microgrids": {"award": ["N00014-22-1-2001"], "award_note": "inferred", "threads": ["Smart grid resilience and security"], "lessons": []},
+  "Unified Post-Disaster Restoration Planning": {"award": ["N00014-24-1-2287"], "award_note": "inferred", "threads": ["Smart grid resilience and security"], "lessons": []},
+  "CARGONET": {"award": ["CNS-1406370", "1406370"], "award_note": "inferred", "threads": ["Advance reservation and scheduling", "Survivability and protection", "Manycast and anycast"], "lessons": []},
+  "PROPER": {"award": ["DE-SC0012115", "DE-SC0012115TDD"], "threads": ["Advance reservation and scheduling"], "lessons": []},
+  "Network Cyberinfrastructure for Biomedical Informatics": {"award": ["ACI-1541434", "1541434"], "threads": [], "lessons": []},
+  "Bridging Reliability Analysis and Reality": {"award": ["1112947", "1112935"], "threads": ["Wireless sensor and access networks"], "lessons": []},
+  "COMMON": {"award": [], "threads": ["Advance reservation and scheduling"], "lessons": []},
+  "SOON": {"award": [], "threads": ["Manycast and anycast", "OBS contention and QoS"], "lessons": []},
+  "MASCOT": {"award": [], "threads": ["Manycast and anycast"], "lessons": []},
+  "NET-SEAL": {"award": [], "threads": [], "lessons": []},
+  "FLowell": {"award": [], "threads": [], "lessons": []},
+  "Resilient Smart Grids": {"award": [], "threads": ["Smart grid resilience and security"], "figure": "fig_ken", "figcap": "NATIG co-simulation of a distribution grid and its wireless network, used in the lab's grid security work.", "lessons": []},
+  "CyberCARED": {"award": [], "threads": ["Smart grid resilience and security"], "lessons": []},
+  "ARPO: Autonomous Robotic Planning": {"award": [], "threads": [], "lessons": []},
+  "ARPO-Sensor Fusion": {"award": [], "threads": [], "lessons": []},
+  "BOND-AI": {"award": [], "threads": [], "lessons": []}
+ }
+}

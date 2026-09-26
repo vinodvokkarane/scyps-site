@@ -3191,7 +3191,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.26"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.27"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -6381,7 +6381,8 @@ def build_meta_files():
     root = os.path.dirname(os.path.abspath(OUT)) or "."
     pages = ["", "people.html", "students.html", "alumni.html", "publications.html", "insights.html", "acnl.html", "spotlight.html",
              "acnl/index.html", "acnl/research.html", "acnl/insights.html", "acnl/people.html", "acnl/publications.html", "acnl/projects.html", "acnl/software.html", "acnl/join.html"] + \
-            [f"acnl/students/{re.sub(r'[^a-z]+', '-', s['name'].lower()).strip('-')}.html" for s in STUDENTS if s.get("advisor") == FACULTY["director"]["name"]] + [ "news.html", "summit.html", "labs.html", "positions.html"] + \
+            [f"acnl/students/{re.sub(r'[^a-z]+', '-', s['name'].lower()).strip('-')}.html" for s in STUDENTS if s.get("advisor") == FACULTY["director"]["name"]] + \
+            [f"acnl/projects/{f}" for f in (sorted(os.listdir(os.path.join(os.path.dirname(os.path.abspath(OUT)) or ".", "acnl", "projects"))) if os.path.isdir(os.path.join(os.path.dirname(os.path.abspath(OUT)) or ".", "acnl", "projects")) else []) if f.endswith(".html")] + [ "news.html", "summit.html", "labs.html", "positions.html"] + \
             [f"research-{k}.html" for k, _, _, _ in THRUSTS]
     today = datetime.date.today().isoformat()
     urls = "".join(f"  <url><loc>{SITE_URL}{p}</loc><lastmod>{today}</lastmod></url>\n" for p in pages)

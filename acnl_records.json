@@ -5970,9 +5970,9 @@
   ],
   "in_cv": true,
   "thread": "Elastic and SDM optical networks",
-  "problem": "In multi-band systems over multi-core fiber, inter-core crosstalk and nonlinear interference vary by channel and by band, so provisioning that uses link-level averages misjudges which paths and formats are feasible.",
-  "approach": "Service provisioning that evaluates crosstalk and nonlinear interference channel by channel, choosing route, core, band, spectrum, and modulation from per-channel quality of transmission.",
-  "finding": "Channel-level impairment awareness gives accurate feasibility decisions and better use of capacity than link-level approximations in multi-band SDM networks.",
+  "problem": "Bandwidth demand from 5G and beyond calls for multi-band transmission over space-division multiplexed fiber, but inter-core crosstalk, inter-channel stimulated Raman scattering, and fiber nonlinearity are intertwined there, and each varies with frequency.",
+  "approach": "A channel-based resource allocation framework built on a generalized signal-to-noise ratio model that tracks frequency-dependent crosstalk and Raman scattering. Two allocation algorithms, Core-Spectrum-Band and Band-Spectrum-Core, are proposed for multi-core fiber and compared with bundled multi-fiber-pair architectures.",
+  "finding": "Simulations on the U.S. backbone network show the approach significantly reduces blocking probability.",
   "tags": {
    "tool": [
     "FUSION"
@@ -6135,9 +6135,9 @@
   ],
   "in_cv": true,
   "thread": "Elastic and SDM optical networks",
-  "problem": "In multi-band elastic optical networks, inter-channel stimulated Raman scattering moves power from higher-frequency bands to lower ones, so impairments differ by band and routing that ignores the effect misjudges the quality of transmission.",
-  "approach": "Physical-layer-impairment-aware routing and allocation that includes the stimulated Raman scattering power transfer across bands when estimating each candidate path's quality of transmission.",
-  "finding": "Accounting for the Raman effect gives more accurate feasibility and better allocation across bands than models that treat each band alike.",
+  "problem": "Multi-band elastic optical networks add spectrum beyond the C-band, but amplifier noise, nonlinear interference, and inter-channel stimulated Raman scattering complicate dynamic allocation and degrade the quality of transmission.",
+  "approach": "ISRS-Enhanced PLI-Aware (IE-PLIA) routing, which accounts for physical-layer impairments under the influence of Raman scattering and adjusts routing costs dynamically to each link's conditions and its self-channel and cross-channel interference.",
+  "finding": "Routing that follows each link's interference conditions under Raman scattering, evaluated for dynamic multi-band allocation.",
   "tags": {
    "tool": [
     "OMNeT++"

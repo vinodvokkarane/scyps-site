@@ -112,6 +112,11 @@ FACULTY = {
         {"name": "Anurag Srivastava", "tag": "External collaborator", "photo": "srivastava", "inst": "West Virginia", "title": "Raymond J. Lane Professor and Chairperson, Lane Department of Computer Science and Electrical Engineering, West Virginia University; IEEE Fellow",
          "areas": "Data-driven algorithms for power system operation, control, and resilience; WVU partner on the SUMMIT federated smart grid testbed",
          "email": "anurag.srivastava@mail.wvu.edu", "phone": "", "url": "https://directory.statler.wvu.edu/faculty-staff-directory/anurag-srivastava"},
+        {"name": "Junbo Zhao", "tag": "External collaborator", "photo": "zhao", "inst": "Dartmouth College",
+         "title": "Todd M. Cook and Elizabeth Donohoe Cook Associate Professor of Engineering, Thayer School of Engineering, Dartmouth College; Director, DOE CyberCARED",
+         "areas": "Power system state estimation, dynamics and stability, power system security, and robust statistics; directs the DOE Northeast University Cybersecurity Center for Advanced and Resilient Energy Delivery (CyberCARED), with the director as a Co-Director",
+         "email": "", "phone": "", "url": "https://engineering.dartmouth.edu/community/faculty/junbo-zhao",
+         "match_titles": ["Communication Network-Aware Missing Data Recovery"]},
     ],
     "collaborators": [
         {"name": "NYU Tandon School of Engineering", "org": "SUMMIT federation site", "note": "Second node of the multi-site smart grid testbed, led by center member Yuzhang Lin"},
@@ -162,7 +167,7 @@ PROJECTS = [
     {"tag": "Active", "sponsor": "U.S. Department of Energy",
      "role": "PI (UMass Lowell)", "title": "CyberCARED: Northeast University Cybersecurity Center for Advanced and Resilient Energy Delivery",
      "amount": "$3.5M", "share": "consortium total; UMass Lowell share $150K", "period": "Oct 2024 to Sep 2027",
-     "team": "UMass Lowell PI Vinod Vokkarane; multi-university consortium",
+     "team": "Consortium director Junbo Zhao (Dartmouth College); UMass Lowell PI Vinod Vokkarane; multi-university consortium",
      "desc": "A regional university center on cybersecurity for energy delivery systems, combining research with workforce training.",
      "domain": "Energy"},
     {"tag": "Active", "sponsor": "Commonwealth of Massachusetts, Healey-Driscoll Administration",
@@ -3200,7 +3205,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.38"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.39"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -6454,7 +6459,7 @@ def _college_of(p):
     """Where a person sits: a UMass Lowell college for internal people, the institution for external ones."""
     t = (p.get("title", "") + " " + p.get("title2", "")).lower(); inst = p.get("inst", "") or ""
     if inst or "nyu" in t or "external" in (p.get("tag") or "").lower():
-        known = {"West Virginia": "West Virginia University", "NYU": "NYU Tandon", "New York University": "NYU Tandon", "Louisiana": "University of Louisiana at Lafayette"}
+        known = {"West Virginia": "West Virginia University", "NYU": "NYU Tandon", "New York University": "NYU Tandon", "Louisiana": "University of Louisiana at Lafayette", "Dartmouth College": "Dartmouth College"}
         if inst: return known.get(inst, inst)
         if "nyu" in t: return "NYU Tandon"
         return p.get("title", "").split(",")[-1].strip() or "External"      # "Research Director of the Northeast US, Red Hat"
@@ -6517,8 +6522,9 @@ def collab_graph_html():
         if a == b or a not in nodes or b not in nodes: return
         if G.has_edge(a, b): G[a][b]["w"] += 1; G[a][b][kind] += 1
         else: G.add_edge(a, b, w=1, paper=0, award=0); G[a][b][kind] += 1
+    only = {_person_key(q["name"]): q["match_titles"] for q in people if q.get("match_titles")}   # ambiguous initials
     for p in P:
-        ks = sorted({k for k in {_person_key(a) for a in p["authors"]} if k in nodes})
+        ks = sorted({k for k in {_person_key(a) for a in p["authors"]} if k in nodes and (k not in only or any(p["title"].startswith(t) for t in only[k]))})
         for i in range(len(ks)):
             for j in range(i + 1, len(ks)): link(ks[i], ks[j], "paper")
     for pr in PROJECTS:

@@ -19,7 +19,7 @@ h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:500;letter-spacing:-.01e
 .top nav{margin-left:auto;overflow-x:auto;scrollbar-width:none}.top nav::-webkit-scrollbar{display:none}.top nav ul{display:flex;gap:2px;list-style:none;margin:0;padding:0;flex-wrap:nowrap}.top nav a{display:block;padding:8px 11px;border-radius:8px;color:var(--ink-2);font-size:15px;white-space:nowrap}.top nav a.on,.top nav a:hover{background:var(--acc-2);color:var(--ink);text-decoration:none}
 @media (max-width:900px){.brand span{display:none}}@media (max-width:600px){.top nav a{padding:8px 9px;font-size:14px}}
 .hero{padding:56px 0 40px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--surface),var(--bg))}
-.hero .grid{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}@media (max-width:820px){.hero .grid{grid-template-columns:1fr}}
+.hero .grid{display:grid;grid-template-columns:1fr;gap:28px;align-items:start}.hero .grid>div:first-child{max-width:900px}
 .kick{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);font-weight:600;margin:0 0 10px}
 .lead{font-size:20px;color:var(--ink-2);max-width:40em}.hero img{border-radius:var(--radius);border:1px solid var(--line)}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0 0}@media (max-width:640px){.stats{grid-template-columns:repeat(2,1fr)}}
@@ -38,6 +38,7 @@ section{padding:44px 0}section+section{border-top:1px solid var(--line)}
 .thread{display:grid;grid-template-columns:1fr 3fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}@media (max-width:640px){.thread{grid-template-columns:1fr}}.thread h3{margin:0}.thread .n{font-size:14px;color:var(--ink-3)}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:32px}@media (max-width:820px){.two{grid-template-columns:1fr}}
 .note{font-size:14px;color:var(--ink-3)}.btn{display:inline-block;background:var(--acc);color:#fff;border-radius:999px;padding:10px 18px;font-weight:600}.btn:hover{text-decoration:none;filter:brightness(1.08)}
+.visits{display:inline-block;margin-top:8px}.visits img{vertical-align:middle}
 .foot{border-top:1px solid var(--line);padding:30px 0 40px;font-size:14px;color:var(--ink-3)}.foot .wrap{display:flex;flex-wrap:wrap;gap:20px 40px;justify-content:space-between}
 .hbars{display:grid;gap:8px}.hb{display:grid;grid-template-columns:minmax(150px,42%) 1fr;gap:12px;align-items:center;font-size:15px}.hbl{color:var(--ink-2);line-height:1.25}
 .hbt{display:flex;align-items:center;gap:8px}.hbf{display:block;height:18px;border-radius:4px;min-width:3px}.hbt b{font-size:14px;color:var(--ink)}
@@ -49,12 +50,12 @@ section{padding:44px 0}section+section{border-top:1px solid var(--line)}
 @media (max-width:760px){.ybv{display:none}}
 .tcloud{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 18px;padding:18px 10px;line-height:1.15}.tcloud a{font-size:calc(var(--s) * 1px);font-weight:600;text-decoration:none;white-space:nowrap;text-align:center}.tcloud a:hover{text-decoration:underline}@media (max-width:600px){.tcloud{gap:4px 12px}.tcloud a{font-size:calc(var(--s) * 0.72px + 4px)}}
 .cloud{width:100%;height:auto;display:block;font-family:"IBM Plex Sans",sans-serif;font-weight:600}.cloud a text:hover{text-decoration:underline}.chart{width:100%;height:auto;display:block}.sfig{margin:24px 0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:12px;max-width:680px}.sfig img{border-radius:8px;width:100%;height:auto;display:block}.sfig figcaption{font-size:14px;color:var(--ink-3);margin-top:8px}
-.deck{position:relative;aspect-ratio:760/406;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:#0E2036}
+.deck{position:relative;aspect-ratio:760/406;max-height:78vh;max-width:960px;margin:0 auto;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:#0E2036}
 .deck img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s}.deck img.on{opacity:1}
 .deck .dots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:8px;align-items:center}
-.deck .dots button{width:11px;height:11px;border-radius:50%;border:2px solid #fff;background:transparent;padding:0;cursor:pointer}.deck .dots button[aria-pressed=true]{background:#fff}
+.deck .dots button{width:13px;height:13px;border-radius:50%;border:2px solid #fff;background:transparent;padding:0;cursor:pointer}.deck .dots button[aria-pressed=true]{background:#fff}
 .deck .dots .pp{width:auto;height:auto;border-radius:999px;padding:2px 10px;font:600 12px "IBM Plex Sans",sans-serif;color:#fff;background:rgba(14,32,54,.55)}
-.deckcap{margin:8px 2px 0;font-size:14px;color:var(--ink-3);min-height:1.5em}
+.deckcap{margin:10px auto 0;max-width:960px;font-size:15px;color:var(--ink-3);min-height:1.5em;text-align:center}
 .archs{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:18px;align-items:start}.archs img{width:100%;height:auto;display:block}
 .figs{display:grid;grid-template-columns:repeat(auto-fill,minmax(440px,1fr));gap:20px}@media (max-width:520px){.figs{grid-template-columns:1fr}}.figs figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:12px}.figs img{border-radius:8px;display:block;width:100%;height:auto}.figs figcaption{font-size:13.5px;color:var(--ink-3);margin-top:8px}
 </style></head><body>
@@ -75,5 +76,20 @@ section{padding:44px 0}section+section{border-top:1px solid var(--line)}
 <h2 style="margin-top:30px">Acknowledging this award</h2><div class="card"><p style="margin:0">This material is based upon work supported by the NSF CCLI. Any opinions, findings, and conclusions or recommendations expressed are those of the authors and do not necessarily reflect the views of the sponsor.</p></div>
 </div></section></main>
 <footer class="foot"><div class="wrap"><div><b>Advanced Communication Networks Laboratory</b><br>Electrical and Computer Engineering, University of Massachusetts Lowell<br>Director: <a target="_blank" rel="noopener" href="../people.html">Vinod M. Vokkarane</a>, <a href="mailto:vinod_vokkarane@uml.edu">vinod_vokkarane@uml.edu</a>, 978-934-3345</div>
-<div>A laboratory of the <a target="_blank" rel="noopener" href="../../index.html">Center for Smart Cyber-Physical Systems</a>.<br>Records shared with the center site; rebuilt with it.<br>&copy; 2026 University of Massachusetts Lowell</div></div></footer>
+<div>A laboratory of the <a target="_blank" rel="noopener" href="../../index.html">Center for Smart Cyber-Physical Systems</a>.<br>Records shared with the center site; rebuilt with it.<br>&copy; 2026 University of Massachusetts Lowell<br><span id="visits" class="visits" title="Visits to the lab site since the counter went live"></span></div></div></footer>
+<script>
+// Lab-site visit counter (hits.sh), separate from the center site's: one count per visitor session,
+// hidden if it cannot load or when the page is opened from a file.
+(function(){
+  var el=document.getElementById('visits'); if(!el) return;
+  if(!/^https?:$/.test(location.protocol)){ el.style.display='none'; return; }
+  var url='https://hits.sh/'+location.host+'/acnl/.svg?view=total&style=flat-square&label=lab%20visits&color=B23A2C&labelColor=0E2036';
+  var counted=false; try{ counted=sessionStorage.getItem('acnl-counted')==='1'; }catch(e){}
+  var img=new Image(); img.alt='Lab site visits'; img.height=20;
+  img.onerror=function(){ el.style.display='none'; };
+  img.src = counted ? url.replace('view=total','view=total&count=false') : url;
+  try{ sessionStorage.setItem('acnl-counted','1'); }catch(e){}
+  el.appendChild(img);
+})();
+</script>
 </body></html>

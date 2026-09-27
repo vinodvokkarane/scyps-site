@@ -87,7 +87,7 @@ section{padding:44px 0}section+section{border-top:1px solid var(--line)}
 .ybl{position:absolute;bottom:-22px;font-size:13px;color:var(--ink-3)}
 @media (max-width:760px){.ybv{display:none}}
 .tcloud{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 18px;padding:18px 10px;line-height:1.15}.tcloud a{font-size:calc(var(--s) * 1px);font-weight:600;text-decoration:none;white-space:nowrap;text-align:center}.tcloud a:hover{text-decoration:underline}@media (max-width:600px){.tcloud{gap:4px 12px}.tcloud a{font-size:calc(var(--s) * 0.72px + 4px)}}
-.cloud{width:100%;height:auto;display:block;font-family:"IBM Plex Sans",sans-serif;font-weight:600}.cloud a text:hover{text-decoration:underline}.chart{width:100%;height:auto;display:block}.sfig{margin:24px 0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:12px;max-width:680px}.sfig img{border-radius:8px}.sfig figcaption{font-size:14px;color:var(--ink-3);margin-top:8px}
+.cloud{width:100%;height:auto;display:block;font-family:"IBM Plex Sans",sans-serif;font-weight:600}.cloud a text:hover{text-decoration:underline}.chart{width:100%;height:auto;display:block}.sfig{margin:24px 0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:12px;max-width:680px}.sfig img{border-radius:8px;width:100%;height:auto;display:block}.sfig figcaption{font-size:14px;color:var(--ink-3);margin-top:8px}
 .deck{position:relative;aspect-ratio:760/406;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:#0E2036}
 .deck img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s}.deck img.on{opacity:1}
 .deck .dots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:8px;align-items:center}
@@ -95,7 +95,7 @@ section{padding:44px 0}section+section{border-top:1px solid var(--line)}
 .deck .dots .pp{width:auto;height:auto;border-radius:999px;padding:2px 10px;font:600 12px "IBM Plex Sans",sans-serif;color:#fff;background:rgba(14,32,54,.55)}
 .deckcap{position:absolute;left:12px;top:10px;margin:0;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(14,32,54,.55);padding:3px 8px;border-radius:6px}
 .archs{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:18px;align-items:start}.archs img{width:100%;height:auto;display:block}
-.figs{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}.figs figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:12px}.figs img{border-radius:8px;display:block}.figs figcaption{font-size:13.5px;color:var(--ink-3);margin-top:8px}
+.figs{display:grid;grid-template-columns:repeat(auto-fill,minmax(440px,1fr));gap:20px}@media (max-width:520px){.figs{grid-template-columns:1fr}}.figs figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:12px}.figs img{border-radius:8px;display:block;width:100%;height:auto}.figs figcaption{font-size:13.5px;color:var(--ink-3);margin-top:8px}
 """
 
 def shell(name, title, desc, body, depth=0):
@@ -240,7 +240,7 @@ def slug(name): return re.sub(r"[^a-z]+", "-", re.sub(r"\(.*?\)", "", name).lowe
 def page_students():
     for s in students:
         ps = papers_of(s["name"]); first = [r for r in ps if r["author_keys"] and r["author_keys"][0] == bs._person_key(s["name"])]
-        fig = f'<figure class="sfig"><img src="{img(s["fig"])}" alt="" width="640" height="420"><figcaption>{esc(s.get("figcap", ""))}</figcaption></figure>' if s.get("fig") and bs.IMG.get(s["fig"]) else ""
+        fig = f'<figure class="sfig"><img src="{img(s["fig"])}" alt="{esc(s.get('figcap', 'Research figure'))}" width="1200" height="800"><figcaption>{esc(s.get("figcap", ""))}</figcaption></figure>' if s.get("fig") and bs.IMG.get(s["fig"]) else ""
         sp = [x for x in bs.SPOTLIGHTS if s["name"] in x["students"]]
         spot_html = "".join(f'<p><a href="../../spotlight.html#{esc(x["ym"])}">Student spotlight, {esc(bs.spotlight_label(x))}: {esc(x["title"])}</a></p>' for x in sp)
         links = []
@@ -391,7 +391,7 @@ def page_research():
         top = [r for r in rs if r.get("doi")][:3]
         ex = "".join(f'<li><a href="https://doi.org/{esc(r["doi"])}">{esc(r["title"])}</a> <span class="v">{r["year"]}, {esc(r["kind"])}</span></li>' for r in top)
         rows.append(f'<div class="thread"><div><h3>{esc(t)}</h3><p class="n">{len(rs)} publications, {yrs}</p></div><div><p>{esc(THREAD_TEXT.get(t, ""))}</p><ul class="list">{ex}</ul></div></div>')
-    figs = "".join(f'<figure><img src="{img(s["fig"])}" alt="" width="520" height="340"><figcaption><b>{esc(s["name"])}</b>: {esc(s.get("figcap", ""))}</figcaption></figure>' for s in students if s.get("fig") and bs.IMG.get(s["fig"]))
+    figs = "".join(f'<figure><img src="{img(s["fig"])}" alt="{esc(s.get('figcap', 'Research figure'))}" width="1200" height="800"><figcaption><b>{esc(s["name"])}</b>: {esc(s.get("figcap", ""))}</figcaption></figure>' for s in students if s.get("fig") and bs.IMG.get(s["fig"]))
     body = f'''<section><div class="wrap"><p class="kick">Research</p><h1>Two questions, twenty years of answers</h1>
 <p class="lead">How do you get more out of a fiber network without losing what you added? And how do you keep a power grid's communication layer observable and recoverable when it is attacked? Everything below is a thread of work on one of those questions, from the lab's own record.</p>
 <h2 style="margin-top:34px">Current directions</h2><div class="cards">

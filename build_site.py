@@ -3200,7 +3200,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.35"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.36"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3229,7 +3229,7 @@ def student_card(st):
     links = ([f'<a href="{esc(st["linkedin"])}">LinkedIn</a>'] if st.get("linkedin") and not LINKEDIN.get(st["name"]) else []) + id_links(st["name"])
     fig = ''
     if st.get("fig") and IMG.get(st["fig"]):
-        fig = f'<figure class="stufig"><img src="data:image/jpeg;base64,{IMG[st["fig"]]}" alt="{esc(st.get("figcap", "Research figure"))}" loading="lazy"><figcaption>{esc(st.get("figcap", ""))}</figcaption></figure>'
+        fig = f'<figure class="stufig"><img src="data:image/jpeg;base64,{IMG[st["fig"]]}" alt="{esc(st.get("figcap", "Research figure"))}" width="1200" height="800" loading="lazy"><figcaption>{esc(st.get("figcap", ""))}</figcaption></figure>'
     elif st.get("figsvg") and STUDENT_FIGS.get(st["figsvg"]):
         fig = f'<figure class="stufig"><div class="svgfig" role="img" aria-label="{esc(st.get("figcap", "Research figure"))}">{STUDENT_FIGS[st["figsvg"]]}</div><figcaption>{esc(st.get("figcap", ""))}</figcaption></figure>'
     return (f'<article class="stu">{stu_avatar(st)}'

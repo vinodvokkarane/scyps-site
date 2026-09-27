@@ -718,3 +718,10 @@ print edition automatically. Needs Playwright with Chromium, so run it locally, 
 records as the center site (director profile, `acnl_records.json`, awards, students, alumni, spotlights,
 photos). `build_site.py` runs it at the end of every build. Lab-only text (the research directions,
 thread summaries, software list, and the join page) lives in the builder itself.
+
+## Checking for overlapping text
+
+`python3 tools/check_text_overlap.py` loads every page of the center site and the lab site at desktop
+(1280 px) and phone (390 px) widths and reports any two pieces of text whose boxes overlap: SVG labels
+against each other, and visible HTML text against each other, ignoring screen-reader-only labels and
+text scrolled out of view. Run it after changing a chart, a diagram, or a layout. It needs Playwright.

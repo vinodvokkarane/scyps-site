@@ -3200,7 +3200,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.33"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.35"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -4624,8 +4624,8 @@ HERO_ART = {
 <rect x="758" y="352" width="26" height="118" fill="#0A777F"/>
 <text x="640" y="200" text-anchor="middle" font-size="15" font-weight="600" fill="#0E2036">hardware performance counters</text>
 <text x="640" y="222" text-anchor="middle" font-size="13" fill="#5B6B82">an outlier here is corruption that raised no error</text>
-<text x="800" y="514" text-anchor="start" font-size="13.5" fill="#E25555">silent data corruption</text>
-<path d="M745 386h48v122" stroke="#E25555" stroke-width="1.6" stroke-dasharray="4 5"/>
+<text x="748" y="300" text-anchor="middle" font-size="13.5" fill="#E25555">silent data</text><text x="748" y="317" text-anchor="middle" font-size="13.5" fill="#E25555">corruption</text>
+<path d="M729 376V326" stroke="#E25555" stroke-width="1.6" stroke-dasharray="4 5"/>
 <text x="620" y="514" text-anchor="middle" font-size="13.5" fill="#5B6B82">cheap enough to leave running in production</text>
 <!-- rack -->
 <g class="card"><rect x="880" y="120" width="180" height="330" rx="12" fill="#FFFFFF" stroke="#044978" stroke-width="2.4"/></g>

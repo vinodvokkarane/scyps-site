@@ -78,6 +78,15 @@ section{padding:44px 0}section+section{border-top:1px solid var(--line)}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:32px}@media (max-width:820px){.two{grid-template-columns:1fr}}
 .note{font-size:14px;color:var(--ink-3)}.btn{display:inline-block;background:var(--acc);color:#fff;border-radius:999px;padding:10px 18px;font-weight:600}.btn:hover{text-decoration:none;filter:brightness(1.08)}
 .foot{border-top:1px solid var(--line);padding:30px 0 40px;font-size:14px;color:var(--ink-3)}.foot .wrap{display:flex;flex-wrap:wrap;gap:20px 40px;justify-content:space-between}
+.hbars{display:grid;gap:8px}.hb{display:grid;grid-template-columns:minmax(150px,42%) 1fr;gap:12px;align-items:center;font-size:15px}.hbl{color:var(--ink-2);line-height:1.25}
+.hbt{display:flex;align-items:center;gap:8px}.hbf{display:block;height:18px;border-radius:4px;min-width:3px}.hbt b{font-size:14px;color:var(--ink)}
+@media (max-width:560px){.hb{grid-template-columns:1fr;gap:4px}}
+.ybars{display:flex;align-items:flex-end;gap:3px;height:230px;padding:18px 0 26px;border-bottom:1px solid var(--line);position:relative}
+.yb{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;position:relative;min-width:0}
+.ybf{width:100%;border-radius:3px 3px 0 0;display:block}.ybv{font-size:11.5px;color:var(--ink-3);margin-bottom:3px;line-height:1}
+.ybl{position:absolute;bottom:-22px;font-size:13px;color:var(--ink-3)}
+@media (max-width:760px){.ybv{display:none}}
+.tcloud{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 18px;padding:18px 10px;line-height:1.15}.tcloud a{font-size:calc(var(--s) * 1px);font-weight:600;text-decoration:none;white-space:nowrap;text-align:center}.tcloud a:hover{text-decoration:underline}@media (max-width:600px){.tcloud{gap:4px 12px}.tcloud a{font-size:calc(var(--s) * 0.72px + 4px)}}
 .cloud{width:100%;height:auto;display:block;font-family:"IBM Plex Sans",sans-serif;font-weight:600}.cloud a text:hover{text-decoration:underline}.chart{width:100%;height:auto;display:block}.sfig{margin:24px 0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:12px;max-width:680px}.sfig img{border-radius:8px}.sfig figcaption{font-size:14px;color:var(--ink-3);margin-top:8px}
 .deck{position:relative;aspect-ratio:760/406;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:#0E2036}
 .deck img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s}.deck img.on{opacity:1}
@@ -164,43 +173,34 @@ def term_weights():
     return sorted(out, key=lambda t: -t[1])
 
 PALETTE = ["#B23A2C", "#0A777F", "#044978", "#8E5BB2", "#C77C00", "#2CA58D", "#3F8FD2", "#5B8C5A"]
-def word_cloud_svg(W=960, H=500):
-    """A cloud of the lab's research themes: size by how many of the 204 titles touch the theme, placed on a spiral
-    without overlap. Each theme links to the publications page, searched for a matching term."""
-    import math
+def word_cloud_svg():
+    """The research themes as a tag cloud in HTML: size by how many titles touch each theme, the biggest in the
+    middle, wrapping naturally so words never overlap at any width. Each theme links to its papers."""
     tw = term_weights()
     if not tw: return ""
     mx, mn = tw[0][1], tw[-1][1]
-    placed, out = [], []
-    cx, cy = W / 2, H / 2
-    for k, (t, w, q) in enumerate(tw):
-        fs = 15 + 36 * ((w - mn) / (mx - mn or 1)) ** 0.7
-        bw, bh = 0.56 * fs * len(t) + 12, fs * 1.15
-        ang, r = k * 0.9, 0.0
-        for _ in range(9000):
-            x, y = cx + r * math.cos(ang), cy + r * 0.62 * math.sin(ang)
-            box = (x - bw / 2, y - bh / 2, x + bw / 2, y + bh / 2)
-            if box[0] > 8 and box[2] < W - 8 and box[1] > 8 and box[3] < H - 8 and \
-               not any(box[0] < p[2] and box[2] > p[0] and box[1] < p[3] and box[3] > p[1] for p in placed):
-                placed.append(box)
-                col = PALETTE[k % len(PALETTE)]
-                out.append(f'<a href="publications.html?q={esc(q)}"><text x="{x:.0f}" y="{y + fs * 0.35:.0f}" font-size="{fs:.0f}" text-anchor="middle" fill="{col}"><title>{esc(t)}: {w} of {n_rec} papers</title>{esc(t)}</text></a>')
-                break
-            ang += 0.25; r += 0.55
-    return f'<svg class="cloud" viewBox="0 0 {W} {H}" role="img" aria-label="Word cloud of the research themes in the paper titles">{"".join(out)}</svg>'
+    order = sorted(range(len(tw)), key=lambda k: -tw[k][1])
+    left, right = [], []
+    for n, k in enumerate(order): (left if n % 2 else right).append(k)
+    seq = list(reversed(left)) + right          # largest in the middle, smaller toward both ends
+    tags = "".join(f'<a href="publications.html?q={esc(tw[k][2])}" style="--s:{15 + 30 * ((tw[k][1] - mn) / (mx - mn or 1)) ** 0.7:.0f};color:{PALETTE[k % len(PALETTE)]}" title="{esc(tw[k][0])}: {tw[k][1]} of {n_rec} papers">{esc(tw[k][0])}</a>' for k in seq)
+    return f'<div class="tcloud" role="list" aria-label="Research themes in the paper titles">{tags}</div>'
 
-def bar_chart(pairs, W=960, H=220, color="var(--acc)", label_every=1, fmt=str):
-    """A simple vertical bar chart as inline SVG: pairs of (label, value)."""
+def hbar_list(pairs, color="var(--teal)", unit="publications"):
+    """Horizontal bars in HTML: full label on the left, bar and value on the right. Labels never collide,
+    and on phones each label sits above its bar."""
     if not pairs: return ""
-    n = len(pairs); mx = max(v for _, v in pairs) or 1
-    ML, MB, MT = 34, 34, 12; bw = (W - ML - 10) / n
-    bars = []
-    for i, (lab, v) in enumerate(pairs):
-        h = (H - MB - MT) * v / mx; x = ML + i * bw
-        bars.append(f'<rect x="{x + 2:.1f}" y="{H - MB - h:.1f}" width="{bw - 4:.1f}" height="{h:.1f}" rx="3" fill="{color}"><title>{esc(str(lab))}: {fmt(v)}</title></rect>')
-        if i % label_every == 0: bars.append(f'<text x="{x + bw / 2:.1f}" y="{H - MB + 16}" text-anchor="middle" font-size="11.5" fill="var(--ink-3)">{esc(str(lab))}</text>')
-        if v and h > 16: bars.append(f'<text x="{x + bw / 2:.1f}" y="{H - MB - h + 13:.1f}" text-anchor="middle" font-size="11" fill="#fff">{fmt(v)}</text>')
-    return f'<svg class="chart" viewBox="0 0 {W} {H}" role="img" aria-label="Bar chart">{"".join(bars)}</svg>'
+    mx = max(v for _, v in pairs) or 1
+    rows = "".join(f'<div class="hb"><span class="hbl">{esc(str(lab))}</span><span class="hbt"><span class="hbf" style="width:{100 * v / mx:.1f}%;background:{color}"></span><b>{v}</b></span></div>' for lab, v in pairs)
+    return f'<div class="hbars" role="list" aria-label="Bar chart, {esc(unit)}">{rows}</div>'
+
+def year_bars(pairs, color="var(--acc)", label_step=5):
+    """Vertical bars per year in HTML: a year label under every fifth bar, the count above each bar on wide
+    screens, and every value in the bar's tooltip."""
+    if not pairs: return ""
+    mx = max(v for _, v in pairs) or 1
+    cols = "".join(f'<div class="yb" title="{y}: {v} publications"><span class="ybv">{v if v else ""}</span><span class="ybf" style="height:{100 * v / mx:.1f}%;background:{color}"></span><span class="ybl">{y if (int(y) % label_step == 0) else ""}</span></div>' for y, v in pairs)
+    return f'<div class="ybars" role="img" aria-label="Publications per year, {pairs[0][0]} to {pairs[-1][0]}">{cols}</div>'
 
 def papers_of(name):
     key = bs._person_key(name)
@@ -226,8 +226,8 @@ def page_insights():
     body = f'''<section><div class="wrap"><p class="kick">Insights</p><h1>{n_rec} publications, read as one body of work</h1>
 <p class="lead">What the lab has worked on, with what, and with whom, from its own record since 2002. The themes below are sized by how many of the {n_rec} paper titles touch them; click one to see the papers.</p>
 <div class="card" style="padding:8px 10px 4px;margin:18px 0 0">{word_cloud_svg()}</div>
-<div class="two" style="margin-top:36px"><div><h2>Papers per year</h2>{bar_chart(per_year, label_every=2)}<p class="note">{n_rec} publications, {n_journal} in journals. The record is the director's CV; {n_read} of the papers are read and summarized on the center's <a href="../acnl.html">research record</a>.</p></div>
-<div><h2>Research threads</h2>{bar_chart([(t.split(" and ")[0].split(",")[0][:22], n) for t, n in th], H=220, color="var(--teal)")}<ul class="list" style="margin-top:8px">{"".join(f"<li><b>{esc(t)}</b><span class=v>{n} publications</span></li>" for t, n in th)}</ul></div></div>
+<div class="two" style="margin-top:36px"><div><h2>Papers per year</h2>{year_bars(per_year)}<p class="note">{n_rec} publications, {n_journal} in journals. The record is the director's CV; {n_read} of the papers are read and summarized on the center's <a href="../acnl.html">research record</a>.</p></div>
+<div><h2>Research threads</h2>{hbar_list(th)}</div></div>
 <h2 style="margin-top:40px">How the work is done</h2><p class="note">Counted from the {n_read} papers that have been read; a paper can use several.</p>
 <div class="cards"><div class="card"><h3>Methods</h3>{tbl(meth, "papers")}</div><div class="card"><h3>Tools and platforms</h3>{tbl(tools, "papers")}</div><div class="card"><h3>What is measured</h3>{tbl(metr, "papers")}</div><div class="card"><h3>Network topologies</h3>{tbl(topo, "papers")}</div></div>
 <h2 style="margin-top:40px">Who the lab writes with</h2><div class="two"><div><ul class="list">{"".join(f"<li><b>{esc(a)}</b><span class=v>{n} joint publications</span></li>" for a, n in coau)}</ul></div>

@@ -114,8 +114,9 @@ FACULTY = {
          "email": "anurag.srivastava@mail.wvu.edu", "phone": "", "url": "https://directory.statler.wvu.edu/faculty-staff-directory/anurag-srivastava"},
         {"name": "Junbo Zhao", "tag": "External collaborator", "photo": "zhao", "inst": "Dartmouth College",
          "title": "Todd M. Cook and Elizabeth Donohoe Cook Associate Professor of Engineering, Thayer School of Engineering, Dartmouth College; Director, DOE CyberCARED",
-         "areas": "Power system state estimation, dynamics and stability, power system security, and robust statistics; directs the DOE Northeast University Cybersecurity Center for Advanced and Resilient Energy Delivery (CyberCARED), with the director as a Co-Director",
-         "email": "", "phone": "", "url": "https://engineering.dartmouth.edu/community/faculty/junbo-zhao",
+         "areas": "Cyber-physical power system modeling, monitoring, uncertainty quantification, learning, dynamics, stability control, and cybersecurity with distributed energy resources; directs the DOE Northeast University Cybersecurity Center for Advanced and Resilient Energy Delivery (CyberCARED), with the director as a Co-Director",
+         "note": "IET Fellow; Editor-in-Chief, International Journal of Electrical Power & Energy Systems; 2025 NSF CAREER Award.",
+         "email": "junbo.zhao@dartmouth.edu", "phone": "", "url": "https://sites.dartmouth.edu/cpeslab/junbo-zhao/",
          "match_titles": ["Communication Network-Aware Missing Data Recovery"]},
     ],
     "collaborators": [
@@ -3205,7 +3206,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.40"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.41"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the

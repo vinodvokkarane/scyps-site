@@ -35,6 +35,11 @@ spot = max(bs.SPOTLIGHTS, key=lambda s: s["ym"]) if bs.SPOTLIGHTS else None
 def img(key): return bs.img_src(key)
 def head(p): return bs.stu_avatar(p)
 
+# Lab Life slideshow on the home page: image key and caption ("" shows just "Lab life")
+DECK = [("lab1", ""), ("lab2", ""), ("lab3", ""), ("lab4", ""), ("lab5", ""), ("lab6", ""),
+        ("lab7", "Arash Deylamsalehi presenting his research"),
+        ("lab8", "The lab's ESnet OSCARS demonstration at the UMass Lowell booth, SC15")]
+
 NAV = [("index", "Home", "index.html"), ("research", "Research", "research.html"), ("insights", "Insights", "insights.html"),
        ("people", "People", "people.html"), ("publications", "Publications", "publications.html"), ("projects", "Projects", "projects.html"),
        ("software", "Software", "software.html"), ("join", "Join", "join.html")]
@@ -93,7 +98,7 @@ section{padding:44px 0}section+section{border-top:1px solid var(--line)}
 .deck .dots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:8px;align-items:center}
 .deck .dots button{width:11px;height:11px;border-radius:50%;border:2px solid #fff;background:transparent;padding:0;cursor:pointer}.deck .dots button[aria-pressed=true]{background:#fff}
 .deck .dots .pp{width:auto;height:auto;border-radius:999px;padding:2px 10px;font:600 12px "IBM Plex Sans",sans-serif;color:#fff;background:rgba(14,32,54,.55)}
-.deckcap{position:absolute;left:12px;top:10px;margin:0;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#fff;background:rgba(14,32,54,.55);padding:3px 8px;border-radius:6px}
+.deckcap{margin:8px 2px 0;font-size:14px;color:var(--ink-3);min-height:1.5em}
 .archs{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:18px;align-items:start}.archs img{width:100%;height:auto;display:block}
 .figs{display:grid;grid-template-columns:repeat(auto-fill,minmax(440px,1fr));gap:20px}@media (max-width:520px){.figs{grid-template-columns:1fr}}.figs figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:12px}.figs img{border-radius:8px;display:block;width:100%;height:auto}.figs figcaption{font-size:13.5px;color:var(--ink-3);margin-top:8px}
 """
@@ -364,12 +369,13 @@ def page_index():
   <h1>Networks that keep working when it matters</h1>
   <p class="lead">We design and defend the communication networks behind critical infrastructure: the fiber backbone that carries AI and cloud traffic, and the control networks that keep the power grid observable and recoverable under attack. Directed by {esc(D["name"])} at UMass Lowell since 2013, and before that at UMass Dartmouth.</p>
   <div class="stats"><div><b>{n_rec}</b>publications since 2002</div><div><b>{n_journal}</b>journal articles</div><div><b>{len(students)}</b>doctoral students</div><div><b>{len(alumni_phd)}</b>Ph.D. graduates advised or co-advised</div></div>
-</div><div class="deck" id="deck" aria-roledescription="carousel" aria-label="Lab life">{"".join(f'<img src="{img(k)}" alt="Members of the Advanced Communication Networks Laboratory" width="760" height="406"' + (' class="on"' if i == 0 else ' loading="lazy"') + '>' for i, k in enumerate(k for k in ["lab1", "lab2", "lab3", "lab4", "lab5", "lab6"] if bs.IMG.get(k)))}
-  <div class="dots" role="group" aria-label="Choose a photo">{"".join(f'<button type="button" aria-label="Photo {i + 1}"' + (' aria-pressed="true"' if i == 0 else ' aria-pressed="false"') + '></button>' for i, _ in enumerate(k for k in ["lab1", "lab2", "lab3", "lab4", "lab5", "lab6"] if bs.IMG.get(k)))}<button type="button" class="pp" aria-label="Pause the slideshow">Pause</button></div>
-  <p class="deckcap">Lab life</p></div></div></div></div>
+</div><div><div class="deck" id="deck" aria-roledescription="carousel" aria-label="Lab life">{"".join(f'<img src="{img(k)}" alt="{esc(c or "Members of the Advanced Communication Networks Laboratory")}" data-cap="{esc(c)}" width="760" height="406"' + (' class="on"' if i == 0 else ' loading="lazy"') + '>' for i, (k, c) in enumerate((k, c) for k, c in DECK if bs.IMG.get(k)))}
+  <div class="dots" role="group" aria-label="Choose a photo">{"".join(f'<button type="button" aria-label="Photo {i + 1}"' + (' aria-pressed="true"' if i == 0 else ' aria-pressed="false"') + '></button>' for i, _ in enumerate(k for k, _c in DECK if bs.IMG.get(k)))}<button type="button" class="pp" aria-label="Pause the slideshow">Pause</button></div>
+</div><p class="deckcap" id="deckcap">Lab life</p></div></div></div></div>
 <script>(function(){{var d=document.getElementById('deck');if(!d)return;var im=d.querySelectorAll('img'),bt=d.querySelectorAll('.dots button:not(.pp)'),pp=d.querySelector('.pp'),i=0,t=null;
 var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-function go(n){{im[i].classList.remove('on');bt[i].setAttribute('aria-pressed','false');i=(n+im.length)%im.length;im[i].classList.add('on');bt[i].setAttribute('aria-pressed','true');}}
+var cap=document.getElementById('deckcap');
+function go(n){{im[i].classList.remove('on');bt[i].setAttribute('aria-pressed','false');i=(n+im.length)%im.length;im[i].classList.add('on');bt[i].setAttribute('aria-pressed','true');var c=im[i].getAttribute('data-cap');cap.textContent=c?'Lab life: '+c:'Lab life';}}
 function play(){{stop();t=setInterval(function(){{go(i+1);}},4500);pp.textContent='Pause';pp.setAttribute('aria-label','Pause the slideshow');}}
 function stop(){{if(t)clearInterval(t);t=null;pp.textContent='Play';pp.setAttribute('aria-label','Play the slideshow');}}
 bt.forEach(function(b,n){{b.addEventListener('click',function(){{go(n);stop();}});}});pp.addEventListener('click',function(){{t?stop():play();}});

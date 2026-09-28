@@ -287,7 +287,7 @@ PROJECTS = [
      "team": "PI Vinod Vokkarane",
      "desc": "Software-defined control of cyber-physical microgrids so they can reconfigure quickly around rare, high-impact disturbances.",
      "domain": "Energy"},
-    {"tag": "Completed", "sponsor": "National Science Foundation, CNS Core",
+    {"tag": "Completed", "sponsor": "National Science Foundation, CNS Core (#2008530)",
      "role": "PI", "title": "Flexible Spectrum Allocation in Next-Generation Optical Networks",
      "amount": "$350K", "share": "plus a $16K REU supplement", "period": "2020 to 2024",
      "team": "PI Vinod Vokkarane",
@@ -3214,7 +3214,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.51"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.52"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the

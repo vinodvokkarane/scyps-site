@@ -315,7 +315,7 @@ PROJECTS = [
 
 TOOLS = [
     {"name": "FUSION", "art": "fusion", "what": "Open-source benchmarking and simulation framework for reproducible optical network research (routing, spectrum and space assignment, QoT models). Described in JOCN, Sept. 2026.", "url": "https://github.com/SDNNetSim/FUSION", "link": "Source code on GitHub"},
-    {"name": "Containerized grid co-simulation testbed", "art": "cosim", "what": "Docker-packaged HELICS, GridLAB-D, and ns-3 federation for cyber-physical power studies on the IEEE 123-bus feeder, with DNP3 traffic between control center and devices.", "url": "research-grid.html", "link": "Smart grid thrust"},
+    {"name": "Containerized grid co-simulation testbed", "art": "cosim", "what": "Docker-packaged HELICS, GridLAB-D, and ns-3 federation for cyber-physical power studies on the IEEE 123-bus feeder, with DNP3 traffic between control center and devices.", "url": "research-energy.html", "link": "Energy and infrastructure thrust"},
     {"name": "SUMMIT (in development)", "art": "summit_tool", "what": "Three-site federated smart grid testbed built around RTDS real-time simulators and a wide-area SDN, funded by the NSF MRI award and opening in 2026-2027 to collaborators as HIL Simulation-as-a-Service.", "url": "summit.html", "link": "SUMMIT project page"},
 ]
 
@@ -2345,7 +2345,7 @@ section.tint{background:var(--bg-2)}
 @media (prefers-reduced-motion:reduce){.flow,.pulse,.spin,.grow,.trace{animation:none}.flow{stroke-dasharray:none}.trace{stroke-dasharray:none}}
 
 /* research */
-.thrusts{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.thrusts{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
 .thrust{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
 .thrust .art{display:block;aspect-ratio:2/1;background:#FFFFFF;--bg-2:#F3F7FA;--surface:#FFFFFF;--line:#D5DCE5;--ink:#0E2036;--ink-3:#5B6B82;--signal:#0A777F;--brand-blue:#044978;--green:#3BA995;background:linear-gradient(160deg,var(--illus-bg),var(--illus-bg-2));color:var(--ink);border-bottom:1px solid var(--line);padding:6px}
 .thrust .art svg{width:100%;height:100%;display:block}
@@ -2945,6 +2945,8 @@ ICONS = {
     "chip": '<svg viewBox="0 0 40 40"><rect x="12" y="12" width="16" height="16" rx="2"/><path d="M16 12V6M20 12V6M24 12V6M16 34v-6M20 34v-6M24 34v-6M12 16H6M12 20H6M12 24H6M34 16h-6M34 20h-6M34 24h-6"/></svg>',
     "health": '<svg viewBox="0 0 40 40"><path d="M4 22h8l4-10 6 18 4-10h10"/><rect x="6" y="6" width="28" height="28" rx="5"/></svg>',
 }
+ICONS["energy"] = ICONS["grid"]; ICONS["networks"] = ICONS["fiber"]; ICONS["cpai"] = ICONS["ai"]
+ICONS["people"] = '<svg viewBox="0 0 40 40"><circle cx="20" cy="13" r="6"/><path d="M8 34c0-8 5-13 12-13s12 5 12 13"/><path d="M30 8l4 4-4 4M10 8l-4 4 4 4"/></svg>'
 
 
 # Longer material for each thrust page: the question the thrust asks, what the group actually builds,
@@ -3042,31 +3044,70 @@ THRUST_DETAIL = {
     },
 }
 
+THRUST_DETAIL.update({
+    "energy": {
+        "leads": "Sukesh Aghara and Yuanchang Xie",
+        "question": "What keeps the grid, a reactor, a highway, or a bridge working when the computers and networks that run it are attacked or knocked out, and how does it come back?",
+        "lede": "Physical infrastructure is now steered by measurements that travel over networks, so the measurement path is an attack surface and a failure point: corrupt what the operator sees and you corrupt what the operator does. This thrust studies the whole loop, from the sensor to the control room and back out to the breaker, the signal, or the valve, across energy, nuclear, transportation, and civil systems.",
+        "work": [
+            ("Seeing the grid under attack", "False data injected into smart meters and phasor measurement units is caught before it reaches control, with detectors that work across utilities without pooling raw data, and sensor placement and network topology are designed together so the state estimator still sees the grid after a failure."),
+            ("Restoring power and communication together", "After a storm or an attack the power layer and the communication layer must come back as one problem, including forming networked microgrids on the fly; a crew cannot reconfigure what it cannot observe."),
+            ("Nuclear energy and security", "Safeguards, radiation detection, and the cyber-physical safety of reactor control and protection systems, from the Massachusetts nuclear and fusion roadmap to the IAEA training institute."),
+            ("Transportation and civil infrastructure", "Connected-vehicle systems, railroad and highway safety from sensing and AI, and the structural health of bridges, wind turbines, and water systems, all measured and modeled as cyber-physical systems."),
+        ],
+        "projects": ["SUMMIT", "Unified Post-Disaster Restoration", "CyberCARED", "Resilient Smart Grids", "Software-Defined Cyber-Physical Microgrids", "Resilient Sensing", "Roadmap", "Intercontinental Nuclear", "ASSET", "Railroad Trespassing", "Maine Advanced Signal"],
+    },
+    "networks": {
+        "leads": "Lewis Tseng and Orlando Arias",
+        "question": "How do you build networks that carry cyber-physical traffic at the speed AI needs, and devices at the edge that can be trusted?",
+        "lede": "Every cyber-physical loop runs over a network and ends at a device. This thrust works on both ends: the optical and wireless transport that has to add capacity without losing it, the distributed systems that must stay correct under crashes and attacks, and the hardware, from grid edge controllers to printed electronics, that has to prove it is what it claims to be.",
+        "work": [
+            ("Multi-band and space-division optical networks", "Planning and controlling networks that use several spectral bands and several fiber cores at once, with quality of transmission built into every allocation decision, and the open-source FUSION framework that lets others reproduce the results."),
+            ("Fault-tolerant distributed and edge computing", "Consensus and state machine replication that stay correct under crashes and attacks, blockchain systems, satellite-edge coordination, and digital twins delivered from hybrid clouds."),
+            ("Hardware security and attestation", "Proving that a grid edge device or a controller is running the code it should be, and finding trojans at the register-transfer level before hardware is fabricated."),
+            ("Printed electronics for hard places", "Flexible and high-temperature printed interfaces and bond joints, qualified with physics-informed AI so fewer parts have to be destroyed to prove a process."),
+        ],
+        "projects": ["Flexible Spectrum Allocation", "Towards Fault-tolerant Edge", "Planning Federated AI-Ready", "BOND-AI", "Open-Source Research", "Full-Duplex Cognitive Radio", "Enabling tunable electronic device"],
+    },
+    "cpai": {
+        "leads": "Yan Luo and Seung Woo Son",
+        "question": "How does a system that senses the physical world turn what it senses into decisions it can be trusted to act on?",
+        "lede": "This thrust owns the AI methods the other thrusts apply: sensing and fusion, state estimation, learning across sites without moving data, and computing that keeps its data honest under load. It builds machine awareness of what a physical system is doing, made to feed the people who decide, and it puts limits on what an AI agent may do to infrastructure on its own.",
+        "work": [
+            ("Sensing, fusion, and state recovery", "Recovering what a grid, a road network, or a patient's image is doing from incomplete and sometimes corrupted measurements, with physics in the model, not only data."),
+            ("Learning without moving the data", "Federated learning across utilities, hospitals, and trial sites, so the model travels and the data does not, with the privacy guarantees written in from the start."),
+            ("High-performance computing and data integrity", "Compression and anomaly detection for scientific data, and computing systems that detect silent data corruption before it reaches a result."),
+            ("Agentic control within limits", "AI agents that plan and act on physical systems, from autonomous robotic planning for the Army to grid-aware data centers, with the guardrails that decide what they may do without a person."),
+        ],
+        "projects": ["ARPO", "Improving Data Integrity", "Sparsity", "SECTOR", "BioSPACE", "Cardiac CT", "Photon-Counting", "PCCT", "Extremity"],
+    },
+    "people": {
+        "leads": "Paul Robinette and Nicholas Evans",
+        "question": "When a person and an AI share a decision about a system that can hurt someone, who decides what, and how do they learn to trust each other?",
+        "lede": "The center's newest thrust, and its growth direction. Every other thrust produces a system that eventually hands a decision to a person: a grid operator during an attack, a driver beside an autonomous vehicle, a clinician reading a model's suggestion. This thrust studies that handoff: trust between people and machines, the ethics of algorithms that act on infrastructure, decision-making under pressure, and how to train the people who will run these systems.",
+        "work": [
+            ("Trust between people and robots", "How trust in a robot forms and breaks, why overtrust is as dangerous as distrust, and what a machine should do when it has to be repaired."),
+            ("Ethics of algorithms that act", "What an algorithm may decide about a person in an autonomous vehicle or a hospital, and who is responsible when it is wrong, including the ethics of AI in warfare and health."),
+            ("Decision-making under pressure", "How operators and commanders decide with AI beside them in the moments that matter, and where decision inertia and least-worst choices come from."),
+            ("Education and workforce", "Education research and evaluation for the center's training programs, so the next generation is measured, not assumed."),
+        ],
+        "projects": ["Ethical Algorithms", "Planning Federated AI-Ready"],
+    },
+})
+
 THRUSTS = [
-    ("grid", "Smart grid cybersecurity and resilience",
-     "Attack-aware dispatch, false-data-injection detection in smart meters, observability-aware PMU networking, and joint power-communication restoration after disasters. Anchored by the SUMMIT federated testbed.",
-     "Vokkarane, Arias, Tseng, Lin"),
-    ("ai", "AI and agentic systems for cyber-physical control",
-     "Machine learning for intrusion detection and state recovery, physics-grounded models for network provisioning, and safety enforcement for AI agents that touch physical infrastructure.",
-     "Luo, Cao, Vokkarane, Son"),
-    ("fiber", "Next-generation optical and 6G transport",
-     "Multi-band and space-division multiplexed elastic optical networks, quality-of-transmission-aware resource allocation and grooming, service prioritization for 6G transport, and the open-source FUSION framework.",
-     "Vokkarane, Chigan"),
-    ("edge", "Fault-tolerant distributed and edge computing",
-     "Consensus and state machine replication that stay correct under crashes and attacks, blockchain systems, satellite-edge drone coordination, and digital twins delivered from hybrid clouds.",
-     "Tseng, Luo"),
-    ("chip", "Hardware security and trusted devices",
-     "Hardware trojan detection at RTL, attested embedded devices for grid edges, and authentication for printed and flexible electronics.",
-     "Arias, Akyurtlu, Ranasingha"),
-    ("hpc", "High performance computing and data integrity",
-     "Detecting silent data corruption from hardware counters, reliable and efficient encoding for extreme-scale simulation, and the parallel I/O that data-intensive science runs on.",
-     "Son, Luo"),
-    ("health", "Connected transportation, health, and infrastructure",
-     "Intelligent traffic and vehicular computing, medical imaging and digital health platforms, structural health monitoring for blades, bridges, and buildings, and robots that work alongside people.",
-     "Xie, Luo, Cao, Yu, Inalpolat, Robinette, Niezrecki"),
-    ("nuclear", "Nuclear energy and security",
-     "Safeguards measurement and detector modeling, security of nuclear facilities, robotic platforms for environments people should not enter, and the training that supports them.",
-     "Aghara, Niezrecki"),
+    ("energy", "Resilient energy and infrastructure",
+     "Keeping the grid, nuclear plants, transportation systems, and civil infrastructure operating through attacks and disasters: attack-aware dispatch, false-data detection, observability-aware sensing and communication, joint power-and-communication restoration, and the SUMMIT federated testbed that ties three universities' hardware into one grid experiment.",
+     "Aghara, Xie, Lin, Vokkarane, Niezrecki, Inalpolat, Pagsuyoin, Chakrabarti, Srivastava, Zhao, Jain"),
+    ("networks", "Next-generation networks and trusted devices",
+     "The networks that carry cyber-physical traffic and the devices at their edge: multi-band and space-division optical transport, 6G, fault-tolerant distributed and edge computing, hardware security and attestation, and printed electronics that survive where silicon cannot.",
+     "Tseng, Arias, Vokkarane, Chigan, Akyurtlu, Ranasingha, Dempsey"),
+    ("cpai", "Cyber-physical AI",
+     "The AI methods the other thrusts apply: sensing and fusion, state estimation, learning across sites without moving data, high-performance computing with data integrity, and agentic control that is allowed to act on physical infrastructure only within limits people set. Machine awareness built to feed human decisions.",
+     "Luo, Son, Vokkarane, Cao, Yu, Margala"),
+    ("people", "People in the loop",
+     "The center's emerging thrust: how people and AI share decisions in systems where a mistake has physical consequences. Trust between people and robots, the ethics of algorithms that act on infrastructure, decision-making under pressure, and the education and workforce research that trains the people who will run these systems.",
+     "Robinette, Evans, Hsu"),
 ]
 
 
@@ -3214,7 +3255,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.54"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.55"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3532,9 +3573,10 @@ STUDENT_FIGS = {
 # Each project row carries three data attributes so the ledger can be filtered. All three are derived
 # from fields the row already has, so a new award needs no extra tagging.
 _DOMAIN_THRUST = {
-    "Energy": "grid", "Networks": "fiber", "Autonomy": "ai", "Distributed systems": "edge",
-    "HPC": "hpc", "Printed electronics": "chip", "Transportation": "health", "Education": "health",
-    "Nuclear": "nuclear", "Data systems": "ai", "Defense": "fiber", "Sensing": "chip", "NIH": "health",
+    "Energy": "energy", "Nuclear": "energy", "Transportation": "energy",
+    "Networks": "networks", "Distributed systems": "networks", "Printed electronics": "networks", "Sensing": "networks",
+    "Autonomy": "cpai", "HPC": "cpai", "Data systems": "cpai", "NIH": "cpai", "Defense": "cpai",
+    "Education": "people",
 }
 _NAME = r"([A-Z][a-zA-Z'-]+(?:\s+(?:[A-Z]\.|[A-Z][a-zA-Z'-]+)){1,2})"
 def _roster():
@@ -3603,8 +3645,10 @@ def project_years(pr):
     if not yrs: return []
     return list(range(min(yrs), max(yrs) + 1))
 
-_LEAD_THRUST = {"Vokkarane": "grid", "Lin": "grid", "Luo": "ai", "Tseng": "edge", "Arias": "chip",
-                "Son": "hpc", "Xie": "health", "Robinette": "health", "Aghara": "nuclear", "Akyurtlu": "chip"}
+_LEAD_THRUST = {"Vokkarane": "energy", "Lin": "energy", "Xie": "energy", "Aghara": "energy", "Niezrecki": "energy",
+                "Tseng": "networks", "Arias": "networks", "Akyurtlu": "networks", "Chigan": "networks", "Ranasingha": "networks",
+                "Luo": "cpai", "Son": "cpai", "Cao": "cpai", "Yu": "cpai",
+                "Robinette": "people", "Evans": "people", "Hsu": "people"}
 def project_thrust(pr):
     t = _DOMAIN_THRUST.get(pr.get("domain", ""), "")
     if t: return t
@@ -4055,7 +4099,7 @@ ART["nuclear"] = """<svg viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg
 </svg>"""
 ORG = """<svg viewBox="0 0 1200 660" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="orgTitle orgDesc" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round">
 <title id="orgTitle">How the center is organized</title>
-<desc id="orgDesc">A director and an executive committee, advised by an external advisory board and an industry partners council; eight research thrusts each with a named lead; and the laboratories and instruments the work runs on.</desc>
+<desc id="orgDesc">A director and an executive committee, advised by an external advisory board and an industry partners council; four research thrusts, each with two co-leads; and the laboratories and instruments the work runs on.</desc>
 <rect width="1200" height="660" fill="#FFFFFF"/>
 
 <!-- director -->
@@ -4081,15 +4125,13 @@ ORG = """<svg viewBox="0 0 1200 660" xmlns="http://www.w3.org/2000/svg" role="im
 <!-- thrust band -->
 <rect x="28" y="266" width="1144" height="196" rx="16" fill="#F3F7FA"/>
 <g class="card"><rect x="440" y="252" width="320" height="34" rx="17" fill="#CDDFF0"/></g>
-<text x="600" y="274" text-anchor="middle" font-size="14" font-weight="600" fill="#044978">Eight research thrusts, each with a lead</text>
+<text x="600" y="274" text-anchor="middle" font-size="14" font-weight="600" fill="#044978">Four research thrusts, each with two co-leads</text>
 <path d="M600 232v20" stroke="#0A777F" stroke-width="2.4"/>
 """
 
-_TB = [(["Smart grid", "security"], "Vokkarane"), (["AI for", "cyber-physical", "control"], "Luo"),
-       (["Optical and", "6G transport"], "Vokkarane"), (["Fault-tolerant", "edge computing"], "Tseng"),
-       (["Hardware", "security"], "Arias"), (["HPC and", "data integrity"], "Son"),
-       (["Connected", "transportation"], "Xie"), (["Nuclear energy", "and security"], "Aghara")]
-_bw, _gap, _x0, _y0 = 130, 12, 46, 306
+_TB = [(["Resilient energy", "and infrastructure"], "Aghara and Xie"), (["Next-generation networks", "and trusted devices"], "Tseng and Arias"),
+       (["Cyber-physical", "AI"], "Luo and Son"), (["People in", "the loop"], "Robinette and Evans")]
+_bw, _gap, _x0, _y0 = 262, 22, 46, 306
 _boxes = []
 for _i, (_lines, _who) in enumerate(_TB):
     _x = _x0 + _i * (_bw + _gap)
@@ -4102,7 +4144,7 @@ for _i, (_lines, _who) in enumerate(_TB):
         f'<rect x="{_x}" y="{_y0}" width="{_bw}" height="5" rx="2.5" fill="#0A777F"/>'
         + _t +
         f'<path d="M{_x + 20} {_y0 + 72}h{_bw - 40}" stroke="#D5DCE5" stroke-width="1"/>'
-        f'<text x="{_x + _bw/2}" y="{_y0 + 94}" text-anchor="middle" font-size="12.5" fill="#5B6B82">{_who} leads</text>'
+        f'<text x="{_x + _bw/2}" y="{_y0 + 94}" text-anchor="middle" font-size="12.5" fill="#5B6B82">co-leads: {_who}</text>'
         f'<path d="M{_x + _bw/2} 286v20" stroke="#D5DCE5" stroke-width="1"/>')
 ORG = ORG.replace("</svg>", "") + "".join(_boxes) + """
 <g class="card" fill="#FFFFFF" stroke="#3BA995" stroke-width="1.8"><rect x="46" y="494" width="550" height="128" rx="14"/><rect x="616" y="494" width="538" height="128" rx="14"/></g>
@@ -4118,6 +4160,30 @@ ORG = ORG.replace("</svg>", "") + "".join(_boxes) + """
 </svg>"""
 ORG = theme_svg(ORG)
 
+ART["energy"] = ART["grid"]; ART["networks"] = ART["fiber"]; ART["cpai"] = ART["ai"]
+ART["people"] = """<svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<!-- the AI proposes -->
+<g class="card"><rect x="120" y="150" width="300" height="200" rx="18" fill="#044978"/></g>
+<text x="270" y="200" text-anchor="middle" font-size="22" font-weight="600" fill="#FFFFFF">AI proposes</text>
+<g stroke="#3BA995" stroke-width="3"><path d="M170 300V262M215 300V240M260 300V272M305 300V236M350 300V256"/></g>
+<!-- the person decides -->
+<g class="card"><circle cx="600" cy="250" r="110" fill="#FFFFFF" stroke="#B23A2C" stroke-width="4"/></g>
+<circle cx="600" cy="220" r="30" fill="#B23A2C"/><path d="M548 300c0-30 22-48 52-48s52 18 52 48" fill="#B23A2C"/>
+<text x="600" y="335" text-anchor="middle" font-size="22" font-weight="600" fill="#0E2036">People decide</text>
+<!-- the world acts -->
+<g class="card"><rect x="780" y="150" width="300" height="200" rx="18" fill="#FFFFFF" stroke="#D5DCE5" stroke-width="2"/></g>
+<text x="930" y="200" text-anchor="middle" font-size="22" font-weight="600" fill="#0E2036">The world acts</text>
+<path d="M830 300h200M840 270l20-30 30 40 20-25 40 15 30-20 20 20" stroke="#0A777F" stroke-width="3"/>
+<!-- the loop -->
+<g stroke="#0A777F" stroke-width="3.5"><path d="M420 250h60M720 250h50"/></g>
+<g fill="#0A777F"><path d="M480 240l16 10-16 10z"/><path d="M770 240l16 10-16 10z"/></g>
+<path d="M930 350v90H270v-90" stroke="#3BA995" stroke-width="3" stroke-dasharray="8 9"/>
+<path d="M260 370l10-18 10 18z" fill="#3BA995"/>
+<text x="600" y="470" text-anchor="middle" font-size="18" fill="#5B6B82">approve, override, ask why: the decision is shared, and the record shows who decided what</text>
+<text x="270" y="540" text-anchor="middle" font-size="16" fill="#5B6B82">trust and ethics</text>
+<text x="600" y="540" text-anchor="middle" font-size="16" fill="#5B6B82">decision-making under pressure</text>
+<text x="930" y="540" text-anchor="middle" font-size="16" fill="#5B6B82">education and workforce</text>
+</svg>"""
 ART = {k: theme_svg(v) for k, v in ART.items()}
 TOOL_ART = {
 "fusion": """<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -4843,7 +4909,7 @@ n_faculty = 1 + len(FACULTY["core"]) + len(FACULTY["affiliated"])
 
 def build():
     thrusts_html = "".join(
-        f'<div class="thrust"><a class="art" href="research-{esc(i)}.html">{ART[i]}</a><div class="body"><h3><a href="research-{esc(i)}.html">{esc(t)}</a></h3><p>{esc(d)}</p><div class="who"><b>{esc(w.split(",")[0])}</b> leads{esc("; with " + w.split(", ", 1)[1] if ", " in w else "")}</div><p class="more2"><a href="research-{esc(i)}.html">More on this thrust</a></p></div></div>'
+        f'<div class="thrust"><a class="art" href="research-{esc(i)}.html">{ART[i]}</a><div class="body"><h3><a href="research-{esc(i)}.html">{esc(t)}</a></h3><p>{esc(d)}</p><div class="who"><b>{esc(" and ".join([x.strip() for x in w.split(",")][:2]))}</b> co-lead{esc("; with " + ", ".join([x.strip() for x in w.split(",")][2:]) if w.count(",") >= 2 else "")}</div><p class="more2"><a href="research-{esc(i)}.html">More on this thrust</a></p></div></div>'
         for i, t, d, w in THRUSTS)
 
     _center = [canonical_person(p["name"]) for p in [FACULTY["director"]] + FACULTY["core"] + FACULTY["affiliated"]]
@@ -5212,7 +5278,7 @@ def build():
       <div class="hublist">
         <h3>The center serves as a hub for</h3>
         <ol>
-          <li>research on secure, resilient, and efficient cyber-physical systems, in eight thrusts each with a named lead;</li>
+          <li>research on secure, resilient, and trustworthy cyber-physical systems, in four thrusts each with two co-leads;</li>
           <li>shared testbeds and instruments, including SUMMIT, open to collaborators;</li>
           <li>training the cyber-physical systems workforce, from doctoral students to co-ops;</li>
           <li>partnership with industry, agencies, and the community on problems they actually have; and</li>
@@ -5222,7 +5288,7 @@ def build():
     </div>
     <h2 class="grouph orgh">How the center is organized</h2>
     <figure class="orgfig">{ORG}</figure>
-    <p class="orgnote">A director and an executive committee, advised by an external board and an industry council. Eight research thrusts, each with a named lead who is the point of contact for collaborators and sponsors in that area. Write to the director at <a href="mailto:Vinod_Vokkarane@uml.edu">Vinod_Vokkarane@uml.edu</a> or to the thrust lead directly.</p>
+    <p class="orgnote">A director and an executive committee, advised by an external board and an industry council. Four research thrusts, each with two co-leads, restructured in September 2026 from the original eight, and the laboratories and testbeds that serve them.</p>
 
     <div class="about-grid">
       <div>
@@ -5254,7 +5320,7 @@ def build():
 
 <section id="research" class="tint">
   <div class="wrap">
-    <div class="shead"><h2>Research thrusts</h2><p>Eight connected lines of work, each with a named lead who is accountable for it. Most projects cut across two or three, which is the point of running them under one roof.</p></div>
+    <div class="shead"><h2>Research thrusts</h2><p>Four connected lines of work, each with two co-leads who are accountable for it, restructured in September 2026 from the original eight. The four physical domains, energy, transportation, health and human performance, and manufacturing, run across all of them.</p></div>
     <div class="thrusts">{thrusts_html}</div>
   </div>
 </section>
@@ -6726,8 +6792,17 @@ def build_acnl(footer_html, script_html):
     except Exception as e:
         print(f"acnl.html skipped: {e}")
 
+OLD_THRUST_PAGES = {"grid": "energy", "nuclear": "energy", "health": "energy", "fiber": "networks", "edge": "networks",
+                    "chip": "networks", "ai": "cpai", "hpc": "cpai"}   # the eight thrusts of 2019 to 2026 and where each went
+
 def build_thrust_pages(footer_html, script_html):
-    """One page per research thrust, sharing the site shell."""
+    """One page per research thrust, sharing the site shell; the old eight thrust pages redirect to the four."""
+    for old, new in OLD_THRUST_PAGES.items():
+        out = os.path.join(os.path.dirname(os.path.abspath(OUT)) or ".", f"research-{old}.html")
+        with open(out, "w", encoding="utf-8") as f:
+            f.write(f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=research-{new}.html">'
+                    f'<link rel="canonical" href="https://smartcyberphysical.org/research-{new}.html"><title>Moved</title></head>'
+                    f'<body><p>This thrust is now part of <a href="research-{new}.html">research-{new}.html</a>.</p></body></html>')
     people_by_surname = {}
     for grp in ("director", "core", "affiliated", "external"):
         for p in ([FACULTY[grp]] if grp == "director" else FACULTY[grp]):
@@ -6737,6 +6812,7 @@ def build_thrust_pages(footer_html, script_html):
         out = os.path.join(os.path.dirname(os.path.abspath(OUT)) or ".", f"research-{k}.html")
         # the faculty on this thrust
         cards = ""
+        if d.get("leads"): cards += f'<p class="tleads">Co-leads: {esc(d["leads"])}</p>'
         for sur in [w.strip() for w in who.split(",")]:
             p = people_by_surname.get(sur)
             if not p: continue

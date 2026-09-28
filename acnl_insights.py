@@ -194,6 +194,8 @@ def render(ns, footer_html, script_html):
   <div class="wrap">
     <div class="shead"><h2>Latest research</h2><p>The newest papers in the record, with the problem each takes on and what it found. The threads below run the same way, newest first.</p></div>
     <div class="ltgrid">{latest_html}</div>
+    <h3 style="margin-top:34px">Three papers in 30 seconds each</h3>
+    <div class="vidrow">{ns["video_html"]("paper-fusion", "FUSION") + ns["video_html"]("paper-qot-grooming", "QoT-aware allocation and grooming") + ns["video_html"]("paper-spectral-spatial", "Spectral versus spatial scaling")}</div>
   </div>
 </section>
 <section class="imapsec">

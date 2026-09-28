@@ -2691,7 +2691,8 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .stupub .lbl{display:block;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3);margin-bottom:4px}
 .stupub .v{display:block;color:var(--ink-3);font-size:12.5px;margin-top:4px}
 .stufig{margin:18px 0 0;align-self:stretch;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px}
-.vid{margin-top:18px}.vidwide{max-width:980px;margin:34px auto 0}.vidwide .vidlabel{font-family:Fraunces,Georgia,serif;font-size:24px;font-weight:500}.vid video{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--line);background:#0E2036;display:block}.vidlabel{font-weight:600;color:var(--ink);margin:0 0 8px}.vid details{margin-top:8px;font-size:14.5px;color:var(--ink-2)}.vid summary{cursor:pointer;color:var(--acc-ink,#0A777F);font-weight:600}.vidnote{font-size:14px;margin-top:6px}
+.vid{margin-top:18px}.vidv{max-width:360px;margin:26px auto 0}.vidgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:22px;margin:10px 0 26px}.vidgrid .vid{margin:0}.vid video{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--line);background:#0E2036;display:block}
+.vidrow{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:22px;margin-top:10px}.vidrow .vidv{margin:0;max-width:none}.vidwide{max-width:980px;margin:34px auto 0}.vidwide .vidlabel{font-family:Fraunces,Georgia,serif;font-size:24px;font-weight:500}.vid video{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--line);background:#0E2036;display:block}.vidlabel{font-weight:600;color:var(--ink);margin:0 0 8px}.vid details{margin-top:8px;font-size:14.5px;color:var(--ink-2)}.vid summary{cursor:pointer;color:var(--acc-ink,#0A777F);font-weight:600}.vidnote{font-size:14px;margin-top:6px}
 .club{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:18px 22px;margin:0 0 26px;max-width:760px}.club .kick{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin:0 0 4px}.club h4{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:22px;margin:0 0 8px}.club p{margin:0 0 8px}.club .meta{font-size:14.5px;color:var(--ink-2)}
 .stufig img{width:100%;height:150px;object-fit:contain;display:block}
 .stufig .svgfig,.stufig img{margin-bottom:6px}
@@ -3256,7 +3257,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.61"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.62"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -5266,6 +5267,7 @@ def build():
     <div class="shead"><h2>A center built around the systems a smart society runs on</h2>
       <p>Power grids, roads, and hospitals now depend on fast networks connected to instrumentation, control systems, and IoT devices. SCyPS develops practical, high-impact ways to make those heterogeneous distributed systems more reliable, scalable, secure, and private.</p></div>
     {about_photo}
+    {video_html("seven-years", "Seven years in sixty seconds")}
     <div class="hubwrap">
       <figure class="hubfig">{HUB}</figure>
       <div class="hublist">
@@ -5457,7 +5459,7 @@ def build():
     build_people_pages({
         "people": (PEOPLE_SECTION.replace("{director_html}", director_html).replace("{core_html}", core_html)
                    .replace("{aff_html}", aff_html).replace("{ext_html}", ext_html) + collab_graph_html()),
-        "students": (STUDENTS_SECTION.replace("{students_html}", students_html).replace("{lablife_html}", lablife_html)
+        "students": (STUDENTS_SECTION.replace("{students_html}", students_html).replace("{lablife_html}", lablife_html).replace("{lablife_video}", video_html("lab-life", "Lab life in 33 seconds"))
                      .replace("{spotlight_teaser}", spotlight_article(max(SPOTLIGHTS, key=lambda s: s["ym"]), full=False) if SPOTLIGHTS else "")),
         "alumni": (ALUMNI_SECTION.replace("{alumni_feat_html}", alumni_feat_html)
                    .replace("{alumni_phd_cards}", alumni_phd_cards).replace("{alumni_pd_cards}", alumni_pd_cards)),
@@ -5504,7 +5506,7 @@ for _g in ("director", "core", "affiliated", "external"):
 
 PEOPLE_SECTION = '<section id="people" class="tint">\n  <div class="wrap">\n    <div class="shead"><h2>People</h2><p>Faculty from the Francis College of Engineering, the Kennedy College of Sciences, and the College of Fine Arts, Humanities and Social Sciences, plus long-running collaborators at partner universities and companies. Each profile links to the person\'s Google Scholar and ORCID records; citation totals are quoted from Google Scholar where the profile is public.</p></div>\n    <p class="founding">The center was founded on October 1, 2019 by Vinod Vokkarane, Martin Margala, Yan Luo, Sukesh Aghara, and Yuanchang Xie. Vokkarane served on the founding Board of Directors from October 2019 to July 2021 and has been director since August 2021. Margala, then Professor and Chair of Electrical and Computer Engineering, was founding co-director until July 2021 and remains an external collaborator.</p>\n    <h2 class="grouph">Center faculty</h2>\n    {director_html}\n    {core_html}\n    <div class="group"><h2 class="grouph">Affiliated researchers</h2><p>UMass Lowell faculty who collaborate on center projects and proposals.</p>{aff_html}</div>\n    <div class="group"><h2 class="grouph">External collaborators</h2><p>Partners at other universities and companies who work with the center on current projects.</p>{ext_html}</div>\n  </div>\n</section>\n\n'
 
-STUDENTS_SECTION = '<section id="students">\n  <div class="wrap">\n    <div class="shead"><h2>Students</h2><p>Doctoral students of the center faculty, grouped by primary advisor. The director\'s group is the Advanced Communication Networks Laboratory.</p></div>\n    {spotlight_teaser}\n    <h2 class="grouph">Doctoral students</h2>\n    {students_html}\n    <div class="lablife">\n      <h3>Student organization</h3>\n    <div class="club"><div><p class="kick">Center-run club</p><h4><a href="https://www.uml.edu/my/clubs/details/458f4922-cf24-652f-bb21-7c451540b38f">UMass Lowell Open-Source Club</a></h4>\n      <p>A student club for open-source software and hardware, run by the center. Members work on the center\'s open-source tools, FUSION, NATIG, and GridShift among them, and on projects with the club\'s sponsor. It is a way into center research before joining a group.</p>\n      <p class="meta"><b>Academic advisor:</b> Vinod M. Vokkarane, the center\'s director &middot; <b>Industry sponsor:</b> Red Hat</p>\n      <p><b>Friendly Fedora capstone.</b> Since 2020 Red Hat has sponsored a senior capstone team each year, advised directly by a Red Hat director or manager, to make Fedora Linux friendlier for university and academic use around the world. The teams have integrated academia-focused open-source tools into the current Fedora release, including large language model and container tools, and in the last two years have contributed new development on Podman.</p>\n      <p class="meta"><a href="https://www.uml.edu/my/clubs/details/458f4922-cf24-652f-bb21-7c451540b38f">The club on myUML</a> &middot; <a href="mailto:Vinod_Vokkarane@uml.edu">Write to the advisor</a> to join or to propose a project.</p></div></div>\n    <h3>Lab life</h3>\n      <p>The Advanced Communication Networks Laboratory through the years.</p>\n      <div class="labgrid">{lablife_html}</div>\n    </div>\n  </div>\n</section>\n\n'
+STUDENTS_SECTION = '<section id="students">\n  <div class="wrap">\n    <div class="shead"><h2>Students</h2><p>Doctoral students of the center faculty, grouped by primary advisor. The director\'s group is the Advanced Communication Networks Laboratory.</p></div>\n    {spotlight_teaser}\n    <h2 class="grouph">Doctoral students</h2>\n    {students_html}\n    <div class="lablife">\n      <h3>Student organization</h3>\n    <div class="club"><div><p class="kick">Center-run club</p><h4><a href="https://www.uml.edu/my/clubs/details/458f4922-cf24-652f-bb21-7c451540b38f">UMass Lowell Open-Source Club</a></h4>\n      <p>A student club for open-source software and hardware, run by the center. Members work on the center\'s open-source tools, FUSION, NATIG, and GridShift among them, and on projects with the club\'s sponsor. It is a way into center research before joining a group.</p>\n      <p class="meta"><b>Academic advisor:</b> Vinod M. Vokkarane, the center\'s director &middot; <b>Industry sponsor:</b> Red Hat</p>\n      <p><b>Friendly Fedora capstone.</b> Since 2020 Red Hat has sponsored a senior capstone team each year, advised directly by a Red Hat director or manager, to make Fedora Linux friendlier for university and academic use around the world. The teams have integrated academia-focused open-source tools into the current Fedora release, including large language model and container tools, and in the last two years have contributed new development on Podman.</p>\n      <p class="meta"><a href="https://www.uml.edu/my/clubs/details/458f4922-cf24-652f-bb21-7c451540b38f">The club on myUML</a> &middot; <a href="mailto:Vinod_Vokkarane@uml.edu">Write to the advisor</a> to join or to propose a project.</p></div></div>\n    <h3>Lab life</h3>{lablife_video}\n      <p>The Advanced Communication Networks Laboratory through the years.</p>\n      <div class="labgrid">{lablife_html}</div>\n    </div>\n  </div>\n</section>\n\n'
 
 ALUMNI_SECTION = '<section id="alumni" class="tint">\n  <div class="wrap">\n    <div class="shead"><h2>Alumni</h2><p>Where the group\'s Ph.D. graduates and postdoctoral researchers have gone.</p></div>\n    <h2 class="grouph">Recent graduates</h2>\n    <div class="stugrid two">{alumni_feat_html}</div>\n    <h2 class="grouph">Ph.D. graduates</h2>\n    <p class="alnote">Where each graduate is now, verified in September 2026 against employer pages, LinkedIn, and Google Scholar. Citation figures refresh monthly with the rest of the site.</p>\n    <div class="alumgrid">{alumni_phd_cards}</div>\n    <h2 class="grouph">Postdoctoral alumni</h2>\n    <div class="alumgrid">{alumni_pd_cards}</div>\n  </div>\n</section>\n\n'
 
@@ -5721,7 +5723,24 @@ def newsletter_block():
                   f'<p class="nlacts"><a href="newsletters/print-{pym}.html">Read online</a> &middot; <a href="newsletters/print/{f}" download>Download PDF</a></p></div></div>')
     monthly = "".join(f'<li><a href="newsletters/{ym}.html">{MONTH_FULL[int(ym[5:7])]} {ym[:4]}</a></li>' for ym in issues[:12])
     return (f'<div class="nlblock" id="newsletters"><h2 class="grouph">Newsletters</h2>{cards}'
-            f'<p class="nlmonthly">Monthly issues, generated from the center&rsquo;s records and sent to members and partners: </p><ul class="nlissues">{monthly}</ul></div>')
+            f'<p class="nlmonthly">Monthly issues, generated from the center&rsquo;s records and sent to members and partners: </p><ul class="nlissues">{monthly}</ul></div>'
+            + videos_gallery())
+
+
+def videos_gallery():
+    """Every center video in one place on the News page: the wide ones first, then the vertical shorts."""
+    if not VIDEOS: return ""
+    names = {"center-loop": "The loop in 40 seconds", "seven-years": "Seven years in sixty seconds", "summit": "SUMMIT in 40 seconds", "lab-life": "Lab life",
+             "join-us": "Why do a Ph.D. here?", "paper-fusion": "Paper: FUSION", "paper-qot-grooming": "Paper: QoT-aware allocation and grooming",
+             "paper-spectral-spatial": "Paper: spectral versus spatial scaling"}
+    for k, t, _, _ in THRUSTS: names["thrust-" + k] = "Thrust: " + t
+    for s in STUDENTS: names["student-" + re.sub(r"[^a-z]+", "-", s["name"].lower()).strip("-")] = "Student: " + s["name"]
+    wide = "".join(video_html(n, names.get(n, n), wide=False) for n, v in VIDEOS.items() if v["fmt"] == "h")
+    tall = "".join(video_html(n, names.get(n, n)) for n, v in VIDEOS.items() if v["fmt"] == "v")
+    loop = ('<div class="vid"><p class="vidlabel">The loop in 40 seconds</p><video controls playsinline preload="none" poster="media/center-loop-poster.jpg" width="1280" height="720">'
+            '<source src="media/center-loop.mp4" type="video/mp4"><a href="media/center-loop.mp4">Download the video</a></video></div>')
+    return (f'<div class="nlblock" id="videos"><h2 class="grouph">Videos</h2><p class="nlmonthly">Short videos made from the center&rsquo;s own records, free to share. '
+            f'The tall ones are sized for LinkedIn and Instagram.</p><div class="vidgrid">{loop}{wide}</div><div class="vidrow">{tall}</div></div>')
 
 
 def build_newspage(footer_html, script_html):
@@ -6146,6 +6165,7 @@ def build_positions(footer_html, script_html):
     body = f"""<section>
   <div class="wrap">
     <div class="shead"><h1>Open positions</h1><p>Postdoctoral, doctoral, undergraduate, and visiting positions with the center's faculty and laboratories. Students who join work on real instruments and real data, publish, and leave with an employer already in the room.</p></div>
+    {video_html("join-us", "Why do a Ph.D. here? 39 seconds")}
     <div class="poslist">{cards}</div>
     <p class="posnote">Every position at UMass Lowell is filled through the university's own processes; the center connects candidates with faculty. UMass Lowell is an equal opportunity employer.</p>
   </div>
@@ -6800,6 +6820,21 @@ def build_acnl(footer_html, script_html):
 OLD_THRUST_PAGES = {"grid": "energy", "nuclear": "energy", "health": "energy", "fiber": "networks", "edge": "networks",
                     "chip": "networks", "ai": "cpai", "hpc": "cpai"}   # the eight thrusts of 2019 to 2026 and where each went
 
+
+# ---------------------------------------------------------------- videos (rendered from the center's records; see media/videos.json)
+VIDEOS = {v["name"]: v for v in _load_overlay("media/videos.json", [])} if os.path.exists(os.path.join(os.path.dirname(os.path.abspath(__file__)), "media", "videos.json")) else {}
+def video_html(name, heading, up="", wide=True):
+    """A click-to-play video with its poster, transcript, and a download link; nothing loads until play."""
+    v = VIDEOS.get(name)
+    if not v: return ""
+    vert = v["fmt"] == "v"
+    cls = "vid vidv" if vert else ("vid vidwide" if wide else "vid")
+    w, h = (720, 1280) if vert else (1280, 720)
+    return (f'<div class="{cls}"><p class="vidlabel">{esc(heading)}</p>'
+            f'<video controls playsinline preload="none" poster="{up}media/v/{name}.jpg" width="{w}" height="{h}">'
+            f'<source src="{up}media/v/{name}.mp4" type="video/mp4"><a href="{up}media/v/{name}.mp4">Download the video</a></video>'
+            f'<details><summary>Transcript</summary><p>{esc(v["transcript"])}</p></details></div>')
+
 def build_thrust_pages(footer_html, script_html):
     """One page per research thrust, sharing the site shell; the old eight thrust pages redirect to the four."""
     for old, new in OLD_THRUST_PAGES.items():
@@ -6858,7 +6893,7 @@ def build_thrust_pages(footer_html, script_html):
     <p class="q">{esc(d.get("question", blurb))}</p>
   </div>
 </div>
-<div class="wrap"><figure class="theroart">{HERO_ART.get(k, ART[k])}</figure></div>
+<div class="wrap"><figure class="theroart">{HERO_ART.get(k, ART[k])}</figure>{video_html("thrust-" + k, "This thrust in 25 seconds")}</div>
 <section>
   <div class="wrap">
     <div class="tgrid">
@@ -7058,7 +7093,7 @@ def build_summit(footer_html, script_html):
 
 <section id="overview">
   <div class="wrap">
-    <div class="shead"><h2>What SUMMIT is</h2><p>A shared instrument that couples high-fidelity real-time simulation of the Northeast transmission grid with real control, networking, and cybersecurity hardware in the loop, at three universities linked over the Internet.</p></div>
+    <div class="shead"><h2>What SUMMIT is</h2><p>A shared instrument that couples high-fidelity real-time simulation of the Northeast transmission grid with real control, networking, and cybersecurity hardware in the loop, at three universities linked over the Internet.</p></div>{video_html("summit", "SUMMIT in 40 seconds")}
     <div class="two">
       <div>
         <h3>Four paradigms</h3>

@@ -278,6 +278,7 @@ def page_students():
 {("<p class=note style=margin-top:10px>Working mostly on " + esc(", ".join(t for t, _ in threads_s)) + ".</p>") if threads_s else ""}
 </div></div>
 {fig}
+{bs.video_html("student-" + slug(s["name"]), "In 22 seconds", up="../../")}
 <h2 style="margin-top:30px">Publications</h2>{"".join(pub_line(r) for r in ps) or "<p class=note>No publications in the lab record yet.</p>"}
 </div></section>'''
         write(slug(s["name"]), f"{s['name']} | ACNL", f"{s['name']}, {s['status']} in the Advanced Communication Networks Laboratory at UMass Lowell.", body, sub="students")

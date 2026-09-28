@@ -1,0 +1,104 @@
+[
+ {
+  "name": "seven-years",
+  "fmt": "h",
+  "duration": 60,
+  "transcript": "October 2019 to September 2026 Seven years in sixty seconds. The Center for Smart Cyber-Physical Systems at UMass Lowell Peer-reviewed papers, year by year: 2019: 4, 2020: 21, 2021: 22, 2022: 23, 2023: 37, 2024: 38, 2025: 44, 2026: 26. 2019 counts October to December, from the center's founding; 2026 counts through September. Who works with whom, year by year: the collaboration graph grows from 2019 to 2026 to 19 people and 29 working pairs. Milestones: 2019: the center is founded by five faculty; 2021: Vinod Vokkarane becomes director; 2024: ONR post-disaster restoration award, and the DOE CyberCARED consortium; 2026: NSF instrumentation award for SUMMIT, a three-university grid testbed; 2026: BOND-AI, printed electronics with industry partners. By the numbers: 215 peer-reviewed papers since 2019; $8.0M in awards the center led; 20 faculty in four colleges; 16 doctoral students today. Seven years in, and just getting started.. Sense. Communicate. Decide with people. Act. smartcyberphysical.org"
+ },
+ {
+  "name": "student-arash-rezaee",
+  "fmt": "v",
+  "duration": 22,
+  "transcript": "Student spotlight Arash Rezaee. Ph.D. Candidate, joined 2022 Arash Rezaee, Advised by Vinod Vokkarane. AI-driven resource allocation in optical networks. AI services over a software-defined, multi-layer network Meet the lab. Advanced Communication Networks Laboratory smartcyberphysical.org/acnl"
+ },
+ {
+  "name": "student-ryan-mccann",
+  "fmt": "v",
+  "duration": 22,
+  "transcript": "Student spotlight Ryan McCann. Ph.D. Candidate, joined 2024 Ryan McCann, Advised by Vinod Vokkarane. Co-founder and lead developer of FUSION, supported by MIT I-Corps and AT&T. FUSION: reinforcement learning over a software-defined optical mesh Meet the lab. Advanced Communication Networks Laboratory smartcyberphysical.org/acnl"
+ },
+ {
+  "name": "student-kenneth-patrick-watts",
+  "fmt": "v",
+  "duration": 22,
+  "transcript": "Student spotlight Kenneth Patrick Watts. Ph.D. Candidate, joined 2022 Kenneth Patrick Watts, Advised by Vinod Vokkarane. Scalable, real-time detection of cyber attacks on smart power grids with machine learning. NATIG co-simulation of a distribution grid and its wireless network Meet the lab. Advanced Communication Networks Laboratory smartcyberphysical.org/acnl"
+ },
+ {
+  "name": "student-mehran-sasaninia",
+  "fmt": "v",
+  "duration": 22,
+  "transcript": "Student spotlight Mehran Sasaninia. Ph.D. Candidate, joined 2023 Mehran Sasaninia, Advised by Vinod Vokkarane. Federated learning to detect cyber attacks in the smart grid. Federated learning across grid sites with a global model aggregator Meet the lab. Advanced Communication Networks Laboratory smartcyberphysical.org/acnl"
+ },
+ {
+  "name": "student-ayush-pandey",
+  "fmt": "v",
+  "duration": 22,
+  "transcript": "Student spotlight Ayush Pandey. Ph.D. Student, joined 2024 Ayush Pandey, Advised by Vinod Vokkarane. Smart grid cybersecurity and AI for cyber-physical systems. AI-based intrusion detection protecting a transmission grid's control loop Meet the lab. Advanced Communication Networks Laboratory smartcyberphysical.org/acnl"
+ },
+ {
+  "name": "student-suvhasis-mukhopadhyay",
+  "fmt": "v",
+  "duration": 22,
+  "transcript": "Student spotlight Suvhasis Mukhopadhyay. Ph.D. Student, joined 2024 Suvhasis Mukhopadhyay, Advised by Vinod Vokkarane. Impact of individual physical layer impairments on elastic optical network performance. Impairment-aware allocation of spectrum, modulation, and power on a flex-grid link Meet the lab. Advanced Communication Networks Laboratory smartcyberphysical.org/acnl"
+ },
+ {
+  "name": "paper-fusion",
+  "fmt": "v",
+  "duration": 28,
+  "transcript": "A paper in 30 seconds FUSION: A Unified Benchmarking Framework for Reproducible Optical Network Research. Journal of Optical Communications and Networking, 2026 The problem: Why it matters: Results in optical networking are getting harder to compare and reproduce: architectures now range from single-band to multi-band and space-division systems, and published numbers depend on simulation assumptions that are rarely spelled out. What we found: The result: Case studies show the framework benchmarking heterogeneous architectures and policies on equal terms, and a mapping of published studies onto FUSION's capabilities shows how much of the field's recent work it can already reproduce. Who: Authors: A. Rezaee, R. McCann, V. M. Vokkarane Read it: doi.org/10.1364/JOCN.593123 More research. Advanced Communication Networks Laboratory smartcyberphysical.org/acnl.html"
+ },
+ {
+  "name": "paper-qot-grooming",
+  "fmt": "v",
+  "duration": 28,
+  "transcript": "A paper in 30 seconds QoT-Aware Dynamic Resource Allocation and Grooming in Multi-Band Space-Division Multiplexing Networks. Journal of Optical Communications and Networking, 2026 The problem: Why it matters: Multi-band space-division multiplexing can scale backbone capacity, but allocating resources dynamically means accounting for inter-core crosstalk, inter-channel stimulated Raman scattering, amplifier noise, and nonlinear interference at the same time, and their effects differ by band and by core count. What we found: The result: Ignoring frequency-dependent crosstalk causes systematic, band-dependent errors in which modulation formats are feasible in dense-core fibers. Who: Authors: A. Rezaee, F. Arpanaei, R. McCann, H. Rabbani, J. Hern\u00e1ndez, M. Brandt-Pearce, V. M. Vokkarane Read it: doi.org/10.1364/JOCN.596435 More research. Advanced Communication Networks Laboratory smartcyberphysical.org/acnl.html"
+ },
+ {
+  "name": "paper-spectral-spatial",
+  "fmt": "v",
+  "duration": 28,
+  "transcript": "A paper in 30 seconds QoT-Aware Spectral and Spatial Scaling Trade-offs in Multi-Band Space Division Multiplexing over EONs. Journal of Optical Communications and Networking, 2026 (invited) The problem: Why it matters: Backbone capacity can grow two ways, by adding bands beyond the C-band or by adding fiber cores, and physical-layer impairments mean the two cannot be judged separately: the L-band suffers more crosstalk, and dense cores make crosstalk dominate. What we found: The result: The best band plan depends on the core count. C+L wins for 4 and 7 cores; C+S wins for 13 cores because the L-band is hit harder by crosstalk; at 19 cores the system is crosstalk-dominated and only C+S holds up. Who: Authors: A. Rezaee, F. Arpanaei, R. McCann, L. Nadal, J. A. Hern\u00e1ndez, V. M. Vokkarane Read it: doi.org/10.1364/JOCN.596854 More research. Advanced Communication Networks Laboratory smartcyberphysical.org/acnl.html"
+ },
+ {
+  "name": "thrust-energy",
+  "fmt": "h",
+  "duration": 25,
+  "transcript": "Research thrust Resilient energy and infrastructure. What keeps the grid, a reactor, a highway, or a bridge working when the computers and networks that run it are attacked or knocked out, and how does it come back? Lines of work: Seeing the grid under attack; Restoring power and communication together; Nuclear energy and security; Transportation and civil infrastructure. Resilient energy and infrastructure. Co-leads: Sukesh Aghara and Yuanchang Xie smartcyberphysical.org/research-energy.html"
+ },
+ {
+  "name": "thrust-networks",
+  "fmt": "h",
+  "duration": 25,
+  "transcript": "Research thrust Next-generation networks and trusted devices. How do you build networks that carry cyber-physical traffic at the speed AI needs, and devices at the edge that can be trusted? Lines of work: Multi-band and space-division optical networks; Fault-tolerant distributed and edge computing; Zero trust for cyber-physical systems; Printed electronics for hard places. Next-generation networks and trusted devices. Co-leads: Lewis Tseng and Orlando Arias smartcyberphysical.org/research-networks.html"
+ },
+ {
+  "name": "thrust-cpai",
+  "fmt": "h",
+  "duration": 25,
+  "transcript": "Research thrust Cyber-physical AI. How does a system that senses the physical world turn what it senses into decisions it can be trusted to act on? Lines of work: Digital twins, sensing, and state recovery; Learning without moving the data; High-performance computing and data integrity; Agentic control within limits. Cyber-physical AI. Co-leads: Yan Luo and Seung Woo Son smartcyberphysical.org/research-cpai.html"
+ },
+ {
+  "name": "thrust-people",
+  "fmt": "h",
+  "duration": 25,
+  "transcript": "Research thrust People in the loop. When a person and an AI share a decision about a system that can hurt someone, who decides what, and how do they learn to trust each other? Lines of work: Trust between people and robots; Ethics of algorithms that act; Decision-making under pressure; Education and workforce. People in the loop. Co-leads: Paul Robinette and Nicholas Evans smartcyberphysical.org/research-people.html"
+ },
+ {
+  "name": "summit",
+  "fmt": "h",
+  "duration": 40,
+  "transcript": "NSF Major Research Instrumentation, Award #2511635 SUMMIT. One grid experiment across three universities The UMass Lowell main site, a wide-area software-defined network, and federation sites at NYU Tandon and West Virginia University. What it makes possible: Real-time simulation of the Northeast transmission grid; Control, networking, and cybersecurity hardware in the loop; Three universities federated over a wide-area network; Hardware-in-the-loop simulation offered as a service. SUMMIT at a glance: $2.0M NSF instrumentation award; 3 universities, one testbed; 4 Co-PIs with the PI at UMass Lowell. Built at UMass Lowell. October 2026 to September 2029 smartcyberphysical.org/summit.html"
+ },
+ {
+  "name": "lab-life",
+  "fmt": "h",
+  "duration": 33,
+  "transcript": "Advanced Communication Networks Laboratory Lab life. The people behind the research Photo. Photo. Photo. Photo. Photo. Photo. Arash Deylamsalehi presenting his research The lab's ESnet OSCARS demonstration at SC15 Come work with us. smartcyberphysical.org/acnl"
+ },
+ {
+  "name": "join-us",
+  "fmt": "v",
+  "duration": 39,
+  "transcript": "Ph.D. positions Build the systems the world runs on.. Doctoral research at the Center for Smart Cyber-Physical Systems, UMass Lowell Four research thrusts: Resilient energy and infrastructure; Next-generation networks and trusted devices; Cyber-physical AI; People in the loop. Real instruments, not only simulation: SUMMIT: a three-university grid testbed; NATIG: grid and wireless co-simulation; FUSION: open-source optical network research. Where our Ph.D. graduates go: Assistant Professor, Southern Illinois University Carbondale; Assistant Professor, Montana State University; Research Engineer, AIMdyn, Inc.; Software Engineer, KLA. The center today: 16 doctoral students; 20 faculty in four colleges; 215 papers since 2019. Join us. Ph.D. positions and how to apply smartcyberphysical.org/positions.html"
+ }
+]

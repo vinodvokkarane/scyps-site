@@ -100,7 +100,7 @@ FACULTY = {
     ],
     "external": [
         {"name": "Heidi Dempsey", "tag": "External collaborator", "photo": "dempsey", "inst": None, "title": "Research Director of the Northeast US, Red Hat",
-         "areas": "Grows research and open-source collaborations between Red Hat and academic partners; Red Hat partner for the center's Friendly Fedora and Podman work",
+         "areas": "Grows research and open-source collaborations between Red Hat and academic partners; Red Hat partner for the center's Friendly Fedora and Podman work, and sponsor of the Friendly Fedora capstone program since 2020",
          "email": "hdempsey@redhat.com", "phone": "", "url": "https://www.bu.edu/hic/profile/heidi-dempsey/"},
         {"name": "Babu Jain", "tag": "External collaborator", "photo": "jain", "inst": None, "title": "Founder and CEO, Navia Energy Inc.", "areas": "AI-driven renewable energy systems; industry partner on the center's resilient smart grids project",
          "email": "babu.jain@naviaenergy.com", "phone": "", "url": "https://www.linkedin.com/in/babu-jain-188470/"},
@@ -303,7 +303,7 @@ PROJECTS = [
      "title": "Open-Source Research: Friendly Fedora and Podman",
      "amount": "$200K+", "period": "2021 onward",
      "team": "PI Vinod Vokkarane",
-     "desc": "Industry support for open-source systems research in the center, including the Friendly Fedora and Podman projects and the FUSION optical network simulation framework.",
+     "desc": "Industry support for open-source systems research in the center, including the Friendly Fedora and Podman projects and the FUSION optical network simulation framework. Since 2020 Red Hat has also sponsored a senior capstone team each year on Friendly Fedora, advised directly by a Red Hat director or manager, to make Fedora Linux friendlier for university and academic use: the teams have integrated academia-focused open-source tools into the current release, including large language model and container tools, and in the last two years have contributed new development on Podman.",
      "domain": "Networks"},
     {"tag": "Active", "sponsor": "Navia Energy Inc.",
      "title": "Resilient Smart Grids",
@@ -2060,8 +2060,11 @@ for e in _load_overlay("pubs_2019_2020.json", {"entries": []}).get("entries", []
                   type=e["type"], faculty=e["faculty"], area=e.get("area", ""), url=None))
 
 # --- papers found in members' own CVs that the curated list lacked (Crossref-verified)
+def _tkey(t): return re.sub(r"[^a-z0-9]", "", (t or "").lower())[:80]
 for e in _load_overlay("pubs_cv_additions.json", {"entries": []}).get("entries", []):
-    if e["doi"].lower() in {p["doi"].lower() for p in P if p.get("doi")}: continue
+    if e["doi"] and e["doi"].lower() in {p["doi"].lower() for p in P if p.get("doi")}: continue
+    # a CV entry without a DOI is superseded once the same paper arrives from Crossref with one
+    if not e["doi"] and _tkey(e["title"]) in {_tkey(p["title"]) for p in P}: continue
     P.append(dict(year=e["year"], authors=e["authors"], title=e["title"], venue=e["venue"], details=e["details"], doi=e["doi"],
                   type=e["type"], faculty=e["faculty"], area=e.get("area", ""), url=None))
 
@@ -2090,6 +2093,10 @@ for e in _auto_pubs.get("entries", []):
     if not _fac: continue
     P.append(dict(year=e["year"], authors=e["authors"], title=e["title"], venue=e["venue"], details=e["details"], doi=e["doi"],
                   type=e["type"], faculty=_fac, area=e.get("area", ""), url=None)); _known.add(e["doi"].lower())
+
+# a hand-entered paper without a DOI is superseded when Crossref later delivers the same title with one
+_with_doi = {_tkey(p["title"]) for p in P if p.get("doi")}
+P[:] = [p for p in P if p.get("doi") or _tkey(p["title"]) not in _with_doi]
 
 MONTHS = {"Jan.":1,"Feb.":2,"Mar.":3,"Apr.":4,"May":5,"June":6,"July":7,"Aug.":8,"Sept.":9,"Oct.":10,"Nov.":11,"Dec.":12}
 def month_of(p):
@@ -3207,7 +3214,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.44"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.45"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3271,7 +3278,7 @@ SPONSORS = {
         {"key": "mass", "name": "Commonwealth of Massachusetts", "url": "https://www.mass.gov", "note": "Advanced Nuclear and Fusion Energy Roadmaps, Healey-Driscoll Administration"},
         {"key": "iaea", "name": "International Atomic Energy Agency", "url": "https://www.iaea.org", "note": "Intercontinental Nuclear Institute training program"},
         {"key": "masstech", "name": "Massachusetts Technology Collaborative", "url": "https://masstech.org", "note": "ARPO-Sensor Fusion, Applied AI Models program"},
-        {"key": "redhat", "name": "Red Hat", "url": "https://www.redhat.com", "note": "Open-source research: Friendly Fedora and Podman"},
+        {"key": "redhat", "name": "Red Hat", "url": "https://www.redhat.com", "note": "Open-source research: Friendly Fedora and Podman; sponsor of the Friendly Fedora capstone program since 2020 and of the Open Source Club"},
         {"key": "navia", "name": "Navia Energy", "url": "https://naviaenergy.com", "note": "Resilient smart grids"},
     ],
     "Partner institutions": [
@@ -5411,7 +5418,7 @@ for _g in ("director", "core", "affiliated", "external"):
 
 PEOPLE_SECTION = '<section id="people" class="tint">\n  <div class="wrap">\n    <div class="shead"><h2>People</h2><p>Faculty from the Francis College of Engineering, the Kennedy College of Sciences, and the College of Fine Arts, Humanities and Social Sciences, plus long-running collaborators at partner universities and companies. Each profile links to the person\'s Google Scholar and ORCID records; citation totals are quoted from Google Scholar where the profile is public.</p></div>\n    <p class="founding">The center was founded on October 1, 2019 by Vinod Vokkarane, Martin Margala, Yan Luo, Sukesh Aghara, and Yuanchang Xie. Vokkarane served on the founding Board of Directors from October 2019 to July 2021 and has been director since August 2021. Margala, then Professor and Chair of Electrical and Computer Engineering, was founding co-director until July 2021 and remains an external collaborator.</p>\n    <h2 class="grouph">Center faculty</h2>\n    {director_html}\n    {core_html}\n    <div class="group"><h2 class="grouph">Affiliated researchers</h2><p>UMass Lowell faculty who collaborate on center projects and proposals.</p>{aff_html}</div>\n    <div class="group"><h2 class="grouph">External collaborators</h2><p>Partners at other universities and companies who work with the center on current projects.</p>{ext_html}</div>\n  </div>\n</section>\n\n'
 
-STUDENTS_SECTION = '<section id="students">\n  <div class="wrap">\n    <div class="shead"><h2>Students</h2><p>Doctoral students of the center faculty, grouped by primary advisor. The director\'s group is the Advanced Communication Networks Laboratory.</p></div>\n    {spotlight_teaser}\n    <h2 class="grouph">Doctoral students</h2>\n    {students_html}\n    <div class="lablife">\n      <h3>Student organization</h3>\n    <div class="club"><div><p class="kick">Center-run club</p><h4>UMass Lowell Open Source Club</h4>\n      <p>A student club for open-source software and hardware, run by the center. Members work on the center\'s open-source tools, FUSION, NATIG, and GridShift among them, and on projects with the club\'s sponsor. It is a way into center research before joining a group.</p>\n      <p class="meta"><b>Academic advisor:</b> Vinod M. Vokkarane, the center\'s director &middot; <b>Industry sponsor:</b> Red Hat</p>\n      <p class="meta"><a href="mailto:Vinod_Vokkarane@uml.edu">Write to the advisor</a> to join or to propose a project.</p></div></div>\n    <h3>Lab life</h3>\n      <p>The Advanced Communication Networks Laboratory through the years.</p>\n      <div class="labgrid">{lablife_html}</div>\n    </div>\n  </div>\n</section>\n\n'
+STUDENTS_SECTION = '<section id="students">\n  <div class="wrap">\n    <div class="shead"><h2>Students</h2><p>Doctoral students of the center faculty, grouped by primary advisor. The director\'s group is the Advanced Communication Networks Laboratory.</p></div>\n    {spotlight_teaser}\n    <h2 class="grouph">Doctoral students</h2>\n    {students_html}\n    <div class="lablife">\n      <h3>Student organization</h3>\n    <div class="club"><div><p class="kick">Center-run club</p><h4>UMass Lowell Open Source Club</h4>\n      <p>A student club for open-source software and hardware, run by the center. Members work on the center\'s open-source tools, FUSION, NATIG, and GridShift among them, and on projects with the club\'s sponsor. It is a way into center research before joining a group.</p>\n      <p class="meta"><b>Academic advisor:</b> Vinod M. Vokkarane, the center\'s director &middot; <b>Industry sponsor:</b> Red Hat</p>\n      <p><b>Friendly Fedora capstone.</b> Since 2020 Red Hat has sponsored a senior capstone team each year, advised directly by a Red Hat director or manager, to make Fedora Linux friendlier for university and academic use around the world. The teams have integrated academia-focused open-source tools into the current Fedora release, including large language model and container tools, and in the last two years have contributed new development on Podman.</p>\n      <p class="meta"><a href="mailto:Vinod_Vokkarane@uml.edu">Write to the advisor</a> to join or to propose a project.</p></div></div>\n    <h3>Lab life</h3>\n      <p>The Advanced Communication Networks Laboratory through the years.</p>\n      <div class="labgrid">{lablife_html}</div>\n    </div>\n  </div>\n</section>\n\n'
 
 ALUMNI_SECTION = '<section id="alumni" class="tint">\n  <div class="wrap">\n    <div class="shead"><h2>Alumni</h2><p>Where the group\'s Ph.D. graduates and postdoctoral researchers have gone.</p></div>\n    <h2 class="grouph">Recent graduates</h2>\n    <div class="stugrid two">{alumni_feat_html}</div>\n    <h2 class="grouph">Ph.D. graduates</h2>\n    <p class="alnote">Where each graduate is now, verified in September 2026 against employer pages, LinkedIn, and Google Scholar. Citation figures refresh monthly with the rest of the site.</p>\n    <div class="alumgrid">{alumni_phd_cards}</div>\n    <h2 class="grouph">Postdoctoral alumni</h2>\n    <div class="alumgrid">{alumni_pd_cards}</div>\n  </div>\n</section>\n\n'
 

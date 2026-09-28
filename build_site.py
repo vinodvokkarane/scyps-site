@@ -71,7 +71,7 @@ FACULTY = {
     "affiliated": [
         {"name": "Alkim Akyurtlu", "photo": "akyurtlu", "title": "Professor, Electrical and Computer Engineering; Director, Raytheon UMass Lowell Research Institute (RURI); Director, Printed Electronics Research Collaborative (PERC)",
          "areas": "Additive manufacturing and printed electronics for RF and microwave devices, wearables, functional printable inks, metamaterials",
-         "note": "PI of BOND-AI, the NextFlex award on physics-informed reliability qualification for high-temperature printed interfaces, with the director as Co-PI.", "email": "Alkim_Akyurtlu@uml.edu", "phone": "978-934-3336", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/akyurtlu-alkim.aspx"},
+         "note": "PI of BOND-AI, the SEMI/FlexTech award on physics-informed reliability qualification for high-temperature printed interfaces, with the director as Co-PI.", "email": "Alkim_Akyurtlu@uml.edu", "phone": "978-934-3336", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/akyurtlu-alkim.aspx"},
         {"name": "Yu Cao", "photo": "cao", "title": "Professor, Miner School of Computer and Information Sciences; Director, UMass Center for Digital Health",
          "areas": "Medical imaging, multimodal deep learning, computer vision, AI, digital health", "email": "yu_cao@uml.edu", "phone": "978-934-3628", "url": "https://www.uml.edu/sciences/computer-science/people/cao-yu.aspx"},
         {"name": "Supriya Chakrabarti", "photo": "chakrabarti", "title": "Professor, Physics and Applied Physics; Director, Lowell Center for Space Science and Technology (LoCSST)",
@@ -94,7 +94,7 @@ FACULTY = {
          "url": "https://www.uml.edu/engineering/civil-environmental/faculty-staff-students/faculty/pagsuyoin-sheree.aspx"},
         {"name": "Oshadha Ranasingha", "photo": "ranasingha", "title": "Assistant Professor, Electrical and Computer Engineering; PERC and RURI",
          "areas": "Functional inks for printed electronics and additive manufacturing, fully printed micro-supercapacitors, energy harvesting, hardware authentication",
-         "note": "Co-PI on BOND-AI, the NextFlex award on high-temperature printed interfaces and bond joints.", "email": "oshadha_ranasingha@uml.edu", "phone": "978-934-2336", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/ranasingha-oshadha.aspx"},
+         "note": "Co-PI on BOND-AI, the SEMI/FlexTech award on high-temperature printed interfaces and bond joints.", "email": "oshadha_ranasingha@uml.edu", "phone": "978-934-2336", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/ranasingha-oshadha.aspx"},
         {"name": "Hengyong Yu", "photo": "yu", "title": "Professor, Electrical and Computer Engineering",
          "areas": "Biomedical imaging, medical image reconstruction, image processing and analysis", "email": "Hengyong_Yu@uml.edu", "phone": "978-934-6756", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/yu-hengyong.aspx"},
     ],
@@ -145,11 +145,11 @@ PROJECTS = [
      "team": "PI Vinod Vokkarane; performed at UMLARC",
      "desc": "Applied AI models that fuse multi-sensor intelligence feeds to plan and optimize autonomous robotic missions.",
      "domain": "Autonomy"},
-    {"tag": "New in 2026", "sponsor": "NextFlex (FlexTech Alliance)", "role": "Co-PI",
+    {"tag": "New in 2026", "sponsor": "SEMI/FlexTech", "role": "Co-PI",
      "title": "BOND-AI: A Standardized Reliability Qualification Methodology for High-Temperature Printed Interfaces and Bond Joints, Enabled by Physics-Informed AI, on a 500 \u00b0C-Capable Alumina Platform",
      "amount": "$1.0M", "share": "$500K direct plus $500K cost share", "period": "Oct 2026, 12 months",
      "team": "PI Alkim Akyurtlu (Director, RURI and PERC); Co-PIs Vinod Vokkarane, Oshadha Ranasingha, and Scott Stapleton; with Applied Nanotech, Bayflex Solutions, RAGE Systems, and RTX",
-     "desc": "A qualification methodology for printed interfaces and bond joints that must survive 500 \u00b0C, using physics-informed AI to predict reliability rather than test it one sample at a time.",
+     "desc": "Printed interfaces and bond joints that must survive 500 \u00b0C are qualified today one sample at a time. BOND-AI builds a standard qualification method and uses physics-informed AI to predict reliability, so fewer parts need to be destroyed to prove a process. Also active: NextFlex Project 9.5.4, with the XTPL Delta printer as cost share.",
      "url": "https://bondai-portal.onrender.com/", "link": "Project portal",
      "domain": "Printed electronics"},
     {"tag": "New in 2026", "sponsor": "U.S. Army",
@@ -3206,7 +3206,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.41"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.42"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -5996,7 +5996,7 @@ def ld_summit():
 def ld_jobs():
     return {"@context": "https://schema.org", "@graph": [
         {"@type": "JobPosting", "title": "Fully funded M.S. Research Assistantship (BOND-AI, ARPO, ARPO-Sensor Fusion), U.S. citizens only",
-         "description": "Tuition and stipend for a master's degree in electrical or computer engineering at UMass Lowell while working on BOND-AI (NextFlex), ARPO (U.S. Army), or ARPO-Sensor Fusion (Massachusetts Technology Collaborative). U.S. citizenship required by the sponsors.",
+         "description": "Tuition and stipend for a master's degree in electrical or computer engineering at UMass Lowell while working on BOND-AI (SEMI/FlexTech), ARPO (U.S. Army), or ARPO-Sensor Fusion (Massachusetts Technology Collaborative). U.S. citizenship required by the sponsors.",
          "datePosted": "2026-09-21", "employmentType": ["FULL_TIME", "INTERN"], "url": f"{SITE_URL}positions.html", "directApply": False,
          "eligibilityToWorkRequirement": "U.S. citizenship required",
          "hiringOrganization": {"@type": "Organization", "name": "University of Massachusetts Lowell", "sameAs": "https://www.uml.edu/"},
@@ -6020,7 +6020,7 @@ POSITIONS = [
      "apply": POSTDOC_URL, "apply_label": "Apply through UMass Lowell careers"},
     {"kind": "M.S. research assistantships", "title": "Fully funded M.S. research assistantships on BOND-AI, ARPO, and ARPO-Sensor Fusion (U.S. citizens only)",
      "group": "Advanced Communication Networks Laboratory (Vokkarane), with the BOND-AI team (Akyurtlu, Ranasingha, Stapleton)", "status": "Open",
-     "what": "Tuition and a stipend for a master's degree in electrical or computer engineering while working on one of three funded projects: BOND-AI, a NextFlex program on physics-informed AI for qualifying printed interfaces and bond joints that must survive 500 \u00b0C; ARPO, a U.S. Army project on autonomous robotic planning and optimization over contested networks; or ARPO-Sensor Fusion, a Massachusetts Technology Collaborative project on AI models that fuse multi-sensor intelligence feeds for autonomous missions, performed at UMLARC.",
+     "what": "Tuition and a stipend for a master's degree in electrical or computer engineering while working on one of three funded projects: BOND-AI, a SEMI/FlexTech program on physics-informed AI for qualifying printed interfaces and bond joints that must survive 500 \u00b0C; ARPO, a U.S. Army project on autonomous robotic planning and optimization over contested networks; or ARPO-Sensor Fusion, a Massachusetts Technology Collaborative project on AI models that fuse multi-sensor intelligence feeds for autonomous missions, performed at UMLARC.",
      "want": "U.S. citizenship, which the sponsors require. A B.S. in ECE, CS, mechanical engineering, or materials science; strength in at least one of machine learning, embedded systems, robotics, or materials characterization; the ability to start in spring or fall 2027. Say which project you want and why.",
      "apply": "mailto:Vinod_Vokkarane@uml.edu?subject=M.S.%20research%20assistantship%20(BOND-AI%20%2F%20ARPO)", "apply_label": "Write to the director with a CV"},
     {"kind": "Doctoral students", "title": "Ph.D. positions across the center's thrusts",

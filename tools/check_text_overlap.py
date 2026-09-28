@@ -10,6 +10,7 @@ JS = """() => {
   const out = [];
   const vis = el => { const s = getComputedStyle(el); if (s.visibility === 'hidden' || s.display === 'none' || +s.opacity === 0) return false;
       const bb = el.getBoundingClientRect(); if (bb.width <= 2 || bb.height <= 2) return false;
+      const d = el.closest('details'); if (d && !d.open && !el.closest('summary')) return false;   // inside a closed disclosure
       if ((s.clip && s.clip.startsWith('rect(0')) || (s.clipPath && s.clipPath.startsWith('inset(50'))) return false;
       let p = el; while (p && p !== document.body) { const ps = getComputedStyle(p); if (ps.display === 'none' || +ps.opacity < 0.2 || p.hidden) return false; p = p.parentElement; } return true; };
   // SVG text

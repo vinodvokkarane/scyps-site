@@ -2832,7 +2832,7 @@ FEDERATION = """<svg viewBox="0 0 900 120" xmlns="http://www.w3.org/2000/svg" ro
 # cyber-physical loop schematic (About section)
 SCHEMATIC = """<svg viewBox="0 0 760 490" role="img" aria-labelledby="schemTitle schemDesc" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Sans, Arial, sans-serif">
 <title id="schemTitle">How a smart cyber-physical system closes the loop</title>
-<desc id="schemDesc">Physical systems in energy, transportation, health and human performance, and manufacturing are measured by sensors, connected over a secure network, and understood by AI; the AI's decisions pass through people, who approve, override, or ask why, and the approved commands travel back over the network to actuators that act on the physical world.</desc>
+<desc id="schemDesc">Physical systems in energy, transportation, health and human performance, and manufacturing are measured by sensors, connected over a zero-trust network that verifies every device and command, and mirrored in a digital twin that AI uses to spot trouble and decide; the AI's decisions pass through people, who approve, override, or ask why, and the approved commands travel back over the network to actuators that act on the physical world. Nothing is trusted by default.</desc>
 <defs>
   <marker id="arrI" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#0E2036"/></marker>
   <marker id="arrS" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#0A777F"/></marker>
@@ -2898,7 +2898,7 @@ SCHEMATIC = """<svg viewBox="0 0 760 490" role="img" aria-labelledby="schemTitle
   <circle cx="378" cy="241" r="14" fill="#0A777F"/><circle cx="378" cy="241" r="5" fill="#fff"/>
 </g>
 <text x="378" y="148" text-anchor="middle" font-size="12.5" fill="#5B6B82">fast, reliable links: fiber, 5G, 6G</text>
-<text x="378" y="338" text-anchor="middle" font-size="12.5" fill="#5B6B82">every device verified, intrusions caught</text>
+<text x="380" y="332" text-anchor="middle" font-size="12.5" font-weight="600" fill="#0A777F">zero trust</text><text x="380" y="347" text-anchor="middle" font-size="12" fill="#5B6B82">every device and</text><text x="380" y="361" text-anchor="middle" font-size="12" fill="#5B6B82">command verified</text>
 
 <!-- edge -> core links -->
 <g fill="none" stroke="#D5DCE5" stroke-width="2"><path d="M283 98C296 98 302 170 316 200"/><path d="M283 200C290 200 298 221 306 226"/><path d="M283 302C290 302 298 261 306 256"/><path d="M283 404C296 404 302 312 316 282"/></g>
@@ -2913,7 +2913,7 @@ SCHEMATIC = """<svg viewBox="0 0 760 490" role="img" aria-labelledby="schemTitle
   <g fill="none" stroke="#0A777F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
     <path d="M540 212l6-8 5 5 6-10 5 6"/><path d="M539 256h8l4-8 4 12 4-6h8"/><path d="M540 302l7-7 5 5 9-9M563 291h-6v6"/>
   </g>
-  <g font-size="12.5" fill="#0E2036"><text x="576" y="211">Spot trouble early</text><text x="576" y="255">Know the true state</text><text x="576" y="299">Decide and act safely</text></g>
+  <g font-size="12.5" fill="#0E2036"><text x="576" y="211">Spot trouble early</text><text x="576" y="255">Keep a digital twin</text><text x="576" y="299">Decide and act safely</text></g>
   <g fill="#3BA995"><circle cx="702" cy="207" r="4" class="pulse"/><circle cx="702" cy="251" r="4" class="pulse" style="animation-delay:1s"/><circle cx="702" cy="295" r="4" class="pulse" style="animation-delay:2s"/></g>
   <text x="622" y="336" text-anchor="middle" font-size="12" fill="#5B6B82">from the device to the cloud</text>
 </g>
@@ -2934,7 +2934,7 @@ SCHEMATIC = """<svg viewBox="0 0 760 490" role="img" aria-labelledby="schemTitle
 </g>
 <!-- the approved commands travel back over the network to the actuators -->
 
-<text x="392" y="472" text-anchor="middle" font-size="12.5" fill="#5B6B82">Sense. Communicate. Decide with people. Act.</text>
+<text x="392" y="472" text-anchor="middle" font-size="12.5" fill="#5B6B82">Sense. Communicate. Decide with people. Act. Nothing is trusted by default.</text>
 </svg>"""
 
 ICONS = {
@@ -3064,7 +3064,7 @@ THRUST_DETAIL.update({
         "work": [
             ("Multi-band and space-division optical networks", "Planning and controlling networks that use several spectral bands and several fiber cores at once, with quality of transmission built into every allocation decision, and the open-source FUSION framework that lets others reproduce the results."),
             ("Fault-tolerant distributed and edge computing", "Consensus and state machine replication that stay correct under crashes and attacks, blockchain systems, satellite-edge coordination, and digital twins delivered from hybrid clouds."),
-            ("Hardware security and attestation", "Proving that a grid edge device or a controller is running the code it should be, and finding trojans at the register-transfer level before hardware is fabricated."),
+            ("Zero trust for cyber-physical systems", "Nothing on the network is trusted by default: every device proves what it is running, every measurement is checked, and every command is authenticated before an actuator obeys it. Zero trust was built for IT networks, where verification costs milliseconds; a protection relay may have only a few milliseconds in total, and legacy equipment cannot run modern cryptography, so the thrust works on zero trust that meets real-time deadlines on equipment that cannot be replaced, with hardware attestation and register-transfer-level trojan detection as its foundation."),
             ("Printed electronics for hard places", "Flexible and high-temperature printed interfaces and bond joints, qualified with physics-informed AI so fewer parts have to be destroyed to prove a process."),
         ],
         "projects": ["Flexible Spectrum Allocation", "Towards Fault-tolerant Edge", "Planning Federated AI-Ready", "BOND-AI", "Open-Source Research", "Full-Duplex Cognitive Radio", "Enabling tunable electronic device"],
@@ -3074,7 +3074,7 @@ THRUST_DETAIL.update({
         "question": "How does a system that senses the physical world turn what it senses into decisions it can be trusted to act on?",
         "lede": "This thrust owns the AI methods the other thrusts apply: sensing and fusion, state estimation, learning across sites without moving data, and computing that keeps its data honest under load. It builds machine awareness of what a physical system is doing, made to feed the people who decide, and it puts limits on what an AI agent may do to infrastructure on its own.",
         "work": [
-            ("Sensing, fusion, and state recovery", "Recovering what a grid, a road network, or a patient's image is doing from incomplete and sometimes corrupted measurements, with physics in the model, not only data."),
+            ("Digital twins, sensing, and state recovery", "Live models that stay in step with a grid, a network, or a manufactured part, built from incomplete and sometimes corrupted measurements with physics in the model, not only data: SUMMIT's real-time simulators with hardware in the loop, NATIG's co-simulation of a grid and its wireless network, twins delivered from hybrid clouds, and physics-informed models that predict a part's reliability without destroying it."),
             ("Learning without moving the data", "Federated learning across utilities, hospitals, and trial sites, so the model travels and the data does not, with the privacy guarantees written in from the start."),
             ("High-performance computing and data integrity", "Compression and anomaly detection for scientific data, and computing systems that detect silent data corruption before it reaches a result."),
             ("Agentic control within limits", "AI agents that plan and act on physical systems, from autonomous robotic planning for the Army to grid-aware data centers, with the guardrails that decide what they may do without a person."),
@@ -3100,10 +3100,10 @@ THRUSTS = [
      "Keeping the grid, nuclear plants, transportation systems, and civil infrastructure operating through attacks and disasters: attack-aware dispatch, false-data detection, observability-aware sensing and communication, joint power-and-communication restoration, and the SUMMIT federated testbed that ties three universities' hardware into one grid experiment.",
      "Aghara, Xie, Lin, Vokkarane, Niezrecki, Inalpolat, Pagsuyoin, Chakrabarti, Srivastava, Zhao, Jain"),
     ("networks", "Next-generation networks and trusted devices",
-     "The networks that carry cyber-physical traffic and the devices at their edge: multi-band and space-division optical transport, 6G, fault-tolerant distributed and edge computing, hardware security and attestation, and printed electronics that survive where silicon cannot.",
+     "The networks that carry cyber-physical traffic and the devices at their edge: multi-band and space-division optical transport, 6G, fault-tolerant distributed and edge computing, zero-trust architecture for operational technology, hardware security and attestation, and printed electronics that survive where silicon cannot.",
      "Tseng, Arias, Vokkarane, Chigan, Akyurtlu, Ranasingha, Dempsey"),
     ("cpai", "Cyber-physical AI",
-     "The AI methods the other thrusts apply: sensing and fusion, state estimation, learning across sites without moving data, high-performance computing with data integrity, and agentic control that is allowed to act on physical infrastructure only within limits people set. Machine awareness built to feed human decisions.",
+     "The AI methods the other thrusts apply: digital twins, sensing and fusion, state estimation, learning across sites without moving data, high-performance computing with data integrity, and agentic control that is allowed to act on physical infrastructure only within limits people set. Machine awareness built to feed human decisions.",
      "Luo, Son, Vokkarane, Cao, Yu, Margala"),
     ("people", "People in the loop",
      "The center's emerging thrust: how people and AI share decisions in systems where a mistake has physical consequences. Trust between people and robots, the ethics of algorithms that act on infrastructure, decision-making under pressure, and the education and workforce research that trains the people who will run these systems.",
@@ -3255,7 +3255,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.58"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.59"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the

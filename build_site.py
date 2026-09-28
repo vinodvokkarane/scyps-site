@@ -72,7 +72,7 @@ FACULTY = {
         {"name": "Alkim Akyurtlu", "photo": "akyurtlu", "title": "Professor, Electrical and Computer Engineering; Director, Raytheon UMass Lowell Research Institute (RURI); Director, Printed Electronics Research Collaborative (PERC)",
          "areas": "Additive manufacturing and printed electronics for RF and microwave devices, wearables, functional printable inks, metamaterials",
          "note": "PI of BOND-AI, the SEMI/FlexTech award on physics-informed reliability qualification for high-temperature printed interfaces, with the director as Co-PI.", "email": "Alkim_Akyurtlu@uml.edu", "phone": "978-934-3336", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/akyurtlu-alkim.aspx"},
-        {"name": "Yu Cao", "photo": "cao", "title": "Professor, Miner School of Computer and Information Sciences; Director, UMass Center for Digital Health",
+        {"name": "Yu Cao", "photo": "cao", "title": "Professor, Miner School of Computer and Information Sciences",
          "areas": "Medical imaging, multimodal deep learning, computer vision, AI, digital health", "email": "yu_cao@uml.edu", "phone": "978-934-3628", "url": "https://www.uml.edu/sciences/computer-science/people/cao-yu.aspx"},
         {"name": "Supriya Chakrabarti", "photo": "chakrabarti", "title": "Professor, Physics and Applied Physics; Director, Lowell Center for Space Science and Technology (LoCSST)",
          "areas": "Space experiments and instrumentation, hyperspectral imaging from the UV to the near infrared, lidar, exoplanets and planetary atmospheres", "email": "Supriya_Chakrabarti@uml.edu", "phone": "978-934-3287",
@@ -3255,7 +3255,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.55"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.56"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3700,14 +3700,6 @@ LABS = [
                 "Hyperspectral imaging and lidar systems"],
      "links": [("LoCSST", "https://www.uml.edu/research/locsst/")],
      "art": "locsst"},
-    {"name": "UMass Center for Digital Health", "lead": "Yu Cao",
-     "dept": "Miner School of Computer and Information Sciences",
-     "what": "A multi-campus partnership across Lowell, Worcester, and Boston working on digital health innovation, from medical imaging to platforms that move clinical data safely.",
-     "offers": ["Medical imaging and multimodal deep learning",
-                "Validation and evaluation of digital health tools",
-                "Clinical data platforms and academic-industry partnership"],
-     "links": [("Center for Digital Health", "https://www.uml.edu/research/digital-health/")],
-     "art": "cdh"},
     {"name": "Center for Energy Innovation and the Rist Institute for Sustainability and Energy",
      "lead": "Christopher Niezrecki, with Murat Inalpolat", "dept": "Mechanical and Industrial Engineering",
      "what": "Renewable energy systems and structural health monitoring: wind turbine dynamics, inspection of blades and bridges, and the sensing that keeps large structures safe.",
@@ -4155,7 +4147,7 @@ ORG = ORG.replace("</svg>", "") + "".join(_boxes) + """
 <text x="885" y="526" text-anchor="middle" font-size="16" font-weight="600" fill="#0E2036">Instruments</text>
 <text x="885" y="554" text-anchor="middle" font-size="13.5" fill="#5B6B82">The SUMMIT federated testbed, the NATIG co-simulation testbed,</text>
 <text x="885" y="576" text-anchor="middle" font-size="13.5" fill="#5B6B82">the open-source FUSION framework, and the member laboratories:</text>
-<text x="885" y="598" text-anchor="middle" font-size="13.5" fill="#5B6B82">ACNL, INSSL, PERC and RURI, LoCSST, CDH, and CEI</text>
+<text x="885" y="598" text-anchor="middle" font-size="13.5" fill="#5B6B82">ACNL, INSSL, PERC and RURI, LoCSST, and CEI</text>
 <path d="M321 462v32M885 462v32" stroke="#D5DCE5" stroke-width="1.4"/>
 </svg>"""
 ORG = theme_svg(ORG)

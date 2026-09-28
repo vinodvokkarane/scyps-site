@@ -2691,6 +2691,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .stupub .lbl{display:block;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3);margin-bottom:4px}
 .stupub .v{display:block;color:var(--ink-3);font-size:12.5px;margin-top:4px}
 .stufig{margin:18px 0 0;align-self:stretch;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px}
+.vid{margin-top:18px}.vidwide{max-width:980px;margin:34px auto 0}.vidwide .vidlabel{font-family:Fraunces,Georgia,serif;font-size:24px;font-weight:500}.vid video{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--line);background:#0E2036;display:block}.vidlabel{font-weight:600;color:var(--ink);margin:0 0 8px}.vid details{margin-top:8px;font-size:14.5px;color:var(--ink-2)}.vid summary{cursor:pointer;color:var(--acc-ink,#0A777F);font-weight:600}.vidnote{font-size:14px;margin-top:6px}
 .club{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:18px 22px;margin:0 0 26px;max-width:760px}.club .kick{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin:0 0 4px}.club h4{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:22px;margin:0 0 8px}.club p{margin:0 0 8px}.club .meta{font-size:14.5px;color:var(--ink-2)}
 .stufig img{width:100%;height:150px;object-fit:contain;display:block}
 .stufig .svgfig,.stufig img{margin-bottom:6px}
@@ -3255,7 +3256,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.60"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.61"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -5303,9 +5304,21 @@ def build():
     <div class="loop">
       <figure class="schem">{SCHEMATIC}</figure>
       <div class="txt">
-        <h3>One loop, three domains</h3>
+        <h3>One loop, four domains</h3>
         <p>Every system the center studies closes the same loop: physical processes are sensed at the edge, carried over optical and wireless transport, analysed by AI and high-performance computing, and controlled in real time. The research question is how to keep that loop fast, trustworthy, and recoverable when parts of it are attacked or fail.</p>
       </div>
+    </div>
+    <div class="vid vidwide">
+      <p class="vidlabel">Watch the loop in 40 seconds</p>
+      <video controls playsinline preload="none" poster="media/center-loop-poster.jpg" width="1280" height="720" aria-describedby="loop-transcript">
+        <source src="media/center-loop.mp4" type="video/mp4">
+        <track kind="captions" src="media/center-loop.vtt" srclang="en" label="English">
+        <a href="media/center-loop.mp4">Download the video</a>
+      </video>
+      <details id="loop-transcript"><summary>Transcript</summary>
+        <p>The grid, the road, the hospital, and the factory now run on data and AI. What keeps them safe when something goes wrong? It starts in the physical world: energy, transportation, health, manufacturing. Sensors measure what is happening, right now. A zero-trust network carries the data; every device and every command is verified. AI keeps a digital twin of the system, spots trouble early, and proposes what to do. People stay in the loop: they approve, override, or ask why. Approved commands travel back, and actuators act. The loop closes. Sense. Communicate. Decide with people. Act. Nothing is trusted by default.</p>
+      </details>
+      <p class="vidnote"><a href="media/center-loop-vertical.mp4" download>Vertical version for LinkedIn and Instagram</a></p>
     </div>
   </div>
 </section>

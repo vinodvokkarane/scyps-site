@@ -357,7 +357,7 @@ def page_project(p):
     body = f'''<section><div class="wrap"><p class="kick"><a href="../projects.html">Projects</a> / {esc(p.get("tag", ""))}</p>
 <h1 style="font-size:clamp(28px,3.6vw,42px)">{esc(p["title"])}</h1>
 <div class="stats" style="grid-template-columns:repeat(4,1fr)"><div><b style="font-size:24px">{esc(p.get("amount", "") or "")}</b>{esc(p["sponsor"])}</div><div><b style="font-size:24px">{esc(p.get("period", ""))}</b>period</div><div><b style="font-size:24px">{len(ack)}</b>papers acknowledging the award</div><div><b style="font-size:24px">{len(ppl)}</b>lab students and alumni on the work</div></div>
-<div class="two" style="margin-top:28px"><div><h2>The project</h2><p>{esc(p.get("desc", ""))}</p><p class="note">{esc(p.get("team", ""))}.</p>
+<div class="two" style="margin-top:28px"><div><h2>The project</h2><p>{esc(p.get("desc", ""))}</p>{('<p><a href="' + esc(p["url"]) + '">' + esc(p.get("link", "Project page")) + '</a></p>') if p.get("url") else ""}<p class="note">{esc(p.get("team", ""))}.</p>
 {("<p class=note>Award number: " + esc(", ".join(a for a in x.get("award", []) if not a.endswith("TDD"))) + inferred + "</p>") if x.get("award") else ""}</div>
 <div><h2>Students</h2>{("<p>" + ppl_html + "</p><p class=note>From the authors of " + ("the papers acknowledging this award." if ack else "the lab\\'s related work in the project period.") + "</p>") if ppl else "<p class=note>No lab students are identified on this project in the records yet.</p>"}</div></div>
 {("<h2 style=margin-top:30px>Architecture</h2><div class=archs>" + fig + "</div>") if fig else ""}

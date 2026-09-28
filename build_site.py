@@ -53,7 +53,7 @@ FACULTY = {
          "areas": "Robotics, human-robot interaction, trust in autonomous systems, multi-robot coordination, field and marine autonomy",
          "email": "Paul_Robinette@uml.edu", "phone": "978-934-3347",
          "url": "https://www.uml.edu/engineering/electrical-computer/faculty/robinette-paul.aspx",
-         "role": "Brings robotics and human-robot interaction to the center: trust and transparency between people and the machines they work with, multi-agent coordination, and autonomy for environments people should not enter. Works on the connected transportation, health, and infrastructure thrust, and connects the center to the Printed Electronics Research Collaborative and the Raytheon UMass Lowell Research Institute."},
+         "role": "Brings robotics and human-robot interaction to the center: trust and transparency between people and the machines they work with, multi-agent coordination, and autonomy for environments people should not enter. Works on the connected transportation, health, and infrastructure thrust, and connects the center to the Printed Electronics Research Collaborative and the Raytheon-UMass Lowell Research Institute."},
         {"name": "Seung Woo Son", "photo": "son", "title": "Associate Professor, Electrical and Computer Engineering",
          "areas": "High performance computing, parallel I/O and data-intensive computing, compiler optimizations, embedded systems",
          "email": "SeungWoo_Son@uml.edu", "phone": "978-934-6846", "office": "Ball Hall 419",
@@ -69,7 +69,7 @@ FACULTY = {
          "role": "Co-founder of the center in 2019 and founding co-director for transportation. Leads the connected transportation thrust; PI or Co-PI of the USDOT, MassDOT, and NETC transportation portfolio. Associate Editor of Accident Analysis & Prevention and of the IEEE Intelligent Transportation Systems Conference; Kikuchi-Karlaftis Best Paper Award (TRB, 2020) and the George N. Saridis Best Transactions Paper Award of IEEE Transactions on Intelligent Transportation Systems (2020).", "email": "Yuanchang_Xie@uml.edu", "phone": "978-934-3681", "url": "https://www.uml.edu/engineering/civil-environmental/faculty-staff-students/faculty/xie-yuanchang.aspx"},
     ],
     "affiliated": [
-        {"name": "Alkim Akyurtlu", "photo": "akyurtlu", "title": "Professor, Electrical and Computer Engineering; Director, Raytheon UMass Lowell Research Institute (RURI); Director, Printed Electronics Research Collaborative (PERC)",
+        {"name": "Alkim Akyurtlu", "photo": "akyurtlu", "title": "Professor, Electrical and Computer Engineering; Director, Raytheon-UMass Lowell Research Institute (RURI); Director, Printed Electronics Research Collaborative (PERC)",
          "areas": "Additive manufacturing and printed electronics for RF and microwave devices, wearables, functional printable inks, metamaterials",
          "note": "PI of BOND-AI, the SEMI/FlexTech award on physics-informed reliability qualification for high-temperature printed interfaces, with the director as Co-PI.", "email": "Alkim_Akyurtlu@uml.edu", "phone": "978-934-3336", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/akyurtlu-alkim.aspx"},
         {"name": "Yu Cao", "photo": "cao", "title": "Professor, Miner School of Computer and Information Sciences",
@@ -3255,7 +3255,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.56"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.57"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3683,7 +3683,7 @@ LABS = [
                 "Training through the IAEA-funded Intercontinental Nuclear Institute"],
      "links": [("INSSL", "https://www.uml.edu/Research/INSSL/")],
      "art": "inssl"},
-    {"name": "Printed Electronics Research Collaborative (PERC) and the Raytheon UMass Lowell Research Institute (RURI)",
+    {"name": "Printed Electronics Research Collaborative (PERC) and the Raytheon-UMass Lowell Research Institute (RURI)",
      "lead": "Alkim Akyurtlu, with Oshadha Ranasingha", "dept": "Electrical and Computer Engineering",
      "what": "Additive manufacturing and printed electronics for RF and microwave devices, wearables, and functional printable inks, with RURI as the industry-facing research institute.",
      "offers": ["Aerosol-jet and inkjet printing of functional materials",

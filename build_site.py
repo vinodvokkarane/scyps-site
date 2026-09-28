@@ -2832,7 +2832,7 @@ FEDERATION = """<svg viewBox="0 0 900 120" xmlns="http://www.w3.org/2000/svg" ro
 # cyber-physical loop schematic (About section)
 SCHEMATIC = """<svg viewBox="0 0 760 490" role="img" aria-labelledby="schemTitle schemDesc" xmlns="http://www.w3.org/2000/svg" font-family="IBM Plex Sans, Arial, sans-serif">
 <title id="schemTitle">How a smart cyber-physical system closes the loop</title>
-<desc id="schemDesc">Physical systems in energy, transportation, health and human performance, and manufacturing are measured by sensors, connected over a secure network, and understood by AI; the AI's decisions pass through people, who approve, override, or ask why, before anything acts on the world.</desc>
+<desc id="schemDesc">Physical systems in energy, transportation, health and human performance, and manufacturing are measured by sensors, connected over a secure network, and understood by AI; the AI's decisions pass through people, who approve, override, or ask why, and the approved commands travel back over the network to actuators that act on the physical world.</desc>
 <defs>
   <marker id="arrI" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#0E2036"/></marker>
   <marker id="arrS" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 1 10 5 0 9z" fill="#0A777F"/></marker>
@@ -2879,15 +2879,15 @@ SCHEMATIC = """<svg viewBox="0 0 760 490" role="img" aria-labelledby="schemTitle
   <text x="105" y="437" text-anchor="middle" font-size="13" font-weight="600" fill="#0E2036">Additive manufacturing</text>
 </g>
 
-<!-- edge nodes -->
+<!-- edge nodes: each domain is measured by sensors and changed by actuators -->
 <g class="card">
-  <rect x="212" y="83" width="62" height="30" rx="15" fill="#fff" stroke="#0A777F" stroke-width="1.6"/><rect x="212" y="185" width="62" height="30" rx="15" fill="#fff" stroke="#0A777F" stroke-width="1.6"/><rect x="212" y="287" width="62" height="30" rx="15" fill="#fff" stroke="#0A777F" stroke-width="1.6"/><rect x="212" y="389" width="62" height="30" rx="15" fill="#fff" stroke="#0A777F" stroke-width="1.6"/>
+  <rect x="205" y="78" width="78" height="40" rx="12" fill="#fff" stroke="#0A777F" stroke-width="1.6"/><rect x="205" y="180" width="78" height="40" rx="12" fill="#fff" stroke="#0A777F" stroke-width="1.6"/><rect x="205" y="282" width="78" height="40" rx="12" fill="#fff" stroke="#0A777F" stroke-width="1.6"/><rect x="205" y="384" width="78" height="40" rx="12" fill="#fff" stroke="#0A777F" stroke-width="1.6"/>
 </g>
-<g font-size="12.5" font-weight="600" fill="#0A777F" text-anchor="middle"><text x="243" y="102">sensors</text><text x="243" y="204">sensors</text><text x="243" y="306">sensors</text><text x="243" y="408">sensors</text></g>
+<g font-size="11.5" font-weight="600" fill="#0A777F" text-anchor="middle"><text x="244" y="94">sensors</text><text x="244" y="110">actuators</text><text x="244" y="196">sensors</text><text x="244" y="212">actuators</text><text x="244" y="298">sensors</text><text x="244" y="314">actuators</text><text x="244" y="400">sensors</text><text x="244" y="416">actuators</text></g>
 
-<!-- sense links: card -> edge -->
-<g fill="none" stroke="#D5DCE5" stroke-width="2"><path d="M180 98h32M180 200h32M180 302h32M180 404h32"/></g>
-<g fill="none" stroke="#3BA995" stroke-width="2.6" stroke-linecap="round"><path class="flow" d="M180 98h32"/><path class="flow slow" d="M180 200h32"/><path class="flow" d="M180 302h32"/><path class="flow slow" d="M180 404h32"/></g>
+<!-- sense links (card to node) and act links (node back to card) -->
+<g fill="none" stroke="#D5DCE5" stroke-width="2"><path d="M180 91h25M205 105h-25M180 193h25M205 207h-25M180 295h25M205 309h-25M180 397h25M205 411h-25"/></g>
+<g fill="none" stroke="#3BA995" stroke-width="2.4" stroke-linecap="round"><path class="flow" d="M180 91h25"/><path class="flow slow" d="M180 193h25"/><path class="flow" d="M180 295h25"/><path class="flow slow" d="M180 397h25"/><path class="flow slow" d="M205 105h-24" marker-end="url(#arrG)"/><path class="flow" d="M205 207h-24" marker-end="url(#arrG)"/><path class="flow slow" d="M205 309h-24" marker-end="url(#arrG)"/><path class="flow" d="M205 411h-24" marker-end="url(#arrG)"/></g>
 
 <!-- network core -->
 <g class="card">
@@ -2901,8 +2901,8 @@ SCHEMATIC = """<svg viewBox="0 0 760 490" role="img" aria-labelledby="schemTitle
 <text x="378" y="338" text-anchor="middle" font-size="12.5" fill="#5B6B82">every device verified, intrusions caught</text>
 
 <!-- edge -> core links -->
-<g fill="none" stroke="#D5DCE5" stroke-width="2"><path d="M274 98C296 98 302 170 316 200"/><path d="M274 200C290 200 298 221 306 226"/><path d="M274 302C290 302 298 261 306 256"/><path d="M274 404C296 404 302 312 316 282"/></g>
-<g fill="none" stroke="#0A777F" stroke-width="2.6" stroke-linecap="round"><path class="flow" d="M274 98C296 98 302 170 316 200"/><path class="flow slow" d="M274 200C290 200 298 221 306 226"/><path class="flow" d="M274 302C290 302 298 261 306 256"/><path class="flow slow" d="M274 404C296 404 302 312 316 282"/></g>
+<g fill="none" stroke="#D5DCE5" stroke-width="2"><path d="M283 98C296 98 302 170 316 200"/><path d="M283 200C290 200 298 221 306 226"/><path d="M283 302C290 302 298 261 306 256"/><path d="M283 404C296 404 302 312 316 282"/></g>
+<g fill="none" stroke="#0A777F" stroke-width="2.6" stroke-linecap="round"><path class="flow" d="M283 98C296 98 302 170 316 200"/><path class="flow slow" d="M283 200C290 200 298 221 306 226"/><path class="flow" d="M283 302C290 302 298 261 306 256"/><path class="flow slow" d="M283 404C296 404 302 312 316 282"/></g>
 
 <!-- compute card -->
 <g class="card">
@@ -2932,7 +2932,7 @@ SCHEMATIC = """<svg viewBox="0 0 760 490" role="img" aria-labelledby="schemTitle
   <text x="568" y="389" font-size="12.5" font-weight="600" fill="#0E2036">People stay in the loop</text>
   <text x="568" y="405" font-size="10.5" fill="#5B6B82">approve, override, ask why</text>
 </g>
-<!-- the approved commands travel back over the network to the sensors and actuators -->
+<!-- the approved commands travel back over the network to the actuators -->
 
 <text x="392" y="472" text-anchor="middle" font-size="12.5" fill="#5B6B82">Sense. Communicate. Decide with people. Act.</text>
 </svg>"""
@@ -3255,7 +3255,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.57"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.58"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the

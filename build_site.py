@@ -3214,7 +3214,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.52"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.53"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3305,6 +3305,7 @@ def _surname(name):
     if "," in name: name = name.split(",")[0]          # "Luo, Yan"
     return (name.split() or [""])[-1].strip(".").lower() if "," not in (name or "") else name.strip().lower()
 _curated_ids = set(re.findall(r"#(\d{7})", " ".join(p.get("sponsor", "") + " " + p.get("title", "") for p in PROJECTS)))
+_curated_ids |= {"NIH-" + x for x in re.findall(r"Project ([A-Z0-9]{11,12})", " ".join(p.get("sponsor", "") for p in PROJECTS))}
 from uml_roster import roster_match, split_name, is_uml
 for a in _auto_grants.get("awards", []):
     if str(a.get("id", "")) in _curated_ids: continue
@@ -3319,15 +3320,22 @@ for a in _auto_grants.get("awards", []):
     try: end_ok = datetime.datetime.strptime(a.get("end", ""), "%m/%d/%Y").date() >= datetime.date.today() - datetime.timedelta(days=365)
     except Exception: pass
     if not end_ok: continue
-    PROJECTS.append({"tag": "New" if a.get("found", "") >= (datetime.date.today() - datetime.timedelta(days=120)).isoformat() else "Active",
+    def _d(x):
+        try: return datetime.datetime.strptime(x or "", "%m/%d/%Y").date()
+        except Exception: return None
+    _st, _en = _d(a.get("start")), _d(a.get("end")); _today = datetime.date.today()
+    _tag = ("Completed" if _en and _en < _today else
+            ("New in " + str(_st.year)) if _st and (_today - _st).days <= 365 else "Active")
+    _copis = [re.sub(r"\s+\S+@\S+", "", c).replace(" (Former)", "").strip() for c in (a.get("copis") or [])]
+    PROJECTS.append({"tag": _tag,
                      "role": a["role"], "lead_person": a["roster_person"],
                      "url": a.get("url", ""), "link": "NIH RePORTER record" if a.get("source") == "NIH" else "",
                      "sponsor": ((f"National Institutes of Health, {a['program']} (Project {a['id'][4:]})") if a.get("source") == "NIH" else
                                  ("National Science Foundation" + (f", {a['program']}" if a.get("program") else "") + f" (Award #{a['id']})")),
                      "title": a["title"], "amount": _fmt_amt(a.get("amount")), "period": _fmt_period(a.get("start"), a.get("end")),
-                     "team": "PI " + a.get("pi", "") + ("; Co-PIs " + ", ".join(a["copis"]) if a.get("copis") else ""),
+                     "team": "PI " + a.get("pi", "") + ("; Co-PIs " + ", ".join(_copis) if _copis else ""),
                      "desc": f"From the {'NIH RePORTER' if a.get('source') == 'NIH' else 'NSF Awards'} database, verified as a UMass Lowell award with a center member as " + a["role"] + ".",
-                     "domain": "NIH" if a.get("source") == "NIH" else "NSF"})
+                     "domain": "NIH" if a.get("source") == "NIH" else "NSF", "auto_id": str(a.get("id", ""))})
 
 
 # --- Yan Luo's awards active since the center's founding (Sept. 2019), from his CV (Sept. 2026).
@@ -3337,7 +3345,7 @@ PROJECTS += [
      "title": "BioSPACE: Biosensing Surveillance of Pathogens in Aquaculture and Coastal Environments",
      "amount": "$1.0M", "period": "Sept 2023 to Aug 2027", "team": "PI Yan Luo; Co-PIs Sheree Pagsuyoin, Frederic Chain, J. Jayapalan",
      "desc": "Partnership for Innovation project on sensing and surveillance of pathogens in aquaculture and coastal waters.", "domain": "Sensing"},
-    {"tag": "Active", "sponsor": "National Institutes of Health", "role": "Co-PI",
+    {"tag": "Active", "sponsor": "National Institutes of Health, NIBIB (Project R01EB034737)", "role": "Co-PI",
      "title": "Unsupervised Deep PCCT Reconstruction for Human Extremity Imaging",
      "amount": "$2.30M", "period": "July 2023 to Apr 2027", "team": "PI Hengyong Yu; Co-PIs Yan Luo, Yu Cao",
      "desc": "Deep learning reconstruction for photon-counting CT imaging of human extremities.", "domain": "Health"},
@@ -3562,6 +3570,12 @@ def project_pi(pr):
 
 _ROLE_SEG = [(r"^Lead PI\s+(.*)$", "Lead PI"), (r"^(?:UMass Lowell )?PI\s+(.*)$", "PI"), (r"^Lead:\s+(.*)$", "Lead"),
              (r"^Co-director:\s+(.*)$", "Co-director"), (r"^Co-PIs?\s+(.*)$", "Co-PI")]
+# --- a pulled award is dropped once any curated entry carries its number (curated blocks above are added
+# after the pull, so this check runs on the finished list)
+_final_ids = set(re.findall(r"#(\d{7})", " ".join(p.get("sponsor", "") + " " + p.get("title", "") for p in PROJECTS if not p.get("auto_id"))))
+_final_ids |= {"NIH-" + x for x in re.findall(r"Project ([A-Z0-9]{11,12})", " ".join(p.get("sponsor", "") for p in PROJECTS if not p.get("auto_id")))}
+PROJECTS[:] = [p for p in PROJECTS if not p.get("auto_id") or p["auto_id"] not in _final_ids]
+
 def project_people(pr):
     """Every investigator named on the team line, as (roster name, role) in the order written: PI, UMass
     Lowell PI, Lead PI, Lead, Co-director, and Co-PIs. Senior personnel, 'with ...' collaborators, and

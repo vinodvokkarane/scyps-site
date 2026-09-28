@@ -1,7 +1,63 @@
 {
- "date": "2026-09-16",
+ "date": "2026-09-28",
  "pubs": [
-  "Luo: LLM Based Static Malware Analysis for Windows Portable Executables",
-  "Evans: Mapping the Scientific Mesolevel: Where Are We Aiming?"
- ]
+  "Vokkarane: Communication Network-Aware Missing Data Recovery for Enhanced Distrib"
+ ],
+ "grants": [
+  "NSF #2008530 Vinod Vokkarane: CNS Core: Small: Flexible Spectrum Allocation in Next-Genera",
+  "NSF #1823766 Yan Luo: I-Corps: Embedded Machine Vision for Accurate Gait Analyses ",
+  "NSF #2034530 Chunxiao Chigan: CCSS: Collaborative Research: Intelligent Full-Duplex Cognit",
+  "NSF #1734521 Nicholas Evans: Standard Grant: Ethical Algorithms in Autonomous Vehicles",
+  "NSF #1538100 Murat Inalpolat: Acoustics-based Structural Health Monitoring of Closed-Cavit",
+  "NSF #1916715 Christopher Niezrecki: Phase II IUCRC at University of Massachusetts Lowell:  Cente",
+  "NSF #1362022 Christopher Niezrecki: I/UCRC:  Wind Energy, Science, Technology, and Research (Win",
+  "NSF #1944157 Sheree Pagsuyoin: CAREER: Environmental Fate and Ecosystem Impacts of Drugs of",
+  "NSF #NIH-R01EB034737 Hengyong Yu: Unsupervised Deep Photon-Counting Computed Tomography  Recon",
+  "NSF #NIH-R21CA264772 Hengyong Yu: SPECT with a Compton Camera for Thyroid Cancer Imaging"
+ ],
+ "orcid": [
+  "1 ORCID funding entries to review"
+ ],
+ "scholar": [
+  "Vinod M. Vokkarane: 5,963 citations, h 35, i10 88",
+  "Lewis Tseng: 1,888 citations, h 18, i10 32",
+  "Hengyong Yu: 14,279 citations, h 54, i10 182",
+  "Yuanchang Xie: 7,383 citations, h 38, i10 75",
+  "Christopher Niezrecki: 8,984 citations, h 45, i10 125",
+  "Yan Luo: 4,808 citations, h 34, i10 68",
+  "Yu Cao: 10,500 citations, h 46, i10 98",
+  "Murat Inalpolat: 2,385 citations, h 19, i10 27",
+  "Martin Margala: 5,039 citations, h 35, i10 100",
+  "Yuzhang Lin: 2,443 citations, h 26, i10 49",
+  "Seung Woo Son: 1,815 citations, h 23, i10 44",
+  "Sukesh Aghara: 594 citations, h 12, i10 15",
+  "Paul Robinette: 2,434 citations, h 22, i10 39",
+  "Alkim Akyurtlu: 1,501 citations, h 22, i10 37",
+  "Chunxiao (Tricia) Chigan: 1,251 citations, h 22, i10 35",
+  "Orlando Arias: 1,996 citations, h 13, i10 16",
+  "Sheree A. Pagsuyoin: 927 citations, h 16, i10 25",
+  "Md Zahidul Islam: 194 citations, h 7, i10 7",
+  "Shamsun Nahar Edib: 121 citations, h 6, i10 4",
+  "Yue Wang: 24 citations, h 3, i10 2",
+  "Yan Cui: 28 citations, h 3, i10 1",
+  "Dylan A. P. Davis: 65 citations, h 6, i10 1",
+  "Arash Deylamsalehi: 133 citations, h 7, i10 4",
+  "Jeremy M. Plante: 242 citations, h 9, i10 6",
+  "Amir Ehsani Zonouz: 399 citations, h 9, i10 9",
+  "Thilo Schöndienst: 101 citations, h 7, i10 3",
+  "Juzi Zhao: 627 citations, h 12, i10 14",
+  "Arush Gadkar: 141 citations, h 8, i10 3",
+  "Balagangadhar Bathula: 710 citations, h 14, i10 19",
+  "Nicholas G. Evans: 1,844 citations, h 22, i10 45",
+  "Oshadha Ranasingha: 428 citations, h 8, i10 8",
+  "Anurag Srivastava: 14,921 citations, h 59, i10 251",
+  "Arash Rezaee: 100 citations, h 5, i10 2",
+  "Ryan McCann: 48 citations, h 3, i10 1",
+  "Kenneth Patrick Watts: 59 citations, h 5, i10 3"
+ ],
+ "graph": [
+  "2 paper(s) refreshed",
+  "PROBLEM 1 fetch(es) failed"
+ ],
+ "journals": []
 }

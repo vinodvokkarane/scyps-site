@@ -143,12 +143,12 @@
     <description>New award: Planning Federated AI-Ready Cyberinfrastructure for Advanced Microscopy and Imaging: A Teach-Explore-Design Framework for Community-Driven Infrastructure. National Science Foundation, OAC Category III ($499K).</description>
   </item>
   <item>
-    <title>Communication Network-Aware Missing Data Recovery for Enhanced Distribution Grid Visibility</title>
+    <title>2 papers in IEEE Power &amp; Energy Society General Meeting (PESGM)</title>
     <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2026-07-6eb5ad7f05</guid>
+    <guid isPermaLink="false">scyps-2026-07-efac74daef</guid>
     <category>Conference</category>
     <pubDate>01 Jul 2026 00:00:00 +0000</pubDate>
-    <description>Vinod M. Vokkarane, Yuzhang Lin: &quot;Communication Network-Aware Missing Data Recovery for Enhanced Distribution Grid Visibility&quot; in IEEE Power &amp; Energy Society General Meeting (PESGM).</description>
+    <description>Vinod M. Vokkarane, Yuzhang Lin: 2 new papers in IEEE Power &amp; Energy Society General Meeting (PESGM).</description>
   </item>
   <item>
     <title>LLM Based Static Malware Analysis for Windows Portable Executables</title>
@@ -287,6 +287,14 @@
     <description>Orlando Arias, Vinod M. Vokkarane: &quot;QoS-Aware Service Restoration in 5G Optical Transport Networks&quot; in 2025 International Conference on Optical Network Design and Modeling (ONDM).</description>
   </item>
   <item>
+    <title>Center: IUCRC Phase III University of Massachusetts Lowell: Center for Wind Energy Science, Technology, and Research (WindSTAR)</title>
+    <link>https://smartcyberphysical.org/news.html</link>
+    <guid isPermaLink="false">scyps-2025-12-30c18ccb8c</guid>
+    <category>Award</category>
+    <pubDate>01 Dec 2025 00:00:00 +0000</pubDate>
+    <description>New award: Center: IUCRC Phase III University of Massachusetts Lowell: Center for Wind Energy Science, Technology, and Research (WindSTAR). National Science Foundation, IUCRC-Indust-Univ Coop Res Ctr ($250K).</description>
+  </item>
+  <item>
     <title>Two GLOBECOM 2025 papers from the Tseng group: satellite-edge-enabled multi-drone search and content-aware gossip for mobile device clouds</title>
     <link>https://smartcyberphysical.org/news.html</link>
     <guid isPermaLink="false">scyps-2025-12-7d65058b25</guid>
@@ -317,14 +325,6 @@
     <category>Conference</category>
     <pubDate>01 Nov 2025 00:00:00 +0000</pubDate>
     <description>Yuanchang Xie: &quot;VUD-FC: A Heterogeneous Behavior-Oriented Adaptive Control Approach Using Variable Universe of Discourse Fuzzy Strategy&quot; in IEEE 28th International Conference on Intelligent Transportation Systems (ITSC).</description>
-  </item>
-  <item>
-    <title>WIP: What Employers Want: A Data-Driven Analysis of Soft Skill Trends in Computer Science Job Postings (2012-2024)</title>
-    <link>https://doi.org/10.1109/FIE63693.2025.11328524</link>
-    <guid isPermaLink="false">scyps-2025-11-684c08d325</guid>
-    <category>Conference</category>
-    <pubDate>01 Nov 2025 00:00:00 +0000</pubDate>
-    <description>Lewis Tseng: &quot;WIP: What Employers Want: A Data-Driven Analysis of Soft Skill Trends in Computer Science Job Postings (2012-2024)&quot; in IEEE Frontiers in Education Conference (FIE).</description>
   </item>
 </channel>
 </rss>

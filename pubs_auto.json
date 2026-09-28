@@ -35,6 +35,26 @@
    ],
    "area": "Ethics of technology",
    "found": "2026-09-16"
+  },
+  {
+   "year": 2026,
+   "authors": [
+    "B. R. Jyoti Arka",
+    "M. Z. Islam",
+    "Y. Lin",
+    "V. M. Vokkarane",
+    "J. Zhao"
+   ],
+   "title": "Communication Network-Aware Missing Data Recovery for Enhanced Distribution Grid Visibility",
+   "venue": "IEEE Power & Energy Society General Meeting (PESGM)",
+   "details": "pp. 1-5, July 2026",
+   "doi": "10.1109/pesgm58988.2026.11693265",
+   "type": "conference",
+   "faculty": [
+    "Vokkarane"
+   ],
+   "area": "Optical networks",
+   "found": "2026-09-28"
   }
  ]
 }

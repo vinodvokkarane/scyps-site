@@ -149,7 +149,7 @@ PROJECTS = [
      "title": "BOND-AI: A Standardized Reliability Qualification Methodology for High-Temperature Printed Interfaces and Bond Joints, Enabled by Physics-Informed AI, on a 500 \u00b0C-Capable Alumina Platform",
      "amount": "$1.0M", "share": "$500K direct plus $500K cost share", "period": "Oct 2026, 12 months",
      "team": "PI Alkim Akyurtlu (Director, RURI and PERC); Co-PIs Vinod Vokkarane, Oshadha Ranasingha, and Scott Stapleton; with Applied Nanotech, Bayflex Solutions, RAGE Systems, and RTX",
-     "desc": "Printed interfaces and bond joints that must survive 500 \u00b0C are qualified today one sample at a time. BOND-AI builds a standard qualification method and uses physics-informed AI to predict reliability, so fewer parts need to be destroyed to prove a process. Also active: NextFlex Project 9.5.4, with the XTPL Delta printer as cost share.",
+     "desc": "Printed interfaces and bond joints that must survive 500 \u00b0C are qualified today one sample at a time. BOND-AI builds a standard qualification method and uses physics-informed AI to predict reliability, so fewer parts need to be destroyed to prove a process.",
      "url": "https://bondai-portal.onrender.com/", "link": "Project portal",
      "domain": "Printed electronics"},
     {"tag": "New in 2026", "sponsor": "U.S. Army",
@@ -3206,7 +3206,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.42"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.43"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the

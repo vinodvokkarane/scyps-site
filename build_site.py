@@ -2897,7 +2897,7 @@ SCHEMATIC = """<svg viewBox="0 0 760 490" role="img" aria-labelledby="schemTitle
   <g fill="#044978"><circle cx="378" cy="167" r="5.5"/><circle cx="442" cy="204" r="5.5"/><circle cx="442" cy="278" r="5.5"/><circle cx="378" cy="315" r="5.5"/><circle cx="314" cy="278" r="5.5"/><circle cx="314" cy="204" r="5.5"/></g>
   <circle cx="378" cy="241" r="14" fill="#0A777F"/><circle cx="378" cy="241" r="5" fill="#fff"/>
 </g>
-<text x="378" y="148" text-anchor="middle" font-size="12.5" fill="#5B6B82">fast, reliable links: fiber, 5G, 6G</text>
+<text x="392" y="112" text-anchor="middle" font-size="12.5" fill="#5B6B82">fast, reliable links</text><text x="392" y="127" text-anchor="middle" font-size="12.5" fill="#5B6B82">fiber, 5G, 6G</text>
 <text x="380" y="332" text-anchor="middle" font-size="12.5" font-weight="600" fill="#0A777F">zero trust</text><text x="380" y="347" text-anchor="middle" font-size="12" fill="#5B6B82">every device and</text><text x="380" y="361" text-anchor="middle" font-size="12" fill="#5B6B82">command verified</text>
 
 <!-- edge -> core links -->
@@ -2913,8 +2913,8 @@ SCHEMATIC = """<svg viewBox="0 0 760 490" role="img" aria-labelledby="schemTitle
   <g fill="none" stroke="#0A777F" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
     <path d="M540 212l6-8 5 5 6-10 5 6"/><path d="M539 256h8l4-8 4 12 4-6h8"/><path d="M540 302l7-7 5 5 9-9M563 291h-6v6"/>
   </g>
-  <g font-size="12.5" fill="#0E2036"><text x="576" y="211">Spot trouble early</text><text x="576" y="255">Keep a digital twin</text><text x="576" y="299">Decide and act safely</text></g>
-  <g fill="#3BA995"><circle cx="702" cy="207" r="4" class="pulse"/><circle cx="702" cy="251" r="4" class="pulse" style="animation-delay:1s"/><circle cx="702" cy="295" r="4" class="pulse" style="animation-delay:2s"/></g>
+  <g font-size="12.5" fill="#0E2036"><text x="576" y="211">Spot trouble early</text><text x="576" y="255">Keep a digital twin</text><text x="572" y="299">Decide, act safely</text></g>
+  <g fill="#3BA995"><circle cx="709" cy="207" r="4" class="pulse"/><circle cx="709" cy="251" r="4" class="pulse" style="animation-delay:1s"/><circle cx="709" cy="295" r="4" class="pulse" style="animation-delay:2s"/></g>
   <text x="622" y="336" text-anchor="middle" font-size="12" fill="#5B6B82">from the device to the cloud</text>
 </g>
 
@@ -3255,7 +3255,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.59"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.60"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3519,11 +3519,11 @@ STUDENT_FIGS = {
 <g fill="#044978"><circle cx="330" cy="110" r="9"/><circle cx="330" cy="150" r="9"/><circle cx="330" cy="190" r="9"/><circle cx="400" cy="90" r="9"/><circle cx="400" cy="130" r="9"/><circle cx="400" cy="170" r="9"/><circle cx="400" cy="210" r="9"/></g>
 <g fill="#0A777F"><circle cx="470" cy="130" r="10"/><circle cx="470" cy="170" r="10"/></g>
 <g stroke="#9AB0C4" stroke-width="1.5"><path d="M339 110L391 90M339 110L391 130M339 150L391 130M339 150L391 170M339 190L391 170M339 190L391 210M409 90L461 130M409 130L461 130M409 170L461 170M409 210L461 170M409 130L461 170M409 170L461 130"/></g>
-<text x="400" y="255" text-anchor="middle" font-size="16" fill="#5B6B82">anomaly and intrusion detection</text>
+<text x="400" y="232" text-anchor="middle" font-size="15" fill="#5B6B82">anomaly and intrusion detection</text>
 <!-- telemetry up, decisions down -->
-<path d="M380 380V235" stroke="#0A777F" stroke-width="4" stroke-dasharray="8 12"/>
-<path d="M420 235V380" stroke="#3BA995" stroke-width="4" stroke-dasharray="8 12"/>
-<path d="M373 250l7-14 7 14M413 366l7 14 7-14" stroke="#0A777F" stroke-width="3"/>
+<path d="M380 380V248" stroke="#0A777F" stroke-width="4" stroke-dasharray="8 12"/>
+<path d="M420 248V380" stroke="#3BA995" stroke-width="4" stroke-dasharray="8 12"/>
+<path d="M373 262l7-14 7 14M413 366l7 14 7-14" stroke="#0A777F" stroke-width="3"/>
 <text x="352" y="312" text-anchor="end" font-size="15" fill="#5B6B82">telemetry</text>
 <text x="448" y="312" font-size="15" fill="#5B6B82">control</text>
 <!-- shield -->
@@ -3556,7 +3556,7 @@ STUDENT_FIGS = {
 </g>
 <!-- impairment noise floor rising with load -->
 <path d="M100 385C220 380 330 372 460 360S620 345 700 330" stroke="#E25555" stroke-width="3" stroke-dasharray="7 9"/>
-<text x="700" y="318" text-anchor="end" font-size="14" fill="#E25555">nonlinear interference</text>
+<text x="700" y="248" text-anchor="end" font-size="14" fill="#E25555">nonlinear interference</text>
 <g font-size="14" fill="#5B6B82" text-anchor="middle"><text x="142" y="420">16QAM</text><text x="278" y="420">8QAM</text><text x="424" y="420">QPSK</text><text x="600" y="420">64QAM</text></g>
 <text x="400" y="452" text-anchor="middle" font-size="15" fill="#5B6B82">flexible grid: spectrum, modulation, and power chosen per lightpath</text>
 <!-- constellation inset -->
@@ -3929,7 +3929,7 @@ ART = {
 <circle cx="292" cy="94" r="5" fill="#fff" stroke="#044978" stroke-width="2"/>
 <!-- feedback loop -->
 <path d="M292 130v22H52v-14" stroke="#3BA995" stroke-width="1.6" stroke-dasharray="4 5" class="flow slow"/><path d="M47 144l5-7 5 7" stroke="#3BA995" stroke-width="1.6"/>
-<text x="180" y="150" font-size="11" fill="#5B6B82" text-anchor="middle">learn, check, act</text>
+<text x="180" y="168" font-size="11" fill="#5B6B82" text-anchor="middle">learn, check, act</text>
 </svg>""",
 
 "fiber": _ART_HEAD + """
@@ -4116,7 +4116,7 @@ ORG = """<svg viewBox="0 0 1200 660" xmlns="http://www.w3.org/2000/svg" role="im
 
 <!-- thrust band -->
 <rect x="28" y="266" width="1144" height="196" rx="16" fill="#F3F7FA"/>
-<g class="card"><rect x="440" y="252" width="320" height="34" rx="17" fill="#CDDFF0"/></g>
+<g class="card"><rect x="410" y="252" width="380" height="34" rx="17" fill="#CDDFF0"/></g>
 <text x="600" y="274" text-anchor="middle" font-size="14" font-weight="600" fill="#044978">Four research thrusts, each with two co-leads</text>
 <path d="M600 232v20" stroke="#0A777F" stroke-width="2.4"/>
 """
@@ -4227,7 +4227,7 @@ TOOL_ART = {
 <text x="525" y="246" text-anchor="middle" font-size="12" fill="#5B6B82">relays and meters</text>
 <path d="M190 229h260" stroke="#D5DCE5" stroke-width="2.5"/>
 <path class="flow" d="M190 229h260" stroke="#3BA995" stroke-width="3"/>
-<text x="320" y="219" text-anchor="middle" font-size="12.5" fill="#5B6B82">DNP3 traffic</text>
+<text x="250" y="219" text-anchor="middle" font-size="12.5" fill="#5B6B82">DNP3 traffic</text>
 <g class="pulse"><path d="M356 196l-22 16 12 3-14 18" stroke="#E25555" stroke-width="2.6"/></g>
 <text x="320" y="276" text-anchor="middle" font-size="12.5" fill="#5B6B82">attack and fault scenarios injected on the wire</text>
 <g stroke="#D5DCE5" stroke-width="2" stroke-dasharray="4 6"><path d="M115 196v-60M525 196v-60"/></g>
@@ -4235,7 +4235,7 @@ TOOL_ART = {
 "summit_tool": """<svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" font-family="IBM Plex Sans, Arial, sans-serif" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect width="640" height="300" fill="#FFFFFF"/>
 <!-- wide-area cloud -->
 <path d="M232 76c-16-34 46-54 64-30 16-24 66-14 66 16 28-3 40 34 14 45H246c-27-2-31-31-14-31z" fill="#F3F7FA" stroke="#D5DCE5" stroke-width="1.6"/>
-<text x="320" y="84" text-anchor="middle" font-size="12.5" fill="#5B6B82">wide-area SDN over the Internet</text>
+<text x="306" y="78" text-anchor="middle" font-size="12" fill="#5B6B82">wide-area SDN</text><text x="306" y="92" text-anchor="middle" font-size="12" fill="#5B6B82">over the Internet</text>
 <!-- three sites -->
 <g class="card" fill="#FFFFFF" stroke="#D5DCE5" stroke-width="1.5">
   <rect x="34" y="150" width="170" height="112" rx="10"/><rect x="235" y="150" width="170" height="112" rx="10"/><rect x="436" y="150" width="170" height="112" rx="10"/>

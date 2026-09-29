@@ -3257,7 +3257,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.63"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.64"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3437,45 +3437,45 @@ PROJECTS += [
      "title": "Network Cyberinfrastructure for Biomedical Informatics Innovation",
      "amount": "$1.02M", "period": "2015 to 2019", "team": "PI Vinod Vokkarane; Co-PIs Yan Luo and Yu Cao",
      "desc": "Campus cyberinfrastructure to move and analyze large biomedical data sets at UMass Lowell.", "domain": "Networks"},
-    {"tag": "Completed", "sponsor": "National Institute of Justice", "role": "Co-PI",
+    {"acnl_only": True, "tag": "Completed", "sponsor": "National Institute of Justice", "role": "Co-PI",
      "title": "Information Sharing and Its Effect on Tracking Sex Offenders and Community Awareness (SORNA)",
      "amount": "$1M", "period": "2015 to 2019", "team": "Co-PI Vinod Vokkarane; Lead PI Andrew Harris (UMass Lowell)",
      "desc": "Information sharing architecture and analysis for sex offender registration and notification systems.", "domain": "Data systems"},
-    {"tag": "Completed", "sponsor": "U.S. Air Force", "role": "Co-PI",
+    {"acnl_only": True, "tag": "Completed", "sponsor": "U.S. Air Force", "role": "Co-PI",
      "title": "Command and Control Display Equipment (CCDE) Requirements Specification",
      "amount": "$865K", "period": "2017 to 2018", "team": "Co-PI Vinod Vokkarane; Lead PI Kavitha Chandra (UMass Lowell)",
      "desc": "Requirements analysis and specification for command and control display equipment.", "domain": "Defense"},
-    {"tag": "Completed", "sponsor": "U.S. Department of Energy, ASCR", "role": "PI",
+    {"acnl_only": True, "tag": "Completed", "sponsor": "U.S. Department of Energy, ASCR", "role": "PI",
      "title": "PROPER: Parallel Resource-Optimized Provisioning of End-to-End Requests",
      "amount": "$401K", "period": "2014 to 2018", "team": "PI Vinod Vokkarane",
      "desc": "Provisioning algorithms for end-to-end circuits across Department of Energy science networks.", "domain": "Networks"},
-    {"tag": "Completed", "sponsor": "NSF CC*IIE", "role": "Co-PI",
+    {"acnl_only": True, "tag": "Completed", "sponsor": "NSF CC*IIE", "role": "Co-PI",
      "title": "FLowell: Accelerating Data-Driven Scientific Research at UMass Lowell",
      "amount": "$500K", "period": "2014 to 2017", "team": "Co-PI Vinod Vokkarane; Lead PI Yan Luo (UMass Lowell)",
      "desc": "Campus science network upgrade for data-intensive research across the university.", "domain": "Networks"},
-    {"tag": "Completed", "sponsor": "NSF NeTS Small", "role": "PI",
+    {"acnl_only": True, "tag": "Completed", "sponsor": "NSF NeTS Small", "role": "PI",
      "title": "CARGONET: Coordinated Advance Reservation for Grid over Optical Networks",
      "amount": "$325K", "share": "plus a $40K REU supplement", "period": "2012 to 2017", "team": "PI Vinod Vokkarane",
      "desc": "Advance reservation of optical circuits for grid and data-intensive science workflows.", "domain": "Networks"},
-    {"tag": "Completed", "sponsor": "NSF CSR Small", "role": "Co-PI",
+    {"acnl_only": True, "tag": "Completed", "sponsor": "NSF CSR Small", "role": "Co-PI",
      "title": "Bridging Reliability Analysis and Reality in Sensor Systems: Theories and Applications",
      "amount": "$441K", "share": "UMass share $278K", "period": "2011 to 2015",
      "team": "Co-PI Vinod Vokkarane; Lead PI Liudong Xing (UMass Dartmouth), with Yan Sun (URI)",
      "desc": "Reliability and fault tolerance models for wireless sensor systems.", "domain": "Sensing"},
-    {"tag": "Completed", "sponsor": "U.S. Department of Energy, Office of Science", "role": "PI",
+    {"acnl_only": True, "tag": "Completed", "sponsor": "U.S. Department of Energy, Office of Science", "role": "PI",
      "title": "COMMON: Coordinated Multi-Layer Multi-Domain Optical Network",
      "amount": "$525K", "period": "2010 to 2013", "team": "PI Vinod Vokkarane",
      "desc": "Coordinated provisioning across layers and administrative domains in optical networks.", "domain": "Networks"},
-    {"tag": "Completed", "sponsor": "U.S. Marine Corps", "role": "PI",
+    {"acnl_only": True, "tag": "Completed", "sponsor": "U.S. Marine Corps", "role": "PI",
      "title": "MASCOT: Manycast Architecture for Service-Oriented Tactical Operations",
      "amount": "$50K", "period": "2008", "team": "PI Vinod Vokkarane",
      "desc": "Manycast communication architecture for service-oriented tactical networks.", "domain": "Defense"},
-    {"tag": "Completed", "sponsor": "NSF NeTS Small", "role": "PI",
+    {"acnl_only": True, "tag": "Completed", "sponsor": "NSF NeTS Small", "role": "PI",
      "title": "SOON: Service-Oriented Optical Networks",
      "amount": "$476K", "share": "UMass share $240K", "period": "2006 to 2011",
      "team": "PI Vinod Vokkarane, with Jason Jue (UT Dallas)",
      "desc": "Service-oriented architectures for provisioning in optical networks.", "domain": "Networks"},
-    {"tag": "Completed", "sponsor": "NSF CCLI", "role": "PI",
+    {"acnl_only": True, "tag": "Completed", "sponsor": "NSF CCLI", "role": "PI",
      "title": "NET-SEAL: Teaching Computer Networks Through Simulation Experiments and Animation Library",
      "amount": "$168K", "share": "UMass share $127K", "period": "2006 to 2010", "team": "PI Vinod Vokkarane",
      "desc": "Simulation experiments and an animation library for teaching computer networking.", "domain": "Education"},
@@ -3629,6 +3629,9 @@ def started_before_center(pr):
     if m: return (int(m.group(2)), _MON[m.group(1).lower()[:3]]) < (2019, 10)
     y = re.search(r"((?:19|20)\d\d)", p)
     return bool(y) and int(y.group(1)) < 2019
+
+PROJECTS_ALL = list(PROJECTS)                       # the full record, used by the lab site
+PROJECTS[:] = [p for p in PROJECTS if not p.get("acnl_only")]   # the director's earlier awards live on the lab site only
 
 def project_people(pr):
     """Every investigator named on the team line, as (roster name, role) in the order written: PI, UMass

@@ -22,7 +22,7 @@ year = datetime.date.today().year
 
 # ---------------------------------------------------------------- shared pieces
 students = [s for s in bs.STUDENTS if s.get("advisor") == D["name"]]
-projects = [p for p in bs.PROJECTS if D["name"] in {n for n, _ in bs.project_people(p)} or "Vokkarane" in p.get("team", "")]
+projects = [p for p in getattr(bs, "PROJECTS_ALL", bs.PROJECTS) if D["name"] in {n for n, _ in bs.project_people(p)} or "Vokkarane" in p.get("team", "")]
 active = [p for p in projects if p.get("tag") in ("Active", "New in 2026")]
 center_papers = [p for p in bs.P if "Vokkarane" in p["faculty"]]
 n_rec = len(R); n_read = sum(1 for r in R if r.get("read", True)); n_journal = sum(1 for r in R if r["kind"] == "journal")

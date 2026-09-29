@@ -3257,7 +3257,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.64"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.65"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3313,9 +3313,9 @@ SPONSORS = {
         {"key": "doe", "name": "U.S. Department of Energy", "url": "https://www.energy.gov", "note": "CyberCARED cybersecurity center for energy delivery"},
         {"key": "onr", "name": "Office of Naval Research", "url": "https://www.onr.navy.mil", "note": "Department of the Navy. Post-disaster restoration of cyber-physical distribution grids"},
         {"key": "army", "name": "U.S. Army", "url": "https://www.army.mil", "note": "ARPO autonomous robotic planning and optimization"},
-        {"key": "airforce", "name": "U.S. Air Force", "url": "https://www.af.mil", "note": "Command and control display equipment requirements"},
-        {"key": "justice", "name": "National Institute of Justice", "url": "https://nij.ojp.gov", "note": "Information sharing for sex offender registration and notification"},
-        {"key": "usmc", "name": "U.S. Marine Corps", "url": "https://www.marines.mil", "note": "MASCOT manycast architecture for tactical operations"},
+        {"key": "airforce", "acnl_only": True, "name": "U.S. Air Force", "url": "https://www.af.mil", "note": "Command and control display equipment requirements"},
+        {"key": "justice", "acnl_only": True, "name": "National Institute of Justice", "url": "https://nij.ojp.gov", "note": "Information sharing for sex offender registration and notification"},
+        {"key": "usmc", "acnl_only": True, "name": "U.S. Marine Corps", "url": "https://www.marines.mil", "note": "MASCOT manycast architecture for tactical operations"},
     ],
     "State, international, and industry sponsors": [
         {"key": "mass", "name": "Commonwealth of Massachusetts", "url": "https://www.mass.gov", "note": "Advanced Nuclear and Fusion Energy Roadmaps, Healey-Driscoll Administration"},
@@ -4988,7 +4988,7 @@ def build():
     alumni_phd_html = "".join(f'<li><span class="yr">{esc(y)}</span><span><b>{esc(n)}</b>{(" <span class=\"where\">" + esc(w) + "</span>") if w else ""}</span></li>' for y, n, w in ALUMNI_PHD)
     alumni_pd_html = "".join(f'<li><span><b>{esc(n)}</b>{(" <span class=\"where\">" + esc(w) + "</span>") if w else ""}</span></li>' for n, w in ALUMNI_POSTDOC)
     sponsors_html = "".join(
-        f'<div class="sgroup"><h3>{esc(group)}</h3><div class="logos">' + "".join(logo_tile(sp) for sp in items) + '</div></div>'
+        f'<div class="sgroup"><h3>{esc(group)}</h3><div class="logos">' + "".join(logo_tile(sp) for sp in items if not sp.get("acnl_only")) + '</div></div>'
         for group, items in SPONSORS.items())
 
 

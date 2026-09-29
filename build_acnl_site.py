@@ -100,6 +100,7 @@ section{padding:44px 0}section+section{border-top:1px solid var(--line)}
 .deck .dots button{width:13px;height:13px;border-radius:50%;border:2px solid #fff;background:transparent;padding:0;cursor:pointer}.deck .dots button[aria-pressed=true]{background:#fff}
 .deck .dots .pp{width:auto;height:auto;border-radius:999px;padding:2px 10px;font:600 12px "IBM Plex Sans",sans-serif;color:#fff;background:rgba(14,32,54,.55)}
 .deckcap{margin:10px auto 0;max-width:960px;font-size:15px;color:var(--ink-3);min-height:1.5em;text-align:center}
+.acnl-logos{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}.logo-tile{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;min-height:140px;padding:18px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);color:#0E2036;text-decoration:none}.logo-tile .mark{display:flex;align-items:center;justify-content:center;min-height:88px;width:100%}.logo-tile img{max-height:84px;max-width:82%;width:auto;object-fit:contain}.logo-tile .wm{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:18px;line-height:1.2}.logo-tile .note{display:none}
 .archs{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:18px;align-items:start}.archs img{width:100%;height:auto;display:block}
 .figs{display:grid;grid-template-columns:repeat(auto-fill,minmax(440px,1fr));gap:20px}@media (max-width:520px){.figs{grid-template-columns:1fr}}.figs figure{margin:0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:12px}.figs img{border-radius:8px;display:block;width:100%;height:auto}.figs figcaption{font-size:13.5px;color:var(--ink-3);margin-top:8px}
 """
@@ -475,6 +476,14 @@ def page_projects():
     body = f'''<section><div class="wrap"><p class="kick">Projects</p><h1>Sponsored research</h1>
 <p class="lead">Awards on which the director is an investigator, from the center's records: {len(active)} active and {len(projects) - len(active)} completed since the center was founded in 2019. Sponsors include NSF, ONR, the U.S. Army, DOE, and industry.</p>
 <h2 style="margin-top:30px">Active</h2><div class="cards">{act}</div><h2 style="margin-top:40px">Completed</h2><div class="cards">{done}</div></div></section>'''
+    # the lab's sponsors, as logo tiles: every sponsor of the director's awards, including the earlier ones
+    keys = {"nsf": ["National Science Foundation", "NSF "], "doe": ["Department of Energy"], "onr": ["Office of Naval Research"], "army": ["U.S. Army"],
+            "airforce": ["Air Force"], "justice": ["Institute of Justice"], "usmc": ["Marine Corps"], "redhat": ["Red Hat"], "navia": ["Navia"],
+            "masstech": ["Massachusetts Technology Collaborative"], "semi": ["SEMI/FlexTech"], "sherpa6": ["Sherpa 6"]}
+    all_sp = {sp["key"]: sp for items in bs.SPONSORS.values() for sp in items}
+    used = [k for k, pats in keys.items() if k in all_sp and any(any(p in pr.get("sponsor", "") for p in pats) for pr in projects)]
+    tiles = "".join(bs.logo_tile(dict(all_sp[k], note="")) for k in used)
+    body = body.replace("</div></section>", f'<h2 style="margin-top:40px">Sponsors</h2><div class="logos acnl-logos">{tiles}</div></div></section>', 1) if tiles else body
     write("projects", "Projects | ACNL", "Sponsored research of the Advanced Communication Networks Laboratory: active and completed awards.", body)
 
 def page_software():

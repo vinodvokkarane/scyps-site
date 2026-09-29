@@ -123,6 +123,11 @@ FACULTY = {
          "areas": "Nonlinear effects in fiber optics, free-space optical communications, cross-layer design of optical networks subject to physical-layer degradations, body area networks, and radar signal processing",
          "note": "NSF CAREER awardee; co-editor of Cross-Layer Design in Optical Networks (Springer, 2013); former editor of IEEE Transactions on Communications and the IEEE/Optica Journal of Optical Communications and Networking. Co-author on six of the lab's multi-band and space-division multiplexing papers since 2025.",
          "email": "mb-p@virginia.edu", "phone": "", "url": "https://engineering.virginia.edu/faculty/maite-brandt-pearce-phd"},
+        {"name": "Balagangadhar Bathula", "tag": "External collaborator", "photo": "bathula", "inst": "AT&T",
+         "title": "Principal Member of Technical Staff, AT&T Network Cloud and Infrastructure",
+         "areas": "Optical transport systems, simulation and design tools for core and backbone networks, software-defined and cross-layer network architecture, and quality-of-transmission estimation in open optical networks",
+         "note": "Ph.D., Indian Institute of Science; postdoctoral researcher at Columbia University's Lightwave Research Laboratory and earlier a visiting scholar with the director at UMass Dartmouth. Co-author with the director on eight optical networking papers, 2008 to 2011.",
+         "email": "", "phone": "", "url": "https://scholar.google.com/citations?user=1c-DqjsAAAAJ"},
     ],
     "collaborators": [
         {"name": "NYU Tandon School of Engineering", "org": "SUMMIT federation site", "note": "Second node of the multi-site smart grid testbed, led by center member Yuzhang Lin"},
@@ -3262,7 +3267,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.69"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.70"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -6597,7 +6602,7 @@ def _college_of(p):
     """Where a person sits: a UMass Lowell college for internal people, the institution for external ones."""
     t = (p.get("title", "") + " " + p.get("title2", "")).lower(); inst = p.get("inst", "") or ""
     if inst or "nyu" in t or "external" in (p.get("tag") or "").lower():
-        known = {"West Virginia": "West Virginia University", "NYU": "NYU Tandon", "New York University": "NYU Tandon", "Louisiana": "University of Louisiana at Lafayette", "Dartmouth College": "Dartmouth College", "University of Virginia": "University of Virginia"}
+        known = {"West Virginia": "West Virginia University", "NYU": "NYU Tandon", "New York University": "NYU Tandon", "Louisiana": "University of Louisiana at Lafayette", "Dartmouth College": "Dartmouth College", "University of Virginia": "University of Virginia", "AT&T": "AT&T"}
         if inst: return known.get(inst, inst)
         if "nyu" in t: return "NYU Tandon"
         return p.get("title", "").split(",")[-1].strip() or "External"      # "Research Director of the Northeast US, Red Hat"

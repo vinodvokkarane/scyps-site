@@ -3262,7 +3262,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.68"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.69"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -5306,7 +5306,7 @@ def build():
     </div>
     <h2 class="grouph orgh">How the center is organized</h2>
     <figure class="orgfig">{ORG}</figure>
-    <p class="orgnote">A director and an executive committee, advised by an external board and an industry council. Four research thrusts, each with two co-leads, restructured in September 2026 from the original eight, and the laboratories and testbeds that serve them.</p>
+    <p class="orgnote">A director and an executive committee, advised by an external board and an industry council. Four research thrusts, each with two co-leads, and the laboratories and testbeds that serve them.</p>
 
     <div class="about-grid">
       <div>
@@ -5350,7 +5350,7 @@ def build():
 
 <section id="research" class="tint">
   <div class="wrap">
-    <div class="shead"><h2>Research thrusts</h2><p>Four connected lines of work, each with two co-leads who are accountable for it, restructured in September 2026 from the original eight. The four physical domains, energy, transportation, health and human performance, and manufacturing, run across all of them.</p></div>
+    <div class="shead"><h2>Research thrusts</h2><p>Four connected lines of work, each with two co-leads who are accountable for it. The four physical domains, energy, transportation, health and human performance, and manufacturing, run across all of them.</p></div>
     <div class="thrusts">{thrusts_html}</div>
   </div>
 </section>

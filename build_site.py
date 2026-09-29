@@ -30,7 +30,7 @@ FACULTY = {
     },
     "core": [
         {"name": "Sukesh Aghara", "photo": "aghara", "title": "Professor, Chemical and Nuclear Engineering; Senior Advisor to the Chancellor on Nuclear Energy Strategies",
-         "areas": "Nuclear security and safeguards, cybersecurity of nuclear facilities, advanced reactor modeling, nuclear energy for decarbonization", "email": "Sukesh_Aghara@uml.edu", "phone": "978-934-3115", "role": "Co-founder of the center in 2019 and founding co-director for energy. Leads the nuclear energy and security thrust and the Massachusetts Advanced Nuclear and Fusion Energy Roadmaps; directs the Integrated Nuclear Security and Safeguards Laboratory (INSSL) and co-directs the IAEA-funded Intercontinental Nuclear Institute. Editor of The Oxford Handbook of Nuclear Security (Oxford University Press). Associate Dean for Research of the Francis College of Engineering from 2021 to 2026 and Director of the Nuclear Engineering Program from 2017 to 2025. Chair of the Nuclear Engineering Department Heads Organization for 2024 to 2025, and elected in 2024 to the board of the ASEE Engineering Research Council.", "url": "https://www.uml.edu/engineering/chemical/faculty/aghara-sukesh.aspx"},
+         "areas": "Nuclear security and safeguards, cybersecurity of nuclear facilities, advanced reactor modeling, nuclear energy for decarbonization", "email": "Sukesh_Aghara@uml.edu", "phone": "978-934-3115", "role": "Co-founder of the center in 2019 and founding co-director for energy. Associate Director for Industry Partnerships; co-leads the resilient energy and infrastructure thrust, and leads the Massachusetts Advanced Nuclear and Fusion Energy Roadmaps; directs the Integrated Nuclear Security and Safeguards Laboratory (INSSL) and co-directs the IAEA-funded Intercontinental Nuclear Institute. Editor of The Oxford Handbook of Nuclear Security (Oxford University Press). Associate Dean for Research of the Francis College of Engineering from 2021 to 2026 and Director of the Nuclear Engineering Program from 2017 to 2025. Chair of the Nuclear Engineering Department Heads Organization for 2024 to 2025, and elected in 2024 to the board of the ASEE Engineering Research Council.", "url": "https://www.uml.edu/engineering/chemical/faculty/aghara-sukesh.aspx"},
         {"name": "Orlando Arias", "photo": "arias", "title": "Assistant Professor, Electrical and Computer Engineering",
          "areas": "Hardware security, hardware-software co-design, embedded and microarchitectural security, cyber security",
          "email": "Orlando_Arias@uml.edu", "phone": "978-934-3476", "office": "Ball Hall 407A",
@@ -47,18 +47,18 @@ FACULTY = {
          "role": "External center member; UMass Lowell ECE faculty 2018 to 2023. NSF CAREER awardee; Co-PI on SUMMIT and the ONR post-disaster restoration project, and a co-author on the center's smart grid papers."},
         {"name": "Yan Luo", "photo": "luo", "title": "Professor, Electrical and Computer Engineering; Robotics",
          "areas": "Cyber-physical systems, machine learning, computer networks, computer architecture",
-         "role": "Co-founder of the center in 2019 and founding co-director for healthcare. Leads the AI for cyber-physical control thrust; senior personnel on SUMMIT; PI of the NSF-funded campus science network the center builds on and of the NSF PFI-RP BioSPACE project on pathogen biosensing in aquaculture. Best Paper Award at IFIP/IEEE IM 2021 and Best Experiences Paper Award at IM 2019.",
+         "role": "Co-founder of the center in 2019 and founding co-director for healthcare. Associate Director for Research; co-leads the cyber-physical AI thrust; senior personnel on SUMMIT; PI of the NSF-funded campus science network the center builds on and of the NSF PFI-RP BioSPACE project on pathogen biosensing in aquaculture. Best Paper Award at IFIP/IEEE IM 2021 and Best Experiences Paper Award at IM 2019.",
          "email": "yan_luo@uml.edu", "phone": "978-934-2592", "url": "https://www.uml.edu/engineering/electrical-computer/faculty/luo-yan.aspx"},
         {"name": "Paul Robinette", "photo": "robinette", "title": "Associate Professor, Electrical and Computer Engineering; Associate Chair for M.S. Programs",
          "areas": "Robotics, human-robot interaction, trust in autonomous systems, multi-robot coordination, field and marine autonomy",
          "email": "Paul_Robinette@uml.edu", "phone": "978-934-3347",
          "url": "https://www.uml.edu/engineering/electrical-computer/faculty/robinette-paul.aspx",
-         "role": "Brings robotics and human-robot interaction to the center: trust and transparency between people and the machines they work with, multi-agent coordination, and autonomy for environments people should not enter. Works on the connected transportation, health, and infrastructure thrust, and connects the center to the Printed Electronics Research Collaborative and the Raytheon-UMass Lowell Research Institute."},
+         "role": "Brings robotics and human-robot interaction to the center: trust and transparency between people and the machines they work with, multi-agent coordination, and autonomy for environments people should not enter. Co-leads the people-in-the-loop thrust, and connects the center to the Printed Electronics Research Collaborative and the Raytheon-UMass Lowell Research Institute."},
         {"name": "Seung Woo Son", "photo": "son", "title": "Associate Professor, Electrical and Computer Engineering",
          "areas": "High performance computing, parallel I/O and data-intensive computing, compiler optimizations, embedded systems",
          "email": "SeungWoo_Son@uml.edu", "phone": "978-934-6846", "office": "Ball Hall 419",
          "url": "https://www.uml.edu/engineering/electrical-computer/faculty/son-seung-woo.aspx",
-         "role": "Leads the high performance computing and data integrity thrust. NSF CAREER awardee (2018); brings HPC, silent-data-corruption detection, and on-device stream analytics to the center's data-intensive CPS work."},
+         "role": "Co-leads the cyber-physical AI thrust. NSF CAREER awardee (2018); brings HPC, silent-data-corruption detection, and on-device stream analytics to the center's data-intensive CPS work."},
         {"name": "Lewis Tseng", "photo": "tseng", "title": "Associate Professor, Electrical and Computer Engineering",
          "areas": "Fault-tolerant distributed systems and consensus, state machine replication, blockchain systems, and edge computing for cyber-physical systems",
          "email": "Lewis_Tseng@uml.edu", "phone": "", "office": "Ball Hall, 3rd floor",
@@ -66,7 +66,7 @@ FACULTY = {
          "role": "NSF CAREER awardee on fault-tolerant edge computing for cyber-physical systems under cyber attack (award #2449640 at UMass Lowell, $342K from Sept 2024); PI of an NSF planning award for federated AI-ready cyberinfrastructure for advanced microscopy (2026); Co-PI on SUMMIT. 2026 ECE Department Teaching Excellence Award. Joined UMass Lowell in 2024 after Clark University, Boston College, and Toyota InfoTechnology Center."},
         {"name": "Yuanchang Xie", "photo": "xie", "title": "Professor, Civil and Environmental Engineering",
          "areas": "Transportation safety, intelligent transportation systems, connected and automated vehicles, transportation data analytics and AI",
-         "role": "Co-founder of the center in 2019 and founding co-director for transportation. Leads the connected transportation thrust; PI or Co-PI of the USDOT, MassDOT, and NETC transportation portfolio. Associate Editor of Accident Analysis & Prevention and of the IEEE Intelligent Transportation Systems Conference; Kikuchi-Karlaftis Best Paper Award (TRB, 2020) and the George N. Saridis Best Transactions Paper Award of IEEE Transactions on Intelligent Transportation Systems (2020).", "email": "Yuanchang_Xie@uml.edu", "phone": "978-934-3681", "url": "https://www.uml.edu/engineering/civil-environmental/faculty-staff-students/faculty/xie-yuanchang.aspx"},
+         "role": "Co-founder of the center in 2019 and founding co-director for transportation. Co-leads the resilient energy and infrastructure thrust, carrying its transportation work; PI or Co-PI of the USDOT, MassDOT, and NETC transportation portfolio. Associate Editor of Accident Analysis & Prevention and of the IEEE Intelligent Transportation Systems Conference; Kikuchi-Karlaftis Best Paper Award (TRB, 2020) and the George N. Saridis Best Transactions Paper Award of IEEE Transactions on Intelligent Transportation Systems (2020).", "email": "Yuanchang_Xie@uml.edu", "phone": "978-934-3681", "url": "https://www.uml.edu/engineering/civil-environmental/faculty-staff-students/faculty/xie-yuanchang.aspx"},
     ],
     "affiliated": [
         {"name": "Alkim Akyurtlu", "photo": "akyurtlu", "title": "Professor, Electrical and Computer Engineering; Director, Raytheon-UMass Lowell Research Institute (RURI); Director, Printed Electronics Research Collaborative (PERC)",
@@ -3267,7 +3267,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.74"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.75"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the

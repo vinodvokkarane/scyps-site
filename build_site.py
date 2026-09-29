@@ -147,14 +147,14 @@ PROJECTS = [
      "domain": "Autonomy"},
     {"tag": "New in 2026", "sponsor": "SEMI/FlexTech", "role": "Co-PI",
      "title": "BOND-AI: A Standardized Reliability Qualification Methodology for High-Temperature Printed Interfaces and Bond Joints, Enabled by Physics-Informed AI, on a 500 \u00b0C-Capable Alumina Platform",
-     "amount": "$1.0M", "share": "$500K direct plus $500K cost share", "period": "Oct 2026, 12 months",
+     "amount": "$500K", "share": "Center share of the work: 35%", "period": "Oct 2026, 12 months",
      "team": "PI Alkim Akyurtlu (Director, RURI and PERC); Co-PIs Vinod Vokkarane, Oshadha Ranasingha, and Scott Stapleton; with Applied Nanotech, Bayflex Solutions, RAGE Systems, and RTX",
      "desc": "Printed interfaces and bond joints that must survive 500 \u00b0C are qualified today one sample at a time. BOND-AI builds a standard qualification method and uses physics-informed AI to predict reliability, so fewer parts need to be destroyed to prove a process.",
      "url": "https://huggingface.co/spaces/vsquaretech/ajp-ml-flex-portal", "link": "Project portal",
      "domain": "Printed electronics"},
-    {"tag": "New in 2026", "sponsor": "U.S. Army",
-     "role": "PI", "title": "ARPO: Autonomous Robotic Planning and Optimization",
-     "amount": "$225K", "period": "Mar 2026 to Jul 2027",
+    {"tag": "New in 2026", "sponsor": "U.S. Army, through Sherpa 6",
+     "role": "PI", "share": "UML share of a $2.5M Army award", "title": "ARPO: Autonomous Robotic Planning and Optimization",
+     "amount": "$225K", "period": "Mar 2026 to Jun 2027",
      "team": "PI Vinod Vokkarane; UMLARC and UMass Lowell",
      "desc": "Planning and optimization methods for autonomous robotic systems operating over contested tactical networks.",
      "domain": "Autonomy"},
@@ -272,7 +272,7 @@ PROJECTS = [
      "team": "PI Lewis Tseng",
      "desc": "Coordination primitives that keep an edge cluster correct and fast enough for a control loop while under attack.", "domain": "Distributed systems"},
     {"tag": "Active", "sponsor": "National Science Foundation, OAC Core (Award #2312982)",
-     "role": "Co-PI", "title": "Improving Data Integrity for HPC Datasets using Sparsity Profile",
+     "role": "PI", "title": "Improving Data Integrity for HPC Datasets using Sparsity Profile",
      "amount": "$600K", "period": "June 2023 onward",
      "team": "PI Seung Woo Son; Co-PI Orlando Arias",
      "desc": "Detecting and correcting corruption in high-performance computing datasets using their sparsity structure.", "domain": "HPC"},
@@ -285,7 +285,7 @@ PROJECTS = [
      "role": "PI", "title": "Software-Defined Cyber-Physical Microgrids (SDCPM) for Agile Adaptation to High-Impact, Low-Probability Disturbances",
      "amount": "$300K", "period": "2021 to 2024",
      "team": "PI Vinod Vokkarane",
-     "desc": "Software-defined control of cyber-physical microgrids so they can reconfigure quickly around rare, high-impact disturbances.",
+     "desc": "Software-defined control of cyber-physical microgrids so they can reconfigure quickly around rare, high-impact disturbances. Submitted through the Center for Energy Innovation; all of the work was done in this center.",
      "domain": "Energy"},
     {"tag": "Completed", "sponsor": "National Science Foundation, CNS Core (#2008530)",
      "role": "PI", "title": "Flexible Spectrum Allocation in Next-Generation Optical Networks",
@@ -294,20 +294,20 @@ PROJECTS = [
      "desc": "Spectrum allocation algorithms for elastic optical networks, the line of work that led to the FUSION simulator.",
      "domain": "Networks"},
     {"tag": "Completed", "sponsor": "Office of Naval Research",
-     "role": "Co-PI", "title": "Resilient Sensing and Communication Architecture for Naval Energy Infrastructure Monitoring",
+     "role": "PI", "title": "Resilient Sensing and Communication Architecture for Naval Energy Infrastructure Monitoring",
      "amount": "$360K", "period": "2020 to 2023",
-     "team": "PI Yuzhang Lin; Co-PI Vinod Vokkarane",
-     "desc": "Cross-domain design of sensing and communication for resilient monitoring of naval energy infrastructure.",
+     "team": "PI Vinod Vokkarane; Co-PI Yuzhang Lin",
+     "desc": "Cross-domain design of sensing and communication for resilient monitoring of naval energy infrastructure. Submitted through the Center for Energy Innovation; all of the work was done in this center.",
      "domain": "Energy"},
     {"tag": "Active", "sponsor": "Red Hat Inc.",
-     "title": "Open-Source Research: Friendly Fedora and Podman",
-     "amount": "$200K+", "period": "2021 onward",
+     "share": "Direct gifts to the center", "title": "Open-Source Research: Friendly Fedora and Podman",
+     "amount": "$400K+", "period": "2021 onward",
      "team": "PI Vinod Vokkarane",
      "desc": "Industry support for open-source systems research in the center, including the Friendly Fedora and Podman projects and the FUSION optical network simulation framework. Since 2020 Red Hat has also sponsored a senior capstone team each year on Friendly Fedora, advised directly by a Red Hat director or manager, to make Fedora Linux friendlier for university and academic use: the teams have integrated academia-focused open-source tools into the current release, including large language model and container tools, and in the last two years have contributed new development on Podman.",
      "domain": "Networks"},
     {"tag": "Active", "sponsor": "Navia Energy Inc.",
-     "title": "Resilient Smart Grids",
-     "amount": "", "period": "2024 to 2026",
+     "share": "Direct gifts to the center", "title": "Resilient Smart Grids",
+     "amount": "$60K+", "period": "2024 to 2026",
      "team": "PI Vinod Vokkarane",
      "desc": "Industry-sponsored work on resilient operation of smart distribution grids.",
      "domain": "Energy"},
@@ -3257,7 +3257,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.62"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.63"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3619,6 +3619,16 @@ _ROLE_SEG = [(r"^Lead PI\s+(.*)$", "Lead PI"), (r"^(?:UMass Lowell )?PI\s+(.*)$"
 _final_ids = set(re.findall(r"#(\d{7})", " ".join(p.get("sponsor", "") + " " + p.get("title", "") for p in PROJECTS if not p.get("auto_id"))))
 _final_ids |= {"NIH-" + x for x in re.findall(r"Project ([A-Z0-9]{11,12})", " ".join(p.get("sponsor", "") for p in PROJECTS if not p.get("auto_id")))}
 PROJECTS[:] = [p for p in PROJECTS if not p.get("auto_id") or p["auto_id"] not in _final_ids]
+
+
+_MON = {m: i for i, m in enumerate(["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"], 1)}
+def started_before_center(pr):
+    """True when an award's period begins before October 2019, the center's founding."""
+    p = pr.get("period", "")
+    m = re.search(r"(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+((?:19|20)\d\d)", p)
+    if m: return (int(m.group(2)), _MON[m.group(1).lower()[:3]]) < (2019, 10)
+    y = re.search(r"((?:19|20)\d\d)", p)
+    return bool(y) and int(y.group(1)) < 2019
 
 def project_people(pr):
     """Every investigator named on the team line, as (roster name, role) in the order written: PI, UMass
@@ -4924,7 +4934,12 @@ def build():
         + '<div class="fchips">' + "".join(f'<button class="chip" data-f="year" data-v="{y}" aria-pressed="false" type="button">{y}</button>' for y in _yrs if 2019 <= y <= datetime.date.today().year)
         + '</div></div></div><p class="pcount" id="pcount" aria-live="polite"></p>')
     projects_html = ""
-    for pr in PROJECTS:
+    _pre = [pr for pr in PROJECTS if started_before_center(pr)]
+    _order = [pr for pr in PROJECTS if not started_before_center(pr)] + _pre
+    for pr in _order:
+        if _pre and pr is _pre[0]:
+            projects_html += ('<div class="proj preh" data-pi="" data-thrust="" data-years="" data-status="before"><div></div><div><h3>Awards led by center faculty before the center was formed</h3>'
+                              '<p class="desc">These began before the center\'s founding in October 2019. They are listed for the record and are not counted in the center\'s funding.</p></div><div></div></div>')
         tagcls = "tag new" if pr["tag"].startswith("New") else "tag"
         share = f'<small>{esc(pr["share"])}</small>' if pr.get("share") else ''
         amt = f'<div class="amt">{esc(pr["amount"])}{share}<small>{esc(pr["period"])}</small></div>' if pr["amount"] else f'<div class="amt"><small>{esc(pr["period"])}</small></div>'

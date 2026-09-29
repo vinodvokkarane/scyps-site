@@ -85,7 +85,7 @@ write("seven-years", "h", seq(
         "2019: the center is founded by five faculty", "2021: Vinod Vokkarane becomes director",
         "2024: ONR post-disaster restoration award, and the DOE CyberCARED consortium",
         "2026: NSF instrumentation award for SUMMIT, a three-university grid testbed", "2026: BOND-AI, printed electronics with industry partners"]}),
-    (7, {"type": "stats", "head": "By the numbers", "stats": [[n_pubs, "", "", "peer-reviewed papers since 2019"], [8.0, "$", "M", "in awards the center led", 1], [20, "", "", "faculty in four colleges"], [16, "", "", "doctoral students today"]]}),
+    (7, {"type": "stats", "head": "By the numbers", "stats": [[n_pubs, "", "", "peer-reviewed papers since 2019"], [6.2, "$", "M", "UMass Lowell share of the awards the center led", 1], [20, "", "", "faculty in four colleges"], [16, "", "", "doctoral students today"]]}),
     (5, {"type": "end", "big": "Seven years in, and just getting started.", "mid": "Sense. Communicate. Decide with people. Act.", "small": [URL]}),
 ))
 

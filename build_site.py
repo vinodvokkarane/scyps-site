@@ -3267,7 +3267,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.71"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.72"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3811,6 +3811,7 @@ SCHOLAR = {
     "Christopher Niezrecki": "bdmF58cAAAAJ", "Yan Luo": "H3ifH2gAAAAJ", "Yu Cao": "97RDUygAAAAJ", "Murat Inalpolat": "khGOgZgAAAAJ",
     "Martin Margala": "ANcbeNIAAAAJ", "Yuzhang Lin": "AHw2wzUAAAAJ", "Seung Woo Son": "D9v08JgAAAAJ", "Sukesh Aghara": "tWlkv-kAAAAJ", "Paul Robinette": "izN2PKAAAAAJ", "Alkim Akyurtlu": "ixtU3E4AAAAJ",
     "Chunxiao (Tricia) Chigan": "qoo1Tc0AAAAJ",
+    "Maïté Brandt-Pearce": "KFLFbWoAAAAJ", "Balagangadhar Bathula": "1c-DqjsAAAAJ",
     # Sent Sept. 2026 in this order: Arias, Chakrabarti, Evans, Ranasingha. Swap the IDs here if any
     # profile opens on the wrong person.
     "Orlando Arias": "LyL2zHwAAAAJ",

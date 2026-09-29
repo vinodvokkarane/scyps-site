@@ -725,3 +725,9 @@ thread summaries, software list, and the join page) lives in the builder itself.
 (1280 px) and phone (390 px) widths and reports any two pieces of text whose boxes overlap: SVG labels
 against each other, and visible HTML text against each other, ignoring screen-reader-only labels and
 text scrolled out of view. Run it after changing a chart, a diagram, or a layout. It needs Playwright.
+
+## Checking contrast in light and dark mode
+
+`python3 tools/check_contrast.py` loads every page in light and dark mode and reports any text on its own
+background (buttons, chips, badges, pills) whose contrast is below the WCAG minimum: 4.5 to 1, or 3 to 1
+for large text. Buttons and pressed chips take their text color from `--bg`, so they invert with the theme.

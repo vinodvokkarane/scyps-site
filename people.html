@@ -228,7 +228,7 @@ section.tint{background:var(--bg-2)}
 .feature .paradigms .more{margin:18px 0 0}
 .summit-btn{display:inline-block;width:auto;max-width:none;text-align:left;background:#3BA995;color:#062B24;padding:11px 18px;font-size:14.5px;border-radius:8px}
 .more{margin:22px 0 0}
-.more .summit-btn{background:var(--ink);color:#fff}
+.more .summit-btn{background:var(--ink);color:var(--bg)}
 .feature .arch{grid-column:1 / -1;margin:0;background:#fff;padding:18px 22px 14px;border-top:1px solid rgba(255,255,255,.15)}
 .feature .arch img{width:100%;height:auto;display:block}
 .feature .arch figcaption{font-size:13px;color:#5B6B82;text-align:center;margin-top:10px}
@@ -427,7 +427,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .frow .flab{font-size:13px;color:var(--ink-3);padding-top:7px}
 .fchips{display:flex;flex-wrap:wrap;gap:8px}
 .pfilters .chip{font:inherit;font-size:13.5px;padding:5px 12px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;cursor:pointer}
-.pfilters .chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pfilters .chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .pfilters .chip:disabled{opacity:.45;cursor:default}
 .pcount{font-size:13.5px;color:var(--ink-3);margin:14px 0 2px}
 .proj[hidden]{display:none}
@@ -460,7 +460,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .nfilters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:2px}
 .nfilters .lab{font-size:13px;color:var(--ink-3);margin-right:4px}
 .nfilters .chip{font:inherit;font-size:13.5px;padding:6px 13px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;cursor:pointer}
-.nfilters .chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.nfilters .chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .nfilters .chip:disabled{opacity:.4;cursor:default}
 .ncount{font-size:13.5px;color:var(--ink-3);margin:14px 0 2px}
 .nitem h3{font-size:19px;margin-bottom:5px;line-height:1.3}
@@ -659,7 +659,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 @media (max-width:600px){.uml-footer .cols{grid-template-columns:1fr}.uml-footer .col{padding:0;border-left:0;border-top:1px solid rgba(255,255,255,.18);padding-top:22px}.uml-footer .col:first-child{border-top:0;padding-top:0}}
 
 .links a.on{color:var(--ink);font-weight:600}
-.collabwrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}.collab{width:100%;min-width:760px;height:auto;display:block}.collab .ce line{stroke:var(--ink-3)}.collab .nm{font-size:14px;font-weight:600;fill:var(--ink);font-family:'IBM Plex Sans',sans-serif;paint-order:stroke;stroke:var(--surface);stroke-width:4px;stroke-linejoin:round}.collab .ini{font-size:15px;font-weight:600;fill:var(--ink-2);font-family:'IBM Plex Sans',sans-serif}.collab .cn:hover circle{stroke-width:6}.collab .ce line:hover{stroke:var(--ink);stroke-opacity:.9}.legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 12px;font-size:14px;color:var(--ink-2)}.lg{display:inline-flex;align-items:center;gap:7px}.lg i{width:13px;height:13px;border-radius:50%;display:inline-block;border:3px solid;background:#fff}.collabnote{font-size:14px;color:var(--ink-3);margin:10px 0 0;max-width:60em}.cfilters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 8px}.cfilters .flab{font-size:13px;color:var(--ink-3);margin-right:4px}.cfilters .chip{font:inherit;font-size:13.5px;padding:5px 12px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;cursor:pointer}.cfilters .chip[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}.cnote{font-size:14px;color:var(--ink-2);min-height:1.4em;margin:0 0 8px}.collabwrap{position:relative}.ctip{position:absolute;z-index:3;max-width:320px;background:var(--surface);border:1px solid var(--line);border-radius:10px;box-shadow:0 8px 24px rgba(14,32,54,.16);padding:10px 12px;font-size:13.5px;line-height:1.4;color:var(--ink-2);pointer-events:none}.ctip b{display:block;font-size:15px;color:var(--ink)}.ctip .cw{display:block;color:var(--ink-3);font-size:12.5px;margin:1px 0 4px}.ctip .cn2{display:block;font-weight:600;color:var(--ink);margin:2px 0}.ctip ul{margin:4px 0 0;padding-left:16px}.ctip li{margin:0 0 1px}.collab .cn{cursor:pointer;outline:none}.collab .ce line{cursor:pointer}.collab.hover .cn:not(.hl){opacity:.14}.collab.hover .ce line{stroke-opacity:.04!important}.collab.hover .ce line.hl{stroke-opacity:.9!important;stroke:var(--signal)}.collab .cn,.collab .ce line{transition:opacity .2s,stroke-opacity .2s}.collab.focus .cn:not(.on){opacity:.15}.collab.focus .ce line{stroke-opacity:.05!important}.collab.focus .ce line.on{stroke-opacity:.85!important;stroke:var(--signal)}</style>
+.collabwrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}.collab{width:100%;min-width:760px;height:auto;display:block}.collab .ce line{stroke:var(--ink-3)}.collab .nm{font-size:14px;font-weight:600;fill:var(--ink);font-family:'IBM Plex Sans',sans-serif;paint-order:stroke;stroke:var(--surface);stroke-width:4px;stroke-linejoin:round}.collab .ini{font-size:15px;font-weight:600;fill:var(--ink-2);font-family:'IBM Plex Sans',sans-serif}.collab .cn:hover circle{stroke-width:6}.collab .ce line:hover{stroke:var(--ink);stroke-opacity:.9}.legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 12px;font-size:14px;color:var(--ink-2)}.lg{display:inline-flex;align-items:center;gap:7px}.lg i{width:13px;height:13px;border-radius:50%;display:inline-block;border:3px solid;background:#fff}.collabnote{font-size:14px;color:var(--ink-3);margin:10px 0 0;max-width:60em}.cfilters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 8px}.cfilters .flab{font-size:13px;color:var(--ink-3);margin-right:4px}.cfilters .chip{font:inherit;font-size:13.5px;padding:5px 12px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;cursor:pointer}.cfilters .chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}.cnote{font-size:14px;color:var(--ink-2);min-height:1.4em;margin:0 0 8px}.collabwrap{position:relative}.ctip{position:absolute;z-index:3;max-width:320px;background:var(--surface);border:1px solid var(--line);border-radius:10px;box-shadow:0 8px 24px rgba(14,32,54,.16);padding:10px 12px;font-size:13.5px;line-height:1.4;color:var(--ink-2);pointer-events:none}.ctip b{display:block;font-size:15px;color:var(--ink)}.ctip .cw{display:block;color:var(--ink-3);font-size:12.5px;margin:1px 0 4px}.ctip .cn2{display:block;font-weight:600;color:var(--ink);margin:2px 0}.ctip ul{margin:4px 0 0;padding-left:16px}.ctip li{margin:0 0 1px}.collab .cn{cursor:pointer;outline:none}.collab .ce line{cursor:pointer}.collab.hover .cn:not(.hl){opacity:.14}.collab.hover .ce line{stroke-opacity:.04!important}.collab.hover .ce line.hl{stroke-opacity:.9!important;stroke:var(--signal)}.collab .cn,.collab .ce line{transition:opacity .2s,stroke-opacity .2s}.collab.focus .cn:not(.on){opacity:.15}.collab.focus .ce line{stroke-opacity:.05!important}.collab.focus .ce line.on{stroke-opacity:.85!important;stroke:var(--signal)}</style>
 <script>(function(){try{var t=localStorage.getItem('scyps-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body>
@@ -791,7 +791,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
         <li><a href="https://www.uml.edu/service/Apps/Forms/Form?configId=ccde10d9-949a-4891-a810-ca2cfa641f6f&amp;tfa_26=https://www.uml.edu/research/scyps/" title="Website Feedback" target="_blank" rel="noopener noreferrer">Feedback</a></li>
       </ul>
       <p class="fine">Updated September 2026. Grant figures are total awards as reported by sponsors; the UMass Lowell share is noted where a project is a multi-institution consortium. Photographs courtesy of UMass Lowell.</p>
-      <p class="version">v 1.67<span class="vsep"></span><span id="visits" title="Visits counted since the counter went live"></span></p>
+      <p class="version">v 1.68<span class="vsep"></span><span id="visits" title="Visits counted since the counter went live"></span></p>
     </div>
   </div>
 </footer>

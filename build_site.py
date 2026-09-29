@@ -2392,7 +2392,7 @@ section.tint{background:var(--bg-2)}
 .feature .paradigms .more{margin:18px 0 0}
 .summit-btn{display:inline-block;width:auto;max-width:none;text-align:left;background:#3BA995;color:#062B24;padding:11px 18px;font-size:14.5px;border-radius:8px}
 .more{margin:22px 0 0}
-.more .summit-btn{background:var(--ink);color:#fff}
+.more .summit-btn{background:var(--ink);color:var(--bg)}
 .feature .arch{grid-column:1 / -1;margin:0;background:#fff;padding:18px 22px 14px;border-top:1px solid rgba(255,255,255,.15)}
 .feature .arch img{width:100%;height:auto;display:block}
 .feature .arch figcaption{font-size:13px;color:#5B6B82;text-align:center;margin-top:10px}
@@ -2591,7 +2591,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .frow .flab{font-size:13px;color:var(--ink-3);padding-top:7px}
 .fchips{display:flex;flex-wrap:wrap;gap:8px}
 .pfilters .chip{font:inherit;font-size:13.5px;padding:5px 12px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;cursor:pointer}
-.pfilters .chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pfilters .chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .pfilters .chip:disabled{opacity:.45;cursor:default}
 .pcount{font-size:13.5px;color:var(--ink-3);margin:14px 0 2px}
 .proj[hidden]{display:none}
@@ -2624,7 +2624,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .nfilters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:2px}
 .nfilters .lab{font-size:13px;color:var(--ink-3);margin-right:4px}
 .nfilters .chip{font:inherit;font-size:13.5px;padding:6px 13px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;cursor:pointer}
-.nfilters .chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.nfilters .chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .nfilters .chip:disabled{opacity:.4;cursor:default}
 .ncount{font-size:13.5px;color:var(--ink-3);margin:14px 0 2px}
 .nitem h3{font-size:19px;margin-bottom:5px;line-height:1.3}
@@ -3262,7 +3262,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.67"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.68"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -6202,7 +6202,7 @@ def build_positions(footer_html, script_html):
 .pos h2{font-size:21px;margin:0 0 4px}.posgroup{color:var(--ink-3);font-size:14px;margin:0 0 14px}
 .pos h3{font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);margin:14px 0 4px}
 .pos p{margin:0;font-size:15.5px;line-height:1.55}
-.posapply{margin-top:16px!important}.pos .btn{display:inline-block;background:var(--ink);color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;font-size:14.5px}
+.posapply{margin-top:16px!important}.pos .btn{display:inline-block;background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:8px;text-decoration:none;font-size:14.5px}
 .posnote{font-size:13.5px;color:var(--ink-3);margin-top:28px;max-width:52em}"""
     page = page_shell("Open positions | SCyPS, UMass Lowell",
                       "Postdoctoral, doctoral, undergraduate, and visiting positions at the Center for Smart Cyber-Physical Systems, UMass Lowell.",
@@ -6822,7 +6822,7 @@ COLLAB_CSS = (".collabwrap{overflow-x:auto;border:1px solid var(--line);border-r
               ".collabnote{font-size:14px;color:var(--ink-3);margin:10px 0 0;max-width:60em}"
               ".cfilters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 8px}.cfilters .flab{font-size:13px;color:var(--ink-3);margin-right:4px}"
               ".cfilters .chip{font:inherit;font-size:13.5px;padding:5px 12px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;cursor:pointer}"
-              ".cfilters .chip[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}.cnote{font-size:14px;color:var(--ink-2);min-height:1.4em;margin:0 0 8px}"
+              ".cfilters .chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}.cnote{font-size:14px;color:var(--ink-2);min-height:1.4em;margin:0 0 8px}"
               ".collabwrap{position:relative}.ctip{position:absolute;z-index:3;max-width:320px;background:var(--surface);border:1px solid var(--line);border-radius:10px;box-shadow:0 8px 24px rgba(14,32,54,.16);padding:10px 12px;font-size:13.5px;line-height:1.4;color:var(--ink-2);pointer-events:none}"
               ".ctip b{display:block;font-size:15px;color:var(--ink)}.ctip .cw{display:block;color:var(--ink-3);font-size:12.5px;margin:1px 0 4px}.ctip .cn2{display:block;font-weight:600;color:var(--ink);margin:2px 0}"
               ".ctip ul{margin:4px 0 0;padding-left:16px}.ctip li{margin:0 0 1px}.collab .cn{cursor:pointer;outline:none}.collab .ce line{cursor:pointer}"

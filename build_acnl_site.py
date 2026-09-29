@@ -81,7 +81,7 @@ section{padding:44px 0}section+section{border-top:1px solid var(--line)}
 .chip{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-size:12.5px;color:var(--ink-2);margin:2px 4px 2px 0;background:var(--surface)}
 .thread{display:grid;grid-template-columns:1fr 3fr;gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}@media (max-width:640px){.thread{grid-template-columns:1fr}}.thread h3{margin:0}.thread .n{font-size:14px;color:var(--ink-3)}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:32px}@media (max-width:820px){.two{grid-template-columns:1fr}}
-.note{font-size:14px;color:var(--ink-3)}.btn{display:inline-block;background:var(--acc);color:#fff;border-radius:999px;padding:10px 18px;font-weight:600}.btn:hover{text-decoration:none;filter:brightness(1.08)}
+.note{font-size:14px;color:var(--ink-3)}.btn{display:inline-block;background:var(--acc);color:#fff;border-radius:999px;padding:10px 18px;font-weight:600}.btn:hover{text-decoration:none;filter:brightness(1.08)}@media (prefers-color-scheme:dark){:root:not([data-theme=light]) .btn{color:#1B0F0D}}:root[data-theme=dark] .btn{color:#1B0F0D}
 .visits{display:inline-block;margin-top:8px}.visits img{vertical-align:middle}
 .foot{border-top:1px solid var(--line);padding:30px 0 40px;font-size:14px;color:var(--ink-3)}.foot .wrap{display:flex;flex-wrap:wrap;gap:20px 40px;justify-content:space-between}
 .hbars{display:grid;gap:8px}.hb{display:grid;grid-template-columns:minmax(150px,42%) 1fr;gap:12px;align-items:center;font-size:15px}.hbl{color:var(--ink-2);line-height:1.25}

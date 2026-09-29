@@ -127,7 +127,7 @@ FACULTY = {
          "title": "Principal Member of Technical Staff, AT&T Network Cloud and Infrastructure",
          "areas": "Optical transport systems, simulation and design tools for core and backbone networks, software-defined and cross-layer network architecture, and quality-of-transmission estimation in open optical networks",
          "note": "Ph.D., Indian Institute of Science; postdoctoral researcher at Columbia University's Lightwave Research Laboratory and earlier a visiting scholar with the director at UMass Dartmouth. Co-author with the director on eight optical networking papers, 2008 to 2011.",
-         "email": "", "phone": "", "url": "https://scholar.google.com/citations?user=1c-DqjsAAAAJ"},
+         "email": "bgsquare@gmail.com", "phone": "", "url": "https://scholar.google.com/citations?user=1c-DqjsAAAAJ"},
     ],
     "collaborators": [
         {"name": "NYU Tandon School of Engineering", "org": "SUMMIT federation site", "note": "Second node of the multi-site smart grid testbed, led by center member Yuzhang Lin"},
@@ -3267,7 +3267,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.70"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.71"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the

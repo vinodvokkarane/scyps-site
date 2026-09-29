@@ -3267,7 +3267,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.75"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.76"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3334,6 +3334,7 @@ SPONSORS = {
         {"key": "redhat", "name": "Red Hat", "url": "https://www.redhat.com", "note": "Open-source research: Friendly Fedora and Podman; sponsor of the Friendly Fedora capstone program since 2020 and of the Open-Source Club"},
         {"key": "navia", "name": "Navia Energy", "url": "https://naviaenergy.com", "note": "Resilient smart grids"},
         {"key": "sherpa6", "name": "Sherpa 6", "url": "https://sherpa6.com", "note": "Sponsor and collaborator; veteran-owned engineering firm in tactical communications, private 5G, and sensor integration for dismounted soldier systems"},
+        {"key": "umlarc", "name": "UMass Lowell Applied Research Corporation (UMLARC)", "url": "", "note": "Applied research partner; place of performance for ARPO and ARPO-Sensor Fusion"},
     ],
     "Partner institutions": [
         {"key": "nyu", "name": "NYU Tandon School of Engineering", "url": "https://engineering.nyu.edu", "note": "SUMMIT federation site; Yuzhang Lin, Co-PI"},

@@ -138,7 +138,7 @@ def write(name, title, desc, body, sub=""):
     depth = 1 if sub else 0
     page = shell(name if not sub else sub, title, desc, body, depth=depth)
     # every link on the lab site opens in a new tab, as the director asked; mail links and jumps within a page stay put
-    page = re.sub(r'<a (?![^>]*\btarget=)(?=[^>]*href="(?!mailto:|#))', '<a target="_blank" rel="noopener" ', page)
+    page = re.sub(r'<a (?![^>]*\btarget=)(?=[^>]*href="(?!mailto:|#))', '<a target="scyps" ', page)
     folder = os.path.join(OUT, sub) if sub else OUT; os.makedirs(folder, exist_ok=True)
     open(os.path.join(folder, f"{name}.html"), "w", encoding="utf-8").write(page)
 

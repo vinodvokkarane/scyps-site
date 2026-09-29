@@ -3267,7 +3267,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.73"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.74"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -5517,11 +5517,12 @@ def build():
 
 
 def new_tab_links(page):
-    """Add target=_blank and rel=noopener to every http(s) link that lacks a target."""
+    """Send every outside link to one shared second tab, named "scyps", so visitors do not pile up tabs.
+    The link keeps its opener so the browser can find and reuse that tab on the next click."""
     def fix(m):
         tag = m.group(0)
         if 'target=' in tag: return tag
-        return tag[:-1] + ' target="_blank" rel="noopener noreferrer">'
+        return tag[:-1] + ' target="scyps">'
     return re.sub(r'<a\s[^>]*href="https?://[^"]*"[^>]*>', fix, page)
 
 
@@ -5967,7 +5968,7 @@ def build_labs(footer_html, script_html):
     for i, lab in enumerate(LABS):
         offers = "".join(f"<li>{esc(o)}</li>" for o in lab["offers"])
         _acnl = lab["name"].startswith("Advanced Communication Networks Laboratory")   # the lab's links open in a new tab
-        links = " ".join(f'<a href="{esc(u)}"' + (' target="_blank" rel="noopener"' if _acnl else "") + f'>{esc(t)}</a>' for t, u in lab["links"])
+        links = " ".join(f'<a href="{esc(u)}"' + (' target="scyps"' if _acnl else "") + f'>{esc(t)}</a>' for t, u in lab["links"])
         lead = people.get(lab["lead"].split(",")[0].strip())
         face = avatar(lead, "sm") if lead else ""
         cards += f"""<article class="lab">

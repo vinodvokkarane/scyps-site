@@ -118,6 +118,11 @@ FACULTY = {
          "note": "IET Fellow; Editor-in-Chief, International Journal of Electrical Power & Energy Systems; 2025 NSF CAREER Award.",
          "email": "junbo.zhao@dartmouth.edu", "phone": "", "url": "https://sites.dartmouth.edu/cpeslab/junbo-zhao/",
          "match_titles": ["Communication Network-Aware Missing Data Recovery"]},
+        {"name": "Maïté Brandt-Pearce", "tag": "External collaborator", "photo": "brandtpearce", "inst": "University of Virginia",
+         "title": "Professor of Electrical and Computer Engineering and Vice Provost for Faculty Affairs, University of Virginia",
+         "areas": "Nonlinear effects in fiber optics, free-space optical communications, cross-layer design of optical networks subject to physical-layer degradations, body area networks, and radar signal processing",
+         "note": "NSF CAREER awardee; co-editor of Cross-Layer Design in Optical Networks (Springer, 2013); former editor of IEEE Transactions on Communications and the IEEE/Optica Journal of Optical Communications and Networking. Co-author on six of the lab's multi-band and space-division multiplexing papers since 2025.",
+         "email": "mb-p@virginia.edu", "phone": "", "url": "https://engineering.virginia.edu/faculty/maite-brandt-pearce-phd"},
     ],
     "collaborators": [
         {"name": "NYU Tandon School of Engineering", "org": "SUMMIT federation site", "note": "Second node of the multi-site smart grid testbed, led by center member Yuzhang Lin"},
@@ -3257,7 +3262,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.65"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.66"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -6592,7 +6597,7 @@ def _college_of(p):
     """Where a person sits: a UMass Lowell college for internal people, the institution for external ones."""
     t = (p.get("title", "") + " " + p.get("title2", "")).lower(); inst = p.get("inst", "") or ""
     if inst or "nyu" in t or "external" in (p.get("tag") or "").lower():
-        known = {"West Virginia": "West Virginia University", "NYU": "NYU Tandon", "New York University": "NYU Tandon", "Louisiana": "University of Louisiana at Lafayette", "Dartmouth College": "Dartmouth College"}
+        known = {"West Virginia": "West Virginia University", "NYU": "NYU Tandon", "New York University": "NYU Tandon", "Louisiana": "University of Louisiana at Lafayette", "Dartmouth College": "Dartmouth College", "University of Virginia": "University of Virginia"}
         if inst: return known.get(inst, inst)
         if "nyu" in t: return "NYU Tandon"
         return p.get("title", "").split(",")[-1].strip() or "External"      # "Research Director of the Northeast US, Red Hat"

@@ -38,7 +38,18 @@ def head(p): return bs.stu_avatar(p)
 # Lab Life slideshow on the home page: image key and caption ("" shows just "Lab life")
 DECK = [("lab1", ""), ("lab2", ""), ("lab3", ""), ("lab4", ""), ("lab5", ""), ("lab6", ""),
         ("lab7", "Arash Deylamsalehi presenting his research"),
-        ("lab8", "The lab's ESnet OSCARS demonstration at the UMass Lowell booth, SC15")]
+        ("lab8", "The lab's ESnet OSCARS demonstration at the UMass Lowell booth, SC15"),
+        ("lab9", ""), ("lab10", "At the Electrical and Computer Engineering demonstration booth"),
+        ("lab11", "The RINSE poster, on reducing the environmental impact of network survivability"),
+        ("lab12", ""), ("lab13", ""),
+        ("lab14", "The energy-cost-aware routing poster, using real-time pricing of power grids"),
+        ("lab15", "")]
+# the photos are files under media/lab, loaded as the slideshow reaches them; portrait photos are shown whole
+import os as _os
+_LAB = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "media", "lab")
+def lab_src(k): return f"../media/lab/{k}.jpg" if _os.path.exists(_os.path.join(_LAB, k + ".jpg")) else img(k)
+def lab_ok(k): return _os.path.exists(_os.path.join(_LAB, k + ".jpg")) or bool(bs.IMG.get(k))
+def lab_portrait(k): return k in bs.LAB_PORTRAIT
 
 NAV = [("index", "Home", "index.html"), ("research", "Research", "research.html"), ("insights", "Insights", "insights.html"),
        ("people", "People", "people.html"), ("publications", "Publications", "publications.html"), ("projects", "Projects", "projects.html"),
@@ -95,7 +106,7 @@ section{padding:44px 0}section+section{border-top:1px solid var(--line)}
 .tcloud{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px 18px;padding:18px 10px;line-height:1.15}.tcloud a{font-size:calc(var(--s) * 1px);font-weight:600;text-decoration:none;white-space:nowrap;text-align:center}.tcloud a:hover{text-decoration:underline}@media (max-width:600px){.tcloud{gap:4px 12px}.tcloud a{font-size:calc(var(--s) * 0.72px + 4px)}}
 .cloud{width:100%;height:auto;display:block;font-family:"IBM Plex Sans",sans-serif;font-weight:600}.cloud a text:hover{text-decoration:underline}.chart{width:100%;height:auto;display:block}.sfig{margin:24px 0;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:12px;max-width:680px}.sfig img{border-radius:8px;width:100%;height:auto;display:block}.sfig figcaption{font-size:14px;color:var(--ink-3);margin-top:8px}
 .deck{position:relative;aspect-ratio:760/406;max-height:78vh;max-width:960px;margin:0 auto;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);background:#0E2036}
-.deck img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s}.deck img.on{opacity:1}
+.deck img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s}.deck img.on{opacity:1}.deck img.portrait{object-fit:contain}
 .deck .dots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:8px;align-items:center}
 .deck .dots button{width:13px;height:13px;border-radius:50%;border:2px solid #fff;background:transparent;padding:0;cursor:pointer}.deck .dots button[aria-pressed=true]{background:#fff}
 .deck .dots .pp{width:auto;height:auto;border-radius:999px;padding:2px 10px;font:600 12px "IBM Plex Sans",sans-serif;color:#fff;background:rgba(14,32,54,.55)}
@@ -387,8 +398,8 @@ def page_index():
   <h1>Networks that keep working when it matters</h1>
   <p class="lead">We design and defend the communication networks behind critical infrastructure: the fiber backbone that carries AI and cloud traffic, and the control networks that keep the power grid observable and recoverable under attack. Directed by {esc(D["name"])} at UMass Lowell since 2013, and before that at UMass Dartmouth.</p>
   <div class="stats"><div><b>{n_rec}</b>publications since 2002</div><div><b>{n_journal}</b>journal articles</div><div><b>{len(students)}</b>doctoral students</div><div><b>{len(alumni_phd)}</b>Ph.D. graduates advised or co-advised</div></div>
-</div><div><div class="deck" id="deck" aria-roledescription="carousel" aria-label="Lab life">{"".join(f'<img src="{img(k)}" alt="{esc(c or "Members of the Advanced Communication Networks Laboratory")}" data-cap="{esc(c)}" width="760" height="406"' + (' class="on"' if i == 0 else ' loading="lazy"') + '>' for i, (k, c) in enumerate((k, c) for k, c in DECK if bs.IMG.get(k)))}
-  <div class="dots" role="group" aria-label="Choose a photo">{"".join(f'<button type="button" aria-label="Photo {i + 1}"' + (' aria-pressed="true"' if i == 0 else ' aria-pressed="false"') + '></button>' for i, _ in enumerate(k for k, _c in DECK if bs.IMG.get(k)))}<button type="button" class="pp" aria-label="Pause the slideshow">Pause</button></div>
+</div><div><div class="deck" id="deck" aria-roledescription="carousel" aria-label="Lab life">{"".join(f'<img src="{lab_src(k)}" alt="{esc(c or "Members of the Advanced Communication Networks Laboratory")}" data-cap="{esc(c)}" width="760" height="406"' + ((' class="' + ' '.join(x for x in ('on' if i == 0 else '', 'portrait' if lab_portrait(k) else '') if x) + '"') if (i == 0 or lab_portrait(k)) else '') + ('' if i == 0 else ' loading="lazy"') + '>' for i, (k, c) in enumerate((k, c) for k, c in DECK if lab_ok(k)))}
+  <div class="dots" role="group" aria-label="Choose a photo">{"".join(f'<button type="button" aria-label="Photo {i + 1}"' + (' aria-pressed="true"' if i == 0 else ' aria-pressed="false"') + '></button>' for i, _ in enumerate(k for k, _c in DECK if lab_ok(k)))}<button type="button" class="pp" aria-label="Pause the slideshow">Pause</button></div>
 </div><p class="deckcap" id="deckcap">Lab life</p></div></div></div></div>
 <script>(function(){{var d=document.getElementById('deck');if(!d)return;var im=d.querySelectorAll('img'),bt=d.querySelectorAll('.dots button:not(.pp)'),pp=d.querySelector('.pp'),i=0,t=null;
 var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;

@@ -8,6 +8,7 @@ Grants: figures confirmed on the director's NSF Current & Pending (Sept 2026).
 import html, json, re
 
 import sys, datetime, os, hashlib
+LAB_PORTRAIT = {"lab12": "50% 30%", "lab15": "50% 72%"}   # lab photos taller than wide: shown whole in the slideshow, cropped from the top in grids
 OUT = next((a for a in sys.argv[1:] if not a.startswith("-")), "index.html")   # run: python3 build_site.py [output path]
 
 # ---------------------------------------------------------------- people
@@ -3267,7 +3268,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.76"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.77"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -4995,7 +4996,11 @@ def build():
                 f'<li><b>{esc(s["name"])}</b><span>{esc(s["status"])}</span><span class="prog">{esc(s.get("program", ""))}</span></li>' for s in grp) + '</ul>'
         _groups.append(f'<div class="advgroup">{head}{body}</div>')
     students_html = "".join(_groups)
-    lablife_html = "".join(f'<img src="data:image/jpeg;base64,{IMG[f"lab{i}"]}" alt="Members of the Advanced Communication Networks Laboratory" width="760" height="406">' for i in range(1, 7) if IMG.get(f"lab{i}"))
+    _labdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "media", "lab")
+    def _portrait(i): return f"lab{i}" in LAB_PORTRAIT
+    lablife_html = "".join(f'<img src="media/lab/lab{i}.jpg" alt="Members of the Advanced Communication Networks Laboratory" loading="lazy"'
+                           + (f' style="object-position:{LAB_PORTRAIT[f"lab{i}"]}"' if _portrait(i) else '') + '>'
+                           for i in range(1, 16) if os.path.exists(os.path.join(_labdir, f"lab{i}.jpg")))
     alumni_feat_html = "".join(alum_feature(a) for a in ALUMNI_FEATURED)
     alumni_phd_html = "".join(f'<li><span class="yr">{esc(y)}</span><span><b>{esc(n)}</b>{(" <span class=\"where\">" + esc(w) + "</span>") if w else ""}</span></li>' for y, n, w in ALUMNI_PHD)
     alumni_pd_html = "".join(f'<li><span><b>{esc(n)}</b>{(" <span class=\"where\">" + esc(w) + "</span>") if w else ""}</span></li>' for n, w in ALUMNI_POSTDOC)
@@ -5350,7 +5355,6 @@ def build():
       <details id="loop-transcript"><summary>Transcript</summary>
         <p>The grid, the road, the hospital, and the factory now run on data and AI. What keeps them safe when something goes wrong? It starts in the physical world: energy, transportation, health, manufacturing. Sensors measure what is happening, right now. A zero-trust network carries the data; every device and every command is verified. AI keeps a digital twin of the system, spots trouble early, and proposes what to do. People stay in the loop: they approve, override, or ask why. Approved commands travel back, and actuators act. The loop closes. Sense. Communicate. Decide with people. Act. Nothing is trusted by default.</p>
       </details>
-      <p class="vidnote"><a href="media/center-loop-vertical.mp4" download>Vertical version for LinkedIn and Instagram</a></p>
     </div>
   </div>
 </section>
@@ -5771,7 +5775,7 @@ def videos_gallery():
     loop = ('<div class="vid"><p class="vidlabel">The loop in 40 seconds</p><video controls playsinline preload="none" poster="media/center-loop-poster.jpg" width="1280" height="720">'
             '<source src="media/center-loop.mp4" type="video/mp4"><a href="media/center-loop.mp4">Download the video</a></video></div>')
     return (f'<div class="nlblock" id="videos"><h2 class="grouph">Videos</h2><p class="nlmonthly">Short videos made from the center&rsquo;s own records, free to share. '
-            f'The tall ones are sized for LinkedIn and Instagram.</p><div class="vidgrid">{loop}{wide}</div><div class="vidrow">{tall}</div></div>')
+            f'</p><div class="vidgrid">{loop}{wide}</div><div class="vidrow">{tall}</div></div>')
 
 
 def build_newspage(footer_html, script_html):

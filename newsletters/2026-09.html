@@ -186,7 +186,7 @@ section.tint{background:var(--bg-2)}
 @media (prefers-reduced-motion:reduce){.flow,.pulse,.spin,.grow,.trace{animation:none}.flow{stroke-dasharray:none}.trace{stroke-dasharray:none}}
 
 /* research */
-.thrusts{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.thrusts{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
 .thrust{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
 .thrust .art{display:block;aspect-ratio:2/1;background:#FFFFFF;--bg-2:#F3F7FA;--surface:#FFFFFF;--line:#D5DCE5;--ink:#0E2036;--ink-3:#5B6B82;--signal:#0A777F;--brand-blue:#044978;--green:#3BA995;background:linear-gradient(160deg,var(--illus-bg),var(--illus-bg-2));color:var(--ink);border-bottom:1px solid var(--line);padding:6px}
 .thrust .art svg{width:100%;height:100%;display:block}
@@ -228,7 +228,7 @@ section.tint{background:var(--bg-2)}
 .feature .paradigms .more{margin:18px 0 0}
 .summit-btn{display:inline-block;width:auto;max-width:none;text-align:left;background:#3BA995;color:#062B24;padding:11px 18px;font-size:14.5px;border-radius:8px}
 .more{margin:22px 0 0}
-.more .summit-btn{background:var(--ink);color:#fff}
+.more .summit-btn{background:var(--ink);color:var(--bg)}
 .feature .arch{grid-column:1 / -1;margin:0;background:#fff;padding:18px 22px 14px;border-top:1px solid rgba(255,255,255,.15)}
 .feature .arch img{width:100%;height:auto;display:block}
 .feature .arch figcaption{font-size:13px;color:#5B6B82;text-align:center;margin-top:10px}
@@ -423,13 +423,15 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 
 /* project filters */
 .pfilters{display:grid;gap:10px;margin:0 0 6px}
-.prow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.prow .plab{font-size:13px;color:var(--ink-3);width:52px;flex:none}
+.frow{display:grid;grid-template-columns:84px auto minmax(0,1fr);gap:8px;align-items:start}
+.frow .flab{font-size:13px;color:var(--ink-3);padding-top:7px}
+.fchips{display:flex;flex-wrap:wrap;gap:8px}
 .pfilters .chip{font:inherit;font-size:13.5px;padding:5px 12px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;cursor:pointer}
-.pfilters .chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pfilters .chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.pfilters .chip:disabled{opacity:.45;cursor:default}
 .pcount{font-size:13.5px;color:var(--ink-3);margin:14px 0 2px}
 .proj[hidden]{display:none}
-@media (max-width:640px){.prow .plab{width:100%}}
+@media (max-width:640px){.frow{grid-template-columns:auto minmax(0,1fr)}.frow .flab{grid-column:1/-1;padding-top:0}}
 
 /* teasers, news page, article stream */
 .peoplecards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -458,7 +460,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .nfilters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:2px}
 .nfilters .lab{font-size:13px;color:var(--ink-3);margin-right:4px}
 .nfilters .chip{font:inherit;font-size:13.5px;padding:6px 13px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);border-radius:999px;cursor:pointer}
-.nfilters .chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.nfilters .chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .nfilters .chip:disabled{opacity:.4;cursor:default}
 .ncount{font-size:13.5px;color:var(--ink-3);margin:14px 0 2px}
 .nitem h3{font-size:19px;margin-bottom:5px;line-height:1.3}
@@ -511,6 +513,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .stulist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
 .stulist li{border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:12px 16px;display:flex;flex-direction:column;gap:2px;font-size:14.5px;color:var(--ink-2)}
 .stulist li b{font-size:16px;color:var(--ink)}.stulist .prog{color:var(--ink-3);font-size:13.5px}
+.stugrid + .stulist{margin-top:16px}
 .spteaser{border:1px solid var(--line);border-left:4px solid var(--signal);border-radius:10px;background:var(--surface);padding:16px 20px;margin:0 0 28px;max-width:46em}
 .spteaser h3{margin:0 0 6px;font-size:20px}.spteaser p{margin:0 0 10px;color:var(--ink-2)}.spkicker{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin:0 0 6px}
 .spwhos{display:flex;flex-wrap:wrap;gap:12px 28px}.spwho{display:flex;align-items:center;gap:12px}.spwho .avatar{width:56px;height:56px;border-radius:50%;object-fit:cover}.spwho b{display:block;font-size:15px}.spwho span{font-size:13px;color:var(--ink-3)}
@@ -530,6 +533,9 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .stupub .lbl{display:block;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3);margin-bottom:4px}
 .stupub .v{display:block;color:var(--ink-3);font-size:12.5px;margin-top:4px}
 .stufig{margin:18px 0 0;align-self:stretch;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px}
+.vid{margin-top:18px}.vidv{max-width:360px;margin:26px auto 0}.vidgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:22px;margin:10px 0 26px}.vidgrid .vid{margin:0}.vid video{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--line);background:#0E2036;display:block}
+.vidrow{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:22px;margin-top:10px}.vidrow .vidv{margin:0;max-width:none}.vidwide{max-width:980px;margin:34px auto 0}.vidwide .vidlabel{font-family:Fraunces,Georgia,serif;font-size:24px;font-weight:500}.vid video{width:100%;height:auto;border-radius:var(--radius);border:1px solid var(--line);background:#0E2036;display:block}.vidlabel{font-weight:600;color:var(--ink);margin:0 0 8px}.vid details{margin-top:8px;font-size:14.5px;color:var(--ink-2)}.vid summary{cursor:pointer;color:var(--acc-ink,#0A777F);font-weight:600}.vidnote{font-size:14px;margin-top:6px}
+.club{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:18px 22px;margin:0 0 26px;max-width:760px}.club .kick{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin:0 0 4px}.club h4{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:22px;margin:0 0 8px}.club p{margin:0 0 8px}.club .meta{font-size:14.5px;color:var(--ink-2)}
 .stufig img{width:100%;height:150px;object-fit:contain;display:block}
 .stufig .svgfig,.stufig img{margin-bottom:6px}
 .stufig .svgfig{height:150px}
@@ -673,10 +679,10 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 <main id="main">
 <section>
   <div class="wrap">
-    <p class="crumb"><a href="index.html">Newsletters</a></p>
+    <p class="crumb"><a href="../news.html#newsletters">Newsletters</a></p>
     <div class="shead"><h1>September 2026</h1><p>The center's monthly note: what its faculty and students published, what was funded, and what is next. Generated from the center's own records.</p></div>
     <div class="nlbody"><p style="font-size:17px;line-height:1.5;color:#0E2036;margin:0 0 8px">September 2026 at the center: 3 new papers, 3 in journals, 1 milestone.</p><h2 style="font-family:Georgia,serif;font-size:20px;margin:26px 0 12px;color:#044978;border-bottom:1px solid #D5DCE5;padding-bottom:6px">New papers</h2><p style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#5B6B82;margin:0 0 8px">Journal articles</p><p style="margin:0 0 14px;font-size:15px;line-height:1.45;color:#0E2036">C. Pozzi, C. Ng, S. Lyon, <b>Y. Luo</b>, C. Niezrecki, M. Inalpolat<br><a href="https://doi.org/10.1002/we.70148" style="color:#044978;text-decoration:none" target="scyps">A Novel Distributed Sensor Network to Assess Wind Turbine Blade Acoustics for Structural Health Monitoring</a><br><span style="color:#5B6B82;font-size:13.5px"><i>Wind Energy</i>, vol. 29, no. 10, Sept. 2026</span><span class="jm" title="JCR 2023 (entered Sept 2026; refresh against the current JCR)">IF 4.1 (2023)</span></p><p style="margin:0 0 14px;font-size:15px;line-height:1.45;color:#0E2036">A. Rezaee, R. McCann, <b>V. M. Vokkarane</b><br><a href="https://doi.org/10.1364/JOCN.593123" style="color:#044978;text-decoration:none" target="scyps">FUSION: A Unified Benchmarking Framework for Reproducible Optical Network Research</a><br><span style="color:#5B6B82;font-size:13.5px"><i>IEEE/Optica Journal of Optical Communications and Networking</i>, vol. 18, no. 9, pp. D90-D105, Sept. 2026 (Special Issue on Benchmarking in Optical Networks)</span><span class="jm" title="JCR 2025, released June 2026 (Clarivate), as listed in the director&#x27;s CV">IF 5.1 (2025)</span></p><p style="margin:0 0 14px;font-size:15px;line-height:1.45;color:#0E2036">X. Yan, <b>Y. Xie</b>, Z. Bhuyan, B. Xiang, G. Wu, M. Shirazi<br><a href="https://doi.org/10.1016/j.aap.2026.108614" style="color:#044978;text-decoration:none" target="scyps">Merging behavior under varying work zone sign scenarios: A heterogeneity-based analysis</a><br><span style="color:#5B6B82;font-size:13.5px"><i>Accident Analysis &amp; Prevention</i>, vol. 235, art. 108614, Sept. 2026</span><span class="jm" title="JCR 2023 (entered Sept 2026; refresh against the current JCR)">IF 5.7 (2023)</span></p><h2 style="font-family:Georgia,serif;font-size:20px;margin:26px 0 12px;color:#044978;border-bottom:1px solid #D5DCE5;padding-bottom:6px">Student spotlight</h2><p style="margin:0 0 14px;font-size:15px;line-height:1.45;color:#0E2036"><b>Building the networks behind AI</b>: Arash Rezaee and Ryan McCann.<br>Three journal articles in six months on how fiber-optic networks can keep up with AI, and an open-source platform the field can build on.<br><a href="https://smartcyberphysical.org/spotlight.html#2026-09" style="color:#044978" target="scyps">Read the spotlight</a></p><h2 style="font-family:Georgia,serif;font-size:20px;margin:26px 0 12px;color:#044978;border-bottom:1px solid #D5DCE5;padding-bottom:6px">Milestones</h2><p style="margin:0 0 14px;font-size:15px;line-height:1.45;color:#0E2036">The FUSION benchmarking framework paper appears in JOCN&#x27;s special issue on benchmarking in optical networks, followed in October by a QoT-aware grooming paper for multi-band SDM networks.</p><h2 style="font-family:Georgia,serif;font-size:20px;margin:26px 0 12px;color:#044978;border-bottom:1px solid #D5DCE5;padding-bottom:6px">Coming up</h2><p style="margin:0 0 10px;font-size:15px;color:#0E2036"><b>SUMMIT: A Secure and Resilient Multi-site Smart Grid Testbed for Multidisciplinary Research and Training</b> starts Oct 2026.</p><p style="margin:0 0 10px;font-size:15px;color:#0E2036"><b>ARPO-Sensor Fusion: Autonomous Robotic Planning and Optimization for Intelligence Sensor Fusion</b> starts Oct 2026.</p><p style="margin:0 0 10px;font-size:15px;color:#0E2036"><b>BOND-AI: A Standardized Reliability Qualification Methodology for High-Temperature Printed Interfaces and Bond Joints, Enabled by Physics-Informed AI, on a 500 °C-Capable Alumina Platform</b> starts Oct 2026.</p><h2 style="font-family:Georgia,serif;font-size:20px;margin:26px 0 12px;color:#044978;border-bottom:1px solid #D5DCE5;padding-bottom:6px">Work with us</h2><p style="margin:0 0 10px;font-size:15px;line-height:1.45;color:#0E2036">Doctoral applicants: write to the faculty member whose work matches yours and copy the director. Companies and agencies: the <a href="https://smartcyberphysical.org/labs.html" style="color:#044978" target="scyps">laboratories page</a> lists what each facility can offer, and the <a href="https://smartcyberphysical.org/summit.html" style="color:#044978" target="scyps">SUMMIT testbed</a> opens to collaborators in 2026 to 2027.</p></div>
-    <p class="nlfoot">This issue was generated on September 25, 2026 from the same records that produce the <a href="../news.html">news page</a>. Subscribe to the <a href="../feed.xml">feed</a> to receive items as they appear.</p>
+    <p class="nlfoot">This issue was generated on October 01, 2026 from the same records that produce the <a href="../news.html">news page</a>. Subscribe to the <a href="../feed.xml">feed</a> to receive items as they appear.</p>
   </div>
 </section>
 </main>
@@ -720,8 +726,8 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
         <li><a href="https://www.uml.edu/accessibility/" title="Accessibility and Accommodations" target="scyps">Accessibility</a></li>
         <li><a href="https://www.uml.edu/service/Apps/Forms/Form?configId=ccde10d9-949a-4891-a810-ca2cfa641f6f&amp;tfa_26=https://www.uml.edu/research/scyps/" title="Website Feedback" target="scyps">Feedback</a></li>
       </ul>
-      <p class="fine">Updated September 2026. Grant figures are total awards as reported by sponsors; the UMass Lowell share is noted where a project is a multi-institution consortium. Photographs courtesy of UMass Lowell.</p>
-      <p class="version">v 1.11<span class="vsep"></span><span id="visits" title="Visits counted since the counter went live"></span></p>
+      <p class="fine">Updated October 2026. Grant figures are total awards as reported by sponsors; the UMass Lowell share is noted where a project is a multi-institution consortium. Photographs courtesy of UMass Lowell.</p>
+      <p class="version">v 1.79<span class="vsep"></span><span id="visits" title="Visits counted since the counter went live"></span></p>
     </div>
   </div>
 </footer>

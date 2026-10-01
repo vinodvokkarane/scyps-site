@@ -2683,6 +2683,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .stulist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
 .stulist li{border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:12px 16px;display:flex;flex-direction:column;gap:2px;font-size:14.5px;color:var(--ink-2)}
 .stulist li b{font-size:16px;color:var(--ink)}.stulist .prog{color:var(--ink-3);font-size:13.5px}
+.stugrid + .stulist{margin-top:16px}
 .spteaser{border:1px solid var(--line);border-left:4px solid var(--signal);border-radius:10px;background:var(--surface);padding:16px 20px;margin:0 0 28px;max-width:46em}
 .spteaser h3{margin:0 0 6px;font-size:20px}.spteaser p{margin:0 0 10px;color:var(--ink-2)}.spkicker{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin:0 0 6px}
 .spwhos{display:flex;flex-wrap:wrap;gap:12px 28px}.spwho{display:flex;align-items:center;gap:12px}.spwho .avatar{width:56px;height:56px;border-radius:50%;object-fit:cover}.spwho b{display:block;font-size:15px}.spwho span{font-size:13px;color:var(--ink-3)}
@@ -3141,10 +3142,10 @@ STUDENTS = [
     {"name": "Ali Alkhatatbih", "advisor": "Yan Luo", "status": "Ph.D. student, expected Aug. 2027", "program": "", "focus": ""},
     {"name": "Sage Lyon", "advisor": "Yan Luo", "status": "Ph.D. student, expected Dec. 2027", "program": "", "focus": ""},
     {"name": "Mohammad Shakhawat Hossain Fahim", "advisor": "Yan Luo", "status": "Ph.D. student, expected Dec. 2028", "program": "", "focus": ""},
-    {"name": "Negin Yazdani Motlagh", "advisor": "Lewis Tseng", "status": "Ph.D. student, joined 2024", "program": "School of Education", "focus": ""},
-    {"name": "Kritee Neupane", "advisor": "Lewis Tseng", "status": "Ph.D. student, joined 2025", "program": "Electrical and Computer Engineering", "focus": ""},
+    {"name": "Negin Yazdani Motlagh", "advisor": "Lewis Tseng", "photo": "negin", "status": "Ph.D. student, Research and Evaluation in Education, joined 2024; co-advised by Hsien-Yuan (Mark) Hsu", "program": "Research and Evaluation in Education", "focus": "Artificial intelligence and computational thinking in STEM education, with a focus on student learning, skill development, and evolving educational practices."},
+    {"name": "Kritee Neupane", "advisor": "Lewis Tseng", "photo": "kritee", "status": "Ph.D. student in Computer Engineering, joined January 2025", "program": "Electrical and Computer Engineering", "focus": "Digital twin modeling for cyber-physical systems; coordination and synchronization of networked digital twins; blockchain for data integrity and provenance; and fault-tolerant distributed systems."},
     {"name": "Layann Shaban", "advisor": "Lewis Tseng", "status": "Ph.D. student, joined 2026", "program": "Electrical and Computer Engineering", "focus": ""},
-    {"name": "Youlim Lee", "advisor": "Lewis Tseng", "status": "Ph.D. student, joined 2026", "program": "School of Education", "focus": ""},
+    {"name": "Youlim Lee", "advisor": "Lewis Tseng", "photo": "youlim", "status": "Ph.D. student, School of Education, joined fall 2024; co-advised by Hsien-Yuan (Mark) Hsu", "program": "School of Education", "focus": "AI literacy and ethical AI use in research: designing instruction that helps researchers ask better questions, critically evaluate AI outputs, and make sound, accountable decisions."},
 ]
 
 # ---------------------------------------------------------------- alumni profiles
@@ -3268,7 +3269,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.77"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.78"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3813,7 +3814,7 @@ SCHOLAR = {
     "Christopher Niezrecki": "bdmF58cAAAAJ", "Yan Luo": "H3ifH2gAAAAJ", "Yu Cao": "97RDUygAAAAJ", "Murat Inalpolat": "khGOgZgAAAAJ",
     "Martin Margala": "ANcbeNIAAAAJ", "Yuzhang Lin": "AHw2wzUAAAAJ", "Seung Woo Son": "D9v08JgAAAAJ", "Sukesh Aghara": "tWlkv-kAAAAJ", "Paul Robinette": "izN2PKAAAAAJ", "Alkim Akyurtlu": "ixtU3E4AAAAJ",
     "Chunxiao (Tricia) Chigan": "qoo1Tc0AAAAJ",
-    "Maïté Brandt-Pearce": "KFLFbWoAAAAJ", "Balagangadhar Bathula": "1c-DqjsAAAAJ",
+    "Maïté Brandt-Pearce": "KFLFbWoAAAAJ", "Negin Yazdani Motlagh": "5dO1Q8kAAAAJ", "Balagangadhar Bathula": "1c-DqjsAAAAJ",
     # Sent Sept. 2026 in this order: Arias, Chakrabarti, Evans, Ranasingha. Swap the IDs here if any
     # profile opens on the wrong person.
     "Orlando Arias": "LyL2zHwAAAAJ",
@@ -4992,8 +4993,12 @@ def build():
         if adv == "Vinod M. Vokkarane":
             body = '<div class="stugrid">' + "".join(student_card(st) for st in grp) + '</div>'
         else:
-            body = '<ul class="stulist">' + "".join(
-                f'<li><b>{esc(s["name"])}</b><span>{esc(s["status"])}</span><span class="prog">{esc(s.get("program", ""))}</span></li>' for s in grp) + '</ul>'
+            # students who have sent a photo and a research summary get full cards; the rest stay compact
+            full = [s for s in grp if s.get("photo") and s.get("focus") and IMG.get("head_" + s["photo"])]
+            rest = [s for s in grp if s not in full]
+            body = (('<div class="stugrid">' + "".join(student_card(st) for st in full) + '</div>') if full else '') + (
+                ('<ul class="stulist">' + "".join(
+                f'<li><b>{esc(s["name"])}</b><span>{esc(s["status"])}</span><span class="prog">{esc(s.get("program", ""))}</span></li>' for s in rest) + '</ul>') if rest else '')
         _groups.append(f'<div class="advgroup">{head}{body}</div>')
     students_html = "".join(_groups)
     _labdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "media", "lab")

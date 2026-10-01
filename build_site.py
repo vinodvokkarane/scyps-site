@@ -2117,6 +2117,10 @@ def month_of(p):
 P.sort(key=lambda p: (-p["year"], -month_of(p), 0 if p["type"] == "journal" else 1, p["title"].lower()))
 
 NEWS = [
+    ("Oct 2026", "Four research thrusts now organize the center's work, each with two co-leads: resilient energy and infrastructure (Aghara and Xie), next-generation networks and trusted devices (Tseng and Arias), cyber-physical AI (Luo and Son), and people in the loop (Robinette and Evans)."),
+    ("Oct 2026", "New collaborators: Junbo Zhao of Dartmouth, who directs the DOE CyberCARED consortium; Maïté Brandt-Pearce of the University of Virginia; and Balagangadhar Bathula of AT&T. Sherpa 6 and the UMass Lowell Applied Research Corporation join the center's sponsors and partners."),
+    ("Oct 2026", "The UMass Lowell Open-Source Club is now run through the center, with the director as academic advisor and Red Hat as industry sponsor, alongside the Red Hat-sponsored Friendly Fedora capstone that has run every year since 2020."),
+    ("Oct 2026", "Short videos on the center's website: the center's loop in 40 seconds, seven years in sixty seconds, the four thrusts, SUMMIT, lab life, student spotlights, and three papers in 30 seconds each, all gathered on the News page."),
     ("Oct 2026", "SUMMIT begins. NSF's $2M Major Research Instrumentation Track 2 award funds a three-site federated smart grid testbed with NYU and West Virginia University, starting October 1, 2026; a postdoctoral search is under way."),
     ("Sep 2026", "The FUSION benchmarking framework paper appears in JOCN's special issue on benchmarking in optical networks, followed in October by a QoT-aware grooming paper for multi-band SDM networks."),
     ("Oct 2026", "ARPO-Sensor Fusion starts under the Massachusetts Technology Collaborative's Applied AI Models program ($625K, of which $247K to UMass Lowell and UMLARC), performed at UMLARC."),
@@ -3269,7 +3273,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.78"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.79"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the

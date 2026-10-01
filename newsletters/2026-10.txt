@@ -1,0 +1,25 @@
+CENTER FOR SMART CYBER-PHYSICAL SYSTEMS, UMASS LOWELL
+Newsletter, October 2026
+
+October 2026 at the center: 3 new awards, 3 new papers, 3 in journals, 5 milestones.
+
+NEW AWARDS
+- SUMMIT: A Secure and Resilient Multi-site Smart Grid Testbed for Multidisciplinary Research and Training ($2.0M). National Science Foundation, Major Research Instrumentation Track 2 (Award #2511635). PI Vinod Vokkarane; Co-PIs Orlando Arias and Lewis Tseng (UMass Lowell), Yuzhang Lin (NYU), and Anurag Srivastava (WVU); senior personnel Yan Luo, Seung Woo Son, and Christopher Niezrecki
+- ARPO-Sensor Fusion: Autonomous Robotic Planning and Optimization for Intelligence Sensor Fusion ($625K). Massachusetts Technology Collaborative, Applied AI Models program. PI Vinod Vokkarane; performed at UMLARC
+- BOND-AI: A Standardized Reliability Qualification Methodology for High-Temperature Printed Interfaces and Bond Joints, Enabled by Physics-Informed AI, on a 500 °C-Capable Alumina Platform ($500K). SEMI/FlexTech. PI Alkim Akyurtlu (Director, RURI and PERC); Co-PIs Vinod Vokkarane, Oshadha Ranasingha, and Scott Stapleton; with Applied Nanotech, Bayflex Solutions, RAGE Systems, and RTX
+
+NEW PAPERS
+- X. Yan, Z. Bhuyan, J. Oke, G. Wu, Y. Xie. A two-stage detection and segmentation framework for pedestrian crosswalk inventory and condition assessment from aerial imagery. Engineering Applications of Artificial Intelligence, vol. 182, art. 115851, Oct. 2026. https://doi.org/10.1016/j.engappai.2026.115851
+- A. Moeinaddini, Y. Chen, T. Zhang, Y. Xie, Y. Zou. Hybrid transformer and large language model framework for lane-level short-term travel time prediction. Engineering Applications of Artificial Intelligence, vol. 182, art. 115838, Oct. 2026. https://doi.org/10.1016/j.engappai.2026.115838
+- A. Rezaee, F. Arpanaei, R. McCann, H. Rabbani, J. A. Hernández, M. Brandt-Pearce, V. M. Vokkarane. QoT-Aware Dynamic Resource Allocation and Grooming in Multi-Band Space-Division Multiplexing Networks. IEEE/Optica Journal of Optical Communications and Networking, vol. 18, no. 10, Oct. 2026. https://doi.org/10.1364/JOCN.596435
+
+MILESTONES
+- Four research thrusts now organize the center's work, each with two co-leads: resilient energy and infrastructure (Aghara and Xie), next-generation networks and trusted devices (Tseng and Arias), cyber-physical AI (Luo and Son), and people in the loop (Robinette and Evans).
+- New collaborators: Junbo Zhao of Dartmouth, who directs the DOE CyberCARED consortium; Maïté Brandt-Pearce of the University of Virginia; and Balagangadhar Bathula of AT&T. Sherpa 6 and the UMass Lowell Applied Research Corporation join the center's sponsors and partners.
+- The UMass Lowell Open-Source Club is now run through the center, with the director as academic advisor and Red Hat as industry sponsor, alongside the Red Hat-sponsored Friendly Fedora capstone that has run every year since 2020.
+- Short videos on the center's website: the center's loop in 40 seconds, seven years in sixty seconds, the four thrusts, SUMMIT, lab life, student spotlights, and three papers in 30 seconds each, all gathered on the News page.
+- SUMMIT begins. NSF's $2M Major Research Instrumentation Track 2 award funds a three-site federated smart grid testbed with NYU and West Virginia University, starting October 1, 2026; a postdoctoral search is under way.
+
+Read on the web: https://smartcyberphysical.org/newsletters/2026-10.html
+Site: https://smartcyberphysical.org/
+Unsubscribe: reply with the subject Unsubscribe.

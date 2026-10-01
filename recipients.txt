@@ -1,33 +1,39 @@
 # Newsletter recipients, one address per line. Lines starting with # are ignored.
 # Addresses are sent as BCC; nobody on the list sees the others.
-# Filled from the center site's roster in September 2026. Add students and partners below.
+# Regenerated from the center site's roster on September 30, 2026. Add students and partners below.
 
 # Core faculty
-Sukesh_Aghara@uml.edu
-Orlando_Arias@uml.edu
-yuzhang.lin@nyu.edu
-yan_luo@uml.edu
-SeungWoo_Son@uml.edu
-Lewis_Tseng@uml.edu
-Yuanchang_Xie@uml.edu
+Sukesh_Aghara@uml.edu    # Sukesh Aghara
+Orlando_Arias@uml.edu    # Orlando Arias
+Nicholas_Evans@uml.edu    # Nicholas G. Evans
+yuzhang.lin@nyu.edu    # Yuzhang Lin
+yan_luo@uml.edu    # Yan Luo
+Paul_Robinette@uml.edu    # Paul Robinette
+SeungWoo_Son@uml.edu    # Seung Woo Son
+Lewis_Tseng@uml.edu    # Lewis Tseng
+Yuanchang_Xie@uml.edu    # Yuanchang Xie
 
 # Affiliated faculty
-Alkim_Akyurtlu@uml.edu
-yu_cao@uml.edu
-Supriya_Chakrabarti@uml.edu
-Tricia_Chigan@uml.edu
-Nicholas_Evans@uml.edu
-Murat_Inalpolat@uml.edu
-Christopher_Niezrecki@uml.edu
-Sheree_Pagsuyoin@uml.edu
-oshadha_ranasingha@uml.edu
-Paul_Robinette@uml.edu
-Hengyong_Yu@uml.edu
+Alkim_Akyurtlu@uml.edu    # Alkim Akyurtlu
+yu_cao@uml.edu    # Yu Cao
+Supriya_Chakrabarti@uml.edu    # Supriya Chakrabarti
+Tricia_Chigan@uml.edu    # Chunxiao (Tricia) Chigan
+HsienYuan_Hsu@uml.edu    # Hsien-Yuan (Mark) Hsu
+Murat_Inalpolat@uml.edu    # Murat Inalpolat
+Christopher_Niezrecki@uml.edu    # Christopher Niezrecki
+Sheree_Pagsuyoin@uml.edu    # Sheree A. Pagsuyoin
+oshadha_ranasingha@uml.edu    # Oshadha Ranasingha
+Hengyong_Yu@uml.edu    # Hengyong Yu
 
 # External collaborators
-hdempsey@redhat.com
-martin.margala@louisiana.edu
-anurag.srivastava@mail.wvu.edu
-babu.jain@naviaenergy.com
+hdempsey@redhat.com    # Heidi Dempsey
+babu.jain@naviaenergy.com    # Babu Jain
+martin.margala@louisiana.edu    # Martin Margala
+anurag.srivastava@mail.wvu.edu    # Anurag Srivastava
+junbo.zhao@dartmouth.edu    # Junbo Zhao
+mb-p@virginia.edu    # Maïté Brandt-Pearce
+bgsquare@gmail.com    # Balagangadhar Bathula
 
 # Students (add addresses)
+
+# Sponsors and partners (add contacts, for example Sherpa 6 and UMLARC)

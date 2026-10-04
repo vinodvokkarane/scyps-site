@@ -39,20 +39,20 @@ bgsquare@gmail.com    # Balagangadhar Bathula
 # Advised by Vinod M. Vokkarane
 Arash_Rezaee@student.uml.edu    # Arash Rezaee
 Ryan_McCann@student.uml.edu    # Ryan McCann
-Kenneth_Watts@student.uml.edu    # Kenneth Patrick Watts  (check: several given names)
+Kenneth_Watts@student.uml.edu    # Kenneth Patrick Watts
 Mehran_Sasaninia@student.uml.edu    # Mehran Sasaninia
 Ayush_Pandey@student.uml.edu    # Ayush Pandey
 Suvhasis_Mukhopadhyay@student.uml.edu    # Suvhasis Mukhopadhyay
 # Advised by Orlando Arias
-Zahra_Soltani@student.uml.edu    # Zahra Sharifi Soltani  (check: several given names)
+Zahra_SharifiSoltani@student.uml.edu    # Zahra Sharifi Soltani
 # Advised by Yan Luo
 Timothy_Miskell@student.uml.edu    # Timothy Miskell
 Calvin_Ng@student.uml.edu    # Calvin Ng
 Ali_Alkhatatbih@student.uml.edu    # Ali Alkhatatbih
 Sage_Lyon@student.uml.edu    # Sage Lyon
-Mohammad_Fahim@student.uml.edu    # Mohammad Shakhawat Hossain Fahim  (check: several given names)
+MohammadShakhawatHossain_Fahim@uml.edu    # Mohammad Shakhawat Hossain Fahim
 # Advised by Lewis Tseng
-Negin_Motlagh@student.uml.edu    # Negin Yazdani Motlagh  (check: several given names)
+Negin_YazdaniMotlagh@uml.edu    # Negin Yazdani Motlagh
 Kritee_Neupane@student.uml.edu    # Kritee Neupane
 Layann_Shaban@student.uml.edu    # Layann Shaban
 Youlim_Lee@student.uml.edu    # Youlim Lee

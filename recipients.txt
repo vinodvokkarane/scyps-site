@@ -35,27 +35,26 @@ mb-p@virginia.edu    # Maïté Brandt-Pearce
 bgsquare@gmail.com    # Balagangadhar Bathula
 
 # Students. The site lists no student addresses, so these follow the university pattern
-# (First_Last@student.uml.edu) and are commented out until checked against the directory.
-# Remove the leading # from each line once the address is confirmed.
+# (First_Last@student.uml.edu). Active since October 2026; correct any that bounce.
 # Advised by Vinod M. Vokkarane
-# Arash_Rezaee@student.uml.edu    # Arash Rezaee
-# Ryan_McCann@student.uml.edu    # Ryan McCann
-# Kenneth_Watts@student.uml.edu    # Kenneth Patrick Watts  (check: several given names)
-# Mehran_Sasaninia@student.uml.edu    # Mehran Sasaninia
-# Ayush_Pandey@student.uml.edu    # Ayush Pandey
-# Suvhasis_Mukhopadhyay@student.uml.edu    # Suvhasis Mukhopadhyay
+Arash_Rezaee@student.uml.edu    # Arash Rezaee
+Ryan_McCann@student.uml.edu    # Ryan McCann
+Kenneth_Watts@student.uml.edu    # Kenneth Patrick Watts  (check: several given names)
+Mehran_Sasaninia@student.uml.edu    # Mehran Sasaninia
+Ayush_Pandey@student.uml.edu    # Ayush Pandey
+Suvhasis_Mukhopadhyay@student.uml.edu    # Suvhasis Mukhopadhyay
 # Advised by Orlando Arias
-# Zahra_Soltani@student.uml.edu    # Zahra Sharifi Soltani  (check: several given names)
+Zahra_Soltani@student.uml.edu    # Zahra Sharifi Soltani  (check: several given names)
 # Advised by Yan Luo
-# Timothy_Miskell@student.uml.edu    # Timothy Miskell
-# Calvin_Ng@student.uml.edu    # Calvin Ng
-# Ali_Alkhatatbih@student.uml.edu    # Ali Alkhatatbih
-# Sage_Lyon@student.uml.edu    # Sage Lyon
-# Mohammad_Fahim@student.uml.edu    # Mohammad Shakhawat Hossain Fahim  (check: several given names)
+Timothy_Miskell@student.uml.edu    # Timothy Miskell
+Calvin_Ng@student.uml.edu    # Calvin Ng
+Ali_Alkhatatbih@student.uml.edu    # Ali Alkhatatbih
+Sage_Lyon@student.uml.edu    # Sage Lyon
+Mohammad_Fahim@student.uml.edu    # Mohammad Shakhawat Hossain Fahim  (check: several given names)
 # Advised by Lewis Tseng
-# Negin_Motlagh@student.uml.edu    # Negin Yazdani Motlagh  (check: several given names)
-# Kritee_Neupane@student.uml.edu    # Kritee Neupane
-# Layann_Shaban@student.uml.edu    # Layann Shaban
-# Youlim_Lee@student.uml.edu    # Youlim Lee
+Negin_Motlagh@student.uml.edu    # Negin Yazdani Motlagh  (check: several given names)
+Kritee_Neupane@student.uml.edu    # Kritee Neupane
+Layann_Shaban@student.uml.edu    # Layann Shaban
+Youlim_Lee@student.uml.edu    # Youlim Lee
 
 # Sponsors and partners (add contacts, for example Sherpa 6 and UMLARC)

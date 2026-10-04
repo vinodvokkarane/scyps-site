@@ -25,14 +25,14 @@ Sheree_Pagsuyoin@uml.edu    # Sheree A. Pagsuyoin
 oshadha_ranasingha@uml.edu    # Oshadha Ranasingha
 Hengyong_Yu@uml.edu    # Hengyong Yu
 
-# External collaborators
-hdempsey@redhat.com    # Heidi Dempsey
-babu.jain@naviaenergy.com    # Babu Jain
-martin.margala@louisiana.edu    # Martin Margala
-anurag.srivastava@mail.wvu.edu    # Anurag Srivastava
-junbo.zhao@dartmouth.edu    # Junbo Zhao
-mb-p@virginia.edu    # Maïté Brandt-Pearce
-bgsquare@gmail.com    # Balagangadhar Bathula
+# External collaborators (commented out: not on the newsletter for now)
+# hdempsey@redhat.com    # Heidi Dempsey
+# babu.jain@naviaenergy.com    # Babu Jain
+# martin.margala@louisiana.edu    # Martin Margala
+# anurag.srivastava@mail.wvu.edu    # Anurag Srivastava
+# junbo.zhao@dartmouth.edu    # Junbo Zhao
+# mb-p@virginia.edu    # Maïté Brandt-Pearce
+# bgsquare@gmail.com    # Balagangadhar Bathula
 
 # Students. The site lists no student addresses, so these follow the university pattern
 # (First_Last@student.uml.edu). Active since October 2026; correct any that bounce.

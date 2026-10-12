@@ -132,6 +132,26 @@
    ],
    "area": "Space instrumentation",
    "found": "2026-10-05"
+  },
+  {
+   "year": 2027,
+   "authors": [
+    "L. Cheng",
+    "Y. Chen",
+    "S. Xu",
+    "Y. Xie",
+    "C. Wang"
+   ],
+   "title": "Balancing adversariality and naturalness in autonomous vehicle testing scenario generation via multi-objective reinforcement learning",
+   "venue": "Accident Analysis & Prevention",
+   "details": "vol. 239, art. 108820, Jan. 2027",
+   "doi": "10.1016/j.aap.2026.108820",
+   "type": "journal",
+   "faculty": [
+    "Xie"
+   ],
+   "area": "Transportation",
+   "found": "2026-10-12"
   }
  ]
 }

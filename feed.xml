@@ -7,6 +7,14 @@
   <language>en-us</language>
   <atom:link href="https://smartcyberphysical.org/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
+    <title>Balancing adversariality and naturalness in autonomous vehicle testing scenario generation via multi-objective reinforcement learning</title>
+    <link>https://doi.org/10.1016/j.aap.2026.108820</link>
+    <guid isPermaLink="false">scyps-2027-01-f4d773df10</guid>
+    <category>Journal</category>
+    <pubDate>01 Jan 2027 00:00:00 +0000</pubDate>
+    <description>Yuanchang Xie: &quot;Balancing adversariality and naturalness in autonomous vehicle testing scenario generation via multi-objective reinforcement learning&quot; in Accident Analysis &amp; Prevention.</description>
+  </item>
+  <item>
     <title>A Self-Supervised Contrastive Learning-Based Method for Portable Executable Malware Classification</title>
     <link>https://doi.org/10.1109/access.2026.3672128</link>
     <guid isPermaLink="false">scyps-2026-12-839268b25e</guid>
@@ -317,14 +325,6 @@
     <category>Conference</category>
     <pubDate>01 Dec 2025 00:00:00 +0000</pubDate>
     <description>Seung Woo Son: &quot;Lightweight Stream-Based On-Device Earthquake Detection: A Sparse Profile Analysis Approach&quot; in IEEE International Conference on Big Data (BigData).</description>
-  </item>
-  <item>
-    <title>Data analytics for safety applications</title>
-    <link>https://doi.org/10.1016/b978-0-443-13878-2.00014-x</link>
-    <guid isPermaLink="false">scyps-2025-12-cde8939190</guid>
-    <category>Chapter</category>
-    <pubDate>01 Dec 2025 00:00:00 +0000</pubDate>
-    <description>Yuanchang Xie: &quot;Data analytics for safety applications&quot; in Data Analytics for Intelligent Transportation Systems.</description>
   </item>
 </channel>
 </rss>

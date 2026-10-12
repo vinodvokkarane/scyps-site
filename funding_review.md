@@ -1,4 +1,4 @@
-# Funding to review, 2026-10-05
+# Funding to review, 2026-10-12
 
 Awards that center members list on their own ORCID records but the site does not show. Nothing
 here is published. For each one that is real and belongs on the site, add it to PROJECTS in

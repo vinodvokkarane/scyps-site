@@ -55,6 +55,62 @@
   "2026-09-30": {
    "views": 0,
    "visitors": 0
+  },
+  "2026-10-01": {
+   "views": 0,
+   "visitors": 0
+  },
+  "2026-10-02": {
+   "views": 0,
+   "visitors": 0
+  },
+  "2026-10-03": {
+   "views": 0,
+   "visitors": 0
+  },
+  "2026-10-04": {
+   "views": 0,
+   "visitors": 0
+  },
+  "2026-10-05": {
+   "views": 0,
+   "visitors": 0
+  },
+  "2026-10-06": {
+   "views": 0,
+   "visitors": 0
+  },
+  "2026-10-07": {
+   "views": 0,
+   "visitors": 0
+  },
+  "2026-10-08": {
+   "views": 0,
+   "visitors": 0
+  },
+  "2026-10-09": {
+   "views": 0,
+   "visitors": 0
+  },
+  "2026-10-10": {
+   "views": 0,
+   "visitors": 0
+  },
+  "2026-10-11": {
+   "views": 0,
+   "visitors": 0
+  },
+  "2026-10-12": {
+   "views": 0,
+   "visitors": 0
+  },
+  "2026-10-13": {
+   "views": 0,
+   "visitors": 0
+  },
+  "2026-10-14": {
+   "views": 0,
+   "visitors": 0
   }
  },
  "months": {
@@ -62,61 +118,15 @@
    "views": 231,
    "visitors_peak_day": 2,
    "days_recorded": 14
+  },
+  "2026-10": {
+   "views": 0,
+   "visitors_peak_day": 0,
+   "days_recorded": 14
   }
  },
  "popular": {
-  "2026-10-01": [
-   {
-    "path": "/vinodvokkarane/scyps-site",
-    "views": 62,
-    "visitors": 1
-   },
-   {
-    "path": "/vinodvokkarane/scyps-site/upload",
-    "views": 32,
-    "visitors": 1
-   },
-   {
-    "path": "/vinodvokkarane/scyps-site/upload/main",
-    "views": 32,
-    "visitors": 1
-   },
-   {
-    "path": "/vinodvokkarane/scyps-site/actions",
-    "views": 19,
-    "visitors": 1
-   },
-   {
-    "path": "/vinodvokkarane/scyps-site/tree/main/.github/workflows",
-    "views": 7,
-    "visitors": 1
-   },
-   {
-    "path": "/vinodvokkarane/scyps-site/actions/workflows/newsletter-send.yml",
-    "views": 6,
-    "visitors": 1
-   },
-   {
-    "path": "/vinodvokkarane/scyps-site/new/main",
-    "views": 5,
-    "visitors": 1
-   },
-   {
-    "path": "/vinodvokkarane/scyps-site/actions/workflows/newsletter.yml",
-    "views": 3,
-    "visitors": 1
-   },
-   {
-    "path": "/vinodvokkarane/scyps-site/blob/main/.github/workflows/traffic.yml",
-    "views": 3,
-    "visitors": 1
-   },
-   {
-    "path": "/vinodvokkarane/scyps-site/tree/main",
-    "views": 3,
-    "visitors": 1
-   }
-  ]
+  "2026-10-15": []
  },
- "updated": "2026-10-01"
+ "updated": "2026-10-15"
 }

@@ -152,6 +152,70 @@
    ],
    "area": "Transportation",
    "found": "2026-10-12"
+  },
+  {
+   "year": 2027,
+   "authors": [
+    "J. Xu",
+    "Y. Chen",
+    "X. Hu",
+    "Y. Xie",
+    "X. Zhang",
+    "J. Yin",
+    "C. Wang"
+   ],
+   "title": "Toward explainable traffic crash liability analysis via neural-symbolic multimodal reasoning: Integrating visual perception with legal knowledge graphs",
+   "venue": "Accident Analysis & Prevention",
+   "details": "vol. 239, art. 108813, Jan. 2027",
+   "doi": "10.1016/j.aap.2026.108813",
+   "type": "journal",
+   "faculty": [
+    "Xie"
+   ],
+   "area": "Transportation",
+   "found": "2026-10-19"
+  },
+  {
+   "year": 2026,
+   "authors": [
+    "B. Morovati",
+    "C. Fang",
+    "S. Han",
+    "L. Zhou",
+    "S. Fan",
+    "Y. Shi",
+    "H. Yu"
+   ],
+   "title": "Tensor-Driven Spectral CT Reconstruction via Noise-Adaptive Channel Weighting and Deterministic Block Matching",
+   "venue": "IEEE Access",
+   "details": "pp. 1-1, 2026",
+   "doi": "10.1109/access.2026.3743930",
+   "type": "journal",
+   "faculty": [
+    "Yu"
+   ],
+   "area": "Medical imaging",
+   "found": "2026-10-19"
+  },
+  {
+   "year": 2027,
+   "authors": [
+    "V. Eniola",
+    "J. Cimorelli",
+    "C. Niezrecki",
+    "X. Jin",
+    "D. Willis"
+   ],
+   "title": "Techno-economic comparison of lithium-iron phosphate battery and hydrogen energy storage for wind power-based microgrids",
+   "venue": "Journal of Energy Storage",
+   "details": "vol. 183, art. 125177, Jan. 2027",
+   "doi": "10.1016/j.est.2026.125177",
+   "type": "journal",
+   "faculty": [
+    "Niezrecki"
+   ],
+   "area": "Renewable energy and structural monitoring",
+   "found": "2026-10-19"
   }
  ]
 }

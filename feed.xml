@@ -7,12 +7,12 @@
   <language>en-us</language>
   <atom:link href="https://smartcyberphysical.org/feed.xml" rel="self" type="application/rss+xml"/>
   <item>
-    <title>Balancing adversariality and naturalness in autonomous vehicle testing scenario generation via multi-objective reinforcement learning</title>
+    <title>2 papers in Accident Analysis &amp; Prevention</title>
     <link>https://doi.org/10.1016/j.aap.2026.108820</link>
-    <guid isPermaLink="false">scyps-2027-01-f4d773df10</guid>
+    <guid isPermaLink="false">scyps-2027-01-5efd5b1b16</guid>
     <category>Journal</category>
     <pubDate>01 Jan 2027 00:00:00 +0000</pubDate>
-    <description>Yuanchang Xie: &quot;Balancing adversariality and naturalness in autonomous vehicle testing scenario generation via multi-objective reinforcement learning&quot; in Accident Analysis &amp; Prevention.</description>
+    <description>Yuanchang Xie: 2 new papers in Accident Analysis &amp; Prevention.</description>
   </item>
   <item>
     <title>A Self-Supervised Contrastive Learning-Based Method for Portable Executable Malware Classification</title>
@@ -157,14 +157,6 @@
     <category>Milestone</category>
     <pubDate>01 Sep 2026 00:00:00 +0000</pubDate>
     <description>The FUSION benchmarking framework paper appears in JOCN&#x27;s special issue on benchmarking in optical networks, followed in October by a QoT-aware grooming paper for multi-band SDM networks.</description>
-  </item>
-  <item>
-    <title>2 papers in Accident Analysis &amp; Prevention</title>
-    <link>https://doi.org/10.1016/j.aap.2026.108583</link>
-    <guid isPermaLink="false">scyps-2026-08-5efd5b1b16</guid>
-    <category>Journal</category>
-    <pubDate>01 Aug 2026 00:00:00 +0000</pubDate>
-    <description>Yuanchang Xie: 2 new papers in Accident Analysis &amp; Prevention.</description>
   </item>
   <item>
     <title>QoT-Aware Spectral and Spatial Scaling Trade-offs in Multi-Band Space Division Multiplexing over EONs [Invited]</title>
@@ -325,6 +317,14 @@
     <category>Conference</category>
     <pubDate>01 Dec 2025 00:00:00 +0000</pubDate>
     <description>Seung Woo Son: &quot;Lightweight Stream-Based On-Device Earthquake Detection: A Sparse Profile Analysis Approach&quot; in IEEE International Conference on Big Data (BigData).</description>
+  </item>
+  <item>
+    <title>Data analytics for safety applications</title>
+    <link>https://doi.org/10.1016/b978-0-443-13878-2.00014-x</link>
+    <guid isPermaLink="false">scyps-2025-12-cde8939190</guid>
+    <category>Chapter</category>
+    <pubDate>01 Dec 2025 00:00:00 +0000</pubDate>
+    <description>Yuanchang Xie: &quot;Data analytics for safety applications&quot; in Data Analytics for Intelligent Transportation Systems.</description>
   </item>
 </channel>
 </rss>

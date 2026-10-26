@@ -216,6 +216,65 @@
    ],
    "area": "Renewable energy and structural monitoring",
    "found": "2026-10-19"
+  },
+  {
+   "year": 2027,
+   "authors": [
+    "H. Rabbani",
+    "A. Rezaee",
+    "F. Arpanaei",
+    "H. Rabbani",
+    "V. M. Vokkarane",
+    "M. Brandt-Pearce"
+   ],
+   "title": "On the impact of pulse shaping for optical fiber networks",
+   "venue": "Optical Fiber Technology",
+   "details": "vol. 103, art. 104806, Jan. 2027",
+   "doi": "10.1016/j.yofte.2026.104806",
+   "type": "journal",
+   "faculty": [
+    "Vokkarane"
+   ],
+   "area": "Optical networks",
+   "found": "2026-10-26"
+  },
+  {
+   "year": 2026,
+   "authors": [
+    "Y. Jeong",
+    "A. Moon",
+    "H. Lee",
+    "S. W. Son"
+   ],
+   "title": "Understanding of Algal Bloom Dynamics in Andong Reservoir Using Sentinel-2 Satellite Imagery",
+   "venue": "IGARSS 2026 - 2026 IEEE International Geoscience and Remote Sensing Symposium",
+   "details": "pp. 3035-3035, Aug. 2026",
+   "doi": "10.1109/igarss60577.2026.11730999",
+   "type": "conference",
+   "faculty": [
+    "Son"
+   ],
+   "area": "HPC and hardware",
+   "found": "2026-10-26"
+  },
+  {
+   "year": 2026,
+   "authors": [
+    "Y. Jeong",
+    "D. S. Lee",
+    "M. J. Lee",
+    "S. W. Son"
+   ],
+   "title": "Scale-freeness under node removal: A finite-size scaling perspective",
+   "venue": "Physical Review E",
+   "details": "Oct. 2026",
+   "doi": "10.1103/cknx-xgnj",
+   "type": "journal",
+   "faculty": [
+    "Son"
+   ],
+   "area": "HPC and hardware",
+   "found": "2026-10-26"
   }
  ]
 }

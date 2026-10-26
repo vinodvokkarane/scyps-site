@@ -15,20 +15,20 @@
     <description>Yuanchang Xie: 2 new papers in Accident Analysis &amp; Prevention.</description>
   </item>
   <item>
+    <title>On the impact of pulse shaping for optical fiber networks</title>
+    <link>https://doi.org/10.1016/j.yofte.2026.104806</link>
+    <guid isPermaLink="false">scyps-2027-01-3887da702c</guid>
+    <category>Journal</category>
+    <pubDate>01 Jan 2027 00:00:00 +0000</pubDate>
+    <description>Vinod M. Vokkarane: &quot;On the impact of pulse shaping for optical fiber networks&quot; in Optical Fiber Technology.</description>
+  </item>
+  <item>
     <title>A Self-Supervised Contrastive Learning-Based Method for Portable Executable Malware Classification</title>
     <link>https://doi.org/10.1109/access.2026.3672128</link>
     <guid isPermaLink="false">scyps-2026-12-839268b25e</guid>
     <category>Journal</category>
     <pubDate>01 Dec 2026 00:00:00 +0000</pubDate>
     <description>Yan Luo: &quot;A Self-Supervised Contrastive Learning-Based Method for Portable Executable Malware Classification&quot; in IEEE Access.</description>
-  </item>
-  <item>
-    <title>On the Impact of Pulse Shaping for Optical Fiber Networks</title>
-    <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2026-12-893ea75fe4</guid>
-    <category>Journal</category>
-    <pubDate>01 Dec 2026 00:00:00 +0000</pubDate>
-    <description>Vinod M. Vokkarane: &quot;On the Impact of Pulse Shaping for Optical Fiber Networks&quot; in Optical Fiber Technology (Elsevier).</description>
   </item>
   <item>
     <title>The Cobra Effect in Trust Repair: Unintended Consequences of Rebuilding Trust in Human-Robot Collaboration</title>
@@ -61,6 +61,14 @@
     <category>Journal</category>
     <pubDate>01 Oct 2026 00:00:00 +0000</pubDate>
     <description>Vinod M. Vokkarane: &quot;QoT-Aware Dynamic Resource Allocation and Grooming in Multi-Band Space-Division Multiplexing Networks&quot; in IEEE/Optica Journal of Optical Communications and Networking.</description>
+  </item>
+  <item>
+    <title>Scale-freeness under node removal: A finite-size scaling perspective</title>
+    <link>https://doi.org/10.1103/cknx-xgnj</link>
+    <guid isPermaLink="false">scyps-2026-10-312ab62be0</guid>
+    <category>Journal</category>
+    <pubDate>01 Oct 2026 00:00:00 +0000</pubDate>
+    <description>Seung Woo Son: &quot;Scale-freeness under node removal: A finite-size scaling perspective&quot; in Physical Review E.</description>
   </item>
   <item>
     <title>SUMMIT: A Secure and Resilient Multi-site Smart Grid Testbed for Multidisciplinary Research and Training</title>
@@ -173,6 +181,14 @@
     <category>Conference</category>
     <pubDate>01 Aug 2026 00:00:00 +0000</pubDate>
     <description>Lewis Tseng: &quot;Timely Control for Quantum Cloud: Orchestrating Entanglement Under Decay&quot; in 3rd ACM SIGCOMM Workshop on Quantum Networks and Distributed Quantum Computing (QuNet), ACM SIGCOMM 2026.</description>
+  </item>
+  <item>
+    <title>Understanding of Algal Bloom Dynamics in Andong Reservoir Using Sentinel-2 Satellite Imagery</title>
+    <link>https://doi.org/10.1109/igarss60577.2026.11730999</link>
+    <guid isPermaLink="false">scyps-2026-08-2dd56db2ae</guid>
+    <category>Conference</category>
+    <pubDate>01 Aug 2026 00:00:00 +0000</pubDate>
+    <description>Seung Woo Son: &quot;Understanding of Algal Bloom Dynamics in Andong Reservoir Using Sentinel-2 Satellite Imagery&quot; in IGARSS 2026 - 2026 IEEE International Geoscience and Remote Sensing Symposium.</description>
   </item>
   <item>
     <title>Planning Federated AI-Ready Cyberinfrastructure for Advanced Microscopy and Imaging: A Teach-Explore-Design Framework for Community-Driven Infrastructure</title>
@@ -309,22 +325,6 @@
     <category>Conference</category>
     <pubDate>01 Dec 2025 00:00:00 +0000</pubDate>
     <description>Lewis Tseng: 2 new papers in IEEE Global Communications Conference (GLOBECOM).</description>
-  </item>
-  <item>
-    <title>Lightweight Stream-Based On-Device Earthquake Detection: A Sparse Profile Analysis Approach</title>
-    <link>https://doi.org/10.1109/BigData66926.2025.11401927</link>
-    <guid isPermaLink="false">scyps-2025-12-9f19b8bc9c</guid>
-    <category>Conference</category>
-    <pubDate>01 Dec 2025 00:00:00 +0000</pubDate>
-    <description>Seung Woo Son: &quot;Lightweight Stream-Based On-Device Earthquake Detection: A Sparse Profile Analysis Approach&quot; in IEEE International Conference on Big Data (BigData).</description>
-  </item>
-  <item>
-    <title>Data analytics for safety applications</title>
-    <link>https://doi.org/10.1016/b978-0-443-13878-2.00014-x</link>
-    <guid isPermaLink="false">scyps-2025-12-cde8939190</guid>
-    <category>Chapter</category>
-    <pubDate>01 Dec 2025 00:00:00 +0000</pubDate>
-    <description>Yuanchang Xie: &quot;Data analytics for safety applications&quot; in Data Analytics for Intelligent Transportation Systems.</description>
   </item>
 </channel>
 </rss>

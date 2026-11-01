@@ -1,7 +1,7 @@
 CENTER FOR SMART CYBER-PHYSICAL SYSTEMS, UMASS LOWELL
 Newsletter, October 2026
 
-October 2026 at the center: 3 new awards, 3 new papers, 3 in journals, 5 milestones.
+October 2026 at the center: 3 new awards, 4 new papers, 4 in journals, 5 milestones.
 
 NEW AWARDS
 - SUMMIT: A Secure and Resilient Multi-site Smart Grid Testbed for Multidisciplinary Research and Training ($2.0M). National Science Foundation, Major Research Instrumentation Track 2 (Award #2511635). PI Vinod Vokkarane; Co-PIs Orlando Arias and Lewis Tseng (UMass Lowell), Yuzhang Lin (NYU), and Anurag Srivastava (WVU); senior personnel Yan Luo, Seung Woo Son, and Christopher Niezrecki
@@ -12,6 +12,7 @@ NEW PAPERS
 - X. Yan, Z. Bhuyan, J. Oke, G. Wu, Y. Xie. A two-stage detection and segmentation framework for pedestrian crosswalk inventory and condition assessment from aerial imagery. Engineering Applications of Artificial Intelligence, vol. 182, art. 115851, Oct. 2026. https://doi.org/10.1016/j.engappai.2026.115851
 - A. Moeinaddini, Y. Chen, T. Zhang, Y. Xie, Y. Zou. Hybrid transformer and large language model framework for lane-level short-term travel time prediction. Engineering Applications of Artificial Intelligence, vol. 182, art. 115838, Oct. 2026. https://doi.org/10.1016/j.engappai.2026.115838
 - A. Rezaee, F. Arpanaei, R. McCann, H. Rabbani, J. A. Hernández, M. Brandt-Pearce, V. M. Vokkarane. QoT-Aware Dynamic Resource Allocation and Grooming in Multi-Band Space-Division Multiplexing Networks. IEEE/Optica Journal of Optical Communications and Networking, vol. 18, no. 10, Oct. 2026. https://doi.org/10.1364/JOCN.596435
+- Y. Jeong, D. S. Lee, M. J. Lee, S. W. Son. Scale-freeness under node removal: A finite-size scaling perspective. Physical Review E, Oct. 2026. https://doi.org/10.1103/cknx-xgnj
 
 MILESTONES
 - Four research thrusts now organize the center's work, each with two co-leads: resilient energy and infrastructure (Aghara and Xie), next-generation networks and trusted devices (Tseng and Arias), cyber-physical AI (Luo and Son), and people in the loop (Robinette and Evans).

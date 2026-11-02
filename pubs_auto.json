@@ -275,6 +275,43 @@
    ],
    "area": "HPC and hardware",
    "found": "2026-10-26"
+  },
+  {
+   "year": 2026,
+   "authors": [
+    "L. Tseng",
+    "N. Yazdani-Motlagh",
+    "N. Yazdani-Motlagh"
+   ],
+   "title": "Poster: When Safer AI Makes the System Less Safe: Inference Reuse and Systemic Risk in Networked Autonomy",
+   "venue": "Proceedings of the Twenty-seventh International Symposium on Theory, Algorithmic Foundations, and Protocol Design for Mobile Networks and Mobile Computing",
+   "details": "pp. 631-632, Nov. 2026",
+   "doi": "10.1145/3842721.3850105",
+   "type": "conference",
+   "faculty": [
+    "Tseng"
+   ],
+   "area": "Distributed systems",
+   "found": "2026-11-02"
+  },
+  {
+   "year": 2026,
+   "authors": [
+    "G. Y. Kim",
+    "H. Sul",
+    "J. W. Choi",
+    "S. W. Son"
+   ],
+   "title": "Inferring coupling strength from the Kuramoto order parameter",
+   "venue": "Journal of the Korean Physical Society",
+   "details": "Oct. 2026",
+   "doi": "10.1007/s40042-026-01739-w",
+   "type": "journal",
+   "faculty": [
+    "Son"
+   ],
+   "area": "HPC and hardware",
+   "found": "2026-11-02"
   }
  ]
 }

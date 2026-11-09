@@ -312,6 +312,164 @@
    ],
    "area": "HPC and hardware",
    "found": "2026-11-02"
+  },
+  {
+   "year": 2026,
+   "authors": [
+    "L. Annadevula",
+    "C. Folan",
+    "M. PodderProma",
+    "S. Aghara"
+   ],
+   "title": "Reducing Combinatorial Complexity in IAEA Inspection-Plan Evaluation",
+   "venue": "Transactions of the American Nuclear Society",
+   "details": "vol. 134, pp. 492-492, 2026",
+   "doi": "10.13182/t134-10735",
+   "type": "conference",
+   "faculty": [
+    "Aghara"
+   ],
+   "area": "Nuclear energy and security",
+   "found": "2026-11-09"
+  },
+  {
+   "year": 2026,
+   "authors": [
+    "L. Annadevula",
+    "C. Folan",
+    "M. PodderProma",
+    "S. Aghara"
+   ],
+   "title": "Reducing Combinatorial Complexity in IAEA Inspection-Plan Evaluation",
+   "venue": "Transactions of the American Nuclear Society",
+   "details": "vol. 134, pp. 492-492, 2026",
+   "doi": "10.13182/xyz-10735",
+   "type": "conference",
+   "faculty": [
+    "Aghara"
+   ],
+   "area": "Nuclear energy and security",
+   "found": "2026-11-09"
+  },
+  {
+   "year": 2026,
+   "authors": [
+    "X. Yan",
+    "Y. Xie",
+    "G. Wu",
+    "R. Liu",
+    "T. Xie"
+   ],
+   "title": "Understanding the determinants of multi-vehicle crash types at ramp terminals: insights from a partially constrained temporal modeling approach",
+   "venue": "Analytic Methods in Accident Research",
+   "details": "art. 100456, Nov. 2026",
+   "doi": "10.1016/j.amar.2026.100456",
+   "type": "journal",
+   "faculty": [
+    "Xie"
+   ],
+   "area": "Transportation",
+   "found": "2026-11-09"
+  },
+  {
+   "year": 2026,
+   "authors": [
+    "P. Wu",
+    "L. Ren",
+    "Z. Zhao",
+    "J. Zhang",
+    "D. He",
+    "Y. Zhang",
+    "H. Yu"
+   ],
+   "title": "SGDA-Net: Interpretable Medical Image Segmentation via Second-Order Weighted Graph Convolution and Dynamic Agent Attention",
+   "venue": "Proceedings of the 34th ACM International Conference on Multimedia",
+   "details": "pp. 11632-11641, Nov. 2026",
+   "doi": "10.1145/3767308.3836419",
+   "type": "conference",
+   "faculty": [
+    "Yu"
+   ],
+   "area": "Medical imaging",
+   "found": "2026-11-09"
+  },
+  {
+   "year": 2026,
+   "authors": [
+    "N. D’Agati",
+    "A. Akyurtlu"
+   ],
+   "title": "Non – Traditional Structures for RF Component Footprint Compaction",
+   "venue": "IMAPSource Proceedings",
+   "details": "vol. 2026, no. Symposium, Oct. 2026",
+   "doi": "10.4071/001c.173040",
+   "type": "journal",
+   "faculty": [
+    "Akyurtlu"
+   ],
+   "area": "Printed electronics",
+   "found": "2026-11-09"
+  },
+  {
+   "year": 2026,
+   "authors": [
+    "L. Unger",
+    "A. Luce",
+    "A. Akyurtlu"
+   ],
+   "title": "Additively Manufactured Module Packaging for Millimeter Wave Applications",
+   "venue": "IMAPSource Proceedings",
+   "details": "vol. 2026, no. Symposium, Nov. 2026",
+   "doi": "10.4071/001c.173488",
+   "type": "journal",
+   "faculty": [
+    "Akyurtlu"
+   ],
+   "area": "Printed electronics",
+   "found": "2026-11-09"
+  },
+  {
+   "year": 2026,
+   "authors": [
+    "A. Luce",
+    "L. Unger",
+    "J. Adams",
+    "J. Lovassen",
+    "M. Herndon",
+    "A. Akyurtlu"
+   ],
+   "title": "Additive Magnet Free Circulator for Heterogenous Integration",
+   "venue": "IMAPSource Proceedings",
+   "details": "vol. 2026, no. Symposium, Nov. 2026",
+   "doi": "10.4071/001c.173597",
+   "type": "journal",
+   "faculty": [
+    "Akyurtlu"
+   ],
+   "area": "Printed electronics",
+   "found": "2026-11-09"
+  },
+  {
+   "year": 2026,
+   "authors": [
+    "G. Tighe",
+    "J. Bennett",
+    "G. Strack",
+    "A. Akyurtlu",
+    "A. BoeroVera",
+    "M. Ghandi",
+    "J. Burek"
+   ],
+   "title": "Additive Manufacturing Methods for Embedded Resistors",
+   "venue": "IMAPSource Proceedings",
+   "details": "vol. 2026, no. Symposium, Oct. 2026",
+   "doi": "10.4071/001c.173030",
+   "type": "journal",
+   "faculty": [
+    "Akyurtlu"
+   ],
+   "area": "Printed electronics",
+   "found": "2026-11-09"
   }
  ]
 }

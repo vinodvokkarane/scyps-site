@@ -31,6 +31,14 @@
     <description>Yan Luo: &quot;A Self-Supervised Contrastive Learning-Based Method for Portable Executable Malware Classification&quot; in IEEE Access.</description>
   </item>
   <item>
+    <title>2 papers in Transactions of the American Nuclear Society</title>
+    <link>https://doi.org/10.13182/t134-10735</link>
+    <guid isPermaLink="false">scyps-2026-12-c47bb0c7b4</guid>
+    <category>Conference</category>
+    <pubDate>01 Dec 2026 00:00:00 +0000</pubDate>
+    <description>Sukesh Aghara: 2 new papers in Transactions of the American Nuclear Society.</description>
+  </item>
+  <item>
     <title>The Cobra Effect in Trust Repair: Unintended Consequences of Rebuilding Trust in Human-Robot Collaboration</title>
     <link>https://doi.org/10.1007/978-981-95-2382-5_57</link>
     <guid isPermaLink="false">scyps-2026-12-037cbd7906</guid>
@@ -45,6 +53,14 @@
     <category>Journal</category>
     <pubDate>01 Nov 2026 00:00:00 +0000</pubDate>
     <description>Yan Luo: &quot;Novel microfluidic lab-on-circuit for QCM-P oscillators&quot; in Sensors and Actuators A: Physical.</description>
+  </item>
+  <item>
+    <title>Understanding the determinants of multi-vehicle crash types at ramp terminals: insights from a partially constrained temporal modeling approach</title>
+    <link>https://doi.org/10.1016/j.amar.2026.100456</link>
+    <guid isPermaLink="false">scyps-2026-11-2f610bba0e</guid>
+    <category>Journal</category>
+    <pubDate>01 Nov 2026 00:00:00 +0000</pubDate>
+    <description>Yuanchang Xie: &quot;Understanding the determinants of multi-vehicle crash types at ramp terminals: insights from a partially constrained temporal modeling approach&quot; in Analytic Methods in Accident Research.</description>
   </item>
   <item>
     <title>Poster: When Safer AI Makes the System Less Safe: Inference Reuse and Systemic Risk in Networked Autonomy</title>
@@ -309,22 +325,6 @@
     <category>Milestone</category>
     <pubDate>01 Mar 2026 00:00:00 +0000</pubDate>
     <description>The U.S. Army ARPO project on autonomous robotic planning and optimization begins ($225K).</description>
-  </item>
-  <item>
-    <title>Signal Strength and Network Performance Optimization of a Wireless Acoustic Sensor for Wind Turbine Blade Health Monitoring</title>
-    <link>https://doi.org/10.1109/jsen.2025.3647370</link>
-    <guid isPermaLink="false">scyps-2026-02-90868e69cc</guid>
-    <category>Journal</category>
-    <pubDate>01 Feb 2026 00:00:00 +0000</pubDate>
-    <description>Yan Luo: &quot;Signal Strength and Network Performance Optimization of a Wireless Acoustic Sensor for Wind Turbine Blade Health Monitoring&quot; in IEEE Sensors Journal.</description>
-  </item>
-  <item>
-    <title>Recent advances in biomimetic sensors for the detection of aquatic pathogens and toxins</title>
-    <link>https://doi.org/10.1016/j.jhazmat.2026.141041</link>
-    <guid isPermaLink="false">scyps-2026-01-3c3275f383</guid>
-    <category>Journal</category>
-    <pubDate>01 Jan 2026 00:00:00 +0000</pubDate>
-    <description>Yan Luo: &quot;Recent advances in biomimetic sensors for the detection of aquatic pathogens and toxins&quot; in Journal of Hazardous Materials.</description>
   </item>
 </channel>
 </rss>

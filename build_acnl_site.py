@@ -30,7 +30,8 @@ threads = collections.Counter(r["thread"] for r in R)
 by_year = collections.Counter(r["year"] for r in R)
 alumni_phd = bs.ALUMNI_PHD_OLD
 alumni_postdoc = bs.ALUMNI_POSTDOC
-spot = max(bs.SPOTLIGHTS, key=lambda s: s["ym"]) if bs.SPOTLIGHTS else None
+_own = [s for s in bs.SPOTLIGHTS if s.get("kind", "student") == "student" and s.get("lab") == "Advanced Communication Networks Laboratory"]
+spot = max(_own, key=lambda s: s["ym"]) if _own else None   # the newest spotlight about this lab's own students
 
 def img(key): return bs.img_src(key)
 def head(p): return bs.stu_avatar(p)
@@ -274,7 +275,7 @@ def page_students():
     for s in students:
         ps = papers_of(s["name"]); first = [r for r in ps if r["author_keys"] and r["author_keys"][0] == bs._person_key(s["name"])]
         fig = f'<figure class="sfig"><img src="{img(s["fig"])}" alt="{esc(s.get('figcap', 'Research figure'))}" width="1200" height="800"><figcaption>{esc(s.get("figcap", ""))}</figcaption></figure>' if s.get("fig") and bs.IMG.get(s["fig"]) else ""
-        sp = [x for x in bs.SPOTLIGHTS if s["name"] in x["students"]]
+        sp = [x for x in bs.SPOTLIGHTS if s["name"] in x.get("students", [])]
         spot_html = "".join(f'<p><a href="../../spotlight.html#{esc(x["ym"])}">Student spotlight, {esc(bs.spotlight_label(x))}: {esc(x["title"])}</a></p>' for x in sp)
         links = []
         if s["name"] in bs.SCHOLAR:

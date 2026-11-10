@@ -5506,7 +5506,7 @@ def build():
         "people": (PEOPLE_SECTION.replace("{director_html}", director_html).replace("{core_html}", core_html)
                    .replace("{aff_html}", aff_html).replace("{ext_html}", ext_html) + collab_graph_html()),
         "students": (STUDENTS_SECTION.replace("{students_html}", students_html).replace("{lablife_html}", lablife_html).replace("{lablife_video}", video_html("lab-life", "Lab life in 33 seconds"))
-                     .replace("{spotlight_teaser}", spotlight_article(max(SPOTLIGHTS, key=lambda s: s["ym"]), full=False) if SPOTLIGHTS else "")),
+                     .replace("{spotlight_teaser}", spotlight_article(max([s for s in SPOTLIGHTS if sp_kind(s) == "student"], key=lambda s: s["ym"]), full=False) if any(sp_kind(s) == "student" for s in SPOTLIGHTS) else "")),
         "alumni": (ALUMNI_SECTION.replace("{alumni_feat_html}", alumni_feat_html)
                    .replace("{alumni_phd_cards}", alumni_phd_cards).replace("{alumni_pd_cards}", alumni_pd_cards)),
     }, footer_html, script_html)
@@ -5922,10 +5922,19 @@ def build_feed():
 
 SPOTLIGHTS = _load_overlay("spotlights.json", {"entries": []}).get("entries", [])
 
+def sp_kind(sp): return sp.get("kind", "student")
+def sp_id(sp): return sp["ym"] if sp_kind(sp) == "student" else f'{sp["ym"]}-{sp_kind(sp)}'
+def sp_names(sp): return sp.get("people") or sp.get("students") or []
+def sp_order(sp): return (sp["ym"], 1 if sp_kind(sp) == "faculty" else 0)   # newest first; faculty before student in a month
+
 def _spotlight_students(sp):
-    """STUDENTS entries for the people named in a spotlight, so we can show their photos and status."""
+    """Roster entries for the people named in a spotlight (students, or faculty for a faculty spotlight), for photos and status."""
+    if sp_kind(sp) == "faculty":
+        fac = {f["name"]: f for grp in ("core", "affiliated", "external") for f in FACULTY.get(grp, [])}
+        fac[FACULTY["director"]["name"]] = FACULTY["director"]
+        return [dict(fac.get(n, {"name": n}), status=fac.get(n, {}).get("title", "")) for n in sp_names(sp)]
     by = {s["name"]: s for s in STUDENTS}
-    return [by.get(n, {"name": n, "status": "", "advisor": sp.get("advisor", "")}) for n in sp["students"]]
+    return [by.get(n, {"name": n, "status": "", "advisor": sp.get("advisor", "")}) for n in sp_names(sp)]
 
 def spotlight_label(sp):
     y, m = int(sp["ym"][:4]), int(sp["ym"][5:7]); return f"{MONTH_FULL[m]} {y}"
@@ -5934,26 +5943,28 @@ def spotlight_article(sp, full=True):
     """One spotlight as HTML: the students, the story, the papers. full=False gives the teaser used on Students."""
     who = _spotlight_students(sp)
     heads = "".join(f'<div class="spwho">{stu_avatar(s)}<div><b>{esc(s["name"])}</b><span>{esc(s.get("status", ""))}</span></div></div>' for s in who)
+    kick = ("Faculty spotlight" if sp_kind(sp) == "faculty" else "Student spotlight") + ", " + spotlight_label(sp)
     if not full:
-        return (f'<article class="spteaser"><p class="spkicker">Student spotlight, {esc(spotlight_label(sp))}</p><h3><a href="spotlight.html#{esc(sp["ym"])}">{esc(sp["title"])}</a></h3>'
+        return (f'<article class="spteaser"><p class="spkicker">{esc(kick)}</p><h3><a href="spotlight.html#{esc(sp_id(sp))}">{esc(sp["title"])}</a></h3>'
                 f'<p>{esc(sp["deck"])}</p><div class="spwhos">{heads}</div></article>')
     body = "".join((f'<h3>{esc(s["h"])}</h3>' if s.get("h") else "") + "".join(f"<p>{esc(t)}</p>" for t in s["p"]) for s in sp["sections"])
     papers = "".join(f'<li><a href="https://doi.org/{esc(p["doi"])}">{esc(p["title"])}</a><span class="v">{esc(p.get("note", ""))}</span></li>' for p in sp.get("papers", []))
     links = "".join(f'<li><a href="{esc(l["url"])}">{esc(l["label"])}</a></li>' for l in sp.get("links", []))
-    adv = f'<p class="spadv">Advised by {esc(sp["advisor"])}' + (f', {esc(sp["lab"])}' if sp.get("lab") else "") + "</p>"
+    adv = (f'<p class="spadv">Advised by {esc(sp["advisor"])}' + (f', {esc(sp["lab"])}' if sp.get("lab") else "") + "</p>") if sp.get("advisor") else (
+           f'<p class="spadv">{esc(sp["lab"])}</p>' if sp.get("lab") else "")
     fund = f'<p class="spfund">{esc(sp["funding"])}</p>' if sp.get("funding") else ""
-    return (f'<article class="spot" id="{esc(sp["ym"])}"><p class="spkicker">Student spotlight, {esc(spotlight_label(sp))}</p><h2>{esc(sp["title"])}</h2>'
+    return (f'<article class="spot" id="{esc(sp_id(sp))}"><p class="spkicker">{esc(kick)}</p><h2>{esc(sp["title"])}</h2>'
             f'<p class="spdeck">{esc(sp["deck"])}</p><div class="spwhos">{heads}</div>{adv}<div class="spbody">{body}</div>'
             + (f'<h3>The papers</h3><ul class="ipubs">{papers}</ul>' if papers else "") + (f'<ul class="splinks">{links}</ul>' if links else "") + fund + "</article>")
 
 def build_spotlight(footer_html, script_html):
     """spotlight.html: the monthly student spotlight, newest first, from spotlights.json."""
     root = os.path.dirname(os.path.abspath(OUT)) or "."
-    sps = sorted(SPOTLIGHTS, key=lambda s: s["ym"], reverse=True)
+    sps = sorted(SPOTLIGHTS, key=sp_order, reverse=True)
     arts = "".join(spotlight_article(sp) for sp in sps)
     body = f'''<section>
   <div class="wrap">
-    <div class="shead"><h1>Student spotlight</h1><p>Each month the center tells one story about its doctoral students: what they built, why it matters, and where to read the work. Faculty nominate students by writing to the director.</p></div>
+    <div class="shead"><h1>Spotlights</h1><p>Each month the center tells a story about one of its doctoral students, and often one of its faculty: what they built, why it matters, and where to read the work. Faculty nominate students by writing to the director.</p></div>
     <div class="spots">{arts if arts else "<p>The first spotlight is on its way.</p>"}</div>
   </div>
 </section>'''
@@ -5967,7 +5978,7 @@ def build_spotlight(footer_html, script_html):
 .spot .ipubs{list-style:none;margin:0 0 12px;padding:0}.spot .ipubs li{margin:0 0 8px;font-size:15px;line-height:1.4}.spot .ipubs .v{display:block;color:var(--ink-3);font-size:13.5px}
 .splinks{list-style:none;margin:0 0 12px;padding:0;font-size:15px}.spfund{font-size:13.5px;color:var(--ink-3);margin:14px 0 0}
 '''
-    page = page_shell("Student spotlight | SCyPS, UMass Lowell", "The center's monthly student spotlight: one story a month about what its doctoral students built and why it matters.",
+    page = page_shell("Spotlights | SCyPS, UMass Lowell", "The center's monthly student and faculty spotlights: what its people built and why it matters.",
                       body, footer_html, script_html, extra_css=css, active="students", canonical="spotlight.html")
     page = new_tab_links(page)
     open(os.path.join(root, "spotlight.html"), "w", encoding="utf-8").write(page)
@@ -6312,12 +6323,11 @@ def build_newsletter(ym, footer_html, script_html):
             if conf:
                 h.append('<p style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:#5B6B82;margin:10px 0 8px">Conference papers and chapters</p>')
                 h += [paper_block(p, email) for p in conf]
-        sp = next((s for s in SPOTLIGHTS if s["ym"] == ym), None)
-        if sp:
-            head("Student spotlight")
-            names = " and ".join(sp["students"])
+        for sp in sorted((s for s in SPOTLIGHTS if s["ym"] == ym), key=sp_order, reverse=True):
+            head("Faculty spotlight" if sp_kind(sp) == "faculty" else "Student spotlight")
+            names = " and ".join(sp_names(sp))
             h.append(f'<p style="margin:0 0 14px;font-size:15px;line-height:1.45;color:#0E2036"><b>{esc(sp["title"])}</b>: {esc(names)}.<br>{esc(sp["deck"])}<br>'
-                     f'<a href="{SITE_URL}spotlight.html#{esc(sp["ym"])}" style="color:#044978">Read the spotlight</a></p>')
+                     f'<a href="{SITE_URL}spotlight.html#{esc(sp_id(sp))}" style="color:#044978">Read the spotlight</a></p>')
         if notes:
             head("Milestones"); h += [note_block(t) for t in notes]
         if upcoming:
@@ -6387,8 +6397,9 @@ def build_newsletter(ym, footer_html, script_html):
             au = p["authors"] if isinstance(p["authors"], str) else ", ".join(p["authors"])
             txt.append(f"- {au}. {p['title']}. {p['venue']}, {p['details']}." + (f" https://doi.org/{p['doi']}" if p.get("doi") else ""))
         txt.append("")
-    _sp = next((s for s in SPOTLIGHTS if s["ym"] == ym), None)
-    if _sp: txt += ["STUDENT SPOTLIGHT", f"{_sp['title']}: {' and '.join(_sp['students'])}. {_sp['deck']} {SITE_URL}spotlight.html#{_sp['ym']}", ""]
+    for _sp in sorted((s for s in SPOTLIGHTS if s["ym"] == ym), key=sp_order, reverse=True):
+        txt += [("FACULTY SPOTLIGHT" if sp_kind(_sp) == "faculty" else "STUDENT SPOTLIGHT"),
+                f"{_sp['title']}: {' and '.join(sp_names(_sp))}. {_sp['deck']} {SITE_URL}spotlight.html#{sp_id(_sp)}", ""]
     if notes: txt.append("MILESTONES"); txt += [f"- {t}" for t in notes]; txt.append("")
     if upcoming: txt.append("COMING UP"); txt += [f"- {pr['title']} starts {pr['period'].split(' to ')[0]}." for pr in upcoming]; txt.append("")
     txt += [f"Read on the web: {SITE_URL}newsletters/{ym}.html", f"Site: {SITE_URL}", "Unsubscribe: reply with the subject Unsubscribe."]

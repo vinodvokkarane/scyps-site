@@ -4,39 +4,230 @@
   {
    "ym": "2026-09",
    "title": "Building the networks behind AI",
-   "students": ["Arash Rezaee", "Ryan McCann"],
+   "students": [
+    "Arash Rezaee",
+    "Ryan McCann"
+   ],
    "advisor": "Vinod M. Vokkarane",
    "lab": "Advanced Communication Networks Laboratory",
    "deck": "Three journal articles in six months on how fiber-optic networks can keep up with AI, and an open-source platform the field can build on.",
    "sections": [
-    {"h": null, "p": [
-     "Every AI application, cloud service, and connected device depends on something most people never see: the communication networks carrying enormous amounts of data behind the scenes. Two doctoral researchers in the center's Advanced Communication Networks Laboratory, Arash Rezaee and Ryan McCann, have spent the past year working on how those networks keep up.",
-     "Their work has produced three articles accepted in the last six months by the Journal of Optical Communications and Networking, published jointly by IEEE and Optica. Arash is first author on all three. Ryan co-led the work on FUSION, the group's open-source optical networking platform, and contributed to the other two studies. Collaborators at the University of Virginia and in Spain joined the work. Both students are advised by Vinod Vokkarane, the center's director."
-    ]},
-    {"h": "The question", "p": [
-     "Future AI systems will need more than powerful processors and large data centers. They will need networks that move huge volumes of information quickly and reliably between users, edge devices, cloud platforms, and computing facilities. There are two main ways to add capacity to a fiber network: use a wider range of the optical spectrum by transmitting across several wavelength bands, or add spatial capacity by sending data through multiple cores inside one fiber or through parallel fiber pairs.",
-     "Both work. Combining them is hard. Signals interfere with one another, performance varies across the spectrum, and some of the added capacity turns out to be unusable. The three papers take on that problem from three directions: long-term planning, real-time operation, and reproducible research."
-    ]},
-    {"h": "Planning: capacity on paper is not capacity in practice", "p": [
-     "The first article develops a planning framework that evaluates optical bands and spatial channels together rather than as separate upgrades. It accounts for signal noise, nonlinear effects, power changes, equipment limits, and interference between neighboring fiber cores, and parts of it were validated on a commercial multicore fiber. Its central finding is that adding bands or cores does not always add usable capacity; the best choice depends on the spectrum in use, the structure of the fiber, and the physical conditions in the network. The article is an invited extension of the team's paper at ECOC 2025."
-    ]},
-    {"h": "Operation: smarter decisions while the network runs", "p": [
-     "The second article turns to the decisions a network makes as traffic arrives. A quality-of-transmission-aware controller chooses the route, band, spatial lane, frequency channel, and modulation format for each connection, grooms new traffic into unused capacity on existing connections, and slices large requests across channels when no single channel can carry them. Comparing multi-core fibers with parallel fiber pairs, the paper shows the conditions under which each performs best rather than declaring a winner. It extends the team's paper at ONDM 2025."
-    ]},
-    {"h": "Research: a shared platform, FUSION", "p": [
-     "The third article introduces FUSION, the Flexible Unified Simulator for Intelligent Optical Networking, which Ryan co-founded and leads as its principal developer. Optical networking studies are hard to compare because groups use different software, assumptions, and network configurations. FUSION gives researchers one modular environment covering conventional, multi-band, and space-division multiplexed networks, with physical-layer models, control algorithms, grooming, survivability, and AI-based decision making, plus automated testing and deterministic replay so experiments can be checked and repeated. It was the platform behind the other two papers, and it is released as open source for others to extend. The article appears in JOCN's feature issue on benchmarking in optical networks."
-    ]},
-    {"h": "Why it matters to the center", "p": [
-     "Smart grids, autonomous platforms, connected health care, and intelligent transportation all depend on networks that move data reliably and respond when conditions change. Arash and Ryan's work connects fiber physics to network control and to software the field can share. It is the communications foundation that the center's cyber-physical systems stand on."
-    ]}
+    {
+     "h": null,
+     "p": [
+      "Every AI application, cloud service, and connected device depends on something most people never see: the communication networks carrying enormous amounts of data behind the scenes. Two doctoral researchers in the center's Advanced Communication Networks Laboratory, Arash Rezaee and Ryan McCann, have spent the past year working on how those networks keep up.",
+      "Their work has produced three articles accepted in the last six months by the Journal of Optical Communications and Networking, published jointly by IEEE and Optica. Arash is first author on all three. Ryan co-led the work on FUSION, the group's open-source optical networking platform, and contributed to the other two studies. Collaborators at the University of Virginia and in Spain joined the work. Both students are advised by Vinod Vokkarane, the center's director."
+     ]
+    },
+    {
+     "h": "The question",
+     "p": [
+      "Future AI systems will need more than powerful processors and large data centers. They will need networks that move huge volumes of information quickly and reliably between users, edge devices, cloud platforms, and computing facilities. There are two main ways to add capacity to a fiber network: use a wider range of the optical spectrum by transmitting across several wavelength bands, or add spatial capacity by sending data through multiple cores inside one fiber or through parallel fiber pairs.",
+      "Both work. Combining them is hard. Signals interfere with one another, performance varies across the spectrum, and some of the added capacity turns out to be unusable. The three papers take on that problem from three directions: long-term planning, real-time operation, and reproducible research."
+     ]
+    },
+    {
+     "h": "Planning: capacity on paper is not capacity in practice",
+     "p": [
+      "The first article develops a planning framework that evaluates optical bands and spatial channels together rather than as separate upgrades. It accounts for signal noise, nonlinear effects, power changes, equipment limits, and interference between neighboring fiber cores, and parts of it were validated on a commercial multicore fiber. Its central finding is that adding bands or cores does not always add usable capacity; the best choice depends on the spectrum in use, the structure of the fiber, and the physical conditions in the network. The article is an invited extension of the team's paper at ECOC 2025."
+     ]
+    },
+    {
+     "h": "Operation: smarter decisions while the network runs",
+     "p": [
+      "The second article turns to the decisions a network makes as traffic arrives. A quality-of-transmission-aware controller chooses the route, band, spatial lane, frequency channel, and modulation format for each connection, grooms new traffic into unused capacity on existing connections, and slices large requests across channels when no single channel can carry them. Comparing multi-core fibers with parallel fiber pairs, the paper shows the conditions under which each performs best rather than declaring a winner. It extends the team's paper at ONDM 2025."
+     ]
+    },
+    {
+     "h": "Research: a shared platform, FUSION",
+     "p": [
+      "The third article introduces FUSION, the Flexible Unified Simulator for Intelligent Optical Networking, which Ryan co-founded and leads as its principal developer. Optical networking studies are hard to compare because groups use different software, assumptions, and network configurations. FUSION gives researchers one modular environment covering conventional, multi-band, and space-division multiplexed networks, with physical-layer models, control algorithms, grooming, survivability, and AI-based decision making, plus automated testing and deterministic replay so experiments can be checked and repeated. It was the platform behind the other two papers, and it is released as open source for others to extend. The article appears in JOCN's feature issue on benchmarking in optical networks."
+     ]
+    },
+    {
+     "h": "Why it matters to the center",
+     "p": [
+      "Smart grids, autonomous platforms, connected health care, and intelligent transportation all depend on networks that move data reliably and respond when conditions change. Arash and Ryan's work connects fiber physics to network control and to software the field can share. It is the communications foundation that the center's cyber-physical systems stand on."
+     ]
+    }
    ],
    "papers": [
-    {"title": "QoT-Aware Spectral and Spatial Scaling Trade-offs in Multi-Band Space Division Multiplexing over EONs", "doi": "10.1364/JOCN.596854", "note": "JOCN, Aug. 2026; invited extension of ECOC 2025"},
-    {"title": "QoT-Aware Dynamic Resource Allocation and Grooming in Multi-Band Space-Division Multiplexing Networks", "doi": "10.1364/JOCN.596435", "note": "JOCN, Oct. 2026; invited extension of ONDM 2025"},
-    {"title": "FUSION: A Unified Benchmarking Framework for Reproducible Optical Network Research", "doi": "10.1364/JOCN.593123", "note": "JOCN, Sept. 2026, feature issue on benchmarking in optical networks"}
+    {
+     "title": "QoT-Aware Spectral and Spatial Scaling Trade-offs in Multi-Band Space Division Multiplexing over EONs",
+     "doi": "10.1364/JOCN.596854",
+     "note": "JOCN, Aug. 2026; invited extension of ECOC 2025"
+    },
+    {
+     "title": "QoT-Aware Dynamic Resource Allocation and Grooming in Multi-Band Space-Division Multiplexing Networks",
+     "doi": "10.1364/JOCN.596435",
+     "note": "JOCN, Oct. 2026; invited extension of ONDM 2025"
+    },
+    {
+     "title": "FUSION: A Unified Benchmarking Framework for Reproducible Optical Network Research",
+     "doi": "10.1364/JOCN.593123",
+     "note": "JOCN, Sept. 2026, feature issue on benchmarking in optical networks"
+    }
    ],
-   "links": [{"label": "FUSION on GitHub", "url": "https://github.com/SDNNetSim/FUSION"}],
+   "links": [
+    {
+     "label": "FUSION on GitHub",
+     "url": "https://github.com/SDNNetSim/FUSION"
+    }
+   ],
    "funding": "UMass Lowell's contributions were supported in part by the National Science Foundation under Award No. 2008530."
+  },
+  {
+   "ym": "2026-10",
+   "kind": "faculty",
+   "people": [
+    "Lewis Tseng"
+   ],
+   "title": "Getting machines to agree, even when things go wrong",
+   "lab": "Electrical and Computer Engineering; co-lead, next-generation networks and trusted devices thrust",
+   "deck": "Lewis Tseng builds the coordination layer that keeps drones, edge computers, and blockchains working when some of their parts fail or are attacked. In August he won an NSF award to plan a shared, AI-ready data system for microscopy, designed with the scientists who will use it.",
+   "sections": [
+    {
+     "h": null,
+     "p": [
+      "Lewis Tseng, Associate Professor of Electrical and Computer Engineering, works on a problem that sits underneath most modern systems: when one job is spread across many computers, how do they agree on what happened, and keep agreeing when some of them crash, fall behind, or are attacked? He came to UMass Lowell in 2024 after positions at Clark University, Boston College, and Toyota InfoTechnology Center, and he co-leads the center's next-generation networks and trusted devices thrust with Orlando Arias. This year he also received the ECE department's Teaching Excellence Award."
+     ]
+    },
+    {
+     "h": "The question",
+     "p": [
+      "A team of drones searching an area, a cluster of edge computers running a control loop, a blockchain recording transactions: each spreads one task across many machines that must stay consistent. His NSF CAREER award, active since 2024, asks how to build the basic coordination steps for such systems so that they stay correct, and fast enough for a control loop, even while under cyberattack."
+     ]
+    },
+    {
+     "h": "Recent work",
+     "p": [
+      "Over the past two years his group has carried that question into multi-drone search coordinated through satellites and edge computers (IEEE GLOBECOM 2025), digital twins offered as a service across hybrid clouds (IEEE ICHMS 2025), intrusion detection that uses approximate agreement to keep working when some detectors fail (ICSC 2025), a protocol that unifies two classic ways of replicating data (USENIX NSDI 2025), and lessons from building a replicated data store modeled on etcd, the one Kubernetes relies on (ACM SoCC 2025). In August he presented a paper at the ACM SIGCOMM workshop on quantum networks on timing control for quantum cloud systems, where entanglement decays if it is not used in time."
+     ]
+    },
+    {
+     "h": "New in August: a data system its users help design",
+     "p": [
+      "In August, NSF's Office of Advanced Cyberinfrastructure awarded Tseng $499,490 over two years to plan a federated, AI-ready data infrastructure for advanced microscopy and imaging. His co-PIs are Hsien-Yuan (Mark) Hsu of the School of Education and Yu-Tsun Shao of the University of Southern California.",
+      "The idea is a national system in which data stay close to the instruments and institutions that produce them, while shared services handle discovery, provenance, trust, and reuse by AI tools. Rather than design it alone, the team will work with the scientists who would use it, in three stages: helping them picture what such a system could do, studying their workflows and concerns, and then designing candidate architectures, operating models, and responsible AI practices with them. It is the same question as his systems work, about trust among many independent parties, asked at the scale of a research community."
+     ]
+    },
+    {
+     "h": "Engineering and education in one group",
+     "p": [
+      "Tseng's group crosses colleges. Kritee Neupane, a computer engineering Ph.D. student, works on networked digital twins, blockchain provenance, and fault-tolerant systems. Layann Shaban, who co-authored his drone work, began her Ph.D. in 2026. Negin Yazdani Motlagh and Youlim Lee are Ph.D. students in the School of Education, co-advised with Hsu: Negin studies artificial intelligence and computational thinking in STEM education, and Youlim studies AI literacy and the ethical use of AI in research. Negin is this month's student spotlight."
+     ]
+    },
+    {
+     "h": "Why it matters to the center",
+     "p": [
+      "Every system the center studies, from grid controllers to autonomous robots, depends on many devices agreeing on what is true, often while someone is trying to make them disagree. Tseng's work supplies that layer, which is why he co-leads the trusted devices thrust and is a Co-PI on SUMMIT, the center's three-university grid testbed."
+     ]
+    }
+   ],
+   "papers": [
+    {
+     "title": "Timely Control for Quantum Cloud: Orchestrating Entanglement Under Decay",
+     "doi": "10.1145/3833409.3833443",
+     "note": "ACM SIGCOMM Workshop on Quantum Networks and Distributed Quantum Computing (QuNet), Aug. 2026"
+    },
+    {
+     "title": "SEED: A Distributed Framework for Multi-Drone Search via Satellite-Edge-Enabled Drones",
+     "doi": "10.1109/GLOBECOM59602.2025.11432647",
+     "note": "IEEE GLOBECOM, Dec. 2025; with Layann Shaban"
+    },
+    {
+     "title": "Revisiting State Machine Replication in Practice: Lessons from Building an etcd-inspired System",
+     "doi": "10.1145/3772052.3772246",
+     "note": "ACM Symposium on Cloud Computing (SoCC), Nov. 2025"
+    },
+    {
+     "title": "Deploying Digital Twins as a Service in Hybrid Clouds",
+     "doi": "10.1109/ICHMS65439.2025.11153976",
+     "note": "IEEE ICHMS, May 2025; with Kritee Neupane"
+    }
+   ],
+   "links": [
+    {
+     "label": "NSF award 2609490: planning federated AI-ready cyberinfrastructure",
+     "url": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=2609490"
+    },
+    {
+     "label": "NSF CAREER award 2449640",
+     "url": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=2449640"
+    }
+   ]
+  },
+  {
+   "ym": "2026-10",
+   "kind": "student",
+   "students": [
+    "Negin Yazdani Motlagh"
+   ],
+   "advisor": "Hsien-Yuan (Mark) Hsu and Lewis Tseng",
+   "lab": "School of Education and Electrical and Computer Engineering",
+   "title": "What employers ask for, in their own words",
+   "deck": "An Education Ph.D. student co-advised across two colleges analyzed 82,624 job posts from fourteen years to see which professional skills computing employers actually ask for.",
+   "sections": [
+    {
+     "h": null,
+     "p": [
+      "Engineering programs are asked to teach communication, teamwork, and problem solving alongside technical skills. Negin Yazdani Motlagh, a Ph.D. student in Research and Evaluation in Education since 2024, wanted evidence for which of those skills employers actually signal when they hire. She is co-advised by Mark Hsu of the School of Education and Lewis Tseng of Electrical and Computer Engineering, and her research centers on artificial intelligence and computational thinking in STEM education."
+     ]
+    },
+    {
+     "h": "The data",
+     "p": [
+      "She turned to the monthly \"Who Is Hiring\" threads on Hacker News, run by the startup accelerator Y Combinator, where companies post short job notices. Because the posts are short, what an employer chooses to include says something about what it values. The study covers 82,624 computing and computer engineering postings from 2012 to 2025."
+     ]
+    },
+    {
+     "h": "The method",
+     "p": [
+      "Each post was scored against a dictionary of soft skills in three groups: interpersonal and leadership skills, personal effectiveness, and conceptual or thinking skills. Two measures track each group over time: coverage, the share of posts that mention it, and intensity, the average number of mentions per post."
+     ]
+    },
+    {
+     "h": "What she found",
+     "p": [
+      "Interpersonal and leadership skills led on both measures, across job types and across all fourteen years, followed by personal effectiveness. Conceptual and thinking skills appeared less often but never disappeared, and they were more prominent in AI-related jobs. The result is a long-run reference that computing and computer engineering instructors can use when deciding how their courses address professional skills."
+     ]
+    },
+    {
+     "h": "How the work grew",
+     "p": [
+      "The study began as a work-in-progress paper at the 2025 IEEE Frontiers in Education Conference, covering 2012 to 2024, written with Kritee Neupane, a computer engineering Ph.D. student in Tseng's group. The full study, with Hsu and Tseng, appeared in September in the Computers in Education Journal (CoED) of the American Society for Engineering Education. Negin is also a co-author, with Tseng, of a 2026 ACM Sustainability Week paper that rethinks how blockchains reach agreement from an energy perspective."
+     ]
+    },
+    {
+     "h": "Why it matters to the center",
+     "p": [
+      "The center trains engineers through its doctoral students, its Red Hat-sponsored capstone, and its Open-Source Club, and Hsu leads its education and workforce work. Negin's study gives that effort evidence instead of assumptions: a measured record of what employers say they want. It also shows the center's reach across colleges where it counts most, in a student whose two advisors sit in different colleges."
+     ]
+    }
+   ],
+   "papers": [
+    {
+     "title": "Harmonizing Computing and Computer Engineering Education With Workforce Soft-Skill Signals: A Longitudinal Study of Short-Form Job Posts (2012–2025)",
+     "doi": "10.18260/b4d7-9a-69556",
+     "note": "Computers in Education Journal (CoED), vol. 15, no. 4, Sept. 2026; with H.-Y. Hsu and L. Tseng"
+    },
+    {
+     "title": "WIP: What Employers Want: A Data-Driven Analysis of Soft Skill Trends in Computer Science Job Postings (2012-2024)",
+     "doi": "10.1109/FIE63693.2025.11328524",
+     "note": "IEEE Frontiers in Education Conference (FIE), Nov. 2025; with K. Neupane, L. Tseng, and H.-Y. Hsu"
+    },
+    {
+     "title": "Green, Trust-Minimizing, and Sybil-Resistant? Rethinking How Blockchains Agree from an Energy Perspective",
+     "doi": "10.1145/3765611.3815150",
+     "note": "ACM Sustainability Week, June 2026; with L. Tseng"
+    }
+   ],
+   "links": [
+    {
+     "label": "Negin Yazdani Motlagh on Google Scholar",
+     "url": "https://scholar.google.com/citations?user=5dO1Q8kAAAAJ"
+    }
+   ]
   }
  ]
 }

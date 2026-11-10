@@ -87,28 +87,12 @@
     <description>Yuanchang Xie: 2 new papers in Engineering Applications of Artificial Intelligence.</description>
   </item>
   <item>
-    <title>Inferring coupling strength from the Kuramoto order parameter</title>
-    <link>https://doi.org/10.1007/s40042-026-01739-w</link>
-    <guid isPermaLink="false">scyps-2026-10-5d9cb4de28</guid>
-    <category>Journal</category>
-    <pubDate>01 Oct 2026 00:00:00 +0000</pubDate>
-    <description>Seung Woo Son: &quot;Inferring coupling strength from the Kuramoto order parameter&quot; in Journal of the Korean Physical Society.</description>
-  </item>
-  <item>
     <title>QoT-Aware Dynamic Resource Allocation and Grooming in Multi-Band Space-Division Multiplexing Networks</title>
     <link>https://doi.org/10.1364/JOCN.596435</link>
     <guid isPermaLink="false">scyps-2026-10-c62ae53f5f</guid>
     <category>Journal</category>
     <pubDate>01 Oct 2026 00:00:00 +0000</pubDate>
     <description>Vinod M. Vokkarane: &quot;QoT-Aware Dynamic Resource Allocation and Grooming in Multi-Band Space-Division Multiplexing Networks&quot; in IEEE/Optica Journal of Optical Communications and Networking.</description>
-  </item>
-  <item>
-    <title>Scale-freeness under node removal: A finite-size scaling perspective</title>
-    <link>https://doi.org/10.1103/cknx-xgnj</link>
-    <guid isPermaLink="false">scyps-2026-10-312ab62be0</guid>
-    <category>Journal</category>
-    <pubDate>01 Oct 2026 00:00:00 +0000</pubDate>
-    <description>Seung Woo Son: &quot;Scale-freeness under node removal: A finite-size scaling perspective&quot; in Physical Review E.</description>
   </item>
   <item>
     <title>SUMMIT: A Secure and Resilient Multi-site Smart Grid Testbed for Multidisciplinary Research and Training</title>
@@ -325,6 +309,22 @@
     <category>Milestone</category>
     <pubDate>01 Mar 2026 00:00:00 +0000</pubDate>
     <description>The U.S. Army ARPO project on autonomous robotic planning and optimization begins ($225K).</description>
+  </item>
+  <item>
+    <title>Signal Strength and Network Performance Optimization of a Wireless Acoustic Sensor for Wind Turbine Blade Health Monitoring</title>
+    <link>https://doi.org/10.1109/jsen.2025.3647370</link>
+    <guid isPermaLink="false">scyps-2026-02-90868e69cc</guid>
+    <category>Journal</category>
+    <pubDate>01 Feb 2026 00:00:00 +0000</pubDate>
+    <description>Yan Luo: &quot;Signal Strength and Network Performance Optimization of a Wireless Acoustic Sensor for Wind Turbine Blade Health Monitoring&quot; in IEEE Sensors Journal.</description>
+  </item>
+  <item>
+    <title>Recent advances in biomimetic sensors for the detection of aquatic pathogens and toxins</title>
+    <link>https://doi.org/10.1016/j.jhazmat.2026.141041</link>
+    <guid isPermaLink="false">scyps-2026-01-3c3275f383</guid>
+    <category>Journal</category>
+    <pubDate>01 Jan 2026 00:00:00 +0000</pubDate>
+    <description>Yan Luo: &quot;Recent advances in biomimetic sensors for the detection of aquatic pathogens and toxins&quot; in Journal of Hazardous Materials.</description>
   </item>
 </channel>
 </rss>

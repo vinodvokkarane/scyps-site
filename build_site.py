@@ -153,7 +153,7 @@ PROJECTS = [
     {"tag": "New in 2026", "sponsor": "Massachusetts Technology Collaborative, Applied AI Models program",
      "role": "PI", "title": "ARPO-Sensor Fusion: Autonomous Robotic Planning and Optimization for Intelligence Sensor Fusion",
      "amount": "$625K", "share": "$500K direct plus $125K cost share; UMass Lowell and UMLARC share $247K", "period": "Oct 2026 to Sep 2027",
-     "team": "PI Vinod Vokkarane; performed at UMLARC",
+     "team": "PI Vinod Vokkarane; Ph.D. student Vinh Tran; M.S. thesis student Kimson Lam; performed at UMLARC",
      "desc": "Applied AI models that fuse multi-sensor intelligence feeds to plan and optimize autonomous robotic missions.",
      "domain": "Autonomy"},
     {"tag": "New in 2026", "sponsor": "SEMI/FlexTech", "role": "Co-PI",
@@ -166,7 +166,7 @@ PROJECTS = [
     {"tag": "New in 2026", "sponsor": "U.S. Army, through Sherpa 6",
      "role": "PI", "share": "UML share of a $2.5M Army award", "title": "ARPO: Autonomous Robotic Planning and Optimization",
      "amount": "$225K", "period": "Mar 2026 to Jun 2027",
-     "team": "PI Vinod Vokkarane; UMLARC and UMass Lowell",
+     "team": "PI Vinod Vokkarane; M.S. thesis student Kimson Lam; UMLARC and UMass Lowell",
      "desc": "Planning and optimization methods for autonomous robotic systems operating over contested tactical networks.",
      "domain": "Autonomy"},
     {"tag": "Completed", "sponsor": "Office of Naval Research",
@@ -2692,7 +2692,7 @@ a.logo-tile:hover{text-decoration:none;box-shadow:0 14px 34px -22px var(--shadow
 .spteaser h3{margin:0 0 6px;font-size:20px}.spteaser p{margin:0 0 10px;color:var(--ink-2)}.spkicker{font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);margin:0 0 6px}
 .spwhos{display:flex;flex-wrap:wrap;gap:12px 28px}.spwho{display:flex;align-items:center;gap:12px}.spwho .avatar{width:56px;height:56px;border-radius:50%;object-fit:cover}.spwho b{display:block;font-size:15px}.spwho span{font-size:13px;color:var(--ink-3)}
 .stu{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px 22px 20px}
-.stu .avatar{display:block;margin:0 auto 16px;width:180px;height:180px;font-size:40px}
+.stu .avatar{display:block;margin:0 auto 16px;width:180px;height:180px;font-size:40px}.stu .avatar.mono{display:grid;place-items:center}
 .avatar.round{border-radius:50%;background:transparent}
 .avatar.mono.round{background:var(--signal-tint)}
 .stu h3{font-size:20px;margin-bottom:4px;text-align:center}
@@ -3138,6 +3138,10 @@ STUDENTS = [
     {"name": "Mehran Sasaninia", "advisor": "Vinod M. Vokkarane", "photo": "mehran", "fig": "fig_mehran", "figcap": "Federated learning across grid sites with a global model aggregator", "status": "Ph.D. Candidate, joined 2023", "focus": "Federated learning to detect cyber attacks in the smart grid; smart false data injection attacks and anomaly detection in smart meters (IEEE SmartGridComm 2025); centralized versus federated learning for grid anomaly detection.", "linkedin": ""},
     {"name": "Ayush Pandey", "advisor": "Vinod M. Vokkarane", "photo": "ayush", "status": "Ph.D. Student, joined 2024", "figsvg": "ayush", "figcap": "AI-based intrusion detection protecting a transmission grid's control loop", "focus": "Smart grid cybersecurity and AI for cyber-physical systems.", "linkedin": ""},
     {"name": "Suvhasis Mukhopadhyay", "advisor": "Vinod M. Vokkarane", "photo": "suvhasis", "figsvg": "suvhasis", "figcap": "Impairment-aware allocation of spectrum, modulation, and power on a flex-grid link", "status": "Ph.D. Student, joined 2024", "focus": "Impact of individual physical layer impairments on elastic optical network performance; impairment-aware routing, spectrum, modulation, and power allocation; dynamic optical networking.", "linkedin": ""},
+    # Added Nov. 2026 at the director's request. "degree": "M.S." marks a master's thesis student, who is listed
+    # with the group but left out of every doctoral-student count.
+    {"name": "Vinh Tran", "advisor": "Vinod M. Vokkarane", "status": "Ph.D. Student, joined 2026", "focus": "ARPO-Sensor Fusion: AI models that fuse multi-sensor feeds to plan and optimize autonomous robotic missions.", "linkedin": ""},
+    {"name": "Kimson Lam", "advisor": "Vinod M. Vokkarane", "degree": "M.S.", "status": "M.S. Thesis Student", "focus": "ARPO and ARPO-Sensor Fusion: planning and optimization for autonomous robots over contested tactical networks, fed by multi-sensor fusion.", "linkedin": ""},
     # Other center faculty's doctoral students, from their CVs (Sept. 2026). Program and dates as listed there;
     # Luo's CV gives expected graduation dates but not programs.
     {"name": "Zahra Sharifi Soltani", "advisor": "Orlando Arias", "status": "Ph.D. student", "program": "", "focus": ""},   # confirmed by the director, Sept. 2026
@@ -3151,6 +3155,7 @@ STUDENTS = [
     {"name": "Layann Shaban", "advisor": "Lewis Tseng", "status": "Ph.D. student, joined 2026", "program": "Electrical and Computer Engineering", "focus": ""},
     {"name": "Youlim Lee", "advisor": "Lewis Tseng", "photo": "youlim", "status": "Ph.D. student, School of Education, joined fall 2024; co-advised by Hsien-Yuan (Mark) Hsu", "program": "School of Education", "focus": "AI literacy and ethical AI use in research: designing instruction that helps researchers ask better questions, critically evaluate AI outputs, and make sound, accountable decisions."},
 ]
+PHD_STUDENTS = [s for s in STUDENTS if s.get("degree", "Ph.D.") != "M.S."]   # doctoral counts use this list
 
 # ---------------------------------------------------------------- alumni profiles
 # Verified Sept. 2026 against the sources named in each entry. "inst" is the degree institution when
@@ -3273,7 +3278,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.87"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.88"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -5039,7 +5044,7 @@ def build():
                     f'<div class="v"><i>{esc(p["venue"])}</i>, {esc(p["details"])}{chip}</div>{doi_line}</div><div class="side">{side}</div></li>')
         if cur is not None: out += "</ul>"
         return out
-    n_students = len(STUDENTS)
+    n_students = len(PHD_STUDENTS)
     n_alumni = len(ALUMNI_PROFILES)
     alumni_phd_cards, alumni_pd_cards = alumni_profiles_html()
     pubs_html = render_pubs(P)
@@ -5553,7 +5558,7 @@ for _g in ("director", "core", "affiliated", "external"):
 
 PEOPLE_SECTION = '<section id="people" class="tint">\n  <div class="wrap">\n    <div class="shead"><h2>People</h2><p>Faculty from the Francis College of Engineering, the Kennedy College of Sciences, and the College of Fine Arts, Humanities and Social Sciences, plus long-running collaborators at partner universities and companies. Each profile links to the person\'s Google Scholar and ORCID records; citation totals are quoted from Google Scholar where the profile is public.</p></div>\n    <p class="founding">The center was founded on October 1, 2019 by Vinod Vokkarane, Martin Margala, Yan Luo, Sukesh Aghara, and Yuanchang Xie. Vokkarane served on the founding Board of Directors from October 2019 to July 2021 and has been director since August 2021. Margala, then Professor and Chair of Electrical and Computer Engineering, was founding co-director until July 2021 and remains an external collaborator.</p>\n    <h2 class="grouph">Center faculty</h2>\n    {director_html}\n    {core_html}\n    <div class="group"><h2 class="grouph">Affiliated researchers</h2><p>UMass Lowell faculty who collaborate on center projects and proposals.</p>{aff_html}</div>\n    <div class="group"><h2 class="grouph">External collaborators</h2><p>Partners at other universities and companies who work with the center on current projects.</p>{ext_html}</div>\n  </div>\n</section>\n\n'
 
-STUDENTS_SECTION = '<section id="students">\n  <div class="wrap">\n    <div class="shead"><h2>Students</h2><p>Doctoral students of the center faculty, grouped by primary advisor. The director\'s group is the Advanced Communication Networks Laboratory.</p></div>\n    {spotlight_teaser}\n    <h2 class="grouph">Doctoral students</h2>\n    {students_html}\n    <div class="lablife">\n      <h3>Student organization</h3>\n    <div class="club">{club_logo}<div><p class="kick">Center-run club</p><h4><a href="https://www.uml.edu/my/clubs/details/458f4922-cf24-652f-bb21-7c451540b38f">UMass Lowell Open-Source Club</a></h4>\n      <p>A student club for open-source software and hardware, run by the center. Members work on the center\'s open-source tools, FUSION, NATIG, and GridShift among them, and on projects with the club\'s sponsor. It is a way into center research before joining a group.</p>\n      <p class="meta"><b>Academic advisor:</b> Vinod M. Vokkarane, the center\'s director &middot; <b>Industry sponsor:</b> Red Hat</p>\n      <p><b>Friendly Fedora capstone.</b> Since 2020 Red Hat has sponsored a senior capstone team each year, advised directly by a Red Hat director or manager, to make Fedora Linux friendlier for university and academic use around the world. The teams have integrated academia-focused open-source tools into the current Fedora release, including large language model and container tools, and in the last two years have contributed new development on Podman.</p>\n      <p class="meta"><a href="https://www.uml.edu/my/clubs/details/458f4922-cf24-652f-bb21-7c451540b38f">The club on myUML</a> &middot; <a href="mailto:Vinod_Vokkarane@uml.edu">Write to the advisor</a> to join or to propose a project.</p></div></div>\n    <h3>Lab life</h3>{lablife_video}\n      <p>The Advanced Communication Networks Laboratory through the years.</p>\n      <div class="labgrid">{lablife_html}</div>\n    </div>\n  </div>\n</section>\n\n'
+STUDENTS_SECTION = '<section id="students">\n  <div class="wrap">\n    <div class="shead"><h2>Students</h2><p>Graduate students of the center faculty, grouped by primary advisor. The director\'s group is the Advanced Communication Networks Laboratory.</p></div>\n    {spotlight_teaser}\n    <h2 class="grouph">Graduate students</h2>\n    {students_html}\n    <div class="lablife">\n      <h3>Student organization</h3>\n    <div class="club">{club_logo}<div><p class="kick">Center-run club</p><h4><a href="https://www.uml.edu/my/clubs/details/458f4922-cf24-652f-bb21-7c451540b38f">UMass Lowell Open-Source Club</a></h4>\n      <p>A student club for open-source software and hardware, run by the center. Members work on the center\'s open-source tools, FUSION, NATIG, and GridShift among them, and on projects with the club\'s sponsor. It is a way into center research before joining a group.</p>\n      <p class="meta"><b>Academic advisor:</b> Vinod M. Vokkarane, the center\'s director &middot; <b>Industry sponsor:</b> Red Hat</p>\n      <p><b>Friendly Fedora capstone.</b> Since 2020 Red Hat has sponsored a senior capstone team each year, advised directly by a Red Hat director or manager, to make Fedora Linux friendlier for university and academic use around the world. The teams have integrated academia-focused open-source tools into the current Fedora release, including large language model and container tools, and in the last two years have contributed new development on Podman.</p>\n      <p class="meta"><a href="https://www.uml.edu/my/clubs/details/458f4922-cf24-652f-bb21-7c451540b38f">The club on myUML</a> &middot; <a href="mailto:Vinod_Vokkarane@uml.edu">Write to the advisor</a> to join or to propose a project.</p></div></div>\n    <h3>Lab life</h3>{lablife_video}\n      <p>The Advanced Communication Networks Laboratory through the years.</p>\n      <div class="labgrid">{lablife_html}</div>\n    </div>\n  </div>\n</section>\n\n'
 
 ALUMNI_SECTION = '<section id="alumni" class="tint">\n  <div class="wrap">\n    <div class="shead"><h2>Alumni</h2><p>Where the group\'s Ph.D. graduates and postdoctoral researchers have gone.</p></div>\n    <h2 class="grouph">Recent graduates</h2>\n    <div class="stugrid two">{alumni_feat_html}</div>\n    <h2 class="grouph">Ph.D. graduates</h2>\n    <p class="alnote">Where each graduate is now, verified in September 2026 against employer pages, LinkedIn, and Google Scholar. Citation figures refresh monthly with the rest of the site.</p>\n    <div class="alumgrid">{alumni_phd_cards}</div>\n    <h2 class="grouph">Postdoctoral alumni</h2>\n    <div class="alumgrid">{alumni_pd_cards}</div>\n  </div>\n</section>\n\n'
 
@@ -5845,7 +5850,7 @@ def build_people_pages(filled, footer_html, script_html):
         ("people", "People | SCyPS, UMass Lowell",
          "Faculty, affiliated researchers, and external collaborators of the Center for Smart Cyber-Physical Systems at UMass Lowell.", "people"),
         ("students", "Students | SCyPS, UMass Lowell",
-         "Doctoral students in the Advanced Communication Networks Laboratory at UMass Lowell and their research.", "students"),
+         "Graduate students in the Advanced Communication Networks Laboratory at UMass Lowell and their research.", "students"),
         ("alumni", "Alumni | SCyPS, UMass Lowell",
          "Ph.D. graduates and postdoctoral alumni of the Advanced Communication Networks Laboratory and where they are now.", "alumni")]:
         out = os.path.join(os.path.dirname(os.path.abspath(OUT)) or ".", name + ".html")

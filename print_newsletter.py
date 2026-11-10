@@ -23,7 +23,7 @@ font = lambda f: "data:font/woff2;base64," + base64.b64encode(open(os.path.join(
 
 core = [p for p in bs.PEOPLE if p["name"] in bs.CORE_NAMES] if hasattr(bs, "PEOPLE") and hasattr(bs, "CORE_NAMES") else []
 n_pubs = len(bs.P); n_journal = sum(1 for p in bs.P if p["type"] == "journal")
-n_students = len(bs.STUDENTS); n_faculty = 1 + len(bs.FACULTY["core"]) + len(bs.FACULTY["affiliated"])
+n_students = len(bs.PHD_STUDENTS); n_faculty = 1 + len(bs.FACULTY["core"]) + len(bs.FACULTY["affiliated"])
 awards_all = [p for p in bs.PROJECTS if p.get("tag") in ("Active", "New in 2026")]
 
 def paras(ps): return "".join(f"<p>{esc(t)}</p>" for t in ps)

@@ -84,7 +84,10 @@ section{padding:44px 0}section+section{border-top:1px solid var(--line)}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
 .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px}.card h3{margin:0 0 8px;font-size:20px}.card p{margin:0 0 8px;color:var(--ink-2)}.card .m{font-size:14px;color:var(--ink-3)}
 .pi{display:grid;grid-template-columns:220px 1fr;gap:28px;align-items:start}@media (max-width:640px){.pi{grid-template-columns:1fr}}.pi img{border-radius:var(--radius);width:100%;height:auto}.pi img.avatar{width:220px;height:220px;border-radius:50%;object-fit:cover}
-.stu{display:grid;grid-template-columns:110px 1fr;gap:18px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px}.stu img.avatar{width:110px;height:110px;border-radius:50%;object-fit:cover}.stu h3{margin:0 0 4px}.stu .st{color:var(--ink-3);font-size:14px;margin:0 0 8px}.stu p{margin:0 0 6px;font-size:15.5px}
+.stu{display:grid;grid-template-columns:110px 1fr;gap:18px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px}.stu img.avatar{width:110px;height:110px;border-radius:50%;object-fit:cover}
+.avatar.mono{display:grid;place-items:center;border-radius:50%;background:#E3F1EF;color:#1F3A52;font-family:Fraunces,Georgia,serif;font-weight:600}
+.pi .avatar.mono{width:220px;height:220px;font-size:56px}
+.stu .avatar.mono{width:110px;height:110px;font-size:30px}.stu h3{margin:0 0 4px}.stu .st{color:var(--ink-3);font-size:14px;margin:0 0 8px}.stu p{margin:0 0 6px;font-size:15.5px}
 .stus{display:grid;grid-template-columns:repeat(auto-fill,minmax(420px,1fr));gap:16px}@media (max-width:480px){.stus{grid-template-columns:1fr}.stu{grid-template-columns:1fr}}
 .list{list-style:none;margin:0;padding:0}.list li{padding:10px 0;border-bottom:1px solid var(--line)}.list b{color:var(--ink)}.list .v{display:block;font-size:14px;color:var(--ink-3)}
 .pub{padding:10px 0;border-bottom:1px solid var(--line);font-size:15.5px}.pub .a{color:var(--ink-2)}.pub .t{font-weight:600}.pub .v{display:block;font-size:13.5px;color:var(--ink-3)}
@@ -284,7 +287,7 @@ def page_students():
             links.append(f'<a href="https://scholar.google.com/citations?user={esc(bs.SCHOLAR[s["name"]])}">Google Scholar</a>' + (f' ({figs})' if figs else ""))
         if s.get("linkedin"): links.append(f'<a href="{esc(s["linkedin"])}">LinkedIn</a>')
         threads_s = collections.Counter(r["thread"] for r in ps).most_common(3)
-        body = f'''<section><div class="wrap"><p class="kick"><a href="../people.html">People</a> / doctoral student</p>
+        body = f'''<section><div class="wrap"><p class="kick"><a href="../people.html">People</a> / {"M.S. thesis student" if s.get("degree") == "M.S." else "doctoral student"}</p>
 <div class="pi"><div>{head(s)}</div><div><h1 style="font-size:clamp(30px,4vw,40px)">{esc(s["name"])}</h1><p class="st">{esc(s["status"])}. Advised by {esc(D["name"])}.</p>
 <p>{esc(s.get("focus", ""))}</p>{spot_html}<p class="note">{" · ".join(links)}</p>
 <div class="stats" style="grid-template-columns:repeat(3,1fr);max-width:480px"><div><b>{len(ps)}</b>publications in the lab record</div><div><b>{len(first)}</b>as first author</div><div><b>{sum(1 for r in ps if r["kind"] == "journal")}</b>journal articles</div></div>
@@ -398,7 +401,7 @@ def page_index():
   <p class="kick">Advanced Communication Networks Laboratory</p>
   <h1>Networks that keep working when it matters</h1>
   <p class="lead">We design and defend the communication networks behind critical infrastructure: the fiber backbone that carries AI and cloud traffic, and the control networks that keep the power grid observable and recoverable under attack. Directed by {esc(D["name"])} at UMass Lowell since 2013, and before that at UMass Dartmouth.</p>
-  <div class="stats"><div><b>{n_rec}</b>publications since 2002</div><div><b>{n_journal}</b>journal articles</div><div><b>{len(students)}</b>doctoral students</div><div><b>{len(alumni_phd)}</b>Ph.D. graduates advised or co-advised</div></div>
+  <div class="stats"><div><b>{n_rec}</b>publications since 2002</div><div><b>{n_journal}</b>journal articles</div><div><b>{sum(1 for s in students if s.get("degree", "Ph.D.") != "M.S.")}</b>doctoral students</div><div><b>{len(alumni_phd)}</b>Ph.D. graduates advised or co-advised</div></div>
 </div><div><div class="deck" id="deck" aria-roledescription="carousel" aria-label="Lab life">{"".join(f'<img src="{lab_src(k)}" alt="{esc(c or "Members of the Advanced Communication Networks Laboratory")}" data-cap="{esc(c)}" width="760" height="406"' + ((' class="' + ' '.join(x for x in ('on' if i == 0 else '', 'portrait' if lab_portrait(k) else '') if x) + '"') if (i == 0 or lab_portrait(k)) else '') + ('' if i == 0 else ' loading="lazy"') + '>' for i, (k, c) in enumerate((k, c) for k, c in DECK if lab_ok(k)))}
   <div class="dots" role="group" aria-label="Choose a photo">{"".join(f'<button type="button" aria-label="Photo {i + 1}"' + (' aria-pressed="true"' if i == 0 else ' aria-pressed="false"') + '></button>' for i, _ in enumerate(k for k, _c in DECK if lab_ok(k)))}<button type="button" class="pp" aria-label="Pause the slideshow">Pause</button></div>
 </div><p class="deckcap" id="deckcap">Lab life</p></div></div></div></div>
@@ -457,9 +460,9 @@ def page_people():
 <p><b>Research areas:</b> {esc(D["areas"])}</p>
 <h3>Honors and service</h3><ul class="list">{"".join(f"<li>{esc(h)}</li>" for h in honors)}</ul>
 <p class="note"><a href="mailto:{esc(D["email"])}">{esc(D["email"])}</a>, {esc(D["phone"])}, {esc(D.get("office", ""))}. <a href="../people.html">Center profile</a>.</p></div></div>
-<h2 style="margin-top:40px">Doctoral students</h2><div class="stus">{stu}</div>
+<h2 style="margin-top:40px">Graduate students</h2><div class="stus">{stu}</div>
 <div class="two" style="margin-top:40px"><div><h2>Ph.D. alumni</h2><ul class="list">{phd}</ul></div><div><h2>Postdoctoral alumni</h2><ul class="list">{pd}</ul><p class="note">Master's and undergraduate alumni are listed on the center's <a href="../alumni.html">alumni page</a>.</p></div></div></div></section>'''
-    write("people", "People | ACNL", f"{D['name']} and the doctoral students and alumni of the Advanced Communication Networks Laboratory.", body)
+    write("people", "People | ACNL", f"{D['name']} and the graduate students and alumni of the Advanced Communication Networks Laboratory.", body)
 
 def page_publications():
     kinds = {"journal": "Journal", "conference": "Conference", "chapter": "Chapter", "book": "Book"}

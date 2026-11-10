@@ -40,7 +40,7 @@ FACULTY = [
     ("Tseng", "Lewis Tseng", "tseng", "lewis", ["lowell"], [], None, "Distributed systems"),
     ("Arias", "Orlando Arias", "arias", "orlando", ["lowell"], ["vokkarane", "jin", "son", "yavuz", "dai", "sasaninia", "sharifi", "watts", "islam", "lin"],
      r"HOST|Hardware|Security|Trust|Cryptograph|Embedded|Design Automation|CLUSTER|Microarchitect|Computer-Aided", "HPC and hardware"),
-    ("Son", "Seung Woo Son", "son", "seung woo", ["lowell"], ["moon", "arias", "chaisson", "choi", "jeong", "eunsang", "jaehoon", "zhaoheng", "agrawal", "choudhary", "liao"],
+    ("Son", "Seung Woo Son", "son", "seung woo", ["lowell"], ["moon", "arias", "chaisson", "eunsang", "jaehoon", "zhaoheng", "agrawal", "choudhary", "liao"],
      r"Cluster|Big Data|IGARSS|Parallel|HPC|Supercomput|ICPP|CCGrid|Data Compression|Storage|IPDPS", "HPC and hardware"),
     ("Aghara", "Sukesh Aghara", "aghara", "sukesh", ["lowell"], [], None, "Nuclear energy and security"),
     ("Lin", "Yuzhang Lin", "lin", "yuzhang", ["lowell", "new york"], ["vokkarane", "islam", "edib", "huang heqing", "chen guibin", "zhang wentao", "zhao junbo", "abur", "sharma nitish", "christou", "xiong jingwei", "ogle", "koehler", "kumar avinash"],

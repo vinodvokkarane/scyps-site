@@ -232,7 +232,7 @@ def compute(ns):
 
     # ---------------------------------------------------------------- students and alumni
     students = []
-    for st in ns["STUDENTS"]:
+    for st in [x for x in ns["STUDENTS"] if x.get("degree", "Ph.D.") != "M.S."]:   # the doctoral table
         spec = ns["STUDENT_ADVISOR"].get(st["name"])
         k = (spec[0].lower() + "_" + spec[1].lower()) if spec else akey(st["name"])
         d = per_person.get(k, {"papers": [], "clusters": collections.Counter(), "first": 0, "journal": 0})

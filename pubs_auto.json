@@ -1,5 +1,8 @@
 {
- "ignore": [],
+ "ignore": [
+  "10.1007/s40042-026-01739-w",
+  "10.1103/cknx-xgnj"
+ ],
  "entries": [
   {
    "year": 2026,
@@ -260,25 +263,6 @@
   {
    "year": 2026,
    "authors": [
-    "Y. Jeong",
-    "D. S. Lee",
-    "M. J. Lee",
-    "S. W. Son"
-   ],
-   "title": "Scale-freeness under node removal: A finite-size scaling perspective",
-   "venue": "Physical Review E",
-   "details": "Oct. 2026",
-   "doi": "10.1103/cknx-xgnj",
-   "type": "journal",
-   "faculty": [
-    "Son"
-   ],
-   "area": "HPC and hardware",
-   "found": "2026-10-26"
-  },
-  {
-   "year": 2026,
-   "authors": [
     "L. Tseng",
     "N. Yazdani-Motlagh",
     "N. Yazdani-Motlagh"
@@ -292,25 +276,6 @@
     "Tseng"
    ],
    "area": "Distributed systems",
-   "found": "2026-11-02"
-  },
-  {
-   "year": 2026,
-   "authors": [
-    "G. Y. Kim",
-    "H. Sul",
-    "J. W. Choi",
-    "S. W. Son"
-   ],
-   "title": "Inferring coupling strength from the Kuramoto order parameter",
-   "venue": "Journal of the Korean Physical Society",
-   "details": "Oct. 2026",
-   "doi": "10.1007/s40042-026-01739-w",
-   "type": "journal",
-   "faculty": [
-    "Son"
-   ],
-   "area": "HPC and hardware",
    "found": "2026-11-02"
   },
   {

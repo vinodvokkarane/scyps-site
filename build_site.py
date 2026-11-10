@@ -12,7 +12,7 @@ LAB_PORTRAIT = {"lab12": "50% 30%", "lab15": "50% 72%"}   # lab photos taller th
 OUT = next((a for a in sys.argv[1:] if not a.startswith("-")), "index.html")   # run: python3 build_site.py [output path]
 
 # ---------------------------------------------------------------- people
-CORE = {"Vokkarane", "Aghara", "Arias", "Evans", "Lin", "Luo", "Robinette", "Son", "Tseng", "Xie"}   # director + center faculty
+CORE = {"Vokkarane", "Aghara", "Arias", "Evans", "Luo", "Robinette", "Son", "Tseng", "Xie"}   # director + center faculty
 CORE_INITIAL = {"Son": "S", "Lin": "Y", "Luo": "Y", "Cao": "Y", "Yu": "H", "Xie": "Y"}   # common surnames: bold only with this first initial
 
 FACULTY = {
@@ -41,11 +41,6 @@ FACULTY = {
          "areas": "Ethics of emerging technologies and national security, dual-use research, bioethics and public health ethics, military ethics", "email": "Nicholas_Evans@uml.edu", "phone": "978-934-3996",
          "url": "https://www.uml.edu/fahss/political-science/faculty/evans-nicholas.aspx",
          "role": "Ethics lead for the center's people-in-the-loop theme: trust, ethics, and human performance in systems whose failure has physical consequences. PI of the NSF award on ethical algorithms for autonomous vehicles, with Xie as Co-PI, and co-author on its papers; lead investigator on two pending proposals with the director, to Schmidt Sciences and to NSF, that apply AI methods to the history and ethics of health information."},
-        {"name": "Yuzhang Lin", "photo": "lin", "inst": "New York University", "title": "Associate Professor, Electrical and Computer Engineering, NYU Tandon School of Engineering",
-         "areas": "Smart grid and renewable energy: modeling, situational awareness, cyber-physical resilience, machine learning applications",
-         "email": "yuzhang.lin@nyu.edu", "phone": "", "office": "",
-         "url": "https://engineering.nyu.edu/faculty/yuzhang-lin",
-         "role": "External center member; UMass Lowell ECE faculty 2018 to 2023. NSF CAREER awardee; Co-PI on SUMMIT and the ONR post-disaster restoration project, and a co-author on the center's smart grid papers."},
         {"name": "Yan Luo", "photo": "luo", "title": "Professor, Electrical and Computer Engineering; Robotics",
          "areas": "Cyber-physical systems, machine learning, computer networks, computer architecture",
          "role": "Co-founder of the center in 2019 and founding co-director for healthcare. Associate Director for Research; co-leads the cyber-physical AI thrust; senior personnel on SUMMIT; PI of the NSF-funded campus science network the center builds on and of the NSF PFI-RP BioSPACE project on pathogen biosensing in aquaculture. Best Paper Award at IFIP/IEEE IM 2021 and Best Experiences Paper Award at IM 2019.",
@@ -113,6 +108,11 @@ FACULTY = {
         {"name": "Anurag Srivastava", "tag": "External collaborator", "photo": "srivastava", "inst": "West Virginia", "title": "Raymond J. Lane Professor and Chairperson, Lane Department of Computer Science and Electrical Engineering, West Virginia University; IEEE Fellow",
          "areas": "Data-driven algorithms for power system operation, control, and resilience; WVU partner on the SUMMIT federated smart grid testbed",
          "email": "anurag.srivastava@mail.wvu.edu", "phone": "", "url": "https://directory.statler.wvu.edu/faculty-staff-directory/anurag-srivastava"},
+        {"name": "Yuzhang Lin", "tag": "External collaborator", "photo": "lin", "inst": "NYU Tandon", "title": "Associate Professor, Electrical and Computer Engineering, NYU Tandon School of Engineering",
+         "areas": "Smart grid and renewable energy: modeling, situational awareness, cyber-physical resilience, machine learning applications",
+         "email": "yuzhang.lin@nyu.edu", "phone": "", "office": "",
+         "url": "https://engineering.nyu.edu/faculty/yuzhang-lin",
+         "note": "UMass Lowell ECE faculty 2018 to 2023. Co-PI on SUMMIT, with NYU as a federation site, and on the ONR post-disaster restoration project; co-author on the center's smart grid papers."},
         {"name": "Junbo Zhao", "tag": "External collaborator", "photo": "zhao", "inst": "Dartmouth College",
          "title": "Todd M. Cook and Elizabeth Donohoe Cook Associate Professor of Engineering, Thayer School of Engineering, Dartmouth College; Director, DOE CyberCARED",
          "areas": "Cyber-physical power system modeling, monitoring, uncertainty quantification, learning, dynamics, stability control, and cybersecurity with distributed energy resources; directs the DOE Northeast University Cybersecurity Center for Advanced and Resilient Energy Delivery (CyberCARED), with the director as a Co-Director",
@@ -131,7 +131,7 @@ FACULTY = {
          "email": "bgsquare@gmail.com", "phone": "", "url": "https://scholar.google.com/citations?user=1c-DqjsAAAAJ"},
     ],
     "collaborators": [
-        {"name": "NYU Tandon School of Engineering", "org": "SUMMIT federation site", "note": "Second node of the multi-site smart grid testbed, led by center member Yuzhang Lin"},
+        {"name": "NYU Tandon School of Engineering", "org": "SUMMIT federation site", "note": "Second node of the multi-site smart grid testbed, led by Yuzhang Lin"},
         {"name": "West Virginia University", "org": "SUMMIT federation site", "note": "Third node of the multi-site smart grid testbed"},
         {"name": "UMass Lowell Applied Research Corporation (UMLARC)", "org": "Defense and state applied research", "note": "Place of performance for the ARPO projects"},
         {"name": "Navia Energy Inc.", "org": "Industry partner", "note": "Resilient smart grid research"},

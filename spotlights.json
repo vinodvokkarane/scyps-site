@@ -114,7 +114,7 @@
     {
      "h": "Engineering and education in one group",
      "p": [
-      "His group spans two colleges. Kritee Neupane, a computer engineering Ph.D. student, works on networked digital twins, blockchain provenance, and fault tolerance. Layann Shaban began her Ph.D. in 2026 after co-authoring his drone papers. Negin Yazdani Motlagh and Youlim Lee are Education Ph.D. students co-advised with Hsu: Negin studies AI and computational thinking in STEM education, and Youlim studies AI literacy and the ethical use of AI in research."
+      "His group spans two colleges. Kritee Neupane, a computer engineering Ph.D. student, works on networked digital twins, blockchain provenance, and fault tolerance. Layann Shaban began his Ph.D. in 2026 after co-authoring the IEEE GLOBECOM drone paper. Negin Yazdani Motlagh and Youlim Lee are Education Ph.D. students co-advised with Hsu: Negin studies AI and computational thinking in STEM education, and Youlim studies AI literacy and the ethical use of AI in research."
      ]
     },
     {
@@ -178,19 +178,19 @@
     {
      "h": "The data",
      "p": [
-      "She used the monthly \"Who Is Hiring\" threads on Hacker News, run by the startup accelerator Y Combinator, where companies post short job notices. Because the posts are short, what an employer includes says something about what it cares about. The study covers 82,624 computing and computer engineering postings from 2012 to 2025."
+      "She used the monthly \"Who Is Hiring\" threads on Hacker News, run by the startup accelerator Y Combinator, where companies share short job posts. Because the posts are short, what an employer includes says something about what it cares about. The study covers 82,624 computing and computer engineering postings from 2012 to 2025."
      ]
     },
     {
      "h": "The method",
      "p": [
-      "Each post was checked against a dictionary of soft skills sorted into three groups: interpersonal and leadership skills, personal effectiveness, and conceptual or thinking skills. Two measures follow each group over time: coverage, the share of posts that mention it, and intensity, the average number of mentions per post."
+      "Each post was checked against a dictionary of soft skills sorted into three groups: Interpersonal & leadership, Personal effectiveness & growth, and Conceptual/thinking. Two measures follow each group over time: coverage, the share of posts that mention it, and intensity, the average number of mentions per post."
      ]
     },
     {
      "h": "What she found",
      "p": [
-      "Interpersonal and leadership skills came first on both measures, for every kind of job and in every year, with personal effectiveness second. Conceptual and thinking skills showed up less often, but they never dropped out, and they were more common in AI jobs. The paper offers these trends as a reference for instructors deciding how their computing and computer engineering courses handle professional skills."
+      "Interpersonal and leadership skills came first on both measures, for every kind of job and in every year, with personal effectiveness and growth second. Conceptual and thinking skills showed up less often, but they never dropped out, and they were more common in AI jobs. The paper offers these trends as a reference for instructors deciding how their computing and computer engineering courses handle professional skills."
      ]
     },
     {
@@ -202,7 +202,7 @@
     {
      "h": "Why it matters to the center",
      "p": [
-      "The center trains engineers through its doctoral students, its Red Hat-sponsored capstone, and its Open-Source Club, and Hsu leads its education and workforce work. Negin's study gives that work a measured starting point: what employers actually write when they hire."
+      "Hsu leads the center's education and workforce work. Negin's study gives that work a measured starting point: what employers actually write when they hire."
      ]
     }
    ],

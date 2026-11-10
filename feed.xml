@@ -23,6 +23,14 @@
     <description>Vinod M. Vokkarane: &quot;On the impact of pulse shaping for optical fiber networks&quot; in Optical Fiber Technology.</description>
   </item>
   <item>
+    <title>BOND-AI: A Standardized Reliability Qualification Methodology for High-Temperature Printed Interfaces and Bond Joints, Enabled by Physics-Informed AI, on a 500 °C-Capable Alumina Platform</title>
+    <link>https://smartcyberphysical.org/news.html</link>
+    <guid isPermaLink="false">scyps-2027-01-28eda53187</guid>
+    <category>Award</category>
+    <pubDate>01 Jan 2027 00:00:00 +0000</pubDate>
+    <description>New award: BOND-AI: A Standardized Reliability Qualification Methodology for High-Temperature Printed Interfaces and Bond Joints, Enabled by Physics-Informed AI, on a 500 °C-Capable Alumina Platform. SEMI/FlexTech ($500K).</description>
+  </item>
+  <item>
     <title>A Self-Supervised Contrastive Learning-Based Method for Portable Executable Malware Classification</title>
     <link>https://doi.org/10.1109/access.2026.3672128</link>
     <guid isPermaLink="false">scyps-2026-12-839268b25e</guid>
@@ -109,14 +117,6 @@
     <category>Award</category>
     <pubDate>01 Oct 2026 00:00:00 +0000</pubDate>
     <description>New award: SUMMIT: A Secure and Resilient Multi-site Smart Grid Testbed for Multidisciplinary Research and Training. National Science Foundation, Major Research Instrumentation Track 2 ($2.0M).</description>
-  </item>
-  <item>
-    <title>BOND-AI: A Standardized Reliability Qualification Methodology for High-Temperature Printed Interfaces and Bond Joints, Enabled by Physics-Informed AI, on a 500 °C-Capable Alumina Platform</title>
-    <link>https://smartcyberphysical.org/news.html</link>
-    <guid isPermaLink="false">scyps-2026-10-28eda53187</guid>
-    <category>Award</category>
-    <pubDate>01 Oct 2026 00:00:00 +0000</pubDate>
-    <description>New award: BOND-AI: A Standardized Reliability Qualification Methodology for High-Temperature Printed Interfaces and Bond Joints, Enabled by Physics-Informed AI, on a 500 °C-Capable Alumina Platform. SEMI/FlexTech ($500K).</description>
   </item>
   <item>
     <title>Four research thrusts now organize the center&#x27;s work, each with two co-leads: resilient energy and infrastructure (Aghara and Xie), next-generation networks and trusted devices (Tseng and Arias), cyber-physical AI (Luo and Son), and people in the loop (Robinette and Evans)</title>
@@ -308,7 +308,7 @@
     <guid isPermaLink="false">scyps-2026-03-8b498f4310</guid>
     <category>Journal</category>
     <pubDate>01 Mar 2026 00:00:00 +0000</pubDate>
-    <description>Vinod M. Vokkarane, Yuzhang Lin: &quot;Disaster-Resilient Cyber-Physical Distribution System Reconfiguration and Dynamic Networked Microgrid Formation Under Intermittent Generation&quot; in IEEE Transactions on Industry Applications.</description>
+    <description>Vinod M. Vokkarane: &quot;Disaster-Resilient Cyber-Physical Distribution System Reconfiguration and Dynamic Networked Microgrid Formation Under Intermittent Generation&quot; in IEEE Transactions on Industry Applications.</description>
   </item>
   <item>
     <title>Evaluating Personal Driving Risk and Road Safety in the Context of Road Navigation</title>

@@ -16,6 +16,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - run: pip install networkx pillow   # networkx draws the "Who works with whom" graph on People; without it the graph is left out
       - name: Pull new publications, NSF awards, and Scholar counts
         run: python3 refresh.py
         env:

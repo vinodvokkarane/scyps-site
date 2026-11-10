@@ -3273,7 +3273,7 @@ ALUMNI_PHD = [(p["degree"].split()[-1], n, "") for n, p in ALUMNI_PROFILES.items
 ALUMNI_PHD.sort(key=lambda t: -int(t[0]))
 FONT_ROOT = ""   # newsletter pages set this to "../" so the fonts resolve from the subfolder
 SITE_URL = "https://smartcyberphysical.org/"   # the live address; feeds canonical links, sitemap, feeds
-SITE_VERSION = "1.85"   # bump by 0.01 with every update to the site
+SITE_VERSION = "1.86"   # bump by 0.01 with every update to the site
 GIFT_URL = "https://securelb.imodules.com/s/1355/lowell/forms/forms.aspx?sid=1355&gid=4&pgid=893&cid=2172&dids=2083&bledit=1&appealcode=ALUWEBSITE"
 
 # Center social accounts. Paste the full profile URLs here; the "Follow SCyPS" links appear in the
@@ -3510,7 +3510,10 @@ def logo_src(key):
 def logo_tile(sp):
     src = logo_src(sp["key"])
     mark = f'<img src="{src}" alt="{esc(sp["name"])} logo">' if src else f'<span class="wm">{esc(sp["name"])}</span>'
-    inner = f'<div class="mark">{mark}</div><div class="note">{esc(sp["note"])}</div>'
+    # With a logo image, the name is only in the picture, so text readers (search engines, AI tools,
+    # screen readers) saw each note run into the previous tile's. A hidden name ties each note to its sponsor.
+    name = f'<span class="vh">{esc(sp["name"])}: </span>' if src and sp.get("note") else ""
+    inner = f'<div class="mark">{mark}</div><div class="note">{name}{esc(sp["note"])}</div>'
     if sp.get("url"):
         return f'<a class="logo-tile" href="{esc(sp["url"])}" title="{esc(sp["name"])}">{inner}</a>'
     return f'<div class="logo-tile">{inner}</div>'

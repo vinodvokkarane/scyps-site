@@ -1,0 +1,58 @@
+{
+ "volume": 1,
+ "number": 2,
+ "hero_caption": "The center's work runs from the power grid and the fiber network to the road and the reactor, with people and AI sharing control.",
+ "contents": [
+  "From the director",
+  "The center: four thrusts, one loop",
+  "Faculty spotlight: Lewis Tseng",
+  "Student spotlight: Negin Yazdani Motlagh",
+  "September at the center, and what comes next"
+ ],
+ "letter": {
+  "title": "Finished work, and the people behind it",
+  "paragraphs": [
+   "Welcome to the second issue. September brought four new papers. Yan Luo's group, with Christopher Niezrecki and Murat Inalpolat, built a sensor network that listens to wind turbine blades to check their structural health. Arash Rezaee and Ryan McCann published FUSION, the open-source optical networking platform from our first issue's student story. Yuanchang Xie's group studied how drivers merge near work-zone signs. And Negin Yazdani Motlagh studied what computing employers ask for in job posts; her story is inside.",
+   "Our faculty spotlight is Lewis Tseng, who works on keeping groups of computers in agreement when some of them fail or are attacked. In August he won an NSF award to plan a shared data system for microscopy. Two of his four Ph.D. students are in the School of Education, co-advised with Mark Hsu, and that is the kind of collaboration we want more of.",
+   "On October 1, NSF's SUMMIT award began, and we are hiring a postdoctoral researcher to help build it. If you know someone who should apply, or a company that wants to test equipment against a real-time model of the Northeast grid, the last page says how to reach us."
+  ],
+  "signature": "Vinod M. Vokkarane, Director"
+ },
+ "faculty_spotlight": "2026-09-faculty",
+ "faculty_figure_caption": "Lewis Tseng, Associate Professor of Electrical and Computer Engineering.",
+ "faculty_box_title": "At a glance",
+ "faculty_box": [
+  "Co-lead, next-generation networks and trusted devices thrust",
+  "NSF CAREER award, fault-tolerant edge computing (2024)",
+  "PI, NSF planning award for federated AI-ready microscopy data (2026, $499,490)",
+  "Co-PI, SUMMIT",
+  "ECE Department Teaching Excellence Award (2026)",
+  "Four Ph.D. students, two in the School of Education"
+ ],
+ "student_spotlight": "2026-09-negin",
+ "student_figures": [],
+ "coming_up": [
+  {
+   "when": "October 1",
+   "what": "The NSF SUMMIT award began. The search for its postdoctoral researcher is open."
+  },
+  {
+   "when": "October 1",
+   "what": "ARPO-Sensor Fusion, funded by the Massachusetts Technology Collaborative, began at UMLARC."
+  },
+  {
+   "when": "January 2027",
+   "what": "BOND-AI begins: a SEMI/FlexTech project, led by Alkim Akyurtlu, on qualifying printed electronics that must survive 500 °C."
+  },
+  {
+   "when": "2026 to 2027",
+   "what": "SUMMIT opens to collaborators from utilities, vendors, agencies, and other universities."
+  },
+  {
+   "when": "2028",
+   "what": "IEEE HPSR 2028 at South Asian University, New Delhi, with the director as TPC Co-Chair."
+  }
+ ],
+ "center_new_page": true,
+ "student_new_page": false
+}

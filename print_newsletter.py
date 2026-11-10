@@ -23,7 +23,7 @@ font = lambda f: "data:font/woff2;base64," + base64.b64encode(open(os.path.join(
 
 core = [p for p in bs.PEOPLE if p["name"] in bs.CORE_NAMES] if hasattr(bs, "PEOPLE") and hasattr(bs, "CORE_NAMES") else []
 n_pubs = len(bs.P); n_journal = sum(1 for p in bs.P if p["type"] == "journal")
-n_students = len(bs.STUDENTS); n_faculty = 19
+n_students = len(bs.STUDENTS); n_faculty = 1 + len(bs.FACULTY["core"]) + len(bs.FACULTY["affiliated"])
 awards_all = [p for p in bs.PROJECTS if p.get("tag") in ("Active", "New in 2026")]
 
 def paras(ps): return "".join(f"<p>{esc(t)}</p>" for t in ps)
@@ -37,7 +37,7 @@ def spotlight_html(sp, figs):
   <p class="kicker">Student spotlight</p><h2>{esc(sp["title"])}</h2><p class="deck">{esc(sp["deck"])}</p>
   <div class="whos">{who}</div><p class="adv">Advised by {esc(sp["advisor"])}, {esc(sp.get("lab", ""))}</p>
   <div class="cols">{body}{figh}</div>
-  <h3>The papers</h3><ul class="papers">{pp}</ul><p class="fund">{esc(sp.get("funding", ""))}</p>
+  <div class="avoid"><h3>The papers</h3><ul class="papers">{pp}</ul></div>{f'<p class="fund">{esc(sp["funding"])}</p>' if sp.get("funding") else ""}
 </section>'''
 
 def month_html():
@@ -50,8 +50,22 @@ def month_html():
         h.append("<h3>Milestones</h3>" + "".join(f'<p class="item">{esc(t)}</p>' for t in notes))
     return "".join(h)
 
-sp = next(s for s in bs.SPOTLIGHTS if s["ym"] == issue["student_spotlight"])
-fac = issue["faculty_spotlight"]; proj = issue["project_spotlight"]; letter = issue["letter"]
+sp = next(s for s in bs.SPOTLIGHTS if bs.sp_id(s) == issue["student_spotlight"])
+_sf = issue.get("student_figures", [])
+stu_figs = [tuple(f) for f in _sf] if _sf and isinstance(_sf[0], list) else list(zip(["fig_arash", "fig_ryan"], _sf))
+# faculty spotlight: either written into the issue file (August) or taken from spotlights.json by id
+if isinstance(issue.get("faculty_spotlight"), str):
+    _f = next(x for x in bs.SPOTLIGHTS if bs.sp_id(x) == issue["faculty_spotlight"])
+    _who = bs._spotlight_students(_f)[0]
+    fac = {"title": _f["title"], "deck": _f["deck"], "sections": _f["sections"], "image": "head_" + _who.get("photo", ""),
+           "figure_caption": issue.get("faculty_figure_caption", _who["name"]), "box_title": issue.get("faculty_box_title", "At a glance"),
+           "box_items": issue.get("faculty_box", [])}
+else:
+    fac = issue["faculty_spotlight"]
+proj = issue.get("project_spotlight"); letter = issue["letter"]
+issue_no = f'Volume {issue["volume"]}, Number {issue["number"]}'
+_words = {2: "Two", 3: "Three", 4: "Four", 5: "Five", 6: "Six", 7: "Seven", 8: "Eight"}
+n_thr = len(bs.THRUSTS); thr_word = _words.get(n_thr, str(n_thr))
 thrusts = "".join(f'<li><b>{esc(t[1])}</b><span>{esc(t[3])}</span></li>' for t in bs.THRUSTS)
 coming = "".join(f'<li><b>{esc(c["when"])}</b> {esc(c["what"])}</li>' for c in issue.get("coming_up", []))
 active = "".join(f'<li>{esc(p["title"].split(": ")[0] if len(p["title"]) > 70 and ": " in p["title"] else p["title"])}<span>{esc(p["sponsor"].split(" (")[0])}{", " + esc(p["amount"]) if p.get("amount") else ""}</span></li>' for p in awards_all)
@@ -99,10 +113,11 @@ figure{{margin:0 0 10pt}}figure img{{width:100%;display:block;border:1px solid v
 .two{{display:grid;grid-template-columns:1fr 1fr;gap:.35in}}
 ul.plain{{margin:0;padding-left:14pt;font-size:9.6pt}}ul.awards{{columns:2;column-gap:.3in;font-size:8.5pt}}ul.awards li{{margin-bottom:2.5pt}}ul.awards li{{break-inside:avoid}}ul.plain li{{margin:0 0 4pt}}ul.plain span{{display:block;color:var(--ink3);font-size:8.6pt}}
 .foot{{margin-top:14pt;border-top:1px solid var(--line);padding-top:8pt;font-size:8.8pt;color:var(--ink3)}}
+.flow{{margin-top:16pt;border-top:1px solid var(--line);padding-top:12pt}}
 .pull{{font-family:Fraunces,serif;font-style:italic;font-size:12.5pt;line-height:1.3;color:var(--blue);border-left:3px solid var(--gold);padding-left:10pt;margin:8pt 0 12pt;break-inside:avoid}}
 </style></head><body>
 
-<div class="mast"><div class="top"><span>Center for Smart Cyber-Physical Systems &middot; UMass Lowell</span><span>Volume 1, Number 1 &nbsp;|&nbsp; {esc(label)}</span></div>
+<div class="mast"><div class="top"><span>Center for Smart Cyber-Physical Systems &middot; UMass Lowell</span><span>{esc(issue_no)} &nbsp;|&nbsp; {esc(label)}</span></div>
 <div class="name">SCyPS</div><p class="sub">The center's newsletter: research, people, and what comes next.</p></div>
 <div class="hero"><div class="cap">{esc(issue["hero_caption"])}</div></div>
 
@@ -113,22 +128,22 @@ ul.plain{{margin:0;padding-left:14pt;font-size:9.6pt}}ul.awards{{columns:2;colum
        <div class="nums" style="grid-template-columns:1fr 1fr;margin:0"><div><b>{n_faculty}</b>faculty, four colleges</div><div><b>{n_pubs}</b>papers since 2019</div><div><b>{n_journal}</b>in journals</div><div><b>{n_students}</b>doctoral students</div></div></div></div>
 </div>
 
-<section style="margin-top:14pt"><p class="kicker">The center</p><h2>Eight thrusts, one loop</h2>
-<p>Cyber-physical systems sense the physical world, communicate what they sense, decide, and act. The center's research covers every link in that loop, and the eight thrusts below are how its {n_faculty} faculty organize the work. Each thrust has a lead, a page on the center site, and a record of papers and awards that the site keeps current every week.</p>
+<section class="{'pb' if issue.get('center_new_page') else ''}" style="margin-top:14pt"><p class="kicker">The center</p><h2>{thr_word} thrusts, one loop</h2>
+<p>Cyber-physical systems sense the physical world, communicate what they sense, decide, and act. The center's research covers every link in that loop, and the {thr_word.lower()} thrusts below are how its {n_faculty} faculty organize the work. Each thrust has {"two co-leads" if n_thr == 4 else "a lead"}, a page on the center site, and a record of papers and awards that the site updates every week.</p>
 <ul class="thrusts">{thrusts}</ul>
 <h3>Active and new awards ({len(awards_all)})</h3><ul class="plain awards">{active}</ul>
 <p class="foot">Full records at <a href="https://smartcyberphysical.org">smartcyberphysical.org</a>, where every paper and award links to its source.</p></section>
 
-<section class="pb story"><p class="kicker">Project spotlight</p><h2>{esc(proj["title"])}</h2><p class="deck">{esc(proj["deck"])}</p>
-<figure style="width:100%;margin:0 0 8pt"><img src="{img("summit_arch")}" alt=""><figcaption>{esc(proj["figure_caption"])}</figcaption></figure>
-<div class="cols">{"".join((f'<h3>{esc(s["h"])}</h3>' if s.get("h") else "") + paras(s["p"]) for i, s in enumerate(proj["sections"]))}</div></section>
+{(f'''<section class="pb story"><p class="kicker">Project spotlight</p><h2>{esc(proj["title"])}</h2><p class="deck">{esc(proj["deck"])}</p>
+<figure style="width:100%;margin:0 0 8pt"><img src="{img(proj.get("image", "summit_arch"))}" alt=""><figcaption>{esc(proj["figure_caption"])}</figcaption></figure>
+<div class="cols">{"".join((f'<h3>{esc(s["h"])}</h3>' if s.get("h") else "") + paras(s["p"]) for i, s in enumerate(proj["sections"]))}</div></section>''') if proj else ""}
 
 <section class="pb story"><p class="kicker">Faculty spotlight</p><h2>{esc(fac["title"])}</h2><p class="deck">{esc(fac["deck"])}</p>
 <div class="side"><div>{"".join((f'<h3>{esc(s["h"])}</h3>' if s.get("h") else "") + paras(s["p"]) for s in fac["sections"])}</div>
-<div><figure><img src="{img("about_aghara")}" alt=""><figcaption>{esc(fac["figure_caption"])}</figcaption></figure>
+<div><figure><img src="{img(fac.get("image", "about_aghara"))}" alt=""><figcaption>{esc(fac["figure_caption"])}</figcaption></figure>
 <div class="box"><h4>{esc(fac["box_title"])}</h4><ul class="plain" style="padding-left:12pt">{"".join(f"<li>{esc(t)}</li>" for t in fac["box_items"])}</ul></div></div></div></section>
 
-<section class="pb">{spotlight_html(sp, [("fig_arash", issue["student_figures"][0]), ("fig_ryan", issue["student_figures"][1])])}</section>
+<section class="{'pb' if issue.get('student_new_page', True) else 'flow'}">{spotlight_html(sp, stu_figs)}</section>
 
 <section class="pb"><p class="kicker">This month</p><h2>{esc(label)} at the center</h2>
 <div class="two"><div>{month_html()}</div>
@@ -136,7 +151,7 @@ ul.plain{{margin:0;padding-left:14pt;font-size:9.6pt}}ul.awards{{columns:2;colum
 <h3>Work with us</h3><p class="item">Doctoral applicants: write to the faculty member whose work matches yours and copy the director. Companies and agencies: the laboratories page lists what each facility can offer, and the SUMMIT testbed opens to collaborators in 2026 to 2027.</p>
 <h3>Support the center</h3><p class="item">Gifts fund student travel, seed projects, and the capstone program. Give at smartcyberphysical.org, or write to the director.</p>
 <h3>Contact</h3><p class="item">Vinod M. Vokkarane, Director<br>Vinod_Vokkarane@uml.edu, 978-934-3345<br>Center for Smart Cyber-Physical Systems<br>University of Massachusetts Lowell, 1 University Ave., Lowell, MA 01854<br><a href="https://smartcyberphysical.org">smartcyberphysical.org</a></p></div></div>
-<p class="foot">Volume 1, Number 1, {esc(label)}. Published by the Center for Smart Cyber-Physical Systems. Generated from the center's records on {esc(datetime.date.today().strftime("%B %d, %Y"))}.</p></section>
+<p class="foot">{esc(issue_no)}, {esc(label)}. Published by the Center for Smart Cyber-Physical Systems. Generated from the center's records on {esc(datetime.date.today().strftime("%B %d, %Y"))}.</p></section>
 </body></html>'''
 
 out_dir = os.path.join(HERE, "newsletters", "print"); os.makedirs(out_dir, exist_ok=True)

@@ -158,7 +158,7 @@ PROJECTS = [
      "domain": "Autonomy"},
     {"tag": "New in 2026", "sponsor": "SEMI/FlexTech", "role": "Co-PI",
      "title": "BOND-AI: A Standardized Reliability Qualification Methodology for High-Temperature Printed Interfaces and Bond Joints, Enabled by Physics-Informed AI, on a 500 \u00b0C-Capable Alumina Platform",
-     "amount": "$500K", "share": "Center share of the work: 35%", "period": "Oct 2026, 12 months",
+     "amount": "$500K", "share": "Center share of the work: 35%", "period": "Jan 2027, 12 months",
      "team": "PI Alkim Akyurtlu (Director, RURI and PERC); Co-PIs Vinod Vokkarane, Oshadha Ranasingha, and Scott Stapleton; with Applied Nanotech, Bayflex Solutions, RAGE Systems, and RTX",
      "desc": "Printed interfaces and bond joints that must survive 500 \u00b0C are qualified today one sample at a time. BOND-AI builds a standard qualification method and uses physics-informed AI to predict reliability, so fewer parts need to be destroyed to prove a process.",
      "url": "https://huggingface.co/spaces/vsquaretech/ajp-ml-flex-portal", "link": "Project portal",
@@ -5506,7 +5506,7 @@ def build():
         "people": (PEOPLE_SECTION.replace("{director_html}", director_html).replace("{core_html}", core_html)
                    .replace("{aff_html}", aff_html).replace("{ext_html}", ext_html) + collab_graph_html()),
         "students": (STUDENTS_SECTION.replace("{students_html}", students_html).replace("{lablife_html}", lablife_html).replace("{lablife_video}", video_html("lab-life", "Lab life in 33 seconds"))
-                     .replace("{spotlight_teaser}", spotlight_article(max([s for s in SPOTLIGHTS if sp_kind(s) == "student"], key=lambda s: s["ym"]), full=False) if any(sp_kind(s) == "student" for s in SPOTLIGHTS) else "")),
+                     .replace("{spotlight_teaser}", spotlight_article(max([s for s in SPOTLIGHTS if sp_kind(s) == "student"], key=sp_order), full=False) if any(sp_kind(s) == "student" for s in SPOTLIGHTS) else "")),
         "alumni": (ALUMNI_SECTION.replace("{alumni_feat_html}", alumni_feat_html)
                    .replace("{alumni_phd_cards}", alumni_phd_cards).replace("{alumni_pd_cards}", alumni_pd_cards)),
     }, footer_html, script_html)
@@ -5923,9 +5923,9 @@ def build_feed():
 SPOTLIGHTS = _load_overlay("spotlights.json", {"entries": []}).get("entries", [])
 
 def sp_kind(sp): return sp.get("kind", "student")
-def sp_id(sp): return sp["ym"] if sp_kind(sp) == "student" else f'{sp["ym"]}-{sp_kind(sp)}'
+def sp_id(sp): return sp.get("id") or (sp["ym"] if sp_kind(sp) == "student" else f'{sp["ym"]}-{sp_kind(sp)}')
 def sp_names(sp): return sp.get("people") or sp.get("students") or []
-def sp_order(sp): return (sp["ym"], 1 if sp_kind(sp) == "faculty" else 0)   # newest first; faculty before student in a month
+def sp_order(sp): return (sp["ym"], 1 if sp_kind(sp) == "faculty" else 0, SPOTLIGHTS.index(sp) if sp in SPOTLIGHTS else 0)   # newest first; faculty before student; later entries first
 
 def _spotlight_students(sp):
     """Roster entries for the people named in a spotlight (students, or faculty for a faculty spotlight), for photos and status."""

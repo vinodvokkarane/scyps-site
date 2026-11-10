@@ -77,50 +77,50 @@
    "funding": "UMass Lowell's contributions were supported in part by the National Science Foundation under Award No. 2008530."
   },
   {
-   "ym": "2026-10",
+   "ym": "2026-09",
    "kind": "faculty",
    "people": [
     "Lewis Tseng"
    ],
    "title": "Getting machines to agree, even when things go wrong",
    "lab": "Electrical and Computer Engineering; co-lead, next-generation networks and trusted devices thrust",
-   "deck": "Lewis Tseng builds the coordination layer that keeps drones, edge computers, and blockchains working when some of their parts fail or are attacked. In August he won an NSF award to plan a shared, AI-ready data system for microscopy, designed with the scientists who will use it.",
+   "deck": "Lewis Tseng works on how groups of computers, from drone teams to blockchains, keep agreeing with each other when some of them fail or are attacked. In August, NSF funded his plan for a shared data system for microscopy that its users will help design.",
    "sections": [
     {
      "h": null,
      "p": [
-      "Lewis Tseng, Associate Professor of Electrical and Computer Engineering, works on a problem that sits underneath most modern systems: when one job is spread across many computers, how do they agree on what happened, and keep agreeing when some of them crash, fall behind, or are attacked? He came to UMass Lowell in 2024 after positions at Clark University, Boston College, and Toyota InfoTechnology Center, and he co-leads the center's next-generation networks and trusted devices thrust with Orlando Arias. This year he also received the ECE department's Teaching Excellence Award."
+      "Lewis Tseng, Associate Professor of Electrical and Computer Engineering, studies a question that comes up wherever one job is split across many computers: how do they agree on what happened, and keep agreeing when some of them crash, fall behind, or are attacked? He came to UMass Lowell in 2024 after positions at Clark University, Boston College, and Toyota InfoTechnology Center. He co-leads the center's next-generation networks and trusted devices thrust with Orlando Arias, and this year he received the ECE department's Teaching Excellence Award."
      ]
     },
     {
      "h": "The question",
      "p": [
-      "A team of drones searching an area, a cluster of edge computers running a control loop, a blockchain recording transactions: each spreads one task across many machines that must stay consistent. His NSF CAREER award, active since 2024, asks how to build the basic coordination steps for such systems so that they stay correct, and fast enough for a control loop, even while under cyberattack."
+      "Drones searching an area together, edge computers running a control loop, and a blockchain recording transactions all depend on many machines staying consistent. If they stop agreeing, nothing built on top of them can be trusted. His NSF CAREER award, which began in 2024, looks at the basic coordination steps these systems rely on, and at how to keep them correct, and fast enough for real-time control, while someone is attacking the system."
      ]
     },
     {
      "h": "Recent work",
      "p": [
-      "Over the past two years his group has carried that question into multi-drone search coordinated through satellites and edge computers (IEEE GLOBECOM 2025), digital twins offered as a service across hybrid clouds (IEEE ICHMS 2025), intrusion detection that uses approximate agreement to keep working when some detectors fail (ICSC 2025), a protocol that unifies two classic ways of replicating data (USENIX NSDI 2025), and lessons from building a replicated data store modeled on etcd, the one Kubernetes relies on (ACM SoCC 2025). In August he presented a paper at the ACM SIGCOMM workshop on quantum networks on timing control for quantum cloud systems, where entanglement decays if it is not used in time."
+      "In the past two years his group has published on multi-drone search coordinated through satellites and edge computers (IEEE GLOBECOM 2025), digital twins run as a service in hybrid clouds (IEEE ICHMS 2025), intrusion detection that keeps working when some detectors fail (ICSC 2025), and ways to replicate data reliably across machines (USENIX NSDI 2025; ACM SoCC 2025). In August he presented work at an ACM SIGCOMM workshop on timing control in quantum cloud systems, where entanglement decays if it isn't used in time."
      ]
     },
     {
      "h": "New in August: a data system its users help design",
      "p": [
-      "In August, NSF's Office of Advanced Cyberinfrastructure awarded Tseng $499,490 over two years to plan a federated, AI-ready data infrastructure for advanced microscopy and imaging. His co-PIs are Hsien-Yuan (Mark) Hsu of the School of Education and Yu-Tsun Shao of the University of Southern California.",
-      "The idea is a national system in which data stay close to the instruments and institutions that produce them, while shared services handle discovery, provenance, trust, and reuse by AI tools. Rather than design it alone, the team will work with the scientists who would use it, in three stages: helping them picture what such a system could do, studying their workflows and concerns, and then designing candidate architectures, operating models, and responsible AI practices with them. It is the same question as his systems work, about trust among many independent parties, asked at the scale of a research community."
+      "In August, NSF's Office of Advanced Cyberinfrastructure awarded Tseng $499,490 over two years to plan a federated, AI-ready data system for advanced microscopy and imaging. His co-PIs are Hsien-Yuan (Mark) Hsu of the School of Education and Yu-Tsun Shao of the University of Southern California.",
+      "The plan is for data to stay near the instruments and institutions that produce it, with shared services that help researchers find it, trace where it came from, trust it, and reuse it with AI tools. The team will design it with the scientists who would use it: first helping them picture what such a system could do, then studying how they work and what worries them, then designing the architecture, operating model, and responsible AI practices together. Each lab keeps control of its own data, which makes it the same kind of trust problem Tseng works on in distributed systems."
      ]
     },
     {
      "h": "Engineering and education in one group",
      "p": [
-      "Tseng's group crosses colleges. Kritee Neupane, a computer engineering Ph.D. student, works on networked digital twins, blockchain provenance, and fault-tolerant systems. Layann Shaban, who co-authored his drone work, began her Ph.D. in 2026. Negin Yazdani Motlagh and Youlim Lee are Ph.D. students in the School of Education, co-advised with Hsu: Negin studies artificial intelligence and computational thinking in STEM education, and Youlim studies AI literacy and the ethical use of AI in research. Negin is this month's student spotlight."
+      "His group spans two colleges. Kritee Neupane, a computer engineering Ph.D. student, works on networked digital twins, blockchain provenance, and fault tolerance. Layann Shaban began her Ph.D. in 2026 after co-authoring his drone papers. Negin Yazdani Motlagh and Youlim Lee are Education Ph.D. students co-advised with Hsu: Negin studies AI and computational thinking in STEM education, and Youlim studies AI literacy and the ethical use of AI in research."
      ]
     },
     {
      "h": "Why it matters to the center",
      "p": [
-      "Every system the center studies, from grid controllers to autonomous robots, depends on many devices agreeing on what is true, often while someone is trying to make them disagree. Tseng's work supplies that layer, which is why he co-leads the trusted devices thrust and is a Co-PI on SUMMIT, the center's three-university grid testbed."
+      "Grid controllers, autonomous robots, and the networks between them all depend on devices agreeing on what is true, sometimes while an attacker tries to split them. That is the problem Tseng works on, and it is why he co-leads the trusted devices thrust and is a Co-PI on SUMMIT, the center's three-university grid testbed."
      ]
     }
    ],
@@ -155,10 +155,11 @@
      "label": "NSF CAREER award 2449640",
      "url": "https://www.nsf.gov/awardsearch/showAward?AWD_ID=2449640"
     }
-   ]
+   ],
+   "id": "2026-09-faculty"
   },
   {
-   "ym": "2026-10",
+   "ym": "2026-09",
    "kind": "student",
    "students": [
     "Negin Yazdani Motlagh"
@@ -166,42 +167,42 @@
    "advisor": "Hsien-Yuan (Mark) Hsu and Lewis Tseng",
    "lab": "School of Education and Electrical and Computer Engineering",
    "title": "What employers ask for, in their own words",
-   "deck": "An Education Ph.D. student co-advised across two colleges analyzed 82,624 job posts from fourteen years to see which professional skills computing employers actually ask for.",
+   "deck": "Negin Yazdani Motlagh went through 82,624 job posts from 2012 to 2025 to see which soft skills computing employers ask for, and how often.",
    "sections": [
     {
      "h": null,
      "p": [
-      "Engineering programs are asked to teach communication, teamwork, and problem solving alongside technical skills. Negin Yazdani Motlagh, a Ph.D. student in Research and Evaluation in Education since 2024, wanted evidence for which of those skills employers actually signal when they hire. She is co-advised by Mark Hsu of the School of Education and Lewis Tseng of Electrical and Computer Engineering, and her research centers on artificial intelligence and computational thinking in STEM education."
+      "Engineering programs are asked to teach communication, teamwork, and problem solving alongside technical skills. Negin Yazdani Motlagh, a Ph.D. student in Research and Evaluation in Education since 2024, wanted to know which of those skills employers mention when they hire. She is co-advised by Mark Hsu of the School of Education and Lewis Tseng of Electrical and Computer Engineering, and her research focuses on artificial intelligence and computational thinking in STEM education."
      ]
     },
     {
      "h": "The data",
      "p": [
-      "She turned to the monthly \"Who Is Hiring\" threads on Hacker News, run by the startup accelerator Y Combinator, where companies post short job notices. Because the posts are short, what an employer chooses to include says something about what it values. The study covers 82,624 computing and computer engineering postings from 2012 to 2025."
+      "She used the monthly \"Who Is Hiring\" threads on Hacker News, run by the startup accelerator Y Combinator, where companies post short job notices. Because the posts are short, what an employer includes says something about what it cares about. The study covers 82,624 computing and computer engineering postings from 2012 to 2025."
      ]
     },
     {
      "h": "The method",
      "p": [
-      "Each post was scored against a dictionary of soft skills in three groups: interpersonal and leadership skills, personal effectiveness, and conceptual or thinking skills. Two measures track each group over time: coverage, the share of posts that mention it, and intensity, the average number of mentions per post."
+      "Each post was checked against a dictionary of soft skills sorted into three groups: interpersonal and leadership skills, personal effectiveness, and conceptual or thinking skills. Two measures follow each group over time: coverage, the share of posts that mention it, and intensity, the average number of mentions per post."
      ]
     },
     {
      "h": "What she found",
      "p": [
-      "Interpersonal and leadership skills led on both measures, across job types and across all fourteen years, followed by personal effectiveness. Conceptual and thinking skills appeared less often but never disappeared, and they were more prominent in AI-related jobs. The result is a long-run reference that computing and computer engineering instructors can use when deciding how their courses address professional skills."
+      "Interpersonal and leadership skills came first on both measures, for every kind of job and in every year, with personal effectiveness second. Conceptual and thinking skills showed up less often, but they never dropped out, and they were more common in AI jobs. The paper offers these trends as a reference for instructors deciding how their computing and computer engineering courses handle professional skills."
      ]
     },
     {
      "h": "How the work grew",
      "p": [
-      "The study began as a work-in-progress paper at the 2025 IEEE Frontiers in Education Conference, covering 2012 to 2024, written with Kritee Neupane, a computer engineering Ph.D. student in Tseng's group. The full study, with Hsu and Tseng, appeared in September in the Computers in Education Journal (CoED) of the American Society for Engineering Education. Negin is also a co-author, with Tseng, of a 2026 ACM Sustainability Week paper that rethinks how blockchains reach agreement from an energy perspective."
+      "The study started as a work-in-progress paper at the 2025 IEEE Frontiers in Education Conference, covering 2012 to 2024, written with Kritee Neupane, a computer engineering Ph.D. student in Tseng's group. The full study, with Hsu and Tseng, was published in September in the Computers in Education Journal (CoED) of the American Society for Engineering Education. She also co-wrote a 2026 ACM Sustainability Week paper with Tseng on the energy cost of how blockchains reach agreement."
      ]
     },
     {
      "h": "Why it matters to the center",
      "p": [
-      "The center trains engineers through its doctoral students, its Red Hat-sponsored capstone, and its Open-Source Club, and Hsu leads its education and workforce work. Negin's study gives that effort evidence instead of assumptions: a measured record of what employers say they want. It also shows the center's reach across colleges where it counts most, in a student whose two advisors sit in different colleges."
+      "The center trains engineers through its doctoral students, its Red Hat-sponsored capstone, and its Open-Source Club, and Hsu leads its education and workforce work. Negin's study gives that work a measured starting point: what employers actually write when they hire."
      ]
     }
    ],
@@ -227,7 +228,8 @@
      "label": "Negin Yazdani Motlagh on Google Scholar",
      "url": "https://scholar.google.com/citations?user=5dO1Q8kAAAAJ"
     }
-   ]
+   ],
+   "id": "2026-09-negin"
   }
  ]
 }
